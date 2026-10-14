@@ -1127,7 +1127,10 @@ function letterRepeats(letters) {
     d.types = d.words.map((_, i) => lv.ty ? +(String(lv.ty)[i] || 0) : 0);
     d.tiers = d.words.map((_, i) => lv.lv ? +(String(lv.lv)[i] || 0) : 0);
     d.curtains = [{ req: 2, cells: [] }, { req: 4, cells: [] }];
-    (lv.o || []).forEach((pair, k) => {
+    const curtainSrc = Array.isArray(lv.curtains)
+      ? lv.curtains.map(c => [c && c.req, c && c.cells])
+      : (lv.o || []);
+    curtainSrc.forEach((pair, k) => {
       const req = Math.max(1, pair[0] | 0);
       const cells = (pair[1] || []).map(Number).filter(x => x >= 0 && x < W * H);
       if (k < d.curtains.length) d.curtains[k] = { req: req, cells: cells };
@@ -1372,12 +1375,30 @@ function extractJsonValue(s) {
   }
   throw new Error('bad');
 }
-function parseLoose(text) {
+function stripGameText(text) {
   let s = String(text).replace(/^\uFEFF/, '').replace(/\r\n/g, '\n').trim();
   if (!s) throw new Error('empty');
-  s = s.replace(/^(?:\/\/[^\n]*(?:\n|$)|\/\*[\s\S]*?\*\/\s*)+/, '');
-  const m = s.match(/^(?:window\.)?BOOKS\s*=\s*/);
-  if (m) s = s.slice(m[0].length);
+  return s.replace(/^(?:\/\/[^\n]*(?:\n|$)|\/\*[\s\S]*?\*\/\s*)+/, '');
+}
+function parseLoose(text) {
+  return parseGameFile(text);
+}
+function parseGameFile(text) {
+  let s = stripGameText(text);
+  const booksMatch = s.match(/^(?:window\.)?BOOKS\s*=\s*/);
+  if (booksMatch) {
+    s = s.slice(booksMatch[0].length);
+    const booksJson = extractJsonValue(s);
+    const books = JSON.parse(booksJson);
+    let rest = s.slice(booksJson.length).replace(/^[\s;]+/, '');
+    rest = rest.replace(/^(?:\/\/[^\n]*(?:\n|$)|\/\*[\s\S]*?\*\/\s*)+/, '');
+    const dailyMatch = rest.match(/^(?:window\.)?DAILY\s*=\s*/);
+    let daily = [];
+    if (dailyMatch) daily = JSON.parse(extractJsonValue(rest.slice(dailyMatch[0].length)));
+    return { books: books, daily: daily };
+  }
+  const dailyOnly = s.match(/^(?:window\.)?DAILY\s*=\s*/);
+  if (dailyOnly) return { books: [], daily: JSON.parse(extractJsonValue(s.slice(dailyOnly[0].length))) };
   return JSON.parse(extractJsonValue(s));
 }
 function asBooks(v) {
@@ -1385,27 +1406,67 @@ function asBooks(v) {
   if (v && !Array.isArray(v) && Array.isArray(v.levels) && v.levels[0] && typeof v.levels[0].g === 'string' && typeof v.g !== 'string' && (v.name != null || v.sub != null || v.mix)) return [v];
   return null;
 }
+function asPack(v) {
+  if (!v || typeof v !== 'object' || Array.isArray(v)) return null;
+  const hasBooks = Array.isArray(v.books);
+  const hasDaily = Array.isArray(v.daily);
+  if (!hasBooks && !hasDaily) return null;
+  const books = hasBooks ? v.books : [];
+  const daily = hasDaily ? v.daily : [];
+  if (books.some(b => !b || !Array.isArray(b.levels))) return null;
+  if (!books.length && !daily.length) return null;
+  return { books: books, daily: daily };
+}
+function takeLevel(lv) {
+  const one = asGameLevel(lv);
+  if (!one) return null;
+  return one._wt ? one : lv;
+}
+function packResult(books, daily) {
+  const levels = [];
+  const meta = [];
+  books.forEach(b => {
+    const ls = [];
+    b.levels.forEach(lv => {
+      const one = takeLevel(lv);
+      if (one) ls.push(one);
+    });
+    meta.push({
+      name: b.name == null ? '' : String(b.name),
+      sub: b.sub == null ? '' : String(b.sub),
+      mix: Array.isArray(b.mix) ? b.mix.slice() : null,
+      count: ls.length
+    });
+    ls.forEach(lv => levels.push(lv));
+  });
+  const dailyLevels = [];
+  (daily || []).forEach(lv => {
+    const one = takeLevel(lv);
+    if (one) dailyLevels.push(one);
+  });
+  dailyLevels.forEach(lv => levels.push(lv));
+  if (!levels.length) throw new Error('empty');
+  return {
+    kind: 'pack',
+    name: meta.map(b => b.name).filter(Boolean).join(' / '),
+    levels: levels,
+    pack: { books: meta, dailyCount: dailyLevels.length }
+  };
+}
 function classifyImport(text) {
-  const v = parseLoose(text);
+  const v = parseGameFile(text);
   if (v && v.kind === 'wordpages-desk' && Array.isArray(v.levels)) {
     if (v.levels.length && Array.isArray(v.levels[0].letters)) {
-      return { kind: 'desk', name: v.name || '', drafts: true, levels: v.levels };
+      return { kind: 'desk', name: v.name || '', drafts: true, levels: v.levels, pack: v.pack || null };
     }
     const levels = v.levels.map(asGameLevel).filter(Boolean);
     if (!levels.length) throw new Error('empty');
-    return { kind: 'desk', name: v.name || '', levels: levels };
+    return { kind: 'desk', name: v.name || '', levels: levels, pack: v.pack || null };
   }
+  const packed = asPack(v);
+  if (packed) return packResult(packed.books, packed.daily);
   const books = asBooks(v);
-  if (books) {
-    const levels = [];
-    books.forEach(b => b.levels.forEach(lv => {
-      const one = asGameLevel(lv);
-      if (one) levels.push(one);
-    }));
-    if (!levels.length) throw new Error('empty');
-    const name = books.length === 1 ? (books[0].name || '') : books.map(b => b.name).filter(Boolean).join(' / ');
-    return { kind: 'books', name: name, levels: levels };
-  }
+  if (books) return packResult(books, []);
   if (v && Array.isArray(v.levels) && v.levels.length && isZenLevel(v.levels[0])) {
     return { kind: 'zen', variant: v.variant || '', levels: v.levels.filter(isZenLevel) };
   }
@@ -1416,11 +1477,11 @@ function classifyImport(text) {
       if (!levels.length) throw new Error('empty');
       return { kind: 'wt', levels: levels };
     }
-    const levels = v.map(asGameLevel).filter(Boolean);
+    const levels = v.map(takeLevel).filter(Boolean);
     if (!levels.length) throw new Error('empty');
     return { kind: 'game', levels: levels };
   }
-  const one = asGameLevel(v);
+  const one = takeLevel(v);
   if (!one) throw new Error('bad');
   return { kind: one._wt ? 'wt' : 'game', levels: [one] };
 }
@@ -1547,20 +1608,22 @@ function ready(D, A, issues) {
   function isNotFound(e) { return !!(e && e.name === 'NotFoundError'); }
   function emptyCampaign() { return { name: '', index: 0, levels: [C.blank()] }; }
   function sampleCampaign() {
-    return { name: '示例关序', index: Math.min(3, Math.max(0, sample.length - 1)), levels: sample.map(lv => C.fromLevel(lv)) };
+    return { name: '示例关序', index: Math.min(3, Math.max(0, sample.length - 1)), levels: sample.map(adoptLevel), pack: null };
   }
   function validState(s) {
     return !!(s && Array.isArray(s.levels) && s.levels.length && s.levels.every(d => d && Array.isArray(d.letters)));
   }
   function campaignSnap() {
-    return { name: campaign.name, index: campaign.index, levels: campaign.levels, fileId: currentFile ? currentFile.id : null };
+    return { name: campaign.name, index: campaign.index, levels: campaign.levels, pack: campaign.pack || null, fileId: currentFile ? currentFile.id : null };
   }
   function deskText() {
-    return JSON.stringify({ kind: 'wordpages-desk', name: campaign.name, levels: campaign.levels }, null, 2);
+    const body = { kind: 'wordpages-desk', name: campaign.name, levels: campaign.levels };
+    if (campaign.pack) body.pack = campaign.pack;
+    return JSON.stringify(body, null, 2);
   }
   function cur() { return campaign.levels[campaign.index]; }
   function snapshot() {
-    hist.push(JSON.stringify({ name: campaign.name, index: campaign.index, levels: campaign.levels, fileId: currentFile ? currentFile.id : null }));
+    hist.push(JSON.stringify({ name: campaign.name, index: campaign.index, levels: campaign.levels, pack: campaign.pack || null, fileId: currentFile ? currentFile.id : null }));
     if (hist.length > 30) hist.shift();
   }
   function persist() {
@@ -1646,7 +1709,7 @@ function ready(D, A, issues) {
         if (validState(saved)) {
           saved.levels.forEach(normalizeDraft);
           if (!(saved.index >= 0) || saved.index >= saved.levels.length) saved.index = 0;
-          campaign = { name: saved.name || '', index: saved.index || 0, levels: saved.levels };
+          campaign = { name: saved.name || '', index: saved.index || 0, levels: saved.levels, pack: saved.pack || null };
           if (saved.fileId) {
             try {
               const row = await idbGet('recent', saved.fileId);
@@ -2286,19 +2349,96 @@ function ready(D, A, issues) {
     a.download = name; a.click();
     setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   }
-  /* 游戏关卡：键顺序 id,g,t,lv,e,n，有幕布才加 o。lv 每位对应该位置的必答词，1 简单 … 5 极其罕见。 */
-  function gameLevel(d, id) {
-    const An = analyzeD(d);
-    const base = C.toLevel(d, An);
-    const words = base.t ? base.t.split(' ').filter(Boolean) : [];
-    const digits = words.map(w => {
-      const t = lex.tier[w];
-      const n = t == null ? 1 : t + 1;
+  /* 游戏关卡固定 9 键：id, name, g, t, n, e, lv, ty, curtains。id 是数字字符串。 */
+  function snapshotLevel(lv) {
+    let curtains;
+    if (Array.isArray(lv.curtains)) {
+      curtains = lv.curtains.map(c => ({ req: c && c.req != null ? c.req : 0, cells: ((c && c.cells) || []).slice() }));
+    } else if (Array.isArray(lv.o)) {
+      curtains = lv.o.map(pair => ({ req: pair[0], cells: ((pair && pair[1]) || []).slice() }));
+    } else curtains = [];
+    return {
+      id: lv.id == null ? '' : String(lv.id),
+      name: lv.name == null ? '' : String(lv.name),
+      g: lv.g == null ? '' : String(lv.g),
+      t: lv.t == null ? '' : String(lv.t),
+      n: lv.n == null ? '' : String(lv.n),
+      e: lv.e == null ? '' : String(lv.e),
+      lv: lv.lv == null ? '' : String(lv.lv),
+      ty: lv.ty == null ? '' : String(lv.ty),
+      curtains: curtains
+    };
+  }
+  function boardFp(d) {
+    return JSON.stringify({
+      g: (d.letters || []).join(''),
+      t: (d.words || []).join(' '),
+      e: (d.extras || []).join(' '),
+      curtains: (d.curtains || []).filter(c => c.cells && c.cells.length).map(c => ({ req: c.req | 0, cells: c.cells.map(Number) }))
+    });
+  }
+  function adoptLevel(lv) {
+    const d = normalizeDraft(C.fromLevel(lv));
+    if (lv && typeof lv.g === 'string' && !lv._wt) {
+      d.gameSnap = snapshotLevel(lv);
+      d.snapBoardFp = boardFp(d);
+      d.snapTypes = (d.types || []).join('');
+      d.snapName = d.name || '';
+    }
+    return d;
+  }
+  function rarityDigits(t) {
+    const words = t ? String(t).split(' ').filter(Boolean) : [];
+    return words.map(w => {
+      const tier = lex.tier[w];
+      const n = tier == null ? 1 : tier + 1;
       return n < 1 ? 1 : (n > 5 ? 5 : n);
     }).join('');
-    const out = { id: id, g: base.g, t: base.t, lv: digits, e: base.e || '', n: base.n || '' };
-    if (base.o && base.o.length) out.o = base.o;
-    return out;
+  }
+  function tyOf(d) {
+    const types = d.types || [];
+    if (!types.length || types.every(n => !(n | 0))) return '';
+    return types.map(n => String(n | 0)).join('');
+  }
+  function nOf(d) {
+    const An = analyzeD(d);
+    if (!An || !An.counts) return '';
+    return An.counts.map(c => c.toString(36)).join('');
+  }
+  function freshLevel(d, id) {
+    const An = analyzeD(d);
+    const base = C.toLevel(d, An);
+    return {
+      id: String(id),
+      name: (d.name || ''),
+      g: base.g,
+      t: base.t,
+      n: base.n || '',
+      e: base.e || '',
+      lv: rarityDigits(base.t),
+      ty: base.ty || '',
+      curtains: (base.o || []).map(pair => ({ req: pair[0], cells: pair[1] }))
+    };
+  }
+  function levelOf(d, id) {
+    if (d.gameSnap && d.snapBoardFp && boardFp(d) === d.snapBoardFp) {
+      const src = d.gameSnap;
+      const out = {
+        id: String(id),
+        name: (d.name || '') !== (d.snapName || '') ? (d.name || '') : src.name,
+        g: src.g,
+        t: src.t,
+        n: src.n,
+        e: src.e,
+        lv: src.lv,
+        ty: (d.types || []).join('') !== (d.snapTypes || '') ? tyOf(d) : src.ty,
+        curtains: src.curtains
+      };
+      if (!out.lv) out.lv = rarityDigits(out.t);
+      if (!out.n) out.n = nOf(d);
+      return out;
+    }
+    return freshLevel(d, id);
   }
   function mixOf(levels) {
     const c = [0, 0, 0, 0, 0];
@@ -2342,8 +2482,24 @@ function ready(D, A, issues) {
     }
     return [total];
   }
-  function booksText(books) {
-    return '// 字页关卡台导出的关卡（' + books.length + ' 册）\nwindow.BOOKS=' + JSON.stringify(books) + ';\n';
+  function toJsLevel(lv) {
+    const o = { id: Number(lv.id), g: lv.g, t: lv.t, lv: lv.lv, e: lv.e, n: lv.n };
+    if (lv.curtains && lv.curtains.length) o.o = lv.curtains.map(c => [c.req, c.cells.slice()]);
+    return o;
+  }
+  function jsFileText(books, daily) {
+    const jsBooks = books.map(b => ({ name: b.name, sub: b.sub, mix: b.mix, levels: b.levels.map(toJsLevel) }));
+    let s = '// 字页关卡台导出的关卡（' + jsBooks.length + ' 册）\nwindow.BOOKS=' + JSON.stringify(jsBooks) + ';\n';
+    if (daily && daily.length) s += 'window.DAILY=' + JSON.stringify(daily.map(toJsLevel)) + ';\n';
+    return s;
+  }
+  function packTextOf(root) {
+    return JSON.stringify(root, null, 2) + '\n';
+  }
+  function packFits(pack, n) {
+    if (!pack || !Array.isArray(pack.books)) return false;
+    const bookN = pack.books.reduce((s, b) => s + (b.count | 0), 0);
+    return bookN + (pack.dailyCount | 0) === n && bookN >= 0 && (pack.dailyCount | 0) >= 0;
   }
   const FILE_TYPES = [{ description: 'JSON', accept: { 'application/json': ['.json'] } }];
   const OPEN_TYPES = [{ description: '关卡文件', accept: { 'application/json': ['.json'], 'text/javascript': ['.js'] } }];
@@ -2401,45 +2557,103 @@ function ready(D, A, issues) {
     }
     await saveAs();
   }
-  function exportList() {
-    const out = []; let skip = 0, traps = 0;
+  function collectExport() {
+    const items = []; let skip = 0, traps = 0;
     campaign.levels.forEach(d => {
-      if (d.letters.some(ch => !ch)) { skip++; return; }
+      if (d.gameSnap && d.snapBoardFp && boardFp(d) === d.snapBoardFp) { items.push(d); return; }
+      if (!d.letters || d.letters.some(ch => !ch)) { skip++; return; }
       const An = analyzeD(d);
       const iss = C.extraIssues(d, w => lex.valid.has(w));
       if (!C.ready(d, An, iss)) { skip++; return; }
       const pr = proveD(d, An);
       if (pr && !pr.overflow && !pr.ok) { skip++; return; }
       if (pr && pr.dead) traps++;
-      out.push(gameLevel(d, out.length + 1));
+      items.push(d);
     });
-    return { out: out, skip: skip, traps: traps };
+    return { items: items, skip: skip, traps: traps };
   }
-  function exportGame() {
-    const r = exportList(), out = r.out, skip = r.skip;
-    if (!out.length) { toast('没有可以放进游戏的关'); return; }
-    download((campaign.name || 'levels') + '.json', JSON.stringify(out.length === 1 ? out[0] : out, null, 2));
-    toast('导出 ' + out.length + ' 关' + (skip ? '，跳过 ' + skip + ' 关未解或未填完的' : '') + (r.traps ? '，其中 ' + r.traps + ' 关有可能走进死局的顺序（游戏会自动换路径兜底）' : ''));
+  function assemblePack(items, spec) {
+    const levels = items.map((d, i) => levelOf(d, i + 1));
+    let at = 0;
+    const dailyCount = Math.max(0, spec.dailyCount | 0);
+    const books = (spec.books || []).map(b => {
+      const slice = levels.slice(at, at + (b.count | 0));
+      at += b.count | 0;
+      const mix = (b.mix && b.mix.length === 5) ? b.mix.map(n => +n) : mixOf(slice);
+      return { name: b.name || '', sub: b.sub == null ? '' : String(b.sub), mix: mix, levels: slice };
+    });
+    return { books: books, daily: levels.slice(at, at + dailyCount) };
   }
-  function openBooksExport() {
-    const ready = exportList();
-    const total = ready.out.length;
+  function defaultSpec(n) {
+    // 导入文件自带的 books / daily 原样保留。没有分册信息时，全部关进第一册，daily 为空。
+    if (packFits(campaign.pack, n)) return campaign.pack;
+    return { books: [{ name: '第一册', sub: '入门', mix: null, count: n }], dailyCount: 0 };
+  }
+  function packRoot() {
+    const bag = collectExport();
+    return assemblePack(bag.items, defaultSpec(bag.items.length));
+  }
+  function flatText(levels) {
+    const body = levels.length === 1 ? levels[0] : levels;
+    return JSON.stringify(body, null, 2) + '\n';
+  }
+  function fileStem() {
+    const n = (campaign.name || 'levels').replace(/[\\/:*?"<>|]/g, ' ').replace(/\s+/g, ' ').trim();
+    return n || 'levels';
+  }
+  const DEFAULT_SUBS = ['入门', '简单', '普通', '困难', '专家'];
+  function openExportDialog(kind) {
+    const bag = collectExport();
+    const items = bag.items;
+    const total = items.length;
     if (!total) { toast('没有可以放进游戏的关'); return; }
+    const canKeep = bag.skip === 0 && packFits(campaign.pack, total);
+    const daily0 = canKeep ? (campaign.pack.dailyCount | 0) : 0;
     const box = document.createElement('div');
+    const shapeRow = kind === 'json'
+      ? '<label>文件 <select id="bkShape"><option value="pack">books + daily</option><option value="array">关卡数组</option></select></label>'
+      : '';
+    const keepOpt = canKeep ? '<option value="keep" selected>按当前分册</option>' : '';
     box.innerHTML =
-      '<p class="note">可导出 ' + total + ' 关（未填完或走不通的会跳过）。每一关的键顺序是 id、g、t、lv、e、n，有幕布才加 o。lv 按必答词顺序，每位是这一词的罕见度：简单 1、常见 2、稀有 3、罕见 4、极其罕见 5。分册之后 id 从 1 接着编。</p>' +
-      '<div class="row">' +
-        '<label>怎么分 <select id="bkMode"><option value="one">全部一册</option><option value="every">每若干关一册</option><option value="parts">平均分成几册</option></select></label>' +
+      '<p class="note">' + (kind === 'js'
+        ? '次要格式 levels.js：window.BOOKS，id 是数字，幕布写成 o。有每日关时另起 window.DAILY。'
+        : '主格式是 {books, daily}，缩进 2。每一关固定 9 个键：id、name、g、t、n、e、lv、ty、curtains。id 是字符串。默认全部关都在第一册，daily 为空；导入文件里已有的分册会保持原样。要拆开或放进 daily，在这里改。没改过的导入关按原样写出。') +
+      ' 可导出 ' + total + ' 关' + (bag.skip ? '，跳过 ' + bag.skip + ' 关未填完或走不通的' : '') + '。</p>' +
+      '<div class="row" id="bkSplit">' + shapeRow +
+        '<label>怎么分 <select id="bkMode">' + keepOpt +
+          '<option value="one"' + (canKeep ? '' : ' selected') + '>全部一册</option>' +
+          '<option value="every">每若干关一册</option><option value="parts">平均分成几册</option></select></label>' +
         '<label id="bkSizeLab">每册关数 <input id="bkSize" type="number" min="1" value="20" style="width:5em"></label>' +
-        '<label id="bkPartsLab">册数 <input id="bkParts" type="number" min="1" value="2" style="width:5em"></label>' +
+        '<label id="bkPartsLab">册数 <input id="bkParts" type="number" min="1" value="' + (canKeep ? campaign.pack.books.length : 2) + '" style="width:5em"></label>' +
+        '<label>最后几关放入 daily <input id="bkDaily" type="number" min="0" max="' + total + '" value="' + daily0 + '" style="width:5em"></label>' +
       '</div>' +
-      '<div id="bkRows"></div>';
-    const countsNow = () => splitCounts(total, $('#bkMode').value, +$('#bkSize').value, +$('#bkParts').value);
+      '<div id="bkRows"></div><p class="note" id="bkDailyNote"></p>';
+    const dailyNow = () => Math.max(0, Math.min(total, $('#bkDaily').value | 0));
+    const keepOk = () => canKeep && $('#bkMode').value === 'keep' && dailyNow() === (campaign.pack.dailyCount | 0);
+    const countsNow = () => {
+      const bookN = total - dailyNow();
+      if (keepOk() && campaign.pack.books.reduce((s, b) => s + (b.count | 0), 0) === bookN) return campaign.pack.books.map(b => b.count | 0);
+      const mode = $('#bkMode').value === 'keep' ? 'one' : $('#bkMode').value;
+      return splitCounts(bookN, mode, +$('#bkSize').value, +$('#bkParts').value);
+    };
     const paint = () => {
+      const shape = kind === 'json' && $('#bkShape') ? $('#bkShape').value : 'pack';
+      $('#bkSplit').hidden = false;
+      const hideBooks = shape === 'array';
+      $('#bkMode').parentElement.hidden = hideBooks;
+      $('#bkDaily').parentElement.hidden = hideBooks;
+      $('#bkRows').hidden = hideBooks;
+      $('#bkDailyNote').hidden = hideBooks;
+      if (hideBooks) {
+        $('#bkSizeLab').hidden = true;
+        $('#bkPartsLab').hidden = true;
+        return;
+      }
       const mode = $('#bkMode').value;
       $('#bkSizeLab').hidden = mode !== 'every';
       $('#bkPartsLab').hidden = mode !== 'parts';
       const counts = countsNow();
+      const keeping = keepOk() && counts.length === (campaign.pack.books || []).length;
       const prev = [...$('#bkRows').querySelectorAll('.bk-line')].map(el => ({
         name: el.querySelector('.bk-name').value,
         sub: el.querySelector('.bk-sub').value
@@ -2448,31 +2662,50 @@ function ready(D, A, issues) {
       $('#bkRows').innerHTML = counts.map((n, i) => {
         const from = at + 1;
         at += n;
-        const name = (prev[i] && prev[i].name) || bookTitle(i);
-        const sub = (prev[i] && prev[i].sub != null && prev.length === counts.length) ? prev[i].sub : (counts.length === 1 ? '入门' : '');
-        return '<div class="bk-line"><label>册名 <input class="bk-name" value="' + esc(name) + '"></label><label>副题 <input class="bk-sub" value="' + esc(sub) + '"></label><span class="note">id ' + from + '–' + (from + n - 1) + '，' + n + ' 关</span></div>';
+        const stored = keeping ? campaign.pack.books[i] : null;
+        const name = stored ? stored.name : ((prev[i] && prev[i].name) || bookTitle(i));
+        let sub = '';
+        if (stored) sub = stored.sub || '';
+        else if (prev[i] && prev[i].sub != null && prev.length === counts.length) sub = prev[i].sub;
+        else if (counts.length === 1) sub = '入门';
+        else if (counts.length === 5) sub = DEFAULT_SUBS[i] || '';
+        const idNote = n ? ('id ' + from + '–' + (from + n - 1)) : '空';
+        return '<div class="bk-line"><label>册名 <input class="bk-name" value="' + esc(name) + '"></label><label>副题 <input class="bk-sub" value="' + esc(sub) + '"></label><span class="note">' + idNote + '，' + n + ' 关</span></div>';
       }).join('');
+      const d0 = at + 1;
+      const dN = dailyNow();
+      $('#bkDailyNote').textContent = dN ? ('daily：id ' + d0 + '–' + (d0 + dN - 1) + '，' + dN + ' 关') : 'daily：空';
     };
+    if (kind === 'json') box.querySelector('#bkShape').addEventListener('change', paint);
     box.querySelector('#bkMode').addEventListener('change', paint);
     box.querySelector('#bkSize').addEventListener('input', paint);
     box.querySelector('#bkParts').addEventListener('input', paint);
-    modal('导出为 levels.js（分册）', box, [
+    box.querySelector('#bkDaily').addEventListener('input', paint);
+    modal(kind === 'js' ? '导出为 levels.js（分册）' : '导出游戏关卡', box, [
       { label: '取消' },
       { label: '导出', primary: true, onClick: () => {
+        const shape = kind === 'json' && $('#bkShape') ? $('#bkShape').value : 'pack';
+        const levels = items.map((d, i) => levelOf(d, i + 1));
+        if (shape === 'array') {
+          download(fileStem() + '.json', flatText(levels));
+          toast('导出 ' + levels.length + ' 关');
+          return;
+        }
         const counts = countsNow();
         const lines = [...$('#bkRows').querySelectorAll('.bk-line')];
-        let at = 0;
-        const books = counts.map((n, i) => {
-          const levels = ready.out.slice(at, at + n);
-          at += n;
+        const keeping = keepOk();
+        const specBooks = counts.map((n, i) => {
           const line = lines[i];
-          const name = (line && line.querySelector('.bk-name').value.trim()) || bookTitle(i);
-          const sub = line ? line.querySelector('.bk-sub').value.trim() : '';
-          return { name: name, sub: sub, mix: mixOf(levels), levels: levels };
+          const stored = keeping && campaign.pack.books[i] && (campaign.pack.books[i].count | 0) === n ? campaign.pack.books[i] : null;
+          const name = (line && line.querySelector('.bk-name').value.trim()) || (stored ? stored.name : bookTitle(i));
+          const sub = line ? line.querySelector('.bk-sub').value.trim() : (stored ? stored.sub : '');
+          return { name: name, sub: sub, mix: stored ? stored.mix : null, count: n };
         });
-        download('levels.js', booksText(books));
-        const skip = ready.skip;
-        toast('已导出 ' + books.length + ' 册、' + total + ' 关' + (skip ? '，跳过 ' + skip + ' 关' : ''));
+        const root = assemblePack(items, { books: specBooks, dailyCount: dailyNow() });
+        if (kind === 'js') download('levels.js', jsFileText(root.books, root.daily));
+        else download(fileStem() + '.json', packTextOf(root));
+        const skip = bag.skip;
+        toast('已导出 ' + root.books.length + ' 册、daily ' + root.daily.length + ' 关' + (skip ? '，跳过 ' + skip + ' 关' : ''));
       }}
     ]);
     paint();
@@ -2489,15 +2722,17 @@ function ready(D, A, issues) {
       return;
     }
     const obstacles = cls.levels.filter(l => l._obstacles).length;
-    const kindName = cls.kind === 'wt' ? 'Word Tiles' : (cls.kind === 'desk' ? '关卡台文件' : (cls.kind === 'books' ? '分册关卡' : '字页关卡'));
+    const kindName = cls.kind === 'wt' ? 'Word Tiles' : (cls.kind === 'desk' ? '关卡台文件' : (cls.kind === 'pack' ? '分册关卡' : '字页关卡'));
     let msg = '载入 ' + cls.levels.length + ' 关（' + kindName + '）。当前关序会被换掉。';
+    if (cls.pack && cls.pack.dailyCount) msg += ' 其中 ' + cls.pack.dailyCount + ' 关放进 daily。';
     if (cls.kind === 'wt') msg += ' 打开每一关时，按字页的规则重算使用次数。单词标签写到 ty：0 普通、1 生僻、2 难，大于等于 3 的按他们的加载逻辑并成难。这是单词标签，不是整关难度。';
     if (obstacles) msg += ' 有 ' + obstacles + ' 关带障碍，字页没有这个字段，未搬进来。';
     modal('导入', '<p class="note">' + esc(msg) + '</p>', [
       { label: '取消' },
       { label: '导入', primary: true, onClick: async () => {
         snapshot();
-        campaign.levels = cls.drafts ? cls.levels.map(normalizeDraft) : cls.levels.map(lv => C.fromLevel(lv));
+        campaign.levels = cls.drafts ? cls.levels.map(normalizeDraft) : cls.levels.map(adoptLevel);
+        campaign.pack = cls.pack || null;
         campaign.index = 0;
         if (cls.name) campaign.name = cls.name;
         else if (cls.kind === 'wt') campaign.name = 'Word Tiles';
@@ -2519,6 +2754,7 @@ function ready(D, A, issues) {
       campaign.name = s.name;
       campaign.index = s.index;
       campaign.levels = s.levels;
+      campaign.pack = null;
       currentFile = null;
       boardKey = ''; suggCache = null;
       persist(); render();
@@ -2761,11 +2997,11 @@ function ready(D, A, issues) {
     const row = histView.find(r => r.id === host.dataset.hid);
     if (row) openRecent(row);
   });
-  $('#btnExport').onclick = exportGame;
-  $('#btnExportBooks').onclick = () => openBooksExport();
+  $('#btnExport').onclick = () => openExportDialog('json');
+  $('#btnExportBooks').onclick = () => openExportDialog('js');
   $('#btnImport').onclick = () => {
     const ta = document.createElement('textarea');
-    ta.placeholder = '粘贴 JSON，或改用选择文件。可以是字页关卡、关卡台文件、Word Tiles 关表或 Zen 主线。';
+    ta.placeholder = '粘贴 JSON，或改用选择文件。可以是 {books, daily}、levels.js、关卡数组、关卡台文件、Word Tiles 或 Zen。';
     const row = document.createElement('div');
     row.className = 'row';
     const fileBtn = document.createElement('button');
@@ -3017,7 +3253,9 @@ function ready(D, A, issues) {
   $('#batch').addEventListener('input', e => { if (e.target.id === 'bFrom') e.target.dataset.touched = 1; previewCurve(); });
   window.__desk = {
     campaign: () => campaign,
-    exportLevels: () => exportList().out,
+    exportLevels: () => collectExport().items.map((d, i) => levelOf(d, i + 1)),
+    packText: () => packTextOf(packRoot()),
+    flatText: () => flatText(collectExport().items.map((d, i) => levelOf(d, i + 1))),
     startBatch: startBatch,
     cfg: batchCfg,
     ready: () => bootReady,
