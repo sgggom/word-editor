@@ -105,13 +105,27 @@ button{background:none;border:0;cursor:pointer;padding:0}
 .meter .a{background:var(--easy)}.meter .b{background:var(--medium)}.meter .c{background:var(--hard)}.meter .d{background:var(--rare)}.meter .e{background:var(--faint)}
 #play{position:fixed;inset:0;background:var(--desk);z-index:5;display:grid;place-items:center;padding:16px}
 .book{width:min(980px,100%);height:min(680px,100%);display:grid;grid-template-columns:1fr 1fr;background:var(--paper);border-radius:4px;overflow:hidden}
-.book .pg{padding:16px 18px;display:flex;flex-direction:column;min-width:0}
+.book .pg{padding:16px 18px;display:flex;flex-direction:column;min-width:0;min-height:0}
 .book .pg + .pg{border-left:1px solid var(--rule)}
 .book h2{margin:0;letter-spacing:.2em;font-size:18px}
-.pwords{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:14px;align-content:flex-start}
+.phead{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.phead h2{margin:0}
+.phead button{font-size:13px;letter-spacing:.06em}
+.play-lists{flex:1;min-height:0;display:flex;flex-direction:column;margin-top:8px}
+.pwords{display:flex;flex-wrap:wrap;gap:8px 14px;align-content:flex-start}
+#pwords{flex:0 1 auto;max-height:42%;overflow:auto}
+.pextra-head{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;font-size:13px;letter-spacing:.14em;color:#31425f}
+.pextra-head span{font-family:var(--en);letter-spacing:.04em}
+#pextras{flex:1;min-height:48px;overflow:auto;margin-top:4px}
 .pwords b{font-family:var(--en);font-size:20px;letter-spacing:.08em;font-weight:500}
 .pwords b.found{color:var(--ok)}
 .pwords b.open{color:var(--faint)}
+.pwords.extra b{color:#1d2a44}
+.pwords.extra b.open{color:#5c6b86}
+.pwords.extra b.found{color:var(--ok);text-decoration:underline;text-underline-offset:3px}
+.pwords b.slots{display:inline-flex;align-items:flex-end;gap:3px;letter-spacing:0}
+.pwords b.slots i{display:block;width:10px;height:16px;border-bottom:2px solid currentColor;opacity:.75;font-style:normal}
+.pwords .empty{font-size:13px;color:var(--faint);letter-spacing:.04em}
 #pcur{min-height:48px;font-family:var(--en);font-size:34px;letter-spacing:.12em;text-align:center}
 #pcur.bad{color:var(--bad)} #pcur.ok{color:var(--ok)} #pcur.extra{color:#1d2a44}
 #pgrid{display:grid;gap:8px;justify-content:center;margin:auto;touch-action:none}
@@ -125,7 +139,7 @@ button{background:none;border:0;cursor:pointer;padding:0}
 .pnav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
 .pnav span{font-size:14px;letter-spacing:.08em;color:var(--ink-soft);white-space:nowrap}
 .ptools button:disabled,.pnav button:disabled,.done button:disabled{opacity:.35;cursor:default}
-.done{margin-top:auto;text-align:center;color:var(--ok);letter-spacing:.2em}
+.done{margin-top:8px;text-align:center;color:var(--ok);letter-spacing:.2em}
 .done p{margin:0}
 .done button{letter-spacing:.08em;margin-top:10px}
 #desk.under-play{visibility:hidden;pointer-events:none}
@@ -284,8 +298,15 @@ html,body{overflow-x:hidden;max-width:100vw}
         <span id="pProg">第 1 / 1 关</span>
         <button type="button" class="ghost" id="pNext">下一关</button>
       </div>
-      <h2>词表</h2>
-      <div class="pwords" id="pwords"></div>
+      <div class="phead">
+        <h2>词表</h2>
+        <button type="button" class="ghost" id="pWordsToggle" aria-pressed="true">隐藏词表</button>
+      </div>
+      <div class="play-lists">
+        <div class="pwords" id="pwords"></div>
+        <div class="pextra-head">额外词 <span id="pExtra">0 / 0</span></div>
+        <div class="pwords extra" id="pextras"></div>
+      </div>
       <p class="note" id="pstatus"></p>
       <div class="done" id="pdone" hidden>
         <p>这一页读完了</p>
@@ -299,7 +320,6 @@ html,body{overflow-x:hidden;max-width:100vw}
       <div class="ptools">
         <button class="ghost" id="pUndo">撤回</button>
         <button class="ghost" id="pHint">指出一条能走通的路径</button>
-        <span id="pExtra"></span>
       </div>
     </div>
   </div>
@@ -1831,13 +1851,34 @@ function ready(D, A, issues) {
     if (alt) return alt;
     return solve() === null ? p : null;
   }
+  const PLAY_WORDS_KEY = 'wp.leveldesk.playWords';
+  let playWordsOn = true;
+  try { playWordsOn = localStorage.getItem(PLAY_WORDS_KEY) !== '0'; } catch (e) {}
+  function syncPlayWordsBtn() {
+    const btn = $('#pWordsToggle');
+    btn.textContent = playWordsOn ? '隐藏词表' : '显示词表';
+    btn.setAttribute('aria-pressed', playWordsOn ? 'true' : 'false');
+  }
+  function setPlayWords(on) {
+    playWordsOn = !!on;
+    try { localStorage.setItem(PLAY_WORDS_KEY, playWordsOn ? '1' : '0'); } catch (e) {}
+    syncPlayWordsBtn();
+    if (play && !$('#play').hidden) renderPlay();
+  }
+  function playWordHtml(w, found) {
+    const cls = found ? 'found' : 'open';
+    if (playWordsOn || found) return '<b class="' + cls + ' gw">' + esc(w) + '</b>';
+    return '<b class="' + cls + ' slots" aria-label="' + w.length + ' 个字母">' + '<i></i>'.repeat(w.length) + '</b>';
+  }
   function renderPlay() {
     const L = play.L, P = play.P;
-    const blind = false;
-    $('#pwords').innerHTML = L.words.map((w, i) => {
-      const shown = P.found[i] || !blind;
-      return `<b class="${P.found[i] ? 'found' : 'open'}${shown ? ' gw' : ''}">${shown ? esc(w) : '·'.repeat(w.length)}</b>`;
-    }).join('');
+    $('#pwords').innerHTML = L.words.map((w, i) => playWordHtml(w, !!P.found[i])).join('');
+    const foundExtra = new Set(P.extras);
+    const extraFound = L.extras.reduce((n, w) => n + (foundExtra.has(w) ? 1 : 0), 0);
+    $('#pExtra').textContent = extraFound + ' / ' + L.extras.length;
+    $('#pextras').innerHTML = L.extras.length
+      ? L.extras.map(w => playWordHtml(w, foundExtra.has(w))).join('')
+      : '<span class="empty">没有额外词。</span>';
     $('#pdone').hidden = !P.done;
     const atStart = !playNav || playNav.prev.index < 0;
     const atEnd = !playNav || playNav.next.index < 0;
@@ -1848,7 +1889,6 @@ function ready(D, A, issues) {
     $('#pPrev').title = atStart ? (campaign.index <= 0 ? '已经是第一关' : '前面没有能试玩的关') : '';
     $('#pNext').title = atEnd ? (campaign.index >= campaign.levels.length - 1 ? '已经是最后一关' : '后面没有能试玩的关') : '';
     $('#pWinNext').title = $('#pNext').title;
-    $('#pExtra').textContent = '额外 ' + P.extras.length + (L.extras.length ? ' / ' + L.extras.length : '');
     const g = $('#pgrid');
     g.style.gridTemplateColumns = 'repeat(' + L.W + ',64px)';
     g.innerHTML = '';
@@ -2102,6 +2142,8 @@ function ready(D, A, issues) {
     campaign = data; boardKey = ''; suggCache = null; persist(); render();
   };
   $('#btnPlay').onclick = startPlay;
+  syncPlayWordsBtn();
+  $('#pWordsToggle').onclick = () => setPlayWords(!playWordsOn);
   $('#pPrev').onclick = () => stepPlay(-1);
   $('#pNext').onclick = () => stepPlay(1);
   $('#pWinNext').onclick = () => stepPlay(1);
