@@ -1419,7 +1419,7 @@ function ready(D, A, issues) {
   function scoreText(w) {
     if (!(w in lex.score)) return '无常见度';
     let s = (+lex.score[w]).toFixed(2);
-    if (w in lex.zipf) s += ' · Zipf ' + (+lex.zipf[w]).toFixed(2);
+    if (w in lex.zipf) s += ' · ' + (+lex.zipf[w]).toFixed(2);
     return s;
   }
   function tierMark(w) {
@@ -1652,7 +1652,7 @@ function ready(D, A, issues) {
       const bits = [];
       if (t.score == null) bits.push('无常见度');
       else bits.push((+t.score).toFixed(2));
-      if (t.zipf != null) bits.push('Zipf ' + (+t.zipf).toFixed(2));
+      if (t.zipf != null) bits.push((+t.zipf).toFixed(2));
       const z = bits.join(' · ');
       return `<div class="wrow"><b class="gw">${esc(t.w)}</b><span class="meta">${bandPill(t.w)} ${esc(z)}${t.turns == null ? '' : ' · ' + (t.turns === 0 ? '直线' : t.turns + ' 拐')}</span><button type="button" data-move="t" data-w="${esc(t.w)}">转为额外</button></div>`;
     }).join('');
