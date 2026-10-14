@@ -172,6 +172,18 @@ html,body{overflow-x:hidden;max-width:100vw}
 .pace-head>span{min-width:0}
 .reuse-line{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
 #jumpLv{width:5em;color:#f3ead6;background:transparent;border:0;border-bottom:1px solid rgba(243,234,214,.35)}
+#gloss{
+  position:fixed;z-index:20;max-width:320px;pointer-events:none;
+  background:#fffaf0;color:var(--ink);border:1px solid var(--rule);border-radius:4px;
+  box-shadow:0 10px 28px rgba(36,24,16,.28), inset 0 0 24px rgba(120,85,40,.1);
+  padding:8px 10px 9px;font-size:13px;line-height:1.45;overflow-wrap:break-word
+}
+#gloss .g-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px}
+#gloss .g-top b{font-family:var(--en);font-size:18px;letter-spacing:.06em;font-weight:600}
+#gloss .g-top i{font-family:var(--en);font-style:italic;font-weight:500;color:var(--ink-soft);font-size:15px}
+#gloss .g-zh{margin-top:4px}
+#gloss .g-en{margin-top:2px;color:var(--ink-soft);font-family:var(--en);font-size:13.5px}
+#gloss .g-miss{margin-top:4px;color:var(--ink-soft)}
 </style>
 </head>
 <body>
@@ -330,6 +342,7 @@ html,body{overflow-x:hidden;max-width:100vw}
   </div>
 </div>
 <div id="toast"></div>
+<div id="gloss" hidden></div>
 <input type="file" id="file" accept="application/json,.json" hidden>
 
 <script id="policy" type="application/json">{"blocked": ["ACROTOMOPHILIA", "ANILINGUS", "APESHIT", "ARSEHOLE", "ASSHOLE", "ASSMUNCH", "AUTOEROTIC", "BABELAND", "BANGBROS", "BANGBUS", "BAREBACK", "BARENAKED", "BASTARD", "BASTARDO", "BASTINADO", "BBW", "BDSM", "BEANER", "BEANERS", "BEASTIALITY", "BESTIALITY", "BIMBOS", "BIRDLOCK", "BITCH", "BITCHES", "BLOWJOB", "BLUMPKIN", "BOLLOCKS", "BONDAGE", "BOOB", "BOOBS", "BUKKAKE", "BULLDYKE", "BULLSHIT", "BUNGHOLE", "BUTTCHEEKS", "BUTTHOLE", "CAMGIRL", "CAMSLUT", "CAMWHORE", "CARPETMUNCHER", "CIALIS", "CIRCLEJERK", "CLIT", "CLITORIS", "CLUSTERFUCK", "COCKS", "COON", "COONS", "COPROLAGNIA", "COPROPHILIA", "CORNHOLE", "CREAMPIE", "CUM", "CUMMING", "CUMSHOT", "CUMSHOTS", "CUNNILINGUS", "CUNT", "DARKIE", "DATERAPE", "DEEPTHROAT", "DENDROPHILIA", "DICK", "DILDO", "DINGLEBERRIES", "DINGLEBERRY", "DOGGIESTYLE", "DOGGYSTYLE", "DOLCETT", "DOMINATION", "DOMINATRIX", "DOMMES", "DVDA", "ECCHI", "EJACULATION", "EROTISM", "ESCORT", "EUNUCH", "FAG", "FAGGOT", "FELCH", "FELLATIO", "FELTCH", "FEMDOM", "FIGGING", "FINGERBANG", "FINGERING", "FISTING", "FOOTJOB", "FROTTING", "FUCK", "FUCKIN", "FUCKING", "FUCKTARDS", "FUDGEPACKER", "FUTANARI", "GANGBANG", "GENITALS", "GOATCX", "GOATSE", "GOKKUN", "GOODPOOP", "GOREGASM", "GROPE", "GURO", "HANDJOB", "HARDCORE", "HENTAI", "HOMOEROTIC", "HONKEY", "HOOKER", "HORNY", "HUMPING", "INCEST", "INTERCOURSE", "JAILBAIT", "JIGABOO", "JIGGABOO", "JIGGERBOO", "JIZZ", "JUGGS", "KIKE", "KINBAKU", "KINKSTER", "KINKY", "KNOBBING", "LIVESEX", "LOLITA", "LOVEMAKING", "MASTURBATE", "MASTURBATING", "MASTURBATION", "MILF", "MONG", "MOTHERFUCKER", "MUFFDIVING", "NAMBLA", "NAWASHI", "NEGRO", "NEONAZI", "NIGGA", "NIGGER", "NIMPHOMANIA", "NIPPLE", "NIPPLES", "NSFW", "NUTTEN", "NYMPHO", "NYMPHOMANIA", "OCTOPUSSY", "OMORASHI", "ORGASM", "PAEDOPHILE", "PAKI", "PANTIES", "PANTY", "PEDOBEAR", "PEDOPHILE", "PEGGING", "PIKEY", "PISSING", "PISSPIG", "PLAYBOY", "PONYPLAY", "POOF", "POON", "POONTANG", "POOPCHUTE", "PORN", "PORNO", "PORNOGRAPHY", "PTHC", "PUNANY", "PUSSY", "QUEAF", "QUEEF", "QUIM", "RAGHEAD", "RAPE", "RAPING", "RAPIST", "RECTUM", "RIMJOB", "RIMMING", "SADISM", "SANTORUM", "SCHLONG", "SCISSORING", "SEXCAM", "SEXO", "SEXUAL", "SEXUALITY", "SEXUALLY", "SEXY", "SHEMALE", "SHIBARI", "SHIT", "SHITBLIMP", "SHITTY", "SHOTA", "SHRIMPING", "SKEET", "SLANTEYE", "SLUT", "SNOWBALLING", "SODOMIZE", "SODOMY", "SPASTIC", "SPIC", "SPLOOGE", "SPOOGE", "STRAPON", "STRAPPADO", "SUCKS", "SWASTIKA", "SWINGER", "THREESOME", "THROATING", "THUMBZILLA", "TITS", "TITTIES", "TITTY", "TOPLESS", "TOSSER", "TOWELHEAD", "TRANNY", "TRIBADISM", "TUBGIRL", "TUSHY", "TWAT", "TWINK", "TWINKIE", "UNDRESSING", "UPSKIRT", "UROPHILIA", "VAGINA", "VIAGRA", "VIBRATOR", "VORAREPHILIA", "VOYEURWEB", "VOYUER", "VULVA", "WANK", "WETBACK", "WHORE", "WORLDSEX", "XX", "XXX", "YAOI", "YIFFY", "ZOOPHILIA"], "flagged": ["AFRO", "BENDED", "BONDAGE", "BRANCHY", "CADDY", "CAFE", "CHATEAU", "CLICHE", "COWSKIN", "CRAFTER", "CRASHER", "CROUTON", "DIEHARD", "EARDROP", "ECLAIR", "ELUSION", "ENTREE", "ESCORT", "EYEBATH", "EYEDROP", "EYESHOT", "FIANCE", "FIANCEE", "FOOTPAD", "FROGGY", "GOODIE", "GROPE", "GUNPLAY", "GUNROOM", "HOOKER", "ICEFALL", "ICEPACK", "ICEPICK", "INCEST", "INKPAD", "INTRO", "KIDDY", "KINKY", "LUCENT", "MANMADE", "MISSY", "NATURED", "NEGRO", "NIPPLE", "ORGASM", "OUTRIDE", "PICKOFF", "PLASM", "PLAYBOY", "PUSHUP", "RACQUET", "RAPING", "RAPIST", "RATTAIL", "RAZZLE", "REALTOR", "RECTUM", "SADISM", "SEXUAL", "SLINGER", "STEALER", "STUMPER", "SUBTYPE", "SUNRAY", "SWINGER", "TECH", "TIPOFF", "TWEEZER", "UNWIRE", "UPRISE", "UTOPIAN", "WASHDAY", "WINGMAN", "WINTERY", "YELLER"], "mild": ["ANAL", "ANUS", "ASS", "BONER", "BUSTY", "BUTT", "COCK", "EROTIC", "FECAL", "NUDE", "NUDITY", "ORGY", "PENIS", "PUBES", "SCAT", "SEMEN", "SEX", "SMUT", "SNATCH", "SPUNK", "SUCK", "TIT", "VOYEUR"], "specialist": ["ACIDIC", "ALGEBRA", "AMNESTY", "ARSENAL", "AUTOPSY", "AXIAL", "BENIGN", "BOMBER", "BUFFER", "CACHET", "CAVALRY", "COMPUTE", "COUNSEL", "CYCLIC", "DECREE", "DIVERGE", "EMBRYO", "EMULATE", "ENSIGN", "EQUINOX", "EROSION", "FINITE", "IMAGING", "INERT", "INERTIA", "ISOLATE", "JURIST", "LATENCY", "LATENT", "LINEAR", "LOBE", "MANDATE", "MATRIX", "MEDIAN", "METRIC", "MILITIA", "MUSTER", "MUTANT", "NITRATE", "NOTARY", "ONSET", "PLAQUE", "PLATOON", "PROBATE", "QUANTUM", "REACTOR", "REGIMEN", "RETRIAL", "SEPTUM", "SHEAR", "SIEGE", "SPASM", "STATUTE", "SYNTAX", "TOPICAL", "TRUSTEE", "UNDUE", "VARIANT", "WARSHIP"]}</script>
@@ -1310,6 +1323,9 @@ function ready(D, A, issues) {
   function esc(s) {
     return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   }
+  function markCaps(escaped) {
+    return String(escaped).replace(/[A-Z]{2,}/g, w => '<span class="gw">' + w + '</span>');
+  }
   let toastT;
   function toast(msg) {
     const t = $('#toast'); t.textContent = msg; t.classList.add('show');
@@ -1410,6 +1426,7 @@ function ready(D, A, issues) {
   }
 
   function render() {
+    hideGloss();
     const D = cur();
     A = analyzeD(D);
     issues = C.extraIssues(D, w => lex.valid.has(w));
@@ -1458,10 +1475,11 @@ function ready(D, A, issues) {
     if (!hits.length) { el.className = 'reuse-line quiet'; el.textContent = '这一关的必答词，在本关序的其他关里没有再当必答。'; return; }
     const near = hits.filter(h => h.nearest <= 10);
     el.className = 'reuse-line' + (near.length ? '' : ' quiet');
-    el.textContent = (near.length ? near : hits).slice(0, 6).map(h => {
+    const reuseText = (near.length ? near : hits).slice(0, 6).map(h => {
       const adj = h.nearest === 1 ? '紧挨着' : '相距 ' + h.nearest + ' 关';
       return h.w + ' ' + adj + '（第 ' + (h.where + 1) + ' 关）';
     }).join('　');
+    el.innerHTML = markCaps(esc(reuseText));
   }
 
   function renderBoard() {
@@ -1528,11 +1546,11 @@ function ready(D, A, issues) {
     }
     const act = extra ? '改为必答' : '转为额外';
     const flag = extra ? 'x' : 't';
-    return `<div class="wrow${bad || (issue && issue.kind !== 'dict') ? ' bad' : ''}"><b>${esc(w)}</b><span class="meta">${bandPill(w)} ${esc(meta)}</span><button type="button" data-move="${flag}" data-w="${esc(w)}">${act}</button></div>`;
+    return `<div class="wrow${bad || (issue && issue.kind !== 'dict') ? ' bad' : ''}"><b class="gw">${esc(w)}</b><span class="meta">${bandPill(w)} ${esc(meta)}</span><button type="button" data-move="${flag}" data-w="${esc(w)}">${act}</button></div>`;
   }
   function renderSugg() {
     const s = suggestions();
-    const chip = (w, kind) => `<button type="button" data-add="${kind}" data-w="${esc(w)}">${esc(w)} ${bandPill(w)}</button>`;
+    const chip = (w, kind) => `<button type="button" data-add="${kind}" data-w="${esc(w)}"><span class="gw">${esc(w)}</span> ${bandPill(w)}</button>`;
     $('#suggCore').innerHTML = s.core.slice(0, 36).map(w => chip(w, 't')).join('') || '<span class="note">没有更多 easy / medium。</span>';
     $('#suggExtra').innerHTML = s.extra.slice(0, 36).map(w => chip(w, 'x')).join('') || '<span class="note">没有更多 hard / rare。</span>';
     const more = Math.max(0, s.core.length - 36) + Math.max(0, s.extra.length - 36);
@@ -1551,11 +1569,11 @@ function ready(D, A, issues) {
     if (here.recovery) bits.push('比前一关少了至少 2 个必答，是回落');
     if (here.peak) bits.push('比前后关都多出至少 2 个必答，是词量峰值');
     if (here.triple) bits.push('相对上一关，词量、最长词和棋盘格数同时变大');
-    $('#blurb').textContent = bits.join('，') + '。';
+    $('#blurb').innerHTML = markCaps(esc(bits.join('，') + '。'));
 
     const tail = dim.tail.map(t => {
       const z = t.zipf == null ? '词库未收' : t.zipf.toFixed(2) + ' Zipf';
-      return `<div class="wrow"><b>${esc(t.w)}</b><span class="meta">${bandPill(t.w)} ${esc(z)}${t.turns == null ? '' : ' · ' + (t.turns === 0 ? '直线' : t.turns + ' 拐')}</span><button type="button" data-move="t" data-w="${esc(t.w)}">转为额外</button></div>`;
+      return `<div class="wrow"><b class="gw">${esc(t.w)}</b><span class="meta">${bandPill(t.w)} ${esc(z)}${t.turns == null ? '' : ' · ' + (t.turns === 0 ? '直线' : t.turns + ' 拐')}</span><button type="button" data-move="t" data-w="${esc(t.w)}">转为额外</button></div>`;
     }).join('');
     const rep = dim.repeats.length ? dim.repeats.map(r => r.ch + '×' + r.n).join('、') : '没有重复字母';
     const shareL = dim.shared.letters.length ? dim.shared.letters.map(x => x.ch + '（' + x.words.join('、') + '）').join('；') : '没有多个必答词共用同一个起始字母';
@@ -1583,9 +1601,9 @@ function ready(D, A, issues) {
         <p class="note">只走上下左右，一条路径不重复用格。最少拐弯是该词所有走法里转折最少的一条，不是消耗格子之后的实战模拟。</p>
         <dl><dt>平均最少拐弯</dt><dd>${dim.avgMinTurns == null ? '—' : dim.avgMinTurns.toFixed(2)}</dd>
         <dt>直线 / 一拐 / 多拐</dt><dd>${dim.straight} / ${dim.one} / ${dim.multi}</dd>
-        <dt>转折最多的必答</dt><dd>${dim.hardestPath ? dim.hardestPath.w + ' · ' + dim.hardestPath.turns : '—'}</dd>
+        <dt>转折最多的必答</dt><dd>${dim.hardestPath ? markCaps(esc(dim.hardestPath.w)) + ' · ' + dim.hardestPath.turns : '—'}</dd>
         <dt>重复字母</dt><dd>${esc(rep)}</dd>
-        <dt>起始字母</dt><dd>${esc(shareL)}</dd></dl></div>
+        <dt>起始字母</dt><dd>${markCaps(esc(shareL))}</dd></dl></div>
       <div class="dim"><h3>关序</h3>
         <dl><dt>近处复用</dt><dd>${near.length ? near.length + ' 个必答词在 10 关以内又出现' : '10 关以内没有重复的必答词'}${adj.length ? '，其中 ' + adj.length + ' 个紧挨着另一关' : ''}</dd>
         <dt>相对上一关</dt><dd>${here.prevN == null ? '这是第一关' : '必答 ' + here.prevN + ' → ' + here.n + '，最长词对比见上，棋盘 ' + (campaign.levels[campaign.index - 1].W * campaign.levels[campaign.index - 1].H) + ' → ' + here.cells + ' 格'}</dd></dl></div>`;
@@ -1627,7 +1645,7 @@ function ready(D, A, issues) {
     if (dim.n && dim.threePct < 20 && dim.n >= 4) items.push(['warn', '三字母很少（' + dim.threePct + '%）。Zen 里较重的关往往就是短词起步变少']);
     if (dim.rareish.length > Math.max(1, Math.round(dim.n * 0.15))) items.push(['warn', 'hard/rare 或未收词占必答的比例偏高。更不熟的词可以转到额外']);
     if (here.triple) items.push(['warn', '相对上一关，必答数、最长词、棋盘格数一起增加']);
-    $('#checks').innerHTML = items.map(([ok, s]) => `<li class="${ok === true ? 'ok' : (ok === 'warn' ? 'warn' : 'bad')}">${esc(s)}</li>`).join('');
+    $('#checks').innerHTML = items.map(([ok, s]) => `<li class="${ok === true ? 'ok' : (ok === 'warn' ? 'warn' : 'bad')}">${markCaps(esc(s))}</li>`).join('');
   }
 
   /* ---------- 试玩：与 game.js 相同的四方向、次数和幕布 ---------- */
@@ -1737,7 +1755,10 @@ function ready(D, A, issues) {
   function renderPlay() {
     const L = play.L, P = play.P;
     const blind = false;
-    $('#pwords').innerHTML = L.words.map((w, i) => `<b class="${P.found[i] ? 'found' : 'open'}">${P.found[i] || !blind ? esc(w) : '·'.repeat(w.length)}</b>`).join('');
+    $('#pwords').innerHTML = L.words.map((w, i) => {
+      const shown = P.found[i] || !blind;
+      return `<b class="${P.found[i] ? 'found' : 'open'}${shown ? ' gw' : ''}">${shown ? esc(w) : '·'.repeat(w.length)}</b>`;
+    }).join('');
     $('#pdone').hidden = !P.done;
     $('#pExtra').textContent = '额外 ' + P.extras.length + (L.extras.length ? ' / ' + L.extras.length : '');
     const g = $('#pgrid');
@@ -1896,7 +1917,7 @@ function ready(D, A, issues) {
     const row = (w, asExtra) => {
       const word = String(w).toUpperCase();
       const ok = word.length >= 3 && C.canForm(D.letters, D.W, D.H, word);
-      return `<div class="wrow"><b>${esc(word)}</b><span class="meta">${bandPill(word)} ${ok ? '当前棋盘能连出' : '当前棋盘连不出'}</span>${ok ? `<button type="button" data-zen="${asExtra ? 'x' : 't'}" data-w="${esc(word)}">${asExtra ? '设为额外' : '设为必答'}</button>` : ''}</div>`;
+      return `<div class="wrow"><b class="gw">${esc(word)}</b><span class="meta">${bandPill(word)} ${ok ? '当前棋盘能连出' : '当前棋盘连不出'}</span>${ok ? `<button type="button" data-zen="${asExtra ? 'x' : 't'}" data-w="${esc(word)}">${asExtra ? '设为额外' : '设为必答'}</button>` : ''}</div>`;
     };
     $('#zenBody').innerHTML = '<h2>必答</h2>' + answers.map(w => row(w, false)).join('') + '<h2>额外</h2>' + (extras.length ? extras.map(w => row(w, true)).join('') : '<p class="note">没有额外词。</p>');
   }
@@ -2234,6 +2255,126 @@ function ready(D, A, issues) {
   $('#bStop').onclick = () => { if (batchRun) batchRun.cancel = true; };
   $('#batch').addEventListener('input', e => { if (e.target.id === 'bFrom') e.target.dataset.touched = 1; previewCurve(); });
   window.__desk = { campaign: () => campaign, exportLevels: () => exportList().out, startBatch: startBatch, cfg: batchCfg };
+
+  /* 悬停释义。词库按首字母放在 dict/a.json … dict/z.json，第一次指到该字母才 fetch。 */
+  const glossShards = Object.create(null);
+  const glossLoads = Object.create(null);
+  let glossGen = 0;
+  let glossTimer = 0;
+  let glossOpen = null;
+  let glossPending = null;
+  const GLOSS_MISS = '暂无释义';
+  const GLOSS_OFFLINE = '释义需要在线打开（GitHub Pages）或用本地服务器打开';
+
+  function wordHit(node) {
+    let el = node && node.nodeType === 1 ? node : (node && node.parentElement);
+    if (!el) return null;
+    const host = el.closest('.gw') || el.closest('#pcur');
+    if (!host) return null;
+    const w = host.textContent.trim();
+    if (!/^[A-Z]{2,}$/.test(w)) return null;
+    return { el: host, w: w };
+  }
+  function hideGloss() {
+    glossGen++;
+    clearTimeout(glossTimer);
+    glossOpen = null;
+    glossPending = null;
+    const tip = $('#gloss');
+    tip.hidden = true;
+    tip.innerHTML = '';
+  }
+  function placeGloss(el) {
+    const tip = $('#gloss');
+    tip.hidden = false;
+    const r = el.getBoundingClientRect();
+    const margin = 8;
+    const tw = tip.offsetWidth;
+    const th = tip.offsetHeight;
+    let left = r.left;
+    let top = r.bottom + 6;
+    if (left + tw > window.innerWidth - margin) left = window.innerWidth - tw - margin;
+    if (left < margin) left = margin;
+    if (top + th > window.innerHeight - margin) top = r.top - th - 6;
+    if (top < margin) top = Math.max(margin, window.innerHeight - th - margin);
+    tip.style.left = Math.round(left) + 'px';
+    tip.style.top = Math.round(top) + 'px';
+  }
+  function glossHtml(w, row) {
+    if (!row) return '<div class="g-top"><b>' + esc(w) + '</b></div><div class="g-miss">' + GLOSS_MISS + '</div>';
+    const ipa = row[0] || '', zh = row[1] || '', en = row[2] || '';
+    return '<div class="g-top"><b>' + esc(w) + '</b>' + (ipa ? '<i>' + esc(ipa) + '</i>' : '') + '</div>' +
+      (zh ? '<div class="g-zh">' + esc(zh) + '</div>' : '') +
+      (en ? '<div class="g-en">' + esc(en) + '</div>' : '');
+  }
+  function showGloss(el, w, html) {
+    const tip = $('#gloss');
+    tip.innerHTML = html;
+    placeGloss(el);
+  }
+  function loadShard(letter) {
+    if (glossShards[letter]) return Promise.resolve(glossShards[letter]);
+    if (glossLoads[letter]) return glossLoads[letter];
+    glossLoads[letter] = fetch('dict/' + letter + '.json').then(r => {
+      if (!r.ok) throw new Error('dict');
+      return r.json();
+    }).then(data => {
+      glossShards[letter] = data;
+      delete glossLoads[letter];
+      return data;
+    }).catch(err => {
+      delete glossLoads[letter];
+      throw err;
+    });
+    return glossLoads[letter];
+  }
+  function fillGloss(el, w, token) {
+    const letter = w.charAt(0).toLowerCase();
+    if (location.protocol === 'file:') {
+      showGloss(el, w, '<div class="g-top"><b>' + esc(w) + '</b></div><div class="g-miss">' + GLOSS_OFFLINE + '</div>');
+      return;
+    }
+    if (glossShards[letter]) {
+      showGloss(el, w, glossHtml(w, glossShards[letter][w.toLowerCase()]));
+      return;
+    }
+    showGloss(el, w, '<div class="g-top"><b>' + esc(w) + '</b></div>');
+    loadShard(letter).then(dict => {
+      if (token !== glossGen || !glossOpen || glossOpen.el !== el) return;
+      showGloss(el, w, glossHtml(w, dict[w.toLowerCase()]));
+    }).catch(() => {
+      if (token !== glossGen || !glossOpen || glossOpen.el !== el) return;
+      showGloss(el, w, '<div class="g-top"><b>' + esc(w) + '</b></div><div class="g-miss">' + GLOSS_OFFLINE + '</div>');
+    });
+  }
+  function scheduleGloss(hit) {
+    if (glossPending === hit.el || (glossOpen && glossOpen.el === hit.el && glossOpen.w === hit.w)) return;
+    const token = ++glossGen;
+    clearTimeout(glossTimer);
+    glossOpen = null;
+    glossPending = hit.el;
+    $('#gloss').hidden = true;
+    glossTimer = setTimeout(() => {
+      if (token !== glossGen) return;
+      glossPending = null;
+      glossOpen = { el: hit.el, w: hit.w };
+      fillGloss(hit.el, hit.w, token);
+    }, 150);
+  }
+  document.addEventListener('mouseover', e => {
+    const hit = wordHit(e.target);
+    if (hit) scheduleGloss(hit);
+  });
+  document.addEventListener('mouseout', e => {
+    const hit = wordHit(e.target);
+    if (!hit) return;
+    const to = e.relatedTarget;
+    if (to && hit.el.contains(to)) return;
+    if (glossPending === hit.el || (glossOpen && glossOpen.el === hit.el)) hideGloss();
+  });
+  document.addEventListener('scroll', () => {
+    if (glossOpen || glossPending) hideGloss();
+  }, true);
 
   render();
 })();
