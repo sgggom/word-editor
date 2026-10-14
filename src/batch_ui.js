@@ -3,7 +3,12 @@
   let genP = null;
   function genPrep() {
     if (!genP) {
-      const rows = lex.graded.map(w => ({ w: w, band: lex.band[w], zipf: w in lex.zipf ? lex.zipf[w] : null, spec: !!lex.spec[w] }));
+      const rows = [];
+      lex.valid.forEach(w => {
+        const tier = lex.tier[w];
+        if (tier == null || tier > 2) return;
+        rows.push({ w: w, tier: tier, score: lex.score[w], zipf: w in lex.zipf ? lex.zipf[w] : null, spec: !!lex.spec[w] });
+      });
       genP = WPGen.prepare(rows, lex.valid, POLICY);
     }
     return genP;

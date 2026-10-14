@@ -123,7 +123,8 @@
     return { ok: ok && !overflow, states: states, dead: dead, overflow: overflow };
   }
 
-  /* Build the lexicon views the generator needs. */
+  /* Build the lexicon views the generator needs.
+     Required pool is tier 0–1 (and tier 2, capped later). Tiers 3–4 stay extras. */
   function prepare(lexRows, validSet, policy) {
     const no = new Set([].concat(policy.blocked, policy.flagged, policy.mild, policy.specialist));
     const blocked = new Set(policy.blocked);
@@ -132,7 +133,7 @@
       info[r.w] = r;
       if (!/^[A-Z]{3,7}$/.test(r.w)) return;
       if (r.spec || no.has(r.w)) return;
-      if (r.band !== 'easy' && r.band !== 'medium' && r.band !== 'hard') return;
+      if (r.tier !== 0 && r.tier !== 1 && r.tier !== 2) return;
       pool.push(r);
     });
     const valid = [];
@@ -172,9 +173,8 @@
       d: d, W: size[0], H: size[1], N: N, T: T,
       letters: Math.round(N * usesPerCell),
       maxLen: maxLen,
-      zipfFloor: 4.9 - 1.9 * d,                           /* vocabulary threshold */
-      mediumOK: d >= 0.2,
-      hardMax: d >= 0.8 ? 1 : 0,
+      scoreFloor: 0.85 - 0.13 * d,                        /* vocabulary: 0 → score≥0.85 (tier 0), 1 → score≥0.72 (tier 0–1) */
+      tier2Max: d >= 0.8 ? 1 : 0,                         /* harder levels may include at most one tier-2 word */
       turny: d                                            /* path complexity: chance to prefer bendy paths */
     };
   }
@@ -183,11 +183,10 @@
     return P.pool.filter(r => {
       if (r.w.length > tg.maxLen || r.w.length > tg.N) return false;
       if (exclude.has(r.w)) return false;
-      if (r.band === 'medium' && !tg.mediumOK) return false;
-      if (r.band === 'hard' && !tg.hardMax) return false;
-      const z = r.zipf == null ? 0 : r.zipf;
-      if (r.band === 'easy') return z >= tg.zipfFloor - 0.6 || r.w.length <= 4;
-      return z >= tg.zipfFloor;
+      if (r.tier === 2) return tg.tier2Max > 0;
+      if (r.tier !== 0 && r.tier !== 1) return false;
+      const s = r.score == null ? 0 : r.score;
+      return s + 1e-9 >= tg.scoreFloor;
     });
   }
 
@@ -234,20 +233,20 @@
     if (elig.length < 30) return { why: 'pool' };
     const byLen = {};
     elig.forEach(r => { (byLen[r.w.length] = byLen[r.w.length] || []).push(r); });
-    const zw = r => Math.pow(Math.max(0.5, (r.zipf || 3) - 2.5), 2) * (r.band === 'easy' ? 1.5 : 1);
+    const zw = r => Math.pow(Math.max(0.04, (r.score == null ? 0.8 : r.score) - 0.7), 2) * (r.tier === 0 ? 1.5 : 1);
     const grid = Array(N).fill('');
-    const chosen = [];           /* {w, p, band} */
+    const chosen = [];           /* {w, p, tier} */
     const used = new Set();
-    /* 1) hero word: the longest of the level */
+    /* 1) hero word: the longest of the level, from tier 0–1 */
     const heroLen = tg.maxLen >= 5 ? tg.maxLen - (R() < 0.35 ? 1 : 0) : tg.maxLen;
     const heroes = byLen[heroLen] || byLen[tg.maxLen];
     if (!heroes) return { why: 'pool' };
-    const hero = pickWeighted(heroes.filter(r => r.band !== 'hard'), R, zw);
+    const hero = pickWeighted(heroes.filter(r => r.tier < 2), R, zw);
     if (!hero) return { why: 'pool' };
     const hp = place(hero.w, grid, NB, R, 1, tg.turny);
     if (!hp) return { why: 'fill' };
     hp.forEach((c, k) => { grid[c] = hero.w[k]; });
-    chosen.push({ w: hero.w, p: hp, band: hero.band }); used.add(hero.w);
+    chosen.push({ w: hero.w, p: hp, tier: hero.tier }); used.add(hero.w);
     /* 2) cover every empty cell with short words placed through it */
     let guard = 0;
     while (grid.some(ch => !ch)) {
@@ -257,13 +256,13 @@
       let ok = false;
       for (let t = 0; t < 40 && !ok; t++) {
         const L = R() < 0.55 ? 3 : (R() < 0.8 ? 4 : 5);
-        const list = (byLen[Math.min(L, tg.maxLen)] || byLen[3] || []).filter(r => !used.has(r.w) && r.band !== 'hard');
+        const list = (byLen[Math.min(L, tg.maxLen)] || byLen[3] || []).filter(r => !used.has(r.w) && r.tier < 2);
         if (!list.length) continue;
         const r = pickWeighted(list, R, zw);
         const p = place(r.w, grid, NB, R, 1, tg.turny);
         if (!p) continue;
         p.forEach((c, k) => { grid[c] = r.w[k]; });
-        chosen.push({ w: r.w, p: p, band: r.band }); used.add(r.w);
+        chosen.push({ w: r.w, p: p, tier: r.tier }); used.add(r.w);
         ok = true;
       }
       if (!ok) return { why: 'fill' };
@@ -277,21 +276,21 @@
     /* add required words until workload reached, keeping ~80% 3-4 letters */
     const longCap = Math.max(1, Math.round(tg.T * 0.25));
     let longN = chosen.filter(c => c.w.length >= 5).length;
-    let hardN = 0;
+    let tier2N = 0;
     const rest = shuffle(findable.slice(), R);
-    rest.sort((a, b) => (P.info[b].zipf || 0) - (P.info[a].zipf || 0) + (R() - 0.5) * 1.6);
+    rest.sort((a, b) => ((P.info[b].score || 0) - (P.info[a].score || 0)) + (R() - 0.5) * 0.06);
     for (let k = 0; k < rest.length && chosen.length < tg.T; k++) {
       const w = rest[k], inf = P.info[w];
       if (w.length >= 5 && longN >= longCap) continue;
-      if (inf.band === 'hard' && hardN >= tg.hardMax) continue;
+      if (inf.tier === 2 && tier2N >= tg.tier2Max) continue;
       const ps = pathsFor(w);
       if (!ps.length) continue;
       /* path choice by complexity */
       const sorted = ps.slice().sort((a, b) => turns(a) - turns(b));
       const p = R() < tg.turny ? sorted[sorted.length - 1 - ((R() * Math.min(3, sorted.length)) | 0)] : sorted[(R() * Math.min(2, sorted.length)) | 0];
-      chosen.push({ w: w, p: p, band: inf.band }); used.add(w);
+      chosen.push({ w: w, p: p, tier: inf.tier }); used.add(w);
       if (w.length >= 5) longN++;
-      if (inf.band === 'hard') hardN++;
+      if (inf.tier === 2) tier2N++;
     }
     if (chosen.length < Math.max(3, tg.T - 1)) return { why: 'few' };
     const words = chosen.map(c => c.w);
@@ -315,7 +314,7 @@
     const order = chosen.slice().sort((a, b) => a.w.length - b.w.length || a.w.localeCompare(b.w));
     const rows = [];
     for (let r = 0; r < tg.H; r++) rows.push(grid.slice(r * tg.W, (r + 1) * tg.W).join(''));
-    const ty = order.map(c => (c.band === 'hard' ? 1 : 0));
+    const ty = order.map(c => (c.tier === 2 ? 1 : 0));
     const lv = {
       g: rows.join(','),
       t: order.map(c => c.w).join(' '),

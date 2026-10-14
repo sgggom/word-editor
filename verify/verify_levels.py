@@ -9,23 +9,24 @@ Written independently of the editor/generator JS. Simulates the game rules from 
 Checks: shape, word policy, exhaustive play over EVERY order and EVERY path choice
 (start solvable, zero reachable dead-end states), the game's own solve() within its 60000 budget,
 extra-word completeness, no required repeats within 10 levels.
-Usage: verify_levels.py levels.json [--wordbank DIR] [--report out.json]"""
-import sys, json, csv, os, re, time, argparse
+Usage: verify_levels.py levels.json [--lex src/lex.json] [--policy src/policy.json] [--report out.json]"""
+import sys, json, os, re, time, argparse
 
-def load_lists(wb, here):
-    graded = {}
-    with open(os.path.join(wb, 'question_words_v2.csv'), newline='', encoding='utf-8') as f:
-        for r in csv.DictReader(f):
-            graded[r['Word'].strip().upper()] = {'band': r['band'].strip(), 'spec': str(r.get('specialist', '')).strip().lower() in ('1', 'true', 'yes')}
-    valid = {w.strip().upper() for w in open(os.path.join(wb, 'validation_words.txt'), encoding='utf-8') if w.strip()}
-    mild = {w.strip().upper() for w in open(os.path.join(wb, 'allowed_mild_words.txt'), encoding='utf-8') if w.strip()}
-    flagged = {w.strip().upper() for w in open(os.path.join(wb, 'flagged_offensive.txt'), encoding='utf-8') if w.strip()}
-    spec = set()
-    with open(os.path.join(wb, 'specialist_words.csv'), newline='', encoding='utf-8') as f:
-        for r in csv.DictReader(f):
-            spec.add(r['Word'].strip().upper())
+def load_lists(lex_path, policy_path, here):
+    lex = json.load(open(lex_path, encoding='utf-8'))
+    policy = json.load(open(policy_path, encoding='utf-8'))
+    tier = {}
+    for t, blob in enumerate(lex['r']):
+        for w in blob.split(' '):
+            if w:
+                tier[w] = t
+    valid = set(tier)
+    mild = {w.strip().upper() for w in policy.get('mild', [])}
+    flagged = {w.strip().upper() for w in policy.get('flagged', [])}
+    spec = {w.strip().upper() for w in policy.get('specialist', [])}
+    blocked = {w.strip().upper() for w in policy.get('blocked', [])}
     bad = {w.strip().upper() for w in open(os.path.join(here, 'ldnoobw_en.txt'), encoding='utf-8') if re.fullmatch(r'[A-Za-z]+', w.strip())}
-    return graded, valid, mild, flagged, spec, bad
+    return tier, valid, mild, flagged, spec, blocked, bad
 
 def neighbours(W, H):
     nb = []
@@ -189,7 +190,7 @@ def game_solve(letters, W, H, words, counts, curtains, budget=60000):
         return '?'
 
 def check_level(lv, idx, L):
-    graded, valid, mild, flagged, spec, bad = L
+    tier, valid, mild, flagged, spec, blocked, bad = L
     errs, info = [], {}
     g = str(lv.get('g', ''))
     rows = g.split(',')
@@ -210,15 +211,16 @@ def check_level(lv, idx, L):
     if len(set(words)) != len(words): errs.append('duplicate required word')
     nonnormal = 0
     for w in words:
-        if not re.fullmatch(r'[A-Z]{3,}', w): errs.append('bad word ' + w); continue
-        gi = graded.get(w)
-        if gi is None: errs.append('required not in graded bank: ' + w); continue
-        if gi['band'] not in ('easy', 'medium', 'hard'): errs.append('required band %s: %s' % (gi['band'], w))
-        if gi['band'] == 'hard': nonnormal += 1
-        if gi['spec'] or w in spec: errs.append('required specialist: ' + w)
+        if not re.fullmatch(r'[A-Z]{3,7}', w): errs.append('bad word ' + w); continue
+        t = tier.get(w)
+        if t is None: errs.append('required not in rarity table: ' + w); continue
+        if t >= 3: errs.append('required tier %d (only 0–2 allowed): %s' % (t, w))
+        if t == 2: nonnormal += 1
+        if w in spec: errs.append('required specialist: ' + w)
         if w in mild: errs.append('required mild word: ' + w)
         if w in flagged: errs.append('required flagged word: ' + w)
-        if w in bad: errs.append('required blocked word: ' + w)
+        if w in blocked or w in bad: errs.append('required blocked word: ' + w)
+    if nonnormal > 1: errs.append('%d tier-2 required words (at most one)' % nonnormal)
     info['nonnormal'] = nonnormal
     if sum(counts) != sum(len(w) for w in words):
         errs.append('tile uses %d != letters in required words %d' % (sum(counts), sum(len(w) for w in words)))
@@ -250,8 +252,7 @@ def check_level(lv, idx, L):
     gs = game_solve(letters, W, H, words, counts, curtains)
     if gs != 'ok': errs.append('game solve() result %r' % (gs,))
     # extras
-    validall = valid | set(graded)
-    validall = {w for w in validall if 3 <= len(w) <= 10 and (w not in bad or w in mild)}
+    validall = {w for w in valid if 3 <= len(w) <= 10 and w not in blocked and (w not in bad or w in mild)}
     board = findable_words(letters, nb, validall)
     for w in extras:
         if w not in board: errs.append('extra not traceable: ' + w)
@@ -264,11 +265,13 @@ def check_level(lv, idx, L):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('levels')
-    ap.add_argument('--wordbank', default='/workspace/wordbank')
+    root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    ap.add_argument('--lex', default=os.path.join(root, 'src', 'lex.json'))
+    ap.add_argument('--policy', default=os.path.join(root, 'src', 'policy.json'))
     ap.add_argument('--report')
     a = ap.parse_args()
     here = os.path.dirname(os.path.abspath(__file__))
-    L = load_lists(a.wordbank, here)
+    L = load_lists(a.lex, a.policy, here)
     data = json.load(open(a.levels, encoding='utf-8'))
     if isinstance(data, dict): data = [data]
     t0 = time.time()
