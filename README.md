@@ -14,7 +14,7 @@
 - `src/` — 生成器与界面脚本（`gen.js`、`batch_ui.js`）、词库与策略、无头测试和截图
 - `verify/` — 独立 Python 校验脚本、负样本和 320 关校验报告
 - `shots/` — 多宽度布局截图与布局测试
-- `dict/` — 释义，按首字母分成 `a.json` … `z.json`，悬停时按需加载
+- `dict/` — 释义，按首字母分成 `a.json` … `z.json`，悬停时按需加载。dictionary uses ECDICT (MIT), Open English WordNet (CC BY 4.0), CMUdict (BSD), and some English definitions adapted from Wiktionary (CC BY-SA 4.0).
 
 鼠标停在编辑器里出现的单词上（必答词、额外词、检查与提示里的词、建议词、Zen 参考、试玩词表、正在连出的词等），大约 0.15 秒后弹出小卡片：单词、音标、中文释义、英文释义。词库不写进 HTML。第一次指到某个首字母才请求对应的 `dict/*.json`，之后用缓存。浏览器直接打开本地文件（`file://`）读不到这些文件时，卡片写「释义需要在线打开（GitHub Pages）或用本地服务器打开」；词库里没有的词写「暂无释义」。
 
