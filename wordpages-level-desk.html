@@ -258,6 +258,9 @@ html,body{overflow-x:hidden;max-width:100vw}
 .hrow.missing{opacity:.45}
 .hrow [data-hdel]{border:1px solid var(--rule);border-radius:3px;padding:3px 8px;font-size:13px}
 .hrow .hopen:disabled{cursor:default}
+.bk-line{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin:8px 0;padding-bottom:6px;border-bottom:1px solid var(--rule)}
+.bk-line input{border:0;border-bottom:1px solid var(--rule);background:transparent;width:8em}
+#bkRows{max-height:40vh;overflow:auto;margin-top:8px}
 </style>
 </head>
 <body>
@@ -279,6 +282,7 @@ html,body{overflow-x:hidden;max-width:100vw}
       <button type="button" id="btnSaveAs">另存为</button>
       <button type="button" id="btnBatch">批量生成</button>
       <button type="button" id="btnExport">导出游戏关卡</button>
+      <button type="button" id="btnExportBooks">导出为 levels.js（分册）</button>
       <button type="button" id="btnPlay" class="primary">试玩这一关</button>
     </div>
   </header>
@@ -478,7 +482,7 @@ html,body{overflow-x:hidden;max-width:100vw}
 </div>
 <div id="toast"></div>
 <div id="gloss" hidden></div>
-<input type="file" id="file" accept="application/json,.json" hidden>
+<input type="file" id="file" accept="application/json,.json,.js,text/javascript" hidden>
 
 <script id="policy" type="application/json">{"blocked": ["ACROTOMOPHILIA", "ANILINGUS", "APESHIT", "ARSEHOLE", "ASSHOLE", "ASSMUNCH", "AUTOEROTIC", "BABELAND", "BANGBROS", "BANGBUS", "BAREBACK", "BARENAKED", "BASTARD", "BASTARDO", "BASTINADO", "BBW", "BDSM", "BEANER", "BEANERS", "BEASTIALITY", "BESTIALITY", "BIMBOS", "BIRDLOCK", "BITCH", "BITCHES", "BLOWJOB", "BLUMPKIN", "BOLLOCKS", "BONDAGE", "BOOB", "BOOBS", "BUKKAKE", "BULLDYKE", "BULLSHIT", "BUNGHOLE", "BUTTCHEEKS", "BUTTHOLE", "CAMGIRL", "CAMSLUT", "CAMWHORE", "CARPETMUNCHER", "CIALIS", "CIRCLEJERK", "CLIT", "CLITORIS", "CLUSTERFUCK", "COCKS", "COON", "COONS", "COPROLAGNIA", "COPROPHILIA", "CORNHOLE", "CREAMPIE", "CUM", "CUMMING", "CUMSHOT", "CUMSHOTS", "CUNNILINGUS", "CUNT", "DARKIE", "DATERAPE", "DEEPTHROAT", "DENDROPHILIA", "DICK", "DILDO", "DINGLEBERRIES", "DINGLEBERRY", "DOGGIESTYLE", "DOGGYSTYLE", "DOLCETT", "DOMINATION", "DOMINATRIX", "DOMMES", "DVDA", "ECCHI", "EJACULATION", "EROTISM", "ESCORT", "EUNUCH", "FAG", "FAGGOT", "FELCH", "FELLATIO", "FELTCH", "FEMDOM", "FIGGING", "FINGERBANG", "FINGERING", "FISTING", "FOOTJOB", "FROTTING", "FUCK", "FUCKIN", "FUCKING", "FUCKTARDS", "FUDGEPACKER", "FUTANARI", "GANGBANG", "GENITALS", "GOATCX", "GOATSE", "GOKKUN", "GOODPOOP", "GOREGASM", "GROPE", "GURO", "HANDJOB", "HARDCORE", "HENTAI", "HOMOEROTIC", "HONKEY", "HOOKER", "HORNY", "HUMPING", "INCEST", "INTERCOURSE", "JAILBAIT", "JIGABOO", "JIGGABOO", "JIGGERBOO", "JIZZ", "JUGGS", "KIKE", "KINBAKU", "KINKSTER", "KINKY", "KNOBBING", "LIVESEX", "LOLITA", "LOVEMAKING", "MASTURBATE", "MASTURBATING", "MASTURBATION", "MILF", "MONG", "MOTHERFUCKER", "MUFFDIVING", "NAMBLA", "NAWASHI", "NEGRO", "NEONAZI", "NIGGA", "NIGGER", "NIMPHOMANIA", "NIPPLE", "NIPPLES", "NSFW", "NUTTEN", "NYMPHO", "NYMPHOMANIA", "OCTOPUSSY", "OMORASHI", "ORGASM", "PAEDOPHILE", "PAKI", "PANTIES", "PANTY", "PEDOBEAR", "PEDOPHILE", "PEGGING", "PIKEY", "PISSING", "PISSPIG", "PLAYBOY", "PONYPLAY", "POOF", "POON", "POONTANG", "POOPCHUTE", "PORN", "PORNO", "PORNOGRAPHY", "PTHC", "PUNANY", "PUSSY", "QUEAF", "QUEEF", "QUIM", "RAGHEAD", "RAPE", "RAPING", "RAPIST", "RECTUM", "RIMJOB", "RIMMING", "SADISM", "SANTORUM", "SCHLONG", "SCISSORING", "SEXCAM", "SEXO", "SEXUAL", "SEXUALITY", "SEXUALLY", "SEXY", "SHEMALE", "SHIBARI", "SHIT", "SHITBLIMP", "SHITTY", "SHOTA", "SHRIMPING", "SKEET", "SLANTEYE", "SLUT", "SNOWBALLING", "SODOMIZE", "SODOMY", "SPASTIC", "SPIC", "SPLOOGE", "SPOOGE", "STRAPON", "STRAPPADO", "SUCKS", "SWASTIKA", "SWINGER", "THREESOME", "THROATING", "THUMBZILLA", "TITS", "TITTIES", "TITTY", "TOPLESS", "TOSSER", "TOWELHEAD", "TRANNY", "TRIBADISM", "TUBGIRL", "TUSHY", "TWAT", "TWINK", "TWINKIE", "UNDRESSING", "UPSKIRT", "UROPHILIA", "VAGINA", "VIAGRA", "VIBRATOR", "VORAREPHILIA", "VOYEURWEB", "VOYUER", "VULVA", "WANK", "WETBACK", "WHORE", "WORLDSEX", "XX", "XXX", "YAOI", "YIFFY", "ZOOPHILIA"], "flagged": ["AFRO", "BENDED", "BONDAGE", "BRANCHY", "CADDY", "CAFE", "CHATEAU", "CLICHE", "COWSKIN", "CRAFTER", "CRASHER", "CROUTON", "DIEHARD", "EARDROP", "ECLAIR", "ELUSION", "ENTREE", "ESCORT", "EYEBATH", "EYEDROP", "EYESHOT", "FIANCE", "FIANCEE", "FOOTPAD", "FROGGY", "GOODIE", "GROPE", "GUNPLAY", "GUNROOM", "HOOKER", "ICEFALL", "ICEPACK", "ICEPICK", "INCEST", "INKPAD", "INTRO", "KIDDY", "KINKY", "LUCENT", "MANMADE", "MISSY", "NATURED", "NEGRO", "NIPPLE", "ORGASM", "OUTRIDE", "PICKOFF", "PLASM", "PLAYBOY", "PUSHUP", "RACQUET", "RAPING", "RAPIST", "RATTAIL", "RAZZLE", "REALTOR", "RECTUM", "SADISM", "SEXUAL", "SLINGER", "STEALER", "STUMPER", "SUBTYPE", "SUNRAY", "SWINGER", "TECH", "TIPOFF", "TWEEZER", "UNWIRE", "UPRISE", "UTOPIAN", "WASHDAY", "WINGMAN", "WINTERY", "YELLER"], "mild": ["ANAL", "ANUS", "ASS", "BONER", "BUSTY", "BUTT", "COCK", "EROTIC", "FECAL", "NUDE", "NUDITY", "ORGY", "PENIS", "PUBES", "SCAT", "SEMEN", "SEX", "SMUT", "SNATCH", "SPUNK", "SUCK", "TIT", "VOYEUR"], "specialist": ["ACIDIC", "ALGEBRA", "AMNESTY", "ARSENAL", "AUTOPSY", "AXIAL", "BENIGN", "BOMBER", "BUFFER", "CACHET", "CAVALRY", "COMPUTE", "COUNSEL", "CYCLIC", "DECREE", "DIVERGE", "EMBRYO", "EMULATE", "ENSIGN", "EQUINOX", "EROSION", "FINITE", "IMAGING", "INERT", "INERTIA", "ISOLATE", "JURIST", "LATENCY", "LATENT", "LINEAR", "LOBE", "MANDATE", "MATRIX", "MEDIAN", "METRIC", "MILITIA", "MUSTER", "MUTANT", "NITRATE", "NOTARY", "ONSET", "PLAQUE", "PLATOON", "PROBATE", "QUANTUM", "REACTOR", "REGIMEN", "RETRIAL", "SEPTUM", "SHEAR", "SIEGE", "SPASM", "STATUTE", "SYNTAX", "TOPICAL", "TRUSTEE", "UNDUE", "VARIANT", "WARSHIP"]}</script>
 <script>
@@ -1345,8 +1349,44 @@ function isZenLevel(v) {
   return !!(v && typeof v === 'object' && typeof v.letter === 'string' && Array.isArray(v.answer));
 }
 
+function extractJsonValue(s) {
+  let i = 0;
+  while (i < s.length && /[\s;]/.test(s[i])) i++;
+  const open = s[i];
+  if (open !== '[' && open !== '{') throw new Error('bad');
+  let depth = 0, inStr = false, esc = false;
+  for (let k = i; k < s.length; k++) {
+    const c = s[k];
+    if (inStr) {
+      if (esc) esc = false;
+      else if (c === '\\') esc = true;
+      else if (c === '"') inStr = false;
+      continue;
+    }
+    if (c === '"') inStr = true;
+    else if (c === '[' || c === '{') depth++;
+    else if (c === ']' || c === '}') {
+      depth--;
+      if (depth === 0) return s.slice(i, k + 1);
+    }
+  }
+  throw new Error('bad');
+}
+function parseLoose(text) {
+  let s = String(text).replace(/^\uFEFF/, '').replace(/\r\n/g, '\n').trim();
+  if (!s) throw new Error('empty');
+  s = s.replace(/^(?:\/\/[^\n]*(?:\n|$)|\/\*[\s\S]*?\*\/\s*)+/, '');
+  const m = s.match(/^(?:window\.)?BOOKS\s*=\s*/);
+  if (m) s = s.slice(m[0].length);
+  return JSON.parse(extractJsonValue(s));
+}
+function asBooks(v) {
+  if (Array.isArray(v) && v.length && v.every(b => b && Array.isArray(b.levels) && typeof b.g !== 'string')) return v;
+  if (v && !Array.isArray(v) && Array.isArray(v.levels) && v.levels[0] && typeof v.levels[0].g === 'string' && typeof v.g !== 'string' && (v.name != null || v.sub != null || v.mix)) return [v];
+  return null;
+}
 function classifyImport(text) {
-  const v = JSON.parse(String(text).trim());
+  const v = parseLoose(text);
   if (v && v.kind === 'wordpages-desk' && Array.isArray(v.levels)) {
     if (v.levels.length && Array.isArray(v.levels[0].letters)) {
       return { kind: 'desk', name: v.name || '', drafts: true, levels: v.levels };
@@ -1354,6 +1394,17 @@ function classifyImport(text) {
     const levels = v.levels.map(asGameLevel).filter(Boolean);
     if (!levels.length) throw new Error('empty');
     return { kind: 'desk', name: v.name || '', levels: levels };
+  }
+  const books = asBooks(v);
+  if (books) {
+    const levels = [];
+    books.forEach(b => b.levels.forEach(lv => {
+      const one = asGameLevel(lv);
+      if (one) levels.push(one);
+    }));
+    if (!levels.length) throw new Error('empty');
+    const name = books.length === 1 ? (books[0].name || '') : books.map(b => b.name).filter(Boolean).join(' / ');
+    return { kind: 'books', name: name, levels: levels };
   }
   if (v && Array.isArray(v.levels) && v.levels.length && isZenLevel(v.levels[0])) {
     return { kind: 'zen', variant: v.variant || '', levels: v.levels.filter(isZenLevel) };
@@ -2235,14 +2286,67 @@ function ready(D, A, issues) {
     a.download = name; a.click();
     setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   }
-  function stripLevel(lv) {
-    const o = { id: lv.id, name: lv.name, g: lv.g, t: lv.t, e: lv.e, n: lv.n };
-    if (lv.lv) o.lv = lv.lv;
-    if (lv.ty) o.ty = lv.ty;
-    if (lv.o) o.o = lv.o;
-    return o;
+  /* 游戏关卡：键顺序 id,g,t,lv,e,n，有幕布才加 o。lv 每位对应该位置的必答词，1 简单 … 5 极其罕见。 */
+  function gameLevel(d, id) {
+    const An = analyzeD(d);
+    const base = C.toLevel(d, An);
+    const words = base.t ? base.t.split(' ').filter(Boolean) : [];
+    const digits = words.map(w => {
+      const t = lex.tier[w];
+      const n = t == null ? 1 : t + 1;
+      return n < 1 ? 1 : (n > 5 ? 5 : n);
+    }).join('');
+    const out = { id: id, g: base.g, t: base.t, lv: digits, e: base.e || '', n: base.n || '' };
+    if (base.o && base.o.length) out.o = base.o;
+    return out;
+  }
+  function mixOf(levels) {
+    const c = [0, 0, 0, 0, 0];
+    levels.forEach(lv => String(lv.lv || '').split('').forEach(ch => {
+      const d = +ch;
+      if (d >= 1 && d <= 5) c[d - 1]++;
+    }));
+    const total = c.reduce((s, n) => s + n, 0);
+    if (!total) return [100, 0, 0, 0, 0];
+    const raw = c.map(n => n * 100 / total);
+    const mix = raw.map(x => Math.floor(x));
+    let left = 100 - mix.reduce((s, n) => s + n, 0);
+    const order = raw.map((x, i) => ({ i: i, f: x - Math.floor(x) })).sort((a, b) => b.f - a.f || a.i - b.i);
+    for (let k = 0; k < left; k++) mix[order[k].i]++;
+    return mix;
+  }
+  function bookTitle(i) {
+    const n = i + 1;
+    const d = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
+    if (n <= 10) return '第' + '零一二三四五六七八九十'[n] + '册';
+    if (n < 20) return '第十' + d[n - 10] + '册';
+    if (n < 100) return '第' + d[(n / 10) | 0] + '十' + (n % 10 ? d[n % 10] : '') + '册';
+    return '第' + n + '册';
+  }
+  function splitCounts(total, mode, size, parts) {
+    if (total <= 0) return [];
+    if (mode === 'every') {
+      const n = Math.max(1, size | 0);
+      const out = [];
+      let left = total;
+      while (left > 0) { const k = Math.min(n, left); out.push(k); left -= k; }
+      return out;
+    }
+    if (mode === 'parts') {
+      const p = Math.max(1, Math.min(total, parts | 0));
+      const base = (total / p) | 0;
+      let rem = total - base * p;
+      const out = [];
+      for (let i = 0; i < p; i++) out.push(base + (rem-- > 0 ? 1 : 0));
+      return out;
+    }
+    return [total];
+  }
+  function booksText(books) {
+    return '// 字页关卡台导出的关卡（' + books.length + ' 册）\nwindow.BOOKS=' + JSON.stringify(books) + ';\n';
   }
   const FILE_TYPES = [{ description: 'JSON', accept: { 'application/json': ['.json'] } }];
+  const OPEN_TYPES = [{ description: '关卡文件', accept: { 'application/json': ['.json'], 'text/javascript': ['.js'] } }];
   async function writeHandle(handle, text) {
     if (!(await ensurePerm(handle, true))) { toast('没有写入权限'); return false; }
     const w = await handle.createWritable();
@@ -2307,7 +2411,7 @@ function ready(D, A, issues) {
       const pr = proveD(d, An);
       if (pr && !pr.overflow && !pr.ok) { skip++; return; }
       if (pr && pr.dead) traps++;
-      out.push(stripLevel(C.toLevel(d, An)));
+      out.push(gameLevel(d, out.length + 1));
     });
     return { out: out, skip: skip, traps: traps };
   }
@@ -2316,6 +2420,62 @@ function ready(D, A, issues) {
     if (!out.length) { toast('没有可以放进游戏的关'); return; }
     download((campaign.name || 'levels') + '.json', JSON.stringify(out.length === 1 ? out[0] : out, null, 2));
     toast('导出 ' + out.length + ' 关' + (skip ? '，跳过 ' + skip + ' 关未解或未填完的' : '') + (r.traps ? '，其中 ' + r.traps + ' 关有可能走进死局的顺序（游戏会自动换路径兜底）' : ''));
+  }
+  function openBooksExport() {
+    const ready = exportList();
+    const total = ready.out.length;
+    if (!total) { toast('没有可以放进游戏的关'); return; }
+    const box = document.createElement('div');
+    box.innerHTML =
+      '<p class="note">可导出 ' + total + ' 关（未填完或走不通的会跳过）。每一关的键顺序是 id、g、t、lv、e、n，有幕布才加 o。lv 按必答词顺序，每位是这一词的罕见度：简单 1、常见 2、稀有 3、罕见 4、极其罕见 5。分册之后 id 从 1 接着编。</p>' +
+      '<div class="row">' +
+        '<label>怎么分 <select id="bkMode"><option value="one">全部一册</option><option value="every">每若干关一册</option><option value="parts">平均分成几册</option></select></label>' +
+        '<label id="bkSizeLab">每册关数 <input id="bkSize" type="number" min="1" value="20" style="width:5em"></label>' +
+        '<label id="bkPartsLab">册数 <input id="bkParts" type="number" min="1" value="2" style="width:5em"></label>' +
+      '</div>' +
+      '<div id="bkRows"></div>';
+    const countsNow = () => splitCounts(total, $('#bkMode').value, +$('#bkSize').value, +$('#bkParts').value);
+    const paint = () => {
+      const mode = $('#bkMode').value;
+      $('#bkSizeLab').hidden = mode !== 'every';
+      $('#bkPartsLab').hidden = mode !== 'parts';
+      const counts = countsNow();
+      const prev = [...$('#bkRows').querySelectorAll('.bk-line')].map(el => ({
+        name: el.querySelector('.bk-name').value,
+        sub: el.querySelector('.bk-sub').value
+      }));
+      let at = 0;
+      $('#bkRows').innerHTML = counts.map((n, i) => {
+        const from = at + 1;
+        at += n;
+        const name = (prev[i] && prev[i].name) || bookTitle(i);
+        const sub = (prev[i] && prev[i].sub != null && prev.length === counts.length) ? prev[i].sub : (counts.length === 1 ? '入门' : '');
+        return '<div class="bk-line"><label>册名 <input class="bk-name" value="' + esc(name) + '"></label><label>副题 <input class="bk-sub" value="' + esc(sub) + '"></label><span class="note">id ' + from + '–' + (from + n - 1) + '，' + n + ' 关</span></div>';
+      }).join('');
+    };
+    box.querySelector('#bkMode').addEventListener('change', paint);
+    box.querySelector('#bkSize').addEventListener('input', paint);
+    box.querySelector('#bkParts').addEventListener('input', paint);
+    modal('导出为 levels.js（分册）', box, [
+      { label: '取消' },
+      { label: '导出', primary: true, onClick: () => {
+        const counts = countsNow();
+        const lines = [...$('#bkRows').querySelectorAll('.bk-line')];
+        let at = 0;
+        const books = counts.map((n, i) => {
+          const levels = ready.out.slice(at, at + n);
+          at += n;
+          const line = lines[i];
+          const name = (line && line.querySelector('.bk-name').value.trim()) || bookTitle(i);
+          const sub = line ? line.querySelector('.bk-sub').value.trim() : '';
+          return { name: name, sub: sub, mix: mixOf(levels), levels: levels };
+        });
+        download('levels.js', booksText(books));
+        const skip = ready.skip;
+        toast('已导出 ' + books.length + ' 册、' + total + ' 关' + (skip ? '，跳过 ' + skip + ' 关' : ''));
+      }}
+    ]);
+    paint();
   }
   function applyImport(text, source) {
     let cls;
@@ -2329,7 +2489,7 @@ function ready(D, A, issues) {
       return;
     }
     const obstacles = cls.levels.filter(l => l._obstacles).length;
-    const kindName = cls.kind === 'wt' ? 'Word Tiles' : (cls.kind === 'desk' ? '关卡台文件' : '字页关卡');
+    const kindName = cls.kind === 'wt' ? 'Word Tiles' : (cls.kind === 'desk' ? '关卡台文件' : (cls.kind === 'books' ? '分册关卡' : '字页关卡'));
     let msg = '载入 ' + cls.levels.length + ' 关（' + kindName + '）。当前关序会被换掉。';
     if (cls.kind === 'wt') msg += ' 打开每一关时，按字页的规则重算使用次数。单词标签写到 ty：0 普通、1 生僻、2 难，大于等于 3 的按他们的加载逻辑并成难。这是单词标签，不是整关难度。';
     if (obstacles) msg += ' 有 ' + obstacles + ' 关带障碍，字页没有这个字段，未搬进来。';
@@ -2374,7 +2534,7 @@ function ready(D, A, issues) {
     if (!fsOk()) { $('#file').click(); return; }
     let handle;
     try {
-      const picks = await window.showOpenFilePicker({ multiple: false, types: FILE_TYPES });
+      const picks = await window.showOpenFilePicker({ multiple: false, types: OPEN_TYPES });
       handle = picks && picks[0];
     } catch (e) {
       if (e && e.name !== 'AbortError') toast('打不开文件');
@@ -2602,6 +2762,7 @@ function ready(D, A, issues) {
     if (row) openRecent(row);
   });
   $('#btnExport').onclick = exportGame;
+  $('#btnExportBooks').onclick = () => openBooksExport();
   $('#btnImport').onclick = () => {
     const ta = document.createElement('textarea');
     ta.placeholder = '粘贴 JSON，或改用选择文件。可以是字页关卡、关卡台文件、Word Tiles 关表或 Zen 主线。';
