@@ -1,0 +1,3214 @@
+{
+ "summary": {
+  "levels": 320,
+  "failed": 0,
+  "required_words": 3171,
+  "share_3_4_letters": 0.8575,
+  "share_normal": 0.9729,
+  "total_states_explored": 487448,
+  "max_states_one_level": 4095,
+  "seconds": 39.0
+ },
+ "levels": [
+  {
+   "index": 1,
+   "id": "g1",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 15,
+   "ms": 0,
+   "last_word": "SKIP",
+   "left_over_uses": 0
+  },
+  {
+   "index": 2,
+   "id": "g2",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 15,
+   "ms": 0,
+   "last_word": "LUCK",
+   "left_over_uses": 0
+  },
+  {
+   "index": 3,
+   "id": "g3",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 15,
+   "ms": 0,
+   "last_word": "TILL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 4,
+   "id": "g4",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 15,
+   "ms": 0,
+   "last_word": "SIGN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 5,
+   "id": "g5",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 31,
+   "ms": 0,
+   "last_word": "BATH",
+   "left_over_uses": 0
+  },
+  {
+   "index": 6,
+   "id": "g6",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 15,
+   "ms": 0,
+   "last_word": "BACK",
+   "left_over_uses": 0
+  },
+  {
+   "index": 7,
+   "id": "g7",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 31,
+   "ms": 48,
+   "last_word": "SOUR",
+   "left_over_uses": 0
+  },
+  {
+   "index": 8,
+   "id": "g8",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 31,
+   "ms": 0,
+   "last_word": "WELL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 9,
+   "id": "g9",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 15,
+   "ms": 0,
+   "last_word": "HAVE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 10,
+   "id": "g10",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 63,
+   "ms": 1,
+   "last_word": "LEARN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 11,
+   "id": "g11",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 7,
+   "ms": 19,
+   "last_word": "MOVE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 12,
+   "id": "g12",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 31,
+   "ms": 0,
+   "last_word": "WORK",
+   "left_over_uses": 0
+  },
+  {
+   "index": 13,
+   "id": "g13",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 15,
+   "ms": 0,
+   "last_word": "SORE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 14,
+   "id": "g14",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 31,
+   "ms": 34,
+   "last_word": "TOLD",
+   "left_over_uses": 0
+  },
+  {
+   "index": 15,
+   "id": "g15",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 31,
+   "ms": 0,
+   "last_word": "WIND",
+   "left_over_uses": 0
+  },
+  {
+   "index": 16,
+   "id": "g16",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 15,
+   "ms": 0,
+   "last_word": "MINE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 17,
+   "id": "g17",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 31,
+   "ms": 31,
+   "last_word": "BOSS",
+   "left_over_uses": 0
+  },
+  {
+   "index": 18,
+   "id": "g18",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 31,
+   "ms": 0,
+   "last_word": "WHEEL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 19,
+   "id": "g19",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 63,
+   "ms": 24,
+   "last_word": "ACTOR",
+   "left_over_uses": 0
+  },
+  {
+   "index": 20,
+   "id": "g20",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 63,
+   "ms": 10,
+   "last_word": "SIDE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 21,
+   "id": "g21",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 15,
+   "ms": 0,
+   "last_word": "KNEW",
+   "left_over_uses": 0
+  },
+  {
+   "index": 22,
+   "id": "g22",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 31,
+   "ms": 19,
+   "last_word": "THEIR",
+   "left_over_uses": 0
+  },
+  {
+   "index": 23,
+   "id": "g23",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 127,
+   "ms": 11,
+   "last_word": "PRAY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 24,
+   "id": "g24",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 127,
+   "ms": 11,
+   "last_word": "HEART",
+   "left_over_uses": 0
+  },
+  {
+   "index": 25,
+   "id": "g25",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 127,
+   "ms": 12,
+   "last_word": "SEAT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 26,
+   "id": "g26",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 63,
+   "ms": 10,
+   "last_word": "WARM",
+   "left_over_uses": 0
+  },
+  {
+   "index": 27,
+   "id": "g27",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 127,
+   "ms": 12,
+   "last_word": "SCARE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 28,
+   "id": "g28",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 63,
+   "ms": 11,
+   "last_word": "FUDGE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 29,
+   "id": "g29",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 63,
+   "ms": 11,
+   "last_word": "DRINK",
+   "left_over_uses": 0
+  },
+  {
+   "index": 30,
+   "id": "g30",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 127,
+   "ms": 11,
+   "last_word": "MIGHT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 31,
+   "id": "g31",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 31,
+   "ms": 0,
+   "last_word": "WEED",
+   "left_over_uses": 0
+  },
+  {
+   "index": 32,
+   "id": "g32",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 63,
+   "ms": 20,
+   "last_word": "PILL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 33,
+   "id": "g33",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 255,
+   "ms": 14,
+   "last_word": "BROOM",
+   "left_over_uses": 0
+  },
+  {
+   "index": 34,
+   "id": "g34",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 255,
+   "ms": 14,
+   "last_word": "BEARD",
+   "left_over_uses": 0
+  },
+  {
+   "index": 35,
+   "id": "g35",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 127,
+   "ms": 11,
+   "last_word": "UNTIL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 36,
+   "id": "g36",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 127,
+   "ms": 12,
+   "last_word": "NEVER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 37,
+   "id": "g37",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 127,
+   "ms": 11,
+   "last_word": "FAINT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 38,
+   "id": "g38",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 255,
+   "ms": 14,
+   "last_word": "KNOWN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 39,
+   "id": "g39",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 20,
+   "last_word": "HEART",
+   "left_over_uses": 0
+  },
+  {
+   "index": 40,
+   "id": "g40",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 20,
+   "last_word": "THOSE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 41,
+   "id": "g41",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 63,
+   "ms": 10,
+   "last_word": "WASTE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 42,
+   "id": "g42",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 20,
+   "last_word": "PEEK",
+   "left_over_uses": 0
+  },
+  {
+   "index": 43,
+   "id": "g43",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 19,
+   "last_word": "OWNER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 44,
+   "id": "g44",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 19,
+   "last_word": "BETTER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 45,
+   "id": "g45",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 21,
+   "last_word": "MESSY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 46,
+   "id": "g46",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 127,
+   "ms": 11,
+   "last_word": "THUS",
+   "left_over_uses": 0
+  },
+  {
+   "index": 47,
+   "id": "g47",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 20,
+   "last_word": "KNOCK",
+   "left_over_uses": 0
+  },
+  {
+   "index": 48,
+   "id": "g48",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 39,
+   "last_word": "LIGHT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 49,
+   "id": "g49",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 21,
+   "last_word": "FLESH",
+   "left_over_uses": 0
+  },
+  {
+   "index": 50,
+   "id": "g50",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 32,
+   "last_word": "BOOKED",
+   "left_over_uses": 0
+  },
+  {
+   "index": 51,
+   "id": "g51",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 255,
+   "ms": 13,
+   "last_word": "SHARE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 52,
+   "id": "g52",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 20,
+   "last_word": "BAKER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 53,
+   "id": "g53",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 34,
+   "last_word": "AFRAID",
+   "left_over_uses": 0
+  },
+  {
+   "index": 54,
+   "id": "g54",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 19,
+   "last_word": "BEGIN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 55,
+   "id": "g55",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 31,
+   "last_word": "NEPHEW",
+   "left_over_uses": 0
+  },
+  {
+   "index": 56,
+   "id": "g56",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 26,
+   "last_word": "RISKY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 57,
+   "id": "g57",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 62,
+   "last_word": "WITCH",
+   "left_over_uses": 0
+  },
+  {
+   "index": 58,
+   "id": "g58",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 60,
+   "last_word": "BOILED",
+   "left_over_uses": 0
+  },
+  {
+   "index": 59,
+   "id": "g59",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 64,
+   "last_word": "BREED",
+   "left_over_uses": 0
+  },
+  {
+   "index": 60,
+   "id": "g60",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 4095,
+   "ms": 139,
+   "last_word": "CABINET",
+   "left_over_uses": 0
+  },
+  {
+   "index": 61,
+   "id": "g61",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 255,
+   "ms": 20,
+   "last_word": "SAVAGE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 62,
+   "id": "g62",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 60,
+   "last_word": "PRISON",
+   "left_over_uses": 0
+  },
+  {
+   "index": 63,
+   "id": "g63",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 33,
+   "last_word": "OUTFIT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 64,
+   "id": "g64",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 59,
+   "last_word": "REMAIN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 65,
+   "id": "g65",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 38,
+   "last_word": "GATHER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 66,
+   "id": "g66",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 33,
+   "last_word": "SPEAK",
+   "left_over_uses": 0
+  },
+  {
+   "index": 67,
+   "id": "g67",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 34,
+   "last_word": "WHILE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 68,
+   "id": "g68",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 68,
+   "last_word": "DEATH",
+   "left_over_uses": 0
+  },
+  {
+   "index": 69,
+   "id": "g69",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 73,
+   "last_word": "SIGHT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 70,
+   "id": "g70",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 4095,
+   "ms": 143,
+   "last_word": "SWALLOW",
+   "left_over_uses": 0
+  },
+  {
+   "index": 71,
+   "id": "g71",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 21,
+   "last_word": "RACING",
+   "left_over_uses": 0
+  },
+  {
+   "index": 72,
+   "id": "g72",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 65,
+   "last_word": "BOTHER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 73,
+   "id": "g73",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 62,
+   "last_word": "PURITY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 74,
+   "id": "g74",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 39,
+   "last_word": "TODAY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 75,
+   "id": "g75",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 65,
+   "last_word": "REWARD",
+   "left_over_uses": 0
+  },
+  {
+   "index": 76,
+   "id": "g76",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 20,
+   "last_word": "MENTAL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 77,
+   "id": "g77",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 60,
+   "last_word": "STILL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 78,
+   "id": "g78",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 70,
+   "last_word": "PANEL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 79,
+   "id": "g79",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 35,
+   "last_word": "TIGER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 80,
+   "id": "g80",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 4095,
+   "ms": 143,
+   "last_word": "PENALTY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 81,
+   "id": "g81",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 20,
+   "last_word": "MATTER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 82,
+   "id": "g82",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 65,
+   "last_word": "ASTHMA",
+   "left_over_uses": 0
+  },
+  {
+   "index": 83,
+   "id": "g83",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 36,
+   "last_word": "REGRET",
+   "left_over_uses": 0
+  },
+  {
+   "index": 84,
+   "id": "g84",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 71,
+   "last_word": "GRAIN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 85,
+   "id": "g85",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 61,
+   "last_word": "BROWN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 86,
+   "id": "g86",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 32,
+   "last_word": "FORTH",
+   "left_over_uses": 0
+  },
+  {
+   "index": 87,
+   "id": "g87",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 40,
+   "last_word": "FANCY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 88,
+   "id": "g88",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 37,
+   "last_word": "TIMING",
+   "left_over_uses": 0
+  },
+  {
+   "index": 89,
+   "id": "g89",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 68,
+   "last_word": "CONVOY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 90,
+   "id": "g90",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 67,
+   "last_word": "LECTURE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 91,
+   "id": "g91",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 255,
+   "ms": 13,
+   "last_word": "EXPOSE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 92,
+   "id": "g92",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 65,
+   "last_word": "LOCATE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 93,
+   "id": "g93",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 62,
+   "last_word": "MIDGET",
+   "left_over_uses": 0
+  },
+  {
+   "index": 94,
+   "id": "g94",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 66,
+   "last_word": "NEEDLE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 95,
+   "id": "g95",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 65,
+   "last_word": "SPOON",
+   "left_over_uses": 0
+  },
+  {
+   "index": 96,
+   "id": "g96",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 19,
+   "last_word": "COUPLE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 97,
+   "id": "g97",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 61,
+   "last_word": "WITHIN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 98,
+   "id": "g98",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 74,
+   "last_word": "WAGON",
+   "left_over_uses": 0
+  },
+  {
+   "index": 99,
+   "id": "g99",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 65,
+   "last_word": "BUCKET",
+   "left_over_uses": 0
+  },
+  {
+   "index": 100,
+   "id": "g100",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 75,
+   "last_word": "TICKET",
+   "left_over_uses": 0
+  },
+  {
+   "index": 101,
+   "id": "g101",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 20,
+   "last_word": "NUMBER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 102,
+   "id": "g102",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 33,
+   "last_word": "PROVEN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 103,
+   "id": "g103",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 61,
+   "last_word": "AMOUNT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 104,
+   "id": "g104",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 34,
+   "last_word": "RUSHED",
+   "left_over_uses": 0
+  },
+  {
+   "index": 105,
+   "id": "g105",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 40,
+   "last_word": "TIMING",
+   "left_over_uses": 0
+  },
+  {
+   "index": 106,
+   "id": "g106",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 20,
+   "last_word": "PEPPER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 107,
+   "id": "g107",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 62,
+   "last_word": "AHEAD",
+   "left_over_uses": 0
+  },
+  {
+   "index": 108,
+   "id": "g108",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 66,
+   "last_word": "DECIDE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 109,
+   "id": "g109",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 41,
+   "last_word": "COUPLE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 110,
+   "id": "g110",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 4095,
+   "ms": 136,
+   "last_word": "FASHION",
+   "left_over_uses": 0
+  },
+  {
+   "index": 111,
+   "id": "g111",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 255,
+   "ms": 14,
+   "last_word": "LADIES",
+   "left_over_uses": 0
+  },
+  {
+   "index": 112,
+   "id": "g112",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 70,
+   "last_word": "FALLEN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 113,
+   "id": "g113",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 59,
+   "last_word": "SPARE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 114,
+   "id": "g114",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 66,
+   "last_word": "FILTHY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 115,
+   "id": "g115",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 33,
+   "last_word": "MERRY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 116,
+   "id": "g116",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 32,
+   "last_word": "VOICE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 117,
+   "id": "g117",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 61,
+   "last_word": "SHARK",
+   "left_over_uses": 0
+  },
+  {
+   "index": 118,
+   "id": "g118",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 73,
+   "last_word": "OBLIGE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 119,
+   "id": "g119",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 75,
+   "last_word": "PIERCE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 120,
+   "id": "g120",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 4095,
+   "ms": 138,
+   "last_word": "BENEFIT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 121,
+   "id": "g121",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 21,
+   "last_word": "SCALE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 122,
+   "id": "g122",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 65,
+   "last_word": "HOLLOW",
+   "left_over_uses": 0
+  },
+  {
+   "index": 123,
+   "id": "g123",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 67,
+   "last_word": "STEADY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 124,
+   "id": "g124",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 62,
+   "last_word": "THEIR",
+   "left_over_uses": 0
+  },
+  {
+   "index": 125,
+   "id": "g125",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 61,
+   "last_word": "BULLET",
+   "left_over_uses": 0
+  },
+  {
+   "index": 126,
+   "id": "g126",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 41,
+   "last_word": "BURDEN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 127,
+   "id": "g127",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 67,
+   "last_word": "ANYONE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 128,
+   "id": "g128",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 69,
+   "last_word": "THIRD",
+   "left_over_uses": 0
+  },
+  {
+   "index": 129,
+   "id": "g129",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 80,
+   "last_word": "WORLD",
+   "left_over_uses": 0
+  },
+  {
+   "index": 130,
+   "id": "g130",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 4095,
+   "ms": 150,
+   "last_word": "PERVERT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 131,
+   "id": "g131",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 21,
+   "last_word": "JUNGLE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 132,
+   "id": "g132",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 67,
+   "last_word": "ADVICE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 133,
+   "id": "g133",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 64,
+   "last_word": "SOCIAL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 134,
+   "id": "g134",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 71,
+   "last_word": "CLEAN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 135,
+   "id": "g135",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 62,
+   "last_word": "DRAGON",
+   "left_over_uses": 0
+  },
+  {
+   "index": 136,
+   "id": "g136",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 20,
+   "last_word": "FATHER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 137,
+   "id": "g137",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 68,
+   "last_word": "ENTRY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 138,
+   "id": "g138",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 71,
+   "last_word": "SILENT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 139,
+   "id": "g139",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 70,
+   "last_word": "SLEPT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 140,
+   "id": "g140",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 74,
+   "last_word": "CONTEST",
+   "left_over_uses": 0
+  },
+  {
+   "index": 141,
+   "id": "g141",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 21,
+   "last_word": "PLEASE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 142,
+   "id": "g142",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 62,
+   "last_word": "RIDDLE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 143,
+   "id": "g143",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 68,
+   "last_word": "FORTY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 144,
+   "id": "g144",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 62,
+   "last_word": "STAGE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 145,
+   "id": "g145",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 60,
+   "last_word": "ANSWER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 146,
+   "id": "g146",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 41,
+   "last_word": "BELLY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 147,
+   "id": "g147",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 65,
+   "last_word": "DRAGON",
+   "left_over_uses": 0
+  },
+  {
+   "index": 148,
+   "id": "g148",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 70,
+   "last_word": "PLANT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 149,
+   "id": "g149",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 76,
+   "last_word": "POLISH",
+   "left_over_uses": 0
+  },
+  {
+   "index": 150,
+   "id": "g150",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 4095,
+   "ms": 142,
+   "last_word": "REVOLT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 151,
+   "id": "g151",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 21,
+   "last_word": "CARPET",
+   "left_over_uses": 0
+  },
+  {
+   "index": 152,
+   "id": "g152",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 69,
+   "last_word": "RECALL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 153,
+   "id": "g153",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 65,
+   "last_word": "CHESS",
+   "left_over_uses": 0
+  },
+  {
+   "index": 154,
+   "id": "g154",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 70,
+   "last_word": "TEACH",
+   "left_over_uses": 0
+  },
+  {
+   "index": 155,
+   "id": "g155",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 33,
+   "last_word": "FRAMED",
+   "left_over_uses": 0
+  },
+  {
+   "index": 156,
+   "id": "g156",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 34,
+   "last_word": "NIGHT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 157,
+   "id": "g157",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 34,
+   "last_word": "SHAFT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 158,
+   "id": "g158",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 73,
+   "last_word": "ACTIVE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 159,
+   "id": "g159",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 70,
+   "last_word": "DOLLAR",
+   "left_over_uses": 0
+  },
+  {
+   "index": 160,
+   "id": "g160",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 4095,
+   "ms": 147,
+   "last_word": "RESTORE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 161,
+   "id": "g161",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 21,
+   "last_word": "WEIRD",
+   "left_over_uses": 0
+  },
+  {
+   "index": 162,
+   "id": "g162",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 61,
+   "last_word": "POETRY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 163,
+   "id": "g163",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 70,
+   "last_word": "RENTAL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 164,
+   "id": "g164",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 35,
+   "last_word": "VESSEL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 165,
+   "id": "g165",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 63,
+   "last_word": "ABSENT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 166,
+   "id": "g166",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 32,
+   "last_word": "GARDEN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 167,
+   "id": "g167",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 42,
+   "last_word": "THREAD",
+   "left_over_uses": 0
+  },
+  {
+   "index": 168,
+   "id": "g168",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 70,
+   "last_word": "MASTER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 169,
+   "id": "g169",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 36,
+   "last_word": "TENDER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 170,
+   "id": "g170",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 4095,
+   "ms": 143,
+   "last_word": "DOLPHIN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 171,
+   "id": "g171",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 21,
+   "last_word": "PRINCE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 172,
+   "id": "g172",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 32,
+   "last_word": "COURSE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 173,
+   "id": "g173",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 68,
+   "last_word": "YOUNG",
+   "left_over_uses": 0
+  },
+  {
+   "index": 174,
+   "id": "g174",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 59,
+   "last_word": "LAWYER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 175,
+   "id": "g175",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 37,
+   "last_word": "DESERT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 176,
+   "id": "g176",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 35,
+   "last_word": "FORGED",
+   "left_over_uses": 0
+  },
+  {
+   "index": 177,
+   "id": "g177",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 71,
+   "last_word": "STALL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 178,
+   "id": "g178",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 67,
+   "last_word": "TURNED",
+   "left_over_uses": 0
+  },
+  {
+   "index": 179,
+   "id": "g179",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 36,
+   "last_word": "MEDIUM",
+   "left_over_uses": 0
+  },
+  {
+   "index": 180,
+   "id": "g180",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 4095,
+   "ms": 151,
+   "last_word": "RUNNING",
+   "left_over_uses": 0
+  },
+  {
+   "index": 181,
+   "id": "g181",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 20,
+   "last_word": "BEAUTY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 182,
+   "id": "g182",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 70,
+   "last_word": "REPAIR",
+   "left_over_uses": 0
+  },
+  {
+   "index": 183,
+   "id": "g183",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 65,
+   "last_word": "FLIGHT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 184,
+   "id": "g184",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 34,
+   "last_word": "FORTY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 185,
+   "id": "g185",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 66,
+   "last_word": "COFFIN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 186,
+   "id": "g186",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 41,
+   "last_word": "PARDON",
+   "left_over_uses": 0
+  },
+  {
+   "index": 187,
+   "id": "g187",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 34,
+   "last_word": "WOMAN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 188,
+   "id": "g188",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 66,
+   "last_word": "DEMON",
+   "left_over_uses": 0
+  },
+  {
+   "index": 189,
+   "id": "g189",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 34,
+   "last_word": "LESSON",
+   "left_over_uses": 0
+  },
+  {
+   "index": 190,
+   "id": "g190",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 73,
+   "last_word": "PLASTIC",
+   "left_over_uses": 0
+  },
+  {
+   "index": 191,
+   "id": "g191",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 21,
+   "last_word": "TIGER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 192,
+   "id": "g192",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 64,
+   "last_word": "THROWN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 193,
+   "id": "g193",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 72,
+   "last_word": "RETURN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 194,
+   "id": "g194",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 63,
+   "last_word": "NEPHEW",
+   "left_over_uses": 0
+  },
+  {
+   "index": 195,
+   "id": "g195",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 63,
+   "last_word": "THING",
+   "left_over_uses": 0
+  },
+  {
+   "index": 196,
+   "id": "g196",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 39,
+   "last_word": "TRAGIC",
+   "left_over_uses": 0
+  },
+  {
+   "index": 197,
+   "id": "g197",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 65,
+   "last_word": "NORTH",
+   "left_over_uses": 0
+  },
+  {
+   "index": 198,
+   "id": "g198",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 66,
+   "last_word": "INVEST",
+   "left_over_uses": 0
+  },
+  {
+   "index": 199,
+   "id": "g199",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 79,
+   "last_word": "FALLEN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 200,
+   "id": "g200",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 4095,
+   "ms": 128,
+   "last_word": "EXPAND",
+   "left_over_uses": 0
+  },
+  {
+   "index": 201,
+   "id": "g201",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 27,
+   "last_word": "PUNCH",
+   "left_over_uses": 0
+  },
+  {
+   "index": 202,
+   "id": "g202",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 70,
+   "last_word": "ABOARD",
+   "left_over_uses": 0
+  },
+  {
+   "index": 203,
+   "id": "g203",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 61,
+   "last_word": "SPIKE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 204,
+   "id": "g204",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 74,
+   "last_word": "PRIEST",
+   "left_over_uses": 0
+  },
+  {
+   "index": 205,
+   "id": "g205",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 61,
+   "last_word": "AROUND",
+   "left_over_uses": 0
+  },
+  {
+   "index": 206,
+   "id": "g206",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 39,
+   "last_word": "PLENTY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 207,
+   "id": "g207",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 36,
+   "last_word": "REALLY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 208,
+   "id": "g208",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 76,
+   "last_word": "WORKED",
+   "left_over_uses": 0
+  },
+  {
+   "index": 209,
+   "id": "g209",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 71,
+   "last_word": "MOVING",
+   "left_over_uses": 0
+  },
+  {
+   "index": 210,
+   "id": "g210",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 4095,
+   "ms": 159,
+   "last_word": "HANDBAG",
+   "left_over_uses": 0
+  },
+  {
+   "index": 211,
+   "id": "g211",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 26,
+   "last_word": "STEAL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 212,
+   "id": "g212",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 82,
+   "last_word": "ISLAND",
+   "left_over_uses": 0
+  },
+  {
+   "index": 213,
+   "id": "g213",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 83,
+   "last_word": "WRECK",
+   "left_over_uses": 0
+  },
+  {
+   "index": 214,
+   "id": "g214",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 76,
+   "last_word": "FLOOR",
+   "left_over_uses": 0
+  },
+  {
+   "index": 215,
+   "id": "g215",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 35,
+   "last_word": "BUTTER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 216,
+   "id": "g216",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 44,
+   "last_word": "IGNORE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 217,
+   "id": "g217",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 80,
+   "last_word": "PLEASE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 218,
+   "id": "g218",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 70,
+   "last_word": "BEHIND",
+   "left_over_uses": 0
+  },
+  {
+   "index": 219,
+   "id": "g219",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 75,
+   "last_word": "OCEAN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 220,
+   "id": "g220",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 4095,
+   "ms": 145,
+   "last_word": "TAKING",
+   "left_over_uses": 0
+  },
+  {
+   "index": 221,
+   "id": "g221",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 20,
+   "last_word": "COMBAT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 222,
+   "id": "g222",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 34,
+   "last_word": "ACCENT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 223,
+   "id": "g223",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 35,
+   "last_word": "RETAIL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 224,
+   "id": "g224",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 65,
+   "last_word": "WANDER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 225,
+   "id": "g225",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 73,
+   "last_word": "SHEER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 226,
+   "id": "g226",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 33,
+   "last_word": "BETRAY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 227,
+   "id": "g227",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 61,
+   "last_word": "SMASH",
+   "left_over_uses": 0
+  },
+  {
+   "index": 228,
+   "id": "g228",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 74,
+   "last_word": "PATROL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 229,
+   "id": "g229",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 73,
+   "last_word": "SKULL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 230,
+   "id": "g230",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 68,
+   "last_word": "PICTURE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 231,
+   "id": "g231",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 21,
+   "last_word": "MOTIVE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 232,
+   "id": "g232",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 70,
+   "last_word": "SNACK",
+   "left_over_uses": 0
+  },
+  {
+   "index": 233,
+   "id": "g233",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 65,
+   "last_word": "ITSELF",
+   "left_over_uses": 0
+  },
+  {
+   "index": 234,
+   "id": "g234",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 68,
+   "last_word": "INSIDE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 235,
+   "id": "g235",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 61,
+   "last_word": "PUNISH",
+   "left_over_uses": 0
+  },
+  {
+   "index": 236,
+   "id": "g236",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 34,
+   "last_word": "BLAMED",
+   "left_over_uses": 0
+  },
+  {
+   "index": 237,
+   "id": "g237",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 67,
+   "last_word": "POLICE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 238,
+   "id": "g238",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 63,
+   "last_word": "WORST",
+   "left_over_uses": 0
+  },
+  {
+   "index": 239,
+   "id": "g239",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 68,
+   "last_word": "GUITAR",
+   "left_over_uses": 0
+  },
+  {
+   "index": 240,
+   "id": "g240",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 4095,
+   "ms": 144,
+   "last_word": "BREATH",
+   "left_over_uses": 0
+  },
+  {
+   "index": 241,
+   "id": "g241",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 21,
+   "last_word": "BEFORE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 242,
+   "id": "g242",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 70,
+   "last_word": "WITHIN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 243,
+   "id": "g243",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 33,
+   "last_word": "BURDEN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 244,
+   "id": "g244",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 33,
+   "last_word": "FASTER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 245,
+   "id": "g245",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 66,
+   "last_word": "TURNED",
+   "left_over_uses": 0
+  },
+  {
+   "index": 246,
+   "id": "g246",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 35,
+   "last_word": "RIGHT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 247,
+   "id": "g247",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 70,
+   "last_word": "EFFORT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 248,
+   "id": "g248",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 66,
+   "last_word": "UNDER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 249,
+   "id": "g249",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 73,
+   "last_word": "HARDER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 250,
+   "id": "g250",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 4095,
+   "ms": 140,
+   "last_word": "ANIMAL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 251,
+   "id": "g251",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 27,
+   "last_word": "NORTH",
+   "left_over_uses": 0
+  },
+  {
+   "index": 252,
+   "id": "g252",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 63,
+   "last_word": "ROLLED",
+   "left_over_uses": 0
+  },
+  {
+   "index": 253,
+   "id": "g253",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 65,
+   "last_word": "START",
+   "left_over_uses": 0
+  },
+  {
+   "index": 254,
+   "id": "g254",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 69,
+   "last_word": "MYSELF",
+   "left_over_uses": 0
+  },
+  {
+   "index": 255,
+   "id": "g255",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 33,
+   "last_word": "DITCH",
+   "left_over_uses": 0
+  },
+  {
+   "index": 256,
+   "id": "g256",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 34,
+   "last_word": "BOTHER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 257,
+   "id": "g257",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 64,
+   "last_word": "BRANCH",
+   "left_over_uses": 0
+  },
+  {
+   "index": 258,
+   "id": "g258",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 77,
+   "last_word": "LONELY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 259,
+   "id": "g259",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 67,
+   "last_word": "BRING",
+   "left_over_uses": 0
+  },
+  {
+   "index": 260,
+   "id": "g260",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 4095,
+   "ms": 150,
+   "last_word": "WORKING",
+   "left_over_uses": 0
+  },
+  {
+   "index": 261,
+   "id": "g261",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 255,
+   "ms": 15,
+   "last_word": "TRIED",
+   "left_over_uses": 0
+  },
+  {
+   "index": 262,
+   "id": "g262",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 36,
+   "last_word": "NATURE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 263,
+   "id": "g263",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 79,
+   "last_word": "SETTLE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 264,
+   "id": "g264",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 63,
+   "last_word": "PARTY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 265,
+   "id": "g265",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 64,
+   "last_word": "PANIC",
+   "left_over_uses": 0
+  },
+  {
+   "index": 266,
+   "id": "g266",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 35,
+   "last_word": "CHILL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 267,
+   "id": "g267",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 76,
+   "last_word": "STILL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 268,
+   "id": "g268",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 67,
+   "last_word": "CUDDLE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 269,
+   "id": "g269",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 82,
+   "last_word": "ZIPPER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 270,
+   "id": "g270",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 4095,
+   "ms": 146,
+   "last_word": "KEEPING",
+   "left_over_uses": 0
+  },
+  {
+   "index": 271,
+   "id": "g271",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 28,
+   "last_word": "MUSIC",
+   "left_over_uses": 0
+  },
+  {
+   "index": 272,
+   "id": "g272",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 34,
+   "last_word": "INDEED",
+   "left_over_uses": 0
+  },
+  {
+   "index": 273,
+   "id": "g273",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 66,
+   "last_word": "HELMET",
+   "left_over_uses": 0
+  },
+  {
+   "index": 274,
+   "id": "g274",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 37,
+   "last_word": "QUEER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 275,
+   "id": "g275",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 74,
+   "last_word": "WATCH",
+   "left_over_uses": 0
+  },
+  {
+   "index": 276,
+   "id": "g276",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 35,
+   "last_word": "MOBILE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 277,
+   "id": "g277",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 67,
+   "last_word": "SHIRT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 278,
+   "id": "g278",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 78,
+   "last_word": "BREAK",
+   "left_over_uses": 0
+  },
+  {
+   "index": 279,
+   "id": "g279",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 75,
+   "last_word": "POLICY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 280,
+   "id": "g280",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 4095,
+   "ms": 158,
+   "last_word": "READING",
+   "left_over_uses": 0
+  },
+  {
+   "index": 281,
+   "id": "g281",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 255,
+   "ms": 15,
+   "last_word": "REVIEW",
+   "left_over_uses": 0
+  },
+  {
+   "index": 282,
+   "id": "g282",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 65,
+   "last_word": "GROWN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 283,
+   "id": "g283",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 74,
+   "last_word": "PETTY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 284,
+   "id": "g284",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 68,
+   "last_word": "SLAVE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 285,
+   "id": "g285",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 38,
+   "last_word": "SHARK",
+   "left_over_uses": 0
+  },
+  {
+   "index": 286,
+   "id": "g286",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 39,
+   "last_word": "ATTACK",
+   "left_over_uses": 0
+  },
+  {
+   "index": 287,
+   "id": "g287",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 73,
+   "last_word": "HIDDEN",
+   "left_over_uses": 0
+  },
+  {
+   "index": 288,
+   "id": "g288",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 66,
+   "last_word": "REALLY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 289,
+   "id": "g289",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 68,
+   "last_word": "LETHAL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 290,
+   "id": "g290",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 4095,
+   "ms": 138,
+   "last_word": "EXHAUST",
+   "left_over_uses": 0
+  },
+  {
+   "index": 291,
+   "id": "g291",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 21,
+   "last_word": "RESENT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 292,
+   "id": "g292",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 70,
+   "last_word": "CLOSED",
+   "left_over_uses": 0
+  },
+  {
+   "index": 293,
+   "id": "g293",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 65,
+   "last_word": "EFFECT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 294,
+   "id": "g294",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 35,
+   "last_word": "ANIMAL",
+   "left_over_uses": 0
+  },
+  {
+   "index": 295,
+   "id": "g295",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 68,
+   "last_word": "STARE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 296,
+   "id": "g296",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 34,
+   "last_word": "YELLOW",
+   "left_over_uses": 0
+  },
+  {
+   "index": 297,
+   "id": "g297",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 63,
+   "last_word": "WALNUT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 298,
+   "id": "g298",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 73,
+   "last_word": "HOLLOW",
+   "left_over_uses": 0
+  },
+  {
+   "index": 299,
+   "id": "g299",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 68,
+   "last_word": "WASHED",
+   "left_over_uses": 0
+  },
+  {
+   "index": 300,
+   "id": "g300",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 73,
+   "last_word": "ARRANGE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 301,
+   "id": "g301",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 21,
+   "last_word": "THROAT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 302,
+   "id": "g302",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 68,
+   "last_word": "MONTH",
+   "left_over_uses": 0
+  },
+  {
+   "index": 303,
+   "id": "g303",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 34,
+   "last_word": "ZIPPER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 304,
+   "id": "g304",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 64,
+   "last_word": "THING",
+   "left_over_uses": 0
+  },
+  {
+   "index": 305,
+   "id": "g305",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 71,
+   "last_word": "BULLET",
+   "left_over_uses": 0
+  },
+  {
+   "index": 306,
+   "id": "g306",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 34,
+   "last_word": "TIMER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 307,
+   "id": "g307",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 62,
+   "last_word": "DIRTY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 308,
+   "id": "g308",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 1023,
+   "ms": 38,
+   "last_word": "BUCKLE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 309,
+   "id": "g309",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 73,
+   "last_word": "MOTHER",
+   "left_over_uses": 0
+  },
+  {
+   "index": 310,
+   "id": "g310",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 4095,
+   "ms": 139,
+   "last_word": "SETTING",
+   "left_over_uses": 0
+  },
+  {
+   "index": 311,
+   "id": "g311",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 511,
+   "ms": 20,
+   "last_word": "PLANT",
+   "left_over_uses": 0
+  },
+  {
+   "index": 312,
+   "id": "g312",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 62,
+   "last_word": "GREEDY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 313,
+   "id": "g313",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 65,
+   "last_word": "WINDOW",
+   "left_over_uses": 0
+  },
+  {
+   "index": 314,
+   "id": "g314",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 2047,
+   "ms": 69,
+   "last_word": "MONKEY",
+   "left_over_uses": 0
+  },
+  {
+   "index": 315,
+   "id": "g315",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 62,
+   "last_word": "ENTIRE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 316,
+   "id": "g316",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 1023,
+   "ms": 34,
+   "last_word": "MYSELF",
+   "left_over_uses": 0
+  },
+  {
+   "index": 317,
+   "id": "g317",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 72,
+   "last_word": "BUREAU",
+   "left_over_uses": 0
+  },
+  {
+   "index": 318,
+   "id": "g318",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 73,
+   "last_word": "TAKING",
+   "left_over_uses": 0
+  },
+  {
+   "index": 319,
+   "id": "g319",
+   "errors": [],
+   "nonnormal": 0,
+   "states": 2047,
+   "ms": 77,
+   "last_word": "ANYONE",
+   "left_over_uses": 0
+  },
+  {
+   "index": 320,
+   "id": "g320",
+   "errors": [],
+   "nonnormal": 1,
+   "states": 4095,
+   "ms": 130,
+   "last_word": "BEDTIME",
+   "left_over_uses": 0
+  }
+ ]
+}
