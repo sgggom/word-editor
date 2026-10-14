@@ -247,6 +247,17 @@ html,body{overflow-x:hidden;max-width:100vw}
   .bk-body{grid-template-columns:1fr}
   .bk-side{max-height:34%;border-right:0;border-bottom:1px solid var(--rule)}
 }
+#hist{position:fixed;inset:0;background:rgba(20,12,8,.45);display:grid;place-items:center;z-index:6;padding:16px}
+#hist .modal{width:min(640px,100%)}
+#histList{max-height:60vh;overflow:auto;margin-top:4px}
+.hrow{display:flex;gap:8px;align-items:center;border-bottom:1px solid var(--rule)}
+.hrow .hopen{flex:1;text-align:left;padding:8px 2px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.hrow .hopen b{font-weight:600}
+.hrow .hopen span,.hrow .cache{color:var(--ink-soft);font-size:13px}
+.hrow .miss{color:var(--bad);font-style:normal;font-size:13px}
+.hrow.missing{opacity:.45}
+.hrow [data-hdel]{border:1px solid var(--rule);border-radius:3px;padding:3px 8px;font-size:13px}
+.hrow .hopen:disabled{cursor:default}
 </style>
 </head>
 <body>
@@ -260,8 +271,12 @@ html,body{overflow-x:hidden;max-width:100vw}
       <input id="bankQ" class="bank-q" placeholder="查词" spellcheck="false" autocomplete="off" aria-label="查词">
       <button type="button" id="btnBank">词库</button>
       <button type="button" id="btnUndo">撤回</button>
+      <button type="button" id="btnOpen">打开</button>
+      <button type="button" id="btnHistory">打开历史</button>
+      <button type="button" id="btnSample">加载示例</button>
       <button type="button" id="btnImport">导入</button>
-      <button type="button" id="btnSaveDesk">保存关序</button>
+      <button type="button" id="btnSaveDesk">保存</button>
+      <button type="button" id="btnSaveAs">另存为</button>
       <button type="button" id="btnBatch">批量生成</button>
       <button type="button" id="btnExport">导出游戏关卡</button>
       <button type="button" id="btnPlay" class="primary">试玩这一关</button>
@@ -448,6 +463,16 @@ html,body{overflow-x:hidden;max-width:100vw}
       <button type="button" id="bStop" disabled>中止</button>
       <button type="button" id="bClose">关闭</button>
       <button type="button" id="bGo" class="primary">开始生成</button>
+    </div>
+  </div>
+</div>
+<div id="hist" hidden>
+  <div class="modal" role="dialog" aria-labelledby="histTitle">
+    <h3 id="histTitle">打开历史</h3>
+    <p class="note">最近打开或保存过的关卡文件。能接到磁盘的，会在打开这份列表时核对文件还在不在。</p>
+    <div id="histList"></div>
+    <div class="btns">
+      <button type="button" id="histClose">关闭</button>
     </div>
   </div>
 </div>
@@ -1420,7 +1445,11 @@ function ready(D, A, issues) {
   }
 
   const sample = JSON.parse($('#sample').textContent);
-  let campaign = loadCampaign();
+  let campaign = { name: '', index: 0, levels: [C.blank()] };
+  let currentFile = null;
+  let booted = false;
+  let bootReady = Promise.resolve();
+  let persistQ = Promise.resolve();
   let hist = [];
   let A = null;
   let issues = [];
@@ -1428,30 +1457,157 @@ function ready(D, A, issues) {
   let boardKey = '';
   let zen = null;
   let timer = null;
+  let histView = [];
+  let histMissing = new Set();
 
-  function loadCampaign() {
-    if (!/[?&]fresh=1/.test(location.search)) {
-      try {
-        const s = JSON.parse(localStorage.getItem(STORE) || 'null');
-        if (s && Array.isArray(s.levels) && s.levels.length) return s;
-      } catch (e) {}
-    }
-    return {
-      name: '示例关序',
-      index: 3,
-      levels: sample.map(lv => C.fromLevel(lv))
-    };
+  const DB_NAME = 'wp.leveldesk';
+  let dbp = null;
+  function db() {
+    if (!dbp) dbp = new Promise((resolve, reject) => {
+      const req = indexedDB.open(DB_NAME, 1);
+      req.onupgradeneeded = () => {
+        const d = req.result;
+        if (!d.objectStoreNames.contains('kv')) d.createObjectStore('kv');
+        if (!d.objectStoreNames.contains('recent')) d.createObjectStore('recent', { keyPath: 'id' });
+      };
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = () => reject(req.error);
+    });
+    return dbp;
+  }
+  function idbReq(store, mode, run) {
+    return db().then(d => new Promise((resolve, reject) => {
+      const tx = d.transaction(store, mode);
+      const q = run(tx.objectStore(store));
+      q.onsuccess = () => resolve(q.result);
+      q.onerror = () => reject(q.error);
+    }));
+  }
+  function idbGet(store, key) { return idbReq(store, 'readonly', os => os.get(key)); }
+  function idbAll(store) { return idbReq(store, 'readonly', os => os.getAll()); }
+  function idbDel(store, key) { return idbReq(store, 'readwrite', os => os.delete(key)); }
+  function idbPut(store, value, key) {
+    return idbReq(store, 'readwrite', os => key === undefined ? os.put(value) : os.put(value, key));
+  }
+  function fsOk() {
+    return typeof window.showOpenFilePicker === 'function' && typeof window.showSaveFilePicker === 'function';
+  }
+  function newId() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
+  function isNotFound(e) { return !!(e && e.name === 'NotFoundError'); }
+  function emptyCampaign() { return { name: '', index: 0, levels: [C.blank()] }; }
+  function sampleCampaign() {
+    return { name: '示例关序', index: Math.min(3, Math.max(0, sample.length - 1)), levels: sample.map(lv => C.fromLevel(lv)) };
+  }
+  function validState(s) {
+    return !!(s && Array.isArray(s.levels) && s.levels.length && s.levels.every(d => d && Array.isArray(d.letters)));
+  }
+  function campaignSnap() {
+    return { name: campaign.name, index: campaign.index, levels: campaign.levels, fileId: currentFile ? currentFile.id : null };
+  }
+  function deskText() {
+    return JSON.stringify({ kind: 'wordpages-desk', name: campaign.name, levels: campaign.levels }, null, 2);
   }
   function cur() { return campaign.levels[campaign.index]; }
   function snapshot() {
-    hist.push(JSON.stringify({ name: campaign.name, index: campaign.index, levels: campaign.levels }));
+    hist.push(JSON.stringify({ name: campaign.name, index: campaign.index, levels: campaign.levels, fileId: currentFile ? currentFile.id : null }));
     if (hist.length > 30) hist.shift();
   }
   function persist() {
+    if (!booted) return persistQ;
+    let data;
+    try { data = JSON.parse(JSON.stringify(campaignSnap())); }
+    catch (e) { return persistQ; }
+    persistQ = persistQ.then(() => idbPut('kv', data, 'campaign')).catch(() => {
+      try { localStorage.setItem(STORE, JSON.stringify(data)); } catch (err) {}
+    });
+    return persistQ;
+  }
+  async function ensurePerm(handle, write) {
+    const mode = write ? 'readwrite' : 'read';
+    if (!handle || typeof handle.queryPermission !== 'function') return true;
     try {
-      if (campaign.levels.length > 40) return;
-      localStorage.setItem(STORE, JSON.stringify({ name: campaign.name, index: campaign.index, levels: campaign.levels }));
-    } catch (e) {}
+      let q = await handle.queryPermission({ mode: mode });
+      if (q === 'granted') return true;
+      if (typeof handle.requestPermission !== 'function') return false;
+      q = await handle.requestPermission({ mode: mode });
+      return q === 'granted';
+    } catch (e) { return true; }
+  }
+  async function fileStatus(row) {
+    if (!row || row.kind !== 'handle' || !row.handle || typeof row.handle.getFile !== 'function') return 'cache';
+    try {
+      let perm = 'granted';
+      if (typeof row.handle.queryPermission === 'function') perm = await row.handle.queryPermission({ mode: 'read' });
+      if (perm === 'granted') { await row.handle.getFile(); return 'ok'; }
+      return 'unknown';
+    } catch (e) {
+      return isNotFound(e) ? 'missing' : 'unknown';
+    }
+  }
+  async function remember(entry) {
+    const all = await idbAll('recent');
+    let found = entry.id ? all.find(r => r.id === entry.id) : null;
+    if (!found && entry.handle) {
+      for (let i = 0; i < all.length; i++) {
+        const row = all[i];
+        if (!row.handle || typeof entry.handle.isSameEntry !== 'function') continue;
+        try { if (await entry.handle.isSameEntry(row.handle)) { found = row; break; } } catch (e) {}
+      }
+    }
+    const base = {
+      id: found ? found.id : (entry.id || newId()),
+      name: entry.name || (found && found.name) || '未命名.json',
+      opened: Date.now(),
+      count: entry.count | 0
+    };
+    if (entry.handle) {
+      try {
+        const row = { kind: 'handle', handle: entry.handle, id: base.id, name: base.name, opened: base.opened, count: base.count };
+        await idbPut('recent', row);
+        return row;
+      } catch (e) { /* 句柄存不进库时退回内容副本 */ }
+    }
+    const row = { kind: 'cache', snapshot: entry.snapshot || '', id: base.id, name: base.name, opened: base.opened, count: base.count };
+    await idbPut('recent', row);
+    return row;
+  }
+  async function bindSource(source, count) {
+    if (!source) return;
+    const row = await remember({
+      id: source.id, name: source.name, handle: source.handle || null,
+      snapshot: source.snapshot || deskText(), count: count
+    });
+    currentFile = { id: row.id, kind: row.kind, handle: row.kind === 'handle' ? (row.handle || source.handle || null) : null, name: row.name };
+  }
+  function boot() {
+    bootReady = (async () => {
+      const q = location.search;
+      const wantSample = /[?&]sample=1(?:&|$)/.test(q);
+      const wantFresh = /[?&]fresh=1(?:&|$)/.test(q);
+      if (wantSample) campaign = sampleCampaign();
+      else if (!wantFresh) {
+        let saved = null;
+        try { saved = await idbGet('kv', 'campaign'); } catch (e) {}
+        if (!validState(saved)) {
+          try { saved = JSON.parse(localStorage.getItem(STORE) || 'null'); } catch (e) { saved = null; }
+          if (validState(saved)) { try { await idbPut('kv', JSON.parse(JSON.stringify(saved)), 'campaign'); } catch (e) {} }
+        }
+        if (validState(saved)) {
+          saved.levels.forEach(normalizeDraft);
+          if (!(saved.index >= 0) || saved.index >= saved.levels.length) saved.index = 0;
+          campaign = { name: saved.name || '', index: saved.index || 0, levels: saved.levels };
+          if (saved.fileId) {
+            try {
+              const row = await idbGet('recent', saved.fileId);
+              if (row) currentFile = { id: row.id, kind: row.kind, handle: row.handle || null, name: row.name };
+            } catch (e) {}
+          }
+        }
+      }
+      booted = true;
+      render();
+    })().catch(err => { console.error(err); booted = true; render(); });
+    return bootReady;
   }
   function esc(s) {
     return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -2086,11 +2242,60 @@ function ready(D, A, issues) {
     if (lv.o) o.o = lv.o;
     return o;
   }
-  function saveDesk() {
-    download((campaign.name || 'campaign') + '.wordpages.json', JSON.stringify({
-      kind: 'wordpages-desk', name: campaign.name, levels: campaign.levels
-    }, null, 2));
-    toast('已下载关序文件，可以再导入回来。给游戏用的是「导出游戏关卡」。');
+  const FILE_TYPES = [{ description: 'JSON', accept: { 'application/json': ['.json'] } }];
+  async function writeHandle(handle, text) {
+    if (!(await ensurePerm(handle, true))) { toast('没有写入权限'); return false; }
+    const w = await handle.createWritable();
+    await w.write(new Blob([text], { type: 'application/json' }));
+    await w.close();
+    return true;
+  }
+  async function saveAs() {
+    const text = deskText();
+    const suggested = (campaign.name || 'campaign') + '.wordpages.json';
+    if (fsOk()) {
+      try {
+        const handle = await window.showSaveFilePicker({ suggestedName: suggested, types: FILE_TYPES });
+        if (!(await writeHandle(handle, text))) return;
+        let name = handle.name || suggested;
+        try { name = (await handle.getFile()).name || name; } catch (e) {}
+        await bindSource({ name: name, handle: handle }, campaign.levels.length);
+        await persist();
+        toast('已另存');
+      } catch (e) {
+        if (e && e.name === 'AbortError') return;
+        if (isNotFound(e)) toast('文件已不存在');
+        else toast('保存失败');
+      }
+      return;
+    }
+    download(suggested, text);
+    await bindSource({ name: suggested, snapshot: text }, campaign.levels.length);
+    await persist();
+    toast('已下载。历史里记的是浏览器缓存副本，对不上磁盘上的文件。');
+  }
+  async function saveDesk() {
+    const text = deskText();
+    if (currentFile && currentFile.kind === 'handle' && currentFile.handle) {
+      try {
+        if (!(await writeHandle(currentFile.handle, text))) return;
+        await bindSource({ id: currentFile.id, name: currentFile.name, handle: currentFile.handle }, campaign.levels.length);
+        await persist();
+        toast('已保存');
+      } catch (e) {
+        if (isNotFound(e)) { toast('文件已不存在'); currentFile = null; persist(); }
+        else toast('保存失败');
+      }
+      return;
+    }
+    if (currentFile && currentFile.kind === 'cache') {
+      await bindSource({ id: currentFile.id, name: currentFile.name, snapshot: text }, campaign.levels.length);
+      download(currentFile.name || ((campaign.name || 'campaign') + '.wordpages.json'), text);
+      await persist();
+      toast('已更新浏览器缓存副本，并下载了一份。给游戏用的是「导出游戏关卡」。');
+      return;
+    }
+    await saveAs();
   }
   function exportList() {
     const out = []; let skip = 0, traps = 0;
@@ -2112,13 +2317,14 @@ function ready(D, A, issues) {
     download((campaign.name || 'levels') + '.json', JSON.stringify(out.length === 1 ? out[0] : out, null, 2));
     toast('导出 ' + out.length + ' 关' + (skip ? '，跳过 ' + skip + ' 关未解或未填完的' : '') + (r.traps ? '，其中 ' + r.traps + ' 关有可能走进死局的顺序（游戏会自动换路径兜底）' : ''));
   }
-  function applyImport(text) {
+  function applyImport(text, source) {
     let cls;
     try { cls = C.classifyImport(text); } catch (e) { toast('认不出这份 JSON'); return; }
     if (cls.kind === 'zen') {
       zen = { variant: cls.variant, levels: cls.levels, pos: 1 };
       $('#zen').hidden = false;
       renderZen();
+      if (source) remember({ id: source.id, name: source.name, handle: source.handle || null, snapshot: source.handle ? '' : (source.snapshot || text), count: cls.levels.length }).catch(() => {});
       toast('这是 Zen 的字母池关表，已在角落打开作对照，没有改你的棋盘。');
       return;
     }
@@ -2129,17 +2335,110 @@ function ready(D, A, issues) {
     if (obstacles) msg += ' 有 ' + obstacles + ' 关带障碍，字页没有这个字段，未搬进来。';
     modal('导入', '<p class="note">' + esc(msg) + '</p>', [
       { label: '取消' },
-      { label: '导入', primary: true, onClick: () => {
+      { label: '导入', primary: true, onClick: async () => {
         snapshot();
         campaign.levels = cls.drafts ? cls.levels.map(normalizeDraft) : cls.levels.map(lv => C.fromLevel(lv));
         campaign.index = 0;
         if (cls.name) campaign.name = cls.name;
         else if (cls.kind === 'wt') campaign.name = 'Word Tiles';
         boardKey = ''; suggCache = null;
-        persist(); render();
+        if (source) await bindSource(Object.assign({ snapshot: text }, source), campaign.levels.length);
+        else currentFile = null;
+        await persist();
+        render();
+        if (!$('#hist').hidden) await closeHistory();
         toast('已导入 ' + campaign.levels.length + ' 关');
       }}
     ]);
+  }
+  function loadSample() {
+    const dirty = campaign.name || campaign.levels.length > 1 || campaign.levels.some(d => (d.words && d.words.length) || (d.extras && d.extras.length) || (d.letters && d.letters.some(Boolean)) || d.name);
+    const go = () => {
+      snapshot();
+      const s = sampleCampaign();
+      campaign.name = s.name;
+      campaign.index = s.index;
+      campaign.levels = s.levels;
+      currentFile = null;
+      boardKey = ''; suggCache = null;
+      persist(); render();
+      toast('已加载示例关序');
+    };
+    if (!dirty) { go(); return; }
+    modal('加载示例？', '<p class="note">会换掉当前关序。示例不再是打开页面时的默认内容。</p>', [
+      { label: '取消' },
+      { label: '加载', primary: true, onClick: go }
+    ]);
+  }
+  async function openFromDisk() {
+    if (!fsOk()) { $('#file').click(); return; }
+    let handle;
+    try {
+      const picks = await window.showOpenFilePicker({ multiple: false, types: FILE_TYPES });
+      handle = picks && picks[0];
+    } catch (e) {
+      if (e && e.name !== 'AbortError') toast('打不开文件');
+      return;
+    }
+    if (!handle) return;
+    try {
+      const file = await handle.getFile();
+      $('#modal').hidden = true;
+      applyImport(await file.text(), { name: file.name, handle: handle });
+    } catch (e) {
+      if (isNotFound(e)) toast('文件已不存在');
+      else toast('读不到文件');
+    }
+  }
+  function paintHistory() {
+    const box = $('#histList');
+    if (!histView.length) { box.innerHTML = '<p class="note">还没有打开或保存过文件。</p>'; return; }
+    box.innerHTML = histView.map(row => {
+      const miss = histMissing.has(row.id);
+      const when = new Date(row.opened || 0);
+      const stamp = (when.getMonth() + 1) + '/' + when.getDate() + ' ' + String(when.getHours()).padStart(2, '0') + ':' + String(when.getMinutes()).padStart(2, '0');
+      const tag = miss ? '<em class="miss">文件已不存在</em>' : (row.kind === 'cache' ? '<em class="cache">浏览器缓存副本</em>' : '');
+      const del = row.kind === 'cache' ? '<button type="button" data-hdel="' + esc(row.id) + '">删除</button>' : '';
+      return '<div class="hrow' + (miss ? ' missing' : '') + '" data-hid="' + esc(row.id) + '"><button type="button" class="hopen"' + (miss ? ' disabled' : '') + '><b>' + esc(row.name) + '</b><span>' + (row.count || 0) + ' 关</span><span class="htime">' + stamp + '</span>' + tag + '</button>' + del + '</div>';
+    }).join('');
+  }
+  async function openHistory() {
+    histMissing = new Set();
+    let rows = [];
+    try { rows = await idbAll('recent'); } catch (e) { rows = []; }
+    rows.sort((a, b) => (b.opened || 0) - (a.opened || 0));
+    const flags = await Promise.all(rows.map(row => fileStatus(row)));
+    flags.forEach((flag, i) => { if (flag === 'missing') histMissing.add(rows[i].id); });
+    histView = rows;
+    paintHistory();
+    $('#hist').hidden = false;
+  }
+  async function closeHistory() {
+    const ids = [...histMissing];
+    histMissing = new Set();
+    $('#hist').hidden = true;
+    for (let i = 0; i < ids.length; i++) {
+      try { await idbDel('recent', ids[i]); } catch (e) {}
+    }
+  }
+  async function openRecent(row) {
+    if (histMissing.has(row.id)) return;
+    if (row.kind === 'handle' && row.handle && typeof row.handle.getFile === 'function') {
+      try {
+        if (!(await ensurePerm(row.handle, false))) { toast('没有读取权限'); return; }
+        const file = await row.handle.getFile();
+        applyImport(await file.text(), { id: row.id, name: file.name || row.name, handle: row.handle });
+      } catch (e) {
+        if (isNotFound(e)) {
+          histMissing.add(row.id);
+          paintHistory();
+          toast('文件已不存在');
+        } else toast('打不开这个文件');
+      }
+      return;
+    }
+    if (row.snapshot) applyImport(row.snapshot, { id: row.id, name: row.name, snapshot: row.snapshot });
+    else toast('没有可打开的内容');
   }
   function normalizeDraft(d) {
     d.words = d.words || [];
@@ -2258,7 +2557,13 @@ function ready(D, A, issues) {
   $('#btnUndo').onclick = () => {
     const s = hist.pop(); if (!s) { toast('没有可撤回的操作'); return; }
     const data = JSON.parse(s);
-    campaign = data; boardKey = ''; suggCache = null; persist(); render();
+    const fileId = data.fileId || null;
+    delete data.fileId;
+    campaign = data; boardKey = ''; suggCache = null;
+    const rebind = !fileId ? Promise.resolve(currentFile = null) : idbGet('recent', fileId).then(row => {
+      currentFile = row ? { id: row.id, kind: row.kind, handle: row.handle || null, name: row.name } : null;
+    }).catch(() => { currentFile = null; });
+    rebind.then(() => persist()).then(() => render());
   };
   $('#btnPlay').onclick = startPlay;
   syncPlayWordsBtn();
@@ -2272,7 +2577,30 @@ function ready(D, A, issues) {
     play = null;
     drag = null;
   };
-  $('#btnSaveDesk').onclick = saveDesk;
+  $('#btnSaveDesk').onclick = () => saveDesk();
+  $('#btnSaveAs').onclick = () => saveAs();
+  $('#btnOpen').onclick = () => openFromDisk();
+  $('#btnSample').onclick = () => loadSample();
+  $('#btnHistory').onclick = () => openHistory();
+  $('#histClose').onclick = () => closeHistory();
+  $('#hist').addEventListener('click', e => {
+    if (e.target === $('#hist')) { closeHistory(); return; }
+    const del = e.target.closest('[data-hdel]');
+    if (del) {
+      const id = del.dataset.hdel;
+      idbDel('recent', id).then(() => {
+        histView = histView.filter(r => r.id !== id);
+        histMissing.delete(id);
+        if (currentFile && currentFile.id === id) { currentFile = null; persist(); }
+        paintHistory();
+      });
+      return;
+    }
+    const host = e.target.closest('[data-hid]');
+    if (!host || host.classList.contains('missing')) return;
+    const row = histView.find(r => r.id === host.dataset.hid);
+    if (row) openRecent(row);
+  });
   $('#btnExport').onclick = exportGame;
   $('#btnImport').onclick = () => {
     const ta = document.createElement('textarea');
@@ -2281,7 +2609,7 @@ function ready(D, A, issues) {
     row.className = 'row';
     const fileBtn = document.createElement('button');
     fileBtn.type = 'button'; fileBtn.textContent = '选择文件'; fileBtn.className = 'ghost';
-    fileBtn.onclick = () => $('#file').click();
+    fileBtn.onclick = () => openFromDisk();
     row.appendChild(fileBtn);
     const box = document.createElement('div');
     box.appendChild(ta); box.appendChild(row);
@@ -2293,7 +2621,11 @@ function ready(D, A, issues) {
   $('#file').addEventListener('change', e => {
     const f = e.target.files && e.target.files[0]; if (!f) return;
     const reader = new FileReader();
-    reader.onload = () => { $('#modal').hidden = true; applyImport(String(reader.result || '')); };
+    reader.onload = () => {
+      $('#modal').hidden = true;
+      const text = String(reader.result || '');
+      applyImport(text, { name: f.name, snapshot: text });
+    };
     reader.readAsText(f);
     e.target.value = '';
   });
@@ -2346,10 +2678,11 @@ function ready(D, A, issues) {
     if ((e.metaKey || e.ctrlKey) && e.key === 'z' && $('#play').hidden) { e.preventDefault(); $('#btnUndo').click(); }
     if (e.key === 'Escape') {
       if (!$('#bank').hidden) { $('#bank').hidden = true; hideGloss(); return; }
+      if (!$('#hist').hidden) { closeHistory(); return; }
       if (!$('#modal').hidden) $('#modal').hidden = true;
       else if (!$('#play').hidden) $('#pBack').click();
     }
-    if ($('#play').hidden || !$('#modal').hidden || !$('#bank').hidden) return;
+    if ($('#play').hidden || !$('#modal').hidden || !$('#bank').hidden || !$('#hist').hidden) return;
     const tag = (e.target && e.target.tagName) || '';
     if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (e.target && e.target.isContentEditable)) return;
     if (e.altKey || e.ctrlKey || e.metaKey) return;
@@ -2503,8 +2836,7 @@ function ready(D, A, issues) {
         (failed ? ' <b style="color:var(--bad)">' + failed + ' 关没生成出来</b>（条件太紧，放宽尺寸或难度再试）。' : '') +
         (relaxed ? ' ' + relaxed + ' 关在原难度下没成，自动降一档后才通过。' : '') + '</p>' +
         '<p>每一关都穷举了所有顺序和所有路径（共 ' + states + ' 个局面），0 个死局，最后一个词也一定连得上。</p>' +
-        '<p>中途被丢弃重来的草稿：' + esc(rejTxt) + '。</p>' +
-        (campaign.levels.length > 40 ? '<p style="color:var(--bad)">关序超过 40 关，浏览器不会自动保存，记得点「保存关序」。</p>' : '');
+        '<p>中途被丢弃重来的草稿：' + esc(rejTxt) + '。</p>';
       batchRun = null;
       $('#bGo').disabled = false; $('#bStop').disabled = true;
       toast('已生成 ' + made.length + ' 关');
@@ -2522,7 +2854,15 @@ function ready(D, A, issues) {
   $('#bGo').onclick = startBatch;
   $('#bStop').onclick = () => { if (batchRun) batchRun.cancel = true; };
   $('#batch').addEventListener('input', e => { if (e.target.id === 'bFrom') e.target.dataset.touched = 1; previewCurve(); });
-  window.__desk = { campaign: () => campaign, exportLevels: () => exportList().out, startBatch: startBatch, cfg: batchCfg };
+  window.__desk = {
+    campaign: () => campaign,
+    exportLevels: () => exportList().out,
+    startBatch: startBatch,
+    cfg: batchCfg,
+    ready: () => bootReady,
+    flush: () => persist(),
+    file: () => currentFile
+  };
 
   /* 悬停释义。词库按首字母放在 dict/a.json … dict/z.json，第一次指到该字母才 fetch。 */
   const glossShards = Object.create(null);
@@ -2953,7 +3293,7 @@ function ready(D, A, issues) {
     if (e.target.id === 'bankNext') { bankState.page++; renderBank(); }
   });
 
-  render();
+  boot();
 })();
 
 </script>
