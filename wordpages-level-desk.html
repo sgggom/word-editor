@@ -211,6 +211,42 @@ html,body{overflow-x:hidden;max-width:100vw}
 #gloss .g-zh{margin-top:4px}
 #gloss .g-en{margin-top:2px;color:var(--ink-soft);font-family:var(--en);font-size:13.5px}
 #gloss .g-miss{margin-top:4px;color:var(--ink-soft)}
+.top-actions input.bank-q{width:7.5em;border:1px solid rgba(243,234,214,.35);background:transparent;color:#f3ead6;border-radius:3px;padding:6px 8px;font-size:13px}
+.top-actions input.bank-q::placeholder{color:rgba(243,234,214,.55)}
+#bank{position:fixed;inset:0;z-index:6;background:rgba(20,12,6,.55);display:flex;align-items:stretch;justify-content:center;padding:16px}
+.bk{width:min(1120px,100%);height:min(900px,100%);background:var(--paper);border-radius:4px;display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.bk-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--rule)}
+.bk-bar h3{margin:0;letter-spacing:.16em;font-size:18px}
+.bk-bar input[type=text]{flex:1;min-width:140px;border:0;border-bottom:1px solid var(--rule);background:transparent;padding:4px 2px;font-family:var(--en);letter-spacing:.06em;text-transform:uppercase}
+.bk-bar select{border:1px solid var(--rule);border-radius:3px;background:transparent;padding:4px 6px}
+.bk-bar button{border:1px solid var(--ink);border-radius:3px;padding:5px 10px}
+.bk-body{flex:1;min-height:0;display:grid;grid-template-columns:272px minmax(0,1fr)}
+.bk-side{overflow:auto;border-right:1px solid var(--rule);padding:8px 10px 14px}
+.bf h4{margin:10px 0 4px;font-size:12px;letter-spacing:.14em;color:var(--ink-soft);font-weight:600}
+.bf .chips{display:flex;flex-wrap:wrap;gap:4px}
+.bchip{border:1px solid var(--rule);border-radius:12px;padding:2px 8px;font-size:12.5px}
+.bchip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.bchip i{font-style:normal;margin-left:4px;font-family:var(--en);opacity:.75}
+.bk-main{min-width:0;min-height:0;display:flex;flex-direction:column}
+.bcard{margin:8px 12px 0;padding:10px 12px;background:#fffaf0;border:1px solid var(--rule);border-radius:4px;max-height:42%;overflow:auto}
+.bcard p{margin:4px 0}
+.bcard .bad{color:var(--bad)}
+.blevels{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.blevels button{border:1px solid var(--rule);border-radius:3px;padding:2px 6px;font-size:12.5px}
+#bankMeta{padding:6px 12px;color:var(--ink-soft);font-size:13px}
+#bankList{flex:1;min-height:0;overflow:auto}
+.brow{display:grid;grid-template-columns:8.5em 4.6em 7.2em minmax(0,1fr);gap:8px;align-items:baseline;width:100%;text-align:left;padding:5px 12px;border-bottom:1px solid rgba(210,194,164,.7)}
+.brow b{font-family:var(--en);letter-spacing:.06em;font-size:16px;font-weight:600}
+.brow .nums{font-family:var(--en);color:var(--ink-soft)}
+.brow .bzh{color:var(--ink-soft);font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.brow:hover,.brow.on{background:rgba(255,250,240,.9)}
+.bk-page{display:flex;gap:8px;align-items:center;justify-content:flex-end;padding:8px 12px;border-top:1px solid var(--rule)}
+.bk-page button{border:1px solid var(--rule);border-radius:3px;padding:4px 10px}
+.bk-page button:disabled{opacity:.35}
+@media (max-width:800px){
+  .bk-body{grid-template-columns:1fr}
+  .bk-side{max-height:34%;border-right:0;border-bottom:1px solid var(--rule)}
+}
 </style>
 </head>
 <body>
@@ -221,6 +257,8 @@ html,body{overflow-x:hidden;max-width:100vw}
       <p>玩法是字页自己的：上下左右连字母，一格在一个词里只用一次，用完就消失。编排方式参照 Word Tiles 和 Zen Word：必答词和额外词分开，难度拆开看，不合成一个分数。</p>
     </div>
     <div class="top-actions">
+      <input id="bankQ" class="bank-q" placeholder="查词" spellcheck="false" autocomplete="off" aria-label="查词">
+      <button type="button" id="btnBank">词库</button>
       <button type="button" id="btnUndo">撤回</button>
       <button type="button" id="btnImport">导入</button>
       <button type="button" id="btnSaveDesk">保存关序</button>
@@ -349,6 +387,37 @@ html,body{overflow-x:hidden;max-width:100vw}
     <h3 id="mTitle"></h3>
     <div id="mBody"></div>
     <div class="btns" id="mBtns"></div>
+  </div>
+</div>
+<div id="bank" hidden>
+  <div class="bk" role="dialog" aria-labelledby="bankTitle">
+    <div class="bk-bar">
+      <h3 id="bankTitle">词库</h3>
+      <input id="bankFind" type="text" placeholder="查词，或 C?T" spellcheck="false" autocomplete="off" aria-label="在词库里查">
+      <select id="bankMode" aria-label="查找方式">
+        <option value="exact">精确</option>
+        <option value="prefix">前缀</option>
+        <option value="contains">包含</option>
+        <option value="wild">通配</option>
+      </select>
+      <select id="bankSort" aria-label="排序">
+        <option value="score">常见度</option>
+        <option value="zipf">Zipf</option>
+        <option value="alpha">字母</option>
+      </select>
+      <button type="button" id="bankCsv">导出 CSV</button>
+      <button type="button" id="bankTxt">导出 TXT</button>
+      <button type="button" id="bankClose">关闭</button>
+    </div>
+    <div class="bk-body">
+      <aside class="bk-side bf" id="bankFilters"></aside>
+      <div class="bk-main">
+        <div class="bcard" id="bankCard" hidden></div>
+        <div id="bankMeta"></div>
+        <div id="bankList"></div>
+        <div class="bk-page" id="bankPage"></div>
+      </div>
+    </div>
   </div>
 </div>
 <div id="batch" hidden>
@@ -2276,10 +2345,11 @@ function ready(D, A, issues) {
   document.addEventListener('keydown', e => {
     if ((e.metaKey || e.ctrlKey) && e.key === 'z' && $('#play').hidden) { e.preventDefault(); $('#btnUndo').click(); }
     if (e.key === 'Escape') {
+      if (!$('#bank').hidden) { $('#bank').hidden = true; hideGloss(); return; }
       if (!$('#modal').hidden) $('#modal').hidden = true;
       else if (!$('#play').hidden) $('#pBack').click();
     }
-    if ($('#play').hidden || !$('#modal').hidden) return;
+    if ($('#play').hidden || !$('#modal').hidden || !$('#bank').hidden) return;
     const tag = (e.target && e.target.tagName) || '';
     if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (e.target && e.target.isContentEditable)) return;
     if (e.altKey || e.ctrlKey || e.metaKey) return;
@@ -2574,6 +2644,314 @@ function ready(D, A, issues) {
   document.addEventListener('scroll', () => {
     if (glossOpen || glossPending) hideGloss();
   }, true);
+
+  /* ---------- 词库浏览与查词 ---------- */
+  const TIER_NAME = ['简单', '常见', '稀有', '罕见', '极其罕见'];
+  const ROLE_NAME = { req: '可做必答', extra: '仅额外', mild: '温和词', out: '排除' };
+  const SET_MILD = new Set(POLICY.mild);
+  const SET_BLOCK = new Set(POLICY.blocked);
+  const SET_FLAG = new Set(POLICY.flagged);
+  const SET_SPEC = new Set(POLICY.specialist);
+  const BANK = [];
+  const bankByWord = new Map();
+  lex.valid.forEach(w => {
+    const tier = lex.tier[w];
+    let role = 'extra';
+    if (SET_MILD.has(w)) role = 'mild';
+    else if (SET_BLOCK.has(w) || SET_FLAG.has(w) || SET_SPEC.has(w)) role = 'out';
+    else if ((tier === 0 || tier === 1) && w.length >= 3 && w.length <= 7) role = 'req';
+    const item = { w: w, tier: tier, score: lex.score[w], zipf: (w in lex.zipf ? lex.zipf[w] : null), len: w.length, letter: w.charAt(0), role: role };
+    BANK.push(item);
+    bankByWord.set(w, item);
+  });
+  const bankState = { tiers: new Set(), lens: new Set(), letters: new Set(), roles: new Set(), used: '', sort: 'score', q: '', mode: 'exact', page: 0, pageSize: 60, picked: '' };
+  let bankMatches = [];
+  let bankUsed = new Set();
+  let bankTimer = 0;
+
+  function bankModeNow() {
+    return /[?*]/.test(bankState.q) ? 'wild' : bankState.mode;
+  }
+  function bankWild(q) {
+    const body = q.replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/\?/g, '.').replace(/\*/g, '.*');
+    return new RegExp('^' + body + '$');
+  }
+  function bankQueryOk(item, mode, re) {
+    const q = bankState.q;
+    if (!q) return true;
+    if (mode === 'exact') return item.w === q;
+    if (mode === 'prefix') return item.w.startsWith(q);
+    if (mode === 'contains') return item.w.includes(q);
+    return re.test(item.w);
+  }
+  function refreshBankUsed() {
+    bankUsed = new Set();
+    campaign.levels.forEach(d => {
+      d.words.forEach(w => bankUsed.add(w));
+      d.extras.forEach(w => bankUsed.add(w));
+    });
+  }
+  function roleWhy(item) {
+    if (!item) return '';
+    if (item.role === 'req') return '可做必答：是。第 0–1 档，3–7 个字母，不是专业词、温和词、标记词或屏蔽词。';
+    if (item.role === 'mild') return '可做必答：否。温和词只能做额外。';
+    if (SET_BLOCK.has(item.w)) return '可做必答：否。屏蔽词，不进入必答。';
+    if (SET_FLAG.has(item.w)) return '可做必答：否。标记词，不进入必答。';
+    if (SET_SPEC.has(item.w)) return '可做必答：否。专业词，不进入必答。';
+    if (item.tier >= 3) return '可做必答：否。罕见和极其罕见只做额外词。';
+    if (item.tier === 2) return '可做必答：否。不在必答词库里；生成更难的关时最多再收一个这种稀有词。';
+    if (item.len < 3 || item.len > 7) return '可做必答：否。必答只要 3–7 个字母，更长或更短的只做额外。';
+    return '可做必答：否。只做额外词。';
+  }
+  function absentWhy(w) {
+    if (SET_BLOCK.has(w)) return '不在校验词表里。这是屏蔽词（脏话或不宜用的词）。';
+    if (SET_FLAG.has(w)) return '不在校验词表里。这是标记词。';
+    if (SET_MILD.has(w)) return '不在校验词表里。名单上把它当作温和词。';
+    if (SET_SPEC.has(w)) return '不在校验词表里。名单上把它当作专业词。';
+    return '不在校验词表里。';
+  }
+  function levelsUsing(w) {
+    const out = [];
+    campaign.levels.forEach((d, i) => {
+      if (d.words.indexOf(w) >= 0) out.push({ i: i, as: '必答' });
+      else if (d.extras.indexOf(w) >= 0) out.push({ i: i, as: '额外' });
+    });
+    return out;
+  }
+  function numPair(item) {
+    const s = item && item.score != null ? (+item.score).toFixed(2) : '—';
+    if (item && item.zipf != null) return s + ' · ' + (+item.zipf).toFixed(2);
+    return s;
+  }
+  function shortZh(s) {
+    if (!s) return '';
+    const cut = String(s).split(/[；;。]/)[0];
+    return cut.length > 42 ? cut.slice(0, 42) + '…' : cut;
+  }
+  function computeBank() {
+    const t0 = performance.now();
+    refreshBankUsed();
+    const mode = bankModeNow();
+    const re = mode === 'wild' && bankState.q ? bankWild(bankState.q) : null;
+    const tiers = [0, 0, 0, 0, 0];
+    const lens = Object.create(null);
+    const letters = Object.create(null);
+    const roles = { req: 0, extra: 0, mild: 0, out: 0 };
+    const usedN = { yes: 0, no: 0 };
+    const matches = [];
+    const st = bankState;
+    for (let i = 0; i < BANK.length; i++) {
+      const item = BANK[i];
+      if (!bankQueryOk(item, mode, re)) continue;
+      const tierOk = !st.tiers.size || st.tiers.has(item.tier);
+      const lenOk = !st.lens.size || st.lens.has(item.len);
+      const letOk = !st.letters.size || st.letters.has(item.letter);
+      const roleOk = !st.roles.size || st.roles.has(item.role);
+      const on = bankUsed.has(item.w);
+      const usedOk = !st.used || (st.used === 'yes' ? on : !on);
+      if (lenOk && letOk && roleOk && usedOk) tiers[item.tier]++;
+      if (tierOk && letOk && roleOk && usedOk) lens[item.len] = (lens[item.len] || 0) + 1;
+      if (tierOk && lenOk && roleOk && usedOk) letters[item.letter] = (letters[item.letter] || 0) + 1;
+      if (tierOk && lenOk && letOk && usedOk) roles[item.role]++;
+      if (tierOk && lenOk && letOk && roleOk) usedN[on ? 'yes' : 'no']++;
+      if (tierOk && lenOk && letOk && roleOk && usedOk) matches.push(item);
+    }
+    if (st.sort === 'alpha') matches.sort((a, b) => a.w.localeCompare(b.w));
+    else if (st.sort === 'zipf') matches.sort((a, b) => (b.zipf == null ? -1 : b.zipf) - (a.zipf == null ? -1 : a.zipf) || a.w.localeCompare(b.w));
+    else matches.sort((a, b) => b.score - a.score || a.w.localeCompare(b.w));
+    bankMatches = matches;
+    const pages = Math.max(1, Math.ceil(matches.length / st.pageSize));
+    if (st.page >= pages) st.page = pages - 1;
+    if (st.page < 0) st.page = 0;
+    return { tiers: tiers, lens: lens, letters: letters, roles: roles, usedN: usedN, ms: performance.now() - t0, pages: pages };
+  }
+  function chip(group, value, label, count, on) {
+    return '<button type="button" class="bchip' + (on ? ' on' : '') + '" data-g="' + group + '" data-v="' + value + '">' + label + '<i>' + count + '</i></button>';
+  }
+  function renderBankFilters(stat) {
+    const st = bankState;
+    const tierChips = [chip('tier', '', '全部', stat.tiers.reduce((s, n) => s + n, 0), !st.tiers.size)];
+    for (let t = 0; t < 5; t++) tierChips.push(chip('tier', String(t), TIER_NAME[t], stat.tiers[t], st.tiers.has(t)));
+    const lenChips = [chip('len', '', '全部', Object.keys(stat.lens).reduce((s, k) => s + stat.lens[k], 0), !st.lens.size)];
+    for (let n = 3; n <= 10; n++) lenChips.push(chip('len', String(n), n + ' 字母', stat.lens[n] || 0, st.lens.has(n)));
+    const letterChips = [chip('letter', '', '全部', Object.keys(stat.letters).reduce((s, k) => s + stat.letters[k], 0), !st.letters.size)];
+    for (let i = 0; i < 26; i++) {
+      const ch = String.fromCharCode(65 + i);
+      letterChips.push(chip('letter', ch, ch, stat.letters[ch] || 0, st.letters.has(ch)));
+    }
+    const roleChips = [chip('role', '', '全部', rolesTotal(stat.roles), !st.roles.size)];
+    ['req', 'extra', 'mild', 'out'].forEach(r => roleChips.push(chip('role', r, ROLE_NAME[r], stat.roles[r], st.roles.has(r))));
+    const usedAll = stat.usedN.yes + stat.usedN.no;
+    const usedChips = [
+      chip('used', '', '全部', usedAll, !st.used),
+      chip('used', 'yes', '本关序用过', stat.usedN.yes, st.used === 'yes'),
+      chip('used', 'no', '未用过', stat.usedN.no, st.used === 'no')
+    ];
+    $('#bankFilters').innerHTML =
+      '<h4>罕见度</h4><div class="chips">' + tierChips.join('') + '</div>' +
+      '<h4>词长</h4><div class="chips">' + lenChips.join('') + '</div>' +
+      '<h4>首字母</h4><div class="chips">' + letterChips.join('') + '</div>' +
+      '<h4>用途</h4><div class="chips">' + roleChips.join('') + '</div>' +
+      '<h4>关序</h4><div class="chips">' + usedChips.join('') + '</div>';
+  }
+  function rolesTotal(roles) { return roles.req + roles.extra + roles.mild + roles.out; }
+  function renderBankList() {
+    const st = bankState;
+    const start = st.page * st.pageSize;
+    const slice = bankMatches.slice(start, start + st.pageSize);
+    $('#bankList').innerHTML = slice.map(item => {
+      const badge = item.tier >= 2 ? '<i class="band t' + item.tier + '">' + TIER_NAME[item.tier] + '</i>' : '';
+      return '<button type="button" class="brow' + (item.w === st.picked ? ' on' : '') + '" data-w="' + item.w + '"><b class="gw">' + item.w + '</b><span>' + badge + '</span><span class="nums">' + numPair(item) + '</span><span class="bzh" data-def="' + item.letter.toLowerCase() + '" data-w="' + item.w.toLowerCase() + '">…</span></button>';
+    }).join('') || '<p class="note" style="padding:12px">没有符合的词。</p>';
+    fillBankDefs($('#bankList'));
+  }
+  function fillBankDefs(root) {
+    const need = Object.create(null);
+    root.querySelectorAll('[data-def]').forEach(el => { (need[el.dataset.def] = need[el.dataset.def] || []).push(el); });
+    Object.keys(need).forEach(letter => {
+      const apply = dict => {
+        need[letter].forEach(el => {
+          if (!el.isConnected) return;
+          const row = dict && dict[el.dataset.w];
+          el.textContent = row && row[1] ? shortZh(row[1]) : '暂无释义';
+        });
+      };
+      if (location.protocol === 'file:') {
+        need[letter].forEach(el => { el.textContent = '需在线或本地服务器'; });
+        return;
+      }
+      if (glossShards[letter]) { apply(glossShards[letter]); return; }
+      loadShard(letter).then(apply).catch(() => {
+        need[letter].forEach(el => { if (el.isConnected) el.textContent = '释义未加载'; });
+      });
+    });
+  }
+  function renderBankCard() {
+    const card = $('#bankCard');
+    const w = bankState.picked;
+    if (!w) { card.hidden = true; card.innerHTML = ''; return; }
+    card.hidden = false;
+    const item = bankByWord.get(w);
+    const uses = levelsUsing(w);
+    const useHtml = uses.length
+      ? '<div class="blevels">' + uses.map(u => '<button type="button" data-jump="' + u.i + '">第 ' + (u.i + 1) + ' 关 · ' + u.as + '</button>').join('') + '</div>'
+      : '<p>当前关序里没有用到这个词。</p>';
+    let head;
+    if (!item) head = '<p class="bad">' + absentWhy(w) + '</p><p>可做必答：否。</p>';
+    else head = '<p>在校验词表里。角色：' + ROLE_NAME[item.role] + '。</p><p>' + roleWhy(item) + '</p><p>' + numPair(item) + '</p>';
+    card.innerHTML = '<div id="bankDef">' + glossHtml(w, null) + '</div>' + head + useHtml;
+    const letter = w.charAt(0).toLowerCase();
+    const paint = row => {
+      const box = $('#bankDef');
+      if (box) box.innerHTML = glossHtml(w, row || null);
+    };
+    if (location.protocol === 'file:') {
+      paint(null);
+      const box = $('#bankDef');
+      if (box) box.innerHTML = '<div class="g-top"><b>' + esc(w) + '</b>' + tierMark(w) + '</div><div class="g-miss">' + GLOSS_OFFLINE + '</div>';
+      return;
+    }
+    if (!/^[A-Z]/.test(w)) return;
+    if (glossShards[letter]) paint(glossShards[letter][w.toLowerCase()]);
+    else loadShard(letter).then(dict => { if (bankState.picked === w) paint(dict[w.toLowerCase()]); }).catch(() => {
+      if (bankState.picked !== w) return;
+      const box = $('#bankDef');
+      if (box) box.innerHTML = '<div class="g-top"><b>' + esc(w) + '</b>' + tierMark(w) + '</div><div class="g-miss">' + GLOSS_OFFLINE + '</div>';
+    });
+  }
+  function renderBank() {
+    const stat = computeBank();
+    renderBankFilters(stat);
+    const pages = stat.pages;
+    $('#bankMeta').textContent = bankMatches.length + ' / ' + BANK.length + ' 词 · 第 ' + (bankState.page + 1) + ' / ' + pages + ' 页';
+    $('#bankMeta').dataset.ms = String(Math.round(stat.ms));
+    renderBankList();
+    renderBankCard();
+    $('#bankPage').innerHTML = '<button type="button" id="bankPrev"' + (bankState.page <= 0 ? ' disabled' : '') + '>上一页</button><button type="button" id="bankNext"' + (bankState.page >= pages - 1 ? ' disabled' : '') + '>下一页</button>';
+  }
+  function openBank(q) {
+    if (q != null) {
+      bankState.q = String(q).toUpperCase().replace(/[^A-Z?*]/g, '');
+      bankState.page = 0;
+      $('#bankFind').value = bankState.q;
+      $('#bankQ').value = bankState.q;
+      $('#bankMode').value = bankState.mode;
+    }
+    if (/[?*]/.test(bankState.q)) $('#bankMode').value = 'wild';
+    bankState.mode = $('#bankMode').value;
+    if (bankModeNow() === 'exact' && bankState.q) bankState.picked = bankState.q;
+    $('#bank').hidden = false;
+    renderBank();
+  }
+  function exportBank(kind) {
+    const rows = bankMatches;
+    let text, name;
+    if (kind === 'txt') {
+      text = rows.map(item => item.w).join('\n') + (rows.length ? '\n' : '');
+      name = '词库.txt';
+    } else {
+      const lines = ['word,tier,score,zipf,role'];
+      rows.forEach(item => {
+        const cells = [item.w, TIER_NAME[item.tier], (+item.score).toFixed(4), item.zipf == null ? '' : (+item.zipf).toFixed(2), ROLE_NAME[item.role]];
+        lines.push(cells.map(c => /[",\n]/.test(c) ? '"' + c.replace(/"/g, '""') + '"' : c).join(','));
+      });
+      text = lines.join('\n') + '\n';
+      name = '词库.csv';
+    }
+    download(name, text);
+  }
+  $('#btnBank').onclick = () => openBank($('#bankQ').value);
+  $('#bankClose').onclick = () => { $('#bank').hidden = true; hideGloss(); };
+  $('#bankQ').addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); openBank($('#bankQ').value); }
+  });
+  $('#bankFind').addEventListener('input', e => {
+    bankState.q = String(e.target.value).toUpperCase().replace(/[^A-Z?*]/g, '');
+    if (e.target.value !== bankState.q) e.target.value = bankState.q;
+    $('#bankQ').value = bankState.q;
+    if (/[?*]/.test(bankState.q)) { bankState.mode = 'wild'; $('#bankMode').value = 'wild'; }
+    bankState.page = 0;
+    if (bankModeNow() === 'exact' && bankState.q) bankState.picked = bankState.q;
+    else if (!bankState.q) bankState.picked = '';
+    clearTimeout(bankTimer);
+    bankTimer = setTimeout(renderBank, 80);
+  });
+  $('#bankMode').addEventListener('change', e => {
+    bankState.mode = e.target.value;
+    bankState.page = 0;
+    if (bankModeNow() === 'exact' && bankState.q) bankState.picked = bankState.q;
+    renderBank();
+  });
+  $('#bankSort').addEventListener('change', e => { bankState.sort = e.target.value; bankState.page = 0; renderBank(); });
+  $('#bankCsv').onclick = () => exportBank('csv');
+  $('#bankTxt').onclick = () => exportBank('txt');
+  $('#bank').addEventListener('click', e => {
+    const chipBtn = e.target.closest('.bchip');
+    if (chipBtn) {
+      const g = chipBtn.dataset.g, v = chipBtn.dataset.v;
+      const sets = { tier: bankState.tiers, len: bankState.lens, letter: bankState.letters, role: bankState.roles };
+      if (g === 'used') bankState.used = v;
+      else if (!v) sets[g].clear();
+      else {
+        const key = g === 'tier' || g === 'len' ? +v : v;
+        if (sets[g].has(key)) sets[g].delete(key); else sets[g].add(key);
+      }
+      bankState.page = 0;
+      renderBank();
+      return;
+    }
+    const row = e.target.closest('.brow');
+    if (row) { bankState.picked = row.dataset.w; renderBankCard(); $('#bankList').querySelectorAll('.brow').forEach(el => el.classList.toggle('on', el.dataset.w === bankState.picked)); return; }
+    const jump = e.target.closest('[data-jump]');
+    if (jump) {
+      const n = +jump.dataset.jump + 1;
+      $('#jumpLv').value = String(n);
+      $('#jumpLv').dispatchEvent(new Event('change'));
+      toast('已打开第 ' + n + ' 关');
+    }
+    if (e.target.id === 'bankPrev' && bankState.page > 0) { bankState.page--; renderBank(); }
+    if (e.target.id === 'bankNext') { bankState.page++; renderBank(); }
+  });
 
   render();
 })();
