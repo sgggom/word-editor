@@ -24,6 +24,7 @@ button{background:none;border:0;cursor:pointer;padding:0}
 .top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;color:#f3ead6}
 .top h1{margin:0;font-size:26px;font-weight:600;letter-spacing:.12em}
 .top h1 span{letter-spacing:.02em;font-weight:500;opacity:.8;font-size:15px;margin-left:10px}
+.top h1 .ver{letter-spacing:.04em;font-size:13px;font-weight:600;opacity:1;margin-left:12px;border:1px solid rgba(243,234,214,.5);border-radius:3px;padding:1px 7px}
 .top p{margin:4px 0 0;max-width:760px;color:#e6d7bc;font-size:13px;line-height:1.45}
 .top-actions{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
 .top-actions button,.mini{
@@ -267,7 +268,7 @@ html,body{overflow-x:hidden;max-width:100vw}
 <div id="desk">
   <header class="top">
     <div>
-      <h1>字页关卡台 <span>给书页连词排一串关</span></h1>
+      <h1>字页关卡台 <span>给书页连词排一串关</span> <span class="ver" id="buildVer">版本 2026.10.14.3</span></h1>
       <p>玩法是字页自己的：上下左右连字母，一格在一个词里只用一次，用完就消失。编排方式参照 Word Tiles 和 Zen Word：必答词和额外词分开，难度拆开看，不合成一个分数。</p>
     </div>
     <div class="top-actions">
@@ -282,7 +283,6 @@ html,body{overflow-x:hidden;max-width:100vw}
       <button type="button" id="btnSaveAs">另存为</button>
       <button type="button" id="btnBatch">批量生成</button>
       <button type="button" id="btnExport">导出游戏关卡</button>
-      <button type="button" id="btnExportBooks">导出为 levels.js（分册）</button>
       <button type="button" id="btnPlay" class="primary">试玩这一关</button>
     </div>
   </header>
@@ -465,6 +465,7 @@ html,body{overflow-x:hidden;max-width:100vw}
     <div id="bOut"></div>
     <div class="bbtn">
       <button type="button" id="bStop" disabled>中止</button>
+      <button type="button" id="bExport">导出游戏关卡</button>
       <button type="button" id="bClose">关闭</button>
       <button type="button" id="bGo" class="primary">开始生成</button>
     </div>
@@ -2482,17 +2483,6 @@ function ready(D, A, issues) {
     }
     return [total];
   }
-  function toJsLevel(lv) {
-    const o = { id: Number(lv.id), g: lv.g, t: lv.t, lv: lv.lv, e: lv.e, n: lv.n };
-    if (lv.curtains && lv.curtains.length) o.o = lv.curtains.map(c => [c.req, c.cells.slice()]);
-    return o;
-  }
-  function jsFileText(books, daily) {
-    const jsBooks = books.map(b => ({ name: b.name, sub: b.sub, mix: b.mix, levels: b.levels.map(toJsLevel) }));
-    let s = '// 字页关卡台导出的关卡（' + jsBooks.length + ' 册）\nwindow.BOOKS=' + JSON.stringify(jsBooks) + ';\n';
-    if (daily && daily.length) s += 'window.DAILY=' + JSON.stringify(daily.map(toJsLevel)) + ';\n';
-    return s;
-  }
   function packTextOf(root) {
     return JSON.stringify(root, null, 2) + '\n';
   }
@@ -2593,16 +2583,12 @@ function ready(D, A, issues) {
     const bag = collectExport();
     return assemblePack(bag.items, defaultSpec(bag.items.length));
   }
-  function flatText(levels) {
-    const body = levels.length === 1 ? levels[0] : levels;
-    return JSON.stringify(body, null, 2) + '\n';
-  }
   function fileStem() {
     const n = (campaign.name || 'levels').replace(/[\\/:*?"<>|]/g, ' ').replace(/\s+/g, ' ').trim();
     return n || 'levels';
   }
   const DEFAULT_SUBS = ['入门', '简单', '普通', '困难', '专家'];
-  function openExportDialog(kind) {
+  function openExportDialog() {
     const bag = collectExport();
     const items = bag.items;
     const total = items.length;
@@ -2610,16 +2596,11 @@ function ready(D, A, issues) {
     const canKeep = bag.skip === 0 && packFits(campaign.pack, total);
     const daily0 = canKeep ? (campaign.pack.dailyCount | 0) : 0;
     const box = document.createElement('div');
-    const shapeRow = kind === 'json'
-      ? '<label>文件 <select id="bkShape"><option value="pack">books + daily</option><option value="array">关卡数组</option></select></label>'
-      : '';
     const keepOpt = canKeep ? '<option value="keep" selected>按当前分册</option>' : '';
     box.innerHTML =
-      '<p class="note">' + (kind === 'js'
-        ? '次要格式 levels.js：window.BOOKS，id 是数字，幕布写成 o。有每日关时另起 window.DAILY。'
-        : '主格式是 {books, daily}，缩进 2。每一关固定 9 个键：id、name、g、t、n、e、lv、ty、curtains。id 是字符串。默认全部关都在第一册，daily 为空；导入文件里已有的分册会保持原样。要拆开或放进 daily，在这里改。没改过的导入关按原样写出。') +
+      '<p class="note">导出 .json，内容是 {books, daily}，缩进 2。每一关固定 9 个键：id、name、g、t、n、e、lv、ty、curtains。id 是字符串。默认全部关都在第一册，daily 为空；导入文件里已有的分册会保持原样。要拆开或放进 daily，在这里改。没改过的导入关按原样写出。' +
       ' 可导出 ' + total + ' 关' + (bag.skip ? '，跳过 ' + bag.skip + ' 关未填完或走不通的' : '') + '。</p>' +
-      '<div class="row" id="bkSplit">' + shapeRow +
+      '<div class="row" id="bkSplit">' +
         '<label>怎么分 <select id="bkMode">' + keepOpt +
           '<option value="one"' + (canKeep ? '' : ' selected') + '>全部一册</option>' +
           '<option value="every">每若干关一册</option><option value="parts">平均分成几册</option></select></label>' +
@@ -2637,18 +2618,6 @@ function ready(D, A, issues) {
       return splitCounts(bookN, mode, +$('#bkSize').value, +$('#bkParts').value);
     };
     const paint = () => {
-      const shape = kind === 'json' && $('#bkShape') ? $('#bkShape').value : 'pack';
-      $('#bkSplit').hidden = false;
-      const hideBooks = shape === 'array';
-      $('#bkMode').parentElement.hidden = hideBooks;
-      $('#bkDaily').parentElement.hidden = hideBooks;
-      $('#bkRows').hidden = hideBooks;
-      $('#bkDailyNote').hidden = hideBooks;
-      if (hideBooks) {
-        $('#bkSizeLab').hidden = true;
-        $('#bkPartsLab').hidden = true;
-        return;
-      }
       const mode = $('#bkMode').value;
       $('#bkSizeLab').hidden = mode !== 'every';
       $('#bkPartsLab').hidden = mode !== 'parts';
@@ -2676,21 +2645,13 @@ function ready(D, A, issues) {
       const dN = dailyNow();
       $('#bkDailyNote').textContent = dN ? ('daily：id ' + d0 + '–' + (d0 + dN - 1) + '，' + dN + ' 关') : 'daily：空';
     };
-    if (kind === 'json') box.querySelector('#bkShape').addEventListener('change', paint);
     box.querySelector('#bkMode').addEventListener('change', paint);
     box.querySelector('#bkSize').addEventListener('input', paint);
     box.querySelector('#bkParts').addEventListener('input', paint);
     box.querySelector('#bkDaily').addEventListener('input', paint);
-    modal(kind === 'js' ? '导出为 levels.js（分册）' : '导出游戏关卡', box, [
+    modal('导出游戏关卡', box, [
       { label: '取消' },
       { label: '导出', primary: true, onClick: () => {
-        const shape = kind === 'json' && $('#bkShape') ? $('#bkShape').value : 'pack';
-        const levels = items.map((d, i) => levelOf(d, i + 1));
-        if (shape === 'array') {
-          download(fileStem() + '.json', flatText(levels));
-          toast('导出 ' + levels.length + ' 关');
-          return;
-        }
         const counts = countsNow();
         const lines = [...$('#bkRows').querySelectorAll('.bk-line')];
         const keeping = keepOk();
@@ -2702,8 +2663,8 @@ function ready(D, A, issues) {
           return { name: name, sub: sub, mix: stored ? stored.mix : null, count: n };
         });
         const root = assemblePack(items, { books: specBooks, dailyCount: dailyNow() });
-        if (kind === 'js') download('levels.js', jsFileText(root.books, root.daily));
-        else download(fileStem() + '.json', packTextOf(root));
+        const text = packTextOf(root);
+        download(fileStem() + '.json', text);
         const skip = bag.skip;
         toast('已导出 ' + root.books.length + ' 册、daily ' + root.daily.length + ' 关' + (skip ? '，跳过 ' + skip + ' 关' : ''));
       }}
@@ -2997,8 +2958,8 @@ function ready(D, A, issues) {
     const row = histView.find(r => r.id === host.dataset.hid);
     if (row) openRecent(row);
   });
-  $('#btnExport').onclick = () => openExportDialog('json');
-  $('#btnExportBooks').onclick = () => openExportDialog('js');
+  $('#btnExport').onclick = () => openExportDialog();
+  $('#bExport').onclick = () => openExportDialog();
   $('#btnImport').onclick = () => {
     const ta = document.createElement('textarea');
     ta.placeholder = '粘贴 JSON，或改用选择文件。可以是 {books, daily}、levels.js、关卡数组、关卡台文件、Word Tiles 或 Zen。';
@@ -3233,7 +3194,8 @@ function ready(D, A, issues) {
         (failed ? ' <b style="color:var(--bad)">' + failed + ' 关没生成出来</b>（条件太紧，放宽尺寸或难度再试）。' : '') +
         (relaxed ? ' ' + relaxed + ' 关在原难度下没成，自动降一档后才通过。' : '') + '</p>' +
         '<p>每一关都穷举了所有顺序和所有路径（共 ' + states + ' 个局面），0 个死局，最后一个词也一定连得上。</p>' +
-        '<p>中途被丢弃重来的草稿：' + esc(rejTxt) + '。</p>';
+        '<p>中途被丢弃重来的草稿：' + esc(rejTxt) + '。</p>' +
+        '<p>给游戏用请点「导出游戏关卡」。下载的是 {books, daily} JSON，不是 levels.js。</p>';
       batchRun = null;
       $('#bGo').disabled = false; $('#bStop').disabled = true;
       toast('已生成 ' + made.length + ' 关');
@@ -3255,7 +3217,6 @@ function ready(D, A, issues) {
     campaign: () => campaign,
     exportLevels: () => collectExport().items.map((d, i) => levelOf(d, i + 1)),
     packText: () => packTextOf(packRoot()),
-    flatText: () => flatText(collectExport().items.map((d, i) => levelOf(d, i + 1))),
     startBatch: startBatch,
     cfg: batchCfg,
     ready: () => bootReady,
