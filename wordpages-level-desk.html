@@ -34,6 +34,14 @@ button{background:none;border:0;cursor:pointer;padding:0}
 .top-actions button:disabled{opacity:.4;cursor:default}
 .pace-wrap{background:rgba(255,248,236,.06);border:1px solid rgba(243,234,214,.18);border-radius:4px;padding:8px 10px 6px;color:#f3ead6}
 .pace-head{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:#e6d7bc;margin-bottom:6px}
+.pace-metrics{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin:0 0 6px;min-width:0}
+.pace-metrics button{
+  border:1px solid rgba(243,234,214,.35);color:#f3ead6;background:transparent;
+  border-radius:3px;padding:2px 8px;font-size:12px;letter-spacing:.04em
+}
+.pace-metrics button.on{background:#f3ead6;color:var(--ink);border-color:#f3ead6}
+.pace-metrics button.idle{opacity:.55}
+.pace-metrics #paceExtra{margin-left:6px}
 .pace{display:flex;align-items:flex-end;gap:4px;overflow-x:auto;height:86px;padding-bottom:2px}
 .pace button{position:relative;width:28px;flex:0 0 28px;height:100%;display:flex;align-items:flex-end;justify-content:center}
 .pace button i,.pace button s{position:absolute;left:6px;right:6px;bottom:16px;border-radius:2px 2px 0 0}
@@ -44,6 +52,10 @@ button{background:none;border:0;cursor:pointer;padding:0}
 .pace button.rec i{background:#8fbf9a}
 .pace button.peak i{background:#e09a8c}
 .pace button.on{outline:1px solid #e2c37a;outline-offset:1px;border-radius:2px}
+.pace button.curtain::after{
+  content:"";position:absolute;top:2px;left:50%;width:6px;height:6px;margin-left:-3px;
+  background:#c47a4a;transform:rotate(45deg)
+}
 .reuse-line{min-height:18px;font-size:12.5px;color:#f0d2cf;margin-top:4px}
 .reuse-line.quiet{color:#cbbfa8}
 .work{display:grid;grid-template-columns:minmax(300px,380px) minmax(0,1fr) minmax(300px,380px);gap:12px;min-height:0}
@@ -268,7 +280,7 @@ html,body{overflow-x:hidden;max-width:100vw}
 <div id="desk">
   <header class="top">
     <div>
-      <h1>字页关卡台 <span>给书页连词排一串关</span> <span class="ver" id="buildVer">版本 2026.10.14.3</span></h1>
+      <h1>字页关卡台 <span>给书页连词排一串关</span> <span class="ver" id="buildVer">版本 2026.10.14.4</span></h1>
       <p>玩法是字页自己的：上下左右连字母，一格在一个词里只用一次，用完就消失。编排方式参照 Word Tiles 和 Zen Word：必答词和额外词分开，难度拆开看，不合成一个分数。</p>
     </div>
     <div class="top-actions">
@@ -290,7 +302,17 @@ html,body{overflow-x:hidden;max-width:100vw}
     <div class="pace-head">
       <span><label>跳到第 <input id="jumpLv" type="number" min="1"> 关</label> <span id="lvTotal"></span></span>
       <span id="campNameWrap">关序 <input id="campName" class="name" style="width:12em;color:#f3ead6;border-color:transparent"></span>
-      <span>柱高是必答词数。细框是竞品前段的大致词量，只作对照。绿色是回落，红色是两侧都更高的峰值。</span>
+      <span id="paceExplain">柱高是必答词数。细框是竞品前段的大致词量，只作对照。绿色是回落，红色是两侧都更高的峰值。</span>
+    </div>
+    <div class="pace-metrics" id="paceMetrics">
+      <button type="button" data-metric="count">必答词数</button>
+      <button type="button" data-metric="diff">难度分</button>
+      <button type="button" data-metric="longest">最长词长度</button>
+      <button type="button" data-metric="rare">罕见度</button>
+      <button type="button" data-metric="board">棋盘大小</button>
+      <button type="button" data-metric="straight">直线单词占比</button>
+      <button type="button" data-metric="avg">平均单词长度</button>
+      <button type="button" id="paceExtra">算上额外词</button>
     </div>
     <div class="pace" id="pace"></div>
     <div class="reuse-line quiet" id="reuseLine"></div>
@@ -1517,6 +1539,27 @@ function ready(D, A, issues) {
   const C = window.WPEditorCore;
   const $ = s => document.querySelector(s);
   const STORE = 'wp.leveldesk.v1';
+  const PACE_KEY = 'wp.leveldesk.pace';
+  const PACE_SPEC = {
+    count: { delta: 2, floor: 4, extra: true },
+    diff: { delta: 5, floor: 100, extra: false },
+    longest: { delta: 1, floor: 7, extra: true },
+    rare: { delta: 0.4, floor: 5, extra: true },
+    board: { delta: 2, floor: 15, extra: false },
+    straight: { delta: 0.15, floor: 1, extra: true },
+    avg: { delta: 0.4, floor: 7, extra: true }
+  };
+  function loadPacePref() {
+    try {
+      const s = JSON.parse(localStorage.getItem(PACE_KEY) || 'null');
+      if (s && PACE_SPEC[s.metric]) return { metric: s.metric, extra: !!s.extra };
+    } catch (e) {}
+    return { metric: 'count', extra: false };
+  }
+  let pacePref = loadPacePref();
+  function savePacePref() {
+    try { localStorage.setItem(PACE_KEY, JSON.stringify({ metric: pacePref.metric, extra: !!pacePref.extra })); } catch (e) {}
+  }
   const PRESETS = [[3, 2], [3, 3], [4, 2], [4, 3], [5, 3]];
   const TIER_ZH = ['', '', '稀有', '罕见', '极其罕见'];
   const POLICY = JSON.parse($('#policy').textContent);
@@ -1842,6 +1885,201 @@ function ready(D, A, issues) {
     return suggCache;
   }
 
+  /* 节奏图。难度分和直线占比的定义写在 README。C.pacing 仍只服务右侧维度，不跟柱子切换。 */
+  const coverCache = new Map();
+  const turnCache = new Map();
+  let lastPace = null;
+  function clamp01(x) { return x < 0 ? 0 : (x > 1 ? 1 : x); }
+  function fmt2(n) {
+    return (Math.round(n * 100) / 100).toFixed(2).replace(/0+$/, '').replace(/\.$/, '');
+  }
+  function cachedMinTurns(d, w) {
+    const key = d.W + 'x' + d.H + '|' + (d.letters || []).join('') + '|' + w;
+    if (turnCache.has(key)) return turnCache.get(key);
+    const t = C.minTurns(d.letters, d.W, d.H, w);
+    turnCache.set(key, t);
+    return t;
+  }
+  function coverOf(d) {
+    const key = boardFp(d);
+    if (coverCache.has(key)) return coverCache.get(key);
+    const res = C.analyze(d);
+    coverCache.set(key, res);
+    return res;
+  }
+  /* 全在同一行，或全在同一列。长度不足 2 不算一条线。 */
+  function pathIsStraight(path, W) {
+    if (!path || path.length < 2) return false;
+    const r0 = (path[0] / W) | 0, c0 = path[0] % W;
+    let row = true, col = true;
+    for (let i = 1; i < path.length; i++) {
+      if (((path[i] / W) | 0) !== r0) row = false;
+      if ((path[i] % W) !== c0) col = false;
+      if (!row && !col) return false;
+    }
+    return row || col;
+  }
+  function wordPack(d, useExtra) {
+    const words = (d.words || []).slice();
+    const seen = new Set(words);
+    let added = 0;
+    if (useExtra) {
+      (d.extras || []).forEach(w => {
+        if (!w || seen.has(w)) return;
+        seen.add(w);
+        words.push(w);
+        added++;
+      });
+    }
+    return { words: words, req: (d.words || []).length, added: added };
+  }
+  function rarityOf(words) {
+    let sum = 0, n = 0, unknown = 0;
+    words.forEach(w => {
+      if (!(w in lex.tier)) { unknown++; return; }
+      sum += lex.tier[w] + 1;
+      n++;
+    });
+    return { avg: n ? sum / n : 0, n: n, unknown: unknown };
+  }
+  function difficultyOf(d) {
+    const words = d.words || [];
+    const n = words.length;
+    const cells = d.W * d.H;
+    const maxL = words.reduce((m, w) => Math.max(m, w.length), 0);
+    let tierSum = 0, tierN = 0, turnSum = 0, turnN = 0;
+    words.forEach(w => {
+      if (w in lex.tier) { tierSum += lex.tier[w]; tierN++; }
+      const t = cachedMinTurns(d, w);
+      if (t != null) { turnSum += t; turnN++; }
+    });
+    const avgTier = tierN ? tierSum / tierN : 0;
+    const avgTurns = turnN ? turnSum / turnN : 0;
+    const parts = {
+      work: clamp01((n - 3) / 11),
+      board: clamp01((cells - 6) / 9),
+      len: clamp01((maxL - 3) / 4),
+      vocab: clamp01(avgTier / 4),
+      path: clamp01(avgTurns / 2)
+    };
+    const score = Math.round(100 * (parts.work + parts.board + parts.len + parts.vocab + parts.path) / 5);
+    return { score: score, n: n, cells: cells, maxL: maxL, avgTier: avgTier, avgTurns: avgTurns, parts: parts };
+  }
+  /* 必答词：有铺满解就用解里的路径，否则任意一条直线走法即算。额外词始终走后者。 */
+  function straightOf(d, words) {
+    const req = new Set(d.words || []);
+    const cover = words.some(w => req.has(w)) ? coverOf(d) : null;
+    const facts = words.map(w => {
+      if (req.has(w) && cover && cover.assign && cover.assign[w]) {
+        const path = cover.assign[w];
+        return { w: w, straight: pathIsStraight(path, d.W), via: 'solution', path: path.slice() };
+      }
+      return { w: w, straight: cachedMinTurns(d, w) === 0, via: 'any', path: null };
+    });
+    const k = facts.filter(f => f.straight).length;
+    return { k: k, n: words.length, share: words.length ? k / words.length : 0, facts: facts };
+  }
+  function paceExplain(metric, included, showGuide) {
+    const tail = {
+      count: '绿色是比前一关少了至少 2 个词的回落，红色是比前后关都多出至少 2 个词的峰值。',
+      diff: '绿色是比前一关低了至少 5 分的回落，红色是比前后关都高出至少 5 分的峰值。',
+      longest: '绿色是比前一关短了至少 1 个字母的回落，红色是比前后关都长出至少 1 个字母的峰值。',
+      rare: '绿色是比前一关低了至少 0.4 的回落，红色是比前后关都高出至少 0.4 的峰值。',
+      board: '绿色是比前一关少了至少 2 格的回落，红色是比前后关都多出至少 2 格的峰值。',
+      straight: '绿色是比前一关低了至少 15 个百分点的回落，红色是比前后关都高出至少 15 个百分点的峰值。',
+      avg: '绿色是比前一关短了至少 0.4 个字母的回落，红色是比前后关都长出至少 0.4 个字母的峰值。'
+    }[metric] || '';
+    let head = '';
+    if (metric === 'count') {
+      head = included
+        ? '柱高是必答词和额外词的个数，两边都有的词只算一次。竞品细框只对照必答词数，这里不画。'
+        : (showGuide
+          ? '柱高是必答词数。细框是竞品前段的大致词量，只作对照。'
+          : '柱高是必答词数。关数超过 40，不画竞品细框。');
+    } else if (metric === 'diff') {
+      head = '柱高是难度分（0–100）。必答词数、棋盘格数、最长词、平均罕见档和平均最少拐弯五项拉到同一尺度后取平均，再乘 100。不算额外词，没有竞品细框。';
+    } else if (metric === 'longest') {
+      head = '柱高是' + (included ? '必答词和额外词' : '必答词') + '里最长的词有几个字母。没有竞品细框。';
+    } else if (metric === 'rare') {
+      head = '柱高是' + (included ? '必答词和额外词' : '必答词') + '的平均罕见度：词库档位换成 1–5（简单 1，常见 2，稀有 3，罕见 4，极其罕见 5），词库没有的词不计入平均。没有竞品细框。';
+    } else if (metric === 'board') {
+      head = '柱高是棋盘格数。菱形标出有幕布的关。不算词，没有竞品细框。';
+    } else if (metric === 'straight') {
+      head = '柱高是直线单词占' + (included ? '必答词和额外词' : '必答词') + '的比例。直线指路径上的格子全在同一行或同一列。必答词有铺满解时以解里的那条路径为准；没有解时，只要有一条直线走法就算。额外词不在铺满解里，只要有一条直线走法就算。没有竞品细框。';
+    } else if (metric === 'avg') {
+      head = '柱高是' + (included ? '必答词和额外词' : '必答词') + '的平均字母数。没有竞品细框。';
+    }
+    return head + tail;
+  }
+  function measureLevel(d, metric, useExtra) {
+    const pack = wordPack(d, useExtra);
+    const words = pack.words;
+    const cells = d.W * d.H;
+    const curtain = (d.curtains || []).some(c => c.cells && c.cells.length);
+    if (metric === 'count') {
+      const value = words.length;
+      const title = useExtra
+        ? value + ' 个词（必答 ' + pack.req + '，额外 ' + pack.added + '）'
+        : value + ' 个必答';
+      return { value: value, title: title, curtain: curtain };
+    }
+    if (metric === 'diff') {
+      const info = difficultyOf(d);
+      return {
+        value: info.score, curtain: curtain, diff: info,
+        title: '难度分 ' + info.score + '（必答 ' + info.n + '，格数 ' + info.cells + '，最长 ' + info.maxL + '，罕见档 ' + fmt2(info.avgTier) + '，最少拐弯 ' + fmt2(info.avgTurns) + '）'
+      };
+    }
+    if (metric === 'longest') {
+      const value = words.reduce((m, w) => Math.max(m, w.length), 0);
+      return { value: value, curtain: curtain, title: words.length ? '最长 ' + value + ' 个字母' : '没有词' };
+    }
+    if (metric === 'rare') {
+      const info = rarityOf(words);
+      const unk = info.unknown ? '（未收 ' + info.unknown + ' 个不计入）' : '';
+      return { value: info.avg, curtain: curtain, rare: info, title: '罕见度 ' + fmt2(info.avg) + unk };
+    }
+    if (metric === 'board') {
+      return { value: cells, curtain: curtain, title: cells + ' 格（' + d.W + '×' + d.H + '）' + (curtain ? ' · 有幕布' : '') };
+    }
+    if (metric === 'straight') {
+      const info = straightOf(d, words);
+      const pct = info.n ? Math.round(100 * info.k / info.n) : 0;
+      return {
+        value: info.share, curtain: curtain, straightK: info.k, straightN: info.n, facts: info.facts,
+        title: '直线 ' + info.k + '/' + info.n + '（' + pct + '%）'
+      };
+    }
+    const sum = words.reduce((s, w) => s + w.length, 0);
+    const value = words.length ? sum / words.length : 0;
+    return { value: value, curtain: curtain, title: words.length ? '平均 ' + fmt2(value) + ' 个字母' : '没有词' };
+  }
+  function paceSeries(levels) {
+    const metric = PACE_SPEC[pacePref.metric] ? pacePref.metric : 'count';
+    const spec = PACE_SPEC[metric];
+    const useExtra = !!(spec.extra && pacePref.extra);
+    const showGuide = metric === 'count' && !useExtra && levels.length <= 40;
+    const rows = levels.map((d, i) => {
+      const row = measureLevel(d, metric, useExtra);
+      row.guide = showGuide ? C.guideTargets(i) : null;
+      return row;
+    });
+    const values = rows.map(r => r.value);
+    const delta = spec.delta;
+    rows.forEach((r, i) => {
+      const prev = i ? values[i - 1] : null;
+      const next = i + 1 < values.length ? values[i + 1] : null;
+      r.recovery = prev != null && r.value <= prev - delta + 1e-9;
+      r.peak = prev != null && next != null && r.value + 1e-9 >= prev + delta && r.value + 1e-9 >= next + delta;
+      r.title = '第 ' + (i + 1) + ' 关 · ' + r.title + (r.recovery ? ' · 回落' : '') + (r.peak ? ' · 峰值' : '');
+    });
+    const scale = Math.max(spec.floor, ...values, ...(showGuide ? rows.map(r => r.guide) : [0]));
+    return {
+      metric: metric, extra: !!pacePref.extra, useExtra: useExtra, showGuide: showGuide, scale: scale, rows: rows,
+      explain: paceExplain(metric, useExtra, showGuide)
+    };
+  }
+
   function render() {
     hideGloss();
     const D = cur();
@@ -1856,7 +2094,7 @@ function ready(D, A, issues) {
     $('#sizeLabel').textContent = D.W + ' × ' + D.H;
     $('#targetCount').textContent = D.words.length;
     $('#extraCount').textContent = D.extras.length;
-    renderPace(pace);
+    renderPace();
     renderReuse(hits);
     $('#reuseLine').title = $('#reuseLine').textContent;
     renderBoard();
@@ -1867,20 +2105,32 @@ function ready(D, A, issues) {
     $('#btnPlay').disabled = !C.ready(D, A, issues);
   }
 
-  function renderPace(pace) {
-    const max = Math.max(4, ...pace.map(x => Math.max(x.n, x.guide)));
-    const showGuide = pace.length <= 40;
-    $('#pace').innerHTML = pace.map((x, i) => {
-      const h = Math.max(4, Math.round(64 * x.n / max));
-      const g = Math.max(4, Math.round(64 * x.guide / max));
-      const cls = ['bar', i === campaign.index ? 'on' : '', x.recovery ? 'rec' : '', x.peak ? 'peak' : ''].filter(Boolean).join(' ');
-      const title = '第 ' + (i + 1) + ' 关 · ' + x.n + ' 个必答' + (x.recovery ? ' · 回落' : '') + (x.peak ? ' · 峰值' : '') + (x.triple ? ' · 词量、词长、棋盘同时加重' : '');
-      return `<button type="button" class="${cls}" data-i="${i}" title="${esc(title)}"><i style="height:${h}px"></i>${showGuide ? `<s style="height:${g}px"></s>` : ''}<em>${i + 1}</em></button>`;
-    }).join('');
+  function renderPace() {
+    const series = paceSeries(campaign.levels);
+    lastPace = series;
     const el = $('#pace');
-    el.classList.toggle('dense', pace.length > 150 && pace.length <= 400);
-    el.classList.toggle('xdense', pace.length > 400);
-    $('#lvTotal').textContent = '（共 ' + pace.length + ' 关，当前第 ' + (campaign.index + 1) + ' 关）';
+    el.dataset.metric = series.metric;
+    el.dataset.extra = series.useExtra ? '1' : '0';
+    el.innerHTML = series.rows.map((x, i) => {
+      const h = Math.max(4, Math.round(64 * x.value / series.scale));
+      const g = series.showGuide ? Math.max(4, Math.round(64 * x.guide / series.scale)) : 0;
+      const cls = ['bar', i === campaign.index ? 'on' : '', x.recovery ? 'rec' : '', x.peak ? 'peak' : '', series.metric === 'board' && x.curtain ? 'curtain' : ''].filter(Boolean).join(' ');
+      return `<button type="button" class="${cls}" data-i="${i}" data-value="${x.value}" title="${esc(x.title)}"><i style="height:${h}px"></i>${series.showGuide ? `<s style="height:${g}px"></s>` : ''}<em>${i + 1}</em></button>`;
+    }).join('');
+    el.classList.toggle('dense', series.rows.length > 150 && series.rows.length <= 400);
+    el.classList.toggle('xdense', series.rows.length > 400);
+    $('#lvTotal').textContent = '（共 ' + series.rows.length + ' 关，当前第 ' + (campaign.index + 1) + ' 关）';
+    document.querySelectorAll('#paceMetrics button[data-metric]').forEach(b => {
+      const on = b.dataset.metric === series.metric;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    const extraBtn = $('#paceExtra');
+    extraBtn.classList.toggle('on', series.extra);
+    extraBtn.classList.toggle('idle', !PACE_SPEC[series.metric].extra);
+    extraBtn.setAttribute('aria-pressed', series.extra ? 'true' : 'false');
+    extraBtn.title = PACE_SPEC[series.metric].extra ? '把额外词算进当前这项' : '当前这项不算额外词，开关仍会记住';
+    $('#paceExplain').textContent = series.explain;
     const on = el.children[campaign.index];
     if (on) {
       const l = on.offsetLeft - el.offsetLeft, r = l + on.offsetWidth;
@@ -2830,6 +3080,14 @@ function ready(D, A, issues) {
     const b = e.target.closest('button'); if (!b) return;
     campaign.index = +b.dataset.i; boardKey = ''; suggCache = null; persist(); render();
   });
+  $('#paceMetrics').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    if (b.id === 'paceExtra') pacePref.extra = !pacePref.extra;
+    else if (b.dataset.metric && PACE_SPEC[b.dataset.metric]) pacePref.metric = b.dataset.metric;
+    else return;
+    savePacePref();
+    render();
+  });
   $('#presets').addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;
     resize(+b.dataset.w, +b.dataset.h);
@@ -3221,7 +3479,17 @@ function ready(D, A, issues) {
     cfg: batchCfg,
     ready: () => bootReady,
     flush: () => persist(),
-    file: () => currentFile
+    file: () => currentFile,
+    pace: () => ({ metric: pacePref.metric, extra: !!pacePref.extra, explain: $('#paceExplain').textContent }),
+    paceRows: () => lastPace ? lastPace.rows.map(r => ({
+      value: r.value, title: r.title, recovery: !!r.recovery, peak: !!r.peak,
+      curtain: !!r.curtain, guide: r.guide, straightK: r.straightK, straightN: r.straightN,
+      facts: r.facts || null, diff: r.diff || null, rare: r.rare || null
+    })) : [],
+    straightProbe: lv => {
+      const d = C.fromLevel(lv);
+      return straightOf(d, d.words || []);
+    }
   };
 
   /* 悬停释义。词库按首字母放在 dict/a.json … dict/z.json，第一次指到该字母才 fetch。 */
