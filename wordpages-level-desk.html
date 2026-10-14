@@ -122,7 +122,13 @@ button{background:none;border:0;cursor:pointer;padding:0}
 #pgrid .pt.curt{background:#c9b89a;color:transparent}
 #pgrid .pt .c{position:absolute;top:3px;right:6px;font-size:13px;color:var(--bad)}
 .ptools{display:flex;gap:10px;justify-content:center;padding-top:8px}
+.pnav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+.pnav span{font-size:14px;letter-spacing:.08em;color:var(--ink-soft);white-space:nowrap}
+.ptools button:disabled,.pnav button:disabled,.done button:disabled{opacity:.35;cursor:default}
 .done{margin-top:auto;text-align:center;color:var(--ok);letter-spacing:.2em}
+.done p{margin:0}
+.done button{letter-spacing:.08em;margin-top:10px}
+#desk.under-play{visibility:hidden;pointer-events:none}
 #zen{position:fixed;right:16px;bottom:16px;width:min(420px,calc(100% - 32px));max-height:46vh;overflow:auto;
   background:var(--paper);border-radius:4px;padding:12px 14px;box-shadow:0 16px 40px rgba(0,0,0,.35);z-index:4}
 #modal{position:fixed;inset:0;background:rgba(20,12,8,.45);display:grid;place-items:center;z-index:6;padding:16px}
@@ -273,10 +279,18 @@ html,body{overflow-x:hidden;max-width:100vw}
 <div id="play" hidden>
   <div class="book">
     <div class="pg">
+      <div class="pnav">
+        <button type="button" class="ghost" id="pPrev">上一关</button>
+        <span id="pProg">第 1 / 1 关</span>
+        <button type="button" class="ghost" id="pNext">下一关</button>
+      </div>
       <h2>词表</h2>
       <div class="pwords" id="pwords"></div>
       <p class="note" id="pstatus"></p>
-      <div class="done" id="pdone" hidden>这一页读完了</div>
+      <div class="done" id="pdone" hidden>
+        <p>这一页读完了</p>
+        <button type="button" class="ghost" id="pWinNext">下一关</button>
+      </div>
       <div class="ptools"><button class="ghost" id="pBack" style="color:var(--ink)">返回关卡台</button></div>
     </div>
     <div class="pg">
@@ -1650,10 +1664,44 @@ function ready(D, A, issues) {
 
   /* ---------- 试玩：与 game.js 相同的四方向、次数和幕布 ---------- */
   let play = null;
-  function startPlay() {
+  let playNav = null;
+  function playBlock(d) {
+    if (!d || !d.letters || d.letters.some(ch => !ch)) return '还有空格';
+    if (!d.words || !d.words.length) return '没有必答词';
+    const An = analyzeD(d);
+    const iss = C.extraIssues(d, w => lex.valid.has(w));
+    if (An.bad && An.bad.length) return '必答词连不出';
+    if (!An.counts) return '铺不满棋盘';
+    if (d.curtains && d.curtains.some(c => c.cells.length && c.req >= d.words.length)) return '幕布揭不开';
+    if (iss.some(x => x.kind === 'path' || x.kind === 'length')) return '额外词不成立';
+    if (An.counts.some(c => c >= 36)) return '使用次数过高';
+    if (!C.ready(d, An, iss)) return '还不能试玩';
+    const pr = proveD(d, An);
+    if (pr && !pr.overflow && !pr.ok) return '按使用次数走不完';
+    return '';
+  }
+  function findPlayable(from, dir) {
+    const skipped = [];
+    for (let i = from + dir; i >= 0 && i < campaign.levels.length; i += dir) {
+      const why = playBlock(campaign.levels[i]);
+      if (!why) return { index: i, skipped: skipped };
+      skipped.push({ index: i, why: why });
+    }
+    return { index: -1, skipped: skipped };
+  }
+  function refreshPlayNav() {
+    playNav = { prev: findPlayable(campaign.index, -1), next: findPlayable(campaign.index, 1) };
+  }
+  function skipNote(skipped) {
+    if (!skipped || !skipped.length) return '';
+    if (skipped.length === 1) return '跳过第 ' + (skipped[0].index + 1) + ' 关（' + skipped[0].why + '）';
+    const why = skipped[0].why;
+    const same = skipped.every(s => s.why === why);
+    return '跳过 ' + skipped.length + ' 关（' + (same ? why : '不能试玩') + '）';
+  }
+  function openPlaySession() {
     const D = cur();
     const lv = C.toLevel(D, A);
-    if (!C.ready(D, A, issues)) { toast('这一关还不能按字页的规则玩'); return; }
     const rows = lv.g.split(',');
     const L = {
       H: rows.length, W: rows[0].length, N: rows.length * rows[0].length,
@@ -1666,9 +1714,40 @@ function ready(D, A, issues) {
       L: L,
       P: { counts: L.counts0.slice(), found: L.words.map(() => false), order: [], extras: [], hist: [], done: false }
     };
+    drag = null;
+    $('#pcur').className = '';
+    $('#pcur').textContent = '';
     $('#play').hidden = false;
-    $('#desk').hidden = true;
+    $('#desk').classList.add('under-play');
+    const ae = document.activeElement;
+    if (ae && ae.blur && ae !== document.body) ae.blur();
+    refreshPlayNav();
     renderPlay();
+  }
+  function startPlay() {
+    const D = cur();
+    if (!C.ready(D, A, issues)) { toast('这一关还不能按字页的规则玩'); return; }
+    const pr = proveD(D, A);
+    if (pr && !pr.overflow && !pr.ok) { toast('这一关按使用次数走不完'); return; }
+    openPlaySession();
+  }
+  function goPlayIndex(index, skipped) {
+    if (index < 0 || index >= campaign.levels.length || index === campaign.index) return;
+    campaign.index = index;
+    boardKey = '';
+    suggCache = null;
+    persist();
+    render();
+    startPlay();
+    const note = skipNote(skipped);
+    if (note) toast(note);
+  }
+  function stepPlay(dir) {
+    if (!play || $('#play').hidden) return;
+    if (!playNav) refreshPlayNav();
+    const nav = dir < 0 ? playNav.prev : playNav.next;
+    if (!nav || nav.index < 0) return;
+    goPlayIndex(nav.index, nav.skipped);
   }
   function closedSet(nFound) {
     const s = new Set();
@@ -1760,6 +1839,15 @@ function ready(D, A, issues) {
       return `<b class="${P.found[i] ? 'found' : 'open'}${shown ? ' gw' : ''}">${shown ? esc(w) : '·'.repeat(w.length)}</b>`;
     }).join('');
     $('#pdone').hidden = !P.done;
+    const atStart = !playNav || playNav.prev.index < 0;
+    const atEnd = !playNav || playNav.next.index < 0;
+    $('#pProg').textContent = '第 ' + (campaign.index + 1) + ' / ' + campaign.levels.length + ' 关';
+    $('#pPrev').disabled = atStart;
+    $('#pNext').disabled = atEnd;
+    $('#pWinNext').disabled = atEnd;
+    $('#pPrev').title = atStart ? (campaign.index <= 0 ? '已经是第一关' : '前面没有能试玩的关') : '';
+    $('#pNext').title = atEnd ? (campaign.index >= campaign.levels.length - 1 ? '已经是最后一关' : '后面没有能试玩的关') : '';
+    $('#pWinNext').title = $('#pNext').title;
     $('#pExtra').textContent = '额外 ' + P.extras.length + (L.extras.length ? ' / ' + L.extras.length : '');
     const g = $('#pgrid');
     g.style.gridTemplateColumns = 'repeat(' + L.W + ',64px)';
@@ -2014,7 +2102,15 @@ function ready(D, A, issues) {
     campaign = data; boardKey = ''; suggCache = null; persist(); render();
   };
   $('#btnPlay').onclick = startPlay;
-  $('#pBack').onclick = () => { $('#play').hidden = true; $('#desk').hidden = false; play = null; };
+  $('#pPrev').onclick = () => stepPlay(-1);
+  $('#pNext').onclick = () => stepPlay(1);
+  $('#pWinNext').onclick = () => stepPlay(1);
+  $('#pBack').onclick = () => {
+    $('#play').hidden = true;
+    $('#desk').classList.remove('under-play');
+    play = null;
+    drag = null;
+  };
   $('#btnSaveDesk').onclick = saveDesk;
   $('#btnExport').onclick = exportGame;
   $('#btnImport').onclick = () => {
@@ -2091,6 +2187,12 @@ function ready(D, A, issues) {
       if (!$('#modal').hidden) $('#modal').hidden = true;
       else if (!$('#play').hidden) $('#pBack').click();
     }
+    if ($('#play').hidden || !$('#modal').hidden) return;
+    const tag = (e.target && e.target.tagName) || '';
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (e.target && e.target.isContentEditable)) return;
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); stepPlay(-1); }
+    else if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); stepPlay(1); }
   });
 
   /* ---------- 批量生成（WPGen） ---------- */
