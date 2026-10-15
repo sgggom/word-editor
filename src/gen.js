@@ -123,22 +123,54 @@
     return { ok: ok && !overflow, states: states, dead: dead, overflow: overflow };
   }
 
+  /* X 与 X+s、X+es，或把 y 换成 ies。以 ss 结尾的不当成 +s。exempt 收的是 -s 那一头。 */
+  function pluralPairs(words, exempt) {
+    const ex = exempt instanceof Set ? exempt : new Set(exempt || []);
+    const set = new Set();
+    (words || []).forEach(w => { if (w) set.add(String(w).toUpperCase()); });
+    const out = [], seen = new Set();
+    set.forEach(W => {
+      const bases = [];
+      if (W.length >= 4 && W.endsWith('S') && !W.endsWith('SS')) bases.push(W.slice(0, -1));
+      if (W.length >= 4 && W.endsWith('ES')) bases.push(W.slice(0, -2));
+      if (W.length >= 4 && W.endsWith('IES')) bases.push(W.slice(0, -3) + 'Y');
+      bases.forEach(base => {
+        if (base.length < 2 || base === W || !set.has(base) || ex.has(W)) return;
+        const key = base + '\n' + W;
+        if (seen.has(key)) return;
+        seen.add(key);
+        out.push([base, W]);
+      });
+    });
+    out.sort((a, b) => a[0].localeCompare(b[0]) || a[1].localeCompare(b[1]));
+    return out;
+  }
+  function clashesPlural(word, have, exempt) {
+    const W = String(word || '').toUpperCase();
+    if (!W) return false;
+    const set = have instanceof Set ? have : new Set(have || []);
+    return pluralPairs([W].concat([...set]), exempt).some(p => p[0] === W || p[1] === W);
+  }
+
   /* Build the lexicon views the generator needs.
-     Required pool is tier 0–1 (and tier 2, capped later). Tiers 3–4 stay extras. */
+     Required pool is tier 0–1 (and tier 2, capped later). Tiers 3–4 stay extras.
+     Abbreviations in policy.abbr are never required; they may remain valid extras. */
   function prepare(lexRows, validSet, policy) {
     const no = new Set([].concat(policy.blocked, policy.flagged, policy.mild, policy.specialist));
     const blocked = new Set(policy.blocked);
+    const abbr = new Set((policy.abbr || []).map(w => String(w).toUpperCase()));
+    const pluralExempt = new Set((policy.pluralExempt || []).map(w => String(w).toUpperCase()));
     const info = Object.create(null), pool = [];
     lexRows.forEach(r => {
       info[r.w] = r;
       if (!/^[A-Z]{3,7}$/.test(r.w)) return;
-      if (r.spec || no.has(r.w)) return;
+      if (r.spec || no.has(r.w) || abbr.has(r.w)) return;
       if (r.tier !== 0 && r.tier !== 1 && r.tier !== 2) return;
       pool.push(r);
     });
     const valid = [];
     validSet.forEach(w => { if (/^[A-Z]{3,10}$/.test(w) && !blocked.has(w)) valid.push(w); });
-    return { info: info, pool: pool, validTrie: trieOf(valid), no: no, blocked: blocked };
+    return { info: info, pool: pool, validTrie: trieOf(valid), no: no, blocked: blocked, abbr: abbr, pluralExempt: pluralExempt };
   }
 
   /* difficulty 0..1 for a level number under the curve */
@@ -256,7 +288,7 @@
       let ok = false;
       for (let t = 0; t < 40 && !ok; t++) {
         const L = R() < 0.55 ? 3 : (R() < 0.8 ? 4 : 5);
-        const list = (byLen[Math.min(L, tg.maxLen)] || byLen[3] || []).filter(r => !used.has(r.w) && r.tier < 2);
+        const list = (byLen[Math.min(L, tg.maxLen)] || byLen[3] || []).filter(r => !used.has(r.w) && r.tier < 2 && !clashesPlural(r.w, used, P.pluralExempt));
         if (!list.length) continue;
         const r = pickWeighted(list, R, zw);
         const p = place(r.w, grid, NB, R, 1, tg.turny);
@@ -283,6 +315,7 @@
       const w = rest[k], inf = P.info[w];
       if (w.length >= 5 && longN >= longCap) continue;
       if (inf.tier === 2 && tier2N >= tg.tier2Max) continue;
+      if (clashesPlural(w, used, P.pluralExempt)) continue;
       const ps = pathsFor(w);
       if (!ps.length) continue;
       /* path choice by complexity */
@@ -295,6 +328,8 @@
     if (chosen.length < Math.max(3, tg.T - 1)) return { why: 'few' };
     const words = chosen.map(c => c.w);
     if (new Set(words).size !== words.length) return { why: 'dup' };
+    if (words.some(w => P.abbr && P.abbr.has(w))) return { why: 'abbr' };
+    if (pluralPairs(words, P.pluralExempt).length) return { why: 'plural' };
     const short = words.filter(w => w.length <= 4).length;
     if (words.length >= 5 && short / words.length < 0.6) return { why: 'mix' };
     /* 4) counts are exactly the uses of the constructed paths */
@@ -346,5 +381,5 @@
 
   root.WPGen = { rng: rng, hash: hash, nbr: nbr, allPaths: allPaths, scan: scan, trieOf: trieOf,
     exhaustive: exhaustive, prepare: prepare, curveAt: curveAt, targetsFor: targetsFor,
-    attempt: attempt, generateOne: generateOne };
+    attempt: attempt, generateOne: generateOne, pluralPairs: pluralPairs };
 })(typeof globalThis !== 'undefined' ? globalThis : this);
