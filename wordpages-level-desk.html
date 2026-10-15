@@ -246,11 +246,24 @@ html.play-on,html.play-on body{overflow:hidden;height:100%;max-height:100dvh}
   background:var(--red);color:#f6e9cf;font-family:"EB Garamond",Palatino,serif;font-size:calc(var(--tile) * .3);font-weight:600;
   box-shadow:0 0 0 2px rgba(155,44,34,.3),0 2px 4px rgba(0,0,0,.3)
 }
-#pphone .ph-tools{flex:0 0 auto;width:100%;display:flex;flex-direction:row;align-items:center;justify-content:center;gap:22px;padding:2px 0 8px}
+#pphone .ph-tools{
+  flex:0 0 auto;width:100%;min-width:0;box-sizing:border-box;
+  display:flex;flex-direction:row;align-items:center;justify-content:flex-start;gap:8px;
+  min-height:52px;padding:2px 0 8px
+}
+#pphone .ph-rounds{flex:0 0 auto;display:flex;align-items:center;gap:22px}
+#pphone .ph-tool-pad{flex:0 0 auto;width:0;height:0;pointer-events:none}
+#pphone .ph-tools.center-tools{justify-content:space-between}
+#pphone .ph-tools.center-tools .ph-tool-pad{width:var(--pill-w,0px)}
+#pphone .ph-tools:not(.center-tools) .ph-rounds{margin-left:auto}
+#pphone .ph-tools.tight{gap:4px}
+#pphone .ph-tools.tight .ph-rounds{gap:6px}
+#pphone .ph-tools.tight .ph-round{width:32px;height:32px;box-shadow:inset 0 0 0 1.5px currentColor,0 0 0 2px rgba(255,250,240,.85),0 0 0 3.5px currentColor}
+#pphone .ph-tools.tight .ph-round svg{width:16px;height:16px}
 #pphone .ph-pill{
-  flex:0 0 auto;align-self:center;height:40px;margin:0 0 2px;padding:0 12px 0 14px;border-radius:21px;
+  flex:0 0 auto;align-self:center;height:40px;margin:0;padding:0 12px 0 14px;border-radius:21px;
   display:flex;align-items:center;gap:6px;color:var(--ink);font-family:Inter,"Noto Sans SC",system-ui,sans-serif;
-  font-size:13px;font-weight:500;letter-spacing:.04em;background:#fffaf0;
+  font-size:13px;font-weight:500;letter-spacing:.04em;background:#fffaf0;white-space:nowrap;
   box-shadow:0 0 0 1px #d2c2a4,0 8px 18px rgba(80,55,25,.18)
 }
 #pphone .ph-pill svg{width:18px;height:18px}
@@ -274,10 +287,13 @@ html.play-on,html.play-on body{overflow:hidden;height:100%;max-height:100dvh}
 #pphone[data-fit="short"] .ph-wtitle{margin-bottom:4px;font-size:12px}
 #pphone[data-fit="short"] #pcur{min-height:22px;font-size:16px}
 #pphone[data-fit="short"] .ph-gridwrap{padding:4px 2px}
-#pphone[data-fit="short"] .ph-tools{gap:12px;padding:0}
+#pphone[data-fit="short"] .ph-tools{min-height:40px;padding:0}
+#pphone[data-fit="short"] .ph-rounds{gap:12px}
 #pphone[data-fit="short"] .ph-round{width:36px;height:36px;box-shadow:inset 0 0 0 1.5px currentColor,0 0 0 2px rgba(255,250,240,.85),0 0 0 3.5px currentColor}
 #pphone[data-fit="short"] .ph-round svg{width:18px;height:18px}
-#pphone[data-fit="short"] .ph-pill{height:30px;margin:0;padding:0 8px 0 10px;font-size:12px}
+#pphone[data-fit="short"] .ph-pill{height:30px;padding:0 8px 0 10px;font-size:12px}
+#pphone .ph-tools.tight .ph-pill{height:28px;padding:0 6px 0 8px;font-size:11px;gap:4px}
+#pphone .ph-tools.tight .ph-pill svg{width:14px;height:14px}
 .pskins{display:flex;flex-direction:column;gap:8px;flex:0 0 auto;max-height:100%;overflow:auto}
 .pskins button{
   width:58px;border:1px solid rgba(243,234,214,.28);border-radius:10px;padding:4px 4px 3px;color:#f3ead6;
@@ -538,7 +554,7 @@ html,body{overflow-x:hidden;max-width:100vw}
 <div id="desk">
   <header class="top">
     <div>
-      <h1>字页关卡台 <span>给书页连词排一串关</span> <span class="ver" id="buildVer">版本 2026.10.15.4</span></h1>
+      <h1>字页关卡台 <span>给书页连词排一串关</span> <span class="ver" id="buildVer">版本 2026.10.15.5</span></h1>
       <p>玩法是字页自己的：上下左右连字母，一格在一个词里只用一次，用完就消失。编排方式参照 Word Tiles 和 Zen Word：必答词和额外词分开，难度拆开看，不合成一个分数。</p>
     </div>
     <div class="top-actions">
@@ -685,18 +701,21 @@ html,body{overflow-x:hidden;max-width:100vw}
             <div id="pgrid"></div>
           </div>
           <nav class="ph-tools">
-            <button type="button" class="ph-round" id="pUndo" aria-label="撤回" title="撤回">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 4-5 5 5 5M3 9h10a7 7 0 0 1 0 14" transform="translate(2 -1)" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <button type="button" class="ph-pill" id="pExtraPill">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 13H7L6 8Zm3 0V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <b>额外词</b>
+              <em id="pPillN">0</em>
             </button>
-            <button type="button" class="ph-round" id="pHint" aria-label="指出一条能走通的路径" title="指出一条能走通的路径">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21 15 10M7 17C4 9 12 2 21 3c0 9-7 17-14 14ZM10 14l-1-5m4 2 5 1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
+            <div class="ph-rounds">
+              <button type="button" class="ph-round" id="pUndo" aria-label="撤回" title="撤回">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 4-5 5 5 5M3 9h10a7 7 0 0 1 0 14" transform="translate(2 -1)" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button type="button" class="ph-round" id="pHint" aria-label="指出一条能走通的路径" title="指出一条能走通的路径">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21 15 10M7 17C4 9 12 2 21 3c0 9-7 17-14 14ZM10 14l-1-5m4 2 5 1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <div class="ph-tool-pad" aria-hidden="true"></div>
           </nav>
-          <button type="button" class="ph-pill" id="pExtraPill">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 13H7L6 8Zm3 0V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <b>额外词</b>
-            <em id="pPillN">0</em>
-          </button>
         </div>
         <div class="pskins" id="pSkins" role="radiogroup" aria-label="试玩皮肤">
           <button type="button" role="radio" class="on" data-pskin="kyoto" aria-checked="true"><i></i><span>京都</span></button>
@@ -3009,11 +3028,38 @@ function ready(D, A, issues) {
     g.style.setProperty('--gap', gap + 'px');
     g.style.setProperty('--cols', String(L.W));
   }
+  function placeToolRow() {
+    const row = document.querySelector('#pphone .ph-tools');
+    const pill = $('#pExtraPill');
+    const rounds = row && row.querySelector('.ph-rounds');
+    const label = pill && pill.querySelector('b');
+    if (!row || !pill || !rounds) return;
+    row.classList.remove('tight', 'center-tools');
+    row.style.transform = '';
+    if (label) label.hidden = false;
+    const gap = () => row.classList.contains('tight') ? 4 : 8;
+    const tooWide = () => pill.offsetWidth + rounds.offsetWidth + gap() > row.clientWidth + 1;
+    if (tooWide()) row.classList.add('tight');
+    if (tooWide() && label) label.hidden = true;
+    const rowW = row.clientWidth;
+    const pillW = pill.offsetWidth;
+    const toolW = rounds.offsetWidth;
+    if (pillW + toolW + pillW <= rowW) {
+      row.style.setProperty('--pill-w', pillW + 'px');
+      row.classList.add('center-tools');
+    } else row.style.setProperty('--pill-w', '0px');
+    if (tooWide() && rowW > 0) {
+      const scale = Math.max(0.62, (rowW - 2) / (pill.offsetWidth + rounds.offsetWidth + gap()));
+      row.style.transformOrigin = 'left center';
+      row.style.transform = 'scale(' + scale.toFixed(3) + ')';
+    }
+  }
   function layoutPlay() {
     fitPhone();
     const wrap = $('#pgridwrap');
-    if (wrap && wrap.clientHeight > 36) sizePlayGrid();
-    else requestAnimationFrame(() => { if (play && !$('#play').hidden) { fitPhone(); sizePlayGrid(); } });
+    const go = () => { sizePlayGrid(); placeToolRow(); };
+    if (wrap && wrap.clientHeight > 36) go();
+    else requestAnimationFrame(() => { if (play && !$('#play').hidden) { fitPhone(); go(); } });
   }
   function renderPlay(fx) {
     const L = play.L, P = play.P;
