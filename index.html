@@ -6,7 +6,7 @@
 <title>字页关卡台</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=EB+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
 <style>:root{
   --paper:#f4ecda; --paper-2:#efe4cc; --ink:#2b2118; --ink-soft:#5c4b3a; --faint:#9a8a72;
   --rule:#d2c2a4; --desk:#241810; --ok:#2f6b45; --warn:#8a5a12; --bad:#9b2c22;
@@ -166,15 +166,124 @@ button{background:none;border:0;cursor:pointer;padding:0}
 .pwords b.slots{display:inline-flex;align-items:flex-end;gap:3px;letter-spacing:0}
 .pwords b.slots i{display:block;width:10px;height:16px;border-bottom:2px solid currentColor;opacity:.75;font-style:normal}
 .pwords .empty{font-size:13px;color:var(--faint);letter-spacing:.04em}
-#pcur{min-height:48px;font-family:var(--en);font-size:34px;letter-spacing:.12em;text-align:center}
-#pcur.bad{color:var(--bad)} #pcur.ok{color:var(--ok)} #pcur.extra{color:#1d2a44}
-#pgrid{display:grid;gap:8px;justify-content:center;margin:auto;touch-action:none}
-#pgrid .pt{width:64px;height:64px;display:grid;place-items:center;position:relative;border-radius:5px;background:#fffaf0;
-  box-shadow:0 2px 0 #c2ac82;font-family:var(--en);font-size:30px;user-select:none}
-#pgrid .pt.sel{outline:2px solid var(--ink)}
-#pgrid .pt.spent{opacity:.25}
-#pgrid .pt.curt{background:#c9b89a;color:transparent}
-#pgrid .pt .c{position:absolute;top:3px;right:6px;font-size:13px;color:var(--bad)}
+/* 试玩右边是一部 9:19.5 的手机。字块、连词、幕布和皮肤都跟游戏同一套观感。 */
+.pg-stage{background:#16100c;overflow:hidden}
+.phone-fit{flex:1;min-height:0;min-width:0;display:flex;align-items:center;justify-content:center;gap:10px}
+#pphone{
+  --ink:#2b2118; --ink-soft:#5c4b3a; --red:#9b2c22; --ok:#2f6b45; --gold-hi:#e8c88a;
+  position:relative;flex:0 0 auto;overflow:hidden;border-radius:28px;color:var(--ink);
+  background:#f3ead6;box-shadow:0 18px 44px rgba(0,0,0,.38),inset 0 0 0 1px rgba(255,255,255,.28);
+  display:flex;flex-direction:column;min-height:0;user-select:none;
+  font-family:"EB Garamond",Palatino,serif;
+  aspect-ratio:9/19.5;height:100%;max-height:100%;width:auto;max-width:calc(100% - 74px)
+}
+#pphone .ph-bg,#pphone .ph-veil{position:absolute;pointer-events:none}
+#pphone .ph-bg{inset:-24px;z-index:0;background:var(--photo,none) var(--photo-pos,center)/cover no-repeat;filter:blur(8px);transform:scale(1.06)}
+#pphone .ph-veil{inset:0;z-index:0}
+#pphone .ph-ghead,#pphone .ph-panel,#pphone #pcur,#pphone .ph-gridwrap{position:relative;z-index:1}
+#pphone .ph-ghead{padding:18px 18px 4px}
+#pphone .ph-gtitle{font-weight:800;font-size:clamp(22px,10cqw,34px);letter-spacing:.04em;line-height:1.05;font-family:Inter,"Noto Sans SC",system-ui,sans-serif}
+#pphone .ph-gplace{margin-top:3px;font-size:12px;letter-spacing:.22em;color:var(--ink-soft);font-family:Inter,"Noto Sans SC",system-ui,sans-serif}
+#pphone .ph-gplace:empty{display:none}
+#pphone .ph-panel{
+  margin:8px 72px 0 14px;padding:10px 12px 12px;border-radius:16px;max-height:32%;overflow:auto;
+  background:rgba(255,250,240,.72);box-shadow:inset 0 0 0 1px rgba(210,194,164,.85)
+}
+#pphone .ph-wtitle{font-family:Inter,system-ui,sans-serif;font-size:13px;font-weight:500;letter-spacing:.04em;color:var(--ink-soft);margin:0 0 8px}
+#pphone .ph-wtitle i{font-style:normal;margin-left:.2em}
+#pboxes{display:flex;flex-wrap:wrap;gap:8px 10px;align-content:flex-start}
+#pboxes .w{display:flex;gap:3px}
+#pboxes .lt{
+  width:var(--lw,16px);height:calc(var(--lw,16px) * 1.2);display:grid;place-items:end center;
+  font-family:"EB Garamond",Palatino,serif;font-size:calc(var(--lw,16px) * .82);font-weight:500;line-height:1;
+  color:transparent;border-bottom:1.5px solid #d2c2a4
+}
+#pboxes .w.found .lt.show{color:var(--ink);border-bottom-color:transparent;animation:pwrite .45s both}
+#pphone #pcur{
+  min-height:42px;margin:0;font-family:Inter,"EB Garamond",sans-serif;font-weight:700;
+  font-size:clamp(22px,7cqw,32px);letter-spacing:.16em;text-align:center;
+  display:flex;align-items:center;justify-content:center
+}
+#pphone #pcur.bad{color:var(--red)}
+#pphone #pcur.ok{color:var(--ok)}
+#pphone #pcur.extra{color:#1d2a44}
+#pphone #pcur.shake{animation:pshake .45s}
+#pphone #pcur.flying{color:transparent}
+.ph-gridwrap{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:4px 68px 58px 12px;touch-action:none}
+#pgrid{
+  --tile:52px; --gap:8px; --cols:4;
+  display:grid;gap:var(--gap);grid-template-columns:repeat(var(--cols),var(--tile));grid-auto-rows:var(--tile);
+  position:relative;isolation:isolate;margin:0;touch-action:none;perspective:640px
+}
+#pgrid .pt{
+  width:var(--tile);height:var(--tile);display:grid;place-items:center;position:relative;border-radius:calc(var(--tile) * .1);
+  background:#f8f1e1;color:var(--ink);
+  box-shadow:0 1px 0 #fffaf0 inset,0 0 0 1px #cdb994,0 2px 0 #c2ac82,0 4px 6px rgba(80,55,25,.25);
+  font-family:"EB Garamond",Palatino,serif;font-weight:600;font-size:calc(var(--tile) * .52);user-select:none;
+  transition:transform .12s,background-color .2s,box-shadow .2s
+}
+#pgrid .pt .ch{transform:translateY(-2%)}
+#pgrid .pt .c{
+  position:absolute;top:calc(var(--tile) * .06);right:calc(var(--tile) * .09);
+  font-size:calc(var(--tile) * .2);font-weight:500;color:var(--red);font-style:italic;line-height:1
+}
+#pgrid .pt.sel{transform:translateY(2px) scale(.96);background:#efe2c4;box-shadow:0 0 0 1px #a88d5e,0 0 0 calc(var(--tile) * .06) rgba(43,33,24,.12),0 1px 0 #b39a6b}
+#pgrid .pt.pop{animation:ppop .45s ease}
+#pgrid .pt.cntdown .c{animation:pcnt .5s ease}
+#pgrid .pt.spent{background:transparent;box-shadow:none;color:transparent;border:1.5px dashed rgba(154,138,114,.5);animation:perase .6s ease}
+#pgrid .pt.spent .c{display:none}
+#pgrid .pt.hint-glow{animation:phglow 1.4s ease 2}
+#pgrid .pt.curt{color:transparent;background:#d9c6a0;background-image:repeating-linear-gradient(45deg,rgba(91,74,58,.18) 0 2px,transparent 2px 9px);box-shadow:0 0 0 1px #a88d5e,0 3px 0 #9c8257}
+#pgrid .pt.curt .c{display:none}
+#pgrid .pt.opening{animation:punveil .7s ease}
+.curt-num{position:absolute;inset:0;display:grid;place-items:center;z-index:2;pointer-events:none}
+.curt-num b{
+  width:calc(var(--tile) * .56);height:calc(var(--tile) * .56);border-radius:50%;display:grid;place-items:center;
+  background:var(--red);color:#f6e9cf;font-family:"EB Garamond",Palatino,serif;font-size:calc(var(--tile) * .3);font-weight:600;
+  box-shadow:0 0 0 2px rgba(155,44,34,.3),0 2px 4px rgba(0,0,0,.3)
+}
+#pphone .ph-pill,#pphone .ph-sidebtns{position:absolute;z-index:2}
+#pphone .ph-pill{
+  left:14px;bottom:16px;height:42px;padding:0 10px 0 14px;border-radius:21px;
+  display:flex;align-items:center;gap:6px;color:var(--ink);font-family:Inter,"Noto Sans SC",system-ui,sans-serif;
+  font-size:13px;font-weight:500;letter-spacing:.04em;background:#fffaf0;
+  box-shadow:0 0 0 1px #d2c2a4,0 8px 18px rgba(80,55,25,.18)
+}
+#pphone .ph-pill svg{width:18px;height:18px}
+#pphone .ph-pill em{
+  min-width:20px;height:20px;padding:0 5px;border-radius:10px;display:grid;place-items:center;
+  background:#1d2a44;color:#f3ead6;font-style:normal;font-weight:600;font-size:12px;font-family:Inter,system-ui,sans-serif
+}
+#pphone .ph-pill em.bump{animation:pbump .45s}
+#pphone .ph-sidebtns{right:12px;top:46%;display:flex;flex-direction:column;gap:14px}
+#pphone .ph-round{
+  width:52px;height:52px;border-radius:50%;display:grid;place-items:center;color:#5c4b3a;
+  background:rgba(255,250,240,.6);
+  box-shadow:inset 0 0 0 1.5px currentColor,0 0 0 3px rgba(255,250,240,.85),0 0 0 4.5px currentColor
+}
+#pphone .ph-round svg{width:24px;height:24px}
+#pphone #pHint{color:var(--red)}
+#pphone .ph-round:active{transform:scale(.94)}
+.pskins{display:flex;flex-direction:column;gap:8px;flex:0 0 auto}
+.pskins button{
+  width:58px;border:1px solid rgba(243,234,214,.28);border-radius:10px;padding:4px 4px 3px;color:#f3ead6;
+  background:rgba(255,255,255,.04);display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;letter-spacing:.02em
+}
+.pskins button.on{border-color:#f3ead6;background:rgba(243,234,214,.14)}
+.pskins i{width:36px;height:46px;border-radius:6px;display:block;background:#ddd center/cover no-repeat}
+.pskins [data-pskin="kyoto"] i{background-image:url("assets/bg-kyoto-thumb.jpg")}
+.pskins [data-pskin="alps"] i{background-image:url("assets/bg-alps-thumb.jpg")}
+.pskins [data-pskin="wood"] i{background:linear-gradient(180deg,#efd3a4,#6a4422)}
+.pskins [data-pskin="book"] i{background:linear-gradient(180deg,#f8f1e1,#c9b48a)}
+.pfly{position:fixed;z-index:40;display:grid;place-items:center;pointer-events:none;font-family:Inter,"EB Garamond",sans-serif;font-weight:700;color:#2f6b45}
+@keyframes pwrite{from{opacity:0;transform:translateY(-4px);filter:blur(2px)}to{opacity:1;transform:none;filter:none}}
+@keyframes pshake{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+@keyframes ppop{40%{transform:scale(1.1)}}
+@keyframes pcnt{0%{transform:scale(1.8);opacity:.2}100%{transform:none}}
+@keyframes perase{0%{background:#f8f1e1;color:var(--ink);transform:scale(1)}50%{transform:scale(.88);filter:blur(1.5px)}100%{transform:scale(1)}}
+@keyframes phglow{50%{box-shadow:0 0 0 3px var(--gold-hi),0 0 18px rgba(176,138,62,.7)}}
+@keyframes punveil{0%{transform:rotateX(0)}50%{transform:rotateX(90deg)}100%{transform:rotateX(0)}}
+@keyframes pbump{40%{transform:scale(1.35)}}
 .ptools{display:flex;gap:10px;justify-content:center;padding-top:8px}
 .pnav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
 .pnav span{font-size:14px;letter-spacing:.08em;color:var(--ink-soft);white-space:nowrap}
@@ -197,8 +306,10 @@ button{background:none;border:0;cursor:pointer;padding:0}
 #toast.show{opacity:1}
 @media (max-width:980px){
   .work{grid-template-columns:1fr}
-  .book{grid-template-columns:1fr;height:100%}
+  .book{grid-template-columns:1fr;height:100%;grid-template-rows:minmax(200px,.9fr) minmax(0,1.25fr)}
   .book .pg + .pg{border-left:0;border-top:1px solid var(--rule)}
+  #play .phone-fit{flex-direction:column}
+  #play .pskins{flex-direction:row}
 }
 #batch{position:fixed;inset:0;background:rgba(20,12,6,.55);z-index:6;display:grid;place-items:center;padding:16px}
 #batch .bp{background:var(--paper);border-radius:4px;width:min(760px,100%);max-height:100%;overflow:auto;padding:16px 18px}
@@ -215,6 +326,124 @@ button{background:none;border:0;cursor:pointer;padding:0}
 #batch .bbtn button.primary{background:var(--ink);color:var(--paper)}
 #batch .bbtn button:disabled{opacity:.4}
 #bOut p{margin:4px 0;font-size:13.5px;line-height:1.5}
+#pphone{container-type:inline-size}
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]){
+  --ink:#1c2520; --ink-soft:#46524b; --red:#c23a5e; --ok:#2f6b45; --gold-hi:#e9c27a;
+  --accent:#24472f; --ph-num:#2f6b45; --ph-badge:#24472f;
+  --glass:linear-gradient(160deg,rgba(255,255,255,.52),rgba(255,255,255,.34));
+  --glass-edge:inset 0 0 0 1px rgba(255,255,255,.55),inset 0 1px 0 rgba(255,255,255,.8);
+  font-family:Inter,"Noto Sans SC",system-ui,sans-serif;
+  background:#9bb3c8;color:var(--ink)
+}
+#pphone[data-skin="kyoto"]{--photo:url("assets/bg-kyoto.jpg");--photo-pos:42% 60%}
+#pphone[data-skin="alps"]{--photo:url("assets/bg-alps.jpg");--photo-pos:60% 50%;--ink:#232a33;--ink-soft:#4b5562;--ph-num:#8a9099;--ph-badge:#2a2f36;--accent:#fff}
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-veil{background:linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,0) 28%,rgba(255,255,255,0) 72%,rgba(255,255,255,.18))}
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-panel{
+  background:linear-gradient(160deg,rgba(255,255,255,.36),rgba(255,255,255,.2));
+  -webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);
+  box-shadow:var(--glass-edge),0 10px 30px rgba(30,45,60,.14);border:0
+}
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pboxes .lt{
+  place-items:center;border:0;border-radius:6px;font-family:Inter,system-ui,sans-serif;font-weight:600;
+  background:rgba(255,255,255,.28);box-shadow:inset 0 0 0 1px rgba(255,255,255,.6)
+}
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pboxes .w.found .lt.show{
+  color:#141a17;background:rgba(255,255,255,.82);border:0;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.9),0 2px 6px rgba(30,45,60,.1)
+}
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pgrid::before{
+  content:"";position:absolute;inset:calc(var(--gap) * -1.5);z-index:-1;border-radius:20px;
+  background:linear-gradient(160deg,rgba(255,255,255,.36),rgba(255,255,255,.2));
+  -webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);
+  box-shadow:var(--glass-edge),0 12px 30px rgba(30,45,60,.14)
+}
+#pphone[data-skin="alps"] #pgrid::before{display:none}
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pgrid .pt{
+  border-radius:calc(var(--tile) * .16);
+  background:linear-gradient(165deg,rgba(255,255,255,.82),rgba(255,255,255,.62));
+  -webkit-backdrop-filter:blur(12px) saturate(140%);backdrop-filter:blur(12px) saturate(140%);
+  color:#141a17;font-family:Inter,system-ui,sans-serif;font-weight:700;text-shadow:none;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.75),inset 0 1px 0 #fff,0 4px 14px rgba(30,45,60,.12)
+}
+#pphone[data-skin="alps"] #pgrid .pt{border-radius:calc(var(--tile) * .2)}
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pgrid .pt .c{
+  color:var(--ph-num);font-style:normal;font-weight:600;font-family:Inter,system-ui,sans-serif;font-size:calc(var(--tile) * .15);opacity:1
+}
+#pphone[data-skin="kyoto"] #pgrid .pt.sel{
+  transform:scale(.94);color:#fff;background:linear-gradient(165deg,#3d6a4c,var(--accent));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 0 0 3px rgba(255,255,255,.55),0 6px 18px rgba(30,45,60,.2)
+}
+#pphone[data-skin="alps"] #pgrid .pt.sel{
+  color:#141a17;background:linear-gradient(165deg,#fff,rgba(255,255,255,.9));
+  box-shadow:inset 0 1px 0 #fff,0 0 0 3px rgba(255,255,255,.7),0 0 22px rgba(255,255,255,.75)
+}
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pgrid .pt.sel .c{color:inherit}
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pgrid .pt.spent{
+  border:1.5px dashed rgba(255,255,255,.65);background:rgba(255,255,255,.08);
+  -webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none
+}
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pgrid .pt.curt{
+  background:repeating-linear-gradient(45deg,rgba(255,255,255,.5) 0 3px,rgba(255,255,255,.16) 3px 9px);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.45)
+}
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) .curt-num b{background:var(--accent);color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.65),0 4px 10px rgba(30,45,60,.2)}
+#pphone[data-skin="alps"] .curt-num b{background:#2a2f36}
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-pill,#pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-round{
+  background:var(--glass);color:var(--ink);
+  -webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);
+  box-shadow:var(--glass-edge),0 8px 20px rgba(30,45,60,.16)
+}
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-pill em{background:var(--ph-badge);color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.75)}
+#pphone[data-skin="alps"] .ph-ghead{text-align:center;padding-top:22px}
+#pphone[data-skin="alps"] .ph-gtitle{font-size:14px;font-weight:500;letter-spacing:.22em}
+#pphone[data-skin="alps"] .ph-gplace{margin-top:10px;letter-spacing:.16em}
+#pphone[data-skin="alps"] .ph-panel{margin-left:18px;margin-right:72px;background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+#pphone[data-skin="alps"] .ph-wtitle{text-align:center;color:var(--ink);font-size:16px}
+#pphone[data-skin="alps"] #pboxes{justify-content:center}
+#pphone[data-skin="kyoto"] .ph-gtitle{margin:10px 0 0 4px;font-size:clamp(26px,11cqw,36px)}
+#pphone[data-skin="kyoto"] .ph-gplace::before{content:none}
+#pphone[data-skin="wood"]{
+  --ink:#3a2412; --ink-soft:#674528; --red:#a5341f; --ok:#4c6b2f; --gold-hi:#e8c88a;
+  --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.012 0.22' numOctaves='3' seed='5' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.3  0 0 0 0 0.12  0 0 0 0.8 -0.28'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");
+  color:var(--ink);font-family:"Alegreya","Noto Serif SC",serif;
+  background-color:#3a2212;
+  background-image:radial-gradient(ellipse at 50% 20%,rgba(255,200,130,.16),transparent 60%),linear-gradient(180deg,#4a2e1a,#2a170b)
+}
+#pphone[data-skin="wood"] .ph-bg{display:none}
+#pphone[data-skin="wood"] .ph-panel{
+  background-color:#ecd9b6;
+  background-image:linear-gradient(180deg,rgba(255,245,220,.35),rgba(255,245,220,0)),var(--grain),linear-gradient(180deg,#f1dcb3,#e3c492);
+  background-size:auto,160px 160px,auto;box-shadow:inset 0 0 0 1px rgba(255,236,200,.45),0 8px 18px rgba(20,10,3,.28)
+}
+#pphone[data-skin="wood"] .ph-gtitle,#pphone[data-skin="wood"] #pcur,#pphone[data-skin="wood"] #pboxes .lt{font-family:"Alegreya","Noto Serif SC",serif;color:var(--ink)}
+#pphone[data-skin="wood"] #pboxes .lt{border-bottom-color:#c3a074}
+#pphone[data-skin="wood"] #pgrid .pt{
+  border-radius:calc(var(--tile) * .1);color:#3b200c;font-family:"Alegreya",serif;font-weight:700;
+  background-color:#e7c897;
+  background-image:linear-gradient(160deg,rgba(255,240,210,.55),rgba(255,240,210,0) 38%,rgba(90,50,15,.18)),var(--grain),linear-gradient(180deg,#efd3a4,#d9b47c);
+  background-size:auto,160px 160px,auto;
+  text-shadow:0 1px 0 rgba(255,236,200,.7);
+  box-shadow:inset 0 2px 1px rgba(255,245,220,.75),inset 0 -2px 2px rgba(110,65,25,.45),0 calc(var(--tile) * .06) 0 #8c5f32,0 calc(var(--tile) * .12) calc(var(--tile) * .14) rgba(30,15,5,.45)
+}
+#pphone[data-skin="wood"] #pgrid .pt .c{color:#9a2f1b;font-style:normal;font-weight:700}
+#pphone[data-skin="wood"] #pgrid .pt.sel{
+  transform:translateY(calc(var(--tile) * .05));
+  background-image:linear-gradient(160deg,rgba(255,230,190,.35),rgba(90,50,15,.25)),var(--grain),linear-gradient(180deg,#dcb47e,#c79a5e);
+  box-shadow:inset 0 2px 3px rgba(90,50,15,.45),0 2px 0 #8c5f32
+}
+#pphone[data-skin="wood"] #pgrid .pt.spent{border:0;background:rgba(80,45,15,.16);box-shadow:inset 0 3px 6px rgba(60,30,8,.4)}
+#pphone[data-skin="wood"] #pgrid .pt.curt{
+  background-color:#8a5d33;background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.18) 0 2px,transparent 2px 11px),var(--grain);
+  background-size:auto,160px 160px;box-shadow:inset 0 -2px 2px rgba(40,20,5,.5),0 calc(var(--tile) * .06) 0 #5a3a1c
+}
+#pphone[data-skin="wood"] .ph-round{
+  color:#f4dfb6;background-image:radial-gradient(circle at 40% 30%,rgba(255,220,170,.3),transparent 60%),var(--grain),linear-gradient(160deg,#5b3820,#2b190d);
+  background-size:auto,160px 160px,auto;box-shadow:inset 0 2px 1px rgba(255,220,170,.35),inset 0 -2px 3px rgba(0,0,0,.5),0 3px 0 #2a170b
+}
+#pphone[data-skin="wood"] .ph-pill{background:#ecd9b6;color:#3a2412;box-shadow:inset 0 1px 0 rgba(255,245,220,.8),0 3px 0 #8c5f32}
+#pphone[data-skin="wood"] .ph-pill em{background:#a5341f;color:#fbeedd}
+#pphone[data-skin="book"] .ph-bg{display:none}
+#pphone[data-skin="book"]{background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.5),transparent 55%),#f4ecda}
 html,body{overflow-x:hidden;max-width:100vw}
 #desk{grid-template-columns:minmax(0,1fr);width:100%;max-width:100vw}
 #desk>*{min-width:0;max-width:100%}
@@ -301,7 +530,7 @@ html,body{overflow-x:hidden;max-width:100vw}
 <div id="desk">
   <header class="top">
     <div>
-      <h1>字页关卡台 <span>给书页连词排一串关</span> <span class="ver" id="buildVer">版本 2026.10.15.1</span></h1>
+      <h1>字页关卡台 <span>给书页连词排一串关</span> <span class="ver" id="buildVer">版本 2026.10.15.2</span></h1>
       <p>玩法是字页自己的：上下左右连字母，一格在一个词里只用一次，用完就消失。编排方式参照 Word Tiles 和 Zen Word：必答词和额外词分开，难度拆开看，不合成一个分数。</p>
     </div>
     <div class="top-actions">
@@ -430,12 +659,43 @@ html,body{overflow-x:hidden;max-width:100vw}
       </div>
       <div class="ptools"><button class="ghost" id="pBack" style="color:var(--ink)">返回关卡台</button></div>
     </div>
-    <div class="pg">
-      <div id="pcur"></div>
-      <div id="pgrid"></div>
-      <div class="ptools">
-        <button class="ghost" id="pUndo">撤回</button>
-        <button class="ghost" id="pHint">指出一条能走通的路径</button>
+    <div class="pg pg-stage">
+      <div class="phone-fit">
+        <div class="phone" id="pphone" data-skin="kyoto">
+          <div class="ph-bg" aria-hidden="true"></div>
+          <div class="ph-veil" aria-hidden="true"></div>
+          <header class="ph-ghead">
+            <div class="ph-gtitle">LEVEL <span id="pLvl">01</span></div>
+            <div class="ph-gplace" id="pPlace">Kyoto · Japan</div>
+          </header>
+          <section class="ph-panel" aria-label="已找到的词">
+            <div class="ph-wtitle"><span id="pBoxProg">0 / 0</span> <i>words</i></div>
+            <div class="ph-words" id="pboxes"></div>
+          </section>
+          <div id="pcur"></div>
+          <div class="ph-gridwrap" id="pgridwrap">
+            <div id="pgrid"></div>
+          </div>
+          <button type="button" class="ph-pill" id="pExtraPill">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 13H7L6 8Zm3 0V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <b>额外词</b>
+            <em id="pPillN">0</em>
+          </button>
+          <nav class="ph-sidebtns">
+            <button type="button" class="ph-round" id="pUndo" aria-label="撤回" title="撤回">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 4-5 5 5 5M3 9h10a7 7 0 0 1 0 14" transform="translate(2 -1)" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button type="button" class="ph-round" id="pHint" aria-label="指出一条能走通的路径" title="指出一条能走通的路径">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21 15 10M7 17C4 9 12 2 21 3c0 9-7 17-14 14ZM10 14l-1-5m4 2 5 1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </nav>
+        </div>
+        <div class="pskins" id="pSkins" role="radiogroup" aria-label="试玩皮肤">
+          <button type="button" role="radio" class="on" data-pskin="kyoto" aria-checked="true"><i></i><span>京都</span></button>
+          <button type="button" role="radio" data-pskin="alps" aria-checked="false"><i></i><span>阿尔卑斯</span></button>
+          <button type="button" role="radio" data-pskin="wood" aria-checked="false"><i></i><span>木纹</span></button>
+          <button type="button" role="radio" data-pskin="book" aria-checked="false"><i></i><span>书页</span></button>
+        </div>
       </div>
     </div>
   </div>
@@ -2667,7 +2927,72 @@ function ready(D, A, issues) {
     if (playWordsOn || found) return '<b class="' + cls + ' gw">' + esc(w) + '</b>';
     return '<b class="' + cls + ' slots" aria-label="' + w.length + ' 个字母">' + '<i></i>'.repeat(w.length) + '</b>';
   }
-  function renderPlay() {
+  const PLAY_SKIN_KEY = 'wp.leveldesk.playSkin';
+  const PLAY_PLACES = { kyoto: 'Kyoto · Japan', alps: 'Alps • Italy', wood: '木纹', book: '' };
+  let playSkin = 'kyoto';
+  try {
+    const savedSkin = localStorage.getItem(PLAY_SKIN_KEY);
+    if (savedSkin && Object.prototype.hasOwnProperty.call(PLAY_PLACES, savedSkin)) playSkin = savedSkin;
+  } catch (e) {}
+  function applyPlaySkin(id) {
+    if (!Object.prototype.hasOwnProperty.call(PLAY_PLACES, id)) id = 'kyoto';
+    playSkin = id;
+    const phone = $('#pphone');
+    if (phone) phone.setAttribute('data-skin', id);
+    const place = $('#pPlace');
+    if (place) place.textContent = PLAY_PLACES[id];
+    const box = $('#pSkins');
+    if (box) [...box.children].forEach(b => {
+      const on = b.dataset.pskin === id;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-checked', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem(PLAY_SKIN_KEY, id); } catch (e) {}
+    if (play && !$('#play').hidden) layoutPlay();
+  }
+  function fitPhone() {
+    const fit = document.querySelector('#play .phone-fit');
+    const phone = $('#pphone');
+    const skins = $('#pSkins');
+    if (!fit || !phone) return;
+    const row = skins && getComputedStyle(skins).flexDirection === 'row';
+    const reserve = row ? 0 : (skins ? skins.getBoundingClientRect().width + 12 : 70);
+    const extraH = row ? (skins ? skins.getBoundingClientRect().height + 10 : 62) : 0;
+    const aw = fit.clientWidth - reserve;
+    const ah = fit.clientHeight - extraH;
+    if (aw < 80 || ah < 120) return;
+    let h = ah, w = h * 9 / 19.5;
+    if (w > aw) { w = aw; h = w * 19.5 / 9; }
+    phone.style.width = Math.floor(w) + 'px';
+    phone.style.height = Math.floor(h) + 'px';
+  }
+  function sizePlayGrid() {
+    if (!play) return;
+    const L = play.L;
+    const wrap = $('#pgridwrap');
+    const g = $('#pgrid');
+    if (!wrap || !g) return;
+    const gap = 8;
+    const st = getComputedStyle(wrap);
+    const padX = (parseFloat(st.paddingLeft) || 0) + (parseFloat(st.paddingRight) || 0);
+    const padY = (parseFloat(st.paddingTop) || 0) + (parseFloat(st.paddingBottom) || 0);
+    const aw = wrap.clientWidth - padX - 2;
+    const ah = wrap.clientHeight - padY - 2;
+    if (aw < 40 || ah < 40) return;
+    let t = Math.floor((aw - gap * (L.W - 1)) / L.W);
+    t = Math.min(t, Math.floor((ah - gap * (L.H - 1)) / L.H));
+    t = Math.max(26, Math.min(78, t));
+    g.style.setProperty('--tile', t + 'px');
+    g.style.setProperty('--gap', gap + 'px');
+    g.style.setProperty('--cols', String(L.W));
+  }
+  function layoutPlay() {
+    fitPhone();
+    const wrap = $('#pgridwrap');
+    if (wrap && wrap.clientHeight > 36) sizePlayGrid();
+    else requestAnimationFrame(() => { if (play && !$('#play').hidden) { fitPhone(); sizePlayGrid(); } });
+  }
+  function renderPlay(fx) {
     const L = play.L, P = play.P;
     $('#pwords').innerHTML = L.words.map((w, i) => playWordHtml(w, !!P.found[i])).join('');
     const foundExtra = new Set(P.extras);
@@ -2686,30 +3011,82 @@ function ready(D, A, issues) {
     $('#pPrev').title = atStart ? (campaign.index <= 0 ? '已经是第一关' : '前面没有能试玩的关') : '';
     $('#pNext').title = atEnd ? (campaign.index >= campaign.levels.length - 1 ? '已经是最后一关' : '后面没有能试玩的关') : '';
     $('#pWinNext').title = $('#pNext').title;
+    const lvl = $('#pLvl');
+    if (lvl) lvl.textContent = String(campaign.index + 1).padStart(2, '0');
+    const prog = $('#pBoxProg');
+    if (prog) prog.textContent = P.order.length + ' / ' + L.words.length;
+    const pill = $('#pPillN');
+    if (pill) {
+      pill.textContent = String(P.extras.length);
+      if (fx && fx.extra) { pill.classList.remove('bump'); void pill.offsetWidth; pill.classList.add('bump'); }
+    }
+    const boxes = $('#pboxes');
+    if (boxes) {
+      const maxLen = L.words.reduce((m, w) => Math.max(m, w.length), 1);
+      let lw = L.words.length > 10 ? 14 : (L.words.length > 6 ? 16 : 18);
+      if (maxLen > 7) lw = Math.min(lw, 15);
+      boxes.style.setProperty('--lw', lw + 'px');
+      const just = fx && fx.word;
+      boxes.innerHTML = L.words.map((w, i) => {
+        const found = !!P.found[i];
+        const fresh = just === i;
+        const letters = [...w].map(ch => '<span class="lt' + (found && !fresh ? ' show' : '') + '">' + (found ? esc(ch) : '') + '</span>').join('');
+        return '<div class="w' + (found ? ' found' : '') + (fresh ? ' just' : '') + '" data-i="' + i + '">' + letters + '</div>';
+      }).join('');
+    }
     const g = $('#pgrid');
-    g.style.gridTemplateColumns = 'repeat(' + L.W + ',64px)';
     g.innerHTML = '';
     const closed = closedSet(P.order.length);
+    const opened = new Set(fx && fx.open || []);
+    const popped = new Set(fx && fx.pop || []);
+    const down = new Set(fx && fx.down || []);
+    const curtAt = new Map();
+    L.curtains.forEach((c, ci) => {
+      if (!c.cells || !c.cells.length) return;
+      curtAt.set(Math.min.apply(null, c.cells), ci);
+    });
     for (let i = 0; i < L.N; i++) {
       const t = document.createElement('div');
-      t.className = 'pt' + (P.counts[i] <= 0 ? ' spent' : '') + (closed.has(i) ? ' curt' : '');
+      t.className = 'pt'
+        + (P.counts[i] <= 0 ? ' spent' : '')
+        + (closed.has(i) ? ' curt' : '')
+        + (opened.has(i) ? ' opening' : '')
+        + (popped.has(i) ? ' pop' : '')
+        + (down.has(i) ? ' cntdown' : '');
       t.dataset.i = i;
-      t.textContent = closed.has(i) ? '' : L.letters[i];
-      const c = document.createElement('span'); c.className = 'c';
-      c.textContent = P.counts[i] > 0 && !closed.has(i) ? P.counts[i] : '';
-      t.appendChild(c);
+      t.innerHTML = '<span class="ch">' + esc(L.letters[i]) + '</span><span class="c">' + (P.counts[i] > 0 ? P.counts[i] : '') + '</span>';
+      if (curtAt.has(i)) {
+        const left = L.curtains[curtAt.get(i)].req - P.order.length;
+        const n = document.createElement('div');
+        n.className = 'curt-num';
+        if (left <= 0) n.hidden = true;
+        n.innerHTML = '<b>' + Math.max(left, 0) + '</b>';
+        t.appendChild(n);
+      }
       g.appendChild(t);
     }
+    layoutPlay();
     $('#pstatus').textContent = P.done ? '必答词都找到了。' : '按住格子滑动。走法与游戏相同：四方向、不回头、幕布没揭开的格子不能用。';
   }
   let drag = null;
-  function cellAt(x, y) {
-    const tiles = [...$('#pgrid').children];
-    for (let i = 0; i < tiles.length; i++) {
-      const r = tiles[i].getBoundingClientRect();
-      if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) return i;
-    }
-    return -1;
+  function cellAt(x, y, strict) {
+    if (!play) return -1;
+    const g = $('#pgrid');
+    const box = g.getBoundingClientRect();
+    const st = getComputedStyle(g);
+    const tile = parseFloat(st.getPropertyValue('--tile'));
+    const gap = parseFloat(st.getPropertyValue('--gap'));
+    const L = play.L;
+    if (!(tile > 0)) return -1;
+    const step = tile + (gap > 0 ? gap : 0);
+    const rx = x - box.left, ry = y - box.top;
+    const c = Math.floor(rx / step), r = Math.floor(ry / step);
+    if (c < 0 || r < 0 || c >= L.W || r >= L.H) return -1;
+    if (strict) {
+      const cx = c * step + tile / 2, cy = r * step + tile / 2;
+      if (Math.hypot(rx - cx, ry - cy) > tile * 0.48) return -1;
+    } else if (rx - c * step > tile || ry - r * step > tile) return -1;
+    return r * L.W + c;
   }
   function usable(i) {
     return play.P.counts[i] > 0 && !closedSet(play.P.order.length).has(i);
@@ -2721,8 +3098,58 @@ function ready(D, A, issues) {
   }
   function paintSel() {
     const set = new Set(drag ? drag.path : []);
-    [...$('#pgrid').children].forEach((t, i) => t.classList.toggle('sel', set.has(i)));
+    [...$('#pgrid').children].forEach((t, i) => {
+      t.classList.toggle('sel', set.has(i));
+      if (drag) t.classList.remove('hint-glow');
+    });
     if (drag) $('#pcur').textContent = drag.path.map(i => play.L.letters[i]).join('');
+  }
+  function markBad(s) {
+    const el = $('#pcur');
+    el.className = 'bad';
+    el.textContent = s;
+    el.classList.remove('shake');
+    void el.offsetWidth;
+    el.classList.add('shake');
+  }
+  function flyFound(word, ti) {
+    const box = document.querySelector('#pboxes .w[data-i="' + ti + '"]');
+    const cur = $('#pcur');
+    if (!box || !cur) return;
+    const slots = [...box.querySelectorAll('.lt')];
+    const reveal = () => slots.forEach(s => s.classList.add('show'));
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || typeof document.body.animate !== 'function') { reveal(); return; }
+    const prev = cur.textContent;
+    cur.classList.add('flying');
+    cur.innerHTML = [...word].map(ch => '<span>' + esc(ch) + '</span>').join('');
+    const fs = parseFloat(getComputedStyle(cur).fontSize) || 28;
+    const rects = [...cur.children].map(x => x.getBoundingClientRect());
+    cur.textContent = prev;
+    let pending = slots.length;
+    const doneOne = () => { if (--pending <= 0) cur.classList.remove('flying'); };
+    if (!pending) { cur.classList.remove('flying'); return; }
+    slots.forEach((slot, k) => {
+      const from = rects[k];
+      const to = slot.getBoundingClientRect();
+      if (!from || !to.width) { slot.classList.add('show'); doneOne(); return; }
+      const d = document.createElement('span');
+      d.className = 'pfly';
+      d.textContent = word[k];
+      d.style.cssText = 'left:' + from.left + 'px;top:' + from.top + 'px;width:' + from.width + 'px;height:' + from.height + 'px;font-size:' + fs + 'px';
+      document.body.appendChild(d);
+      const dx = (to.left + to.width / 2) - (from.left + from.width / 2);
+      const dy = (to.top + to.height / 2) - (from.top + from.height / 2);
+      const scale = Math.max(0.35, (to.width * 0.85) / fs);
+      const anim = d.animate([
+        { transform: 'translate(0,0) scale(1)', opacity: 1 },
+        { transform: 'translate(0,-8px) scale(1.28)', opacity: 1, offset: 0.28 },
+        { transform: 'translate(0,0) scale(1.06)', opacity: 1, offset: 0.48 },
+        { transform: 'translate(' + dx + 'px,' + dy + 'px) scale(' + scale + ')', opacity: 1 }
+      ], { duration: 720, delay: k * 48, easing: 'ease-in-out', fill: 'both' });
+      anim.onfinish = () => { d.remove(); slot.classList.add('show'); doneOne(); };
+    });
+    setTimeout(() => { cur.classList.remove('flying'); reveal(); }, 900 + word.length * 48);
   }
   function submitPath(p) {
     const L = play.L, P = play.P, curEl = $('#pcur');
@@ -2732,22 +3159,31 @@ function ready(D, A, issues) {
     const ti = L.words.findIndex((w, i) => w === s && !P.found[i]);
     if (ti >= 0) {
       const sp = safePath(ti, p);
-      if (!sp) { curEl.className = 'bad'; toast('先写别的词，不然后面会无解'); return; }
+      if (!sp) { markBad(s); toast('先写别的词，不然后面会无解'); return; }
+      const beforeClosed = closedSet(P.order.length);
       P.hist.push({ counts: P.counts.slice(), found: P.found.slice(), order: P.order.slice() });
-      sp.forEach(i => P.counts[i]--);
+      const pop = [], down = [];
+      sp.forEach(i => {
+        P.counts[i]--;
+        if (P.counts[i] <= 0) pop.push(i); else down.push(i);
+      });
       P.found[ti] = true; P.order.push(ti);
+      const afterClosed = closedSet(P.order.length);
+      const open = [];
+      beforeClosed.forEach(i => { if (!afterClosed.has(i)) open.push(i); });
       curEl.className = 'ok'; curEl.textContent = s;
       if (P.found.every(Boolean)) P.done = true;
-      renderPlay();
+      renderPlay({ word: ti, pop: pop, down: down, open: open });
+      flyFound(s, ti);
       if (!P.done && solve() === null) toast('剩下的必答词已经走不通，可以撤回');
       return;
     }
-    if (L.words.indexOf(s) >= 0) { curEl.className = 'bad'; toast('这个必答词已经找到'); return; }
+    if (L.words.indexOf(s) >= 0) { markBad(s); toast('这个必答词已经找到'); return; }
     if (L.extras.indexOf(s) >= 0) {
-      if (P.extras.indexOf(s) >= 0) { toast('这个额外词已经写过'); return; }
-      P.extras.push(s); curEl.className = 'extra'; curEl.textContent = s; renderPlay(); return;
+      if (P.extras.indexOf(s) >= 0) { markBad(s); toast('这个额外词已经写过'); return; }
+      P.extras.push(s); curEl.className = 'extra'; curEl.textContent = s; renderPlay({ extra: true }); return;
     }
-    curEl.className = 'bad';
+    markBad(s);
   }
 
   /* ---------- 导入导出 ---------- */
@@ -3448,11 +3884,22 @@ function ready(D, A, issues) {
   });
   pgrid.addEventListener('pointermove', e => {
     if (!drag || e.pointerId !== drag.pid) return;
-    const i = cellAt(e.clientX, e.clientY);
+    const i = cellAt(e.clientX, e.clientY, true);
     const path = drag.path;
     if (i < 0 || i === path[path.length - 1]) return;
     if (path.length > 1 && i === path[path.length - 2]) path.pop();
-    else if (path.indexOf(i) < 0 && usable(i) && adj(path[path.length - 1], i)) path.push(i);
+    else if (path.indexOf(i) < 0 && usable(i)) {
+      const last = path[path.length - 1];
+      if (adj(last, i)) path.push(i);
+      else {
+        const W = play.L.W;
+        const lr = (last / W) | 0, lc = last % W, ir = (i / W) | 0, ic = i % W;
+        if ((lr === ir && Math.abs(lc - ic) === 2) || (lc === ic && Math.abs(lr - ir) === 2)) {
+          const mid = ((lr + ir) / 2) * W + ((lc + ic) / 2);
+          if (path.indexOf(mid) < 0 && usable(mid)) path.push(mid, i);
+        }
+      }
+    }
     paintSel();
   });
   function endDrag(e) {
@@ -3473,10 +3920,37 @@ function ready(D, A, issues) {
     if (sol === '?') { toast('组合太多，没有指出路径'); return; }
     if (!sol || !sol.length) { toast('剩下的词已经走不通'); return; }
     const step = sol[0];
-    [...$('#pgrid').children].forEach((t, i) => t.classList.toggle('sel', step.p.indexOf(i) >= 0));
+    [...$('#pgrid').children].forEach((t, i) => {
+      const on = step.p.indexOf(i) >= 0;
+      t.classList.toggle('sel', on);
+      t.classList.toggle('hint-glow', on);
+      if (on) { t.classList.remove('hint-glow'); void t.offsetWidth; t.classList.add('hint-glow'); }
+    });
+    $('#pcur').className = '';
     $('#pcur').textContent = play.L.words[step.w];
     toast('高亮的是一条目前走得通的 ' + play.L.words[step.w]);
   };
+  $('#pExtraPill').onclick = () => {
+    if (!play) return;
+    const n = play.P.extras.length;
+    toast(n ? '已找到 ' + n + ' 个额外词' : '还没有找到额外词');
+  };
+  $('#pSkins').addEventListener('click', e => {
+    const b = e.target.closest('[data-pskin]');
+    if (!b) return;
+    applyPlaySkin(b.dataset.pskin);
+  });
+  applyPlaySkin(playSkin);
+  (function () {
+    const skinAtCheck = playSkin;
+    if (skinAtCheck !== 'kyoto' && skinAtCheck !== 'alps') return;
+    const img = new Image();
+    img.onerror = () => { if (playSkin === skinAtCheck) applyPlaySkin('book'); };
+    img.src = skinAtCheck === 'alps' ? 'assets/bg-alps.jpg' : 'assets/bg-kyoto.jpg';
+  })();
+  window.addEventListener('resize', () => {
+    if (play && !$('#play').hidden) layoutPlay();
+  });
   document.addEventListener('keydown', e => {
     if ((e.metaKey || e.ctrlKey) && e.key === 'z' && $('#play').hidden) { e.preventDefault(); $('#btnUndo').click(); }
     if (e.key === 'Escape') {
