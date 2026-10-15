@@ -574,6 +574,21 @@ html,body{overflow-x:hidden;max-width:100vw}
 .hrow.missing{opacity:.45}
 .hrow [data-hdel]{border:1px solid var(--rule);border-radius:3px;padding:3px 8px;font-size:13px}
 .hrow .hopen:disabled{cursor:default}
+.srcbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;color:#f3ead6;min-width:0}
+.src-tabs,.src-picks{display:flex;flex-wrap:wrap;gap:4px;min-width:0}
+.src-tabs button,.src-picks button{
+  border:1px solid rgba(243,234,214,.4);color:#f3ead6;border-radius:99px;padding:4px 12px;font-size:13px;letter-spacing:.04em
+}
+.src-tabs button.on{background:#f3ead6;color:var(--ink);border-color:#f3ead6}
+.src-picks button.on{background:rgba(243,234,214,.16);border-color:#f3ead6}
+.src-jump{display:flex;align-items:center;gap:4px;font-size:13px;color:#e6d7bc}
+.src-jump input{width:4.5em;border:0;border-bottom:1px solid rgba(243,234,214,.45);background:transparent;color:#f3ead6;padding:2px 4px;text-align:center}
+.src-note{margin:0;flex:1 1 220px;min-width:0;color:#e6d7bc;font-size:13px;line-height:1.4}
+#desk[data-source="wt"] [data-move],#desk[data-source="zen"] [data-move],
+#desk[data-source="wt"] .add,#desk[data-source="zen"] .add{display:none}
+.zenbag{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 0 4px}
+.zenbag b{font-family:var(--en);font-size:28px;letter-spacing:.28em;font-weight:600}
+.zenbag span{color:var(--ink-soft);letter-spacing:.04em}
 .bk-line{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin:8px 0;padding-bottom:6px;border-bottom:1px solid var(--rule)}
 .bk-line input{border:0;border-bottom:1px solid var(--rule);background:transparent;width:8em}
 #bkRows{max-height:40vh;overflow:auto;margin-top:8px}
@@ -583,7 +598,7 @@ html,body{overflow-x:hidden;max-width:100vw}
 <div id="desk">
   <header class="top">
     <div>
-      <h1>字页关卡台 <span>给书页连词排一串关</span> <span class="ver" id="buildVer">版本 2026.10.15.9</span></h1>
+      <h1>字页关卡台 <span>给书页连词排一串关</span> <span class="ver" id="buildVer">版本 2026.10.15.10</span></h1>
       <p>玩法是字页自己的：上下左右连字母，一格在一个词里只用一次，用完就消失。编排方式参照 Word Tiles 和 Zen Word：必答词和额外词分开，难度拆开看，不合成一个分数。</p>
     </div>
     <div class="top-actions">
@@ -601,6 +616,16 @@ html,body{overflow-x:hidden;max-width:100vw}
       <button type="button" id="btnPlay" class="primary">试玩这一关</button>
     </div>
   </header>
+  <div class="srcbar" id="srcBar">
+    <div class="src-tabs" role="tablist" aria-label="关卡来源">
+      <button type="button" data-src="ours" class="on" role="tab" aria-selected="true">我们的</button>
+      <button type="button" data-src="wt" role="tab" aria-selected="false">Word Tiles</button>
+      <button type="button" data-src="zen" role="tab" aria-selected="false">Zen Word</button>
+    </div>
+    <div class="src-picks" id="srcPicks" hidden></div>
+    <label class="src-jump">第 <input id="srcJump" type="number" min="1" value="1" aria-label="跳到第几关"> 关</label>
+    <p class="src-note" id="srcNote">正在编辑我们的关卡，可以改、试玩、导出。</p>
+  </div>
   <section class="pace-wrap">
     <div class="pace-metrics" id="paceMetrics">
       <div class="pace-tabs">
@@ -2025,6 +2050,228 @@ function ready(D, A, issues) {
   let timer = null;
   let histView = [];
   let histMissing = new Set();
+  /* 竞品关表只在内存里看。oursCampaign 始终是我们自己的关序，不会被竞品覆盖。 */
+  const SOURCE_PACKS = {
+    wt: [
+      { id: 'list0', label: 'list0 主线', name: 'Word Tiles · list0', file: 'data/competitor/wt-list0.json.gz' },
+      { id: 'list5', label: 'list5 主线', name: 'Word Tiles · list5', file: 'data/competitor/wt-list5.json.gz' },
+      { id: 'daily', label: 'daily 每日', name: 'Word Tiles · daily', file: 'data/competitor/wt-daily.json.gz' }
+    ],
+    zen: [
+      { id: 't1', label: 't1', name: 'Zen Word · t1', file: 'data/competitor/zen-t1.json.gz' },
+      { id: 't3', label: 't3', name: 'Zen Word · t3', file: 'data/competitor/zen-t3.json.gz' },
+      { id: 't1time', label: 't1 计时', name: 'Zen Word · t1 计时', file: 'data/competitor/zen-t1time.json.gz' },
+      { id: 'android', label: '购买 Android', name: 'Zen Word · 购买 Android', file: 'data/competitor/zen-android.json.gz' },
+      { id: 'ios', label: '购买 iOS', name: 'Zen Word · 购买 iOS', file: 'data/competitor/zen-ios.json.gz' }
+    ]
+  };
+  let sourceMode = 'ours';
+  const sourcePack = { wt: 'list0', zen: 't1' };
+  let oursCampaign = null;
+  let sourceReq = 0;
+  const packCache = new Map();
+  const draftCache = new Map();
+  function ours() { return sourceMode === 'ours'; }
+  function normWord(w) {
+    return String(w || '').toUpperCase().replace(/[^A-Z]/g, '');
+  }
+  function curtainsFromObstacles(raw, W, H) {
+    const base = [{ req: 2, cells: [] }, { req: 4, cells: [] }];
+    if (!raw || raw === 0 || !Array.isArray(raw) || !raw.length) return base;
+    const N = W * H;
+    const groups = [];
+    const takeCells = list => (list || []).map(Number).filter(x => x >= 0 && x < N);
+    raw.forEach(item => {
+      if (item == null) return;
+      if (typeof item === 'number') {
+        if (item >= 0 && item < N) groups.push({ req: 2, cells: [item] });
+        return;
+      }
+      if (Array.isArray(item)) {
+        const cells = takeCells(item);
+        if (cells.length) groups.push({ req: 2, cells: cells });
+        return;
+      }
+      if (typeof item === 'object') {
+        let cells = item.cells || item.indexes || item.indices || item.pos || item.positions || [];
+        if (typeof cells === 'string') cells = cells.split(/[^0-9]+/).filter(Boolean);
+        if ((!cells || !cells.length) && item.x != null && item.y != null) cells = [item.y * W + item.x];
+        cells = takeCells(cells);
+        const req = item.req || item.count || item.need || item.wordCount || item.open || 2;
+        if (cells.length) groups.push({ req: Math.max(1, req | 0), cells: cells });
+      }
+    });
+    return groups.length ? groups.slice(0, 6) : base;
+  }
+  function wtDraft(row) {
+    const g = String(row[3] || '').toUpperCase().replace(/\s+/g, '');
+    const rows = g ? g.split(',') : [];
+    const W = rows[0] ? rows[0].length : (row[1] | 0);
+    const H = rows.length || (row[2] | 0);
+    const d = C.blank(Math.max(W, 1), Math.max(H, 1));
+    d.W = W; d.H = H;
+    d.letters = rows.join('').split('');
+    d.words = [];
+    d.types = [];
+    (row[4] || []).forEach(pair => {
+      const w = normWord(pair[0]);
+      if (!w) return;
+      let ty = pair[1] | 0;
+      if (ty >= 3) ty = 2;
+      d.words.push(w);
+      d.types.push(ty);
+    });
+    d.extras = [];
+    (row[5] || []).forEach(pair => {
+      const w = normWord(pair[0]);
+      if (w) d.extras.push(w);
+    });
+    d.tiers = d.words.map(() => 0);
+    d.curtains = curtainsFromObstacles(row[6], W, H);
+    d.origin = 'wt';
+    d.wtId = row[0];
+    d.name = '';
+    return d;
+  }
+  function zenDraft(row) {
+    const letter = normWord(row[1]);
+    const answers = (row[3] || []).map(normWord).filter(Boolean);
+    const extras = [];
+    const extraKind = [];
+    [['extra', row[4]], ['onlyExtra', row[5]], ['bonus', row[6]]].forEach(pair => {
+      (pair[1] || []).forEach(w0 => {
+        const w = normWord(w0);
+        if (!w) return;
+        extras.push(w);
+        extraKind.push(pair[0]);
+      });
+    });
+    const d = C.blank(1, 1);
+    d.W = 0; d.H = 0;
+    d.letters = letter.split('');
+    d.words = answers;
+    d.extras = extras;
+    d.extraKind = extraKind;
+    d.types = answers.map(() => 0);
+    d.tiers = answers.map(() => 0);
+    d.curtains = [{ req: 2, cells: [] }, { req: 4, cells: [] }];
+    d.origin = 'zen';
+    d.zenLetter = letter;
+    d.zenScore = row[7] | 0;
+    d.zenId = row[2] || '';
+    d.name = '';
+    return d;
+  }
+  async function loadPack(url) {
+    if (packCache.has(url)) return packCache.get(url);
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('http ' + res.status);
+    const buf = await res.arrayBuffer();
+    if (typeof DecompressionStream !== 'function') throw new Error('gzip');
+    const stream = new Blob([buf]).stream().pipeThrough(new DecompressionStream('gzip'));
+    const text = await new Response(stream).text();
+    const data = JSON.parse(text);
+    packCache.set(url, data);
+    return data;
+  }
+  function paintSource() {
+    document.querySelectorAll('#srcBar [data-src]').forEach(b => {
+      const on = b.dataset.src === sourceMode;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    const picks = $('#srcPicks');
+    const note = $('#srcNote');
+    if (!picks || !note) return;
+    if (ours()) {
+      picks.hidden = true;
+      picks.innerHTML = '';
+      note.textContent = '正在编辑我们的关卡，可以改、试玩、导出。';
+      return;
+    }
+    const list = SOURCE_PACKS[sourceMode] || [];
+    picks.hidden = false;
+    picks.innerHTML = list.map(p => {
+      const on = p.id === sourcePack[sourceMode] ? ' on' : '';
+      return '<button type="button" data-pack="' + p.id + '" class="' + on.trim() + '">' + esc(p.label) + '</button>';
+    }).join('');
+    const spec = list.find(p => p.id === sourcePack[sourceMode]) || list[0];
+    const n = campaign && campaign.levels ? campaign.levels.length : 0;
+    if (sourceMode === 'wt') {
+      note.textContent = (spec ? spec.name : 'Word Tiles') + '，' + n + ' 关，只读。可以检查和试玩。不会写进我们的关卡，也不导出。';
+    } else {
+      note.textContent = (spec ? spec.name : 'Zen Word') + '，' + n + ' 关，只读浏览词表和统计。没有棋盘，不能试玩，也不导出。';
+    }
+  }
+  function applySourceChrome() {
+    const desk = $('#desk');
+    if (desk) desk.dataset.source = sourceMode;
+    const ro = !ours();
+    ['btnUndo','btnOpen','btnHistory','btnSample','btnImport','btnSaveDesk','btnSaveAs','btnBatch','btnExport',
+      'btnClear','btnDup','btnAddLv','btnDelLv','btnCurt','btnCurtClear'].forEach(id => {
+      const el = $('#' + id);
+      if (el) el.disabled = ro;
+    });
+    const name = $('#lvName'); if (name) name.readOnly = ro;
+    const camp = $('#campName'); if (camp) camp.readOnly = ro;
+    document.querySelectorAll('#presets button, #abbrList, #pluralExempt, #curtReq').forEach(el => { el.disabled = ro && el.id !== 'abbrList' && el.id !== 'pluralExempt' ? true : (el.id === 'abbrList' || el.id === 'pluralExempt' ? false : ro); });
+    document.querySelectorAll('#presets button, #curtReq').forEach(el => { el.disabled = ro; });
+    const playBtn = $('#btnPlay');
+    if (playBtn && sourceMode === 'zen') {
+      playBtn.disabled = true;
+      playBtn.title = 'Zen Word 没有棋盘，不能试玩';
+    } else if (playBtn && sourceMode === 'wt') playBtn.title = '用这一关的棋盘试玩';
+    else if (playBtn) playBtn.title = '';
+    const exp = $('#btnExport');
+    if (exp) exp.textContent = ro ? '只读不导出' : '导出游戏关卡';
+    const jump = $('#srcJump');
+    if (jump && document.activeElement !== jump) {
+      jump.value = String((campaign.index || 0) + 1);
+      jump.max = String(campaign.levels.length || 1);
+    }
+    paintSource();
+  }
+  async function setSource(kind, packId) {
+    const req = ++sourceReq;
+    if (!booted) {
+      try { await bootReady; } catch (e) {}
+      if (req !== sourceReq) return;
+    }
+    if (kind === 'ours') {
+      sourceMode = 'ours';
+      if (oursCampaign) campaign = oursCampaign;
+      boardKey = ''; suggCache = null;
+      render();
+      return;
+    }
+    const list = SOURCE_PACKS[kind] || [];
+    const spec = list.find(p => p.id === packId) || list[0];
+    if (!spec) return;
+    sourcePack[kind] = spec.id;
+    const note = $('#srcNote');
+    if (note) note.textContent = '正在读取 ' + spec.name + '…';
+    let raw;
+    try { raw = await loadPack(spec.file); }
+    catch (e) {
+      if (req !== sourceReq) return;
+      if (note) note.textContent = '读不到 ' + spec.name + '。请用本地服务器或 GitHub Pages 打开，不要直接双击文件。';
+      return;
+    }
+    if (req !== sourceReq) return;
+    if (ours() || !oursCampaign) oursCampaign = campaign;
+    const key = kind + ':' + spec.id;
+    let view = draftCache.get(key);
+    if (!view) {
+      const levels = raw.map(kind === 'wt' ? wtDraft : zenDraft);
+      view = { name: spec.name, index: 0, levels: levels, pack: null, origin: kind };
+      draftCache.set(key, view);
+    }
+    sourceMode = kind;
+    campaign = view;
+    if (!(campaign.index >= 0) || campaign.index >= campaign.levels.length) campaign.index = 0;
+    boardKey = ''; suggCache = null;
+    render();
+  }
 
   const DB_NAME = 'wp.leveldesk';
   let dbp = null;
@@ -2077,11 +2324,12 @@ function ready(D, A, issues) {
   }
   function cur() { return campaign.levels[campaign.index]; }
   function snapshot() {
+    if (!ours()) return;
     hist.push(JSON.stringify({ name: campaign.name, index: campaign.index, levels: campaign.levels, pack: campaign.pack || null, fileId: currentFile ? currentFile.id : null }));
     if (hist.length > 30) hist.shift();
   }
   function persist() {
-    if (!booted) return persistQ;
+    if (!booted || !ours()) return persistQ;
     let data;
     try { data = JSON.parse(JSON.stringify(campaignSnap())); }
     catch (e) { return persistQ; }
@@ -2163,7 +2411,9 @@ function ready(D, A, issues) {
         if (validState(saved)) {
           saved.levels.forEach(normalizeDraft);
           if (!(saved.index >= 0) || saved.index >= saved.levels.length) saved.index = 0;
-          campaign = { name: saved.name || '', index: saved.index || 0, levels: saved.levels, pack: saved.pack || null };
+          const loaded = { name: saved.name || '', index: saved.index || 0, levels: saved.levels, pack: saved.pack || null };
+          if (ours()) campaign = loaded;
+          else oursCampaign = loaded;
           if (saved.fileId) {
             try {
               const row = await idbGet('recent', saved.fileId);
@@ -2222,6 +2472,7 @@ function ready(D, A, issues) {
   }
 
   function resize(W, H) {
+    if (!ours()) return;
     const D = cur();
     if (W === D.W && H === D.H) return;
     if (W < C.MIN_W || W > C.MAX_W || H < C.MIN_H || H > C.MAX_H) return;
@@ -2410,21 +2661,41 @@ function ready(D, A, issues) {
           ? '柱高是必答词数。细框是竞品前段的大致词量，只作对照。'
           : '柱高是必答词数。关数超过 40，不画竞品细框。');
     } else if (metric === 'diff') {
-      head = '柱高是难度分（0–100）。必答词数、棋盘格数、最长词、平均罕见档和平均最少拐弯五项拉到同一尺度后取平均，再乘 100。不算额外词，没有竞品细框。';
+      head = sourceMode === 'zen'
+        ? '柱高是这套 Zen 配置里的 DifficultyScore，不是字页的 0–100。不算额外词，没有竞品细框。'
+        : '柱高是难度分（0–100）。必答词数、棋盘格数、最长词、平均罕见档和平均最少拐弯五项拉到同一尺度后取平均，再乘 100。不算额外词，没有竞品细框。';
     } else if (metric === 'longest') {
       head = '柱高是' + (included ? '必答词和额外词' : '必答词') + '里最长的词有几个字母。没有竞品细框。';
     } else if (metric === 'rare') {
       head = '柱高是' + (included ? '必答词和额外词' : '必答词') + '的平均罕见度：词库档位换成 1–5（简单 1，常见 2，稀有 3，罕见 4，极其罕见 5），词库没有的词不计入平均。没有竞品细框。';
     } else if (metric === 'board') {
-      head = '柱高是棋盘格数。菱形标出有幕布的关。不算词，没有竞品细框。';
+      head = sourceMode === 'zen'
+        ? '柱高是字母袋里的字母个数。Zen 没有棋盘，没有幕布。'
+        : '柱高是棋盘格数。菱形标出有幕布的关。不算词，没有竞品细框。';
     } else if (metric === 'straight') {
-      head = '柱高是直线单词占' + (included ? '必答词和额外词' : '必答词') + '的比例。直线指路径上的格子全在同一行或同一列。必答词有铺满解时以解里的那条路径为准；没有解时，只要有一条直线走法就算。额外词不在铺满解里，只要有一条直线走法就算。没有竞品细框。';
+      head = sourceMode === 'zen'
+        ? 'Zen 只有字母袋，没有棋盘，不算直线路径。'
+        : '柱高是直线单词占' + (included ? '必答词和额外词' : '必答词') + '的比例。直线指路径上的格子全在同一行或同一列。必答词有铺满解时以解里的那条路径为准；没有解时，只要有一条直线走法就算。额外词不在铺满解里，只要有一条直线走法就算。没有竞品细框。';
     } else if (metric === 'avg') {
       head = '柱高是' + (included ? '必答词和额外词' : '必答词') + '的平均字母数。没有竞品细框。';
     }
     return head + tail;
   }
   function measureLevel(d, metric, useExtra) {
+    if (d && d.origin === 'zen') {
+      const curtain = false;
+      if (metric === 'diff') {
+        const score = d.zenScore | 0;
+        return { value: score, curtain: curtain, title: 'Zen 难度分 ' + score + '（包内 DifficultyScore，不是字页的 0–100）' };
+      }
+      if (metric === 'board') {
+        const n = (d.zenLetter || '').length;
+        return { value: n, curtain: curtain, title: '字母袋 ' + n + ' 个，没有棋盘' };
+      }
+      if (metric === 'straight') {
+        return { value: 0, curtain: curtain, title: '没有棋盘，不算直线', skip: true };
+      }
+    }
     const pack = wordPack(d, useExtra);
     const words = pack.words;
     const cells = d.W * d.H;
@@ -2533,7 +2804,7 @@ function ready(D, A, issues) {
     hideGloss();
     const D = cur();
     A = analyzeD(D);
-    issues = C.extraIssues(D, w => lex.valid.has(w));
+    issues = D.origin === 'zen' ? [] : C.extraIssues(D, w => lex.valid.has(w));
     const dim = C.dimensions(D, A, lexApi);
     const pace = C.pacing(campaign.levels);
     const here = pace[campaign.index];
@@ -2554,7 +2825,8 @@ function ready(D, A, issues) {
     renderChecks(dim, here, hits);
     fillRuleInputs();
     renderRuleLine();
-    $('#btnPlay').disabled = !C.ready(D, A, issues);
+    $('#btnPlay').disabled = sourceMode === 'zen' || !C.ready(D, A, issues);
+    applySourceChrome();
   }
 
   function renderPace() {
@@ -2563,7 +2835,10 @@ function ready(D, A, issues) {
     const el = $('#pace');
     el.dataset.metric = series.metric;
     el.dataset.extra = series.useExtra ? '1' : '0';
-    el.innerHTML = series.rows.map((x, i) => {
+    if (sourceMode === 'zen' && series.metric === 'straight') {
+      el.innerHTML = '<p class="note" style="color:#e6d7bc;margin:8px 0">Zen Word 只有字母袋，没有棋盘，直线占比不算。</p>';
+      el.classList.remove('dense', 'xdense');
+    } else el.innerHTML = series.rows.map((x, i) => {
       const h = Math.max(4, Math.round(64 * x.value / series.scale));
       const g = series.showGuide ? Math.max(4, Math.round(64 * x.guide / series.scale)) : 0;
       const rule = scanLevel(campaign.levels[i]);
@@ -2572,8 +2847,10 @@ function ready(D, A, issues) {
       const title = x.title + (flagged ? ' · ' + ruleLabel(rule) : '');
       return `<button type="button" class="${cls}" data-i="${i}" data-value="${x.value}" title="${esc(title)}"><i style="height:${h}px"></i>${series.showGuide ? `<s style="height:${g}px"></s>` : ''}<em>${i + 1}</em></button>`;
     }).join('');
-    el.classList.toggle('dense', series.rows.length > 150 && series.rows.length <= 400);
-    el.classList.toggle('xdense', series.rows.length > 400);
+    if (!(sourceMode === 'zen' && series.metric === 'straight')) {
+      el.classList.toggle('dense', series.rows.length > 150 && series.rows.length <= 400);
+      el.classList.toggle('xdense', series.rows.length > 400);
+    }
     const lvTotal = $('#lvTotal');
     if (lvTotal) lvTotal.textContent = '（共 ' + series.rows.length + ' 关，当前第 ' + (campaign.index + 1) + ' 关）';
     const explainEl = $('#paceExplain');
@@ -2622,7 +2899,16 @@ function ready(D, A, issues) {
 
   function renderBoard() {
     const D = cur();
-    const key = D.W + 'x' + D.H + (curtainOn ? ':c' : ':l');
+    if (D.origin === 'zen') {
+      boardKey = 'zen';
+      $('#sizeLabel').textContent = '字母袋 ' + (D.zenLetter || '').length;
+      const grid = $('#grid');
+      grid.style.gridTemplateColumns = 'none';
+      grid.innerHTML = '<div class="zenbag"><b>' + esc(D.zenLetter || '') + '</b><span>难度分 ' + (D.zenScore | 0) + (D.zenId ? ' · ' + esc(D.zenId) : '') + '</span><p class="note">Zen Word 只有字母袋，没有棋盘，不能试玩。</p></div>';
+      $('#presets').innerHTML = '';
+      return;
+    }
+    const key = D.W + 'x' + D.H + (curtainOn ? ':c' : ':l') + (ours() ? '' : ':ro');
     const grid = $('#grid');
     if (boardKey !== key) {
       boardKey = key;
@@ -2635,7 +2921,7 @@ function ready(D, A, issues) {
         inp.maxLength = 1; inp.autocomplete = 'off'; inp.spellcheck = false;
         inp.setAttribute('aria-label', '第 ' + (i + 1) + ' 格');
         inp.dataset.i = i;
-        if (curtainOn) inp.readOnly = true;
+        if (curtainOn || !ours()) inp.readOnly = true;
         tile.appendChild(inp);
         const cnt = document.createElement('span'); cnt.className = 'cnt'; tile.appendChild(cnt);
         grid.appendChild(tile);
@@ -2645,6 +2931,7 @@ function ready(D, A, issues) {
     for (let i = 0; i < tiles.length; i++) {
       const inp = tiles[i].querySelector('input');
       if (document.activeElement !== inp) inp.value = D.letters[i] || '';
+      inp.readOnly = curtainOn || !ours();
       tiles[i].classList.toggle('empty', !D.letters[i]);
       tiles[i].classList.toggle('unc', !!(A && A.uncovered && A.uncovered.indexOf(i) >= 0));
       tiles[i].querySelector('.cnt').textContent = A && A.counts ? A.counts[i] : '';
@@ -2669,9 +2956,9 @@ function ready(D, A, issues) {
     pairWords = new Set();
     hit.pairs.forEach(p => { pairWords.add(p[0]); pairWords.add(p[1]); });
     $('#targets').innerHTML = D.words.length ? D.words.map(w => wordRow(w, false)).join('') : '<p class="note">还没有必答词。</p>';
-    $('#extras').innerHTML = D.extras.length ? D.extras.map(w => wordRow(w, true)).join('') : '<p class="note">还没有额外词。</p>';
+    $('#extras').innerHTML = D.extras.length ? D.extras.map((w, i) => wordRow(w, true, i)).join('') : '<p class="note">还没有额外词。</p>';
   }
-  function wordRow(w, extra) {
+  function wordRow(w, extra, extraIndex) {
     const bad = !extra && A && A.bad && A.bad.indexOf(w) >= 0;
     const issue = extra ? issues.filter(x => x.w === w)[0] : null;
     const turns = A && A.minTurns ? A.minTurns[w] : null;
@@ -2688,11 +2975,25 @@ function ready(D, A, issues) {
     } else if (issue) {
       meta += issue.kind === 'dict' ? ' · 不在词库' : (issue.kind === 'length' ? ' · 长度不在 3–10' : ' · 棋盘上连不出');
     }
+    const kind = extra && extraIndex != null && cur().extraKind ? cur().extraKind[extraIndex] : '';
+    if (kind) meta += ' · ' + kind;
     const act = extra ? '改为必答' : '转为额外';
     const flag = extra ? 'x' : 't';
     return `<div class="wrow${bad || (issue && issue.kind !== 'dict') ? ' bad' : ''}"><b class="gw">${esc(w)}</b><span class="meta">${bandPill(w)} ${esc(meta)}</span><button type="button" data-move="${flag}" data-w="${esc(w)}">${act}</button></div>`;
   }
   function renderSugg() {
+    if (sourceMode === 'zen') {
+      $('#suggCore').innerHTML = '<span class="note">Zen 没有棋盘，不列能连出的词。</span>';
+      $('#suggExtra').innerHTML = '';
+      $('#suggMeta').textContent = '';
+      return;
+    }
+    if (!ours()) {
+      $('#suggCore').innerHTML = '<span class="note">只读对照，不往关卡里加词。</span>';
+      $('#suggExtra').innerHTML = '';
+      $('#suggMeta').textContent = '';
+      return;
+    }
     const s = suggestions();
     const chip = (w, kind) => `<button type="button" data-add="${kind}" data-w="${esc(w)}"><span class="gw">${esc(w)}</span> ${bandPill(w)}</button>`;
     $('#suggCore').innerHTML = s.core.slice(0, 36).map(w => chip(w, 't')).join('') || '<span class="note">没有更多简单 / 常见词。</span>';
@@ -2708,7 +3009,7 @@ function ready(D, A, issues) {
       dim.three + ' 个三字母（' + dim.threePct + '%）',
       '3–4 字母占 ' + dim.short34Pct + '%',
       dim.rareish.length ? '稀有及以上或未收词：' + dim.rareish.join('、') : '必答都是简单或常见',
-      dim.avgMinTurns == null ? '还没有可走的路径' : '平均最少 ' + dim.avgMinTurns.toFixed(2) + ' 次拐弯'
+      dim.avgMinTurns == null ? (D.origin === 'zen' ? '没有棋盘，不算拐弯' : '还没有可走的路径') : '平均最少 ' + dim.avgMinTurns.toFixed(2) + ' 次拐弯'
     ];
     if (here.recovery) bits.push('比前一关少了至少 2 个必答，是回落');
     if (here.peak) bits.push('比前后关都多出至少 2 个必答，是词量峰值');
@@ -2766,6 +3067,15 @@ function ready(D, A, issues) {
   function renderChecks(dim, here) {
     const D = cur();
     const items = [];
+    if (D.origin === 'zen') {
+      items.push([true, '字母袋 ' + (D.zenLetter || '') + '，' + D.words.length + ' 个必答，' + D.extras.length + ' 个其他词']);
+      items.push(['warn', 'Zen 难度分 ' + (D.zenScore | 0) + '。没有棋盘，不检查走法，也不能试玩']);
+      const rule = scanLevel(D);
+      if (rule.abbr.length) items.push(['warn', '必答里有缩写：' + rule.abbr.join('、')]);
+      if (rule.pairs.length) items.push(['warn', '必答里有单复数成对：' + rule.pairs.map(p => p[0] + ' / ' + p[1]).join('、')]);
+      $('#checks').innerHTML = items.map(([ok, s]) => `<li class="${ok === true ? 'ok' : (ok === 'warn' ? 'warn' : 'bad')}">${markCaps(esc(s))}</li>`).join('');
+      return;
+    }
     items.push([D.letters.every(Boolean), D.letters.every(Boolean) ? '每一格都有字母' : '还有空格']);
     if (!D.words.length) items.push([false, '至少要有一个必答词']);
     else if (A.bad.length) items.push([false, '这些必答词按四方向连不出：' + A.bad.join('、')]);
@@ -2866,6 +3176,7 @@ function ready(D, A, issues) {
     renderPlay();
   }
   function startPlay() {
+    if (sourceMode === 'zen') { toast('Zen Word 没有棋盘，不能试玩'); return; }
     const D = cur();
     if (!C.ready(D, A, issues)) { toast('这一关还不能按字页的规则玩'); return; }
     const pr = proveD(D, A);
@@ -3584,6 +3895,7 @@ function ready(D, A, issues) {
   }
   const DEFAULT_SUBS = ['入门', '简单', '普通', '困难', '专家'];
   function openExportDialog() {
+    if (!ours()) { toast('这是竞品只读关表，不会导出成我们的关卡'); return; }
     const bag = collectExport();
     const items = bag.items;
     const total = items.length;
@@ -3867,9 +4179,10 @@ function ready(D, A, issues) {
     resize(+b.dataset.w, +b.dataset.h);
   });
   const campNameInput = $('#campName');
-  if (campNameInput) campNameInput.addEventListener('input', e => { campaign.name = e.target.value; persist(); });
-  $('#lvName').addEventListener('input', e => { cur().name = e.target.value; persist(); });
+  if (campNameInput) campNameInput.addEventListener('input', e => { if (!ours()) return; campaign.name = e.target.value; persist(); });
+  $('#lvName').addEventListener('input', e => { if (!ours()) return; cur().name = e.target.value; persist(); });
   $('#grid').addEventListener('input', e => {
+    if (!ours()) return;
     const inp = e.target; if (!inp || inp.tagName !== 'INPUT' || curtainOn) return;
     const i = +inp.dataset.i;
     const ch = (inp.value.toUpperCase().match(/[A-Z]/g) || []).pop() || '';
@@ -4138,6 +4451,9 @@ function ready(D, A, issues) {
   function genSig(d) { return d.letters.join('') + '|' + d.words.slice().sort().join(' '); }
   /* 生成的关保留构造时的使用次数；手改字母或必答后自动失效，回到通用算法。 */
   function analyzeD(d) {
+    if (d && d.origin === 'zen') {
+      return { paths: {}, minTurns: {}, starts: {}, counts: null, uncovered: [], bad: [], empty: 0, assign: null, fail: null, solTurns: null };
+    }
     const An = C.analyze(d);
     if (d.gen && d.gen.sig === genSig(d) && !d.curtains.some(c => c.cells.length)) {
       An.counts = d.gen.n.split('').map(ch => parseInt(ch, 36));
@@ -4160,6 +4476,7 @@ function ready(D, A, issues) {
   const SIZE_OPTS = [[3, 2], [3, 3], [4, 2], [4, 3], [5, 3], [4, 4], [5, 4]];
   let batchRun = null;
   function openBatch() {
+    if (!ours()) return;
     const box = $('#batch');
     box.hidden = false;
     const startN = campaign.levels.length + 1;
@@ -4283,6 +4600,15 @@ function ready(D, A, issues) {
   }
   const jumpLv = $('#jumpLv');
   if (jumpLv) jumpLv.addEventListener('change', e => goLevel(e.target.value));
+  document.querySelectorAll('#srcBar [data-src]').forEach(b => {
+    b.addEventListener('click', () => setSource(b.dataset.src, sourcePack[b.dataset.src]));
+  });
+  $('#srcPicks').addEventListener('click', e => {
+    const b = e.target.closest('[data-pack]');
+    if (b) setSource(sourceMode, b.dataset.pack);
+  });
+  const srcJump = $('#srcJump');
+  if (srcJump) srcJump.addEventListener('change', e => goLevel(e.target.value));
   $('#btnBatch').onclick = openBatch;
   $('#bClose').onclick = () => { $('#batch').hidden = true; };
   $('#bGo').onclick = startBatch;
@@ -4306,7 +4632,18 @@ function ready(D, A, issues) {
     straightProbe: lv => {
       const d = C.fromLevel(lv);
       return straightOf(d, d.words || []);
-    }
+    },
+    source: () => ({
+      kind: sourceMode,
+      pack: ours() ? '' : sourcePack[sourceMode],
+      n: campaign.levels.length,
+      name: campaign.name,
+      origin: (cur() && cur().origin) || 'ours',
+      playDisabled: $('#btnPlay').disabled,
+      playTitle: $('#btnPlay').title,
+      exportLabel: $('#btnExport').textContent,
+      note: $('#srcNote') ? $('#srcNote').textContent : ''
+    })
   };
 
   /* 悬停释义。词库按首字母放在 dict/a.json … dict/z.json，第一次指到该字母才 fetch。 */
