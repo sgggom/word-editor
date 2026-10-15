@@ -198,20 +198,21 @@ html.play-on,html.play-on body{overflow:hidden;height:100%;max-height:100dvh}
 #pphone .ph-wtitle{flex:0 0 auto;font-family:Inter,system-ui,sans-serif;font-size:13px;font-weight:500;letter-spacing:.04em;color:var(--ink-soft);margin:0 0 8px;text-align:center}
 #pphone .ph-wtitle i{font-style:normal;margin-left:.2em}
 #pboxes{
-  flex:1 1 auto;min-height:0;width:100%;overflow:auto;
+  flex:1 1 auto;min-height:0;width:100%;overflow:auto;box-sizing:border-box;
   display:flex;flex-direction:column;align-items:center
 }
-#pboxes .ph-word-spacer{flex:1 1 auto;min-height:0;width:100%}
+#pboxes .ph-word-spacer{flex:1 1 0;min-height:0;width:100%}
+#pboxes .ph-word-below{flex:1 1 0;min-height:24px;width:100%}
 #pboxes .ph-word-grid{
-  flex:0 0 auto;width:max-content;max-width:100%;margin:0 0 10px;
+  flex:0 0 auto;width:max-content;max-width:100%;margin:0;
   display:grid;grid-template-columns:repeat(var(--wcols,1),max-content);
   justify-content:center;justify-items:stretch;align-items:start;
-  column-gap:16px;row-gap:3px
+  column-gap:16px;row-gap:4px
 }
-#pboxes .w{display:flex;gap:3px;justify-content:flex-start;align-items:center}
+#pboxes .w{display:flex;gap:4px;justify-content:flex-start;align-items:center}
 #pboxes .lt{
-  width:var(--lw,22px);height:var(--lw,22px);display:grid;place-items:center;
-  font-family:"EB Garamond",Palatino,serif;font-size:calc(var(--lw,22px) * .68);font-weight:500;line-height:1;
+  width:var(--lw,36px);height:var(--lw,36px);display:grid;place-items:center;
+  font-family:"EB Garamond",Palatino,serif;font-size:calc(var(--lw,36px) * .62);font-weight:500;line-height:1;
   color:transparent;border-bottom:1.5px solid #d2c2a4
 }
 #pboxes .w.found .lt.show{color:var(--ink);border-bottom-color:transparent;animation:pwrite .45s both}
@@ -298,7 +299,7 @@ html.play-on,html.play-on body{overflow:hidden;height:100%;max-height:100dvh}
 #pphone[data-fit="short"] .ph-gplace{margin-top:1px;font-size:10px;letter-spacing:.14em}
 #pphone[data-fit="short"] .ph-panel{margin-top:4px;padding:0;max-height:none;border-radius:12px}
 #pphone[data-fit="short"] .ph-wtitle{margin-bottom:4px;font-size:12px}
-#pphone[data-fit="short"] #pboxes .ph-word-grid{margin-bottom:6px}
+#pphone[data-fit="short"] #pboxes .ph-word-below{min-height:28px}
 #pphone[data-fit="short"] #pcur{min-height:18px;font-size:16px}
 #pphone[data-fit="short"] #pcur:empty{min-height:2px;height:2px}
 #pphone[data-fit="short"] .ph-gridwrap{padding:2px 2px 10px}
@@ -407,7 +408,7 @@ html.play-on,html.play-on body{overflow:hidden;height:100%;max-height:100dvh}
 }
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-wtitle{color:var(--ink);font-size:16px;font-weight:500;letter-spacing:.06em}
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pboxes .lt{
-  place-items:center;border:0;border-radius:calc(var(--lw,22px) * .18);font-family:Inter,system-ui,sans-serif;font-weight:600;
+  place-items:center;border:0;border-radius:calc(var(--lw,36px) * .18);font-family:Inter,system-ui,sans-serif;font-weight:600;
   background:rgba(255,255,255,.42);box-shadow:inset 0 0 0 1px rgba(255,255,255,.65)
 }
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pboxes .w.found .lt.show{
@@ -582,7 +583,7 @@ html,body{overflow-x:hidden;max-width:100vw}
 <div id="desk">
   <header class="top">
     <div>
-      <h1>字页关卡台 <span>给书页连词排一串关</span> <span class="ver" id="buildVer">版本 2026.10.15.8</span></h1>
+      <h1>字页关卡台 <span>给书页连词排一串关</span> <span class="ver" id="buildVer">版本 2026.10.15.9</span></h1>
       <p>玩法是字页自己的：上下左右连字母，一格在一个词里只用一次，用完就消失。编排方式参照 Word Tiles 和 Zen Word：必答词和额外词分开，难度拆开看，不合成一个分数。</p>
     </div>
     <div class="top-actions">
@@ -729,7 +730,7 @@ html,body{overflow-x:hidden;max-width:100vw}
           </header>
           <section class="ph-panel" aria-label="已找到的词">
             <div class="ph-wtitle"><span id="pBoxProg">0 / 0</span> <i>words</i></div>
-            <div class="ph-words" id="pboxes"><div class="ph-word-spacer"></div><div class="ph-word-grid" id="pwordgrid"></div></div>
+            <div class="ph-words" id="pboxes"><div class="ph-word-spacer"></div><div class="ph-word-grid" id="pwordgrid"></div><div class="ph-word-spacer ph-word-below"></div></div>
           </section>
           <div id="pcur"></div>
           <div class="ph-gridwrap" id="pgridwrap">
@@ -3085,22 +3086,26 @@ function ready(D, A, issues) {
     const cols = n > 6 ? 2 : 1;
     boxes.style.setProperty('--wcols', String(cols));
     const rows = Math.max(1, Math.ceil(n / cols));
-    const maxLen = words.reduce((m, w) => Math.max(m, w.length), 1);
+    const colMax = Array(cols).fill(1);
+    words.forEach((w, i) => { colMax[i % cols] = Math.max(colMax[i % cols], w.length); });
     const st = getComputedStyle(boxes);
     const colGap = parseFloat(st.columnGap) || 16;
-    const rowGap = parseFloat(st.rowGap) || 3;
+    const rowGap = parseFloat(st.rowGap) || 4;
     const sample = boxes.querySelector('.w');
-    const letterGap = sample ? (parseFloat(getComputedStyle(sample).columnGap || getComputedStyle(sample).gap) || 3) : 3;
+    const letterGap = sample ? (parseFloat(getComputedStyle(sample).columnGap || getComputedStyle(sample).gap) || 4) : 4;
     const availW = host.clientWidth;
-    const marginBottom = parseFloat(st.marginBottom) || 0;
-    const availH = host.clientHeight - marginBottom;
+    const below = host.querySelector('.ph-word-below');
+    const belowMin = below ? (parseFloat(getComputedStyle(below).minHeight) || 0) : 0;
+    const availH = host.clientHeight - belowMin;
     if (availW < 8 || availH < 8) return;
-    const colW = (availW - colGap * (cols - 1)) / cols;
-    const lwW = (colW - letterGap * Math.max(0, maxLen - 1)) / maxLen;
+    const letters = colMax.reduce((a, b) => a + b, 0);
+    const innerGaps = colMax.reduce((a, b) => a + Math.max(0, b - 1), 0);
+    const lwW = (availW - colGap * (cols - 1) - letterGap * innerGaps) / letters;
     const lwH = (availH - rowGap * Math.max(0, rows - 1)) / rows;
-    /* 字母格保持小方块，只在放不下时缩小；多出来的空白留在词块上方。 */
-    const preferred = 22;
-    let lw = Math.floor(Math.min(preferred, lwW, lwH));
+    /* 尽量用 32–40 像素，大约是棋盘字块的一半；只有放不下时才再缩小。 */
+    const tile = parseFloat(getComputedStyle($('#pgrid')).getPropertyValue('--tile')) || 64;
+    const cap = Math.min(40, Math.max(32, Math.round(tile * 0.62)));
+    let lw = Math.floor(Math.min(cap, lwW, lwH));
     if (lw < 8) lw = Math.floor(Math.min(lwW, Math.max(6, Math.min(8, lwW))));
     if (lw > lwW) lw = Math.floor(lwW);
     if (!(lw > 0)) return;
