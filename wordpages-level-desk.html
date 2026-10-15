@@ -67,12 +67,6 @@ button{background:none;border:0;cursor:pointer;padding:0}
   content:"";position:absolute;top:2px;left:50%;width:6px;height:6px;margin-left:-3px;
   background:#c47a4a;transform:rotate(45deg)
 }
-.pace button.rule::before{
-  content:"";position:absolute;top:2px;left:2px;width:6px;height:6px;border-radius:50%;background:#e2c37a
-}
-.rule-line{font-size:12.5px;color:#f0d2cf;margin-top:4px;max-height:72px;overflow:auto}
-.rule-line.quiet{color:#cbbfa8}
-.rule-line button{border:0;background:transparent;color:#f3ead6;text-decoration:underline;padding:0 2px;font-size:12.5px}
 #ruleBox{margin-top:10px}
 #ruleBox summary{cursor:pointer}
 #ruleBox textarea{width:100%;min-height:2.8em;margin:4px 0;border:1px solid var(--rule);background:transparent;font-family:var(--en);font-size:14px;letter-spacing:.04em;padding:4px}
@@ -582,6 +576,23 @@ html,body{overflow-x:hidden;max-width:100vw}
 .src-note{margin:0;flex:1 1 220px;min-width:0;color:#e6d7bc;font-size:13px;line-height:1.4}
 #desk[data-source="wt"] [data-move],#desk[data-source="zen"] [data-move],
 #desk[data-source="wt"] .add,#desk[data-source="zen"] .add{display:none}
+#zenList{display:none}
+#desk[data-source="zen"] .work{grid-template-columns:minmax(0,1fr)}
+#desk[data-source="zen"] .work>.card{display:none}
+#desk[data-source="zen"] #zenList{
+  display:block;min-height:0;height:100%;overflow:auto;background:var(--paper);border-radius:4px;
+  box-shadow:inset 0 0 40px rgba(120,85,40,.12)
+}
+#zenList table{width:100%;border-collapse:collapse;font-size:14px}
+#zenList th{
+  position:sticky;top:0;z-index:1;background:#efe4cc;text-align:left;padding:8px 10px;
+  border-bottom:1px solid var(--rule);letter-spacing:.12em;font-size:13px;font-weight:700
+}
+#zenList td{padding:6px 10px;border-bottom:1px dotted var(--rule);vertical-align:baseline;line-height:1.45}
+#zenList td.zp,#zenList td.zl,#zenList td.zs{font-family:var(--en);white-space:nowrap}
+#zenList td.zl{letter-spacing:.12em;font-weight:600}
+#zenList tbody tr{cursor:pointer}
+#zenList tr.on{background:rgba(166,132,60,.2)}
 .zenbag{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 0 4px}
 .zenbag b{font-family:var(--en);font-size:28px;letter-spacing:.28em;font-weight:600}
 .zenbag span{color:var(--ink-soft);letter-spacing:.04em}
@@ -593,7 +604,7 @@ html,body{overflow-x:hidden;max-width:100vw}
 <body>
 <div id="desk">
   <header class="top">
-    <div class="srcbar" id="srcBar" title="版本 2026.10.15.11">
+    <div class="srcbar" id="srcBar" title="版本 2026.10.15.12">
       <div class="src-tabs" role="tablist" aria-label="关卡来源">
         <button type="button" data-src="ours" class="on" role="tab" aria-selected="true">我们的</button>
         <button type="button" data-src="wt" role="tab" aria-selected="false">Word Tiles</button>
@@ -636,7 +647,6 @@ html,body{overflow-x:hidden;max-width:100vw}
     </div>
     <div class="pace" id="pace"></div>
     <div class="reuse-line quiet" id="reuseLine"></div>
-    <div class="rule-line quiet" id="ruleLine"></div>
   </section>
   <div class="work">
     <section class="card" id="colBoard">
@@ -697,6 +707,7 @@ html,body{overflow-x:hidden;max-width:100vw}
         <div class="sugg" id="suggExtra"></div>
       </div>
     </section>
+    <div id="zenList" aria-label="Zen Word 关卡表"></div>
     <section class="card" id="colDim">
       <h2>这一关为什么重 <i>四个维度，没有总分</i></h2>
       <p class="blurb" id="blurb"></p>
@@ -2148,6 +2159,7 @@ function ready(D, A, issues) {
     d.tiers = answers.map(() => 0);
     d.curtains = [{ req: 2, cells: [] }, { req: 4, cells: [] }];
     d.origin = 'zen';
+    d.zenPos = row[0] | 0;
     d.zenLetter = letter;
     d.zenScore = row[7] | 0;
     d.zenId = row[2] || '';
@@ -2762,36 +2774,31 @@ function ready(D, A, issues) {
     const pairs = (typeof WPGen !== 'undefined' && WPGen.pluralPairs) ? WPGen.pluralPairs(words, pluralExemptSet) : [];
     return { abbr: abbr, pairs: pairs };
   }
-  function ruleLabel(hit) {
-    const bits = [];
-    if (hit.abbr.length) bits.push('缩写 ' + hit.abbr.join('、'));
-    if (hit.pairs.length) bits.push(hit.pairs.map(p => p[0] + '/' + p[1]).join('、'));
-    return bits.join('；');
+  function renderZenList() {
+    const el = $('#zenList');
+    if (!el) return;
+    if (sourceMode !== 'zen') { el.innerHTML = ''; return; }
+    const body = campaign.levels.map((d, i) => {
+      const on = i === campaign.index ? ' class="on"' : '';
+      return '<tr data-zi="' + i + '"' + on + '>' +
+        '<td class="zp">' + ((d.zenPos | 0) || (i + 1)) + '</td>' +
+        '<td class="zl">' + esc(d.zenLetter || '') + '</td>' +
+        '<td>' + esc((d.words || []).join(' ')) + '</td>' +
+        '<td>' + esc((d.extras || []).join(' ')) + '</td>' +
+        '<td class="zs">' + (d.zenScore | 0) + '</td></tr>';
+    }).join('');
+    el.innerHTML = '<table><thead><tr><th>关</th><th>字母</th><th>必答</th><th>其他词</th><th>难度分</th></tr></thead><tbody>' + body + '</tbody></table>';
+    const on = el.querySelector('tr.on');
+    if (!on) return;
+    const er = el.getBoundingClientRect();
+    const rr = on.getBoundingClientRect();
+    if (rr.top < er.top + 32 || rr.bottom > er.bottom) el.scrollTop += rr.top - er.top - 40;
   }
   function fillRuleInputs() {
     const a = $('#abbrList'), p = $('#pluralExempt');
     if (a && document.activeElement !== a) a.value = [...abbrSet].sort().join(' ');
     if (p && document.activeElement !== p) p.value = [...pluralExemptSet].sort().join(' ');
   }
-  function renderRuleLine() {
-    const el = $('#ruleLine');
-    if (!el) return;
-    const hits = [];
-    campaign.levels.forEach((d, i) => {
-      const hit = scanLevel(d);
-      if (hit.abbr.length || hit.pairs.length) hits.push({ i: i, hit: hit });
-    });
-    if (!hits.length) {
-      el.className = 'rule-line quiet';
-      el.textContent = '这串关的必答里没有缩写，也没有单复数成对。';
-      return;
-    }
-    el.className = 'rule-line';
-    el.innerHTML = '有 ' + hits.length + ' 关要改：' + hits.map(x => {
-      return '<button type="button" data-rule="' + x.i + '">第 ' + (x.i + 1) + ' 关 ' + esc(ruleLabel(x.hit)) + '</button>';
-    }).join(' ');
-  }
-
   function render() {
     hideGloss();
     const D = cur();
@@ -2816,7 +2823,7 @@ function ready(D, A, issues) {
     renderDims(dim, here, hits);
     renderChecks(dim, here, hits);
     fillRuleInputs();
-    renderRuleLine();
+    renderZenList();
     $('#btnPlay').disabled = sourceMode === 'zen' || !C.ready(D, A, issues);
     applySourceChrome();
   }
@@ -2833,11 +2840,8 @@ function ready(D, A, issues) {
     } else el.innerHTML = series.rows.map((x, i) => {
       const h = Math.max(4, Math.round(64 * x.value / series.scale));
       const g = series.showGuide ? Math.max(4, Math.round(64 * x.guide / series.scale)) : 0;
-      const rule = scanLevel(campaign.levels[i]);
-      const flagged = rule.abbr.length || rule.pairs.length;
-      const cls = ['bar', i === campaign.index ? 'on' : '', x.recovery ? 'rec' : '', x.peak ? 'peak' : '', series.metric === 'board' && x.curtain ? 'curtain' : '', flagged ? 'rule' : ''].filter(Boolean).join(' ');
-      const title = x.title + (flagged ? ' · ' + ruleLabel(rule) : '');
-      return `<button type="button" class="${cls}" data-i="${i}" data-value="${x.value}" title="${esc(title)}"><i style="height:${h}px"></i>${series.showGuide ? `<s style="height:${g}px"></s>` : ''}<em>${i + 1}</em></button>`;
+      const cls = ['bar', i === campaign.index ? 'on' : '', x.recovery ? 'rec' : '', x.peak ? 'peak' : '', series.metric === 'board' && x.curtain ? 'curtain' : ''].filter(Boolean).join(' ');
+      return `<button type="button" class="${cls}" data-i="${i}" data-value="${x.value}" title="${esc(x.title)}"><i style="height:${h}px"></i>${series.showGuide ? `<s style="height:${g}px"></s>` : ''}<em>${i + 1}</em></button>`;
     }).join('');
     if (!(sourceMode === 'zen' && series.metric === 'straight')) {
       el.classList.toggle('dense', series.rows.length > 150 && series.rows.length <= 400);
@@ -2962,8 +2966,8 @@ function ready(D, A, issues) {
     if (!extra) {
       if (bad) meta += ' · 按四方向连不出';
       else if (turns != null) meta += ' · ' + (turns === 0 ? '直线' : '最少 ' + turns + ' 拐') + ' · ' + starts + ' 个起点' + (paths >= 300 ? ' · 300+ 条路径' : '');
-      if (abbrSet.has(w)) meta += ' · 缩写，不宜做必答';
-      if (pairWords && pairWords.has(w)) meta += ' · 和另一必答是单复数';
+      if (ours() && abbrSet.has(w)) meta += ' · 缩写，不宜做必答';
+      if (ours() && pairWords && pairWords.has(w)) meta += ' · 和另一必答是单复数';
     } else if (issue) {
       meta += issue.kind === 'dict' ? ' · 不在词库' : (issue.kind === 'length' ? ' · 长度不在 3–10' : ' · 棋盘上连不出');
     }
@@ -3062,9 +3066,6 @@ function ready(D, A, issues) {
     if (D.origin === 'zen') {
       items.push([true, '字母袋 ' + (D.zenLetter || '') + '，' + D.words.length + ' 个必答，' + D.extras.length + ' 个其他词']);
       items.push(['warn', 'Zen 难度分 ' + (D.zenScore | 0) + '。没有棋盘，不检查走法，也不能试玩']);
-      const rule = scanLevel(D);
-      if (rule.abbr.length) items.push(['warn', '必答里有缩写：' + rule.abbr.join('、')]);
-      if (rule.pairs.length) items.push(['warn', '必答里有单复数成对：' + rule.pairs.map(p => p[0] + ' / ' + p[1]).join('、')]);
       $('#checks').innerHTML = items.map(([ok, s]) => `<li class="${ok === true ? 'ok' : (ok === 'warn' ? 'warn' : 'bad')}">${markCaps(esc(s))}</li>`).join('');
       return;
     }
@@ -3095,9 +3096,11 @@ function ready(D, A, issues) {
     if (dim.n && dim.threePct < 20 && dim.n >= 4) items.push(['warn', '三字母很少（' + dim.threePct + '%）。Zen 里较重的关往往就是短词起步变少']);
     const tier2 = D.words.filter(w => lex.tier[w] === 2);
     const tooRare = D.words.filter(w => { const t = lex.tier[w]; return t == null || t >= 3; });
-    const rule = scanLevel(D);
-    if (rule.abbr.length) items.push(['warn', '必答里有缩写：' + rule.abbr.join('、') + '。Word Tiles 不用缩写当必答，请换成别的词']);
-    if (rule.pairs.length) items.push(['warn', '必答里有单复数成对：' + rule.pairs.map(p => p[0] + ' / ' + p[1]).join('、') + '。留下一个，另一个可以转到额外']);
+    if (ours()) {
+      const rule = scanLevel(D);
+      if (rule.abbr.length) items.push(['warn', '必答里有缩写：' + rule.abbr.join('、') + '。Word Tiles 不用缩写当必答，请换成别的词']);
+      if (rule.pairs.length) items.push(['warn', '必答里有单复数成对：' + rule.pairs.map(p => p[0] + ' / ' + p[1]).join('、') + '。留下一个，另一个可以转到额外']);
+    }
     if (tooRare.length) items.push(['warn', '必答里有罕见、极其罕见或未收词：' + tooRare.join('、') + '。这些只适合当额外词']);
     if (tier2.length > 1) items.push(['warn', '必答里有 ' + tier2.length + ' 个稀有词：' + tier2.join('、') + '。更难的关也最多放一个，其余可以转到额外']);
     if (here.triple) items.push(['warn', '相对上一关，必答数、最长词、棋盘格数一起增加']);
@@ -4146,11 +4149,10 @@ function ready(D, A, issues) {
     suggCache = null;
     render();
   });
-  const ruleLine = $('#ruleLine');
-  if (ruleLine) ruleLine.addEventListener('click', e => {
-    const b = e.target.closest('[data-rule]');
-    if (!b) return;
-    goLevel(+b.dataset.rule + 1);
+  $('#zenList').addEventListener('click', e => {
+    const tr = e.target.closest('tr[data-zi]');
+    if (!tr || sourceMode !== 'zen') return;
+    goLevel(+tr.dataset.zi + 1);
   });
   $('#pace').addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;
