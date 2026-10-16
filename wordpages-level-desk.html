@@ -606,7 +606,6 @@ html,body{overflow-x:hidden;max-width:100vw}
 #levelList .level-number{font:inherit;min-width:28px;text-align:left}
 #levelList .level-name{display:block;max-width:100px;font:12px/1.4 var(--serif);color:var(--ink-soft);overflow-wrap:anywhere}
 #levelList .level-letters{letter-spacing:.12em;font-weight:600;white-space:nowrap}
-#levelList .level-size{display:block;font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--ink-soft)}
 #levelList .level-score{white-space:nowrap}
 #levelList .gw{display:inline-block;font-family:var(--en);letter-spacing:.04em;cursor:help}
 #levelList .level-actions{white-space:nowrap}
@@ -2821,8 +2820,7 @@ function ready(D, A, issues) {
     el.setAttribute('aria-label', label + '关卡列表');
     const body = campaign.levels.map((d, i) => {
       const pos = isZen ? ((d.zenPos | 0) || (i + 1)) : i + 1;
-      const letters = isZen ? d.zenLetter : (d.letters || []).map(ch => ch || '·').join('');
-      const size = isZen ? '' : '<span class="level-size">' + d.W + ' × ' + d.H + '</span>';
+      const letters = isZen ? d.zenLetter : [...new Set((d.letters || []).filter(Boolean))].join('');
       const score = isZen ? (d.zenScore | 0) : difficultyOf(d).score;
       const action = ours() ? '编辑' : '查看';
       const actions = isZen ? '' : '<td class="level-actions">' +
@@ -2831,7 +2829,7 @@ function ready(D, A, issues) {
       return '<tr data-level-index="' + i + '">' +
         '<td class="level-pos"><button type="button" class="level-number" aria-label="选中第 ' + pos + ' 关">' + pos + '</button>' +
         (d.name ? '<span class="level-name">' + esc(d.name) + '</span>' : '') + '</td>' +
-        '<td class="level-letters">' + esc(letters || '—') + size + '</td>' +
+        '<td class="level-letters">' + esc(letters || '—') + '</td>' +
         '<td>' + levelWordHtml(d.words) + '</td>' +
         '<td>' + levelWordHtml(d.extras) + '</td>' +
         '<td class="level-score">' + score + '</td>' + actions + '</tr>';
