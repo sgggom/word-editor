@@ -165,7 +165,9 @@ html.play-on,html.play-on body{overflow:hidden;height:100%;max-height:100dvh}
   --ink:#2b2118; --ink-soft:#5c4b3a; --red:#9b2c22; --ok:#2f6b45; --gold-hi:#e8c88a;
   position:relative;flex:0 0 auto;overflow:hidden;border-radius:28px;color:var(--ink);
   background:#f3ead6;box-shadow:0 18px 44px rgba(0,0,0,.38),inset 0 0 0 1px rgba(255,255,255,.28);
-  display:flex;flex-direction:column;align-items:center;min-height:0;user-select:none;
+  display:grid;grid-template-columns:minmax(0,1fr);min-height:0;user-select:none;
+  /* 顶部、目标区、棋盘区独立分配高度；关卡内容只在各自区域内居中。 */
+  grid-template-rows:minmax(max-content,14fr) minmax(0,46fr) minmax(0,40fr);
   font-family:"EB Garamond",Palatino,serif;
   aspect-ratio:9/19.5;height:100%;width:auto;
   padding:16px 18px 14px;box-sizing:border-box;text-align:center
@@ -173,53 +175,65 @@ html.play-on,html.play-on body{overflow:hidden;height:100%;max-height:100dvh}
 #pphone .ph-bg,#pphone .ph-veil{position:absolute;pointer-events:none}
 #pphone .ph-bg{inset:0;z-index:0;background:var(--photo,none) var(--photo-pos,center)/cover no-repeat}
 #pphone .ph-veil{inset:0;z-index:0}
-#pphone .ph-ghead,#pphone .ph-panel,#pphone #pcur,#pphone .ph-gridwrap,#pphone .ph-tools,#pphone .ph-pill{position:relative;z-index:1}
-#pphone .ph-ghead{flex:0 0 auto;width:100%;padding:4px 0 0;text-align:center}
+#pphone .ph-ghead,#pphone .ph-panel,#pphone .ph-board,#pphone .ph-gridwrap,#pphone .ph-pill{position:relative;z-index:1}
+#pphone .ph-ghead{width:100%;padding:4px 0 8px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center}
 #pphone .ph-gbar{display:none}
 #pphone .ph-gtitle{margin:0;font-weight:800;font-size:clamp(22px,10cqw,34px);letter-spacing:.04em;line-height:1.05;font-family:Inter,"Noto Sans SC",system-ui,sans-serif;text-align:center}
 #pphone .ph-gplace{margin-top:3px;font-size:12px;letter-spacing:.22em;color:var(--ink-soft);font-family:Inter,"Noto Sans SC",system-ui,sans-serif;text-align:center}
 #pphone .ph-gplace:empty{display:none}
 #pphone .ph-panel{
-  flex:1 1 auto;width:100%;max-width:100%;min-width:0;min-height:0;margin:8px 0 0;padding:0 2px;
+  width:100%;max-width:100%;min-width:0;min-height:0;margin:0;padding:12px 2px;
   max-height:none;overflow:hidden;text-align:center;
   display:flex;flex-direction:column;
   background:rgba(255,250,240,.72);box-shadow:inset 0 0 0 1px rgba(210,194,164,.85)
 }
-#pphone .ph-wtitle{flex:0 0 auto;font-family:Inter,system-ui,sans-serif;font-size:13px;font-weight:500;letter-spacing:.04em;color:var(--ink-soft);margin:0 0 8px;text-align:center}
+#pphone .ph-wtitle{flex:0 0 auto;font-family:Inter,system-ui,sans-serif;font-size:13px;font-weight:500;letter-spacing:.04em;color:var(--ink-soft);margin:6px 0 0;text-align:center}
 #pphone .ph-wtitle i{font-style:normal;margin-left:.2em}
 #pboxes{
   flex:1 1 auto;min-height:0;width:100%;overflow:auto;box-sizing:border-box;
   display:flex;flex-direction:column;align-items:center
 }
-#pboxes .ph-word-spacer{flex:1 1 0;min-height:0;width:100%}
-#pboxes .ph-word-below{flex:1 1 0;min-height:24px;width:100%}
 #pboxes .ph-word-grid{
-  flex:0 0 auto;width:max-content;max-width:100%;margin:0;
+  flex:0 0 auto;width:max-content;max-width:100%;margin:auto;
   display:grid;grid-template-columns:repeat(var(--wcols,1),max-content);
   justify-content:center;justify-items:stretch;align-items:start;
-  column-gap:16px;row-gap:4px
+  column-gap:16px;row-gap:10px
 }
-#pboxes .w{display:flex;gap:4px;justify-content:flex-start;align-items:center}
+#pboxes .w{display:flex;gap:4px;justify-content:center;align-items:center}
+#pboxes .ph-word-grid.two-cols .w{justify-content:flex-start}
 #pboxes .lt{
   width:var(--lw,36px);height:var(--lw,36px);display:grid;place-items:center;
+  position:relative;isolation:isolate;overflow:hidden;
   font-family:"EB Garamond",Palatino,serif;font-size:calc(var(--lw,36px) * .62);font-weight:500;line-height:1;
   color:transparent;border-bottom:1.5px solid #d2c2a4
 }
-#pboxes .w.found .lt.show{color:var(--ink);border-bottom-color:transparent;animation:pwrite .45s both}
-#pphone #pcur{
-  flex:0 0 auto;width:100%;min-height:28px;margin:0;font-family:Inter,"EB Garamond",sans-serif;font-weight:700;
-  font-size:clamp(20px,7cqw,30px);letter-spacing:.16em;text-align:center;
-  display:flex;align-items:center;justify-content:center
+#pboxes .lt::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;border-radius:inherit;
+  background:var(--target-fill,#fffaf0);clip-path:circle(0% at 50% 50%)
 }
-#pphone #pcur:empty{min-height:4px;height:4px}
+#pboxes .lt-char{position:relative;z-index:1;visibility:hidden}
+#pboxes .w.found .lt.show{color:var(--ink)}
+#pboxes .w.found .lt.show .lt-char{visibility:visible}
+#pboxes .w.found .lt.show::before{
+  clip-path:circle(75% at 50% 50%);transition:clip-path .28s cubic-bezier(.2,.65,.35,1)
+}
+@media (prefers-reduced-motion:reduce){
+  #pboxes .w.found .lt.show::before{transition:none}
+}
+#pphone .ph-board{width:100%;min-width:0;min-height:0}
+#pphone #pcur{
+  position:absolute;z-index:2;top:8px;left:0;width:100%;height:36px;margin:0;
+  font-family:Inter,"EB Garamond",sans-serif;font-weight:700;
+  font-size:clamp(20px,7cqw,30px);letter-spacing:.16em;text-align:center;
+  display:flex;align-items:center;justify-content:center;white-space:nowrap
+}
 #pphone #pcur.bad{color:var(--red)}
 #pphone #pcur.ok{color:var(--ok)}
 #pphone #pcur.extra{color:#1d2a44}
 #pphone #pcur.shake{animation:pshake .45s}
-#pphone #pcur.flying{color:transparent}
-.ph-gridwrap{flex:0 0 auto;width:100%;min-height:0;display:flex;align-items:center;justify-content:center;padding:4px 8px 12px;touch-action:none}
+.ph-gridwrap{width:100%;height:100%;min-height:0;display:flex;align-items:center;justify-content:center;padding:60px 10px;touch-action:none}
 #pgrid{
-  --tile:52px; --gap:8px; --cols:4;
+  --tile:52px; --gap:4px; --cols:4;
   display:grid;gap:var(--gap);grid-template-columns:repeat(var(--cols),var(--tile));grid-auto-rows:var(--tile);
   position:relative;isolation:isolate;margin:0;touch-action:none;perspective:640px
 }
@@ -251,7 +265,7 @@ html.play-on,html.play-on body{overflow:hidden;height:100%;max-height:100dvh}
   box-shadow:0 0 0 2px rgba(155,44,34,.3),0 2px 4px rgba(0,0,0,.3)
 }
 #pphone .ph-tools{
-  flex:0 0 auto;width:100%;min-width:0;box-sizing:border-box;
+  position:absolute;z-index:2;left:0;bottom:0;width:100%;min-width:0;box-sizing:border-box;
   display:flex;flex-direction:row;align-items:center;justify-content:flex-start;gap:8px;
   min-height:48px;padding:2px 0 0
 }
@@ -287,12 +301,11 @@ html.play-on,html.play-on body{overflow:hidden;height:100%;max-height:100dvh}
 #pphone[data-fit="short"]{padding:8px 10px 6px;border-radius:16px}
 #pphone[data-fit="short"] .ph-gtitle{font-size:22px}
 #pphone[data-fit="short"] .ph-gplace{margin-top:1px;font-size:10px;letter-spacing:.14em}
-#pphone[data-fit="short"] .ph-panel{margin-top:4px;padding:0;max-height:none;border-radius:12px}
-#pphone[data-fit="short"] .ph-wtitle{margin-bottom:4px;font-size:12px}
-#pphone[data-fit="short"] #pboxes .ph-word-below{min-height:28px}
-#pphone[data-fit="short"] #pcur{min-height:18px;font-size:16px}
-#pphone[data-fit="short"] #pcur:empty{min-height:2px;height:2px}
-#pphone[data-fit="short"] .ph-gridwrap{padding:2px 2px 10px}
+#pphone[data-fit="short"] .ph-panel{padding:8px 0;border-radius:12px}
+#pphone[data-fit="short"] #pboxes .ph-word-grid{row-gap:8px}
+#pphone[data-fit="short"] .ph-wtitle{margin-top:4px;font-size:12px}
+#pphone[data-fit="short"] #pcur{top:4px;height:24px;font-size:16px}
+#pphone[data-fit="short"] .ph-gridwrap{padding:46px 6px}
 #pphone[data-fit="short"] .ph-tools{min-height:40px;padding:0}
 #pphone[data-fit="short"] .ph-rounds{gap:12px}
 #pphone[data-fit="short"] .ph-round{width:36px;height:36px;box-shadow:inset 0 0 0 1.5px currentColor,0 0 0 2px rgba(255,250,240,.85),0 0 0 3.5px currentColor}
@@ -312,7 +325,6 @@ html.play-on,html.play-on body{overflow:hidden;height:100%;max-height:100dvh}
 .pskins [data-pskin="wood"] i{background:linear-gradient(180deg,#efd3a4,#6a4422)}
 .pskins [data-pskin="book"] i{background:linear-gradient(180deg,#f8f1e1,#c9b48a)}
 .pfly{position:fixed;z-index:40;display:grid;place-items:center;pointer-events:none;font-family:Inter,"EB Garamond",sans-serif;font-weight:700;color:#2f6b45}
-@keyframes pwrite{from{opacity:0;transform:translateY(-4px);filter:blur(2px)}to{opacity:1;transform:none;filter:none}}
 @keyframes pshake{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
 @keyframes ppop{40%{transform:scale(1.1)}}
 @keyframes pcnt{0%{transform:scale(1.8);opacity:.2}100%{transform:none}}
@@ -361,25 +373,23 @@ html.play-on,html.play-on body{overflow:hidden;height:100%;max-height:100dvh}
 #bOut p{margin:4px 0;font-size:13.5px;line-height:1.5}
 #pphone{container-type:inline-size}
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]){
-  --ink:#1c2520; --ink-soft:#46524b; --red:#c23a5e; --ok:#2f6b45; --gold-hi:#e9c27a;
-  --accent:#24472f; --ph-num:#2f6b45; --ph-badge:#24472f;
-  --glass:linear-gradient(160deg,rgba(255,255,255,.52),rgba(255,255,255,.34));
-  --glass-edge:inset 0 0 0 1px rgba(255,255,255,.55),inset 0 1px 0 rgba(255,255,255,.8);
+  --ink:#0b1b24; --ink-soft:#526673; --red:#c23a5e; --ok:#2f6b45; --gold-hi:#e9c27a;
+  --accent:#28562c; --ph-num:#28562c; --ph-badge:#214a25;
   font-family:Inter,"Noto Sans SC",system-ui,sans-serif;
   background:#9bb3c8;color:var(--ink)
 }
 #pphone[data-skin="kyoto"]{--photo:url("assets/bg-kyoto.jpg");--photo-pos:42% 60%}
-#pphone[data-skin="alps"]{--photo:url("assets/bg-alps.jpg");--photo-pos:60% 50%;--ink:#232a33;--ink-soft:#4b5562;--ph-num:#8a9099;--ph-badge:#2a2f36;--accent:#fff}
+#pphone[data-skin="alps"]{--photo:url("assets/bg-alps.jpg");--photo-pos:60% 50%}
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-veil{background:none}
-#pphone:is([data-skin="kyoto"],[data-skin="alps"]) :is(.ph-gbar-lvl,.ph-gplace,.ph-wtitle,#pcur,.ph-gcoin){
-  text-shadow:0 1px 0 rgba(255,255,255,.9),0 0 8px rgba(255,255,255,.72)
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) :is(.ph-gbar-lvl,.ph-gplace,.ph-wtitle,#pcur){
+  text-shadow:0 1px 1px rgba(255,255,255,.4)
 }
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-gbar{
   display:flex;align-items:center;justify-content:space-between;position:relative;min-height:36px;width:100%
 }
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-back{
   width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:var(--ink);
-  background:transparent;box-shadow:none
+  background:rgba(250,252,253,.9);box-shadow:0 1px 3px rgba(33,58,75,.07)
 }
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-back svg{width:22px;height:22px}
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-gbar-lvl{
@@ -387,61 +397,63 @@ html.play-on,html.play-on body{overflow:hidden;height:100%;max-height:100dvh}
   font-size:14px;font-weight:500;letter-spacing:.2em;font-family:Inter,"Noto Sans SC",system-ui,sans-serif
 }
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-gcoin{
-  display:flex;align-items:center;gap:4px;font-size:18px;font-weight:600;font-family:Inter,system-ui,sans-serif
+  position:relative;isolation:isolate;display:flex;align-items:center;gap:4px;
+  font-size:18px;font-weight:600;font-family:Inter,system-ui,sans-serif
+}
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-gcoin::before{
+  content:"";position:absolute;inset:-6px -9px;z-index:-1;pointer-events:none;border-radius:999px;
+  background:rgba(251,252,251,.94);box-shadow:0 1px 3px rgba(33,58,75,.08)
 }
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-gcoin svg{width:18px;height:18px}
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-gtitle{display:none}
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-gplace{margin-top:8px;font-size:13px;letter-spacing:.16em}
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-panel{
   background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;
-  border:0;width:100%;margin-top:6px;padding:0
+  border:0;width:100%
 }
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-wtitle{color:var(--ink);font-size:16px;font-weight:500;letter-spacing:.06em}
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pboxes .lt{
-  place-items:center;border:0;border-radius:calc(var(--lw,36px) * .18);font-family:Inter,system-ui,sans-serif;font-weight:600;
-  background:rgba(255,255,255,.42);box-shadow:inset 0 0 0 1px rgba(255,255,255,.65)
+  --target-fill:rgba(255,255,255,.65);
+  place-items:center;border:1px solid rgba(115,142,161,.15);border-radius:calc(var(--lw,36px) * .12);font-family:Inter,system-ui,sans-serif;font-weight:600;
+  background:rgba(244,249,252,.78);box-shadow:0 1px 2px rgba(33,58,75,.08)
 }
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pboxes .w.found .lt.show{
-  color:#141a17;background:rgba(255,255,255,.86);border:0;text-shadow:none;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.9),0 2px 6px rgba(30,45,60,.1)
+  color:var(--ink);text-shadow:none
 }
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pgrid::before{display:none}
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pgrid .pt{
-  border-radius:calc(var(--tile) * .18);
-  background:rgba(255,255,255,.78);
-  -webkit-backdrop-filter:none;backdrop-filter:none;
-  color:#141a17;font-family:Inter,system-ui,sans-serif;font-weight:700;text-shadow:none;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.85),0 3px 10px rgba(30,45,60,.12)
+  isolation:isolate;border:1px solid rgba(115,142,161,.14);border-radius:calc(var(--tile) * .1);
+  background:linear-gradient(150deg,rgba(255,255,255,.95),rgba(240,246,250,.91));
+  color:var(--ink);font-family:Inter,system-ui,sans-serif;font-weight:700;
+  text-shadow:none;box-shadow:0 1px 2px rgba(33,58,75,.09)
 }
-#pphone[data-skin="alps"] #pgrid .pt{border-radius:calc(var(--tile) * .2)}
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pgrid .pt .ch{position:relative;z-index:1}
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pgrid .pt .c{
-  color:var(--ph-num);font-style:normal;font-weight:600;font-family:Inter,system-ui,sans-serif;font-size:calc(var(--tile) * .15);opacity:1
+  z-index:2;color:var(--ph-num);font-style:normal;font-weight:700;font-family:Inter,system-ui,sans-serif;font-size:calc(var(--tile) * .15);opacity:1
 }
-#pphone[data-skin="kyoto"] #pgrid .pt.sel{
-  transform:scale(.94);color:#fff;background:linear-gradient(165deg,#3d6a4c,var(--accent));
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 0 0 3px rgba(255,255,255,.55),0 6px 18px rgba(30,45,60,.2)
-}
-#pphone[data-skin="alps"] #pgrid .pt.sel{
-  color:#141a17;background:linear-gradient(165deg,#fff,rgba(255,255,255,.9));
-  box-shadow:inset 0 1px 0 #fff,0 0 0 3px rgba(255,255,255,.7),0 0 22px rgba(255,255,255,.75)
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pgrid .pt.sel{
+  transform:scale(.96);color:#214a25;
+  background:rgba(216,235,218,.98);border-color:rgba(63,108,68,.42);
+  box-shadow:0 1px 3px rgba(33,70,40,.12)
 }
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pgrid .pt.sel .c{color:inherit}
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pgrid .pt.spent{
-  border:1.5px dashed rgba(255,255,255,.65);background:rgba(255,255,255,.08);
-  -webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none
+  border:1px dashed rgba(255,255,255,.4);background:rgba(244,249,252,.08);
+  color:transparent;text-shadow:none;box-shadow:none;animation:none
 }
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pgrid .pt.curt{
   background:repeating-linear-gradient(45deg,rgba(255,255,255,.5) 0 3px,rgba(255,255,255,.16) 3px 9px);
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.45)
 }
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pgrid .pt.curt .ch{visibility:hidden}
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]) .curt-num b{background:var(--accent);color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.65),0 4px 10px rgba(30,45,60,.2)}
 #pphone[data-skin="alps"] .curt-num b{background:#2a2f36}
-#pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-pill,#pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-round{
-  background:rgba(255,255,255,.5);color:var(--ink);
-  -webkit-backdrop-filter:none;backdrop-filter:none;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.75),0 4px 12px rgba(30,45,60,.12)
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-tools :is(.ph-pill,.ph-round){
+  position:relative;background:rgba(251,252,251,.94);color:var(--ink);border:1px solid rgba(115,142,161,.12);
+  text-shadow:none;box-shadow:0 1px 3px rgba(33,58,75,.09)
 }
-#pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-pill em{background:var(--ph-badge);color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.75)}
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) #pHint{color:var(--ink)}
+#pphone:is([data-skin="kyoto"],[data-skin="alps"]) .ph-pill em{background:var(--ph-badge);color:#fff;box-shadow:none}
 #pphone[data-fit="short"]:is([data-skin="kyoto"],[data-skin="alps"]) .ph-gbar-lvl{font-size:11px;letter-spacing:.1em}
 #pphone[data-fit="short"]:is([data-skin="kyoto"],[data-skin="alps"]) .ph-back{width:28px;height:28px}
 #pphone[data-fit="short"]:is([data-skin="kyoto"],[data-skin="alps"]) .ph-gplace{margin-top:2px;font-size:11px}
@@ -459,7 +471,7 @@ html.play-on,html.play-on body{overflow:hidden;height:100%;max-height:100dvh}
   background-size:auto,160px 160px,auto;box-shadow:inset 0 0 0 1px rgba(255,236,200,.45),0 8px 18px rgba(20,10,3,.28)
 }
 #pphone[data-skin="wood"] .ph-gtitle,#pphone[data-skin="wood"] #pcur,#pphone[data-skin="wood"] #pboxes .lt{font-family:"Alegreya","Noto Serif SC",serif;color:var(--ink)}
-#pphone[data-skin="wood"] #pboxes .lt{border-bottom-color:#c3a074}
+#pphone[data-skin="wood"] #pboxes .lt{--target-fill:#f5e5c8;border-bottom-color:#c3a074}
 #pphone[data-skin="wood"] #pgrid .pt{
   border-radius:calc(var(--tile) * .1);color:#3b200c;font-family:"Alegreya",serif;font-weight:700;
   background-color:#e7c897;
@@ -576,24 +588,33 @@ html,body{overflow-x:hidden;max-width:100vw}
 .src-note{margin:0;flex:1 1 220px;min-width:0;color:#e6d7bc;font-size:13px;line-height:1.4}
 #desk[data-source="wt"] [data-move],#desk[data-source="zen"] [data-move],
 #desk[data-source="wt"] .add,#desk[data-source="zen"] .add{display:none}
-#zenList{display:none}
-#desk[data-source="zen"] .work{grid-template-columns:minmax(0,1fr)}
-#desk[data-source="zen"] .work>.card{display:none}
-#desk[data-source="zen"] #zenList{
+#levelList{display:none}
+#desk[data-view="list"] .work{grid-template-columns:minmax(0,1fr)}
+#desk[data-view="list"] .work>.card{display:none}
+#desk[data-view="list"] #levelList{
   display:block;min-height:0;height:100%;overflow:auto;background:var(--paper);border-radius:4px;
   box-shadow:inset 0 0 40px rgba(120,85,40,.12)
 }
-#zenList table{width:100%;border-collapse:collapse;font-size:14px}
-#zenList th{
+#levelList table{width:100%;min-width:720px;border-collapse:collapse;font-size:14px}
+#levelList th{
   position:sticky;top:0;z-index:1;background:#efe4cc;text-align:left;padding:8px 10px;
-  border-bottom:1px solid var(--rule);letter-spacing:.12em;font-size:13px;font-weight:700
+  border-bottom:1px solid var(--rule);letter-spacing:.12em;font-size:13px;font-weight:700;white-space:nowrap
 }
-#zenList td{padding:6px 10px;border-bottom:1px dotted var(--rule);vertical-align:baseline;line-height:1.45}
-#zenList td.zp,#zenList td.zl,#zenList td.zs{font-family:var(--en);white-space:nowrap}
-#zenList td.zl{letter-spacing:.12em;font-weight:600}
-#zenList .gw{font-family:var(--en);letter-spacing:.04em;cursor:help}
-#zenList tbody tr{cursor:pointer}
-#zenList tr.on{background:rgba(166,132,60,.2)}
+#levelList td{padding:6px 10px;border-bottom:1px dotted var(--rule);vertical-align:top;line-height:1.45}
+#levelList .level-pos,#levelList .level-letters,#levelList .level-score{font-family:var(--en)}
+#levelList .level-pos{min-width:46px}
+#levelList .level-number{font:inherit;min-width:28px;text-align:left}
+#levelList .level-name{display:block;max-width:100px;font:12px/1.4 var(--serif);color:var(--ink-soft);overflow-wrap:anywhere}
+#levelList .level-letters{letter-spacing:.12em;font-weight:600;white-space:nowrap}
+#levelList .level-size{display:block;font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--ink-soft)}
+#levelList .level-score{white-space:nowrap}
+#levelList .gw{display:inline-block;font-family:var(--en);letter-spacing:.04em;cursor:help}
+#levelList .level-actions{white-space:nowrap}
+#levelList .level-actions button+button{margin-left:6px}
+#levelList tbody tr{cursor:pointer}
+#levelList tbody tr:hover{background:rgba(166,132,60,.09)}
+#levelList tr.on,#levelList tr.on:hover{background:rgba(166,132,60,.2)}
+#levelList button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .zenbag{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 0 4px}
 .zenbag b{font-family:var(--en);font-size:28px;letter-spacing:.28em;font-weight:600}
 .zenbag span{color:var(--ink-soft);letter-spacing:.04em}
@@ -603,7 +624,7 @@ html,body{overflow-x:hidden;max-width:100vw}
 </style>
 </head>
 <body>
-<div id="desk">
+<div id="desk" data-view="list">
   <header class="top">
     <div class="srcbar" id="srcBar" title="版本 2026.10.15.13">
       <div class="src-tabs" role="tablist" aria-label="关卡来源">
@@ -627,6 +648,7 @@ html,body{overflow-x:hidden;max-width:100vw}
       <button type="button" id="btnSaveAs">另存为</button>
       <button type="button" id="btnBatch">批量生成</button>
       <button type="button" id="btnExport">导出游戏关卡</button>
+      <button type="button" id="btnLevelView" aria-pressed="false">编辑这一关</button>
       <button type="button" id="btnPlay" class="primary">试玩这一关</button>
     </div>
   </header>
@@ -708,7 +730,7 @@ html,body{overflow-x:hidden;max-width:100vw}
         <div class="sugg" id="suggExtra"></div>
       </div>
     </section>
-    <div id="zenList" aria-label="Zen Word 关卡表"></div>
+    <div id="levelList" role="region" aria-label="关卡列表" tabindex="0"></div>
     <section class="card" id="colDim">
       <h2>这一关为什么重 <i>四个维度，没有总分</i></h2>
       <p class="blurb" id="blurb"></p>
@@ -756,31 +778,33 @@ html,body{overflow-x:hidden;max-width:100vw}
             </div>
             <div class="ph-gtitle">LEVEL <span id="pLvl">01</span></div>
             <div class="ph-gplace" id="pPlace">Kyoto · Japan</div>
-          </header>
-          <section class="ph-panel" aria-label="已找到的词">
             <div class="ph-wtitle"><span id="pBoxProg">0 / 0</span> <i>words</i></div>
-            <div class="ph-words" id="pboxes"><div class="ph-word-spacer"></div><div class="ph-word-grid" id="pwordgrid"></div><div class="ph-word-spacer ph-word-below"></div></div>
+          </header>
+          <section class="ph-panel" aria-label="目标区">
+            <div class="ph-words" id="pboxes"><div class="ph-word-grid" id="pwordgrid"></div></div>
           </section>
-          <div id="pcur"></div>
-          <div class="ph-gridwrap" id="pgridwrap">
-            <div id="pgrid"></div>
-          </div>
-          <nav class="ph-tools">
-            <button type="button" class="ph-pill" id="pExtraPill">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 13H7L6 8Zm3 0V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <b>额外词</b>
-              <em id="pPillN">0</em>
-            </button>
-            <div class="ph-rounds">
-              <button type="button" class="ph-round" id="pUndo" aria-label="撤回" title="撤回">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 4-5 5 5 5M3 9h10a7 7 0 0 1 0 14" transform="translate(2 -1)" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-              <button type="button" class="ph-round" id="pHint" aria-label="指出一条能走通的路径" title="指出一条能走通的路径">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21 15 10M7 17C4 9 12 2 21 3c0 9-7 17-14 14ZM10 14l-1-5m4 2 5 1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
+          <section class="ph-board" aria-label="棋盘区">
+            <div id="pcur"></div>
+            <div class="ph-gridwrap" id="pgridwrap">
+              <div id="pgrid"></div>
             </div>
-            <div class="ph-tool-pad" aria-hidden="true"></div>
-          </nav>
+            <nav class="ph-tools">
+              <button type="button" class="ph-pill" id="pExtraPill">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 13H7L6 8Zm3 0V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <b>额外词</b>
+                <em id="pPillN">0</em>
+              </button>
+              <div class="ph-rounds">
+                <button type="button" class="ph-round" id="pUndo" aria-label="撤回" title="撤回">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 4-5 5 5 5M3 9h10a7 7 0 0 1 0 14" transform="translate(2 -1)" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button type="button" class="ph-round" id="pHint" aria-label="指出一条能走通的路径" title="指出一条能走通的路径">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M9 18v-2c0-.9-.6-1.5-1.2-2.2a6 6 0 1 1 8.4 0C15.6 14.5 15 15.1 15 16v2M10 10l2 2 2-2m-2 2v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <div class="ph-tool-pad" aria-hidden="true"></div>
+            </nav>
+          </section>
         </div>
         <div class="pskins" id="pSkins" role="radiogroup" aria-label="试玩皮肤">
           <button type="button" role="radio" class="on" data-pskin="kyoto" aria-checked="true"><i></i><span>京都</span></button>
@@ -2070,6 +2094,7 @@ function ready(D, A, issues) {
     ]
   };
   let sourceMode = 'ours';
+  let levelView = 'list';
   const sourcePack = { wt: 'list0', zen: 't1' };
   let oursCampaign = null;
   let sourceReq = 0;
@@ -2191,7 +2216,7 @@ function ready(D, A, issues) {
     if (ours()) {
       picks.hidden = true;
       picks.innerHTML = '';
-      note.textContent = '正在编辑我们的关卡，可以改、试玩、导出。';
+      note.textContent = '我们的关卡，共 ' + campaign.levels.length + ' 关，可以编辑、试玩、导出。';
       return;
     }
     const list = SOURCE_PACKS[sourceMode] || [];
@@ -2210,7 +2235,14 @@ function ready(D, A, issues) {
   }
   function applySourceChrome() {
     const desk = $('#desk');
-    if (desk) desk.dataset.source = sourceMode;
+    if (desk) {
+      desk.dataset.source = sourceMode;
+      desk.dataset.view = levelView;
+    }
+    const viewBtn = $('#btnLevelView');
+    viewBtn.hidden = sourceMode === 'zen';
+    viewBtn.textContent = levelView === 'detail' ? '返回列表' : (ours() ? '编辑这一关' : '查看这一关');
+    viewBtn.setAttribute('aria-pressed', levelView === 'detail' ? 'true' : 'false');
     const ro = !ours();
     ['btnUndo','btnOpen','btnHistory','btnSample','btnImport','btnSaveDesk','btnSaveAs','btnBatch','btnExport',
       'btnClear','btnDup','btnAddLv','btnDelLv','btnCurt','btnCurtClear'].forEach(id => {
@@ -2244,6 +2276,7 @@ function ready(D, A, issues) {
     }
     if (kind === 'ours') {
       sourceMode = 'ours';
+      levelView = 'list';
       if (oursCampaign) campaign = oursCampaign;
       boardKey = ''; suggCache = null;
       render();
@@ -2272,6 +2305,7 @@ function ready(D, A, issues) {
       draftCache.set(key, view);
     }
     sourceMode = kind;
+    levelView = 'list';
     campaign = view;
     if (!(campaign.index >= 0) || campaign.index >= campaign.levels.length) campaign.index = 0;
     boardKey = ''; suggCache = null;
@@ -2775,28 +2809,53 @@ function ready(D, A, issues) {
     const pairs = (typeof WPGen !== 'undefined' && WPGen.pluralPairs) ? WPGen.pluralPairs(words, pluralExemptSet) : [];
     return { abbr: abbr, pairs: pairs };
   }
-  function zenWordHtml(list) {
-    return (list || []).map(w => '<span class="gw">' + esc(w) + '</span>').join(' ');
+  function levelWordHtml(list) {
+    return (list || []).map(w => '<span class="gw">' + esc(w) + '</span>').join(' ') || '—';
   }
-  function renderZenList() {
-    const el = $('#zenList');
-    if (!el) return;
-    if (sourceMode !== 'zen') { el.innerHTML = ''; return; }
+  let levelListMarkup = '';
+  function renderLevelList() {
+    if (levelView !== 'list') return;
+    const el = $('#levelList');
+    const isZen = sourceMode === 'zen';
+    const label = ours() ? '我们的' : (isZen ? 'Zen Word' : 'Word Tiles');
+    el.setAttribute('aria-label', label + '关卡列表');
     const body = campaign.levels.map((d, i) => {
-      const on = i === campaign.index ? ' class="on"' : '';
-      return '<tr data-zi="' + i + '"' + on + '>' +
-        '<td class="zp">' + ((d.zenPos | 0) || (i + 1)) + '</td>' +
-        '<td class="zl">' + esc(d.zenLetter || '') + '</td>' +
-        '<td>' + zenWordHtml(d.words) + '</td>' +
-        '<td>' + zenWordHtml(d.extras) + '</td>' +
-        '<td class="zs">' + (d.zenScore | 0) + '</td></tr>';
+      const pos = isZen ? ((d.zenPos | 0) || (i + 1)) : i + 1;
+      const letters = isZen ? d.zenLetter : (d.letters || []).map(ch => ch || '·').join('');
+      const size = isZen ? '' : '<span class="level-size">' + d.W + ' × ' + d.H + '</span>';
+      const score = isZen ? (d.zenScore | 0) : difficultyOf(d).score;
+      const action = ours() ? '编辑' : '查看';
+      const actions = isZen ? '' : '<td class="level-actions">' +
+        '<button type="button" class="ghost" data-level-action="detail" aria-label="' + action + '第 ' + pos + ' 关">' + action + '</button>' +
+        '<button type="button" class="ghost" data-level-action="play" aria-label="试玩第 ' + pos + ' 关">试玩</button></td>';
+      return '<tr data-level-index="' + i + '">' +
+        '<td class="level-pos"><button type="button" class="level-number" aria-label="选中第 ' + pos + ' 关">' + pos + '</button>' +
+        (d.name ? '<span class="level-name">' + esc(d.name) + '</span>' : '') + '</td>' +
+        '<td class="level-letters">' + esc(letters || '—') + size + '</td>' +
+        '<td>' + levelWordHtml(d.words) + '</td>' +
+        '<td>' + levelWordHtml(d.extras) + '</td>' +
+        '<td class="level-score">' + score + '</td>' + actions + '</tr>';
     }).join('');
-    el.innerHTML = '<table><thead><tr><th>关</th><th>字母</th><th>必答</th><th>其他词</th><th>难度分</th></tr></thead><tbody>' + body + '</tbody></table>';
-    const on = el.querySelector('tr.on');
+    const scoreTip = isZen ? 'Zen Word 关卡包里的 DifficultyScore' : '与上方难度分一致，按必答词数、棋盘格数、最长词、罕见度和路径计算，范围 0–100';
+    const markup = '<table><thead><tr><th scope="col">关</th><th scope="col">字母</th><th scope="col">必答</th><th scope="col">其他词</th>' +
+      '<th scope="col" title="' + scoreTip + '">难度分</th>' + (isZen ? '' : '<th scope="col">操作</th>') + '</tr></thead><tbody>' + body + '</tbody></table>';
+    if (markup !== levelListMarkup) {
+      el.innerHTML = markup;
+      levelListMarkup = markup;
+    }
+    const previous = el.querySelector('tr.on');
+    if (previous) {
+      previous.classList.remove('on');
+      previous.querySelector('.level-number').removeAttribute('aria-current');
+    }
+    const on = el.querySelector('tr[data-level-index="' + campaign.index + '"]');
     if (!on) return;
+    on.classList.add('on');
+    on.querySelector('.level-number').setAttribute('aria-current', 'true');
     const er = el.getBoundingClientRect();
     const rr = on.getBoundingClientRect();
-    if (rr.top < er.top + 32 || rr.bottom > er.bottom) el.scrollTop += rr.top - er.top - 40;
+    const head = el.querySelector('thead').getBoundingClientRect().height;
+    if (rr.top < er.top + head || rr.bottom > er.bottom) el.scrollTop += rr.top - er.top - head;
   }
   function fillRuleInputs() {
     const a = $('#abbrList'), p = $('#pluralExempt');
@@ -2827,9 +2886,9 @@ function ready(D, A, issues) {
     renderDims(dim, here, hits);
     renderChecks(dim, here, hits);
     fillRuleInputs();
-    renderZenList();
     $('#btnPlay').disabled = sourceMode === 'zen' || !C.ready(D, A, issues);
     applySourceChrome();
+    renderLevelList();
   }
 
   function renderPace() {
@@ -3114,6 +3173,11 @@ function ready(D, A, issues) {
   /* ---------- 试玩：与 game.js 相同的四方向、次数和幕布 ---------- */
   let play = null;
   let playNav = null;
+  let playTargetLevel = null;
+  let playFlight = null;
+  function finishPlayFlight() {
+    if (playFlight) playFlight();
+  }
   function playBlock(d) {
     if (!d || !d.letters || d.letters.some(ch => !ch)) return '还有空格';
     if (!d.words || !d.words.length) return '没有必答词';
@@ -3354,31 +3418,19 @@ function ready(D, A, issues) {
   function sizePlayGrid() {
     if (!play) return;
     const L = play.L;
-    const phone = $('#pphone');
     const wrap = $('#pgridwrap');
     const g = $('#pgrid');
-    if (!phone || !wrap || !g) return;
+    if (!wrap || !g) return;
     const st = getComputedStyle(wrap);
     const padX = (parseFloat(st.paddingLeft) || 0) + (parseFloat(st.paddingRight) || 0);
     const padY = (parseFloat(st.paddingTop) || 0) + (parseFloat(st.paddingBottom) || 0);
-    /* 磨砂托盘比字块四周再多出一圈，尺寸按托盘算，避免字盘顶出手机框。 */
-    const tray = 10;
-    const aw = wrap.clientWidth - padX - tray * 2;
-    const pcs = getComputedStyle(phone);
-    const phonePadY = (parseFloat(pcs.paddingTop) || 0) + (parseFloat(pcs.paddingBottom) || 0);
-    const head = document.querySelector('#pphone .ph-ghead');
-    const cur = $('#pcur');
-    const tools = document.querySelector('#pphone .ph-tools');
-    const panel = document.querySelector('#pphone .ph-panel');
-    const panelSt = panel ? getComputedStyle(panel) : null;
-    const panelExtra = panelSt ? (parseFloat(panelSt.marginTop) || 0) + (parseFloat(panelSt.marginBottom) || 0) : 0;
-    const chrome = (head ? head.offsetHeight : 0) + (cur ? cur.offsetHeight : 0) + (tools ? tools.offsetHeight : 0) + panelExtra;
-    const minWords = 52;
-    let ah = phone.clientHeight - phonePadY - chrome - minWords - padY - tray * 2;
-    if (aw < 8) return;
-    if (ah < 8) ah = 8;
-    const fit = (gap) => Math.min((aw - gap * (L.W - 1)) / L.W, (ah - gap * (L.H - 1)) / L.H);
-    let gap = fit(8) >= 36 ? 8 : (fit(6) >= 26 ? 6 : 4);
+    /* 只按棋盘区缩放，上下对称留出提示和按钮的位置。两行、三行使用同一高度预算。 */
+    const aw = wrap.clientWidth - padX;
+    const ah = wrap.clientHeight - padY;
+    if (aw < 8 || ah < 8) return;
+    const rows = Math.max(3, L.H);
+    const fit = (gap) => Math.min((aw - gap * (L.W - 1)) / L.W, (ah - gap * (rows - 1)) / rows);
+    const gap = fit(4) >= 36 ? 4 : (fit(3) >= 26 ? 3 : 2);
     let t = Math.floor(fit(gap));
     if (!(t > 0)) return;
     t = Math.min(64, t);
@@ -3394,27 +3446,25 @@ function ready(D, A, issues) {
     const words = play.L.words;
     const n = words.length;
     const cols = n > 6 ? 2 : 1;
+    boxes.classList.toggle('two-cols', cols === 2);
     boxes.style.setProperty('--wcols', String(cols));
     const rows = Math.max(1, Math.ceil(n / cols));
     const colMax = Array(cols).fill(1);
     words.forEach((w, i) => { colMax[i % cols] = Math.max(colMax[i % cols], w.length); });
     const st = getComputedStyle(boxes);
     const colGap = parseFloat(st.columnGap) || 16;
-    const rowGap = parseFloat(st.rowGap) || 4;
+    const rowGap = parseFloat(st.rowGap) || 10;
     const sample = boxes.querySelector('.w');
     const letterGap = sample ? (parseFloat(getComputedStyle(sample).columnGap || getComputedStyle(sample).gap) || 4) : 4;
     const availW = host.clientWidth;
-    const below = host.querySelector('.ph-word-below');
-    const belowMin = below ? (parseFloat(getComputedStyle(below).minHeight) || 0) : 0;
-    const availH = host.clientHeight - belowMin;
+    const availH = host.clientHeight;
     if (availW < 8 || availH < 8) return;
     const letters = colMax.reduce((a, b) => a + b, 0);
     const innerGaps = colMax.reduce((a, b) => a + Math.max(0, b - 1), 0);
     const lwW = (availW - colGap * (cols - 1) - letterGap * innerGaps) / letters;
     const lwH = (availH - rowGap * Math.max(0, rows - 1)) / rows;
-    /* 尽量用 32–40 像素，大约是棋盘字块的一半；只有放不下时才再缩小。 */
-    const tile = parseFloat(getComputedStyle($('#pgrid')).getPropertyValue('--tile')) || 64;
-    const cap = Math.min(40, Math.max(32, Math.round(tile * 0.62)));
+    /* 目标词独立按目标区缩放，不随棋盘尺寸改变。 */
+    const cap = 40;
     let lw = Math.floor(Math.min(cap, lwW, lwH));
     if (lw < 8) lw = Math.floor(Math.min(lwW, Math.max(6, Math.min(8, lwW))));
     if (lw > lwW) lw = Math.floor(lwW);
@@ -3449,12 +3499,12 @@ function ready(D, A, issues) {
   }
   function layoutPlay() {
     fitPhone();
-    const wrap = $('#pgridwrap');
-    const go = () => { sizePlayGrid(); sizePlayWords(); placeToolRow(); };
-    if (wrap && wrap.clientHeight > 36) go();
-    else requestAnimationFrame(() => { if (play && !$('#play').hidden) { fitPhone(); go(); } });
+    placeToolRow();
+    sizePlayGrid();
+    sizePlayWords();
   }
   function renderPlay(fx) {
+    finishPlayFlight();
     const L = play.L, P = play.P;
     $('#pwords').innerHTML = L.words.map((w, i) => playWordHtml(w, !!P.found[i])).join('');
     const foundExtra = new Set(P.extras);
@@ -3487,14 +3537,24 @@ function ready(D, A, issues) {
     }
     const boxes = $('#pwordgrid');
     if (boxes) {
-      boxes.style.setProperty('--wcols', L.words.length > 6 ? '2' : '1');
-      const just = fx && fx.word;
-      boxes.innerHTML = L.words.map((w, i) => {
+      /* 进入关卡时建一次词格，连词和撤回只更新文字及填充，空格的边框和底色不动。 */
+      if (playTargetLevel !== L) {
+        boxes.innerHTML = L.words.map((w, i) =>
+          '<div class="w" data-i="' + i + '">' + '<span class="lt"><span class="lt-char"></span></span>'.repeat(w.length) + '</div>'
+        ).join('');
+        playTargetLevel = L;
+      }
+      L.words.forEach((w, i) => {
+        const row = boxes.children[i];
         const found = !!P.found[i];
-        const fresh = just === i;
-        const letters = [...w].map(ch => '<span class="lt' + (found && !fresh ? ' show' : '') + '">' + (found ? esc(ch) : '') + '</span>').join('');
-        return '<div class="w' + (found ? ' found' : '') + (fresh ? ' just' : '') + '" data-i="' + i + '">' + letters + '</div>';
-      }).join('');
+        const fresh = !!fx && fx.word === i;
+        if (row.classList.contains('found') === found) return;
+        row.classList.toggle('found', found);
+        [...row.children].forEach((slot, k) => {
+          slot.firstElementChild.textContent = found ? w[k] : '';
+          slot.classList.toggle('show', found && !fresh);
+        });
+      });
     }
     const g = $('#pgrid');
     g.innerHTML = '';
@@ -3516,7 +3576,7 @@ function ready(D, A, issues) {
         + (popped.has(i) ? ' pop' : '')
         + (down.has(i) ? ' cntdown' : '');
       t.dataset.i = i;
-      t.innerHTML = '<span class="ch">' + esc(L.letters[i]) + '</span><span class="c">' + (P.counts[i] > 0 ? P.counts[i] : '') + '</span>';
+      t.innerHTML = '<span class="ch">' + (P.counts[i] > 0 ? esc(L.letters[i]) : '') + '</span><span class="c">' + (P.counts[i] > 0 ? P.counts[i] : '') + '</span>';
       if (curtAt.has(i)) {
         const left = L.curtains[curtAt.get(i)].req - P.order.length;
         const n = document.createElement('div');
@@ -3577,20 +3637,34 @@ function ready(D, A, issues) {
   function flyFound(word, ti) {
     const box = document.querySelector('#pboxes .w[data-i="' + ti + '"]');
     const cur = $('#pcur');
-    if (!box || !cur) return;
+    if (!cur) return;
+    if (!box) { cur.textContent = ''; return; }
     const slots = [...box.querySelectorAll('.lt')];
     const reveal = () => slots.forEach(s => s.classList.add('show'));
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce || typeof document.body.animate !== 'function') { reveal(); return; }
-    const prev = cur.textContent;
-    cur.classList.add('flying');
+    if (reduce || typeof document.body.animate !== 'function') { cur.textContent = ''; reveal(); return; }
     cur.innerHTML = [...word].map(ch => '<span>' + esc(ch) + '</span>').join('');
     const fs = parseFloat(getComputedStyle(cur).fontSize) || 28;
     const rects = [...cur.children].map(x => x.getBoundingClientRect());
-    cur.textContent = prev;
+    /* 飞行字母独立显示，原位置立即清空；旧动画不会再改写下一次连词或提示。 */
+    cur.textContent = '';
     let pending = slots.length;
-    const doneOne = () => { if (--pending <= 0) cur.classList.remove('flying'); };
-    if (!pending) { cur.classList.remove('flying'); return; }
+    if (!pending) return;
+    const flights = [];
+    let timer;
+    const finish = () => {
+      clearTimeout(timer);
+      flights.forEach(({ node, anim }) => {
+        anim.onfinish = null;
+        anim.cancel();
+        node.remove();
+      });
+      reveal();
+      if (playFlight === finish) playFlight = null;
+    };
+    playFlight = finish;
+    timer = setTimeout(finish, 900 + word.length * 48);
+    const doneOne = () => { if (--pending <= 0) finish(); };
     slots.forEach((slot, k) => {
       const from = rects[k];
       const to = slot.getBoundingClientRect();
@@ -3599,19 +3673,22 @@ function ready(D, A, issues) {
       d.className = 'pfly';
       d.textContent = word[k];
       d.style.cssText = 'left:' + from.left + 'px;top:' + from.top + 'px;width:' + from.width + 'px;height:' + from.height + 'px;font-size:' + fs + 'px';
+      const targetStyle = getComputedStyle(slot);
+      d.style.fontFamily = targetStyle.fontFamily;
+      d.style.fontWeight = targetStyle.fontWeight;
       document.body.appendChild(d);
       const dx = (to.left + to.width / 2) - (from.left + from.width / 2);
       const dy = (to.top + to.height / 2) - (from.top + from.height / 2);
-      const scale = Math.max(0.35, (to.width * 0.85) / fs);
+      const scale = (parseFloat(targetStyle.fontSize) || fs) / fs;
       const anim = d.animate([
         { transform: 'translate(0,0) scale(1)', opacity: 1 },
         { transform: 'translate(0,-8px) scale(1.28)', opacity: 1, offset: 0.28 },
         { transform: 'translate(0,0) scale(1.06)', opacity: 1, offset: 0.48 },
         { transform: 'translate(' + dx + 'px,' + dy + 'px) scale(' + scale + ')', opacity: 1 }
       ], { duration: 720, delay: k * 48, easing: 'ease-in-out', fill: 'both' });
+      flights.push({ node: d, anim: anim });
       anim.onfinish = () => { d.remove(); slot.classList.add('show'); doneOne(); };
     });
-    setTimeout(() => { cur.classList.remove('flying'); reveal(); }, 900 + word.length * 48);
   }
   function submitPath(p) {
     const L = play.L, P = play.P, curEl = $('#pcur');
@@ -4153,10 +4230,19 @@ function ready(D, A, issues) {
     suggCache = null;
     render();
   });
-  $('#zenList').addEventListener('click', e => {
-    const tr = e.target.closest('tr[data-zi]');
-    if (!tr || sourceMode !== 'zen') return;
-    goLevel(+tr.dataset.zi + 1);
+  $('#btnLevelView').addEventListener('click', () => {
+    if (sourceMode === 'zen') return;
+    levelView = levelView === 'list' ? 'detail' : 'list';
+    render();
+  });
+  $('#levelList').addEventListener('click', e => {
+    const tr = e.target.closest('tr[data-level-index]');
+    if (!tr) return;
+    const button = e.target.closest('[data-level-action]');
+    const action = button ? button.dataset.levelAction : '';
+    if (action === 'detail' && sourceMode !== 'zen') levelView = 'detail';
+    goLevel(+tr.dataset.levelIndex + 1);
+    if (action === 'play') startPlay();
   });
   $('#pace').addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;
@@ -4274,6 +4360,7 @@ function ready(D, A, issues) {
   $('#pWinNext').onclick = () => stepPlay(1);
   $('#pPhoneBack').onclick = () => $('#pBack').click();
   $('#pBack').onclick = () => {
+    finishPlayFlight();
     $('#play').hidden = true;
     $('#desk').classList.remove('under-play');
     document.documentElement.classList.remove('play-on');
@@ -4416,6 +4503,11 @@ function ready(D, A, issues) {
   window.addEventListener('resize', () => {
     if (play && !$('#play').hidden) layoutPlay();
   });
+  const playRegionObserver = new ResizeObserver(() => {
+    if (play && !$('#play').hidden) layoutPlay();
+  });
+  playRegionObserver.observe($('#pboxes'));
+  playRegionObserver.observe($('#pgridwrap'));
   document.addEventListener('keydown', e => {
     if ((e.metaKey || e.ctrlKey) && e.key === 'z' && $('#play').hidden) { e.preventDefault(); $('#btnUndo').click(); }
     if (e.key === 'Escape') {
