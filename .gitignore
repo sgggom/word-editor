@@ -14,3 +14,7 @@ $RECYCLE.BIN/
 .AppleDouble
 .LSOverride
 .directory
+
+# Jev 本地代理：缓存和密钥都不进仓库
+tools/.jev_cache.json
+.env

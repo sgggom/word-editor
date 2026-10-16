@@ -589,8 +589,9 @@ html,body{overflow-x:hidden;max-width:100vw}
 #desk[data-source="wt"] [data-move],#desk[data-source="zen"] [data-move],
 #desk[data-source="wt"] .add,#desk[data-source="zen"] .add{display:none}
 #levelList{display:none}
-#desk[data-view="list"] .work{grid-template-columns:minmax(0,1fr)}
+#desk[data-view="list"] .work{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto}
 #desk[data-view="list"] .work>.card{display:none}
+#desk[data-view="list"] #jevHost{background:var(--paper);border-radius:4px;padding:4px 14px 12px;max-height:34vh;overflow:auto}
 #desk[data-view="list"] #levelList{
   display:block;min-height:0;height:100%;overflow:auto;background:var(--paper);border-radius:4px;
   box-shadow:inset 0 0 40px rgba(120,85,40,.12)
@@ -625,7 +626,7 @@ html,body{overflow-x:hidden;max-width:100vw}
 <body>
 <div id="desk" data-view="list">
   <header class="top">
-    <div class="srcbar" id="srcBar" title="版本 2026.10.15.13">
+    <div class="srcbar" id="srcBar" title="版本 2026.10.17.1">
       <div class="src-tabs" role="tablist" aria-label="关卡来源">
         <button type="button" data-src="ours" class="on" role="tab" aria-selected="true">我们的</button>
         <button type="button" data-src="wt" role="tab" aria-selected="false">Word Tiles</button>
@@ -730,6 +731,7 @@ html,body{overflow-x:hidden;max-width:100vw}
       </div>
     </section>
     <div id="levelList" role="region" aria-label="关卡列表" tabindex="0"></div>
+    <div id="jevHost"></div>
     <section class="card" id="colDim">
       <h2>这一关为什么重 <i>四个维度，没有总分</i></h2>
       <p class="blurb" id="blurb"></p>
@@ -2266,6 +2268,14 @@ function ready(D, A, issues) {
       jump.max = String(campaign.levels.length || 1);
     }
     paintSource();
+    placeJev();
+    if (window.JevScore && window.JevScore.paintSrc) window.JevScore.paintSrc();
+  }
+  function placeJev() {
+    const host = $('#jevHost');
+    if (!host) return;
+    const parent = levelView === 'list' ? document.querySelector('#desk .work') : $('#colDim');
+    if (parent && host.parentElement !== parent) parent.appendChild(host);
   }
   async function setSource(kind, packId) {
     const req = ++sourceReq;
@@ -4731,7 +4741,8 @@ function ready(D, A, issues) {
       playTitle: $('#btnPlay').title,
       exportLabel: $('#btnExport').textContent,
       note: $('#srcNote') ? $('#srcNote').textContent : ''
-    })
+    }),
+    tier: w => (w in lex.tier ? lex.tier[w] : null)
   };
 
   /* 悬停释义。词库按首字母放在 dict/a.json … dict/z.json，第一次指到该字母才 fetch。 */
@@ -5174,5 +5185,6 @@ function ready(D, A, issues) {
 })();
 
 </script>
+<script src="jev-score.js"></script>
 </body>
 </html>

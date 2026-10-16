@@ -114,3 +114,20 @@ verify/verify_levels.py 是另写的 Python 脚本，不用生成器的代码，
 有问题的关会逐条列出，全部通过时退出码为 0。verify/negative_samples.json 是故意做坏的关（次数少一、漏额外词、加连不出的词、有死局），用来确认脚本能抓到。
 
 sample_320_levels.json 是测试时生成并导出的 320 关（种子 test-320），verify/report_320.json 是它的校验报告。
+
+## Jev 难度打分
+
+给当前这一关，或当前来源里连续的若干关，打一个 1–10 的难度分。我们的关卡、Word Tiles、Zen Word 都能打。Key 只放在自己的电脑上，不会写进网页。
+
+在 Mac 上：
+
+```
+export OPENCODE_API_KEY=你的key
+python3 tools/jev_server.py
+```
+
+也可以把 `OPENCODE_API_KEY=…` 写在 `tools/.env`，或用 `python3 tools/jev_server.py --env /路径/.env`。环境变量优先，其次是脚本旁边的 `.env`，再次是 `--env` 指定的文件。
+
+然后打开 https://sgggom.github.io/word-editor/ ，在「Jev 难度打分」里填本地服务地址（默认 `http://127.0.0.1:8765`），点「重新检测」。这个地址记在这个浏览器里。连不上时，打分按钮先藏起来，并提示要先开本地服务。
+
+用 GitHub Pages（HTTPS）打开时，浏览器可能拦截页面去访问 `http://127.0.0.1`。改在本地打开 `index.html` 就不会被拦。
