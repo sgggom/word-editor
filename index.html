@@ -576,6 +576,7 @@ html,body{overflow-x:hidden;max-width:100vw}
 .hrow.missing{opacity:.45}
 .hrow [data-hdel]{border:1px solid var(--rule);border-radius:3px;padding:3px 8px;font-size:13px}
 .hrow .hopen:disabled{cursor:default}
+.app-version{flex:0 0 100%;font-size:12px;line-height:1.3;color:#cdbb9a;letter-spacing:.04em}
 .srcbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;color:#f3ead6;min-width:0}
 .src-tabs,.src-picks{display:flex;flex-wrap:wrap;gap:4px;min-width:0}
 .src-tabs button,.src-picks button{
@@ -626,6 +627,7 @@ html,body{overflow-x:hidden;max-width:100vw}
 <div id="desk" data-view="list">
   <header class="top">
     <div class="srcbar" id="srcBar" title="版本 2026.10.17 · WTEngine v2">
+      <span class="app-version" aria-label="版本号">v2026.10.17</span>
       <div class="src-tabs" role="tablist" aria-label="关卡来源">
         <button type="button" data-src="ours" class="on" role="tab" aria-selected="true">我们的</button>
         <button type="button" data-src="wt" role="tab" aria-selected="false">Word Tiles</button>
