@@ -576,7 +576,13 @@ html,body{overflow-x:hidden;max-width:100vw}
 .hrow.missing{opacity:.45}
 .hrow [data-hdel]{border:1px solid var(--rule);border-radius:3px;padding:3px 8px;font-size:13px}
 .hrow .hopen:disabled{cursor:default}
-.app-version{flex:0 0 100%;font-size:12px;line-height:1.3;color:#cdbb9a;letter-spacing:.04em}
+.app-version{text-align:left;font-family:inherit;flex:0 0 100%;font-size:12px;line-height:1.3;color:#cdbb9a;letter-spacing:.04em}
+.app-version:hover{text-decoration:underline;text-underline-offset:3px}
+.app-version:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.version-history{margin:0;padding-left:22px;max-height:60vh;overflow:auto}
+.version-history>li{margin:0 0 18px;padding-left:4px}
+.version-history h4{margin:0 0 6px}
+.version-history ul{padding-left:20px;line-height:1.7}
 .srcbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;color:#f3ead6;min-width:0}
 .src-tabs,.src-picks{display:flex;flex-wrap:wrap;gap:4px;min-width:0}
 .src-tabs button,.src-picks button{
@@ -626,8 +632,8 @@ html,body{overflow-x:hidden;max-width:100vw}
 <body>
 <div id="desk" data-view="list">
   <header class="top">
-    <div class="srcbar" id="srcBar" title="版本 2026.10.17.1 · WTEngine v2">
-      <span class="app-version" aria-label="版本号，今天第 1 版">v2026.10.17.1</span>
+    <div class="srcbar" id="srcBar" title="版本 2026.10.17.2 · WTEngine v2">
+      <button type="button" class="app-version" id="btnVersion" aria-label="版本 v2026.10.17.2，点击查看版本历史" aria-haspopup="dialog">v2026.10.17.2</button>
       <div class="src-tabs" role="tablist" aria-label="关卡来源">
         <button type="button" data-src="ours" class="on" role="tab" aria-selected="true">我们的</button>
         <button type="button" data-src="wt" role="tab" aria-selected="false">Word Tiles</button>
@@ -911,6 +917,7 @@ html,body{overflow-x:hidden;max-width:100vw}
 <div id="gloss" hidden></div>
 <input type="file" id="file" accept="application/json,.json,.js,text/javascript" hidden>
 
+<script id="versions" type="application/json">[{"version":"2026.10.17.2","changes":["点击左上角版本号可查看版本历史及各版改动。","版本号采用日期加当天序号，同一天更新依次递增。"]},{"version":"2026.10.17.1","changes":["左上角显示版本号，并增加当天版本序号。"]},{"version":"2026.10.17（编号前更新）","changes":["生成算法切换为 Word Tiles v2，支持 list0、list5 两套主线分段目标。","词库切换为 v2 的 9,455 词，区分必答候选、仅额外和待审核权限。","保留关卡编辑、试玩、存档及游戏 JSON 导出，修复单格编辑后撤回的问题。"]}]</script>
 <script id="policy" type="application/json">{"blocked":[],"flagged":[],"mild":[],"specialist":[],"abbr":[],"pluralExempt":[]}</script>
 <script>
 /* 旧关卡与手工编辑的路径校验辅助函数；生成逻辑使用 WTEngine v2。
@@ -4433,6 +4440,16 @@ function ready(D, A, issues) {
   }
 
   /* ---------- 事件 ---------- */
+  $('#btnVersion').onclick = () => {
+    const releases = JSON.parse($('#versions').textContent);
+    const body = '<ol class="version-history">' + releases.map((release, i) =>
+      '<li><h4>v' + esc(release.version) + (i === 0 ? ' · 当前版本' : '') + '</h4><ul>' +
+      release.changes.map(change => '<li>' + esc(change) + '</li>').join('') + '</ul></li>'
+    ).join('') + '</ol>';
+    modal('版本历史', body, [{label: '关闭', onClick: () => $('#btnVersion').focus()}]);
+    $('#mBtns button').focus();
+  };
+
   function applyRuleText() {
     const a = $('#abbrList'), p = $('#pluralExempt');
     if (a) abbrSet = new Set(parseWordList(a.value));

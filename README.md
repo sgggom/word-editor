@@ -90,3 +90,5 @@ NODE_PATH=/workspace/setup-tools/node_modules node tests/browser_v2.cjs
 v2 核心、词库和阶段配置取自用户上传的 `WordTiles_Work完整交接包_v2_含下载清单.zip` 中 `WordTiles_关卡工作台_v2/`。词库为竞品出现词集合及建议权限，不是客户端完整字典，也不是人工确认的常用词白名单。词典释义仍采用原仓库资源及其原有许可要求。
 
 词典署名：ECDICT（MIT）、Open English WordNet（CC BY 4.0）、CMUdict（BSD），以及部分改编自 Wiktionary 的英文释义（CC BY-SA 4.0）。
+
+版本历史维护在 `src/version_history.json`，最新版本放在第一条。新增改动后递增当天序号并运行 `python3 tools/sync_editor.py`，自动同步左上角版本号、提示及弹窗内嵌数据。
