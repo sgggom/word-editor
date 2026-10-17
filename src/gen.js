@@ -1,385 +1,134 @@
-/* 字页批量出题 WPGen —— 先构造、再自检。
-   规则（与 game.js 一致）：四方向相邻；一条路径不重复用格；每格有使用次数 n，
-   每找到一个必答词，路径上每格减一，减到 0 的格子不能再用；额外词不消耗次数；
-   必答词顺序不限；必答词全部找到即过关。生成器不放幕布。 */
-(function (root) {
-  'use strict';
-
-  function rng(seed) {
-    let a = seed >>> 0;
-    return function () {
-      a = (a + 0x6D2B79F5) >>> 0;
-      let t = a;
-      t = Math.imul(t ^ (t >>> 15), t | 1);
-      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-    };
+/* Word Tiles research-grounded editor v2 — no external libraries. CommonJS/browser UMD. */
+(function(root,factory){let out=factory();if(typeof module==='object'&&module.exports)module.exports=out;else root.WTEngine=out;})(typeof self!=='undefined'?self:this,function(){
+'use strict';
+const ROLES=new Set(['candidate','extra','pending','blocked']);
+const DEFAULTS={preset:'list0',seed:'WT-2026',start:1,count:20,effort:45,attempts:100,cooldown:20,strictMorph:true,adjacency:true,allowUnsafe:false,variance:0.16,extraWeight:0.8,readingBias:1.0,uniqueMin:0.88,maxUse:13};
+function hash(s){let h=2166136261>>>0;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)>>>0;}return h>>>0;}
+function random(seed){let s=hash(seed)||12345;return function(){s+=0x6D2B79F5;let t=s;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;};}
+function shuffle(a,rng){a=a.slice();for(let i=a.length-1;i>0;i--){let j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function pick(a,rng){return a[Math.floor(rng()*a.length)];}
+function clamp(v,l,h){return Math.max(l,Math.min(h,v));}
+function avg(a){return a.length?a.reduce((x,y)=>x+y,0)/a.length:0;}
+function stage(n){return n<=5?Math.max(1,n):n<=10?6:n<=20?11:n<=50?21:n<=100?51:n<=200?101:n<=500?201:n<=1000?501:1001;}
+function getProfile(n,preset,profiles){const a=profiles[preset]||profiles.list0;let prof=a.find(x=>{let lo=Number(x.stage.split(/[–-]/)[0]);let hi=Number(x.stage.split(/[–-]/)[1]);return n>=lo&&n<=hi;});return prof||a[a.length-1];}
+function targetFor(n,config,profiles){let rng=random(config.seed+'|profile|'+config.preset+'|'+n),p=getProfile(n,config.preset,profiles);let early=n<=5,spread=early?0:clamp(Math.round(p.k*(config.variance??.16)),1,3);let k=early?Math.round(p.k):clamp(Math.round(p.k)+(Math.floor(rng()*(spread*2+1))-spread),2,16);
+ let cells=early?Math.round(p.cells):pick([8,9,9,12,12,12,15],rng);if(!early){let options=(n>20&&p.cells>=10)?[9,12,15]:[8,9,12,15];let dist=options.map(x=>Math.exp(-Math.abs(x-p.cells)*1.0)*(x===12?1.35:1));let sum=dist.reduce((x,y)=>x+y,0),v=rng()*sum;cells=options[0];for(let i=0;i<options.length;i++){v-=dist[i];if(v<=0){cells=options[i];break}}}
+ const dim=cells===8?[4,2]:cells===9?[3,3]:cells===12?[4,3]:[5,3];return {...p,k,cells,width:dim[0],height:dim[1],stageStart:stage(n)};}
+function normalizeLex(raw){let seen=new Set(),a=[];for(let v of raw){let word=String(v.word||'').trim().toUpperCase();if(!/^[A-Z]{2,12}$/.test(word)||seen.has(word))continue;seen.add(word);let role=ROLES.has(v.role)?v.role:'pending';a.push({...v,word,role});}return a;}
+function buildIndex(lex){let tree={},byLength={},byWord=new Map(),acceptable=[];for(let x of normalizeLex(lex)){byWord.set(x.word,x);if(x.role!=='candidate'&&x.role!=='extra')continue;if(x.lemma)continue;acceptable.push(x);if(x.role==='candidate'){(byLength[x.word.length]??=[]).push(x);}let node=tree;for(let c of x.word)node=node[c]||(node[c]={});node.$=x.word;}return {tree,byLength,byWord,acceptable};}
+function neighbors(w,h){let n=w*h;return Array.from({length:n},(_,i)=>{let x=i%w,y=Math.floor(i/w);return [x>0?i-1:-1,x<w-1?i+1:-1,y>0?i-w:-1,y<h-1?i+w:-1].filter(x=>x>=0);});}
+function direction(p,w){if(p.length<2)return 'X';let d=p[1]-p[0];if(p.every((x,i)=>i===0||x-p[i-1]===d))return d===1?'R':d===-1?'L':d===w?'D':d===-w?'U':'X';return 'T';}
+function turns(p,w){let v=0;for(let i=2;i<p.length;i++)if(p[i]-p[i-1]!==p[i-1]-p[i-2])v++;return v;}
+function placeWord(g,word,nb,rng,maxTry=48){let n=g.length,choices=[];
+ for(let z=0;z<maxTry;z++){
+  let start=Math.floor(rng()*n),v=start,p=[],used=new Set(),valid=true;
+  for(let k=0;k<word.length;k++){
+   if(used.has(v)||(g[v]&&g[v]!==word[k])){valid=false;break}p.push(v);used.add(v);if(k+1<word.length){let poss=nb[v].filter(j=>!used.has(j)&&(!g[j]||g[j]===word[k+1]));if(!poss.length){valid=false;break}v=pick(poss,rng);}
   }
-  function hash() {
-    let h = 2166136261 >>> 0;
-    for (let i = 0; i < arguments.length; i++) {
-      const s = String(arguments[i]) + '|';
-      for (let k = 0; k < s.length; k++) { h ^= s.charCodeAt(k); h = Math.imul(h, 16777619) >>> 0; }
-    }
-    return h;
+  if(!valid)continue;
+  const fresh=p.filter((v,i)=>!g[v]).length;const old=p.length-fresh;
+  const balance=Math.abs(fresh-(word.length<=4?2:3));const score=fresh*1.1+old*.6-balance*.25+(rng()*.25);
+  choices.push({p,score,fresh,old});
+ }
+ choices.sort((a,b)=>b.score-a.score);let c=choices[0];if(!c)return null;c.p.forEach((v,k)=>g[v]=word[k]);return c;
+}
+function fillBoard(target,ix,rng,config,recent){let {width:w,height:h,cells:N,k}=target,nb=neighbors(w,h),g=Array(N).fill(''),seeds=[],used=new Set(),needEarly=target.stageStart<=5;
+ const trialLen=needEarly?[3,4]:target.k<6?[4,5,6]:target.stageStart>=51?[5,6,7,8]:[4,5,6,7];
+ for(let step=0;step<5&&g.some(x=>!x);step++){
+  let len=pick(trialLen,rng),pool=ix.byLength[len]||[];
+  if(!pool.length)continue;
+  let best=null;for(let a=0;a<42;a++){
+    let x=pool[Math.floor(rng()*pool.length)];if(used.has(x.word))continue;if(needEarly&&x.grade!=='基础')continue;
+    if(recent.has(x.word)&&rng()<.85)continue;
+    let scratch=g.slice(), placement=placeWord(scratch,x.word,nb,rng,18);if(!placement)continue;
+    let fresh=placement.fresh; if(fresh===0&&g.some(v=>!v))continue;
+    let score= fresh*1.5+placement.old*.5+(x.grade==='基础'?0.9:0)+(x.wtRole==='必答'?.35:0)+(x.zenRole==='必答'?.2:0)+(x.evidenceCount||0)*.035-Math.max(0,fresh-(N-g.filter(Boolean).length))*.4;
+    if(step===0)score+=x.word.length*.1;
+    if(!best||score>best.score)best={x,scratch,placement,score};
   }
-  function nbr(W, H) {
-    const out = [];
-    for (let i = 0; i < W * H; i++) {
-      const r = (i / W) | 0, c = i % W, o = [];
-      if (r > 0) o.push(i - W);
-      if (r < H - 1) o.push(i + W);
-      if (c > 0) o.push(i - 1);
-      if (c < W - 1) o.push(i + 1);
-      out.push(o);
-    }
-    return out;
+  if(best){g=best.scratch;used.add(best.x.word);seeds.push(best.x.word);}
+ }
+ const freq='EEEEEEEEEEAAAAAAAOOOOOOOIIIIIIITTTTTTRRRRRRNNNNNLLLLSSSSDDCCUUUMMHPBGFVWYK';
+ for(let i=0;i<N;i++)if(!g[i])g[i]=freq[Math.floor(rng()*freq.length)];
+ return {g,seeds,nb};
+}
+function scan(g,w,h,ix,cap=14){const nb=neighbors(w,h),found=new Map(), maxNodes=150000;let steps=0;
+ function walk(i,node,mask,path){if(steps++>maxNodes)return;let child=node[g[i]];if(!child)return;let m=mask|(1<<i);path.push(i);
+  if(child.$){let w=child.$,v=found.get(w);if(!v){v=[];found.set(w,v)}if(v.length<cap)v.push(path.slice());}
+  if(path.length<8){for(let j of nb[i])if(!(m&(1<<j)))walk(j,child,m,path);}
+  path.pop();}
+ for(let i=0;i<g.length;i++)walk(i,ix.tree,0,[]);
+ let out=[];for(let [word,ps] of found){ps.sort((a,b)=>turns(a,w)-turns(b,w));let masks=new Set(ps.map(p=>p.reduce((z,j)=>z|(1<<j),0)));out.push({word,paths:ps,mask:ps[0].reduce((z,j)=>z|(1<<j),0),unique:ps.length===1,safe:masks.size===1&&ps.length<cap,path:ps[0],turns:turns(ps[0],w),straight:direction(ps[0],w),length:word.length});}
+ return out;
+}
+function selectTargets(items,target,ix,config,history,rng){let K=target.k,used=history.usage||{},recent=history.recent||new Map();const C=items.filter(x=>ix.byWord.get(x.word)?.role==='candidate'&&x.safe&&x.length>=3&&x.length<=8);
+ if(C.length<K)return null;let sel=[],have=new Set(),cover=0,ns=target.cells,goalStraight=target.straight,goalMean=target.avgLen;
+ const rel=(w)=>sel.some(x=>x.word.includes(w)||w.includes(x.word));
+ for(let pos=0;pos<K;pos++){
+  let b=null,bscore=-1e12;
+  for(let c of C){if(have.has(c.word))continue;let first=c.word;
+   let fresh=c.path.filter(i=>!(cover&(1<<i))).length;
+   let isRel=rel(first);
+   let desiredLen=(goalMean>3.7&&sel.filter(x=>x.length>=5).length<Math.max(1,Math.round(K*(1-target.shortPct||.19)))?5:3);
+   let old=used[first]||0,gap=target.n-(recent.get(first)||-9999);
+   let evidence=ix.byWord.get(first)||{};let score=fresh*(pos<K-2?2.6:4.6)+ (isRel?2:0) + (c.straight!=='T'?0.2:0)+(evidence.grade==='基础'?.7:0)+(evidence.wtRole==='必答'?.65:0)+(evidence.zenRole==='必答'?.4:0)+(evidence.evidenceCount||0)*.05 + (c.length>=5?(sel.filter(x=>x.length>=5).length<K*.25?.45:-.65):.25) -Math.abs(c.length-goalMean)*.27-old*.32 - (gap<=config.cooldown?12:0) + rng()*.8;
+   if((pos===K-1||pos===K-2)&&fresh===0&&cover!==(1<<ns)-1)score-=20;
+   if(score>bscore){b=c;bscore=score}
   }
-  function turns(p) {
-    let t = 0;
-    for (let k = 2; k < p.length; k++) if (p[k] - p[k - 1] !== p[k - 1] - p[k - 2]) t++;
-    return t;
-  }
-  function shuffle(a, R) {
-    for (let i = a.length - 1; i > 0; i--) { const j = (R() * (i + 1)) | 0; const t = a[i]; a[i] = a[j]; a[j] = t; }
-    return a;
-  }
-
-  /* all paths of word on letters, restricted to avail (null = all) */
-  function allPaths(letters, NB, word, avail, limit) {
-    const N = letters.length, res = [], used = new Uint8Array(N), path = [];
-    limit = limit || 5000;
-    function dfs(i, k) {
-      if (res.length >= limit) return;
-      if (used[i] || letters[i] !== word[k] || (avail && !avail[i])) return;
-      used[i] = 1; path.push(i);
-      if (k === word.length - 1) res.push(path.slice());
-      else { const nb = NB[i]; for (let j = 0; j < nb.length; j++) dfs(nb[j], k + 1); }
-      used[i] = 0; path.pop();
-    }
-    for (let s = 0; s < N; s++) dfs(s, 0);
-    return res;
-  }
-
-  function trieOf(words) {
-    const t = {};
-    words.forEach(w => { let n = t; for (let k = 0; k < w.length; k++) n = n[w[k]] = n[w[k]] || {}; n.$ = w; });
-    return t;
-  }
-  function scan(letters, NB, trie) {
-    const found = new Set(), N = letters.length, used = new Uint8Array(N);
-    function dfs(i, node) {
-      const nx = node[letters[i]]; if (!nx) return;
-      if (nx.$) found.add(nx.$);
-      used[i] = 1;
-      const nb = NB[i]; for (let j = 0; j < nb.length; j++) if (!used[nb[j]]) dfs(nb[j], nx);
-      used[i] = 0;
-    }
-    for (let i = 0; i < N; i++) dfs(i, trie);
-    return found;
-  }
-
-  /* Exhaustive play-through over every order and every path choice.
-     Returns {ok, states, dead, solution, overflow}. dead = reachable states, not finished,
-     from which no sequence completes the level (a trap). */
-  function exhaustive(letters, NB, words, counts, maxStates) {
-    const T = words.length, memo = new Map();
-    let states = 0, dead = 0, overflow = false;
-    const full = (1 << T) - 1;
-    const cnt = counts.slice();
-    function moves(mask) {
-      const avail = cnt.map(c => c > 0), out = [];
-      for (let w = 0; w < T; w++) {
-        if (mask & (1 << w)) continue;
-        const seen = new Set();
-        allPaths(letters, NB, words[w], avail, 5000).forEach(p => {
-          const sig = p.slice().sort((a, b) => a - b).join(',');
-          if (!seen.has(sig)) { seen.add(sig); out.push([w, p]); }
-        });
-      }
-      return out;
-    }
-    function rec(mask) {
-      if (mask === full) return true;
-      const key = cnt.join(',') + '|' + mask;
-      const m = memo.get(key);
-      if (m !== undefined) return m;
-      if (++states > maxStates) { overflow = true; throw 0; }
-      let ok = false;
-      const mv = moves(mask);
-      for (let k = 0; k < mv.length; k++) {
-        const p = mv[k][1];
-        p.forEach(i => cnt[i]--);
-        const r = rec(mask | (1 << mv[k][0]));
-        p.forEach(i => cnt[i]++);
-        if (r) ok = true;           /* keep exploring: we must visit every reachable state */
-      }
-      if (!ok) dead++;
-      memo.set(key, ok);
-      return ok;
-    }
-    let ok = false;
-    try { ok = rec(0); } catch (e) { if (e !== 0) throw e; }
-    return { ok: ok && !overflow, states: states, dead: dead, overflow: overflow };
-  }
-
-  /* X 与 X+s、X+es，或把 y 换成 ies。以 ss 结尾的不当成 +s。exempt 收的是 -s 那一头。 */
-  function pluralPairs(words, exempt) {
-    const ex = exempt instanceof Set ? exempt : new Set(exempt || []);
-    const set = new Set();
-    (words || []).forEach(w => { if (w) set.add(String(w).toUpperCase()); });
-    const out = [], seen = new Set();
-    set.forEach(W => {
-      const bases = [];
-      if (W.length >= 4 && W.endsWith('S') && !W.endsWith('SS')) bases.push(W.slice(0, -1));
-      if (W.length >= 4 && W.endsWith('ES')) bases.push(W.slice(0, -2));
-      if (W.length >= 4 && W.endsWith('IES')) bases.push(W.slice(0, -3) + 'Y');
-      bases.forEach(base => {
-        if (base.length < 2 || base === W || !set.has(base) || ex.has(W)) return;
-        const key = base + '\n' + W;
-        if (seen.has(key)) return;
-        seen.add(key);
-        out.push([base, W]);
-      });
-    });
-    out.sort((a, b) => a[0].localeCompare(b[0]) || a[1].localeCompare(b[1]));
-    return out;
-  }
-  function clashesPlural(word, have, exempt) {
-    const W = String(word || '').toUpperCase();
-    if (!W) return false;
-    const set = have instanceof Set ? have : new Set(have || []);
-    return pluralPairs([W].concat([...set]), exempt).some(p => p[0] === W || p[1] === W);
-  }
-
-  /* Build the lexicon views the generator needs.
-     Required pool is tier 0–1 (and tier 2, capped later). Tiers 3–4 stay extras.
-     Abbreviations in policy.abbr are never required; they may remain valid extras. */
-  function prepare(lexRows, validSet, policy) {
-    const no = new Set([].concat(policy.blocked, policy.flagged, policy.mild, policy.specialist));
-    const blocked = new Set(policy.blocked);
-    const abbr = new Set((policy.abbr || []).map(w => String(w).toUpperCase()));
-    const pluralExempt = new Set((policy.pluralExempt || []).map(w => String(w).toUpperCase()));
-    const info = Object.create(null), pool = [];
-    lexRows.forEach(r => {
-      info[r.w] = r;
-      if (!/^[A-Z]{3,7}$/.test(r.w)) return;
-      if (r.spec || no.has(r.w) || abbr.has(r.w)) return;
-      if (r.tier !== 0 && r.tier !== 1 && r.tier !== 2) return;
-      pool.push(r);
-    });
-    const valid = [];
-    validSet.forEach(w => { if (/^[A-Z]{3,10}$/.test(w) && !blocked.has(w)) valid.push(w); });
-    return { info: info, pool: pool, validTrie: trieOf(valid), no: no, blocked: blocked, abbr: abbr, pluralExempt: pluralExempt };
-  }
-
-  /* difficulty 0..1 for a level number under the curve */
-  function curveAt(n, cfg) {
-    const span = Math.max(1, cfg.to - cfg.from);
-    const prog = Math.min(1, Math.max(0, (n - cfg.from) / span));
-    let d = cfg.dStart + (cfg.dEnd - cfg.dStart) * prog;
-    const P = Math.max(3, cfg.period | 0), pos = (n - cfg.from) % P; /* 0..P-1 */
-    const amp = cfg.relief;
-    if (pos === P - 1) d += amp * 0.6;              /* peak closes the block */
-    else if (pos === 0 && n !== cfg.from) d -= amp;  /* relief right after a peak */
-    else if (pos === Math.floor(P / 2)) d -= amp * 0.5;
-    else d += amp * 0.25 * (pos / P);
-    return Math.min(1, Math.max(0, d));
-  }
-
-  /* The editor's four dimensions turned into concrete targets. */
-  function targetsFor(d, sizes, R) {
-    const cells = 6 + 9 * d;
-    let best = Infinity, cand = [];
-    sizes.forEach(s => {
-      const diff = Math.abs(s[0] * s[1] - cells);
-      if (diff < best - 0.01) { best = diff; cand = [s]; } else if (Math.abs(diff - best) <= 0.01) cand.push(s);
-    });
-    const size = cand[(R() * cand.length) | 0];
-    const N = size[0] * size[1];
-    const usesPerCell = 1.4 + 2.2 * d;                    /* Word Tiles: ~1.4 at level 1, ~3.4 later */
-    let T = Math.round(3.5 + 9 * d);
-    T = Math.max(3, Math.min(14, T));
-    const maxLen = Math.max(3, Math.min(7, N, Math.round(3.6 + 3.2 * d)));
-    return {
-      d: d, W: size[0], H: size[1], N: N, T: T,
-      letters: Math.round(N * usesPerCell),
-      maxLen: maxLen,
-      scoreFloor: 0.85 - 0.13 * d,                        /* vocabulary: 0 → score≥0.85 (tier 0), 1 → score≥0.72 (tier 0–1) */
-      tier2Max: d >= 0.8 ? 1 : 0,                         /* harder levels may include at most one tier-2 word */
-      turny: d                                            /* path complexity: chance to prefer bendy paths */
-    };
-  }
-
-  function eligible(P, tg, exclude) {
-    return P.pool.filter(r => {
-      if (r.w.length > tg.maxLen || r.w.length > tg.N) return false;
-      if (exclude.has(r.w)) return false;
-      if (r.tier === 2) return tg.tier2Max > 0;
-      if (r.tier !== 0 && r.tier !== 1) return false;
-      const s = r.score == null ? 0 : r.score;
-      return s + 1e-9 >= tg.scoreFloor;
-    });
-  }
-
-  /* random self-avoiding placement of word, may reuse cells whose letter matches */
-  function place(word, grid, NB, R, needNew, preferTurn) {
-    const N = grid.length, starts = shuffle([...Array(N).keys()], R), used = new Uint8Array(N);
-    const path = [];
-    let tries = 0;
-    function dfs(i, k, fresh) {
-      if (++tries > 4000) return false;
-      if (used[i]) return false;
-      if (grid[i] && grid[i] !== word[k]) return false;
-      used[i] = 1; path.push(i);
-      const f = fresh + (grid[i] ? 0 : 1);
-      if (k === word.length - 1) {
-        if (f >= needNew) return true;
-      } else {
-        let nb = shuffle(NB[i].slice(), R);
-        if (path.length >= 2) {
-          const dir = i - path[path.length - 2];
-          const straightFirst = R() > preferTurn;
-          nb.sort((a, b) => ((a - i === dir) === straightFirst ? -1 : 1) - ((b - i === dir) === straightFirst ? -1 : 1));
-        }
-        for (let j = 0; j < nb.length; j++) if (dfs(nb[j], k + 1, f)) return true;
-      }
-      used[i] = 0; path.pop();
-      return false;
-    }
-    for (let s = 0; s < starts.length; s++) if (dfs(starts[s], 0, 0)) return path.slice();
-    return null;
-  }
-
-  function pickWeighted(list, R, wfn) {
-    let tot = 0; const ws = list.map(x => { const v = wfn(x); tot += v; return v; });
-    let r = R() * tot;
-    for (let i = 0; i < list.length; i++) { r -= ws[i]; if (r <= 0) return list[i]; }
-    return list[list.length - 1];
-  }
-
-  /* One attempt to build a level by construction. Returns {level, why}. */
-  function attempt(P, tg, exclude, R, opts) {
-    const N = tg.N, NB = nbr(tg.W, tg.H);
-    const elig = eligible(P, tg, exclude);
-    if (elig.length < 30) return { why: 'pool' };
-    const byLen = {};
-    elig.forEach(r => { (byLen[r.w.length] = byLen[r.w.length] || []).push(r); });
-    const zw = r => Math.pow(Math.max(0.04, (r.score == null ? 0.8 : r.score) - 0.7), 2) * (r.tier === 0 ? 1.5 : 1);
-    const grid = Array(N).fill('');
-    const chosen = [];           /* {w, p, tier} */
-    const used = new Set();
-    /* 1) hero word: the longest of the level, from tier 0–1 */
-    const heroLen = tg.maxLen >= 5 ? tg.maxLen - (R() < 0.35 ? 1 : 0) : tg.maxLen;
-    const heroes = byLen[heroLen] || byLen[tg.maxLen];
-    if (!heroes) return { why: 'pool' };
-    const hero = pickWeighted(heroes.filter(r => r.tier < 2), R, zw);
-    if (!hero) return { why: 'pool' };
-    const hp = place(hero.w, grid, NB, R, 1, tg.turny);
-    if (!hp) return { why: 'fill' };
-    hp.forEach((c, k) => { grid[c] = hero.w[k]; });
-    chosen.push({ w: hero.w, p: hp, tier: hero.tier }); used.add(hero.w);
-    /* 2) cover every empty cell with short words placed through it */
-    let guard = 0;
-    while (grid.some(ch => !ch)) {
-      if (++guard > 60) return { why: 'fill' };
-      const empty = [];
-      grid.forEach((ch, i) => { if (!ch) empty.push(i); });
-      let ok = false;
-      for (let t = 0; t < 40 && !ok; t++) {
-        const L = R() < 0.55 ? 3 : (R() < 0.8 ? 4 : 5);
-        const list = (byLen[Math.min(L, tg.maxLen)] || byLen[3] || []).filter(r => !used.has(r.w) && r.tier < 2 && !clashesPlural(r.w, used, P.pluralExempt));
-        if (!list.length) continue;
-        const r = pickWeighted(list, R, zw);
-        const p = place(r.w, grid, NB, R, 1, tg.turny);
-        if (!p) continue;
-        p.forEach((c, k) => { grid[c] = r.w[k]; });
-        chosen.push({ w: r.w, p: p, tier: r.tier }); used.add(r.w);
-        ok = true;
-      }
-      if (!ok) return { why: 'fill' };
-    }
-    if (chosen.length > tg.T + 1) return { why: 'fill' };
-    /* 3) everything the finished board spells */
-    const eligTrie = trieOf(elig.map(r => r.w));
-    const findable = [...scan(grid, NB, eligTrie)].filter(w => !used.has(w));
-    const pathCache = {};
-    const pathsFor = w => pathCache[w] || (pathCache[w] = allPaths(grid, NB, w, null, 2000));
-    /* add required words until workload reached, keeping ~80% 3-4 letters */
-    const longCap = Math.max(1, Math.round(tg.T * 0.25));
-    let longN = chosen.filter(c => c.w.length >= 5).length;
-    let tier2N = 0;
-    const rest = shuffle(findable.slice(), R);
-    rest.sort((a, b) => ((P.info[b].score || 0) - (P.info[a].score || 0)) + (R() - 0.5) * 0.06);
-    for (let k = 0; k < rest.length && chosen.length < tg.T; k++) {
-      const w = rest[k], inf = P.info[w];
-      if (w.length >= 5 && longN >= longCap) continue;
-      if (inf.tier === 2 && tier2N >= tg.tier2Max) continue;
-      if (clashesPlural(w, used, P.pluralExempt)) continue;
-      const ps = pathsFor(w);
-      if (!ps.length) continue;
-      /* path choice by complexity */
-      const sorted = ps.slice().sort((a, b) => turns(a) - turns(b));
-      const p = R() < tg.turny ? sorted[sorted.length - 1 - ((R() * Math.min(3, sorted.length)) | 0)] : sorted[(R() * Math.min(2, sorted.length)) | 0];
-      chosen.push({ w: w, p: p, tier: inf.tier }); used.add(w);
-      if (w.length >= 5) longN++;
-      if (inf.tier === 2) tier2N++;
-    }
-    if (chosen.length < Math.max(3, tg.T - 1)) return { why: 'few' };
-    const words = chosen.map(c => c.w);
-    if (new Set(words).size !== words.length) return { why: 'dup' };
-    if (words.some(w => P.abbr && P.abbr.has(w))) return { why: 'abbr' };
-    if (pluralPairs(words, P.pluralExempt).length) return { why: 'plural' };
-    const short = words.filter(w => w.length <= 4).length;
-    if (words.length >= 5 && short / words.length < 0.6) return { why: 'mix' };
-    /* 4) counts are exactly the uses of the constructed paths */
-    const counts = Array(N).fill(0);
-    chosen.forEach(c => c.p.forEach(i => counts[i]++));
-    if (counts.some(c => c < 1 || c > 35)) return { why: 'count' };
-    if (Math.max.apply(null, counts) > (opts.maxCount || 9)) return { why: 'count' };
-    /* 5) rigor: exhaustive play-through (every order, every path) */
-    const ex = exhaustive(grid, NB, words, counts, opts.maxStates || 60000);
-    if (ex.overflow) return { why: 'big' };
-    if (!ex.ok) return { why: 'unsolvable' };
-    if (ex.dead > 0) return { why: 'trap' };
-    /* 6) extras = all other valid words the board spells */
-    const reqSet = new Set(words);
-    const extras = [...scan(grid, NB, P.validTrie)].filter(w => !reqSet.has(w)).sort();
-    /* game-format level; words sorted by length like toLevel() */
-    const order = chosen.slice().sort((a, b) => a.w.length - b.w.length || a.w.localeCompare(b.w));
-    const rows = [];
-    for (let r = 0; r < tg.H; r++) rows.push(grid.slice(r * tg.W, (r + 1) * tg.W).join(''));
-    const ty = order.map(c => (c.tier === 2 ? 1 : 0));
-    const lv = {
-      g: rows.join(','),
-      t: order.map(c => c.w).join(' '),
-      e: extras.join(' '),
-      n: counts.map(c => c.toString(36)).join('')
-    };
-    if (ty.some(Boolean)) lv.ty = ty.join('');
-    return { level: lv, stats: { states: ex.states, solution: order.map(c => ({ w: c.w, p: c.p })) } };
-  }
-
-  /* Generate one level number n. exclude: words used within 10 levels. */
-  function generateOne(P, n, cfg, exclude) {
-    const reasons = {};
-    let tries = 0;
-    for (let relax = 0; relax < 4; relax++) {
-      for (let a = 0; a < (cfg.tries || 80); a++) {
-        tries++;
-        const R = rng(hash(cfg.seed, n, relax, a));
-        let d = curveAt(n, cfg) - relax * 0.08;
-        d = Math.max(0, d);
-        const tg = targetsFor(d, cfg.sizes, R);
-        const res = attempt(P, tg, exclude, R, cfg);
-        if (res.level) return { level: res.level, tg: tg, tries: tries, reasons: reasons, relax: relax, stats: res.stats };
-        reasons[res.why] = (reasons[res.why] || 0) + 1;
-      }
-    }
-    return { level: null, tries: tries, reasons: reasons };
-  }
-
-  root.WPGen = { rng: rng, hash: hash, nbr: nbr, allPaths: allPaths, scan: scan, trieOf: trieOf,
-    exhaustive: exhaustive, prepare: prepare, curveAt: curveAt, targetsFor: targetsFor,
-    attempt: attempt, generateOne: generateOne, pluralPairs: pluralPairs };
-})(typeof globalThis !== 'undefined' ? globalThis : this);
+  if(!b)return null;sel.push(b);have.add(b.word);cover|=b.mask;
+ }
+ if(cover!==(1<<ns)-1)return null;
+ let demands=Array(ns).fill(0);for(let c of sel)for(let i of c.path)demands[i]++;
+ if(Math.max(...demands)>config.maxUse)return null;
+ return {selected:sel,demands};
+}
+function adjacencyStats(g,w,h,soft){let NB=neighbors(w,h),actual=new Map(),freq=new Map(),edges=0;for(let c of g)freq.set(c,(freq.get(c)||0)+1);
+ for(let i=0;i<g.length;i++)for(let j of NB[i])if(j>i){edges++;let key=[g[i],g[j]].sort().join('');actual.set(key,(actual.get(key)||0)+1)}
+ let score=0;for(let [pair,ct] of actual){let r=soft[pair]||1;score+=ct*Math.log(clamp(r,0.3,2.2));}
+ return {edges,actual:[...actual],score};}
+function metrics(board,target,items,sel,index,config){let {g,w,h,counts}=board,words=sel.map(x=>x.word),R=sel.filter(x=>x.straight!=='T'&&x.straight!=='X').length,uniq=sel.filter(x=>x.unique).length,turn=avg(sel.map(x=>x.turns)),k=words.length,letters=new Set(g).size,rels=0;
+ for(let i=0;i<k;i++)for(let j=i+1;j<k;j++)if(words[i].includes(words[j])||words[j].includes(words[i]))rels++;
+ let extras=items.filter(x=>!words.includes(x.word)),d=target;
+ let adj=adjacencyStats(g,w,h,config.adjWeights||{});
+ let p={k,straightRatio:R/k,uniqueRatio:uniq/k,meanTurns:turn,avgWordLength:avg(sel.map(x=>x.word.length)),maxWordLength:Math.max(...sel.map(x=>x.word.length)),longCount:sel.filter(x=>x.word.length>=5).length,extraCount:extras.length,relPairs:rels,letterKinds:letters,repeatedTiles:g.length-letters,maxLayer:Math.max(...counts),coverage:1,adjScore:adj.score,dirs:{R:0,L:0,U:0,D:0,T:0}};
+ for(let x of sel)p.dirs[x.straight]=(p.dirs[x.straight]||0)+1;
+ const dist=(v,tol)=>Math.abs(v-(tol||0));
+ let score=0;score-=dist(p.straightRatio,d.straight)*4;score-=dist(p.meanTurns,d.minTurns)*3;score-=dist(p.avgWordLength,d.avgLen)*3;score-=dist(p.letterKinds,d.letterKinds)*.75;score-=dist(p.maxLayer,d.maxLayers)*.5;score-=dist(p.relPairs,d.related)*1.1;score-=dist(p.extraCount,d.bonus)*config.extraWeight;
+ if(p.uniqueRatio<config.uniqueMin)score-=(config.uniqueMin-p.uniqueRatio)*20;
+ if(config.adjacency)score+=p.adjScore*.2;
+ let Rcount=p.dirs.R,Lcount=p.dirs.L,Ucount=p.dirs.U,Dcount=p.dirs.D;
+ let rbonus=(Rcount+Ucount)-(Lcount+Dcount);
+ score+=rbonus*config.readingBias;
+ return {metrics:p,score,extras:extras.map(x=>x.word),adj};
+}
+function validate(level,ix,config){if(!level||!Array.isArray(level.grid)||!Array.isArray(level.targets))return {ok:false,errors:['格式无效']};let errors=[],w=level.width,h=level.height,g=level.grid,items=scan(g,w,h,ix,32),found=new Map(items.map(x=>[x.word,x]));let needed=Array(g.length).fill(0);
+ if(g.length!==w*h)errors.push('棋盘格数不匹配');
+ if(!level.targets.length)errors.push('没有必答词');
+ for(let t of level.targets){let x=found.get(t);if(!x)errors.push(`${t}在棋盘不可达或不在合法词库`);else if(!x.safe)errors.push(`${t}存在用格不一致的多路径，顺序安全未证明`);else for(let i of x.path)needed[i]++;
+ if(ix.byWord.get(t)?.role!=='candidate')errors.push(`${t}已非必答候选`);}
+ if(needed.some((v,i)=>v!==level.counts?.[i]))errors.push('逐格次数与必答路径不一致');
+ if(needed.some(v=>v===0))errors.push('存在不参与必答的格子');
+ if(needed.some(v=>v>config.maxUse))errors.push(`超过单格复用上限${config.maxUse}`);
+ let extras=items.filter(x=>!level.targets.includes(x.word)).map(x=>x.word);
+ return {ok:errors.length===0,errors,extras,checkedPaths:items.length};
+}
+function generateOne(n,ix,profiles,config={},history={}){config={...DEFAULTS,...config};let d={...targetFor(n,config,profiles),n},rng=random(config.seed+'|'+config.preset+'|'+n+'|generate'),N=config.attempts||100,best=null,byWord=ix.byWord;
+ for(let a=0;a<N;a++){
+  let fill=fillBoard(d,ix,rng,config,history.recent||new Map()),{g,seeds,nb}=fill,items=scan(g,d.width,d.height,ix,18),pickings=selectTargets(items,d,ix,config,history,rng);
+  if(!pickings)continue;
+  let {selected,demands}=pickings;
+  let board={g,w:d.width,h:d.height,counts:demands}, evaluation=metrics(board,d,items,selected,ix,config);
+  let lv={id:`${config.preset}-${n}-${hash(g.join('')+'|'+selected.map(x=>x.word).join(',')).toString(16)}`,number:n,preset:config.preset,width:d.width,height:d.height,grid:g,counts:demands,targets:selected.map(x=>x.word),extras:evaluation.extras,paths:Object.fromEntries(selected.map(x=>[x.word,x.path])),source:'generated',profile:d.stage,validated:true,metrics:evaluation.metrics};
+  let verify=validate(lv,ix,config);if(!verify.ok)continue;
+  let cur={ok:true,level:lv,score:evaluation.score,attempts:a+1,profile:d};if(!best||cur.score>best.score)best=cur;
+  if(best.score>=-2 && a>Math.min(15,N/3))break;
+ }
+ return best||{ok:false,number:n,reason:`尝试${N}次后未找到满足覆盖和全路径安全的${d.width}×${d.height}棋盘；未放宽规则`,profile:d,attempts:N};
+}
+function generateRange(ix,profiles,options,onProgress){let opts={...DEFAULTS,...options},lv=[],failed=[],recent=new Map(),usage={},time=Date.now();for(let i=0;i<opts.count;i++){let n=opts.start+i,x=generateOne(n,ix,profiles,opts,{recent,usage});if(x.ok){lv.push(x.level);for(let w of x.level.targets){usage[w]=(usage[w]||0)+1;recent.set(w,n);}}else failed.push(x);if(onProgress)onProgress({index:i+1,requested:opts.count,ok:x.ok,level:x.level||null,failed:x.ok?null:x,elapsed:Date.now()-time});}
+ return {levels:lv,failures:failed,config:opts,elapsedMs:Date.now()-time};}
+function exportGame(levels){return {kind:'word-tiles-levels-v2',version:2,levels:levels.map(l=>({id:l.id,number:l.number,width:l.width,height:l.height,rows:Array.from({length:l.height},(_,i)=>l.grid.slice(i*l.width,(i+1)*l.width).join('')),counts:l.counts,targets:l.targets,extras:l.extras}))};}
+function parseCSV(text){let rows=[],cur=[],v='',quoted=false;for(let i=0;i<text.length;i++){let c=text[i];if(quoted){if(c==='"'&&text[i+1]==='"'){v+='"';i++}else if(c==='"')quoted=false;else v+=c;}else if(c==='"')quoted=true;else if(c===','){cur.push(v);v=''}else if(c==='\n'||c==='\r'){if(c==='\r'&&text[i+1]==='\n')i++;cur.push(v);v='';if(cur.some(x=>x))rows.push(cur);cur=[];}else v+=c;}if(v||cur.length){cur.push(v);rows.push(cur)}let heads=(rows.shift()||[]).map(x=>x.replace(/^\uFEFF/,'').trim());return rows.map(x=>Object.fromEntries(heads.map((k,i)=>[k,x[i]||''])));}
+function historyFromLevels(levels){let recent=new Map(),usage={};for(let level of [...levels].sort((a,b)=>a.number-b.number)){for(let w of level.targets||[]){recent.set(w,level.number);usage[w]=(usage[w]||0)+1;}}return {recent,usage};}
+return {DEFAULTS,stage,getProfile,targetFor,normalizeLex,buildIndex,scan,metrics,validate,generateOne,generateRange,exportGame,parseCSV,historyFromLevels,random,direction,turns,adjacencyStats};
+});

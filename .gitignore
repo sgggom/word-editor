@@ -14,3 +14,7 @@ $RECYCLE.BIN/
 .AppleDouble
 .LSOverride
 .directory
+
+# Python validation artifacts
+__pycache__/
+*.py[cod]
