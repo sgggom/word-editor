@@ -41,11 +41,11 @@ class V2AuditTests(unittest.TestCase):
         self.assertTrue(any(e.startswith('extras mismatch: missing=') for e in audit.audit(level, self.lex, self.trie)))
 
     def test_only_extra_and_absent_cannot_be_targets(self):
-        self.assertEqual(self.lex['AAHED']['role'], 'extra')
+        lex = dict(self.lex, AAHED={'word': 'AAHED', 'role': 'extra'})
         for word in ['AAHED', 'ZZZ']:
             level = copy.deepcopy(self.levels[0])
             level['t'] += ' ' + word
-            self.assertIn('not a v2 target candidate: ' + word, audit.audit(level, self.lex, self.trie))
+            self.assertIn('not a v2 target candidate: ' + word, audit.audit(level, lex, self.trie))
 
     def test_distinct_tile_sets_are_rejected(self):
         level = {'g': 'CAT,CAT', 't': 'CAT', 'n': '111111', 'e': ''}

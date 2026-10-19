@@ -1,9 +1,10 @@
   /* ---------- 词库运行上下文（由同步脚本内嵌） ---------- */
   const libraryData = JSON.parse($('#gameVocab').textContent);
-  const libraryPresetVersion = 'four-games-v1';
-  const initialRecipe = WPLibrary.defaultRecipe(libraryData);
+  const libraryPresetVersion = 'four-game-tiers-v1';
+  const initialRecipes = WPLibrary.tieredRecipes(libraryData);
+  const initialRecipe = initialRecipes[0];
   const initialSnapshot = WPLibrary.snapshot(libraryData, initialRecipe);
-  let libraryRecipes = [initialRecipe];
+  let libraryRecipes = initialRecipes;
   let defaultLibraryId = initialRecipe.id;
   const libraryContexts = new Map();
   const verifiedSnapshots = new WeakSet();
@@ -95,7 +96,10 @@
       const fallback = JSON.parse(localStorage.getItem('wp.leveldesk.libraries') || 'null');
       if (fallback && (!state || (fallback.savedAt || 0) > (state.savedAt || 0))) state = fallback;
     } catch (e) {}
-    if (!state) { await saveLibraryState(); return; }
+    if (!state || state.presetVersion !== libraryPresetVersion) {
+      // Replace the previous recipe list once, as requested. Level snapshots are independent.
+      await saveLibraryState(initialRecipes, initialRecipe.id); return;
+    }
     if (state.schemaVersion !== 1 || !Array.isArray(state.recipes)) throw new Error('保存的词库配置格式无效');
     const ids = new Set();
     for (const recipe of state.recipes) {
@@ -103,13 +107,8 @@
       if (ids.has(recipe.id)) throw new Error('保存的词库 ID 重复');
       ids.add(recipe.id);
     }
-    libraryRecipes = state.recipes.length ? state.recipes : [initialRecipe];
+    libraryRecipes = state.recipes.length ? state.recipes : initialRecipes;
     defaultLibraryId = libraryRecipes.some(r => r.id === state.defaultId) ? state.defaultId : libraryRecipes[0].id;
-    if (state.presetVersion !== libraryPresetVersion) {
-      // Install the requested default once, preserving saved recipes and all level snapshots.
-      if (!libraryRecipes.some(r => r.id === initialRecipe.id)) libraryRecipes = libraryRecipes.concat(initialRecipe);
-      await saveLibraryState(libraryRecipes, initialRecipe.id);
-    }
   }
   async function saveLibraryState(recipes = libraryRecipes, defaultId = defaultLibraryId) {
     const state = {schemaVersion: 1, presetVersion: libraryPresetVersion, recipes, defaultId, savedAt: Date.now()};

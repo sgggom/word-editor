@@ -20,7 +20,7 @@ async function nameLibrary(page, button, name) {
   const save=async(rev)=>{await page.click('#librarySave');await page.waitForFunction(rev=>document.querySelector('#libraryStatus').textContent.startsWith('已保存 · v'+rev),{},rev)};
   await ready(base+'?fresh=1');await page.click('#btnBank');
   assert.deepEqual(await page.$$eval('[data-library-view]',es=>es.map(e=>e.textContent)),['列表','饼图']);
-  await nameLibrary(page,'#libraryCopy','饼图多选验收');
+  await nameLibrary(page,'#libraryNew','饼图多选验收');
   await page.click('[data-library-view="range"]');assert.equal(await count(),10758);
   assert.equal(await page.$$eval('[data-range-mask][aria-pressed="true"]',es=>es.length),15);
   assert.equal(await page.$eval('#libraryRangeChart [data-mask="15"]',e=>e.getAttribute('aria-pressed')),'true');

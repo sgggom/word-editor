@@ -9,7 +9,7 @@ root = Path(__file__).resolve().parents[1]
 index = root / 'index.html'
 text = index.read_text()
 # Derive the CLI default with exactly the same compiler used in the browser.
-compiled = subprocess.check_output(['node', '-e', "const L=require('./src/library');const d=require('./data/game_vocab/catalog.json');process.stdout.write(JSON.stringify(L.compile(d,L.defaultRecipe(d)).lex,null,2)+'\\n');"], cwd=root, text=True)
+compiled = subprocess.check_output(['node', '-e', "const L=require('./src/library');const d=require('./data/game_vocab/catalog.json');process.stdout.write(JSON.stringify(L.compile(d,L.tieredRecipes(d)[0]).lex,null,2)+'\\n');"], cwd=root, text=True)
 (root / 'src/lex.json').write_text(compiled)
 start = text.index('/* 旧关卡与手工编辑的路径校验辅助函数')
 end = text.index('</script>', start)

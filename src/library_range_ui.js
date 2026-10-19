@@ -96,6 +96,7 @@
     $('#libraryRangeMetrics').innerHTML = metrics.map(([kind, label, count, on]) => '<button type="button" data-range-kind="' + kind + '" class="range-stat' + (on ? ' on' : '') + '" aria-pressed="' + on + '"><span>' + label + '</span><b>' + fmt(count) + '</b></button>').join('');
     $('#libraryRangeSources').innerHTML = model.entries.map(e => '<div class="range-source" title="' + esc(e.label + ' · ' + e.detail) + '"><i style="background:' + esc(e.color) + '">' + e.letter + '</i><span><b>' + esc(e.label) + '</b><small>' + esc(e.detail) + '</small></span><strong>' + fmt(e.count) + '</strong></div>').join('');
     let caption = '点击区域选中，再次点击取消，可多选；保存后按选中区域生成。';
+    if (bankDraft[state.pool].excludeTargets) caption += ' 已剔除所选游戏全部版本的必答候选（A–Z，3–8 字母）。';
     if (!model.entries.length) {
       state.chart = null; $('#libraryRangeChart').innerHTML = '<p class="note range-empty">这个词池还没有来源。点击“编辑来源”添加游戏。</p>';
     } else if (model.entries.length > 7) {

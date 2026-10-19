@@ -20,7 +20,7 @@ async function nameLibrary(page, button, name) {
   const confirmImport=async(text)=>{await page.evaluate(text=>__desk.importText(text),text);await page.waitForSelector('#modal',{visible:true});await page.evaluate(()=>[...document.querySelectorAll('#mBtns button')].find(x=>x.textContent==='导入').click());await page.waitForSelector('#modal',{hidden:true});await page.evaluate(()=>__desk.flush());};
   const generate=async(count=3)=>{await page.click('#btnBatch');await page.evaluate(count=>{bCount.value=count;bFrom.value=1;bMode.value='replace';bAttempts.value=100;bSeed.value='library-browser-QA';},count);await page.click('#bGo');await page.waitForFunction(()=>__lastBatch,{timeout:120000});const result=await page.evaluate(()=>__lastBatch);assert.equal(result.made,count,JSON.stringify(result));await page.click('#bClose');return page.evaluate(()=>__desk.exportLevels());};
   await ready(base+'?fresh=1');
-  // A previously stored default upgrades once; saved recipes and old snapshots survive.
+  // The requested eight presets replace old recipes once; level snapshots survive.
   const oldRecipe={id:'word-tiles-main',name:'Word Tiles 两版并集',revision:1,datasetHash:data.datasetHash,
     targetPool:{operation:'union',sources:[{gameId:'07_Word_Tiles',configId:'*',roles:['target']}]},
     extraPool:{operation:'union',sources:[{gameId:'07_Word_Tiles',configId:'*',roles:['extra']}]}};
@@ -29,12 +29,13 @@ async function nameLibrary(page, button, name) {
   await page.evaluate(async ({oldRecipe,keptRecipe,oldSnap})=>{
     const camp=JSON.parse(__desk.deskText());camp.index=0;camp.levels[0].librarySnapshotId=oldSnap.id;camp.librarySnapshots={[oldSnap.id]:oldSnap};
     const db=await new Promise((resolve,reject)=>{const q=indexedDB.open('wp.leveldesk',1);q.onsuccess=()=>resolve(q.result);q.onerror=()=>reject(q.error)});
-    await new Promise((resolve,reject)=>{const tx=db.transaction('kv','readwrite');tx.objectStore('kv').put({schemaVersion:1,recipes:[oldRecipe,keptRecipe],defaultId:keptRecipe.id},'libraries');tx.objectStore('kv').put(camp,'campaign');tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)});db.close();
+    await new Promise((resolve,reject)=>{const tx=db.transaction('kv','readwrite');tx.objectStore('kv').put({schemaVersion:1,presetVersion:'four-games-v1',recipes:[oldRecipe,keptRecipe],defaultId:keptRecipe.id},'libraries');tx.objectStore('kv').put(camp,'campaign');tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)});db.close();
   },{oldRecipe,keptRecipe,oldSnap});
   await ready();
   const upgrade=await page.evaluate(()=>({state:__desk.libraries(),campaign:__desk.campaign()}));
-  assert.equal(upgrade.state.defaultId,'four-game-main');
-  assert.deepEqual(upgrade.state.recipes.find(r=>r.id===keptRecipe.id),keptRecipe);
+  assert.equal(upgrade.state.defaultId,'four-game-target-core');
+  assert.deepEqual(upgrade.state.recipes,L.tieredRecipes(data));
+  assert.equal(upgrade.state.recipes.find(r=>r.id===keptRecipe.id),undefined);
   assert.deepEqual(upgrade.campaign.librarySnapshots[oldSnap.id],oldSnap);
   assert.equal(upgrade.campaign.levels[0].librarySnapshotId,oldSnap.id);
   await page.click('#btnBank');
@@ -48,6 +49,20 @@ async function nameLibrary(page, button, name) {
   await page.keyboard.press('Escape');assert.equal(await page.$eval('#bank',e=>e.hidden),false);
   assert.equal(await page.$eval('#libraryNameDialog',e=>e.open),false);
   assert.deepEqual(await page.evaluate(()=>__desk.libraries()),beforeNaming);
+  assert.match(await page.$eval('#libraryStats',e=>e.textContent),/1,627/);
+  for(const recipe of L.tieredRecipes(data)) {
+    await page.select('#librarySelect',recipe.id);
+    assert.deepEqual((await page.evaluate(()=>__desk.libraries())).preview,L.compile(data,recipe).stats);
+  }
+  await page.select('#librarySelect','four-game-extra-core');await page.click('[data-library-view="range"]');
+  assert.equal(await page.$eval('#libraryRangePool',e=>e.value),'extraPool');
+  assert.match(await page.$eval('#libraryRangeCaption',e=>e.textContent),/已剔除/);
+  assert.match(await page.$eval('#bankMeta',e=>e.textContent),/^177 \/ 177/);
+  await page.click('[data-library-view="list"]');
+  assert.equal(await page.$eval('[data-exclude-targets="extraPool"]',e=>e.checked),true);
+  await page.click('[data-exclude-targets="extraPool"]');assert.equal((await page.evaluate(()=>__desk.libraries())).preview.extras,617);
+  await page.click('[data-exclude-targets="extraPool"]');assert.equal((await page.evaluate(()=>__desk.libraries())).preview.extras,177);
+  await nameLibrary(page,'#libraryNew','四游戏并集验收');
   assert.match(await page.$eval('#libraryStats',e=>e.textContent),/10,748/);
   const gameIds=['07_Word_Tiles','06_Zen_Word','05_Words_of_Wonders','04_Wordscapes'];
   for(const key of ['targetPool','extraPool']) assert.deepEqual(await page.$$eval('[data-pool="'+key+'"] [data-field="game"]',es=>es.map(e=>e.value)),gameIds);
@@ -148,7 +163,7 @@ async function nameLibrary(page, button, name) {
   const legacy=structuredClone(draft);delete legacy.librarySnapshotId;await confirmImport(JSON.stringify({kind:'wordpages-desk',levels:[legacy]}));
   const migrated=await page.evaluate(()=>__desk.campaign());assert(migrated.librarySnapshots[migrated.levels[0].librarySnapshotId]);
   for(const key of ['letters','words','extras'])assert.deepEqual(migrated.levels[0][key],legacy[key]);
-  assert.equal(migrated.librarySnapshots[migrated.levels[0].librarySnapshotId].recipe.id,'four-game-main');
+  assert.equal(migrated.librarySnapshots[migrated.levels[0].librarySnapshotId].recipe.id,'four-game-target-core');
   const offline=await browser.newPage();offline.on('pageerror',e=>errors.push(e.message));
   await offline.goto('file://'+path.resolve(__dirname,'../wordpages-level-desk.html')+'?fresh=1',{waitUntil:'load'});await offline.evaluate(()=>__desk.ready());
   await offline.click('#btnBank');await nameLibrary(offline,'#libraryCopy','离线配置');await offline.waitForFunction(()=>__desk.libraries().recipes.some(r=>r.name==='离线配置'));

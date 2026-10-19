@@ -27,6 +27,20 @@
       targetPool: {operation: 'union', sources: sources(['target'])},
       extraPool: {operation: 'union', sources: sources(['extra', 'onlyExtra', 'bonus'])}};
   }
+  function tieredRecipes(data) {
+    const tiers = [[4, 'core', '核心', '4款共有'], [3, 'level1', '一级', '恰好3款'],
+      [2, 'level2', '二级', '恰好2款'], [1, 'level3', '三级', '各自独有']];
+    return tiers.flatMap(([count, id, tier, label]) => ['target', 'extra'].map(kind => {
+      const template = defaultRecipe(data), key = kind === 'target' ? 'targetPool' : 'extraPool';
+      const pool = template[key];
+      if (kind === 'extra') pool.excludeTargets = true;
+      const masks = Array.from({length: 15}, (_, i) => i + 1).filter(mask => mask.toString(2).replace(/0/g, '').length === count);
+      return {id: 'four-game-' + kind + '-' + id, name: tier + ' · ' + (kind === 'target' ? '必答词' : '仅额外词') + '（' + label + '）',
+        revision: 1, datasetHash: data.datasetHash,
+        targetPool: {operation: 'union', sources: []}, extraPool: {operation: 'union', sources: []},
+        [key]: withRegionSelection(pool, masks)};
+    }));
+  }
   function validateRecipe(recipe, data) {
     if (!recipe || !String(recipe.id || '').trim() || !String(recipe.name || '').trim()) throw new Error('请填写词库名称');
     if (recipe.datasetHash !== data.datasetHash) throw new Error('词库配置的数据版本与当前项目不一致');
@@ -34,6 +48,7 @@
     for (const key of ['targetPool', 'extraPool']) {
       const pool = recipe[key];
       if (!pool || !['union', 'intersection', 'regions'].includes(pool.operation) || !Array.isArray(pool.sources)) throw new Error('词池运算格式无效');
+      if (pool.excludeTargets !== undefined && typeof pool.excludeTargets !== 'boolean') throw new Error('必答候选排除规则格式无效');
       for (const source of pool.sources) {
         const game = data.games.find(g => g.id === source.gameId);
         if (!game || (source.configId !== '*' && !game.configs.some(c => c.id === source.configId))) throw new Error('来源游戏或版本不存在');
@@ -61,13 +76,20 @@
     return cache.get(key);
   }
   function partitionPool(data, pool) {
-    const sources = uniquePoolSources(pool), cacheKey = JSON.stringify(sources.map(s => s.key));
+    const sources = uniquePoolSources(pool), cacheKey = JSON.stringify([sources.map(s => s.key), !!pool.excludeTargets]);
     let cache = partitionCache.get(data);
     if (!cache) partitionCache.set(data, cache = new Map());
     if (cache.has(cacheKey)) return cache.get(cacheKey);
+    const excludedTargets = new Set();
+    if (pool.excludeTargets) for (const gameId of new Set(sources.map(s => s.source.gameId))) {
+      for (const word of sourceWords(data, {gameId, configId: '*', roles: ['target']})) {
+        if (/^[A-Z]{3,8}$/.test(word)) excludedTargets.add(word);
+      }
+    }
     const membership = new Map();
     const entries = sources.map(({key, source}, index) => {
-      const words = sourceWords(data, source), bit = 1n << BigInt(index);
+      const raw = sourceWords(data, source), words = pool.excludeTargets ? new Set([...raw].filter(w => !excludedTargets.has(w))) : raw;
+      const bit = 1n << BigInt(index);
       for (const word of words) membership.set(word, (membership.get(word) || 0n) | bit);
       return {key, source, words};
     });
@@ -93,15 +115,8 @@
       selectedRegions: [...new Set([...masks].map(String))].sort((a, b) => BigInt(a) < BigInt(b) ? -1 : BigInt(a) > BigInt(b) ? 1 : 0)};
   }
   function evaluatePool(data, pool) {
-    if (!pool.sources.length) return new Set();
-    if (pool.operation === 'regions') {
-      const partition = partitionPool(data, pool);
-      return new Set(pool.selectedRegions.flatMap(mask => partition.regions.get(mask) || []));
-    }
-    const sources = pool.sources.map(s => sourceWords(data, s));
-    if (pool.operation === 'union') return new Set(sources.flatMap(s => [...s]));
-    sources.sort((a, b) => a.size - b.size);
-    return new Set([...sources[0]].filter(w => sources.every(s => s.has(w))));
+    const partition = partitionPool(data, pool);
+    return new Set([...selectedRegionMasks(pool, partition)].flatMap(mask => partition.regions.get(mask) || []));
   }
   function compile(data, recipe, rules = {}) {
     validateRecipe(recipe, data);
@@ -155,5 +170,5 @@
     }
     return index;
   }
-  return {ROLES, ROLE_LABELS, normalize, defaultRecipe, validateRecipe, sourceKey, uniquePoolSources, sourceWords, partitionPool, selectedRegionMasks, withRegionSelection, evaluatePool, compile, snapshot, validateSnapshot, catalogIndex, contentId};
+  return {ROLES, ROLE_LABELS, normalize, defaultRecipe, tieredRecipes, validateRecipe, sourceKey, uniquePoolSources, sourceWords, partitionPool, selectedRegionMasks, withRegionSelection, evaluatePool, compile, snapshot, validateSnapshot, catalogIndex, contentId};
 });

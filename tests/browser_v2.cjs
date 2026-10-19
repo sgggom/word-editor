@@ -32,10 +32,10 @@ const browserPath = process.env.CHROMIUM_PATH || '/usr/bin/chromium';
       const lex = JSON.parse(document.querySelector('#lex').textContent);
       return lex.reduce((n,x) => {n[x.role] = (n[x.role] || 0) + 1; return n;}, {});
     });
-    assert.deepEqual(counts, {candidate:10748, extra:11720});
+    assert.deepEqual(counts, {candidate:1627});
     await page.click('#btnBank');
-    assert.match(await page.$eval('#bankMeta',e=>e.textContent),/22480 \/ 22480/);
-    assert.match(await page.$eval('#libraryStats',e=>e.textContent),/10,748/);
+    assert.match(await page.$eval('#bankMeta',e=>e.textContent),/1627 \/ 1627/);
+    assert.match(await page.$eval('#libraryStats',e=>e.textContent),/1,627/);
     await page.select('#bankScope','catalog');
     assert.match(await page.$eval('#bankMeta',e=>e.textContent),/32268 \/ 32268/);
     await page.click('#bankClose');
@@ -123,7 +123,9 @@ const browserPath = process.env.CHROMIUM_PATH || '/usr/bin/chromium';
     // Impossible constraints must report failure and leave the existing sequence intact.
     const saved=await page.evaluate(()=>__desk.exportLevels());
     await page.click('#btnBatch');await page.evaluate(()=>{bFrom.value=1001;bCount.value=1;bMaxN.value=1;bMode.value='replace';bAttempts.value=10;});
-    await page.click('#bGo');await page.waitForFunction(()=>__lastBatch,{timeout:120000});
+    await page.click('#bGo');
+    try { await page.waitForFunction(()=>__lastBatch,{timeout:30000}); }
+    catch(e) { console.error('Failed-batch state',await page.evaluate(()=>({disabled:bGo.disabled,progress:bProg.textContent,result:bOut.textContent,config:__desk.cfg()})),errors);throw e; }
     assert.equal(await page.evaluate(()=>__lastBatch.failed),1);
     assert.deepEqual(await page.evaluate(()=>__desk.exportLevels()),saved);
     await page.click('#bClose');
@@ -144,7 +146,7 @@ const browserPath = process.env.CHROMIUM_PATH || '/usr/bin/chromium';
       await local.goto(new URL('wordpages-level-desk.html?fresh=1',base).href,{waitUntil:'networkidle0'});
     }
     await local.waitForFunction(()=>!!window.__desk);await local.evaluate(()=>__desk.ready());
-    assert.equal(await local.evaluate(()=>JSON.parse(document.querySelector('#lex').textContent).length),22468);
+    assert.equal(await local.evaluate(()=>JSON.parse(document.querySelector('#lex').textContent).length),1627);
     await local.close();
     assert.deepEqual(errors,[]);
     console.log('3 levels completed; edit/undo, failure preservation, standalone HTML, no page errors passed');
