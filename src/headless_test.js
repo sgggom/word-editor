@@ -33,7 +33,7 @@ const puppeteer = require('puppeteer-core');
   await pg.evaluate(() => { const inp = document.querySelector('#grid input'); inp.value = 'Q'; inp.dispatchEvent(new Event('input', { bubbles: true })); });
   await new Promise(r => setTimeout(r, 400));
   console.log('after edit:', await pg.evaluate(() => document.querySelector('#checks').innerText));
-  await pg.click('#btnUndo'); await new Promise(r => setTimeout(r, 300));
+  await pg.keyboard.down('Control'); await pg.keyboard.press('z'); await pg.keyboard.up('Control'); await new Promise(r => setTimeout(r, 300));
   console.log('ERRORS', errs.length, errs.slice(0, 5));
   await b.close();
 })();

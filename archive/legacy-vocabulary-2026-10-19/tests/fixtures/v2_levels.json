@@ -1,0 +1,35 @@
+[
+  {
+    "id": "g1",
+    "name": "生成 1",
+    "g": "ARW,OFA,YLR",
+    "t": "FLY RAW OAR",
+    "e": "WAR FAR RAF",
+    "n": "111111111",
+    "lv": "",
+    "ty": "",
+    "curtains": []
+  },
+  {
+    "id": "g2",
+    "name": "生成 2",
+    "g": "TDR,IYA,PIE",
+    "t": "YARD PIT PIE",
+    "e": "TIP TIPI DRAY RAY YIP YAR EAR",
+    "n": "111111211",
+    "lv": "",
+    "ty": "",
+    "curtains": []
+  },
+  {
+    "id": "g3",
+    "name": "生成 3",
+    "g": "PJS,AEU,MTM",
+    "t": "TEAM SUM MAP JET",
+    "e": "SUE SUET TEA",
+    "n": "111221221",
+    "lv": "",
+    "ty": "",
+    "curtains": []
+  }
+]

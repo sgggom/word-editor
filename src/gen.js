@@ -15,7 +15,7 @@ function targetFor(n,config,profiles){let rng=random(config.seed+'|profile|'+con
  let cells=early?Math.round(p.cells):pick([8,9,9,12,12,12,15],rng);if(!early){let options=(n>20&&p.cells>=10)?[9,12,15]:[8,9,12,15];let dist=options.map(x=>Math.exp(-Math.abs(x-p.cells)*1.0)*(x===12?1.35:1));let sum=dist.reduce((x,y)=>x+y,0),v=rng()*sum;cells=options[0];for(let i=0;i<options.length;i++){v-=dist[i];if(v<=0){cells=options[i];break}}}
  const dim=cells===8?[4,2]:cells===9?[3,3]:cells===12?[4,3]:[5,3];return {...p,k,cells,width:dim[0],height:dim[1],stageStart:stage(n)};}
 function normalizeLex(raw){let seen=new Set(),a=[];for(let v of raw){let word=String(v.word||'').trim().toUpperCase();if(!/^[A-Z]{2,12}$/.test(word)||seen.has(word))continue;seen.add(word);let role=ROLES.has(v.role)?v.role:'pending';a.push({...v,word,role});}return a;}
-function buildIndex(lex){let tree={},byLength={},byWord=new Map(),acceptable=[];for(let x of normalizeLex(lex)){byWord.set(x.word,x);if(x.role!=='candidate'&&x.role!=='extra')continue;if(x.lemma)continue;acceptable.push(x);if(x.role==='candidate'){(byLength[x.word.length]??=[]).push(x);}let node=tree;for(let c of x.word)node=node[c]||(node[c]={});node.$=x.word;}return {tree,byLength,byWord,acceptable};}
+function buildIndex(lex){let tree={},byLength={},byWord=new Map(),acceptable=[];for(let x of normalizeLex(lex)){byWord.set(x.word,x);if(x.role!=='candidate'&&x.role!=='extra')continue;acceptable.push(x);if(x.role==='candidate'){(byLength[x.word.length]??=[]).push(x);}let node=tree;for(let c of x.word)node=node[c]||(node[c]={});node.$=x.word;}return {tree,byLength,byWord,acceptable};}
 function neighbors(w,h){let n=w*h;return Array.from({length:n},(_,i)=>{let x=i%w,y=Math.floor(i/w);return [x>0?i-1:-1,x<w-1?i+1:-1,y>0?i-w:-1,y<h-1?i+w:-1].filter(x=>x>=0);});}
 function direction(p,w){if(p.length<2)return 'X';let d=p[1]-p[0];if(p.every((x,i)=>i===0||x-p[i-1]===d))return d===1?'R':d===-1?'L':d===w?'D':d===-w?'U':'X';return 'T';}
 function turns(p,w){let v=0;for(let i=2;i<p.length;i++)if(p[i]-p[i-1]!==p[i-1]-p[i-2])v++;return v;}
@@ -38,11 +38,11 @@ function fillBoard(target,ix,rng,config,recent){let {width:w,height:h,cells:N,k}
   let len=pick(trialLen,rng),pool=ix.byLength[len]||[];
   if(!pool.length)continue;
   let best=null;for(let a=0;a<42;a++){
-    let x=pool[Math.floor(rng()*pool.length)];if(used.has(x.word))continue;if(needEarly&&x.grade!=='基础')continue;
+    let x=pool[Math.floor(rng()*pool.length)];if(used.has(x.word))continue;
     if(recent.has(x.word)&&rng()<.85)continue;
     let scratch=g.slice(), placement=placeWord(scratch,x.word,nb,rng,18);if(!placement)continue;
     let fresh=placement.fresh; if(fresh===0&&g.some(v=>!v))continue;
-    let score= fresh*1.5+placement.old*.5+(x.grade==='基础'?0.9:0)+(x.wtRole==='必答'?.35:0)+(x.zenRole==='必答'?.2:0)+(x.evidenceCount||0)*.035-Math.max(0,fresh-(N-g.filter(Boolean).length))*.4;
+    let score= fresh*1.5+placement.old*.5-Math.max(0,fresh-(N-g.filter(Boolean).length))*.4;
     if(step===0)score+=x.word.length*.1;
     if(!best||score>best.score)best={x,scratch,placement,score};
   }
@@ -71,7 +71,7 @@ function selectTargets(items,target,ix,config,history,rng){let K=target.k,used=h
    let isRel=rel(first);
    let desiredLen=(goalMean>3.7&&sel.filter(x=>x.length>=5).length<Math.max(1,Math.round(K*(1-target.shortPct||.19)))?5:3);
    let old=used[first]||0,gap=target.n-(recent.get(first)||-9999);
-   let evidence=ix.byWord.get(first)||{};let score=fresh*(pos<K-2?2.6:4.6)+ (isRel?2:0) + (c.straight!=='T'?0.2:0)+(evidence.grade==='基础'?.7:0)+(evidence.wtRole==='必答'?.65:0)+(evidence.zenRole==='必答'?.4:0)+(evidence.evidenceCount||0)*.05 + (c.length>=5?(sel.filter(x=>x.length>=5).length<K*.25?.45:-.65):.25) -Math.abs(c.length-goalMean)*.27-old*.32 - (gap<=config.cooldown?12:0) + rng()*.8;
+   let score=fresh*(pos<K-2?2.6:4.6)+ (isRel?2:0) + (c.straight!=='T'?0.2:0) + (c.length>=5?(sel.filter(x=>x.length>=5).length<K*.25?.45:-.65):.25) -Math.abs(c.length-goalMean)*.27-old*.32 - (gap<=config.cooldown?12:0) + rng()*.8;
    if((pos===K-1||pos===K-2)&&fresh===0&&cover!==(1<<ns)-1)score-=20;
    if(score>bscore){b=c;bscore=score}
   }

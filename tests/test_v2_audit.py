@@ -17,7 +17,7 @@ class V2AuditTests(unittest.TestCase):
         cls.lex = {x['word']: x for x in json.loads((ROOT / 'src/lex.json').read_text())}
         cls.trie = {}
         for word, entry in cls.lex.items():
-            if entry['role'] not in ('candidate', 'extra') or entry.get('lemma') or len(word) > 8:
+            if entry['role'] not in ('candidate', 'extra') or len(word) > 8:
                 continue
             node = cls.trie
             for letter in word:
@@ -40,11 +40,9 @@ class V2AuditTests(unittest.TestCase):
         level['e'] = ''
         self.assertTrue(any(e.startswith('extras mismatch: missing=') for e in audit.audit(level, self.lex, self.trie)))
 
-    def test_dos_and_pending_cannot_be_targets(self):
-        self.assertEqual(self.lex['DOS']['role'], 'extra')
-        self.assertEqual(self.lex['GOOS']['role'], 'pending')
-        self.assertEqual(self.lex['HOTS']['role'], 'pending')
-        for word in ['DOS', 'GOOS', 'HOTS']:
+    def test_only_extra_and_absent_cannot_be_targets(self):
+        self.assertEqual(self.lex['AAHED']['role'], 'extra')
+        for word in ['AAHED', 'ZZZ']:
             level = copy.deepcopy(self.levels[0])
             level['t'] += ' ' + word
             self.assertIn('not a v2 target candidate: ' + word, audit.audit(level, self.lex, self.trie))
@@ -56,9 +54,9 @@ class V2AuditTests(unittest.TestCase):
     def test_self_contained_assets_and_html_copies_match(self):
         text = (ROOT / 'index.html').read_text()
         self.assertEqual(text, (ROOT / 'wordpages-level-desk.html').read_text())
-        for source in ['src/gen.js', 'src/validation.js', 'src/v2_adapter.js', 'src/batch_ui.js']:
+        for source in ['src/gen.js', 'src/validation.js', 'src/v2_adapter.js', 'src/batch_ui.js', 'src/library.js', 'src/library_runtime.js', 'src/library_ui.js', 'src/library_overlap.js', 'src/library_range_ui.js', 'src/proportional_venn.js']:
             self.assertIn((ROOT / source).read_text().strip(), text)
-        for tag, source in [('lex', 'src/lex.json'), ('policy', 'src/policy.json')]:
+        for tag, source in [('lex', 'src/lex.json'), ('policy', 'src/policy.json'), ('gameVocab', 'data/game_vocab/catalog.json')]:
             match = re.search(r'<script id="'+tag+r'"[^>]*>(.*?)</script>', text, re.S)
             self.assertEqual(json.loads(match[1]), json.loads((ROOT / source).read_text()))
         self.assertIn((ROOT / 'src/profiles.json').read_text().strip(), text)

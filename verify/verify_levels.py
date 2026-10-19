@@ -65,7 +65,7 @@ def audit(level, lex, trie):
     needed = [0] * len(grid)
     for word in targets:
         entry = lex.get(word, {})
-        if entry.get('role') != 'candidate' or entry.get('lemma') or not 3 <= len(word) <= 8:
+        if entry.get('role') != 'candidate' or not 3 <= len(word) <= 8:
             errors.append('not a v2 target candidate: ' + word)
         choices = paths(word, grid, near)
         if not choices:
@@ -109,7 +109,7 @@ def main():
     lex = {x['word']: x for x in json.loads(Path(args.lex).read_text())}
     trie = {}
     for word, x in lex.items():
-        if x['role'] not in ('candidate', 'extra') or x.get('lemma') or len(word) > 8:
+        if x['role'] not in ('candidate', 'extra') or not 2 <= len(word) <= 8:
             continue
         node = trie
         for c in word:

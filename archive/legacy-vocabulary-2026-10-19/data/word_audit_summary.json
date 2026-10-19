@@ -1,0 +1,1406 @@
+{
+  "version": "2026.10.19.1",
+  "date": "2026-10-19",
+  "targetAudience": "普通英语母语成年玩家",
+  "basis": "Word Tiles 主线出题证据；Zen 去重后的关卡配置和每日关分别作为旁证。",
+  "limitations": [
+    "分类描述已收录样本中的角色稳定性，不是母语人群熟悉度测量。",
+    "可信度仅由不同关卡上下文的数量和主线覆盖决定，不是概率。",
+    "同一盘面但不同答案配置保留为不同上下文；相同配置跨版本只计一次。",
+    "最低词长与倒读规则是回溯解释，不是已取得的官方生成算法。",
+    "建议权限与现行 role 分列；本次脚本不自动改变生成权限或原有基础标签。",
+    "词典提示并非专名、缩写或词形的自动判决；专项复核见 reviews。"
+  ],
+  "lexiconWords": 9455,
+  "categories": {
+    "insufficient": 3455,
+    "stable_extra": 1948,
+    "stable_target": 4002,
+    "conditional_target": 50
+  },
+  "confidence": {
+    "none": 3455,
+    "low": 1730,
+    "medium": 2415,
+    "high": 1855
+  },
+  "recommendations": {
+    "pending": 4361,
+    "extra": 1092,
+    "candidate": 4002
+  },
+  "roleComparison": {
+    "extra → pending": 1835,
+    "pending → pending": 1746,
+    "extra → extra": 760,
+    "candidate → candidate": 3820,
+    "pending → extra": 332,
+    "candidate → pending": 780,
+    "pending → candidate": 182
+  },
+  "flags": {
+    "abbreviation_hint": 142,
+    "source_lemma": 1715,
+    "inflection_hint": 1685,
+    "missing_gloss": 303,
+    "name_hint": 50,
+    "cross_game_role": 622,
+    "length_outside_generator": 40
+  },
+  "individuallyReviewed": 127,
+  "sources": {
+    "wt-list0": 1500,
+    "wt-list5": 1500,
+    "zen-t1": 1000,
+    "zen-t3": 1000,
+    "zen-t1time": 1000,
+    "zen-ios": 1000,
+    "zen-android": 1000,
+    "wt-daily": 365
+  },
+  "wtUniqueContexts": 2995,
+  "zenUniqueContexts": 3254,
+  "zenTargetExtraOverlaps": 1492,
+  "wtObservedWords": 6000,
+  "wtTargetWords": 4052,
+  "reversePairWords": [
+    "BAD",
+    "BAN",
+    "BAT",
+    "BUS",
+    "BUT",
+    "DAB",
+    "DAM",
+    "DEW",
+    "DOG",
+    "GAS",
+    "GEL",
+    "GOD",
+    "GUM",
+    "GUT",
+    "LAP",
+    "LEG",
+    "MAD",
+    "MUG",
+    "NAB",
+    "NAP",
+    "NET",
+    "NIP",
+    "NIT",
+    "NOT",
+    "NOW",
+    "PAL",
+    "PAN",
+    "PAR",
+    "PAT",
+    "PIN",
+    "PIT",
+    "POT",
+    "RAP",
+    "RAT",
+    "RAW",
+    "SAG",
+    "SUB",
+    "TAB",
+    "TAP",
+    "TAR",
+    "TEN",
+    "TIN",
+    "TIP",
+    "TON",
+    "TOP",
+    "TUB",
+    "TUG",
+    "WAR",
+    "WED",
+    "WON"
+  ],
+  "reverseExtraOccurrences": 946,
+  "minimumLengthExcludedOccurrences": 538,
+  "minimumLengthExcludedLevels": 87,
+  "unexplainedOmissions": 0,
+  "unreachableTargets": 0,
+  "omissionExamples": [
+    {
+      "sequence": "wt-list0",
+      "level": 42,
+      "lengthExcluded": [
+        "BID",
+        "BIN",
+        "CAB",
+        "COB",
+        "DEN",
+        "ONE"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 65,
+      "lengthExcluded": [
+        "ACT",
+        "CAR",
+        "CAT",
+        "ERA",
+        "RAT",
+        "TAR"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 85,
+      "lengthExcluded": [
+        "BIT",
+        "LET",
+        "LIT"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 105,
+      "lengthExcluded": [
+        "ERA",
+        "NUT",
+        "RUN",
+        "TAN"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 175,
+      "lengthExcluded": [
+        "HER",
+        "HUE",
+        "MAN",
+        "ORE",
+        "PIE",
+        "PRO",
+        "RIP"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 235,
+      "lengthExcluded": [
+        "ALE",
+        "ATE",
+        "EAT",
+        "ELM",
+        "MAT",
+        "MET",
+        "TAG"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 325,
+      "lengthExcluded": [
+        "BUT",
+        "ERA",
+        "HOT",
+        "NOT",
+        "ONE",
+        "ORE",
+        "RAN",
+        "TON",
+        "TUB"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 355,
+      "lengthExcluded": [
+        "ATE",
+        "EAT",
+        "NET",
+        "SAT",
+        "SEA",
+        "SIT",
+        "TAN",
+        "TEN",
+        "YET"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 415,
+      "lengthExcluded": [
+        "ACT",
+        "ATE",
+        "TAG",
+        "VET",
+        "VIA"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 445,
+      "lengthExcluded": [
+        "ALE",
+        "SEA",
+        "SEW"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 475,
+      "lengthExcluded": [
+        "AGE",
+        "ARC",
+        "ATE",
+        "GEM",
+        "GET",
+        "MEN",
+        "NET",
+        "RAG",
+        "RAT",
+        "RIG",
+        "RIM",
+        "TAG",
+        "TAR",
+        "TEN"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 535,
+      "lengthExcluded": [
+        "ALE",
+        "ERA",
+        "FAR"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 565,
+      "lengthExcluded": [
+        "VIA"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 595,
+      "lengthExcluded": [
+        "ANT",
+        "ERA",
+        "NET",
+        "ORE",
+        "PER",
+        "RAN",
+        "TEN"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 685,
+      "lengthExcluded": [
+        "ATE",
+        "LET",
+        "MOW",
+        "OWE",
+        "OWL",
+        "TOW",
+        "WET"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 715,
+      "lengthExcluded": [
+        "ASK",
+        "ATE",
+        "KIT",
+        "LAP",
+        "LIT",
+        "OIL",
+        "PAL",
+        "PAT",
+        "PIT",
+        "SKI",
+        "TAP",
+        "TIP"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 745,
+      "lengthExcluded": [
+        "ASK",
+        "EEL",
+        "LET",
+        "NIT",
+        "NOT",
+        "SAD",
+        "TIE",
+        "TIN",
+        "TON"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 775,
+      "lengthExcluded": [
+        "AID",
+        "AND",
+        "ANY",
+        "END",
+        "MEN",
+        "NIT",
+        "TIN"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 835,
+      "lengthExcluded": [
+        "ALL",
+        "ART",
+        "FIT",
+        "ILL",
+        "LIT",
+        "PEN"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 865,
+      "lengthExcluded": [
+        "ANT",
+        "EAR",
+        "HEN",
+        "HER",
+        "OAR",
+        "ONE",
+        "ORE",
+        "SON",
+        "THE"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 895,
+      "lengthExcluded": [
+        "DAY",
+        "DOT",
+        "HAD",
+        "HAY",
+        "LID",
+        "ORE",
+        "OUT",
+        "RID",
+        "ROD",
+        "ROT",
+        "USE"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 985,
+      "lengthExcluded": [
+        "AGE",
+        "GEL",
+        "GEM",
+        "LEG",
+        "LET",
+        "SET"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 1015,
+      "lengthExcluded": [
+        "ACT",
+        "ART",
+        "BAR",
+        "CAP",
+        "CAR",
+        "DEN",
+        "LED",
+        "NIT",
+        "PAR",
+        "RAP",
+        "TIN"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 1045,
+      "lengthExcluded": [
+        "AGE",
+        "AIR",
+        "BAG",
+        "BED",
+        "BEE",
+        "BEG",
+        "GEM",
+        "MEN",
+        "RAG",
+        "RAM"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 1075,
+      "lengthExcluded": [
+        "ALL",
+        "BAD",
+        "BID",
+        "DAB",
+        "ILL",
+        "LAB",
+        "LID",
+        "SAD"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 1105,
+      "lengthExcluded": [
+        "AIR",
+        "ARM",
+        "DAY",
+        "RAT",
+        "SIN",
+        "SIR",
+        "TAR",
+        "TRY"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 1135,
+      "lengthExcluded": [
+        "AND",
+        "ASK",
+        "EAR",
+        "MAN",
+        "RAM"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 1165,
+      "lengthExcluded": [
+        "DEN",
+        "LIT",
+        "NET",
+        "NIT",
+        "NOD",
+        "ODE",
+        "ONE",
+        "SON",
+        "TEN",
+        "TIN"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 1195,
+      "lengthExcluded": [
+        "ALL",
+        "BAT",
+        "ILL",
+        "LAB",
+        "LET",
+        "LIT",
+        "TAB"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 1225,
+      "lengthExcluded": [
+        "ALE",
+        "LIT",
+        "TOO"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 1255,
+      "lengthExcluded": [
+        "ALL",
+        "EAR",
+        "INN",
+        "OAR",
+        "SIN",
+        "SIR"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 1285,
+      "lengthExcluded": [
+        "DAM",
+        "DIP",
+        "MAD",
+        "MOD",
+        "RID",
+        "RIP"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 1315,
+      "lengthExcluded": [
+        "ARM",
+        "ART",
+        "ERA",
+        "HAM",
+        "HER",
+        "RAM"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 1345,
+      "lengthExcluded": [
+        "ANT",
+        "ELF",
+        "FAN"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 1375,
+      "lengthExcluded": [
+        "ATE",
+        "DEN",
+        "END",
+        "ERA",
+        "MAT",
+        "MEN",
+        "MET",
+        "RAM",
+        "RAT",
+        "RED",
+        "SET",
+        "TAR"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 1405,
+      "lengthExcluded": [
+        "ATE",
+        "BAT",
+        "BEE",
+        "BET",
+        "HAT",
+        "TAB",
+        "TEE"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 1435,
+      "lengthExcluded": [
+        "FEE",
+        "HEN",
+        "TEE",
+        "THE",
+        "TIE",
+        "WAD"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 1465,
+      "lengthExcluded": [
+        "NOD",
+        "SAD",
+        "SON",
+        "URN"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list0",
+      "level": 1495,
+      "lengthExcluded": [
+        "FOR",
+        "HER",
+        "ORE",
+        "THE"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 49,
+      "lengthExcluded": [
+        "ACT",
+        "AGE",
+        "CAR",
+        "EAR",
+        "ERA",
+        "OUR",
+        "RAG",
+        "TEA"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 50,
+      "lengthExcluded": [
+        "ERA",
+        "FAR",
+        "OAR"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 60,
+      "lengthExcluded": [
+        "MAT",
+        "OAK",
+        "OAR",
+        "ORE",
+        "ROT"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 69,
+      "lengthExcluded": [
+        "LOB",
+        "MET",
+        "RYE"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 77,
+      "lengthExcluded": [
+        "ALL",
+        "CAB",
+        "CAN",
+        "LAB"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 88,
+      "lengthExcluded": [
+        "APE",
+        "ERA",
+        "HOP",
+        "PAR",
+        "PER",
+        "RAP"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 92,
+      "lengthExcluded": [
+        "OUR",
+        "YOU"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 97,
+      "lengthExcluded": [
+        "ALE",
+        "ALL",
+        "ATE",
+        "BET",
+        "ELK",
+        "LET",
+        "OAT"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 108,
+      "lengthExcluded": [
+        "ATE",
+        "EAT",
+        "NEW",
+        "OAT",
+        "ONE",
+        "SAT",
+        "SET"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 148,
+      "lengthExcluded": [
+        "AGE",
+        "ART",
+        "DUG",
+        "ERA",
+        "RAG"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 178,
+      "lengthExcluded": [
+        "BEE",
+        "LOB",
+        "OLD",
+        "PAD",
+        "PRO",
+        "ROB",
+        "SEE"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 208,
+      "lengthExcluded": [
+        "ABS",
+        "BAT",
+        "BRA",
+        "EEL",
+        "MAT",
+        "RAM",
+        "SEE",
+        "TAB"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 238,
+      "lengthExcluded": [
+        "ABS",
+        "AGE",
+        "BAR",
+        "BIN",
+        "BUS",
+        "ERA",
+        "GAS",
+        "KEG",
+        "SAG",
+        "SUB"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 268,
+      "lengthExcluded": [
+        "ELM",
+        "HER",
+        "ILL",
+        "LIE",
+        "THE"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 298,
+      "lengthExcluded": [
+        "BET",
+        "RIM"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 328,
+      "lengthExcluded": [
+        "FUN",
+        "NIP",
+        "NIT",
+        "PIN",
+        "PIT",
+        "PUN",
+        "RIP",
+        "TIN",
+        "TIP"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 358,
+      "lengthExcluded": [
+        "NOD",
+        "ODD",
+        "OIL",
+        "OLD",
+        "ONE"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 388,
+      "lengthExcluded": [
+        "ACE",
+        "ALE",
+        "APE",
+        "ATE",
+        "LAG",
+        "PAT",
+        "PEA",
+        "PET",
+        "TAP",
+        "TEA"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 417,
+      "lengthExcluded": [
+        "INK",
+        "IVY",
+        "KEY",
+        "NOD",
+        "NOW",
+        "ODE",
+        "OWN",
+        "WON"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 447,
+      "lengthExcluded": [
+        "DIM",
+        "FIN",
+        "MUD",
+        "TIE"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 477,
+      "lengthExcluded": [
+        "EAT",
+        "ELF",
+        "FAT",
+        "LAY",
+        "SEA"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 507,
+      "lengthExcluded": [
+        "EAT",
+        "ELF",
+        "LOG",
+        "ONE",
+        "TAN"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 537,
+      "lengthExcluded": [
+        "AND",
+        "EAT",
+        "SAW",
+        "SEA",
+        "SUM",
+        "TAN",
+        "USE"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 567,
+      "lengthExcluded": [
+        "ERA",
+        "SUE"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 597,
+      "lengthExcluded": [
+        "ALL",
+        "LAB",
+        "LET",
+        "LOT",
+        "TEA"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 627,
+      "lengthExcluded": [
+        "ACE",
+        "CAR",
+        "ONE",
+        "SIN",
+        "SIR",
+        "SON"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 657,
+      "lengthExcluded": [
+        "ASH"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 687,
+      "lengthExcluded": [
+        "LIE",
+        "RIB"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 747,
+      "lengthExcluded": [
+        "ALE",
+        "EAT",
+        "EEL",
+        "MAT"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 777,
+      "lengthExcluded": [
+        "BRA",
+        "CAR",
+        "EAR",
+        "LOB",
+        "LOT",
+        "NIP",
+        "PIN",
+        "SON"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 807,
+      "lengthExcluded": [
+        "NIP",
+        "ONE",
+        "PEN",
+        "PIN",
+        "RAM",
+        "RIM",
+        "RIP"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 837,
+      "lengthExcluded": [
+        "ALE",
+        "ERA",
+        "LAP",
+        "LAY",
+        "ORE",
+        "PAL",
+        "PAR",
+        "PAY",
+        "RAP",
+        "RAY",
+        "SPA"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 867,
+      "lengthExcluded": [
+        "DOT",
+        "NIT",
+        "NOD",
+        "NOT",
+        "TIN",
+        "TON",
+        "TOO"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 927,
+      "lengthExcluded": [
+        "HER",
+        "ORE",
+        "THE"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 987,
+      "lengthExcluded": [
+        "ALE",
+        "ELK",
+        "LAD",
+        "LAP",
+        "LED",
+        "PAD",
+        "PAL",
+        "PAR",
+        "RAP",
+        "SPA"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 1017,
+      "lengthExcluded": [
+        "OUR",
+        "USE"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 1047,
+      "lengthExcluded": [
+        "AID",
+        "ATE",
+        "DIG",
+        "EAT",
+        "NET",
+        "TAN",
+        "TEN"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 1107,
+      "lengthExcluded": [
+        "AND",
+        "DEN",
+        "EAR",
+        "RAN"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 1137,
+      "lengthExcluded": [
+        "ACT",
+        "APP",
+        "APT",
+        "CAT",
+        "PEA",
+        "PIT",
+        "TIP",
+        "WIT"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 1197,
+      "lengthExcluded": [
+        "RID",
+        "SIR"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 1227,
+      "lengthExcluded": [
+        "ALE",
+        "MAT",
+        "NUT",
+        "OPT",
+        "SON",
+        "SUN"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 1257,
+      "lengthExcluded": [
+        "ELK",
+        "LED",
+        "ODE",
+        "ROD",
+        "SIR",
+        "SKY"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 1287,
+      "lengthExcluded": [
+        "ORE",
+        "OWE",
+        "ROW",
+        "TIE"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 1317,
+      "lengthExcluded": [
+        "DAM",
+        "END",
+        "EVE",
+        "MAD",
+        "SEE"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 1347,
+      "lengthExcluded": [
+        "ACT",
+        "APE",
+        "CAP",
+        "KIN",
+        "PER"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 1377,
+      "lengthExcluded": [
+        "ART",
+        "EAR",
+        "EAT",
+        "ERA",
+        "HER",
+        "OAR",
+        "ORE",
+        "RAT",
+        "TAR"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 1407,
+      "lengthExcluded": [
+        "DOG",
+        "GOD",
+        "HOT",
+        "LOB",
+        "TOO"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    },
+    {
+      "sequence": "wt-list5",
+      "level": 1466,
+      "lengthExcluded": [
+        "APE",
+        "EAR",
+        "LID",
+        "PEA",
+        "RAW",
+        "RID",
+        "WAR"
+      ],
+      "unexplained": [],
+      "unreachable": []
+    }
+  ],
+  "zenMatchedBags": {
+    "total": 1000,
+    "sameBags": 1000,
+    "sameVocabulary": 1000,
+    "t1Targets": 9513,
+    "t3Targets": 7118,
+    "movedToExtra": 2934,
+    "movedToTarget": 539
+  },
+  "inputSha256": {
+    "data/competitor/wt-list0.json.gz": "3aa80c89c1665332af1b1e4135ad1a3b198b865342ca03b48cc4056363e0ced3",
+    "data/competitor/wt-list5.json.gz": "48d57e718aca3e1410052cf33b57ada0c3957dfc4578d9add19fe35f3ed6cc2c",
+    "data/competitor/zen-t1.json.gz": "d29dfaaa656de3250f41509a829d5e9c5768124779889dd462182ba3645ce4be",
+    "data/competitor/zen-t3.json.gz": "7e9703839f9b9a44b9b80d395cb5b1a5851cb7718a717e515fffdb55f93dfdf2",
+    "data/competitor/zen-t1time.json.gz": "c36566c551e2f4b7a828b5a74869b55e818c119f4dabf654bd1e6bf03743e798",
+    "data/competitor/zen-ios.json.gz": "f2d81859119cbef9b6f8e3840ed48a25275d67c8e35ebf14a3542beeff352ccb",
+    "data/competitor/zen-android.json.gz": "5624206cc2533477727d5bd99ea0796a6f229b120602032e29b5bcbcb426e001",
+    "data/competitor/wt-daily.json.gz": "beeddc416f44d9d0227929b48236ad4586cd0340dfd4bebbda6231c5430a1b43",
+    "dict/a.json": "7a34706a4cf6c72151e217d630953c8a699a00747c061e22a257ce84bdaf6620",
+    "dict/b.json": "df7b2b4906bcf99357bc38897cce3f7d357e0528a9013ce72163ef517f9f0e4e",
+    "dict/c.json": "4e45623c4890d9c8244ce84071a3ae312d9e5df17eafb7013f5003015517a6a6",
+    "dict/d.json": "8c37b211004c2e3dc34ac3a96add388d87dddd6be5d294f7a6111f5bc2dbeb04",
+    "dict/e.json": "2a72d406018d4aab9ad5f97ca87147fd96f794f6d51ab928b16e989a0fc23f5b",
+    "dict/f.json": "d644554b13f57ee47a6cbc5965e01f459feddf5d25ab7574ca1fe5378e57f4d4",
+    "dict/g.json": "3b047bdd8dda831e7b8cfd26af00cf12f0933825a50a9e2c9c7d2bd665b55409",
+    "dict/h.json": "4435e2e85e8e19c4f2e17bb8def2fa9af29c08f48b934d9bb6f54dcb55b2d9b9",
+    "dict/i.json": "f41e43e54e1add529dc920aacc8d8b79dd980f9050f2c3253055852eb32d5769",
+    "dict/j.json": "07c31b89c661beffb4d9b5cdf904908e7656e9488ddd74beb639181db16eb3bc",
+    "dict/k.json": "a8df667905c9de71eb6c8466d5d2f97cea64c427b2807e7f055d26b48bef6d6e",
+    "dict/l.json": "d341cbd987f98f384e76672cd9c519c03e5438e9cd1a7dafea9fdf4466cca03e",
+    "dict/m.json": "50c4dc2405293a8570c3e56498132d60348402255301ef8e18240976d8faa803",
+    "dict/n.json": "ed19944fc6e23a97107dbcb32ef37b6c541f147cb1a18032133d23c0c20cd7d6",
+    "dict/o.json": "6757178eb106ae32c30ccf8e3b778f0c04fcbf29ab85ae80768aa1412be93ac3",
+    "dict/p.json": "e0b8f4f6c04d0e6add39a51be5ffbb6816947a3b374e34d4541b68e8b426590d",
+    "dict/q.json": "d4112ece2dc8e25efb3ea815419ea11a72a6f0996c493ebca0a6f77428d48895",
+    "dict/r.json": "e76cf0e259b7cbe4f3287fc4b54c159c4a95c9b17a458341540b0ccf58ec64a6",
+    "dict/s.json": "db542d56a00f2bd215aac49c43a679fbed843500ef5f9add9935e89edde2bd2b",
+    "dict/t.json": "c2e8dc149c40b09f3d653baaa9b10beecd78ee8d70180941b20acbebe38a70b1",
+    "dict/u.json": "578358d3ffc6ae07304a7a77891488e841c3f245d6d72a92a8229043476c4d9a",
+    "dict/v.json": "7c600c76afb2edec4ee0d2a60df7c3b640f03f091b17b4bd45d056e12da20d70",
+    "dict/w.json": "99e97d92b2ea4418db04ea3f910dbfa986eaf2fdb44cd8577987bc6f862bee8b",
+    "dict/x.json": "ee5b27bdba63c0c9fdf3b76bea258d0ebb2d202d90eeff294e58d4f0d6fc1bc2",
+    "dict/y.json": "d8df47cae4a6e1293a48eef7992635f5b4b9dabb5a77c0322186fd004f7b075f",
+    "dict/z.json": "e24ba6afc16677f49cbd778e3c1b8a533f57577406b0a2e37b6b34abbdd35b0e",
+    "data/word_audit_reviews.json": "21ada14f2743b7266227e2959e5ebbcadadfdac67551864ff99dcc66215b94c0"
+  },
+  "sourceLexiconSha256": "1083f32bf93fa4788cac54069c8739c0a512e0d1e6253fea141eff3ba6ce6edf"
+}

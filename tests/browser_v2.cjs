@@ -16,21 +16,28 @@ const browserPath = process.env.CHROMIUM_PATH || '/usr/bin/chromium';
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
     page.on('dialog', d => d.accept());
+    const openFile = async filename => {
+      // Use the standard file input fallback, so the real Open button is exercised.
+      await page.evaluate(() => { window.showOpenFilePicker = undefined; });
+      const [chooser] = await Promise.all([page.waitForFileChooser(), page.click('#btnOpen')]);
+      await chooser.accept([filename]);
+      await page.waitForFunction(()=>[...document.querySelectorAll('#modal button')].some(e=>e.textContent==='导入'));
+      await page.evaluate(()=>[...document.querySelectorAll('#modal button')].find(e=>e.textContent==='导入').click());
+      await page.waitForSelector('#modal',{hidden:true});
+      await page.evaluate(()=>__desk.flush());
+    };
     await page.goto(base + '?fresh=1', {waitUntil:'networkidle0'});
     await page.evaluate(() => window.__desk.ready());
     const counts = await page.evaluate(() => {
       const lex = JSON.parse(document.querySelector('#lex').textContent);
       return lex.reduce((n,x) => {n[x.role] = (n[x.role] || 0) + 1; return n;}, {});
     });
-    assert.deepEqual(counts, {candidate:4600, extra:2595, pending:2260});
-    // The bank must expose pending entries while keeping them out of generation.
+    assert.deepEqual(counts, {candidate:10748, extra:11720});
     await page.click('#btnBank');
-    assert.match(await page.$eval('#bankMeta', e=>e.textContent), /9455/);
-    assert.match(await page.$eval('#bankFilters', e=>e.textContent), /待审核2260/);
-    for (const [word, role] of [['DOS','仅额外'],['GOOS','待审核'],['HOTS','待审核']]) {
-      await page.$eval('#bankFind',(e,w)=>{e.value=w;e.dispatchEvent(new Event('input',{bubbles:true}));},word);
-      await page.waitForFunction(([word,role])=>document.querySelector('#bankCard').textContent.includes(word)&&document.querySelector('#bankCard').textContent.includes('角色：'+role),{},[word,role]);
-    }
+    assert.match(await page.$eval('#bankMeta',e=>e.textContent),/22480 \/ 22480/);
+    assert.match(await page.$eval('#libraryStats',e=>e.textContent),/10,748/);
+    await page.select('#bankScope','catalog');
+    assert.match(await page.$eval('#bankMeta',e=>e.textContent),/32268 \/ 32268/);
     await page.click('#bankClose');
     let firstLevels;
     for (const preset of ['list0','list5']) {
@@ -94,24 +101,19 @@ const browserPath = process.env.CHROMIUM_PATH || '/usr/bin/chromium';
           await page.click('#pBack');
         }
         // A name edit preserves v2 counts; a board edit can be undone.
-        await page.click('#btnLevelView');
+        await page.click('#levelList [data-level-index="2"] [data-level-action="detail"]');
         const before=await page.evaluate(()=>__desk.exportLevels());
         await page.$eval('#grid input',e=>{e.value='Q';e.dispatchEvent(new Event('input',{bubbles:true}));});
-        await page.click('#btnUndo');
+        await page.keyboard.down('Control');await page.keyboard.press('z');await page.keyboard.up('Control');
         assert.deepEqual(await page.evaluate(()=>__desk.exportLevels()),before);
-        await page.click('#btnLevelView');
+        await page.click('#btnBackToList');
       }
-      // Game export and reimport through the existing import dialog must be lossless.
+      // Game export and reopening the file through Open must be lossless.
       const packText=await page.evaluate(()=>__desk.packText());
       const pack=JSON.parse(packText);assert(Array.isArray(pack.books)&&Array.isArray(pack.daily));
       fs.writeFileSync('/tmp/browser-v2-'+preset+'-pack.json',packText);
       const before=await page.evaluate(()=>__desk.exportLevels());
-      await page.click('#btnImport');
-      await page.$eval('#modal textarea',(e,text)=>e.value=text,packText);
-      await page.evaluate(()=>[...document.querySelectorAll('#modal button')].find(e=>e.textContent==='读取').click());
-      await page.waitForFunction(()=>[...document.querySelectorAll('#modal button')].some(e=>e.textContent==='导入'));
-      await page.evaluate(()=>[...document.querySelectorAll('#modal button')].find(e=>e.textContent==='导入').click());
-      await page.waitForSelector('#modal',{hidden:true});
+      await openFile('/tmp/browser-v2-'+preset+'-pack.json');
       assert.deepEqual(await page.evaluate(()=>__desk.exportLevels()),before);
       await page.evaluate(()=>__desk.flush());
       await page.goto(base,{waitUntil:'networkidle0'});await page.evaluate(()=>__desk.ready());
@@ -128,11 +130,8 @@ const browserPath = process.env.CHROMIUM_PATH || '/usr/bin/chromium';
     // Historical rarity/type metadata and book/daily placement survive a round trip.
     const historical = saved.slice(0,2).map((l,i)=>({...l,id:String(i+1),name:'保留旧关 '+(i+1),lv:'2'.repeat(l.t.split(' ').length),ty:'1'.repeat(l.t.split(' ').length)}));
     const historicalPack={books:[{name:'已有分册',sub:'原副题',mix:[0,100,0,0,0],levels:[historical[0]]}],daily:[historical[1]]};
-    await page.click('#btnImport');
-    await page.$eval('#modal textarea',(e,t)=>e.value=t,JSON.stringify(historicalPack));
-    await page.evaluate(()=>[...document.querySelectorAll('#modal button')].find(e=>e.textContent==='读取').click());
-    await page.evaluate(()=>[...document.querySelectorAll('#modal button')].find(e=>e.textContent==='导入').click());
-    await page.waitForSelector('#modal',{hidden:true});
+    fs.writeFileSync('/tmp/browser-v2-historical-pack.json',JSON.stringify(historicalPack));
+    await openFile('/tmp/browser-v2-historical-pack.json');
     assert.deepEqual(JSON.parse(await page.evaluate(()=>__desk.packText())),historicalPack);
     console.log('historical lv/ty, book metadata, mix and daily placement preserved');
     // Check the self-contained HTML; respect managed browser restrictions on file URLs.
@@ -145,7 +144,7 @@ const browserPath = process.env.CHROMIUM_PATH || '/usr/bin/chromium';
       await local.goto(new URL('wordpages-level-desk.html?fresh=1',base).href,{waitUntil:'networkidle0'});
     }
     await local.waitForFunction(()=>!!window.__desk);await local.evaluate(()=>__desk.ready());
-    assert.equal(await local.evaluate(()=>JSON.parse(document.querySelector('#lex').textContent).length),9455);
+    assert.equal(await local.evaluate(()=>JSON.parse(document.querySelector('#lex').textContent).length),22468);
     await local.close();
     assert.deepEqual(errors,[]);
     console.log('3 levels completed; edit/undo, failure preservation, standalone HTML, no page errors passed');

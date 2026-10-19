@@ -1,94 +1,130 @@
 # 字页关卡台
 
-保留原有关卡编辑、竞品浏览、试玩、存档和游戏导出界面，生成器及词库已切换为交接包的 **Word Tiles v2**。
+关卡编辑、竞品浏览、试玩与游戏导出工作台。词库来自 7 款游戏的已校准主线资源，可分别配置必答候选池和额外词池，用交集或并集建立自己的词库。
 
 ## 打开和运行
 
-双击 `wordpages-level-desk.html` 即可使用内置生成器；无需构建或安装应用依赖。
-要使用按需加载的词典释义和竞品数据，请在仓库根目录运行：
+双击 `wordpages-level-desk.html` 即可离线配置词库和生成关卡，无需安装应用依赖。需要释义、完整来源关卡或竞品关表时，在仓库根目录运行：
 
 ```sh
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-`index.html` 与 `wordpages-level-desk.html` 内容相同。GitHub Pages 使用根目录的 `index.html`。首次打开为空关；「加载示例」加载 20 个 v2 示例。关序继续保存在浏览器 IndexedDB。`?fresh=1` 本次跳过旧存档，`?sample=1` 加载示例。
+打开 [本地项目](http://127.0.0.1:8000/) 。`index.html` 与 `wordpages-level-desk.html` 内容相同，GitHub Pages 使用前者。首次打开是空关；关卡台文件和游戏关卡文件统一通过顶部“打开”载入。编辑撤销使用 ⌘/Ctrl+Z。`?fresh=1` 跳过旧关序，`?sample=1` 加载 20 个使用当前默认词库生成的示例；词库配置独立保存在当前浏览器和站点地址下。
 
-## v2 词库
+关卡编辑使用列表每行的“编辑”，在棋盘面板点击“返回列表”结束编辑。游戏关卡导出入口位于“批量生成”窗口。
 
-`src/lex.json` 是交接包的原始 9,455 条词库记录，保留 `word / role / grade / reason / lemma / wtRole / zenRole / evidenceCount / priority`。
+## 词库配置
 
-| 权限 | 数量 | 用法 |
-|---|---:|---|
-| candidate | 4,600 | 必答候选；生成时限制 3–8 字母 |
-| extra | 2,595 | 仅作为额外词 |
-| pending | 2,260 | 待审核，不参与生成、额外词扫描或建议 |
-| blocked | 0 | 屏蔽权限，数据模型支持；当前源词库没有此类记录 |
+点击“词库”，选择或新建配置。必答候选池与额外词池分别设置来源及交集／并集，也可在饼图中多选区域：
 
-candidate 中有 834 个“基础”候选，其余 3,766 个标为“竞品必答候选（熟悉度未测）”。**这些标签不是已测的常见度或罕见度**。界面不再沿用旧版五档词频，罕见度图表停用；结构难度分按词数、格数、最长词和路径四项计算，不能与旧版含词汇项的分数直接比较。
+- 每个来源可选择整款游戏或具体版本，并独立勾选 `target / extra / onlyExtra / bonus`。整款游戏内部先合并全部版本，单个来源内部先合并所选词类。需要比较同一游戏的两个版本时，添加两个来源项。
+- 并集表示任一来源出现即可；交集表示每个来源都出现。空来源列表得到空集合。重复添加同一来源不增加词数。
+- 支持保存、复制、删除、设为默认及 JSON 配置导入导出。更改后点击“保存配置”才会供生成使用；配置导出也可保存尚未提交的有效配方。
+- 预览显示原始词池、重叠、生效必答、生效额外、不适用及禁表降级数量。空配置可以保存，没有生效必答时不能生成。
+- 浏览范围可选配置结果、全部 32,268 个来源词条或本关快照；支持游戏、版本、来源词类、配置用途、精确／前缀／包含／通配查询和 CSV／TXT 导出。
+- 展开词条可查看完整游戏、版本和关卡出处，保留 Crossword Go 的填空补全、原始 ID、Word Search Explorer 的分片及相同资源别名。详情按需加载，需要 HTTP 服务。
 
-词库浏览展示全部 9,455 条，包括待审核词；玩法可接受词集依照 v2 `buildIndex`，只含无 `lemma` 的 candidate / extra。`DOS` 为 extra，`GOOS`、`HOTS` 为 pending，不会生成到必答中。candidate 身份仍不保证排除了所有缩写、专名、专业词或不熟悉词，后续审词需要更新权限。
+默认配置为 **四款游戏词库**：Word Tiles、Zen Word、Words of Wonders、Wordscapes 均使用全部版本。必答池选择目标词，额外池选择 extra／onlyExtra／bonus；两个词池分别选择交集或并集，初始均为并集，新建配置也预填这四款游戏。两池均取并集时，原始目标池 10,758 词、额外池 16,286 词，重叠 4,564 词，去重 22,480 词；生效为 **10,748 必答候选、11,720 仅额外、12 不适用**。两池均取交集时，生效为 **1,627 必答候选、579 仅额外**。
 
-「缩写禁表」继续作为用户附加排除：将命中的 candidate 降为仅额外，不改变源词库。旧存档不会自动删除或重写，旧关卡里不符合新权限的必答会显示警告。`src/policy.json` 的旧名单已清空，v2 权限是词库依据。旧单复数例外设置保留以兼容存档，不参与 v2 选词；v2 的 `lemma` 记录和 pending 隔离负责词形初筛。
+升级后首次打开会安装并选中四游戏默认配置一次，保留原来保存的配置和已有关卡快照；之后手动选择的默认值和运算方式按保存结果恢复。
 
-## 批量生成
+## 配置视图：列表与饼图
 
-选择 `list0` 或 `list5` 主线、起始关号、数量、种子、尝试次数、近期重复窗口、额外词偏离惩罚和单格次数上限。可插在当前关后，或替换关序。
+“列表”和“饼图”是同一份词库配置的两种编辑视图，切换视图保留所选范围。两个词池各自配置来源和区域，保存后直接用于生成关卡。
 
-- `src/profiles.json` 包含两套主线各 13 个阶段的目标，覆盖 1–1500 关；更远关号沿用末段。
-- 词沿上下左右路径铺入棋盘，单词内不重复用格；填盘后从可达 candidate 中选择必答，覆盖每一格。
-- 每个必答的所有已扫描合法路径必须使用同一组格子。次数由这些必答路径逐格叠加，从而确保找词顺序不改变消耗预算。
-- 多次构造候选盘，按直线率、拐弯、词长、字母种类、最大叠层、拼写包含关系、额外词负担等评分择优。引擎保留附件原版的方向与邻接评分逻辑；默认未注入专门的邻接权重表。
-- 20 关冷却默认是**评分扣分**，不是硬排除；额外词数量也是软目标。
-- 失败不自动降低难度或安全条件。全部失败或尚未生成就中止时保留现有关序；部分成功时按已选插入/替换模式接纳成功结果，并列出失败关号。
+- 列表中可选择游戏、版本、词类及并集／交集。切到饼图后，并集对应全部区域已选，交集对应共同区域已选。
+- 点击饼图的圆形区域、区域数字或下方精确区域项来选中，再次点击取消；可同时选中多个区域。选中的互斥区域合并为该词池，取消的区域不会进入该词池。
+- 提供“全选 · 并集”“仅共同区域 · 交集”和“清空选择”。清空后是空词池；必答池没有生效候选时不能生成。
+- 手动选择后，配置方式显示为“区域多选”。列表会显示已选区域数量，并提供返回饼图编辑的入口。改变该词池的游戏、版本或词类后，会清空该池的区域选择并提示重新选择；另一个词池保留原选择。重复添加完全相同的来源不改变区域。
+- 右侧列出所选区域合并后的词条，支持查词、出处和 CSV／TXT 导出；“查看生效”可进一步查看通过词长与用途规则的词。
+- 保存、复制、JSON 导入导出、刷新和离线 HTML 都保留区域选择及对应来源。生成的关卡固定保存这份区域配置和生效词表快照。
 
-生成核心 `src/gen.js` 直接来自交接包 `src/engine.js`。当前编辑器的旧路径搜索辅助只用于手工关卡分析和额外校验，不再用于生成。
+圆面积与对应来源词数成比例。三圈及以上的几何交叠是近似布局；区域数字、组合列表和词表均按真实集合精确计算。无法单独画出的区域可以在下方列表选择，也会计入配置。额外词仍遵守必答优先规则，未用作本关必答的可达候选也可成为额外词。
 
-## 保存、导入和游戏导出
+相同来源在图中合并，不同版本作为独立来源。1–7 个来源使用圆形图，更多来源使用同样可多选的精确区域列表。词库与图形代码均内嵌，不依赖额外网络资源。
 
-原有存档、Word Tiles / Zen 浏览、手工编辑、试玩皮肤与提示继续可用。生成器模型经 `src/v2_adapter.js` 转为现有棋盘及次数格式。
+## 数据与生成权限
 
-「导出游戏关卡」仍输出 `{books, daily}`；每关保留 `id, name, g, t, n, e, lv, ty, curtains` 字段。v2 没有已测罕见度，新关卡 `lv` 留空；未修改的导入关卡继续保留原始等级和分册信息。新分册的 `mix` 在缺少等级时保留兼容默认值 `[100,0,0,0,0]`，它不代表实测词汇比例。
+| 游戏 | 去重词条 |
+|---|---:|
+| Word Connect Association | 14,644 |
+| Word Search Explorer | 6,936 |
+| Crossword Go! | 1,930 |
+| Wordscapes | 16,354 |
+| Words of Wonders | 17,224 |
+| Zen Word | 6,534 |
+| Word Tiles | 6,000 |
 
-`dict/` 继续用作释义资源，词典文件是否有释义不影响 v2 权限，新增词可能没有释义。竞品数据仍从 `data/competitor/*.json.gz` 按需加载。
+总计 7 款游戏、25 份配置或资源版本，跨游戏去重为 32,268 个词条；各行数量不能直接相加作为去重总数。Word Search Explorer 的重复副本已归为三组；Crossword Go 未映射资源保留原 ID，缺失关卡没有补造。这里只收录取得的英文主线，旧竞品浏览中的每日关不是词库配置来源。
 
-## 开发与验证
+迁移基准是 `leveleditor` 中已校准分享页的 `DATA`，保留 Word Connect 单词筛选、Crossword Go 答案补全及逐角色关卡引用。词条统一 Unicode NFC、大写与空白，不做词干合并、单复数合并、重音去除或短语拆词。
 
-修改生成核心、适配层、词库或配置后，刷新内置资源：
+必答候选使用 `A–Z`、3–8 字母，额外认可词使用 `A–Z`、2–8 字母。不适用词仍能浏览和导出。两池重叠时，符合必答要求的词优先成为候选。用户缩写禁表把命中的候选降为额外；此规则在生成或显式切换本关词库时写入快照。
+
+本关额外词为棋盘上所有可达生效词减去本关必答，包括未被选为必答的候选。额外词池不是每一关额外列表的唯一来源。
+
+原 9,455 词库及其 pending、lemma、基础词、旧竞品审核和打分字段退出当前生成与界面。历史资源保存在 `archive/legacy-vocabulary-2026-10-19/`。`src/lex.json` 现在由新默认配置生成，不再手工编辑。释义资源不决定词库权限，竞品目标身份不代表已测的人群熟悉度。
+
+## 生成、快照与关卡文件
+
+批量生成可选择已保存词库、list0／list5 阶段、起始关号、数量、种子、尝试次数、近期重复窗口、额外词惩罚和单格次数上限。引擎保留 13 段目标，按上下左右路径填盘，检查全盘覆盖、同词所有已扫描路径用格一致和次数约束。旧基础词门槛和来源加分已移除。近期重复和额外数量仍是评分目标；失败不自动放宽规则。全失败或立即中止保留原关序，部分成功按选定插入／替换方式接纳。
+
+每批生成和每个新建手工关卡绑定不可变词库快照，包含配方、数据指纹、生效词表与当时缩写禁表。同一词库快照集中保存，关卡用 `librarySnapshotId` 引用。修改、删除配置或更改默认值均不重写已有的关卡。
+
+页面顶部显示本关词库名称和版本；“切换本关词库”进入配置窗口，选择并保存后点击“应用到本关”，重新校验且支持撤回。旧关序或没有绑定的导入关卡首次载入时绑定新的四游戏默认快照，原棋盘、必答与额外词保留。
+
+编辑器文件仍以 `kind: wordpages-desk` 标识，增加 `schemaVersion: 2` 和 `librarySnapshots`，保存、刷新、撤回及导入导出均携带快照。缺失或被篡改的快照会阻止导入，避免错误使用其他词库。词库配置文件使用 `kind: wordpages-library`，包括配方和编译快照；导入要求数据指纹一致，创建新的配置 ID，生成时使用本机当前缩写禁表。
+
+游戏导出仍为 `{books, daily}`，每关固定 `id, name, g, t, n, e, lv, ty, curtains` 九字段，不包含编辑器快照。未修改的游戏导入关保留原等级、类型与分册信息；新关卡 `lv` 留空，没有把来源词类当作罕见度。
+
+## 数据同步和开发
+
+`src/library.js` 是浏览器与 Node 共用的集合编译器；`src/library_runtime.js` 管理词库快照和保存；`src/library_ui.js` 是配置与浏览界面逻辑。其余 UI 源在 `index.html`，批量生成区域同步输出到 `src/batch_ui.js`。
+
+修改资源或 UI 后运行：
 
 ```sh
 python3 tools/sync_editor.py
 ```
 
-UI 源在 `index.html`；同步脚本将生成资源内嵌到页面、更新另一个 HTML 副本，并同步 `src/batch_ui.js`。两个 HTML 都保持可独立运行。
+脚本用共用编译器重建默认 `src/lex.json`，内嵌全部集合计算所需数据和代码，并同步独立 HTML。出处数据位于 `data/game_vocab/*.json.gz`，文件校验和在 `manifest.json`，应用运行不依赖迁移源目录。
 
-生成与独立验证无需第三方依赖：
+需要重新迁入同口径校准数据时：
 
 ```sh
-node src/nodetest.js 300 list0 /tmp/v2-list0.json
-node src/nodetest.js 300 list5 /tmp/v2-list5.json
-python3 verify/verify_levels.py /tmp/v2-list0.json --report /tmp/v2-list0-report.json
-python3 verify/verify_levels.py /tmp/v2-list5-game.json --report /tmp/v2-list5-report.json
+python3 tools/import_game_vocab.py /path/to/词库交叉可视化_单文件分享版.html
+python3 tools/import_game_vocab.py /path/to/词库交叉可视化_单文件分享版.html --check
+python3 tools/sync_editor.py
+```
+
+数据版本改变时旧关卡快照仍可独立使用；旧配方 JSON 不会静默套用不同版本数据。迁移脚本只读源 HTML，不执行其中代码、不改源目录。
+
+## 验证
+
+```sh
+node tests/library_sets.cjs
+node tests/library_overlap.cjs
 python3 -m unittest discover -s tests -p 'test_*.py'
+node tests/generate_libraries.cjs
+node src/nodetest.js 30 list0 /tmp/v2-list0.json
+python3 verify/verify_levels.py /tmp/v2-list0.json --report /tmp/v2-list0-report.json
 ```
 
-Python 校验器独立枚举路径，检查权限、用格一致、覆盖、次数和额外词完整性；接受 v2 引擎结果、游戏关卡数组及 `{books,daily}`。不支持幕布关卡的安全证明；v2 生成器本身不生成幕布。`sample_320_levels.json`、`verify/report_320.json`、`verify/negative_samples.json` 和旧截图是历史资料，不代表当前 v2 词库下的验证结果。
+`generate_libraries.cjs` 输出默认词库、跨游戏交集和七游戏并集在两套主线早／中／后期的 54 关与对应生效词表到 `/tmp/word-library-validation/`。独立 Python 校验器用 `--lex 对应词表.json` 检查权限、额外词完整性、用格一致性、覆盖与次数；有幕布的关卡仍需单独验证。
 
-浏览器回归需要 Chromium 与 `puppeteer-core`，可在仓库外安装，避免添加应用依赖：
+浏览器验收需要仓库外安装 `puppeteer-core` 和 Chrome／Chromium，并先启动 HTTP 服务：
 
 ```sh
-npm install --prefix /workspace/setup-tools --cache /workspace/setup-tools/npm-cache --no-audit --no-fund --save-exact puppeteer-core@24.37.2
-# 在另一个终端启动上面的 HTTP 服务后运行：
-NODE_PATH=/workspace/setup-tools/node_modules node tests/browser_v2.cjs
+NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_v2.cjs
+NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_libraries.cjs
+NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_library_range.cjs
 ```
 
-可以通过 `BASE_URL` 和 `CHROMIUM_PATH` 覆盖测试地址及浏览器路径。测试覆盖双主线与 Node 引擎的一致性、3 关拖动通关、修改撤回、游戏导出导入、持久化、失败保留和独立 HTML 副本运行（云端 Chromium 禁止 `file://` 时通过 HTTP 验证该副本）。结果与截图写在 `/tmp`。
+`BASE_URL` 可覆盖服务地址。浏览器测试覆盖配置管理、集合计算、快照版本、旧存档、文件往返、真实出处、两字母额外词试玩、离线 HTML 和桌面界面，截图及结果写在 `/tmp`。历史截图、旧审核、旧 320 关数据不代表当前词库验收结果。
 
-原 `src/headless_test.js`、`shots/layout_test.js` 是包含旧绝对路径的历史脚本，请使用新的回归入口。
+## 来源与署名
 
-## 来源
+生成引擎及阶段目标沿用 Word Tiles v2 交接包；当前词库来自用户提供的 `leveleditor` 校准数据。它是已取得竞品主线中的词条集合，并非游戏客户端完整字典，也不等于逐词人工确认的常用词白名单。
 
-v2 核心、词库和阶段配置取自用户上传的 `WordTiles_Work完整交接包_v2_含下载清单.zip` 中 `WordTiles_关卡工作台_v2/`。词库为竞品出现词集合及建议权限，不是客户端完整字典，也不是人工确认的常用词白名单。词典释义仍采用原仓库资源及其原有许可要求。
-
-词典署名：ECDICT（MIT）、Open English WordNet（CC BY 4.0）、CMUdict（BSD），以及部分改编自 Wiktionary 的英文释义（CC BY-SA 4.0）。
-
-版本历史维护在 `src/version_history.json`，最新版本放在第一条。新增改动后递增当天序号并运行 `python3 tools/sync_editor.py`，自动同步左上角版本号、提示及弹窗内嵌数据。
+词典署名：ECDICT（MIT）、Open English WordNet（CC BY 4.0）、CMUdict（BSD），以及部分改编自 Wiktionary 的英文释义（CC BY-SA 4.0）。版本历史由 `src/version_history.json` 管理。

@@ -1,0 +1,1028 @@
+{
+  "version": "2026.10.19.1",
+  "date": "2026-10-19",
+  "audience": "普通英语母语成年玩家",
+  "method": "Codex 结合本地词典上下文、竞品逐关记录及列出的词典条目进行文本复核；不代表母语人群实测。",
+  "words": {
+    "ACRONYM": {
+      "kind": "definition_context",
+      "lexicalConfirmed": true,
+      "note": "词义中提到缩写、俚语或术语，不能据此把这个词本身判为缩写、俚语或专名。",
+      "sources": [
+        "dict/a.json#acronym"
+      ]
+    },
+    "ACTOR": {
+      "kind": "cross_game_choice",
+      "lexicalConfirmed": true,
+      "note": "有明确的普通名词义；WT 必答与 Zen 仅额外的差异不足以否定它的熟悉度。建议按 WT 主线证据保留必答资格。",
+      "sources": [
+        "dict/a.json#actor"
+      ]
+    },
+    "ARE": {
+      "kind": "extra_not_unfamiliar",
+      "lexicalConfirmed": true,
+      "note": "属于普通词或常见变化形式；Word Tiles 样本中仅做额外，反映出题取舍，不能直接标记为生僻。",
+      "sources": [
+        "dict/a.json#are"
+      ]
+    },
+    "AROSE": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/a.json#arose"
+      ]
+    },
+    "ATE": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/a.json#ate"
+      ]
+    },
+    "AWOKE": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/a.json#awoke"
+      ]
+    },
+    "BECAME": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/b.json#became"
+      ]
+    },
+    "BED": {
+      "kind": "suffix_exception",
+      "lexicalConfirmed": true,
+      "note": "有独立常规词义，不能仅凭 S、ED、ING 结尾判定为应排除的变化形式。",
+      "sources": [
+        "dict/b.json#bed"
+      ]
+    },
+    "BEEN": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/b.json#been"
+      ]
+    },
+    "BEGAN": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/b.json#began"
+      ]
+    },
+    "BENT": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/b.json#bent"
+      ]
+    },
+    "BIT": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/b.json#bit"
+      ]
+    },
+    "BLED": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/b.json#bled"
+      ]
+    },
+    "BLOWN": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/b.json#blown"
+      ]
+    },
+    "BORN": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/b.json#born"
+      ]
+    },
+    "BRED": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/b.json#bred"
+      ]
+    },
+    "BROKE": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/b.json#broke"
+      ]
+    },
+    "BUS": {
+      "kind": "suffix_exception",
+      "lexicalConfirmed": true,
+      "note": "有独立常规词义，不能仅凭 S、ED、ING 结尾判定为应排除的变化形式。",
+      "sources": [
+        "dict/b.json#bus"
+      ]
+    },
+    "CAFE": {
+      "kind": "gloss_gap",
+      "lexicalConfirmed": true,
+      "note": "CAFE / CAFÉ 是词典收录的咖啡馆名词；本地释义缺失不构成无效词证据。",
+      "sources": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/cafe"
+      ]
+    },
+    "CAUGHT": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/c.json#caught"
+      ]
+    },
+    "CHOSE": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/c.json#chose"
+      ]
+    },
+    "CHOSEN": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/c.json#chosen"
+      ]
+    },
+    "CLOVE": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/c.json#clove"
+      ]
+    },
+    "CREW": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/c.json#crew"
+      ]
+    },
+    "DEMO": {
+      "kind": "lexical_short_form",
+      "lexicalConfirmed": true,
+      "note": "本地词典收录独立词义，Word Tiles 主线有必答记录；缩短词来源不等于不能作为单词使用。",
+      "sources": [
+        "dict/d.json#demo"
+      ]
+    },
+    "DEVINE": {
+      "kind": "spelling_boundary",
+      "decision": "hold",
+      "lexicalConfirmed": false,
+      "note": "本地释义缺失；竞品必答记录不足以确认此拼写适合普通词出题。保留原拼写和证据，建议待审核，不自动替换成 DIVINE。",
+      "sources": [
+        "data/competitor/wt-list0.json.gz",
+        "data/competitor/wt-list5.json.gz",
+        "dict/d.json"
+      ]
+    },
+    "DID": {
+      "kind": "extra_not_unfamiliar",
+      "lexicalConfirmed": true,
+      "note": "属于普通词或常见变化形式；Word Tiles 样本中仅做额外，反映出题取舍，不能直接标记为生僻。",
+      "sources": [
+        "dict/d.json#did"
+      ]
+    },
+    "DONE": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/d.json#done"
+      ]
+    },
+    "DOVE": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/d.json#dove"
+      ]
+    },
+    "DRANK": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/d.json#drank"
+      ]
+    },
+    "DREAMT": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/d.json#dreamt"
+      ]
+    },
+    "DREW": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/d.json#drew"
+      ]
+    },
+    "DROVE": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/d.json#drove"
+      ]
+    },
+    "DRUNK": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/d.json#drunk"
+      ]
+    },
+    "DUG": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/d.json#dug"
+      ]
+    },
+    "EATEN": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/e.json#eaten"
+      ]
+    },
+    "ENTREE": {
+      "kind": "gloss_gap",
+      "lexicalConfirmed": true,
+      "note": "ENTREE / ENTRÉE 是餐饮词；美式与英式义项不同。按词形有效处理，并保留地区语义差异提示。",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/entree",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/entree"
+      ]
+    },
+    "FACES": {
+      "kind": "extra_not_unfamiliar",
+      "lexicalConfirmed": true,
+      "note": "属于普通词或常见变化形式；Word Tiles 样本中仅做额外，反映出题取舍，不能直接标记为生僻。",
+      "sources": [
+        "dict/f.json#faces"
+      ]
+    },
+    "FED": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/f.json#fed"
+      ]
+    },
+    "FLED": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/f.json#fled"
+      ]
+    },
+    "FLEW": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/f.json#flew"
+      ]
+    },
+    "FOUND": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/f.json#found"
+      ]
+    },
+    "GAVE": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/g.json#gave"
+      ]
+    },
+    "GIVEN": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/g.json#given"
+      ]
+    },
+    "GLASS": {
+      "kind": "suffix_exception",
+      "lexicalConfirmed": true,
+      "note": "有独立常规词义，不能仅凭 S、ED、ING 结尾判定为应排除的变化形式。",
+      "sources": [
+        "dict/g.json#glass"
+      ]
+    },
+    "GNAT": {
+      "kind": "familiarity_boundary",
+      "lexicalConfirmed": true,
+      "note": "词典确认有效词义，且有 WT 必答记录。词义带有特定对象或语境；竞品记录不足以推算普通母语成年玩家的认识比例，保留熟悉度边界标记。",
+      "sources": [
+        "dict/g.json#gnat"
+      ]
+    },
+    "GONE": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/g.json#gone"
+      ]
+    },
+    "GOT": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/g.json#got"
+      ]
+    },
+    "GREW": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/g.json#grew"
+      ]
+    },
+    "GROWN": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/g.json#grown"
+      ]
+    },
+    "HAD": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/h.json#had"
+      ]
+    },
+    "HAS": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/h.json#has"
+      ]
+    },
+    "HEARD": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/h.json#heard"
+      ]
+    },
+    "HELD": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/h.json#held"
+      ]
+    },
+    "HUNG": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/h.json#hung"
+      ]
+    },
+    "INTRO": {
+      "kind": "lexical_short_form",
+      "lexicalConfirmed": true,
+      "note": "词典独立收录 INTRO，表示介绍或开头部分；不能因它源自缩短形式而作为字母缩写剔除。",
+      "sources": [
+        "https://dictionary.cambridge.org/dictionary/english/intro"
+      ]
+    },
+    "KEPT": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/k.json#kept"
+      ]
+    },
+    "KING": {
+      "kind": "suffix_exception",
+      "lexicalConfirmed": true,
+      "note": "有独立常规词义，不能仅凭 S、ED、ING 结尾判定为应排除的变化形式。",
+      "sources": [
+        "dict/k.json#king"
+      ]
+    },
+    "KNEW": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/k.json#knew"
+      ]
+    },
+    "KNOWN": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/k.json#known"
+      ]
+    },
+    "LEAPT": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/l.json#leapt"
+      ]
+    },
+    "LED": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/l.json#led"
+      ]
+    },
+    "LENT": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/l.json#lent"
+      ]
+    },
+    "LIT": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/l.json#lit"
+      ]
+    },
+    "LOST": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/l.json#lost"
+      ]
+    },
+    "MADE": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/m.json#made"
+      ]
+    },
+    "MALT": {
+      "kind": "familiarity_boundary",
+      "lexicalConfirmed": true,
+      "note": "词典确认有效词义，且有 WT 必答记录。词义带有特定对象或语境；竞品记录不足以推算普通母语成年玩家的认识比例，保留熟悉度边界标记。",
+      "sources": [
+        "dict/m.json#malt"
+      ]
+    },
+    "MEANT": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/m.json#meant"
+      ]
+    },
+    "MEN": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/m.json#men"
+      ]
+    },
+    "MET": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/m.json#met"
+      ]
+    },
+    "MOD": {
+      "kind": "lexical_short_form",
+      "lexicalConfirmed": true,
+      "note": "本地词典收录独立词义，Word Tiles 主线有必答记录；缩短词来源不等于不能作为单词使用。",
+      "sources": [
+        "dict/m.json#mod"
+      ]
+    },
+    "NEWS": {
+      "kind": "suffix_exception",
+      "lexicalConfirmed": true,
+      "note": "有独立常规词义，不能仅凭 S、ED、ING 结尾判定为应排除的变化形式。",
+      "sources": [
+        "dict/n.json#news"
+      ]
+    },
+    "OCELOT": {
+      "kind": "familiarity_boundary",
+      "lexicalConfirmed": true,
+      "note": "词典确认有效词义，且有 WT 必答记录。词义带有特定对象或语境；竞品记录不足以推算普通母语成年玩家的认识比例，保留熟悉度边界标记。",
+      "sources": [
+        "dict/o.json#ocelot"
+      ]
+    },
+    "ODE": {
+      "kind": "familiarity_boundary",
+      "lexicalConfirmed": true,
+      "note": "词典确认有效词义，且有 WT 必答记录。词义带有特定对象或语境；竞品记录不足以推算普通母语成年玩家的认识比例，保留熟悉度边界标记。",
+      "sources": [
+        "dict/o.json#ode"
+      ]
+    },
+    "PAID": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/p.json#paid"
+      ]
+    },
+    "PEAL": {
+      "kind": "familiarity_boundary",
+      "lexicalConfirmed": true,
+      "note": "词典确认有效词义，且有 WT 必答记录。词义带有特定对象或语境；竞品记录不足以推算普通母语成年玩家的认识比例，保留熟悉度边界标记。",
+      "sources": [
+        "dict/p.json#peal"
+      ]
+    },
+    "PRO": {
+      "kind": "lexical_short_form",
+      "lexicalConfirmed": true,
+      "note": "本地词典收录独立词义，Word Tiles 主线有必答记录；缩短词来源不等于不能作为单词使用。",
+      "sources": [
+        "dict/p.json#pro"
+      ]
+    },
+    "PROVEN": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/p.json#proven"
+      ]
+    },
+    "RAN": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/r.json#ran"
+      ]
+    },
+    "RANG": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/r.json#rang"
+      ]
+    },
+    "RISEN": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/r.json#risen"
+      ]
+    },
+    "RUNG": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/r.json#rung"
+      ]
+    },
+    "SAID": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/s.json#said"
+      ]
+    },
+    "SANG": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/s.json#sang"
+      ]
+    },
+    "SANK": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/s.json#sank"
+      ]
+    },
+    "SAT": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/s.json#sat"
+      ]
+    },
+    "SEEN": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/s.json#seen"
+      ]
+    },
+    "SENT": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/s.json#sent"
+      ]
+    },
+    "SEWN": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/s.json#sewn"
+      ]
+    },
+    "SHONE": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/s.json#shone"
+      ]
+    },
+    "SHOWN": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/s.json#shown"
+      ]
+    },
+    "SILO": {
+      "kind": "familiarity_boundary",
+      "lexicalConfirmed": true,
+      "note": "词典确认有效词义，且有 WT 必答记录。词义带有特定对象或语境；竞品记录不足以推算普通母语成年玩家的认识比例，保留熟悉度边界标记。",
+      "sources": [
+        "dict/s.json#silo"
+      ]
+    },
+    "SITCOM": {
+      "kind": "lexical_short_form",
+      "lexicalConfirmed": true,
+      "note": "词典独立收录情景喜剧名词；本地中文释义的 abbr. 标记不应作为排除依据。",
+      "sources": [
+        "https://www.oxfordlearnersdictionaries.com/us/definition/english/sitcom"
+      ]
+    },
+    "SLANG": {
+      "kind": "definition_context",
+      "lexicalConfirmed": true,
+      "note": "词义中提到缩写、俚语或术语，不能据此把这个词本身判为缩写、俚语或专名。",
+      "sources": [
+        "dict/s.json#slang"
+      ]
+    },
+    "SLID": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/s.json#slid"
+      ]
+    },
+    "SNUCK": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/s.json#snuck"
+      ]
+    },
+    "SOLD": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/s.json#sold"
+      ]
+    },
+    "SPAT": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/s.json#spat"
+      ]
+    },
+    "SPENT": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/s.json#spent"
+      ]
+    },
+    "SPOKE": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/s.json#spoke"
+      ]
+    },
+    "SPUN": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/s.json#spun"
+      ]
+    },
+    "STANK": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/s.json#stank"
+      ]
+    },
+    "STOLE": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/s.json#stole"
+      ]
+    },
+    "STOVE": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/s.json#stove"
+      ]
+    },
+    "SUNK": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/s.json#sunk"
+      ]
+    },
+    "SWAM": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/s.json#swam"
+      ]
+    },
+    "SWORN": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/s.json#sworn"
+      ]
+    },
+    "TAKEN": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/t.json#taken"
+      ]
+    },
+    "TERM": {
+      "kind": "definition_context",
+      "lexicalConfirmed": true,
+      "note": "词义中提到缩写、俚语或术语，不能据此把这个词本身判为缩写、俚语或专名。",
+      "sources": [
+        "dict/t.json#term"
+      ]
+    },
+    "THREW": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/t.json#threw"
+      ]
+    },
+    "THROWN": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/t.json#thrown"
+      ]
+    },
+    "TOOK": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/t.json#took"
+      ]
+    },
+    "TORE": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/t.json#tore"
+      ]
+    },
+    "TORN": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/t.json#torn"
+      ]
+    },
+    "URN": {
+      "kind": "familiarity_boundary",
+      "lexicalConfirmed": true,
+      "note": "词典确认有效词义，且有 WT 必答记录。词义带有特定对象或语境；竞品记录不足以推算普通母语成年玩家的认识比例，保留熟悉度边界标记。",
+      "sources": [
+        "dict/u.json#urn"
+      ]
+    },
+    "USED": {
+      "kind": "extra_not_unfamiliar",
+      "lexicalConfirmed": true,
+      "note": "属于普通词或常见变化形式；Word Tiles 样本中仅做额外，反映出题取舍，不能直接标记为生僻。",
+      "sources": [
+        "dict/u.json#used"
+      ]
+    },
+    "WAS": {
+      "kind": "extra_not_unfamiliar",
+      "lexicalConfirmed": true,
+      "note": "属于普通词或常见变化形式；Word Tiles 样本中仅做额外，反映出题取舍，不能直接标记为生僻。",
+      "sources": [
+        "dict/w.json#was"
+      ]
+    },
+    "WENT": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/w.json#went"
+      ]
+    },
+    "WERE": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/w.json#were"
+      ]
+    },
+    "WOKE": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/w.json#woke"
+      ]
+    },
+    "WOKEN": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/w.json#woken"
+      ]
+    },
+    "WON": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/w.json#won"
+      ]
+    },
+    "WORDS": {
+      "kind": "extra_not_unfamiliar",
+      "lexicalConfirmed": true,
+      "note": "属于普通词或常见变化形式；Word Tiles 样本中仅做额外，反映出题取舍，不能直接标记为生僻。",
+      "sources": [
+        "dict/w.json#words"
+      ]
+    },
+    "WORE": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/w.json#wore"
+      ]
+    },
+    "WORN": {
+      "kind": "independent_sense",
+      "lexicalConfirmed": true,
+      "note": "本地词典还收录独立名词或形容词义；存在过去式或分词释义不构成整体排除依据。",
+      "sources": [
+        "dict/w.json#worn"
+      ]
+    },
+    "WOVE": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/w.json#wove"
+      ]
+    },
+    "WROTE": {
+      "kind": "inflected_form",
+      "lexicalConfirmed": true,
+      "note": "词典记录词形变化，且 Word Tiles 已将此形式用于必答。熟悉度不能由词形标签判低；严格词形限制应单独处理，原 lemma 隔离仍保留。",
+      "sources": [
+        "dict/w.json#wrote"
+      ]
+    }
+  }
+}
