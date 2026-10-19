@@ -223,7 +223,7 @@
     bankDraft = copy ? cloneLibrary(bankDraft) : WPLibrary.defaultRecipe(libraryData);
     bankDraft.id = newId(); bankDraft.name = copy ? bankDraft.name + ' · 副本' : '新词库'; bankDraft.revision = 1; bankDraft.datasetHash = libraryData.datasetHash;
     bankState.scope = 'result'; $('#bankScope').value = 'result'; bankState.page = 0; bankState.picked = '';
-    rememberBankDraft(); renderLibraryEditor(); updateLibraryPreview(); $('#libraryName').focus();
+    rememberBankDraft(); renderLibraryEditor(); updateLibraryPreview(); $('#libraryName').focus(); $('#libraryName').select();
   }
   function exportBank(kind) {
     const rows = bankMatches;
@@ -235,10 +235,15 @@
   $('#bankClose').onclick = () => { rememberBankDraft(); $('#bank').hidden = true; hideGloss(); };
   $('#bankQ').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); openBank($('#bankQ').value); } });
   $('#librarySelect').onchange = e => chooseBankRecipe(e.target.value);
-  $('#libraryName').oninput = e => { bankDraft.name = e.target.value; updateLibraryPreview(); };
+  $('#libraryName').oninput = e => {
+    bankDraft.name = e.target.value;
+    const option = $('#librarySelect').selectedOptions[0];
+    if (option) option.textContent = (bankDraft.name || '未命名词库') + (bankDraft.id === defaultLibraryId ? ' · 默认' : '');
+    updateLibraryPreview();
+  };
   $('#libraryNew').onclick = () => newBankRecipe(false);
   $('#libraryCopy').onclick = () => newBankRecipe(true);
-  $('#librarySave').onclick = () => libraryAction(saveBankRecipe);
+  $('#libraryNameForm').onsubmit = e => { e.preventDefault(); libraryAction(saveBankRecipe); };
   $('#libraryDelete').onclick = () => libraryAction(async () => {
     const id = bankDraft.id, next = libraryRecipes.filter(r => r.id !== id);
     if (!next.length) next.push(cloneLibrary(initialRecipe));
