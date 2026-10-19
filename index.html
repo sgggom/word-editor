@@ -357,7 +357,7 @@ html.play-on,html.play-on body{overflow:hidden;height:100%;max-height:100dvh}
   #play .book{grid-template-columns:minmax(0,1fr) auto;grid-template-rows:minmax(0,1fr);height:100%}
 }
 #batch{position:fixed;inset:0;background:rgba(20,12,6,.55);z-index:6;display:grid;place-items:center;padding:16px}
-#batch .bp{background:var(--paper);border-radius:4px;width:min(760px,100%);max-height:100%;overflow:auto;padding:16px 18px}
+#batch .bp{background:var(--paper);border-radius:4px;width:min(980px,100%);max-height:100%;overflow:auto;padding:16px 18px}
 #batch h3{margin:0 0 6px;letter-spacing:.16em}
 #batch .bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 14px;font-size:13.5px}
 #batch label{display:flex;flex-direction:column;gap:2px;color:var(--ink-soft)}
@@ -371,6 +371,19 @@ html.play-on,html.play-on body{overflow:hidden;height:100%;max-height:100dvh}
 #batch .bbtn button.primary{background:var(--ink);color:var(--paper)}
 #batch .bbtn button:disabled{opacity:.4}
 #bOut p{margin:4px 0;font-size:13.5px;line-height:1.5}
+#batch .batch-libraries{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:12px 0 16px}
+#batch .batch-libraries fieldset{min-width:0;margin:0;border:1px solid var(--rule);border-radius:5px;padding:8px 10px 10px}
+#batch .batch-libraries legend{font-size:14px;font-weight:700;padding:0 5px}
+#batch .batch-library-tools{display:flex;align-items:center;gap:6px;margin-bottom:8px;font-size:12px;color:var(--ink-soft)}
+#batch .batch-library-tools span{margin-right:auto}
+#batch .batch-library-tools button{border:1px solid var(--rule);border-radius:3px;padding:3px 7px}
+#batch .batch-library-options{display:flex;flex-direction:column;gap:5px;max-height:210px;overflow:auto}
+#batch .batch-library-option{display:flex;flex-direction:row;align-items:center;gap:8px;padding:7px;border:1px solid transparent;border-radius:4px;cursor:pointer;color:var(--ink)}
+#batch .batch-library-option:has(input:checked){background:rgba(166,132,60,.12);border-color:var(--rule)}
+#batch .batch-library-option:has(input:disabled){opacity:.5;cursor:default}
+#batch .batch-library-option input{margin:0;flex-shrink:0}
+#batch .batch-library-option span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px}
+#batch .batch-library-option small{white-space:nowrap;font-size:12px;color:var(--ink-soft)}
 #pphone{container-type:inline-size}
 #pphone:is([data-skin="kyoto"],[data-skin="alps"]){
   --ink:#0b1b24; --ink-soft:#526673; --red:#c23a5e; --ok:#2f6b45; --gold-hi:#e9c27a;
@@ -712,8 +725,8 @@ html,body{overflow-x:hidden;max-width:100vw}
 <body>
 <div id="desk" data-view="list">
   <header class="top">
-    <div class="srcbar" id="srcBar" title="版本 2026.10.19.10 · WTEngine v2">
-      <button type="button" class="app-version" id="btnVersion" aria-label="版本 v2026.10.19.10，点击查看版本历史" aria-haspopup="dialog">v2026.10.19.10</button>
+    <div class="srcbar" id="srcBar" title="版本 2026.10.19.11 · WTEngine v2">
+      <button type="button" class="app-version" id="btnVersion" aria-label="版本 v2026.10.19.11，点击查看版本历史" aria-haspopup="dialog">v2026.10.19.11</button>
       <div class="src-tabs" role="tablist" aria-label="关卡来源">
         <button type="button" data-src="ours" class="on" role="tab" aria-selected="true">我们的</button>
         <button type="button" data-src="wt" role="tab" aria-selected="false">Word Tiles</button>
@@ -992,12 +1005,22 @@ html,body{overflow-x:hidden;max-width:100vw}
 <div id="batch" hidden>
   <div class="bp">
     <h3>批量生成</h3>
-    <p class="note">使用 v2 生成器，按 list0 / list5 的 13 段竞品目标生成并评分择优。必答只从 candidate 中选取；每个必答的所有合法路径必须使用同一组格子，逐格次数按答案路径叠加。失败时不自动降难度。</p>
+    <p class="note">分别选择必答和仅额外词库，再设置关卡范围。生成时检查全盘覆盖、路径安全和字母使用次数。</p>
+    <div class="batch-libraries">
+      <fieldset id="bTargetLibraries"><legend>必答词库 · 可多选</legend>
+        <div class="batch-library-tools"><span>至少选择一份</span><button type="button" data-batch-select="target" data-select-all="1">全选</button><button type="button" data-batch-select="target" data-select-all="0">清空</button></div>
+        <div id="bTargetOptions" class="batch-library-options"></div>
+      </fieldset>
+      <fieldset id="bExtraLibraries"><legend>仅额外词库 · 可多选</legend>
+        <div class="batch-library-tools"><span>可不选</span><button type="button" data-batch-select="extra" data-select-all="1">全选</button><button type="button" data-batch-select="extra" data-select-all="0">清空</button></div>
+        <div id="bExtraOptions" class="batch-library-options"></div>
+      </fieldset>
+    </div>
+    <p class="note">同组词库取并集，重复词只计一次；两组重叠时必答候选优先。</p>
     <div class="bgrid">
       <label>起始关号<input id="bFrom" type="number" min="1" value="1"></label>
       <label>生成多少关<input id="bCount" type="number" min="1" max="2000" value="50"></label>
       <label>放在哪里<select id="bMode"><option value="after">插在当前关后面</option><option value="replace">替换整条关序</option></select></label>
-      <label>使用词库<select id="bLibrary" aria-label="生成词库"></select></label>
       <label>参考主线<select id="bPreset"><option value="list0">Word Tiles list0</option><option value="list5">Word Tiles list5</option></select></label>
       <label>每关尝试次数<input id="bAttempts" type="number" min="10" max="1000" value="100"></label>
       <label>近期重复扣分窗口<input id="bCooldown" type="number" min="0" max="100" value="20"></label>
@@ -1033,7 +1056,7 @@ html,body{overflow-x:hidden;max-width:100vw}
 <div id="gloss" hidden></div>
 <input type="file" id="file" accept="application/json,.json,.js,text/javascript" hidden>
 
-<script id="versions" type="application/json">[{"version":"2026.10.19.10","changes":["词库列表替换为核心、一级、二级、三级的必答和仅额外词，共 8 份配置，分别选中恰好 4、3、2、1 款游戏出现的区域。","仅额外词合并 extra、onlyExtra、bonus，剔除四款游戏的有效必答候选；列表和饼图统一显示排除后的范围。","首次升级清除旧配置列表，默认选中核心必答词；已有关卡的不可变词库快照继续保留。"]},{"version":"2026.10.19.9","changes":["移除词库配置区的常驻名称输入框，新建和复制时通过弹窗输入名称，已有词库通过重命名按钮修改名称。","命名弹窗支持回车确认、取消和空名称校验；重命名独立保存名称，保留尚未保存的范围修改及已有关卡的词库快照。"]},{"version":"2026.10.19.8","changes":["词库配置分开显示当前词库选择、配置名称与保存操作，明确名称输入框的用途。","新建或复制词库后自动选中名称，支持回车保存；单词搜索增加独立的查找单词标签。"]},{"version":"2026.10.19.7","changes":["继续精简顶部工具栏，移除导出游戏关卡和编辑这一关按钮。","关卡编辑使用列表内入口，返回列表按钮放在棋盘面板；游戏导出使用批量生成窗口内入口。"]},{"version":"2026.10.19.6","changes":["精简顶部工具栏，移除撤回、导入和加载示例按钮，关卡文件统一从打开入口载入。","保留编辑撤销快捷键 ⌘/Ctrl+Z，并同步两份独立 HTML。"]},{"version":"2026.10.19.5","changes":["词库配置统一为列表、饼图两种编辑视图；视图切换保留同一份配置。","饼图区域支持点击选中、再次点击取消和多选，已选区域直接决定词池内容。","保存、复制、导入导出及关卡快照保留区域选择；列表交并集与饼图选区同步，清空必答选区后禁止生成。"]},{"version":"2026.10.19.4","changes":["词库新增范围视图，分别查看必答池和额外池的圆形重叠图。","图形按所选游戏、版本与词类计算；点击区域查看精确词表，支持查词、出处与导出。","交集／并集与配置联动，区分来源结果和生效词；相同来源去重，较多来源提供精确组合列表。"]},{"version":"2026.10.19.3","changes":["默认词库的必答池、额外池均预选 Word Tiles、Zen Word、Words of Wonders、Wordscapes，使用全部版本。","两个词池分别选择交集或并集；新建配置预填四款游戏。旧配置升级一次并保留已保存的配置和关卡快照。"]},{"version":"2026.10.19.2","changes":["迁入 7 款游戏、25 份版本和 32,268 个去重词条，保留来源词类和完整关卡索引。","支持必答池、额外池独立选择游戏与版本做交集或并集，命名保存、导入导出并用于生成。","旧词库退出运行；默认使用 Word Tiles 两版并集。每关固定词库快照，配置修改不影响已有的关卡。"]},{"version":"2026.10.19.1","changes":["为全部 9,455 词补充竞品出题证据，区分稳定必答、条件必答、稳定额外和证据不足。","词库增加证据可信度、跨游戏差异和专项复核筛选，可查看倒读词对、词长限制及逐词审核建议。","补充 127 个边界词的文本复核依据，CSV 可导出完整审核记录；当前生成权限与审核建议分列。"]},{"version":"2026.10.17.2","changes":["点击左上角版本号可查看版本历史及各版改动。","版本号采用日期加当天序号，同一天更新依次递增。"]},{"version":"2026.10.17.1","changes":["左上角显示版本号，并增加当天版本序号。"]},{"version":"2026.10.17（编号前更新）","changes":["生成算法切换为 Word Tiles v2，支持 list0、list5 两套主线分段目标。","词库切换为 v2 的 9,455 词，区分必答候选、仅额外和待审核权限。","保留关卡编辑、试玩、存档及游戏 JSON 导出，修复单格编辑后撤回的问题。"]}]</script>
+<script id="versions" type="application/json">[{"version":"2026.10.19.11","changes":["批量生成支持必答词库、仅额外词库分别多选，同组取并集去重，两组重叠时必答候选优先。","多选结果保存到浏览器，修改或删除词库后更新选择和词数；生成期间锁定选择。","每批关卡固定组合词库快照，记录两组选中的词库及其版本，编辑器文件导入导出保留绑定。"]},{"version":"2026.10.19.10","changes":["词库列表替换为核心、一级、二级、三级的必答和仅额外词，共 8 份配置，分别选中恰好 4、3、2、1 款游戏出现的区域。","仅额外词合并 extra、onlyExtra、bonus，剔除四款游戏的有效必答候选；列表和饼图统一显示排除后的范围。","首次升级清除旧配置列表，默认选中核心必答词；已有关卡的不可变词库快照继续保留。"]},{"version":"2026.10.19.9","changes":["移除词库配置区的常驻名称输入框，新建和复制时通过弹窗输入名称，已有词库通过重命名按钮修改名称。","命名弹窗支持回车确认、取消和空名称校验；重命名独立保存名称，保留尚未保存的范围修改及已有关卡的词库快照。"]},{"version":"2026.10.19.8","changes":["词库配置分开显示当前词库选择、配置名称与保存操作，明确名称输入框的用途。","新建或复制词库后自动选中名称，支持回车保存；单词搜索增加独立的查找单词标签。"]},{"version":"2026.10.19.7","changes":["继续精简顶部工具栏，移除导出游戏关卡和编辑这一关按钮。","关卡编辑使用列表内入口，返回列表按钮放在棋盘面板；游戏导出使用批量生成窗口内入口。"]},{"version":"2026.10.19.6","changes":["精简顶部工具栏，移除撤回、导入和加载示例按钮，关卡文件统一从打开入口载入。","保留编辑撤销快捷键 ⌘/Ctrl+Z，并同步两份独立 HTML。"]},{"version":"2026.10.19.5","changes":["词库配置统一为列表、饼图两种编辑视图；视图切换保留同一份配置。","饼图区域支持点击选中、再次点击取消和多选，已选区域直接决定词池内容。","保存、复制、导入导出及关卡快照保留区域选择；列表交并集与饼图选区同步，清空必答选区后禁止生成。"]},{"version":"2026.10.19.4","changes":["词库新增范围视图，分别查看必答池和额外池的圆形重叠图。","图形按所选游戏、版本与词类计算；点击区域查看精确词表，支持查词、出处与导出。","交集／并集与配置联动，区分来源结果和生效词；相同来源去重，较多来源提供精确组合列表。"]},{"version":"2026.10.19.3","changes":["默认词库的必答池、额外池均预选 Word Tiles、Zen Word、Words of Wonders、Wordscapes，使用全部版本。","两个词池分别选择交集或并集；新建配置预填四款游戏。旧配置升级一次并保留已保存的配置和关卡快照。"]},{"version":"2026.10.19.2","changes":["迁入 7 款游戏、25 份版本和 32,268 个去重词条，保留来源词类和完整关卡索引。","支持必答池、额外池独立选择游戏与版本做交集或并集，命名保存、导入导出并用于生成。","旧词库退出运行；默认使用 Word Tiles 两版并集。每关固定词库快照，配置修改不影响已有的关卡。"]},{"version":"2026.10.19.1","changes":["为全部 9,455 词补充竞品出题证据，区分稳定必答、条件必答、稳定额外和证据不足。","词库增加证据可信度、跨游戏差异和专项复核筛选，可查看倒读词对、词长限制及逐词审核建议。","补充 127 个边界词的文本复核依据，CSV 可导出完整审核记录；当前生成权限与审核建议分列。"]},{"version":"2026.10.17.2","changes":["点击左上角版本号可查看版本历史及各版改动。","版本号采用日期加当天序号，同一天更新依次递增。"]},{"version":"2026.10.17.1","changes":["左上角显示版本号，并增加当天版本序号。"]},{"version":"2026.10.17（编号前更新）","changes":["生成算法切换为 Word Tiles v2，支持 list0、list5 两套主线分段目标。","词库切换为 v2 的 9,455 词，区分必答候选、仅额外和待审核权限。","保留关卡编辑、试玩、存档及游戏 JSON 导出，修复单格编辑后撤回的问题。"]}]</script>
 <script id="policy" type="application/json">{"blocked":[],"flagged":[],"mild":[],"specialist":[],"abbr":[],"pluralExempt":[]}</script>
 <script>
 /* 旧关卡与手工编辑的路径校验辅助函数；生成逻辑使用 WTEngine v2。
@@ -1472,6 +1495,9 @@ return {DEFAULTS,stage,getProfile,targetFor,normalizeLex,buildIndex,scan,metrics
   function compile(data, recipe, rules = {}) {
     validateRecipe(recipe, data);
     const target = evaluatePool(data, recipe.targetPool), extra = evaluatePool(data, recipe.extraPool);
+    return compileWords(target, extra, rules);
+  }
+  function compileWords(target, extra, rules = {}) {
     const abbreviations = new Set((rules.abbr || []).map(normalize));
     const words = sorted([...target, ...extra]), lex = [], excluded = [], downgraded = [];
     for (const word of words) {
@@ -1495,14 +1521,49 @@ return {DEFAULTS,stage,getProfile,targetFor,normalizeLex,buildIndex,scan,metrics
   }
   function snapshot(data, recipe, rules = {}) {
     const compiled = compile(data, recipe, rules);
+    return snapshotOf(recipe, compiled.lex, rules);
+  }
+  function snapshotOf(recipe, lex, rules) {
     const body = {schemaVersion: 1, recipe: JSON.parse(JSON.stringify(recipe)),
-      rules: {abbr: sorted((rules.abbr || []).map(normalize))}, lex: compiled.lex};
+      rules: {abbr: sorted((rules.abbr || []).map(normalize))}, lex};
     return {id: 'lib-' + contentId(body), ...body};
+  }
+  function combine(data, selection = {}, rules = {}) {
+    const seen = new Map(), groups = {}, target = new Set(), extra = new Set();
+    for (const key of ['target', 'extra']) {
+      const input = selection[key] || [];
+      if (!Array.isArray(input)) throw new Error('请选择有效的词库列表');
+      const recipes = new Map();
+      for (const recipe of input) {
+        validateRecipe(recipe, data);
+        const signature = JSON.stringify(recipe);
+        if (seen.has(recipe.id) && seen.get(recipe.id) !== signature) throw new Error('同一个词库不能同时使用不同版本');
+        seen.set(recipe.id, signature); recipes.set(recipe.id, recipe);
+      }
+      groups[key] = [...recipes.values()].sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+      for (const recipe of groups[key]) {
+        // Select each library's effective role first. Apply the current user's bans once,
+        // after the two groups have been merged, so target downgrades remain extra words.
+        const compiled = compile(data, recipe);
+        for (const entry of compiled.lex) if (entry.role === (key === 'target' ? 'candidate' : 'extra')) {
+          (key === 'target' ? target : extra).add(entry.word);
+        }
+      }
+    }
+    const compiled = compileWords(target, extra, rules);
+    const all = [...groups.target, ...groups.extra], only = new Set(all.map(r => r.id)).size === 1 ? all[0] : null;
+    const recipe = {id: 'selection-' + contentId(groups), kind: 'library-selection',
+      name: only ? only.name : '组合词库 · 必答 ' + groups.target.length + ' 库 / 仅额外 ' + groups.extra.length + ' 库',
+      revision: only ? only.revision : 1, datasetHash: data.datasetHash, selection: groups};
+    return {...compiled, snapshot: snapshotOf(recipe, compiled.lex, rules)};
   }
   function validateSnapshot(value) {
     if (!value || value.schemaVersion !== 1 || !value.recipe || !Array.isArray(value.lex) || !value.rules || !Array.isArray(value.rules.abbr)) throw new Error('词库快照缺失或格式无效');
     if (typeof value.recipe.id !== 'string' || !value.recipe.id || typeof value.recipe.name !== 'string' || !value.recipe.name.trim() || !Number.isInteger(value.recipe.revision) || value.recipe.revision < 1 || typeof value.recipe.datasetHash !== 'string' || !value.recipe.datasetHash) throw new Error('词库快照版本信息无效');
     if (value.rules.abbr.some(w => typeof w !== 'string')) throw new Error('词库快照禁表无效');
+    if (value.recipe.kind === 'library-selection' && (!value.recipe.selection ||
+      !['target', 'extra'].every(key => Array.isArray(value.recipe.selection[key]) && value.recipe.selection[key].every(r =>
+        r && typeof r.id === 'string' && typeof r.name === 'string' && Number.isInteger(r.revision) && r.revision > 0 && r.datasetHash === value.recipe.datasetHash)))) throw new Error('组合词库来源记录无效');
     const seen = new Set();
     for (const entry of value.lex) {
       if (!entry || !['candidate', 'extra'].includes(entry.role) || !new RegExp(entry.role === 'candidate' ? '^[A-Z]{3,8}$' : '^[A-Z]{2,8}$').test(entry.word) || seen.has(entry.word)) throw new Error('词库快照词条无效');
@@ -1521,7 +1582,7 @@ return {DEFAULTS,stage,getProfile,targetFor,normalizeLex,buildIndex,scan,metrics
     }
     return index;
   }
-  return {ROLES, ROLE_LABELS, normalize, defaultRecipe, tieredRecipes, validateRecipe, sourceKey, uniquePoolSources, sourceWords, partitionPool, selectedRegionMasks, withRegionSelection, evaluatePool, compile, snapshot, validateSnapshot, catalogIndex, contentId};
+  return {ROLES, ROLE_LABELS, normalize, defaultRecipe, tieredRecipes, validateRecipe, sourceKey, uniquePoolSources, sourceWords, partitionPool, selectedRegionMasks, withRegionSelection, evaluatePool, compile, combine, snapshot, validateSnapshot, catalogIndex, contentId};
 });
 
 /* Exact source membership for vocabulary range charts. Geometry is a separate concern. */
@@ -2994,6 +3055,8 @@ function ready(D, A, issues) {
   const initialSnapshot = WPLibrary.snapshot(libraryData, initialRecipe);
   let libraryRecipes = initialRecipes;
   let defaultLibraryId = initialRecipe.id;
+  let batchLibrarySelection = null, batchSelectionLoaded = false, batchSelectionQ = Promise.resolve();
+  const batchLibraryCounts = new WeakMap();
   const libraryContexts = new Map();
   const verifiedSnapshots = new WeakSet();
   function freezeLibrary(value) {
@@ -3056,6 +3119,8 @@ function ready(D, A, issues) {
     if (bar) {
       bar.hidden = !ours();
       $('#levelLibraryName').textContent = next.snapshot.recipe.name + ' · v' + next.snapshot.recipe.revision;
+      const selection = next.snapshot.recipe.selection;
+      $('#levelLibraryName').title = selection ? '必答：' + (selection.target.map(r => r.name + ' v' + r.revision).join('、') || '无') + '\n仅额外：' + (selection.extra.map(r => r.name + ' v' + r.revision).join('、') || '无') : '';
     }
   }
   function requiredWord(w, d) {
@@ -3106,13 +3171,63 @@ function ready(D, A, issues) {
     defaultLibraryId = defaultId;
     syncLibrarySelectors();
   }
-  function syncLibrarySelectors() {
-    const select = $('#bLibrary');
-    if (select) {
-      const value = select.value || defaultLibraryId;
-      select.innerHTML = libraryRecipes.map(r => '<option value="' + esc(r.id) + '">' + esc(r.name) + ' · v' + r.revision + '</option>').join('');
-      select.value = libraryRecipes.some(r => r.id === value) ? value : defaultLibraryId;
+  function batchLibraryOptions() {
+    return libraryRecipes.map(recipe => {
+      if (!batchLibraryCounts.has(recipe)) batchLibraryCounts.set(recipe, WPLibrary.compile(libraryData, recipe).stats);
+      const stats = batchLibraryCounts.get(recipe);
+      return {recipe, target: stats.candidates, extra: stats.extras};
+    });
+  }
+  function persistBatchLibrarySelection() {
+    if (!batchSelectionLoaded || !batchLibrarySelection) return batchSelectionQ;
+    const state = JSON.parse(JSON.stringify({schemaVersion: 1, ...batchLibrarySelection, savedAt: Date.now()}));
+    const text = JSON.stringify(state);
+    try { localStorage.setItem('wp.leveldesk.batchLibraries', text); } catch (e) {}
+    batchSelectionQ = batchSelectionQ.catch(() => {}).then(async () => {
+      try {
+        await idbPut('kv', state, 'batchLibraries');
+        try { if (localStorage.getItem('wp.leveldesk.batchLibraries') === text) localStorage.removeItem('wp.leveldesk.batchLibraries'); } catch (e) {}
+      } catch (e) { localStorage.setItem('wp.leveldesk.batchLibraries', JSON.stringify({schemaVersion: 1, ...batchLibrarySelection, savedAt: Date.now()})); }
+    });
+    return batchSelectionQ;
+  }
+  async function loadBatchLibrarySelection() {
+    let state;
+    try { state = await idbGet('kv', 'batchLibraries'); } catch (e) {}
+    try {
+      const fallback = JSON.parse(localStorage.getItem('wp.leveldesk.batchLibraries') || 'null');
+      if (fallback && (!state || (fallback.savedAt || 0) >= (state.savedAt || 0))) state = fallback;
+    } catch (e) {}
+    if (state?.schemaVersion === 1 && typeof state.defaultId === 'string' &&
+      ['targetIds', 'extraIds'].every(key => Array.isArray(state[key]) && state[key].every(id => typeof id === 'string'))) {
+      batchLibrarySelection = {defaultId: state.defaultId, targetIds: state.targetIds, extraIds: state.extraIds};
     }
+    batchSelectionLoaded = true; syncLibrarySelectors(); await batchSelectionQ.catch(() => {});
+  }
+  function syncLibrarySelectors() {
+    if (!batchSelectionLoaded || batchRun) return;
+    const options = batchLibraryOptions(), before = JSON.stringify(batchLibrarySelection);
+    if (!batchLibrarySelection || batchLibrarySelection.defaultId !== defaultLibraryId) {
+      const selected = options.find(x => x.recipe.id === defaultLibraryId);
+      batchLibrarySelection = {defaultId: defaultLibraryId,
+        targetIds: selected?.target ? [defaultLibraryId] : [], extraIds: selected?.extra ? [defaultLibraryId] : []};
+    }
+    for (const key of ['target', 'extra']) {
+      const valid = new Set(options.filter(x => x[key] > 0).map(x => x.recipe.id));
+      batchLibrarySelection[key + 'Ids'] = [...new Set(batchLibrarySelection[key + 'Ids'])].filter(id => valid.has(id));
+      const selected = new Set(batchLibrarySelection[key + 'Ids']);
+      const rows = options.filter(x => x[key] || x.recipe[key === 'target' ? 'targetPool' : 'extraPool'].sources.length);
+      $('#' + (key === 'target' ? 'bTargetOptions' : 'bExtraOptions')).innerHTML = rows.map(({recipe, [key]: count}) =>
+        '<label class="batch-library-option"><input type="checkbox" data-batch-library="' + key + '" value="' + esc(recipe.id) + '"' +
+        (selected.has(recipe.id) ? ' checked' : '') + (!count ? ' disabled' : '') + '><span title="' + esc(recipe.name + ' · v' + recipe.revision) + '">' + esc(recipe.name) + '</span><small>' + count.toLocaleString() + ' 词</small></label>').join('') || '<p class="note">暂无这类词库，可先在词库窗口中配置。</p>';
+    }
+    if (before !== JSON.stringify(batchLibrarySelection)) persistBatchLibrarySelection().catch(() => toast('本次词库选择暂未保存'));
+    if (!$('#batch').hidden) previewCurve();
+  }
+  function rememberBatchLibrarySelection() {
+    if (!batchSelectionLoaded || batchRun) return;
+    for (const key of ['target', 'extra']) batchLibrarySelection[key + 'Ids'] = [...document.querySelectorAll('[data-batch-library="' + key + '"]:checked')].map(el => el.value);
+    persistBatchLibrarySelection().catch(() => toast('本次词库选择暂未保存'));
   }
   function rebindCurrentLibrary(recipeId) {
     if (!ours() || batchRun) throw new Error('请在我们的关卡中、生成结束后切换词库');
@@ -3499,6 +3614,7 @@ function ready(D, A, issues) {
   function boot() {
     bootReady = (async () => {
       await loadLibraryState();
+      await loadBatchLibrarySelection();
       syncLibrarySelectors();
       bindNewLevel(campaign.levels[0]);
       const q = location.search;
@@ -5541,8 +5657,19 @@ function ready(D, A, issues) {
 
   /* ---------- 批量生成（WTEngine v2） ---------- */
   let genP = null;
-  function genPrep() {
-    const snap = selectedSnapshot($('#bLibrary').value || defaultLibraryId);
+  let batchPlanCache = null;
+  function batchLibraryPlan() {
+    const selection = {};
+    for (const key of ['target', 'extra']) selection[key] = (batchLibrarySelection?.[key + 'Ids'] || []).map(id => {
+      const recipe = libraryRecipes.find(r => r.id === id);
+      if (!recipe) throw new Error('所选词库已删除，请重新选择');
+      return recipe;
+    });
+    const rules = {abbr: [...abbrSet].sort()}, key = JSON.stringify([selection, rules]);
+    if (batchPlanCache?.key !== key) batchPlanCache = {key, value: WPLibrary.combine(libraryData, selection, rules)};
+    return batchPlanCache.value;
+  }
+  function genPrep(snap) {
     if (!genP || genP.id !== snap.id) genP = makeLibraryContext(snap);
     return genP.ix;
   }
@@ -5574,7 +5701,7 @@ function ready(D, A, issues) {
   let batchRun = null;
   function openBatch() {
     if (!ours()) return;
-    syncLibrarySelectors(); if (!batchRun) $('#bLibrary').value = defaultLibraryId;
+    syncLibrarySelectors();
     $('#batch').hidden = false;
     if (!$('#bFrom').dataset.touched) $('#bFrom').value = campaign.levels.length + 1;
     previewCurve();
@@ -5583,13 +5710,18 @@ function ready(D, A, issues) {
     const num = (id, lo, hi, dv) => { const v = parseFloat($(id).value); return Number.isFinite(v) ? Math.max(lo, Math.min(hi, v)) : dv; };
     const from = Math.round(num('#bFrom', 1, 99999, 1));
     return {...WTEngine.DEFAULTS, seed: $('#bSeed').value || 'WT-2026', preset: $('#bPreset').value,
-      libraryId: $('#bLibrary').value || defaultLibraryId, from, start: from, count: Math.round(num('#bCount', 1, 2000, 50)),
+      targetLibraryIds: (batchLibrarySelection?.targetIds || []).slice(), extraLibraryIds: (batchLibrarySelection?.extraIds || []).slice(),
+      from, start: from, count: Math.round(num('#bCount', 1, 2000, 50)),
       attempts: Math.round(num('#bAttempts', 10, 1000, 100)), cooldown: Math.round(num('#bCooldown', 0, 100, 20)),
       extraWeight: num('#bExtraWeight', 0, 8, 0.8), maxUse: Math.round(num('#bMaxN', 1, 20, 13)), mode: $('#bMode').value};
   }
   function previewCurve() {
-    const stats = WPLibrary.compile(libraryData, selectedRecipe($('#bLibrary').value || defaultLibraryId), {abbr: [...abbrSet]}).stats;
-    $('#bLexNote').textContent = '当前词库：必答候选 ' + stats.candidates + ' · 仅额外 ' + stats.extras + '。本批次固定保存词库快照；未选为必答的可达候选也可计额外。';
+    let plan;
+    try { plan = batchRun?.plan || batchLibraryPlan(); }
+    catch (e) { $('#bLexNote').textContent = e.message; $('#bGo').disabled = true; return; }
+    const stats = plan.stats, selection = plan.snapshot.recipe.selection;
+    $('#bLexNote').textContent = '必答：已选 ' + selection.target.length + ' 库，生效 ' + stats.candidates.toLocaleString() + ' 词；仅额外：已选 ' + selection.extra.length + ' 库，生效 ' + stats.extras.toLocaleString() + ' 词。' +
+      (stats.candidates ? '未被选为本关必答的可达候选仍可计为额外词。' : '请至少选择一份有生效必答候选的词库。');
     if (!batchRun) $('#bGo').disabled = !stats.candidates;
     const cfg = batchCfg(), cv = $('#bCurve'), ctx = cv.getContext('2d'), W = cv.width, H = cv.height;
     ctx.clearRect(0, 0, W, H); ctx.strokeStyle = '#d2c2a4'; ctx.strokeRect(.5,.5,W-1,H-1);
@@ -5607,8 +5739,10 @@ function ready(D, A, issues) {
   function startBatch() {
     if (batchRun) return;
     delete window.__lastBatch;
-    const cfg = batchCfg(), ix = genPrep(), librarySnapshot = selectedSnapshot(cfg.libraryId);
-    if (!ix.acceptable.some(x => x.role === 'candidate')) { toast('词库没有生效必答候选，请调整配置'); return; }
+    let plan;
+    try { plan = batchLibraryPlan(); } catch (e) { toast(e.message); return; }
+    if (!plan.stats.candidates) { toast('请至少选择一份有生效必答候选的词库'); return; }
+    const cfg = batchCfg(), librarySnapshot = plan.snapshot, ix = genPrep(librarySnapshot);
     snapshot();
     const librarySnapshotId = registerLibrarySnapshot(librarySnapshot);
     const replace = cfg.mode === 'replace';
@@ -5616,7 +5750,7 @@ function ready(D, A, issues) {
     const after = replace ? [] : campaign.levels.slice(campaign.index + 1);
     const history = WTEngine.historyFromLevels(before.map((d,i) => ({number: cfg.from - before.length + i, targets: d.words})));
     const made = [], failures = []; const t0 = performance.now(); let k = 0;
-    batchRun = {cancel:false, librarySnapshotId}; $('#bLibrary').disabled = true; $('#bGo').disabled = true; $('#bStop').disabled = false;
+    batchRun = {cancel:false, librarySnapshotId, plan}; $('#bTargetLibraries').disabled = true; $('#bExtraLibraries').disabled = true; $('#bGo').disabled = true; $('#bStop').disabled = false;
     $('#bOut').textContent = ''; $('#bBar').style.width = '0%';
     function step() {
       if (batchRun.cancel || k >= cfg.count) return finish();
@@ -5645,12 +5779,14 @@ function ready(D, A, issues) {
         boardKey=''; suggCache=null; persist(); render();
       }
       const cancelled=batchRun.cancel;
-      window.__lastBatch={made:made.length,failed:failures.length,failures,secs,cancelled,engine:'v2',preset:cfg.preset,librarySnapshotId};
+      window.__lastBatch={made:made.length,failed:failures.length,failures,secs,cancelled,engine:'v2',preset:cfg.preset,librarySnapshotId,targetLibraryIds:cfg.targetLibraryIds,extraLibraryIds:cfg.extraLibraryIds};
       $('#bOut').innerHTML='<p>v2 生成 <b>'+made.length+'</b> 关，用时 '+secs+' 秒'+(cancelled?'（已中止）':'')+'。</p>'+
         '<p>必答权限、全路径同组用格、全盘覆盖和逐格次数检查通过；不自动降低安全条件或难度。</p>'+
         (failures.length?'<p class="bad">未生成 '+failures.length+' 关：'+failures.map(x=>esc(x.number+'：'+x.reason)).join('；')+'</p>':'')+
-        '<p>本批次词库：' + esc(librarySnapshot.recipe.name) + ' · v' + librarySnapshot.recipe.revision + '。</p>';
-      batchRun=null; $('#bLibrary').disabled=false; $('#bGo').disabled=false; $('#bStop').disabled=true; toast('已生成 '+made.length+' 关');
+        '<p>必答词库：' + (librarySnapshot.recipe.selection.target.map(r => esc(r.name) + ' · v' + r.revision).join('、') || '无') + '。</p>' +
+        '<p>仅额外词库：' + (librarySnapshot.recipe.selection.extra.map(r => esc(r.name) + ' · v' + r.revision).join('、') || '无') + '。</p>';
+      batchRun=null; $('#bTargetLibraries').disabled=false; $('#bExtraLibraries').disabled=false; $('#bStop').disabled=true;
+      syncLibrarySelectors(); if ($('#batch').hidden) previewCurve(); toast('已生成 '+made.length+' 关');
     }
     step();
   }
@@ -5675,7 +5811,17 @@ function ready(D, A, issues) {
   $('#bClose').onclick = () => { $('#batch').hidden = true; };
   $('#bGo').onclick = startBatch;
   $('#bStop').onclick = () => { if (batchRun) batchRun.cancel = true; };
-  $('#batch').addEventListener('input', e => { if (e.target.id === 'bFrom') e.target.dataset.touched = 1; previewCurve(); });
+  $('#batch').addEventListener('input', e => {
+    if (e.target.dataset.batchLibrary) rememberBatchLibrarySelection();
+    if (e.target.id === 'bFrom') e.target.dataset.touched = 1;
+    previewCurve();
+  });
+  $('#batch').addEventListener('click', e => {
+    const button = e.target.closest('[data-batch-select]');
+    if (!button || batchRun) return;
+    for (const input of document.querySelectorAll('[data-batch-library="' + button.dataset.batchSelect + '"]:not(:disabled)')) input.checked = button.dataset.selectAll === '1';
+    rememberBatchLibrarySelection(); previewCurve();
+  });
   window.__desk = {
     campaign: () => campaign,
     deskText, importText: applyImport,
@@ -5687,7 +5833,7 @@ function ready(D, A, issues) {
     startBatch: startBatch,
     cfg: batchCfg,
     ready: () => bootReady,
-    flush: () => persist(),
+    flush: () => Promise.all([persist(), batchSelectionQ]),
     file: () => currentFile,
     pace: () => ({ metric: pacePref.metric, extra: !!pacePref.extra, explain: lastPace ? lastPace.explain : '' }),
     paceRows: () => lastPace ? lastPace.rows.map(r => ({

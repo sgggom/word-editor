@@ -121,6 +121,9 @@
   function compile(data, recipe, rules = {}) {
     validateRecipe(recipe, data);
     const target = evaluatePool(data, recipe.targetPool), extra = evaluatePool(data, recipe.extraPool);
+    return compileWords(target, extra, rules);
+  }
+  function compileWords(target, extra, rules = {}) {
     const abbreviations = new Set((rules.abbr || []).map(normalize));
     const words = sorted([...target, ...extra]), lex = [], excluded = [], downgraded = [];
     for (const word of words) {
@@ -144,14 +147,49 @@
   }
   function snapshot(data, recipe, rules = {}) {
     const compiled = compile(data, recipe, rules);
+    return snapshotOf(recipe, compiled.lex, rules);
+  }
+  function snapshotOf(recipe, lex, rules) {
     const body = {schemaVersion: 1, recipe: JSON.parse(JSON.stringify(recipe)),
-      rules: {abbr: sorted((rules.abbr || []).map(normalize))}, lex: compiled.lex};
+      rules: {abbr: sorted((rules.abbr || []).map(normalize))}, lex};
     return {id: 'lib-' + contentId(body), ...body};
+  }
+  function combine(data, selection = {}, rules = {}) {
+    const seen = new Map(), groups = {}, target = new Set(), extra = new Set();
+    for (const key of ['target', 'extra']) {
+      const input = selection[key] || [];
+      if (!Array.isArray(input)) throw new Error('请选择有效的词库列表');
+      const recipes = new Map();
+      for (const recipe of input) {
+        validateRecipe(recipe, data);
+        const signature = JSON.stringify(recipe);
+        if (seen.has(recipe.id) && seen.get(recipe.id) !== signature) throw new Error('同一个词库不能同时使用不同版本');
+        seen.set(recipe.id, signature); recipes.set(recipe.id, recipe);
+      }
+      groups[key] = [...recipes.values()].sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+      for (const recipe of groups[key]) {
+        // Select each library's effective role first. Apply the current user's bans once,
+        // after the two groups have been merged, so target downgrades remain extra words.
+        const compiled = compile(data, recipe);
+        for (const entry of compiled.lex) if (entry.role === (key === 'target' ? 'candidate' : 'extra')) {
+          (key === 'target' ? target : extra).add(entry.word);
+        }
+      }
+    }
+    const compiled = compileWords(target, extra, rules);
+    const all = [...groups.target, ...groups.extra], only = new Set(all.map(r => r.id)).size === 1 ? all[0] : null;
+    const recipe = {id: 'selection-' + contentId(groups), kind: 'library-selection',
+      name: only ? only.name : '组合词库 · 必答 ' + groups.target.length + ' 库 / 仅额外 ' + groups.extra.length + ' 库',
+      revision: only ? only.revision : 1, datasetHash: data.datasetHash, selection: groups};
+    return {...compiled, snapshot: snapshotOf(recipe, compiled.lex, rules)};
   }
   function validateSnapshot(value) {
     if (!value || value.schemaVersion !== 1 || !value.recipe || !Array.isArray(value.lex) || !value.rules || !Array.isArray(value.rules.abbr)) throw new Error('词库快照缺失或格式无效');
     if (typeof value.recipe.id !== 'string' || !value.recipe.id || typeof value.recipe.name !== 'string' || !value.recipe.name.trim() || !Number.isInteger(value.recipe.revision) || value.recipe.revision < 1 || typeof value.recipe.datasetHash !== 'string' || !value.recipe.datasetHash) throw new Error('词库快照版本信息无效');
     if (value.rules.abbr.some(w => typeof w !== 'string')) throw new Error('词库快照禁表无效');
+    if (value.recipe.kind === 'library-selection' && (!value.recipe.selection ||
+      !['target', 'extra'].every(key => Array.isArray(value.recipe.selection[key]) && value.recipe.selection[key].every(r =>
+        r && typeof r.id === 'string' && typeof r.name === 'string' && Number.isInteger(r.revision) && r.revision > 0 && r.datasetHash === value.recipe.datasetHash)))) throw new Error('组合词库来源记录无效');
     const seen = new Set();
     for (const entry of value.lex) {
       if (!entry || !['candidate', 'extra'].includes(entry.role) || !new RegExp(entry.role === 'candidate' ? '^[A-Z]{3,8}$' : '^[A-Z]{2,8}$').test(entry.word) || seen.has(entry.word)) throw new Error('词库快照词条无效');
@@ -170,5 +208,5 @@
     }
     return index;
   }
-  return {ROLES, ROLE_LABELS, normalize, defaultRecipe, tieredRecipes, validateRecipe, sourceKey, uniquePoolSources, sourceWords, partitionPool, selectedRegionMasks, withRegionSelection, evaluatePool, compile, snapshot, validateSnapshot, catalogIndex, contentId};
+  return {ROLES, ROLE_LABELS, normalize, defaultRecipe, tieredRecipes, validateRecipe, sourceKey, uniquePoolSources, sourceWords, partitionPool, selectedRegionMasks, withRegionSelection, evaluatePool, compile, combine, snapshot, validateSnapshot, catalogIndex, contentId};
 });

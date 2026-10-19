@@ -6,6 +6,8 @@
   const initialSnapshot = WPLibrary.snapshot(libraryData, initialRecipe);
   let libraryRecipes = initialRecipes;
   let defaultLibraryId = initialRecipe.id;
+  let batchLibrarySelection = null, batchSelectionLoaded = false, batchSelectionQ = Promise.resolve();
+  const batchLibraryCounts = new WeakMap();
   const libraryContexts = new Map();
   const verifiedSnapshots = new WeakSet();
   function freezeLibrary(value) {
@@ -68,6 +70,8 @@
     if (bar) {
       bar.hidden = !ours();
       $('#levelLibraryName').textContent = next.snapshot.recipe.name + ' · v' + next.snapshot.recipe.revision;
+      const selection = next.snapshot.recipe.selection;
+      $('#levelLibraryName').title = selection ? '必答：' + (selection.target.map(r => r.name + ' v' + r.revision).join('、') || '无') + '\n仅额外：' + (selection.extra.map(r => r.name + ' v' + r.revision).join('、') || '无') : '';
     }
   }
   function requiredWord(w, d) {
@@ -118,13 +122,63 @@
     defaultLibraryId = defaultId;
     syncLibrarySelectors();
   }
-  function syncLibrarySelectors() {
-    const select = $('#bLibrary');
-    if (select) {
-      const value = select.value || defaultLibraryId;
-      select.innerHTML = libraryRecipes.map(r => '<option value="' + esc(r.id) + '">' + esc(r.name) + ' · v' + r.revision + '</option>').join('');
-      select.value = libraryRecipes.some(r => r.id === value) ? value : defaultLibraryId;
+  function batchLibraryOptions() {
+    return libraryRecipes.map(recipe => {
+      if (!batchLibraryCounts.has(recipe)) batchLibraryCounts.set(recipe, WPLibrary.compile(libraryData, recipe).stats);
+      const stats = batchLibraryCounts.get(recipe);
+      return {recipe, target: stats.candidates, extra: stats.extras};
+    });
+  }
+  function persistBatchLibrarySelection() {
+    if (!batchSelectionLoaded || !batchLibrarySelection) return batchSelectionQ;
+    const state = JSON.parse(JSON.stringify({schemaVersion: 1, ...batchLibrarySelection, savedAt: Date.now()}));
+    const text = JSON.stringify(state);
+    try { localStorage.setItem('wp.leveldesk.batchLibraries', text); } catch (e) {}
+    batchSelectionQ = batchSelectionQ.catch(() => {}).then(async () => {
+      try {
+        await idbPut('kv', state, 'batchLibraries');
+        try { if (localStorage.getItem('wp.leveldesk.batchLibraries') === text) localStorage.removeItem('wp.leveldesk.batchLibraries'); } catch (e) {}
+      } catch (e) { localStorage.setItem('wp.leveldesk.batchLibraries', JSON.stringify({schemaVersion: 1, ...batchLibrarySelection, savedAt: Date.now()})); }
+    });
+    return batchSelectionQ;
+  }
+  async function loadBatchLibrarySelection() {
+    let state;
+    try { state = await idbGet('kv', 'batchLibraries'); } catch (e) {}
+    try {
+      const fallback = JSON.parse(localStorage.getItem('wp.leveldesk.batchLibraries') || 'null');
+      if (fallback && (!state || (fallback.savedAt || 0) >= (state.savedAt || 0))) state = fallback;
+    } catch (e) {}
+    if (state?.schemaVersion === 1 && typeof state.defaultId === 'string' &&
+      ['targetIds', 'extraIds'].every(key => Array.isArray(state[key]) && state[key].every(id => typeof id === 'string'))) {
+      batchLibrarySelection = {defaultId: state.defaultId, targetIds: state.targetIds, extraIds: state.extraIds};
     }
+    batchSelectionLoaded = true; syncLibrarySelectors(); await batchSelectionQ.catch(() => {});
+  }
+  function syncLibrarySelectors() {
+    if (!batchSelectionLoaded || batchRun) return;
+    const options = batchLibraryOptions(), before = JSON.stringify(batchLibrarySelection);
+    if (!batchLibrarySelection || batchLibrarySelection.defaultId !== defaultLibraryId) {
+      const selected = options.find(x => x.recipe.id === defaultLibraryId);
+      batchLibrarySelection = {defaultId: defaultLibraryId,
+        targetIds: selected?.target ? [defaultLibraryId] : [], extraIds: selected?.extra ? [defaultLibraryId] : []};
+    }
+    for (const key of ['target', 'extra']) {
+      const valid = new Set(options.filter(x => x[key] > 0).map(x => x.recipe.id));
+      batchLibrarySelection[key + 'Ids'] = [...new Set(batchLibrarySelection[key + 'Ids'])].filter(id => valid.has(id));
+      const selected = new Set(batchLibrarySelection[key + 'Ids']);
+      const rows = options.filter(x => x[key] || x.recipe[key === 'target' ? 'targetPool' : 'extraPool'].sources.length);
+      $('#' + (key === 'target' ? 'bTargetOptions' : 'bExtraOptions')).innerHTML = rows.map(({recipe, [key]: count}) =>
+        '<label class="batch-library-option"><input type="checkbox" data-batch-library="' + key + '" value="' + esc(recipe.id) + '"' +
+        (selected.has(recipe.id) ? ' checked' : '') + (!count ? ' disabled' : '') + '><span title="' + esc(recipe.name + ' · v' + recipe.revision) + '">' + esc(recipe.name) + '</span><small>' + count.toLocaleString() + ' 词</small></label>').join('') || '<p class="note">暂无这类词库，可先在词库窗口中配置。</p>';
+    }
+    if (before !== JSON.stringify(batchLibrarySelection)) persistBatchLibrarySelection().catch(() => toast('本次词库选择暂未保存'));
+    if (!$('#batch').hidden) previewCurve();
+  }
+  function rememberBatchLibrarySelection() {
+    if (!batchSelectionLoaded || batchRun) return;
+    for (const key of ['target', 'extra']) batchLibrarySelection[key + 'Ids'] = [...document.querySelectorAll('[data-batch-library="' + key + '"]:checked')].map(el => el.value);
+    persistBatchLibrarySelection().catch(() => toast('本次词库选择暂未保存'));
   }
   function rebindCurrentLibrary(recipeId) {
     if (!ours() || batchRun) throw new Error('请在我们的关卡中、生成结束后切换词库');

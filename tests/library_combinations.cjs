@@ -1,0 +1,36 @@
+const assert=require('node:assert/strict');
+const L=require('../src/library'),data=require('../data/game_vocab/catalog.json');
+const tiers=L.tieredRecipes(data),target=tiers.filter(r=>r.targetPool.sources.length),extra=tiers.filter(r=>r.extraPool.sources.length);
+const selection={target:target.slice(0,2),extra:extra.slice(0,2)};
+const combined=L.combine(data,selection);
+assert.equal(combined.stats.candidates,3363);assert.equal(combined.stats.extras,1686);
+assert.equal(combined.snapshot.recipe.kind,'library-selection');
+L.validateSnapshot(JSON.parse(JSON.stringify(combined.snapshot)));
+assert.deepEqual(L.combine(data,combined.snapshot.recipe.selection,combined.snapshot.rules).snapshot,combined.snapshot);
+const all=L.combine(data,{target,extra}),template=L.defaultRecipe(data);
+assert.deepEqual(all.lex,L.compile(data,template).lex);
+assert.deepEqual(L.combine(data,{target:[template]}).lex,L.compile(data,template).lex.filter(x=>x.role==='candidate'));
+assert.deepEqual(L.combine(data,{extra:[template]}).lex,L.compile(data,template).lex.filter(x=>x.role==='extra'));
+assert.deepEqual(L.combine(data,{target:[template],extra:[template]}).lex,L.compile(data,template).lex);
+assert.equal(L.combine(data,{target:[target[1],target[0],target[0]],extra:[extra[1],extra[0],extra[1]]}).snapshot.id,combined.snapshot.id);
+assert.equal(L.combine(data,{}).lex.length,0);
+assert.equal(L.combine(data,{extra}).stats.candidates,0);
+assert.equal(L.combine(data,{target:[{...target[0],revision:2}]}).snapshot.recipe.revision,2);
+
+// A word can be a target in one configuration and extra-only in another.
+const source={gameId:'g',configId:'*',roles:['target']};
+const fixture={datasetHash:'fixture',games:[{id:'g',configs:[{id:'a',words:{target:['CAT','DOG','OX','CAFÉ'],extra:['CAT','TO'],onlyExtra:[],bonus:[]}}]}]};
+const first={id:'first',name:'targets',revision:1,datasetHash:'fixture',targetPool:{operation:'union',sources:[source]},extraPool:{operation:'union',sources:[]}};
+const second={id:'second',name:'extras',revision:1,datasetHash:'fixture',targetPool:{operation:'union',sources:[]},extraPool:{operation:'union',sources:[{...source,roles:['extra']}]}};
+assert.deepEqual(L.combine(fixture,{target:[first],extra:[second]}).lex,[{word:'CAT',role:'candidate'},{word:'DOG',role:'candidate'},{word:'TO',role:'extra'}]);
+assert.equal(L.combine(fixture,{target:[first],extra:[second]}).stats.overlap,1);
+assert.deepEqual(L.combine(fixture,{target:[first]},{abbr:['cat']}).lex,[{word:'CAT',role:'extra'},{word:'DOG',role:'candidate'}]);
+assert.deepEqual(L.combine(fixture,{target:[first],extra:[second]},{abbr:['cat']}).lex,[{word:'CAT',role:'extra'},{word:'DOG',role:'candidate'},{word:'TO',role:'extra'}]);
+assert.throws(()=>L.combine(fixture,{target:[first,{...first,revision:2}]}),/不同版本/);
+assert.throws(()=>L.combine(fixture,{target:[first],extra:[{...first,revision:2}]}),/不同版本/);
+assert.throws(()=>L.combine(fixture,{target:'first'}));
+const frozen=L.combine(fixture,{target:[first]}).snapshot,original=structuredClone(frozen);
+first.targetPool.sources=[];assert.deepEqual(frozen,original);
+const damaged=structuredClone(combined.snapshot);damaged.recipe.selection.target[0].revision++;
+assert.throws(()=>L.validateSnapshot(damaged));
+console.log('library combinations: separate roles, union/deduplication, overlap priority, bans, empty groups, versioned snapshots and round trips passed');

@@ -77,7 +77,7 @@ async function nameLibrary(page, button, name) {
   await page.click('#bGo');await page.waitForFunction(()=>__lastBatch,{timeout:120000});assert.equal(await page.evaluate(()=>__lastBatch.made),3);
   await page.click('#bClose');const levels=await page.evaluate(()=>__desk.exportLevels());
   const campaign=await page.evaluate(()=>__desk.campaign()),snap=campaign.librarySnapshots[campaign.levels[0].librarySnapshotId];
-  assert.deepEqual(snap.lex,compiled.lex);assert.deepEqual(snap.recipe.targetPool.selectedRegions,['8','15']);
+  assert.deepEqual(snap.lex,compiled.lex);assert.deepEqual(snap.recipe.selection.target[0].targetPool.selectedRegions,['8','15']);
   const targets=new Set(compiled.targetWords);assert(levels.every(l=>l.t.split(' ').every(w=>targets.has(w))));
   fs.writeFileSync('/tmp/library-regions-levels.json',JSON.stringify(levels));fs.writeFileSync('/tmp/library-regions-lex.json',JSON.stringify(compiled.lex));
   // Editing only one pool's sources invalidates only that pool's old area binding.
