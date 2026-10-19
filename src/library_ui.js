@@ -41,7 +41,6 @@
   }
   function renderLibraryEditor() {
     $('#librarySelect').innerHTML = recipeOptionHtml(); $('#librarySelect').value = bankDraft.id;
-    $('#libraryName').value = bankDraft.name;
     $('#bankFilters').innerHTML = poolEditor('targetPool', '必答候选池') + poolEditor('extraPool', '额外词池') +
       '<p class="note">每个来源先合并所选词类；全部版本先取并集，再参与词池运算。两个词池独立配置。</p>';
     $('#librarySetDefault').disabled = !libraryRecipes.some(r => r.id === bankDraft.id);
@@ -218,12 +217,38 @@
     try { await action(); } catch (e) { toast(e.message || '词库操作失败'); $('#libraryStatus').textContent = e.message || '词库操作失败'; }
     finally { buttons.forEach(b => b.disabled = false); if (bankDraft) { renderLibraryEditor(); $('#librarySave').disabled = !bankCompiled; } }
   }
-  function newBankRecipe(copy) {
-    rememberBankDraft();
-    bankDraft = copy ? cloneLibrary(bankDraft) : WPLibrary.defaultRecipe(libraryData);
-    bankDraft.id = newId(); bankDraft.name = copy ? bankDraft.name + ' · 副本' : '新词库'; bankDraft.revision = 1; bankDraft.datasetHash = libraryData.datasetHash;
+  async function newBankRecipe(copy, name) {
+    const recipe = copy ? cloneLibrary(bankDraft) : WPLibrary.defaultRecipe(libraryData);
+    recipe.id = newId(); recipe.name = name; recipe.revision = 1; recipe.datasetHash = libraryData.datasetHash;
+    WPLibrary.compile(libraryData, recipe, {abbr: [...abbrSet]});
+    await saveLibraryState(libraryRecipes.concat(recipe));
+    rememberBankDraft(); bankDraft = cloneLibrary(recipe);
     bankState.scope = 'result'; $('#bankScope').value = 'result'; bankState.page = 0; bankState.picked = '';
-    rememberBankDraft(); renderLibraryEditor(); updateLibraryPreview(); $('#libraryName').focus(); $('#libraryName').select();
+    renderLibraryEditor(); updateLibraryPreview(); toast(copy ? '词库副本已创建' : '词库已创建，可继续配置范围');
+  }
+  async function renameBankRecipe(name) {
+    if (name === bankDraft.name) return;
+    const saved = libraryRecipes.find(r => r.id === bankDraft.id);
+    if (saved) {
+      const renamed = Object.assign(cloneLibrary(saved), {name, revision: saved.revision + 1});
+      WPLibrary.validateRecipe(renamed, libraryData);
+      await saveLibraryState(libraryRecipes.map(r => r.id === saved.id ? renamed : r));
+      bankDraft.revision = renamed.revision;
+    }
+    bankDraft.name = name;
+    renderLibraryEditor(); updateLibraryPreview(); toast('词库已重命名');
+  }
+  let libraryNameMode = 'new', libraryNameBusy = false;
+  function openLibraryNameDialog(mode) {
+    libraryNameMode = mode;
+    const copy = mode === 'copy', rename = mode === 'rename';
+    $('#libraryNameTitle').textContent = rename ? '重命名词库' : copy ? '复制词库' : '新建词库';
+    $('#libraryNameHint').textContent = rename ? '为当前词库设置新名称。' : copy ? '为当前配置的副本命名。' : '命名后可配置必答池和额外池的范围。';
+    $('#libraryNameConfirm').textContent = rename ? '保存名称' : copy ? '创建副本' : '新建';
+    $('#libraryName').value = rename ? bankDraft.name : copy ? (bankDraft.name.slice(0, 75) + ' · 副本') : '';
+    $('#libraryNameError').hidden = true; $('#libraryNameError').textContent = '';
+    $('#libraryName').removeAttribute('aria-invalid');
+    $('#libraryNameDialog').showModal(); $('#libraryName').focus(); $('#libraryName').select();
   }
   function exportBank(kind) {
     const rows = bankMatches;
@@ -235,15 +260,32 @@
   $('#bankClose').onclick = () => { rememberBankDraft(); $('#bank').hidden = true; hideGloss(); };
   $('#bankQ').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); openBank($('#bankQ').value); } });
   $('#librarySelect').onchange = e => chooseBankRecipe(e.target.value);
-  $('#libraryName').oninput = e => {
-    bankDraft.name = e.target.value;
-    const option = $('#librarySelect').selectedOptions[0];
-    if (option) option.textContent = (bankDraft.name || '未命名词库') + (bankDraft.id === defaultLibraryId ? ' · 默认' : '');
-    updateLibraryPreview();
+  $('#libraryName').oninput = () => {
+    $('#libraryNameError').hidden = true; $('#libraryName').removeAttribute('aria-invalid');
   };
-  $('#libraryNew').onclick = () => newBankRecipe(false);
-  $('#libraryCopy').onclick = () => newBankRecipe(true);
-  $('#libraryNameForm').onsubmit = e => { e.preventDefault(); libraryAction(saveBankRecipe); };
+  $('#libraryNew').onclick = () => openLibraryNameDialog('new');
+  $('#libraryCopy').onclick = () => openLibraryNameDialog('copy');
+  $('#libraryRename').onclick = () => openLibraryNameDialog('rename');
+  $('#libraryNameCancel').onclick = () => { if (!libraryNameBusy) $('#libraryNameDialog').close(); };
+  $('#libraryNameDialog').addEventListener('cancel', e => { if (libraryNameBusy) e.preventDefault(); });
+  $('#libraryNameForm').onsubmit = async e => {
+    e.preventDefault(); if (libraryNameBusy) return;
+    const input = $('#libraryName'), error = $('#libraryNameError'), name = input.value.trim();
+    if (!name || name.length > 80) {
+      error.textContent = name ? '词库名称不能超过 80 个字符。' : '请输入词库名称。'; error.hidden = false;
+      input.setAttribute('aria-invalid', 'true'); input.focus(); return;
+    }
+    libraryNameBusy = true;
+    const controls = [...$('#libraryNameForm').querySelectorAll('input, button')];
+    controls.forEach(el => el.disabled = true);
+    try {
+      if (libraryNameMode === 'rename') await renameBankRecipe(name);
+      else await newBankRecipe(libraryNameMode === 'copy', name);
+      $('#libraryNameDialog').close();
+    } catch (e) { error.textContent = e.message || '词库操作失败'; error.hidden = false; }
+    finally { libraryNameBusy = false; controls.forEach(el => el.disabled = false); if ($('#libraryNameDialog').open) input.focus(); }
+  };
+  $('#librarySave').onclick = () => libraryAction(saveBankRecipe);
   $('#libraryDelete').onclick = () => libraryAction(async () => {
     const id = bankDraft.id, next = libraryRecipes.filter(r => r.id !== id);
     if (!next.length) next.push(cloneLibrary(initialRecipe));

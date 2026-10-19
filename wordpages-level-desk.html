@@ -639,15 +639,18 @@ html,body{overflow-x:hidden;max-width:100vw}
 #bank .bk-bar #bankClose{margin-left:auto}
 .lib-toolbar,.lib-browse-controls{display:flex;flex-wrap:wrap;gap:8px;padding:10px 14px;align-items:center;border-bottom:1px solid var(--rule)}
 .lib-toolbar{display:block}
-.lib-toolbar-row,.lib-name-row,.lib-toolbar-actions,.lib-word-search{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
-.lib-name-row{margin:10px 0 0}
+.lib-toolbar-row,.lib-toolbar-actions,.lib-word-search{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
 .lib-toolbar-actions{margin-left:auto}
 .lib-toolbar label,.lib-word-search label{font-size:12px;font-weight:600;color:var(--ink-soft);white-space:nowrap}
-.lib-name-row .note{margin:0}
 .lib-word-search{flex-basis:100%}
 .lib-toolbar input,.lib-toolbar select,.lib-browse-controls input,.lib-browse-controls select,.lib-pool select{background:var(--paper);border:1px solid var(--rule);border-radius:4px;padding:6px;max-width:100%;min-width:0}
 .lib-toolbar button,.lib-browse-controls button,.lib-pool button{border:1px solid var(--rule);border-radius:4px;padding:6px 10px}
-#libraryName{width:260px}#librarySelect{max-width:260px}#libraryStatus{font-size:12px;color:var(--ink-soft)}
+#librarySelect{max-width:260px}#libraryStatus{display:block;margin-top:8px;font-size:12px;color:var(--ink-soft)}
+.library-name-dialog{border:1px solid var(--rule);color:var(--ink);box-shadow:0 20px 60px rgba(20,12,8,.3)}
+.library-name-dialog::backdrop{background:rgba(20,12,8,.5)}
+.library-name-dialog label{display:block;margin:14px 0 6px;font-size:13px;font-weight:600}
+#libraryName{width:100%;padding:8px 10px;border:1px solid var(--rule);border-radius:4px;background:#fffaf0}
+#libraryNameError{margin:8px 0 0;font-size:13px;color:var(--bad)}
 .lib-pool{padding:10px 2px 18px;border-bottom:1px solid var(--rule)}
 .lib-pool-heading,.lib-source-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .lib-pool-heading h4{margin:0 0 10px}.lib-source{padding:10px;margin:9px 0;background:rgba(166,132,60,.06);border:1px solid var(--rule);border-radius:5px}
@@ -661,7 +664,7 @@ html,body{overflow-x:hidden;max-width:100vw}
 #levelLibraryBar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:7px 20px;border-bottom:1px solid var(--rule);font-size:12px;background:rgba(166,132,60,.05)}
 #levelLibraryBar button{font-size:12px;text-decoration:underline}#levelLibraryBar span{color:var(--ink-soft)}
 @media(max-width:900px){#bank{padding:6px}#bank .bk-body{grid-template-columns:310px minmax(0,1fr)}.lib-toolbar{gap:5px}#libraryStats{gap:12px}}
-@media(max-width:650px){#bank .bk-body{grid-template-columns:1fr;overflow:auto;display:block}#bank .bk-side{max-height:40vh}#bank .bk-main{min-height:70vh}#bankList{min-height:250px;max-height:40vh}.lib-toolbar select{max-width:180px}#libraryName{width:150px}}
+@media(max-width:650px){#bank .bk-body{grid-template-columns:1fr;overflow:auto;display:block}#bank .bk-side{max-height:40vh}#bank .bk-main{min-height:70vh}#bankList{min-height:250px;max-height:40vh}.lib-toolbar select{max-width:180px}}
 
 /* Desktop vocabulary range view. */
 .library-views{display:flex;gap:6px;padding:8px 14px;border-bottom:1px solid var(--rule)}
@@ -708,8 +711,8 @@ html,body{overflow-x:hidden;max-width:100vw}
 <body>
 <div id="desk" data-view="list">
   <header class="top">
-    <div class="srcbar" id="srcBar" title="版本 2026.10.19.8 · WTEngine v2">
-      <button type="button" class="app-version" id="btnVersion" aria-label="版本 v2026.10.19.8，点击查看版本历史" aria-haspopup="dialog">v2026.10.19.8</button>
+    <div class="srcbar" id="srcBar" title="版本 2026.10.19.9 · WTEngine v2">
+      <button type="button" class="app-version" id="btnVersion" aria-label="版本 v2026.10.19.9，点击查看版本历史" aria-haspopup="dialog">v2026.10.19.9</button>
       <div class="src-tabs" role="tablist" aria-label="关卡来源">
         <button type="button" data-src="ours" class="on" role="tab" aria-selected="true">我们的</button>
         <button type="button" data-src="wt" role="tab" aria-selected="false">Word Tiles</button>
@@ -921,17 +924,14 @@ html,body{overflow-x:hidden;max-width:100vw}
     <div class="lib-toolbar">
       <div class="lib-toolbar-row">
         <label for="librarySelect">当前词库</label><select id="librarySelect"></select>
-        <button type="button" id="libraryNew">新建词库</button><button type="button" id="libraryCopy">复制词库</button><button type="button" id="libraryDelete" data-library-action>删除</button>
+        <button type="button" id="libraryNew">新建词库</button><button type="button" id="libraryRename">重命名</button><button type="button" id="libraryCopy">复制词库</button><button type="button" id="libraryDelete" data-library-action>删除</button>
+        <button type="button" id="librarySave" data-library-action class="primary">保存配置</button>
         <div class="lib-toolbar-actions">
           <button type="button" id="librarySetDefault" data-library-action>设为默认</button><button type="button" id="libraryApplyLevel" data-library-action>应用到本关</button>
           <button type="button" id="libraryExport" data-library-action>导出配置</button><button type="button" id="libraryImport">导入配置</button><input id="libraryFile" type="file" accept=".json" hidden>
         </div>
       </div>
-      <form id="libraryNameForm" class="lib-name-row">
-        <label for="libraryName">配置名称</label><input id="libraryName" maxlength="80" required placeholder="给这份配置起个名字" aria-describedby="libraryNameHint" autocomplete="off" spellcheck="false">
-        <button type="submit" id="librarySave" data-library-action class="primary">保存配置</button>
-        <span id="libraryStatus" role="status"></span><span id="libraryNameHint" class="note">修改名称或范围后，点击“保存配置”。</span>
-      </form>
+      <span id="libraryStatus" role="status"></span>
     </div>
     <nav class="library-views" aria-label="词库配置视图">
       <b>配置视图</b>
@@ -979,6 +979,15 @@ html,body{overflow-x:hidden;max-width:100vw}
     </div>
   </div>
 </div>
+<dialog id="libraryNameDialog" class="modal library-name-dialog" aria-labelledby="libraryNameTitle">
+  <form id="libraryNameForm" novalidate>
+    <h3 id="libraryNameTitle">新建词库</h3>
+    <p id="libraryNameHint" class="note"></p>
+    <label for="libraryName">词库名称</label><input id="libraryName" maxlength="80" required placeholder="请输入词库名称" aria-describedby="libraryNameHint libraryNameError" autocomplete="off" spellcheck="false">
+    <p id="libraryNameError" role="alert" hidden></p>
+    <div class="btns"><button type="button" id="libraryNameCancel">取消</button><button type="submit" id="libraryNameConfirm" class="primary">新建</button></div>
+  </form>
+</dialog>
 <div id="batch" hidden>
   <div class="bp">
     <h3>批量生成</h3>
@@ -1023,7 +1032,7 @@ html,body{overflow-x:hidden;max-width:100vw}
 <div id="gloss" hidden></div>
 <input type="file" id="file" accept="application/json,.json,.js,text/javascript" hidden>
 
-<script id="versions" type="application/json">[{"version":"2026.10.19.8","changes":["词库配置分开显示当前词库选择、配置名称与保存操作，明确名称输入框的用途。","新建或复制词库后自动选中名称，支持回车保存；单词搜索增加独立的查找单词标签。"]},{"version":"2026.10.19.7","changes":["继续精简顶部工具栏，移除导出游戏关卡和编辑这一关按钮。","关卡编辑使用列表内入口，返回列表按钮放在棋盘面板；游戏导出使用批量生成窗口内入口。"]},{"version":"2026.10.19.6","changes":["精简顶部工具栏，移除撤回、导入和加载示例按钮，关卡文件统一从打开入口载入。","保留编辑撤销快捷键 ⌘/Ctrl+Z，并同步两份独立 HTML。"]},{"version":"2026.10.19.5","changes":["词库配置统一为列表、饼图两种编辑视图；视图切换保留同一份配置。","饼图区域支持点击选中、再次点击取消和多选，已选区域直接决定词池内容。","保存、复制、导入导出及关卡快照保留区域选择；列表交并集与饼图选区同步，清空必答选区后禁止生成。"]},{"version":"2026.10.19.4","changes":["词库新增范围视图，分别查看必答池和额外池的圆形重叠图。","图形按所选游戏、版本与词类计算；点击区域查看精确词表，支持查词、出处与导出。","交集／并集与配置联动，区分来源结果和生效词；相同来源去重，较多来源提供精确组合列表。"]},{"version":"2026.10.19.3","changes":["默认词库的必答池、额外池均预选 Word Tiles、Zen Word、Words of Wonders、Wordscapes，使用全部版本。","两个词池分别选择交集或并集；新建配置预填四款游戏。旧配置升级一次并保留已保存的配置和关卡快照。"]},{"version":"2026.10.19.2","changes":["迁入 7 款游戏、25 份版本和 32,268 个去重词条，保留来源词类和完整关卡索引。","支持必答池、额外池独立选择游戏与版本做交集或并集，命名保存、导入导出并用于生成。","旧词库退出运行；默认使用 Word Tiles 两版并集。每关固定词库快照，配置修改不影响已有的关卡。"]},{"version":"2026.10.19.1","changes":["为全部 9,455 词补充竞品出题证据，区分稳定必答、条件必答、稳定额外和证据不足。","词库增加证据可信度、跨游戏差异和专项复核筛选，可查看倒读词对、词长限制及逐词审核建议。","补充 127 个边界词的文本复核依据，CSV 可导出完整审核记录；当前生成权限与审核建议分列。"]},{"version":"2026.10.17.2","changes":["点击左上角版本号可查看版本历史及各版改动。","版本号采用日期加当天序号，同一天更新依次递增。"]},{"version":"2026.10.17.1","changes":["左上角显示版本号，并增加当天版本序号。"]},{"version":"2026.10.17（编号前更新）","changes":["生成算法切换为 Word Tiles v2，支持 list0、list5 两套主线分段目标。","词库切换为 v2 的 9,455 词，区分必答候选、仅额外和待审核权限。","保留关卡编辑、试玩、存档及游戏 JSON 导出，修复单格编辑后撤回的问题。"]}]</script>
+<script id="versions" type="application/json">[{"version":"2026.10.19.9","changes":["移除词库配置区的常驻名称输入框，新建和复制时通过弹窗输入名称，已有词库通过重命名按钮修改名称。","命名弹窗支持回车确认、取消和空名称校验；重命名独立保存名称，保留尚未保存的范围修改及已有关卡的词库快照。"]},{"version":"2026.10.19.8","changes":["词库配置分开显示当前词库选择、配置名称与保存操作，明确名称输入框的用途。","新建或复制词库后自动选中名称，支持回车保存；单词搜索增加独立的查找单词标签。"]},{"version":"2026.10.19.7","changes":["继续精简顶部工具栏，移除导出游戏关卡和编辑这一关按钮。","关卡编辑使用列表内入口，返回列表按钮放在棋盘面板；游戏导出使用批量生成窗口内入口。"]},{"version":"2026.10.19.6","changes":["精简顶部工具栏，移除撤回、导入和加载示例按钮，关卡文件统一从打开入口载入。","保留编辑撤销快捷键 ⌘/Ctrl+Z，并同步两份独立 HTML。"]},{"version":"2026.10.19.5","changes":["词库配置统一为列表、饼图两种编辑视图；视图切换保留同一份配置。","饼图区域支持点击选中、再次点击取消和多选，已选区域直接决定词池内容。","保存、复制、导入导出及关卡快照保留区域选择；列表交并集与饼图选区同步，清空必答选区后禁止生成。"]},{"version":"2026.10.19.4","changes":["词库新增范围视图，分别查看必答池和额外池的圆形重叠图。","图形按所选游戏、版本与词类计算；点击区域查看精确词表，支持查词、出处与导出。","交集／并集与配置联动，区分来源结果和生效词；相同来源去重，较多来源提供精确组合列表。"]},{"version":"2026.10.19.3","changes":["默认词库的必答池、额外池均预选 Word Tiles、Zen Word、Words of Wonders、Wordscapes，使用全部版本。","两个词池分别选择交集或并集；新建配置预填四款游戏。旧配置升级一次并保留已保存的配置和关卡快照。"]},{"version":"2026.10.19.2","changes":["迁入 7 款游戏、25 份版本和 32,268 个去重词条，保留来源词类和完整关卡索引。","支持必答池、额外池独立选择游戏与版本做交集或并集，命名保存、导入导出并用于生成。","旧词库退出运行；默认使用 Word Tiles 两版并集。每关固定词库快照，配置修改不影响已有的关卡。"]},{"version":"2026.10.19.1","changes":["为全部 9,455 词补充竞品出题证据，区分稳定必答、条件必答、稳定额外和证据不足。","词库增加证据可信度、跨游戏差异和专项复核筛选，可查看倒读词对、词长限制及逐词审核建议。","补充 127 个边界词的文本复核依据，CSV 可导出完整审核记录；当前生成权限与审核建议分列。"]},{"version":"2026.10.17.2","changes":["点击左上角版本号可查看版本历史及各版改动。","版本号采用日期加当天序号，同一天更新依次递增。"]},{"version":"2026.10.17.1","changes":["左上角显示版本号，并增加当天版本序号。"]},{"version":"2026.10.17（编号前更新）","changes":["生成算法切换为 Word Tiles v2，支持 list0、list5 两套主线分段目标。","词库切换为 v2 的 9,455 词，区分必答候选、仅额外和待审核权限。","保留关卡编辑、试玩、存档及游戏 JSON 导出，修复单格编辑后撤回的问题。"]}]</script>
 <script id="policy" type="application/json">{"blocked":[],"flagged":[],"mild":[],"specialist":[],"abbr":[],"pluralExempt":[]}</script>
 <script>
 /* 旧关卡与手工编辑的路径校验辅助函数；生成逻辑使用 WTEngine v2。
@@ -5499,6 +5508,7 @@ function ready(D, A, issues) {
   playRegionObserver.observe($('#pboxes'));
   playRegionObserver.observe($('#pgridwrap'));
   document.addEventListener('keydown', e => {
+    if ($('#libraryNameDialog').open) return;
     if ((e.metaKey || e.ctrlKey) && e.key === 'z' && $('#play').hidden) { e.preventDefault(); undoEdit(); }
     if (e.key === 'Escape') {
       if (!$('#bank').hidden) { $('#bank').hidden = true; hideGloss(); return; }
@@ -5850,7 +5860,6 @@ function ready(D, A, issues) {
   }
   function renderLibraryEditor() {
     $('#librarySelect').innerHTML = recipeOptionHtml(); $('#librarySelect').value = bankDraft.id;
-    $('#libraryName').value = bankDraft.name;
     $('#bankFilters').innerHTML = poolEditor('targetPool', '必答候选池') + poolEditor('extraPool', '额外词池') +
       '<p class="note">每个来源先合并所选词类；全部版本先取并集，再参与词池运算。两个词池独立配置。</p>';
     $('#librarySetDefault').disabled = !libraryRecipes.some(r => r.id === bankDraft.id);
@@ -6027,12 +6036,38 @@ function ready(D, A, issues) {
     try { await action(); } catch (e) { toast(e.message || '词库操作失败'); $('#libraryStatus').textContent = e.message || '词库操作失败'; }
     finally { buttons.forEach(b => b.disabled = false); if (bankDraft) { renderLibraryEditor(); $('#librarySave').disabled = !bankCompiled; } }
   }
-  function newBankRecipe(copy) {
-    rememberBankDraft();
-    bankDraft = copy ? cloneLibrary(bankDraft) : WPLibrary.defaultRecipe(libraryData);
-    bankDraft.id = newId(); bankDraft.name = copy ? bankDraft.name + ' · 副本' : '新词库'; bankDraft.revision = 1; bankDraft.datasetHash = libraryData.datasetHash;
+  async function newBankRecipe(copy, name) {
+    const recipe = copy ? cloneLibrary(bankDraft) : WPLibrary.defaultRecipe(libraryData);
+    recipe.id = newId(); recipe.name = name; recipe.revision = 1; recipe.datasetHash = libraryData.datasetHash;
+    WPLibrary.compile(libraryData, recipe, {abbr: [...abbrSet]});
+    await saveLibraryState(libraryRecipes.concat(recipe));
+    rememberBankDraft(); bankDraft = cloneLibrary(recipe);
     bankState.scope = 'result'; $('#bankScope').value = 'result'; bankState.page = 0; bankState.picked = '';
-    rememberBankDraft(); renderLibraryEditor(); updateLibraryPreview(); $('#libraryName').focus(); $('#libraryName').select();
+    renderLibraryEditor(); updateLibraryPreview(); toast(copy ? '词库副本已创建' : '词库已创建，可继续配置范围');
+  }
+  async function renameBankRecipe(name) {
+    if (name === bankDraft.name) return;
+    const saved = libraryRecipes.find(r => r.id === bankDraft.id);
+    if (saved) {
+      const renamed = Object.assign(cloneLibrary(saved), {name, revision: saved.revision + 1});
+      WPLibrary.validateRecipe(renamed, libraryData);
+      await saveLibraryState(libraryRecipes.map(r => r.id === saved.id ? renamed : r));
+      bankDraft.revision = renamed.revision;
+    }
+    bankDraft.name = name;
+    renderLibraryEditor(); updateLibraryPreview(); toast('词库已重命名');
+  }
+  let libraryNameMode = 'new', libraryNameBusy = false;
+  function openLibraryNameDialog(mode) {
+    libraryNameMode = mode;
+    const copy = mode === 'copy', rename = mode === 'rename';
+    $('#libraryNameTitle').textContent = rename ? '重命名词库' : copy ? '复制词库' : '新建词库';
+    $('#libraryNameHint').textContent = rename ? '为当前词库设置新名称。' : copy ? '为当前配置的副本命名。' : '命名后可配置必答池和额外池的范围。';
+    $('#libraryNameConfirm').textContent = rename ? '保存名称' : copy ? '创建副本' : '新建';
+    $('#libraryName').value = rename ? bankDraft.name : copy ? (bankDraft.name.slice(0, 75) + ' · 副本') : '';
+    $('#libraryNameError').hidden = true; $('#libraryNameError').textContent = '';
+    $('#libraryName').removeAttribute('aria-invalid');
+    $('#libraryNameDialog').showModal(); $('#libraryName').focus(); $('#libraryName').select();
   }
   function exportBank(kind) {
     const rows = bankMatches;
@@ -6044,15 +6079,32 @@ function ready(D, A, issues) {
   $('#bankClose').onclick = () => { rememberBankDraft(); $('#bank').hidden = true; hideGloss(); };
   $('#bankQ').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); openBank($('#bankQ').value); } });
   $('#librarySelect').onchange = e => chooseBankRecipe(e.target.value);
-  $('#libraryName').oninput = e => {
-    bankDraft.name = e.target.value;
-    const option = $('#librarySelect').selectedOptions[0];
-    if (option) option.textContent = (bankDraft.name || '未命名词库') + (bankDraft.id === defaultLibraryId ? ' · 默认' : '');
-    updateLibraryPreview();
+  $('#libraryName').oninput = () => {
+    $('#libraryNameError').hidden = true; $('#libraryName').removeAttribute('aria-invalid');
   };
-  $('#libraryNew').onclick = () => newBankRecipe(false);
-  $('#libraryCopy').onclick = () => newBankRecipe(true);
-  $('#libraryNameForm').onsubmit = e => { e.preventDefault(); libraryAction(saveBankRecipe); };
+  $('#libraryNew').onclick = () => openLibraryNameDialog('new');
+  $('#libraryCopy').onclick = () => openLibraryNameDialog('copy');
+  $('#libraryRename').onclick = () => openLibraryNameDialog('rename');
+  $('#libraryNameCancel').onclick = () => { if (!libraryNameBusy) $('#libraryNameDialog').close(); };
+  $('#libraryNameDialog').addEventListener('cancel', e => { if (libraryNameBusy) e.preventDefault(); });
+  $('#libraryNameForm').onsubmit = async e => {
+    e.preventDefault(); if (libraryNameBusy) return;
+    const input = $('#libraryName'), error = $('#libraryNameError'), name = input.value.trim();
+    if (!name || name.length > 80) {
+      error.textContent = name ? '词库名称不能超过 80 个字符。' : '请输入词库名称。'; error.hidden = false;
+      input.setAttribute('aria-invalid', 'true'); input.focus(); return;
+    }
+    libraryNameBusy = true;
+    const controls = [...$('#libraryNameForm').querySelectorAll('input, button')];
+    controls.forEach(el => el.disabled = true);
+    try {
+      if (libraryNameMode === 'rename') await renameBankRecipe(name);
+      else await newBankRecipe(libraryNameMode === 'copy', name);
+      $('#libraryNameDialog').close();
+    } catch (e) { error.textContent = e.message || '词库操作失败'; error.hidden = false; }
+    finally { libraryNameBusy = false; controls.forEach(el => el.disabled = false); if ($('#libraryNameDialog').open) input.focus(); }
+  };
+  $('#librarySave').onclick = () => libraryAction(saveBankRecipe);
   $('#libraryDelete').onclick = () => libraryAction(async () => {
     const id = bankDraft.id, next = libraryRecipes.filter(r => r.id !== id);
     if (!next.length) next.push(cloneLibrary(initialRecipe));

@@ -4,6 +4,11 @@ const puppeteer=require('puppeteer-core'),L=require('../src/library'),O=require(
 const data=require('../data/game_vocab/catalog.json'),baseline=L.defaultRecipe(data);
 const chrome=process.env.CHROMIUM_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const base=process.env.BASE_URL||'http://127.0.0.1:8000/';
+async function nameLibrary(page, button, name) {
+ await page.click(button);await page.waitForSelector('#libraryNameDialog[open]');
+ await page.$eval('#libraryName',(el,name)=>{el.value=name;el.dispatchEvent(new Event('input',{bubbles:true}));},name);
+ await page.click('#libraryNameConfirm');await page.waitForFunction(()=>!document.querySelector('#libraryNameDialog').open);
+}
 (async()=>{
  const browser=await puppeteer.launch({executablePath:chrome,headless:true});
  try {
@@ -15,7 +20,7 @@ const base=process.env.BASE_URL||'http://127.0.0.1:8000/';
   const save=async(rev)=>{await page.click('#librarySave');await page.waitForFunction(rev=>document.querySelector('#libraryStatus').textContent.startsWith('已保存 · v'+rev),{},rev)};
   await ready(base+'?fresh=1');await page.click('#btnBank');
   assert.deepEqual(await page.$$eval('[data-library-view]',es=>es.map(e=>e.textContent)),['列表','饼图']);
-  await page.click('#libraryCopy');await setValue('#libraryName','饼图多选验收');
+  await nameLibrary(page,'#libraryCopy','饼图多选验收');
   await page.click('[data-library-view="range"]');assert.equal(await count(),10758);
   assert.equal(await page.$$eval('[data-range-mask][aria-pressed="true"]',es=>es.length),15);
   assert.equal(await page.$eval('#libraryRangeChart [data-mask="15"]',e=>e.getAttribute('aria-pressed')),'true');
@@ -56,7 +61,7 @@ const base=process.env.BASE_URL||'http://127.0.0.1:8000/';
   assert.deepEqual((await state()).draft.targetPool.selectedRegions,['8','15']);
   const recipe=(await state()).draft,compiled=L.compile(data,recipe),extraExpected=O.buildModel(data,recipe,'extraPool',compiled).result;
   assert.equal(await count(),extraExpected.length);
-  await save(1);const customId=(await state()).draft.id;
+  await save(2);const customId=(await state()).draft.id;
   await page.click('#librarySetDefault');await page.waitForFunction(id=>__desk.libraries().defaultId===id,{},customId);
   await page.evaluate(()=>{window.__downloads=[];const old=URL.createObjectURL;URL.createObjectURL=function(blob){blob.text().then(t=>__downloads.push(t));return old.call(URL,blob)};HTMLAnchorElement.prototype.click=function(){}});
   await page.click('#libraryExport');await page.waitForFunction(()=>__downloads.length===1);
@@ -79,7 +84,7 @@ const base=process.env.BASE_URL||'http://127.0.0.1:8000/';
   await page.click('#btnBank');await page.click('#libraryRangeEdit');
   await page.select('[data-pool="targetPool"][data-index="0"] [data-field="config"]','list0');
   assert.deepEqual((await state()).draft.targetPool.selectedRegions,[]);assert.deepEqual((await state()).draft.extraPool.selectedRegions,['8','15']);
-  assert.equal((await state()).preview.candidates,0);await save(2);
+  assert.equal((await state()).preview.candidates,0);await save(3);
   await page.click('#bankClose');await page.click('#btnBatch');assert(await page.$eval('#bGo',e=>e.disabled));await page.click('#bClose');
   assert.deepEqual(await page.evaluate(()=>__desk.exportLevels()),levels);
   await page.click('#btnBank');await (await page.$('#libraryFile')).uploadFile('/tmp/library-regions-config.json');
@@ -96,9 +101,9 @@ const base=process.env.BASE_URL||'http://127.0.0.1:8000/';
   assert.deepEqual((await state()).draft.targetPool.selectedRegions,[row]);await page.click('[data-range-mask="'+row+'"]');assert.deepEqual((await state()).draft.targetPool.selectedRegions,[]);
   const offline=await browser.newPage();offline.on('pageerror',e=>errors.push(e.message));await offline.setViewport({width:1440,height:1000});
   await offline.goto('file://'+path.resolve(__dirname,'../wordpages-level-desk.html')+'?fresh=1',{waitUntil:'load'});await offline.evaluate(()=>__desk.ready());
-  await offline.click('#btnBank');await offline.click('#libraryCopy');await offline.click('[data-library-view="range"]');await offline.click('#libraryRangeClear');
+  await offline.click('#btnBank');await nameLibrary(offline,'#libraryCopy','离线饼图');await offline.click('[data-library-view="range"]');await offline.click('#libraryRangeClear');
   await offline.click('#libraryRangeChart [data-mask="15"]');await offline.click('#libraryRangeChart [data-mask="8"]');await offline.click('#librarySave');
-  await offline.waitForFunction(()=>document.querySelector('#libraryStatus').textContent.startsWith('已保存 · v1'));await offline.click('#librarySetDefault');
+  await offline.waitForFunction(()=>document.querySelector('#libraryStatus').textContent.startsWith('已保存 · v2'));await offline.click('#librarySetDefault');
   await offline.waitForFunction(()=>__desk.libraries().defaultId===__desk.libraries().draft.id);await offline.reload({waitUntil:'load'});await offline.evaluate(()=>__desk.ready());
   await offline.click('#btnBank');await offline.click('[data-library-view="range"]');assert.deepEqual(await offline.evaluate(()=>__desk.libraries().draft.targetPool.selectedRegions),['8','15']);
   assert.deepEqual(errors,[]);

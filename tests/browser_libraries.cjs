@@ -4,6 +4,11 @@ const puppeteer=require('puppeteer-core'),L=require('../src/library'),E=require(
 const data=require('../data/game_vocab/catalog.json');
 const base=process.env.BASE_URL||'http://127.0.0.1:8000/';
 const chrome=process.env.CHROMIUM_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+async function nameLibrary(page, button, name) {
+ await page.click(button);await page.waitForSelector('#libraryNameDialog[open]');
+ await page.$eval('#libraryName',(el,name)=>{el.value=name;el.dispatchEvent(new Event('input',{bubbles:true}));},name);
+ await page.keyboard.press('Enter');await page.waitForFunction(()=>!document.querySelector('#libraryNameDialog').open);
+}
 (async()=>{
  const browser=await puppeteer.launch({executablePath:chrome,headless:true,args:['--no-sandbox']});
  try {
@@ -33,6 +38,16 @@ const chrome=process.env.CHROMIUM_PATH||'/Applications/Google Chrome.app/Content
   assert.deepEqual(upgrade.campaign.librarySnapshots[oldSnap.id],oldSnap);
   assert.equal(upgrade.campaign.levels[0].librarySnapshotId,oldSnap.id);
   await page.click('#btnBank');
+  assert.equal(await page.$('#bank #libraryName'),null);
+  const beforeNaming=await page.evaluate(()=>__desk.libraries());
+  await page.click('#libraryNew');assert(await page.$eval('#libraryName',e=>document.activeElement===e));
+  assert.deepEqual(await page.evaluate(()=>__desk.libraries()),beforeNaming);
+  await setValue('#libraryName','   ');await page.keyboard.press('Enter');
+  assert.match(await page.$eval('#libraryNameError',e=>e.textContent),/请输入词库名称/);
+  assert(await page.$eval('#libraryNameDialog',e=>e.open));
+  await page.keyboard.press('Escape');assert.equal(await page.$eval('#bank',e=>e.hidden),false);
+  assert.equal(await page.$eval('#libraryNameDialog',e=>e.open),false);
+  assert.deepEqual(await page.evaluate(()=>__desk.libraries()),beforeNaming);
   assert.match(await page.$eval('#libraryStats',e=>e.textContent),/10,748/);
   const gameIds=['07_Word_Tiles','06_Zen_Word','05_Words_of_Wonders','04_Wordscapes'];
   for(const key of ['targetPool','extraPool']) assert.deepEqual(await page.$$eval('[data-pool="'+key+'"] [data-field="game"]',es=>es.map(e=>e.value)),gameIds);
@@ -43,7 +58,8 @@ const chrome=process.env.CHROMIUM_PATH||'/Applications/Google Chrome.app/Content
   assert.equal((await page.evaluate(()=>__desk.libraries())).preview.extras,579);
   await page.select('[data-operation="targetPool"]','union');await page.select('[data-operation="extraPool"]','union');
   await page.screenshot({path:'/tmp/four-game-default.png'});
-  await page.click('#libraryCopy');await setValue('#libraryName','交集验收');
+  await nameLibrary(page,'#libraryCopy','交集验收');
+  assert((await page.evaluate(()=>__desk.libraries())).recipes.some(r=>r.name==='交集验收' && r.revision===1));
   for(const pool of ['targetPool','extraPool']) for(const i of [3,2,1]) await page.click('[data-pool="'+pool+'"][data-index="'+i+'"] [data-remove-source]');
   await page.select('[data-pool="targetPool"][data-index="0"] [data-field="config"]','list0');
   await page.click('[data-add-source="targetPool"]');
@@ -55,7 +71,7 @@ const chrome=process.env.CHROMIUM_PATH||'/Applications/Google Chrome.app/Content
   const beforeSave=await page.evaluate(()=>__desk.libraries());
   const expected=L.compile(data,beforeSave.draft);
   assert.deepEqual(beforeSave.preview,expected.stats);assert(expected.stats.candidates>1000);
-  await save(1);const customId=await page.$eval('#librarySelect',e=>e.value);
+  await save(2);const customId=await page.$eval('#librarySelect',e=>e.value);
   await page.click('#librarySetDefault');await page.waitForFunction(id=>__desk.libraries().defaultId===id,{},customId);
   await page.screenshot({path:'/tmp/library-intersection.png'});
   await page.click('#bankClose');await ready();
@@ -65,7 +81,17 @@ const chrome=process.env.CHROMIUM_PATH||'/Applications/Google Chrome.app/Content
   assert(saved.levels.every(d=>d.librarySnapshotId===snapshotId));assert.deepEqual(saved.librarySnapshots[snapshotId].lex,expected.lex);
   fs.writeFileSync('/tmp/library-browser-levels.json',JSON.stringify(generated));fs.writeFileSync('/tmp/library-browser-lex.json',JSON.stringify(expected.lex));
   await page.click('#btnBank');
-  await page.select('[data-operation="targetPool"]','union');await setValue('#libraryName','修改后的词库');await save(2);
+  await page.select('[data-operation="targetPool"]','union');
+  const beforeRename=await page.evaluate(()=>__desk.libraries());
+  await page.click('#libraryRename');await setValue('#libraryName','取消的名称');await page.click('#libraryNameCancel');
+  assert.deepEqual(await page.evaluate(()=>__desk.libraries()),beforeRename);
+  await nameLibrary(page,'#libraryRename','修改后的词库');
+  const renamed=await page.evaluate(()=>__desk.libraries());
+  assert.equal(renamed.recipes.find(r=>r.id===customId).name,'修改后的词库');
+  assert.equal(renamed.recipes.find(r=>r.id===customId).targetPool.operation,'intersection');
+  assert.equal(renamed.draft.targetPool.operation,'union');
+  assert.match(await page.$eval('#libraryStatus',e=>e.textContent),/配置未保存/);
+  await save(4);
   assert.deepEqual(await page.evaluate(()=>__desk.exportLevels()),generated);
   assert.equal(await page.evaluate(()=>__desk.campaign().levels[0].librarySnapshotId),snapshotId);
   // An explicit rebind changes only the selected level; undo restores its snapshot.
@@ -86,10 +112,10 @@ const chrome=process.env.CHROMIUM_PATH||'/Applications/Google Chrome.app/Content
   }
   console.log('recipes: UI intersection, save, default, generate, revise, explicit rebind, undo, delete, reload and desk import/export passed');
   // Empty candidate configurations remain editable/exportable but cannot generate.
-  await page.click('#btnBank');await page.click('#libraryNew');
+  await page.click('#btnBank');await nameLibrary(page,'#libraryNew','空交集');
   for(const key of ['targetPool','extraPool']) assert.deepEqual((await page.evaluate(()=>__desk.libraries())).draft[key].sources.map(s=>s.gameId),gameIds);
   for(const pool of ['targetPool','extraPool']) for(const i of [3,2,1,0]) await page.click('[data-pool="'+pool+'"][data-index="'+i+'"] [data-remove-source]');
-  await setValue('#libraryName','空交集');await save(1);
+  await save(2);
   const emptyId=await page.$eval('#librarySelect',e=>e.value);await page.click('#librarySetDefault');await page.waitForFunction(id=>__desk.libraries().defaultId===id,{},emptyId);
   await page.evaluate(()=>{window.__downloads=[];const old=URL.createObjectURL;URL.createObjectURL=function(blob){blob.text().then(text=>__downloads.push(text));return old.call(URL,blob)};HTMLAnchorElement.prototype.click=function(){};});
   await page.click('#libraryExport');await page.waitForFunction(()=>__downloads.length===1);
@@ -125,7 +151,7 @@ const chrome=process.env.CHROMIUM_PATH||'/Applications/Google Chrome.app/Content
   assert.equal(migrated.librarySnapshots[migrated.levels[0].librarySnapshotId].recipe.id,'four-game-main');
   const offline=await browser.newPage();offline.on('pageerror',e=>errors.push(e.message));
   await offline.goto('file://'+path.resolve(__dirname,'../wordpages-level-desk.html')+'?fresh=1',{waitUntil:'load'});await offline.evaluate(()=>__desk.ready());
-  await offline.click('#btnBank');await offline.click('#libraryCopy');await offline.$eval('#libraryName',e=>{e.value='离线配置';e.dispatchEvent(new Event('input'))});await offline.click('#librarySave');await offline.waitForFunction(()=>__desk.libraries().recipes.some(r=>r.name==='离线配置'));
+  await offline.click('#btnBank');await nameLibrary(offline,'#libraryCopy','离线配置');await offline.waitForFunction(()=>__desk.libraries().recipes.some(r=>r.name==='离线配置'));
   await offline.click('#bankClose');await offline.click('#btnBatch');await offline.evaluate(()=>{bCount.value=1;bMode.value='replace'});await offline.click('#bGo');await offline.waitForFunction(()=>__lastBatch,{timeout:60000});assert.equal(await offline.evaluate(()=>__lastBatch.made),1);
   await offline.close();assert.deepEqual(errors,[]);
   console.log('two-letter extra play, legacy migration and true file:// configuration/generation passed; no page errors');
