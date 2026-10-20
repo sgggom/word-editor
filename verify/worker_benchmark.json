@@ -1,0 +1,54 @@
+{
+  "browser": "Chrome/155.0.8059.85",
+  "reportedLogicalCpus": 8,
+  "results": [
+    {
+      "scope": "core",
+      "levels": 40,
+      "attempts": 120,
+      "from": 51,
+      "samplesMs": {
+        "1": [
+          1417,
+          1429,
+          1449
+        ],
+        "4": [
+          469,
+          476,
+          466
+        ]
+      },
+      "singleMs": 1429,
+      "fourWorkersMs": 469,
+      "speedup": 3.05
+    },
+    {
+      "scope": "all",
+      "levels": 40,
+      "attempts": 120,
+      "from": 51,
+      "samplesMs": {
+        "1": [
+          2602,
+          2578,
+          2574
+        ],
+        "4": [
+          829,
+          828,
+          825
+        ]
+      },
+      "singleMs": 2578,
+      "fourWorkersMs": 828,
+      "speedup": 3.11
+    }
+  ],
+  "measuredDate": "2026-10-20",
+  "version": "2026.10.20.3",
+  "searchVersion": "independent-attempts-v1",
+  "preset": "list0",
+  "seed": "parallel-benchmark",
+  "method": "Three alternating runs per thread count; median wall time including worker startup; all 40 levels succeeded and results matched."
+}

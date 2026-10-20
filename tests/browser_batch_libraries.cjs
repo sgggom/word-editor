@@ -35,8 +35,8 @@ const chosen=(page,kind)=>page.$$eval('[data-batch-library="'+kind+'"]:checked',
   await page.click('#bClose');await page.evaluate(()=>__desk.flush());await ready();await page.click('#btnBatch');
   assert.deepEqual(await chosen(page,'target'),[core,level1]);assert.deepEqual(await chosen(page,'extra'),[extraCore,extraLevel1]);
   await page.evaluate(()=>{
-   const original=WTEngine.generateOne;
-   WTEngine.generateOne=function(...args){window.__batchLockObserved=bTargetLibraries.disabled && bExtraLibraries.disabled;return original.apply(this,args)};
+   const original=WPBatchGenerator.create;
+   WPBatchGenerator.create=function(...args){window.__batchLockObserved=bTargetLibraries.disabled && bExtraLibraries.disabled && bThreads.disabled;return original.apply(this,args)};
   });
   const first=await generate();assert(await page.evaluate(()=>__batchLockObserved));
   const recipes=L.tieredRecipes(data),expected=L.combine(data,{target:recipes.filter(r=>[core,level1].includes(r.id)),extra:recipes.filter(r=>[extraCore,extraLevel1].includes(r.id))});

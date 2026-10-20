@@ -85,6 +85,12 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 批量生成还可设置 list0／list5 阶段、起始关号、数量、种子、尝试次数、近期重复窗口、额外词惩罚和单格次数上限。引擎保留 13 段目标，按上下左右路径填盘，检查全盘覆盖、同词所有已扫描路径用格一致和次数约束。旧基础词门槛和来源加分已移除。近期重复和额外数量仍是评分目标；失败不自动放宽规则。全失败或立即中止保留原关序，部分成功按选定插入／替换方式接纳。
 
+“计算线程”提供自动、1、2、4、8 线程。自动模式按浏览器报告的逻辑处理器数减一选择，下限 1、上限 4；手动选择也受浏览器报告的处理器数及 8 线程上限约束。单关的候选尝试由 Web Worker 并行计算，关卡按顺序接纳，因此近期重复窗口和累计用词记录继续有效。尝试次数是所有线程合计的每关上限，不会乘以线程数。
+
+生成期间设置锁定，页面与中止按钮保持响应。若期间切换或编辑关序，过期生成结果不会覆盖当前内容。中止立即终止计算线程，只接纳已经完成的关卡；若尚未完成任何关，则保留原关序。线程不可用、启动超时或运行异常时，自动改用分段执行的单线程，按相同种子重试当前关。计算源码内嵌为 Blob Worker，两份独立 HTML 的 `file://` 打开方式同样可用，无需请求外部 worker 文件。
+
+从 2026.10.20.3 起，每个候选尝试使用独立种子，并按尝试序号汇总结果。同一版本、词库、参数与历史下，1 线程、4 线程和 Node 的结果完全一致；线程返回顺序不影响结果。本次改变了搜索随机数分配方式，因此重新生成时可能与旧版本相同种子的结果不同。已保存关卡不会重新生成；新关卡编辑器元数据保存 `gen.searchVersion`。性能基准和复现方式见 [并行生成说明](docs/PARALLEL_GENERATION.md)。
+
 每批生成和每个新建手工关卡绑定不可变词库快照，包含配方、数据指纹、生效词表与当时缩写禁表。同一词库快照集中保存，关卡用 `librarySnapshotId` 引用。修改、删除配置或更改默认值均不重写已有的关卡。
 
 批量组合通过共享函数 `WPLibrary.combine` 编译，快照的 `recipe.kind` 为 `library-selection`，`recipe.selection.target / extra` 保存两组选中的完整配置与版本。组合快照随关卡台文件保存，不增加词库配置列表中的条目；悬停本关词库名称可查看来源配置。
@@ -98,6 +104,8 @@ python3 -m http.server 8000 --bind 127.0.0.1
 ## 数据同步和开发
 
 `src/library.js` 是浏览器与 Node 共用的集合编译器；`src/library_runtime.js` 管理词库快照和保存；`src/library_ui.js` 是配置与浏览界面逻辑。其余 UI 源在 `index.html`，批量生成区域同步输出到 `src/batch_ui.js`。
+
+`src/gen.js` 同时提供顺序生成与独立候选尝试；`src/batch_generator.js` 管理线程、顺序汇总、中止和回退，`src/batch_worker.js` 是后台计算入口。同步脚本将引擎和入口一起写入 `batchWorker` 数据块，主页面与后台线程共用同一份生成代码。
 
 修改资源或 UI 后运行：
 
@@ -123,6 +131,7 @@ python3 tools/sync_editor.py
 node tests/library_sets.cjs
 node tests/library_combinations.cjs
 node tests/library_overlap.cjs
+node tests/generation_attempts.cjs
 python3 tools/build_glossary.py --check
 node tests/glossary.cjs
 python3 -m unittest discover -s tests -p 'test_*.py'
@@ -137,6 +146,7 @@ python3 verify/verify_levels.py /tmp/v2-list0.json --report /tmp/v2-list0-report
 
 ```sh
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_v2.cjs
+NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_batch_workers.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_libraries.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_library_range.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_batch_libraries.cjs

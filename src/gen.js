@@ -2,6 +2,7 @@
 (function(root,factory){let out=factory();if(typeof module==='object'&&module.exports)module.exports=out;else root.WTEngine=out;})(typeof self!=='undefined'?self:this,function(){
 'use strict';
 const ROLES=new Set(['candidate','extra','pending','blocked']);
+const SEARCH_VERSION='independent-attempts-v1';
 const DEFAULTS={preset:'list0',seed:'WT-2026',start:1,count:20,effort:45,attempts:100,cooldown:20,strictMorph:true,adjacency:true,allowUnsafe:false,variance:0.16,extraWeight:0.8,readingBias:1.0,uniqueMin:0.88,maxUse:13};
 function hash(s){let h=2166136261>>>0;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)>>>0;}return h>>>0;}
 function random(seed){let s=hash(seed)||12345;return function(){s+=0x6D2B79F5;let t=s;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;};}
@@ -112,23 +113,42 @@ function validate(level,ix,config){if(!level||!Array.isArray(level.grid)||!Array
  let extras=items.filter(x=>!level.targets.includes(x.word)).map(x=>x.word);
  return {ok:errors.length===0,errors,extras,checkedPaths:items.length};
 }
-function generateOne(n,ix,profiles,config={},history={}){config={...DEFAULTS,...config};let d={...targetFor(n,config,profiles),n},rng=random(config.seed+'|'+config.preset+'|'+n+'|generate'),N=config.attempts||100,best=null,byWord=ix.byWord;
+// An attempt has its own random stream, so dispatch order and thread count cannot change a level.
+function attemptLimit(config){return Math.max(1,Math.floor(config.attempts||DEFAULTS.attempts));}
+function tryAttempt(d,a,ix,config,history){
+ let rng=random(config.seed+'|'+config.preset+'|'+d.n+'|generate|attempt|'+a);
+ let {g}=fillBoard(d,ix,rng,config,history.recent||new Map()),items=scan(g,d.width,d.height,ix,18),pickings=selectTargets(items,d,ix,config,history,rng);
+ if(!pickings)return null;
+ let {selected,demands}=pickings;
+ let board={g,w:d.width,h:d.height,counts:demands},evaluation=metrics(board,d,items,selected,ix,config);
+ let lv={id:`${config.preset}-${d.n}-${hash(g.join('')+'|'+selected.map(x=>x.word).join(',')).toString(16)}`,number:d.n,preset:config.preset,width:d.width,height:d.height,grid:g,counts:demands,targets:selected.map(x=>x.word),extras:evaluation.extras,paths:Object.fromEntries(selected.map(x=>[x.word,x.path])),source:'generated',profile:d.stage,validated:true,metrics:evaluation.metrics};
+ if(!validate(lv,ix,config).ok)return null;
+ return {ok:true,level:lv,score:evaluation.score,attempts:a+1,profile:d};
+}
+function generateAttempts(n,ix,profiles,config={},history={},start=0,count=1){
+ config={...DEFAULTS,...config};const d={...targetFor(n,config,profiles),n},out=[],end=Math.min(attemptLimit(config),start+count);
+ for(let a=start;a<end;a++)out.push(tryAttempt(d,a,ix,config,history));
+ return out;
+}
+function stopAfterAttempt(best,candidate,index,limit){return !!candidate&&best.score>=-2&&index>Math.min(15,limit/3);}
+function finishGeneration(n,profiles,config,best){
+ if(best)return best;
+ config={...DEFAULTS,...config};const d={...targetFor(n,config,profiles),n},N=attemptLimit(config);
+ return {ok:false,number:n,reason:`尝试${N}次后未找到满足覆盖和全路径安全的${d.width}×${d.height}棋盘；未放宽规则`,profile:d,attempts:N};
+}
+function generateOne(n,ix,profiles,config={},history={}){
+ config={...DEFAULTS,...config};const d={...targetFor(n,config,profiles),n},N=attemptLimit(config);let best=null;
  for(let a=0;a<N;a++){
-  let fill=fillBoard(d,ix,rng,config,history.recent||new Map()),{g,seeds,nb}=fill,items=scan(g,d.width,d.height,ix,18),pickings=selectTargets(items,d,ix,config,history,rng);
-  if(!pickings)continue;
-  let {selected,demands}=pickings;
-  let board={g,w:d.width,h:d.height,counts:demands}, evaluation=metrics(board,d,items,selected,ix,config);
-  let lv={id:`${config.preset}-${n}-${hash(g.join('')+'|'+selected.map(x=>x.word).join(',')).toString(16)}`,number:n,preset:config.preset,width:d.width,height:d.height,grid:g,counts:demands,targets:selected.map(x=>x.word),extras:evaluation.extras,paths:Object.fromEntries(selected.map(x=>[x.word,x.path])),source:'generated',profile:d.stage,validated:true,metrics:evaluation.metrics};
-  let verify=validate(lv,ix,config);if(!verify.ok)continue;
-  let cur={ok:true,level:lv,score:evaluation.score,attempts:a+1,profile:d};if(!best||cur.score>best.score)best=cur;
-  if(best.score>=-2 && a>Math.min(15,N/3))break;
+  const candidate=tryAttempt(d,a,ix,config,history);
+  if(candidate&&(!best||candidate.score>best.score))best=candidate;
+  if(stopAfterAttempt(best,candidate,a,N))break;
  }
- return best||{ok:false,number:n,reason:`尝试${N}次后未找到满足覆盖和全路径安全的${d.width}×${d.height}棋盘；未放宽规则`,profile:d,attempts:N};
+ return finishGeneration(n,profiles,config,best);
 }
 function generateRange(ix,profiles,options,onProgress){let opts={...DEFAULTS,...options},lv=[],failed=[],recent=new Map(),usage={},time=Date.now();for(let i=0;i<opts.count;i++){let n=opts.start+i,x=generateOne(n,ix,profiles,opts,{recent,usage});if(x.ok){lv.push(x.level);for(let w of x.level.targets){usage[w]=(usage[w]||0)+1;recent.set(w,n);}}else failed.push(x);if(onProgress)onProgress({index:i+1,requested:opts.count,ok:x.ok,level:x.level||null,failed:x.ok?null:x,elapsed:Date.now()-time});}
  return {levels:lv,failures:failed,config:opts,elapsedMs:Date.now()-time};}
 function exportGame(levels){return {kind:'word-tiles-levels-v2',version:2,levels:levels.map(l=>({id:l.id,number:l.number,width:l.width,height:l.height,rows:Array.from({length:l.height},(_,i)=>l.grid.slice(i*l.width,(i+1)*l.width).join('')),counts:l.counts,targets:l.targets,extras:l.extras}))};}
 function parseCSV(text){let rows=[],cur=[],v='',quoted=false;for(let i=0;i<text.length;i++){let c=text[i];if(quoted){if(c==='"'&&text[i+1]==='"'){v+='"';i++}else if(c==='"')quoted=false;else v+=c;}else if(c==='"')quoted=true;else if(c===','){cur.push(v);v=''}else if(c==='\n'||c==='\r'){if(c==='\r'&&text[i+1]==='\n')i++;cur.push(v);v='';if(cur.some(x=>x))rows.push(cur);cur=[];}else v+=c;}if(v||cur.length){cur.push(v);rows.push(cur)}let heads=(rows.shift()||[]).map(x=>x.replace(/^\uFEFF/,'').trim());return rows.map(x=>Object.fromEntries(heads.map((k,i)=>[k,x[i]||''])));}
 function historyFromLevels(levels){let recent=new Map(),usage={};for(let level of [...levels].sort((a,b)=>a.number-b.number)){for(let w of level.targets||[]){recent.set(w,level.number);usage[w]=(usage[w]||0)+1;}}return {recent,usage};}
-return {DEFAULTS,stage,getProfile,targetFor,normalizeLex,buildIndex,scan,metrics,validate,generateOne,generateRange,exportGame,parseCSV,historyFromLevels,random,direction,turns,adjacencyStats};
+return {DEFAULTS,SEARCH_VERSION,stage,getProfile,targetFor,normalizeLex,buildIndex,scan,metrics,validate,attemptLimit,generateAttempts,stopAfterAttempt,finishGeneration,generateOne,generateRange,exportGame,parseCSV,historyFromLevels,random,direction,turns,adjacencyStats};
 });
