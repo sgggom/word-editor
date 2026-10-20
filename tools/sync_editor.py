@@ -13,7 +13,7 @@ compiled = subprocess.check_output(['node', '-e', "const L=require('./src/librar
 (root / 'src/lex.json').write_text(compiled)
 start = text.index('/* 旧关卡与手工编辑的路径校验辅助函数')
 end = text.index('</script>', start)
-source = '\n'.join((root / name).read_text() for name in ['src/validation.js', 'src/gen.js', 'src/batch_generator.js', 'src/v2_adapter.js', 'src/library.js', 'src/library_overlap.js', 'src/proportional_venn.js'])
+source = '\n'.join((root / name).read_text() for name in ['src/validation.js', 'src/gen.js', 'src/batch_generator.js', 'src/v2_adapter.js', 'src/library.js', 'src/library_schedule.js', 'src/library_overlap.js', 'src/proportional_venn.js'])
 source += '\nwindow.WT_PROFILES = ' + (root / 'src/profiles.json').read_text().strip() + ';\n'
 text = text[:start] + source + text[end:]
 worker_source = (root / 'src/gen.js').read_text() + '\n' + (root / 'src/batch_worker.js').read_text()

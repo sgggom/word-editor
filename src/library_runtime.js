@@ -142,14 +142,14 @@
   }
   function persistBatchLibrarySelection() {
     if (!batchSelectionLoaded || !batchLibrarySelection) return batchSelectionQ;
-    const state = JSON.parse(JSON.stringify({schemaVersion: 1, ...batchLibrarySelection, savedAt: Date.now()}));
+    const state = JSON.parse(JSON.stringify({schemaVersion: 2, ...batchLibrarySelection, savedAt: Date.now()}));
     const text = JSON.stringify(state);
     try { localStorage.setItem('wp.leveldesk.batchLibraries', text); } catch (e) {}
     batchSelectionQ = batchSelectionQ.catch(() => {}).then(async () => {
       try {
         await idbPut('kv', state, 'batchLibraries');
         try { if (localStorage.getItem('wp.leveldesk.batchLibraries') === text) localStorage.removeItem('wp.leveldesk.batchLibraries'); } catch (e) {}
-      } catch (e) { localStorage.setItem('wp.leveldesk.batchLibraries', JSON.stringify({schemaVersion: 1, ...batchLibrarySelection, savedAt: Date.now()})); }
+      } catch (e) { localStorage.setItem('wp.leveldesk.batchLibraries', JSON.stringify({schemaVersion: 2, ...batchLibrarySelection, savedAt: Date.now()})); }
     });
     return batchSelectionQ;
   }
@@ -160,9 +160,14 @@
       const fallback = JSON.parse(localStorage.getItem('wp.leveldesk.batchLibraries') || 'null');
       if (fallback && (!state || (fallback.savedAt || 0) >= (state.savedAt || 0))) state = fallback;
     } catch (e) {}
-    if (state?.schemaVersion === 1 && typeof state.defaultId === 'string' &&
+    if ([1, 2].includes(state?.schemaVersion) && typeof state.defaultId === 'string' &&
       ['targetIds', 'extraIds'].every(key => Array.isArray(state[key]) && state[key].every(id => typeof id === 'string'))) {
       batchLibrarySelection = {defaultId: state.defaultId, targetIds: state.targetIds, extraIds: state.extraIds};
+      if (state.schemaVersion === 2 && ['fixed', 'staged'].includes(state.mode) &&
+        ['target', 'extra'].every(key => Array.isArray(state.stagedIds?.[key]) && state.stagedIds[key].every(id => typeof id === 'string') &&
+          state.unlockAt?.[key] && typeof state.unlockAt[key] === 'object' && !Array.isArray(state.unlockAt[key]))) {
+        Object.assign(batchLibrarySelection, {mode: state.mode, stagedIds: state.stagedIds, unlockAt: state.unlockAt});
+      }
     }
     batchSelectionLoaded = true; syncLibrarySelectors(); await batchSelectionQ.catch(() => {});
   }
@@ -171,24 +176,42 @@
     const options = batchLibraryOptions(), before = JSON.stringify(batchLibrarySelection);
     if (!batchLibrarySelection || batchLibrarySelection.defaultId !== defaultLibraryId) {
       const selected = options.find(x => x.recipe.id === defaultLibraryId);
-      batchLibrarySelection = {defaultId: defaultLibraryId,
+      batchLibrarySelection = {...batchLibrarySelection, defaultId: defaultLibraryId,
         targetIds: selected?.target ? [defaultLibraryId] : [], extraIds: selected?.extra ? [defaultLibraryId] : []};
     }
+    if (!batchLibrarySelection.mode) Object.assign(batchLibrarySelection, {mode: 'fixed', ...WPLibrarySchedule.defaults(libraryRecipes)});
+    const staged = batchLibrarySelection.mode === 'staged';
+    $('#bLibraryMode').value = batchLibrarySelection.mode;
+    $('#bLibraryModeHint').textContent = staged ? '勾选词库并设置从第几关开始加入，已加入的库会持续可用。必答和仅额外分别设置，按下方“起始关号”计算。' : '整批使用同一组词库；切换“按关号解锁”可逐步加入核心、一级、二级和三级库。';
     for (const key of ['target', 'extra']) {
       const valid = new Set(options.filter(x => x[key] > 0).map(x => x.recipe.id));
       batchLibrarySelection[key + 'Ids'] = [...new Set(batchLibrarySelection[key + 'Ids'])].filter(id => valid.has(id));
-      const selected = new Set(batchLibrarySelection[key + 'Ids']);
+      batchLibrarySelection.stagedIds[key] = [...new Set(batchLibrarySelection.stagedIds[key])].filter(id => valid.has(id));
+      const unlocks = batchLibrarySelection.unlockAt[key];
+      for (const {recipe} of options) if (!Object.hasOwn(unlocks, recipe.id)) unlocks[recipe.id] = 1;
+      for (const id of Object.keys(unlocks)) if (!options.some(x => x.recipe.id === id)) delete unlocks[id];
+      const selected = new Set(staged ? batchLibrarySelection.stagedIds[key] : batchLibrarySelection[key + 'Ids']);
       const rows = options.filter(x => x[key] || x.recipe[key === 'target' ? 'targetPool' : 'extraPool'].sources.length);
       $('#' + (key === 'target' ? 'bTargetOptions' : 'bExtraOptions')).innerHTML = rows.map(({recipe, [key]: count}) =>
-        '<label class="batch-library-option"><input type="checkbox" data-batch-library="' + key + '" value="' + esc(recipe.id) + '"' +
-        (selected.has(recipe.id) ? ' checked' : '') + (!count ? ' disabled' : '') + '><span title="' + esc(recipe.name + ' · v' + recipe.revision) + '">' + esc(recipe.name) + '</span><small>' + count.toLocaleString() + ' 词</small></label>').join('') || '<p class="note">暂无这类词库，可先在词库窗口中配置。</p>';
+        '<div class="batch-library-option"><label class="batch-library-choice"><input type="checkbox" data-batch-library="' + key + '" value="' + esc(recipe.id) + '"' +
+        (selected.has(recipe.id) ? ' checked' : '') + (!count ? ' disabled' : '') + '><span title="' + esc(recipe.name + ' · v' + recipe.revision) + '">' + esc(recipe.name) + '</span><small>' + count.toLocaleString() + ' 词</small></label>' +
+        (staged ? '<label class="batch-unlock">第 <input type="number" min="1" max="99999" step="1" data-batch-unlock="' + key + '" data-library-id="' + esc(recipe.id) + '" aria-label="' + esc(recipe.name + '解锁关号') + '" value="' + esc(unlocks[recipe.id]) + '"' + (!count ? ' disabled' : '') + '> 关起加入</label>' : '') + '</div>').join('') || '<p class="note">暂无这类词库，可先在词库窗口中配置。</p>';
     }
     if (before !== JSON.stringify(batchLibrarySelection)) persistBatchLibrarySelection().catch(() => toast('本次词库选择暂未保存'));
     if (!$('#batch').hidden) previewCurve();
   }
   function rememberBatchLibrarySelection() {
     if (!batchSelectionLoaded || batchRun) return;
-    for (const key of ['target', 'extra']) batchLibrarySelection[key + 'Ids'] = [...document.querySelectorAll('[data-batch-library="' + key + '"]:checked')].map(el => el.value);
+    if ($('#bLibraryMode').value !== batchLibrarySelection.mode) {
+      batchLibrarySelection.mode = $('#bLibraryMode').value;
+      persistBatchLibrarySelection().catch(() => toast('本次词库选择暂未保存')); syncLibrarySelectors(); return;
+    }
+    for (const key of ['target', 'extra']) {
+      const ids = [...document.querySelectorAll('[data-batch-library="' + key + '"]:checked')].map(el => el.value);
+      if (batchLibrarySelection.mode === 'staged') batchLibrarySelection.stagedIds[key] = ids;
+      else batchLibrarySelection[key + 'Ids'] = ids;
+    }
+    for (const el of document.querySelectorAll('[data-batch-unlock]')) batchLibrarySelection.unlockAt[el.dataset.batchUnlock][el.dataset.libraryId] = Number(el.value);
     persistBatchLibrarySelection().catch(() => toast('本次词库选择暂未保存'));
   }
   function rebindCurrentLibrary(recipeId) {

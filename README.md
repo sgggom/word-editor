@@ -83,6 +83,10 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 两组选择独立保存在当前浏览器，关闭窗口或刷新后恢复；改变默认词库时会预选其对应的必答和额外用途。配置改名或修订后更新名称、词数及下一批次的快照，删除配置后移除对应勾选。生成开始时固定所选词库内容和版本，期间锁定两组选择。
 
+“词库使用方式”可切换为“按关号解锁”。首次切换预选八个分级词库，必答和仅额外各自从第 1／101／201／501 关开始累计加入核心／一级／二级／三级库，即 1–100 关仅核心，101–200 关核心＋一级，201–500 关再加二级，501 关起四档全开。每个词库的解锁关号可独立修改，也可取消勾选或加入自定义词库；解锁只控制可用候选范围，不要求每关必须选中每一档的词。未解锁的词不进入该关生效词表，必答与仅额外的阈值互相独立。
+
+阶段按“起始关号”加本批次偏移计算，直接从后期开始或一批跨多个阶段均可。预览列出本批每段关号、库数与生效词数；任一涉及阶段缺少必答候选时禁止开始。解锁模式、勾选和关号保存在本机，刷新后恢复；“整批相同”的原选择单独保留。已有选择不会自动切换模式，未配置的自定义库默认从第 1 关起、未勾选。
+
 批量生成还可设置 list0／list5 阶段、起始关号、数量、种子、尝试次数、近期重复窗口、额外词惩罚和单格次数上限。引擎保留 13 段目标，按上下左右路径填盘，检查全盘覆盖、同词所有已扫描路径用格一致和次数约束。旧基础词门槛和来源加分已移除。近期重复和额外数量仍是评分目标；失败不自动放宽规则。全失败或立即中止保留原关序，部分成功按选定插入／替换方式接纳。
 
 “计算线程”提供自动、1、2、4、8 线程。自动模式按浏览器报告的逻辑处理器数减一选择，下限 1、上限 4；手动选择也受浏览器报告的处理器数及 8 线程上限约束。单关的候选尝试由 Web Worker 并行计算，关卡按顺序接纳，因此近期重复窗口和累计用词记录继续有效。尝试次数是所有线程合计的每关上限，不会乘以线程数。
@@ -91,7 +95,9 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 从 2026.10.20.3 起，每个候选尝试使用独立种子，并按尝试序号汇总结果。同一版本、词库、参数与历史下，1 线程、4 线程和 Node 的结果完全一致；线程返回顺序不影响结果。本次改变了搜索随机数分配方式，因此重新生成时可能与旧版本相同种子的结果不同。已保存关卡不会重新生成；新关卡编辑器元数据保存 `gen.searchVersion`。性能基准和复现方式见 [并行生成说明](docs/PARALLEL_GENERATION.md)。
 
-每批生成和每个新建手工关卡绑定不可变词库快照，包含配方、数据指纹、生效词表与当时缩写禁表。同一词库快照集中保存，关卡用 `librarySnapshotId` 引用。修改、删除配置或更改默认值均不重写已有的关卡。
+生成开始时固定所涉及各阶段的不可变词库快照；整批相同模式使用一份，按关号解锁模式每关绑定对应阶段的快照。新建手工关卡仍使用当前默认词库。快照包含配方、数据指纹、生效词表与当时缩写禁表，同一快照集中保存，关卡用 `librarySnapshotId` 引用。修改解锁设置、删除配置或更改默认值均不重写已有的关卡。
+
+跨阶段时关闭上一阶段的线程池，用新阶段词库创建线程池；近期用词和累计次数延续。分段快照使用原组合词库格式，新生成的关卡额外保存 `gen.libraryStage`，记录原定阶段起止关号。失败不压缩后续生成关号；中止只接纳已完成关卡，阶段切换中出现线程故障也按当前阶段词库回退。
 
 批量组合通过共享函数 `WPLibrary.combine` 编译，快照的 `recipe.kind` 为 `library-selection`，`recipe.selection.target / extra` 保存两组选中的完整配置与版本。组合快照随关卡台文件保存，不增加词库配置列表中的条目；悬停本关词库名称可查看来源配置。
 
@@ -106,6 +112,8 @@ python3 -m http.server 8000 --bind 127.0.0.1
 `src/library.js` 是浏览器与 Node 共用的集合编译器；`src/library_runtime.js` 管理词库快照和保存；`src/library_ui.js` 是配置与浏览界面逻辑。其余 UI 源在 `index.html`，批量生成区域同步输出到 `src/batch_ui.js`。
 
 `src/gen.js` 同时提供顺序生成与独立候选尝试；`src/batch_generator.js` 管理线程、顺序汇总、中止和回退，`src/batch_worker.js` 是后台计算入口。同步脚本将引擎和入口一起写入 `batchWorker` 数据块，主页面与后台线程共用同一份生成代码。
+
+`src/library_schedule.js` 是浏览器与 Node 共用的关号解锁编译器，负责累计并集、阶段边界与各段词库快照。它不更改核心／一级／二级／三级八库本身的词条范围。
 
 修改资源或 UI 后运行：
 
@@ -130,6 +138,7 @@ python3 tools/sync_editor.py
 ```sh
 node tests/library_sets.cjs
 node tests/library_combinations.cjs
+node tests/library_schedule.cjs
 node tests/library_overlap.cjs
 node tests/generation_attempts.cjs
 python3 tools/build_glossary.py --check
@@ -150,6 +159,7 @@ NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_libraries.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_library_range.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_batch_libraries.cjs
+NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_library_schedule.cjs
 ```
 
 `BASE_URL` 可覆盖服务地址。浏览器测试覆盖配置管理、集合计算、快照版本、旧存档、文件往返、真实出处、两字母额外词试玩、离线 HTML 和桌面界面，截图及结果写在 `/tmp`。历史截图、旧审核、旧 320 关数据不代表当前词库验收结果。
