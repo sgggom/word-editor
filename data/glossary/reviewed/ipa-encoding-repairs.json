@@ -1,0 +1,1027 @@
+{
+  "agamid": {
+    "ipa": "/ˈæɡəmid/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "agha": {
+    "ipa": "/ˈɑːɡə/, /ɑːˈɡɑː/",
+    "ipaSource": "wiktionary",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/agha"
+  },
+  "agone": {
+    "ipa": "/ə ˈ ɡɔn/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "anlage": {
+    "ipa": "/ˈɑːnlɑːɡə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "anlages": {
+    "ipa": "/ˈɑːnlɑːɡəz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "cerci": {
+    "ipa": "/sɜːsai/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "cercis": {
+    "ipa": "/ˈsɜːsis/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "cogon": {
+    "ipa": "/kəˈɡəun/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "cotinga": {
+    "ipa": "/kəˈtiŋɡə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "dags": {
+    "ipa": "/dæɡz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "dawg": {
+    "ipa": "/dɔɡ/",
+    "ipaSource": "wiktionary",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/dawg"
+  },
+  "degust": {
+    "ipa": "/diˈɡʌst/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "dogleg": {
+    "ipa": "/ˈdɔɡˌlɛɡ/",
+    "ipaSource": "wiktionary",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/dogleg"
+  },
+  "dogy": {
+    "ipa": "/ˈdəuɡi/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "drongo": {
+    "ipa": "/ˈdrɔŋɡəj/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "eggar": {
+    "ipa": "/ˈɛɡɚ/",
+    "ipaSource": "wiktionary",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/eggar"
+  },
+  "englut": {
+    "ipa": "/inˈɡlʌt/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "erg": {
+    "ipa": "/ɝɡ/",
+    "ipaSource": "wiktionary",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/erg"
+  },
+  "ergate": {
+    "ipa": "/ˈəːɡeit/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "exempla": {
+    "ipa": "/iɡˈzemplə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "fogger": {
+    "ipa": "/ˈfɔɡə(r)/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gaddi": {
+    "ipa": "/ˈɡʌdi/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gadid": {
+    "ipa": "/ˈɡeidid/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gahnite": {
+    "ipa": "/ˈɡɑːnait/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gainst": {
+    "ipa": "/ɡeinst/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "galeas": {
+    "ipa": "/ˈɡæliəs/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gamic": {
+    "ipa": "/ˈɡæmik/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gamine": {
+    "ipa": "/ɡæˈmiːn/, /ˈɡæmiːn/",
+    "ipaSource": "wiktionary",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/gamine"
+  },
+  "ganof": {
+    "ipa": "/ˈɡɑːnəf/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gaper": {
+    "ipa": "/ˈɡeipə(r)/, /ˈɡæp-/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "garni": {
+    "ipa": "/ɡɑːˈniː/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gateman": {
+    "ipa": "/ˈɡeitmən/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gaur": {
+    "ipa": "/ˈɡaʊ.əɹ/",
+    "ipaSource": "wiktionary",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/gaur"
+  },
+  "gavot": {
+    "ipa": "/ɡəˈvɔt/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gelt": {
+    "ipa": "/ɡɛlt/",
+    "ipaSource": "wiktionary",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/gelt"
+  },
+  "gerah": {
+    "ipa": "/ˈɡiːrə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "geta": {
+    "ipa": "/ˈɡetə, -ɑː/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "getas": {
+    "ipa": "/ˈɡetəz/, /-ɑːz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "ghat": {
+    "ipa": "/ɡɑt/",
+    "ipaSource": "wiktionary",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/ghat"
+  },
+  "ghats": {
+    "ipa": "/ɡɔːts,ɡɑːts/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "ghi": {
+    "ipa": "/ɡiː/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "ghis": {
+    "ipa": "/ɡiːz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gid": {
+    "ipa": "/ɡid/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "giddap": {
+    "ipa": "/ɡiˈdæp/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gids": {
+    "ipa": "/ɡidz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "ginzo": {
+    "ipa": "/ˈɡinzəj/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "girsh": {
+    "ipa": "/kɜːʃ/, /ɡɜːʃ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gismo": {
+    "ipa": "/ˈɡizməu/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gleed": {
+    "ipa": "/ɡliːd/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gleeds": {
+    "ipa": "/ɡliːdz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gleg": {
+    "ipa": "/ɡlɛɡ/",
+    "ipaSource": "wiktionary",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/gleg"
+  },
+  "glia": {
+    "ipa": "/ˈɡliə/, /ˈɡlaɪə/",
+    "ipaSource": "wiktionary",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/glia"
+  },
+  "glost": {
+    "ipa": "/ɡlɔst/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gluer": {
+    "ipa": "/ˈɡluːə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "godling": {
+    "ipa": "/ˈɡɔdliŋ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "goglet": {
+    "ipa": "/ˈɡɔɡlit/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gondi": {
+    "ipa": "/ˈɡɔndi/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gonion": {
+    "ipa": "/ˈɡəuni/, /ɔn/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gonof": {
+    "ipa": "/ˈɡɔnəf/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gorily": {
+    "ipa": "/ˈɡɔː rili/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gorp": {
+    "ipa": "/ˈɡɔɹp/",
+    "ipaSource": "wiktionary",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/gorp"
+  },
+  "gramp": {
+    "ipa": "/ɡræmp/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "grandam": {
+    "ipa": "/ˈɡrændæm/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "grees": {
+    "ipa": "/ɡriːz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gript": {
+    "ipa": "/ɡript/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "grison": {
+    "ipa": "/ˈɡrizən/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "grot": {
+    "ipa": "/ɡɹɑt/",
+    "ipaSource": "wiktionary",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/grot"
+  },
+  "grouty": {
+    "ipa": "/ˈɡrauti/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "growly": {
+    "ipa": "/ˈɡrajli/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "guaco": {
+    "ipa": "/ˈɡwɑːkəu/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gulden": {
+    "ipa": "/ˈɡuldən/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gumma": {
+    "ipa": "/ˈɡʌmə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gur": {
+    "ipa": "/ɡjə(r)/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gurnet": {
+    "ipa": "/ˈɡɜːnit/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "gushy": {
+    "ipa": "/ˈɡʌʃi/",
+    "ipaSource": "wiktionary",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/gushy"
+  },
+  "hognut": {
+    "ipa": "/ˈhɔɡnʌt/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "igg": {
+    "ipa": "/iɡ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "igged": {
+    "ipa": "/iɡd/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "incog": {
+    "ipa": "/inˈkɔɡ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "incogs": {
+    "ipa": "/inˈkɔɡz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "ingraft": {
+    "ipa": "/inˈɡrɑːft/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "inturn": {
+    "ipa": "/ˈintɜːn/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "jugged": {
+    "ipa": "/dʒʌɡd/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "jugula": {
+    "ipa": "/ˈdʒʌɡjjlə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "kermis": {
+    "ipa": "/ˈkɜːmis/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "kerne": {
+    "ipa": "/kɜːn/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "lagger": {
+    "ipa": "/ˈlæɡə(r)/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "leges": {
+    "ipa": "/ˈliːdʒiːz/, /ˈleiɡeis/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "lig": {
+    "ipa": "/lɪɡ/",
+    "ipaSource": "wiktionary",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/lig"
+  },
+  "ligan": {
+    "ipa": "/ˈlaiɡən/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "linga": {
+    "ipa": "/ˈliŋɡə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "lingam": {
+    "ipa": "/ˈliŋɡəm/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "lingas": {
+    "ipa": "/ˈliŋɡəz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "loggy": {
+    "ipa": "/ˈlɔɡi/, /ˈlɔːɡi/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "logia": {
+    "ipa": "/ˈlɔɡiə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "lungi": {
+    "ipa": "/ˈluŋɡi/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "lungyi": {
+    "ipa": "/ˈljŋɡiː/, /-dʒiː/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "magot": {
+    "ipa": "/ˈmæɡət/, /mɑːˈɡəu/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "magots": {
+    "ipa": "/ˈmæɡəts/, /mɑːˈɡəuz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "megasse": {
+    "ipa": "/məˈɡæs/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "mugg": {
+    "ipa": "/mʌɡ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "murra": {
+    "ipa": "/ˈmʌrə/, /ˈmɜː-/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "nagger": {
+    "ipa": "/ˈnæɡɚ/",
+    "ipaSource": "wiktionary",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/nagger"
+  },
+  "nerts": {
+    "ipa": "/nɜːts/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "nogg": {
+    "ipa": "/nɔɡ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "ogam": {
+    "ipa": "/ˈɔɡəm/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "ogams": {
+    "ipa": "/ˈɔɡəmz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "ogham": {
+    "ipa": "/ˈɔɡəm/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "olingo": {
+    "ipa": "/ˈɔliŋɡəj/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "organa": {
+    "ipa": "/ˈɔːɡənə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "padnag": {
+    "ipa": "/ˈpædnæɡ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "pardah": {
+    "ipa": "/ˈpɜːdə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "pargo": {
+    "ipa": "/ˈpɑːɡəu/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "pignus": {
+    "ipa": "/ˈpiɡnəs/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "ragee": {
+    "ipa": "/ˈrɑːɡi, ˈræɡi/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "raggee": {
+    "ipa": "/ˈrɑːɡiː/, /ˈræɡi/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "regild": {
+    "ipa": "/riːˈɡild/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "regma": {
+    "ipa": "/ˈreɡmə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "regna": {
+    "ipa": "/ˈreɡnə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "regrind": {
+    "ipa": "/riˈɡraind/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "renig": {
+    "ipa": "/riˈniɡ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "renigs": {
+    "ipa": "/riˈniɡz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "rugosa": {
+    "ipa": "/ruːˈɡəjsə/, /-zə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "sagum": {
+    "ipa": "/ˈseiɡəm/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "saiga": {
+    "ipa": "/ˈsaiɡə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "sangh": {
+    "ipa": "/sʌŋɡ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "sargo": {
+    "ipa": "/ˈsɑːɡəu/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "siglos": {
+    "ipa": "/ˈsiɡlɔs/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "squeg": {
+    "ipa": "/skweɡ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "sundog": {
+    "ipa": "/ˈsʌndɔɡ/, /-dɔːɡ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "tanga": {
+    "ipa": "/ˈtæŋɡə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "teg": {
+    "ipa": "/tɛɡ/",
+    "ipaSource": "wiktionary",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/teg"
+  },
+  "terga": {
+    "ipa": "/ˈtɜːɡə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "termly": {
+    "ipa": "/ˈtɜːmli/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "thir": {
+    "ipa": "/ðiə(r)/, /ðɜː(r)/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "thyrsi": {
+    "ipa": "/ˈθɜːsai/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "tragi": {
+    "ipa": "/ˈtreidʒai,-ɡai/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "trigly": {
+    "ipa": "/ˈtriɡli/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "ungirt": {
+    "ipa": "/ˈʌnˈɡəːt/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "virl": {
+    "ipa": "/vɜːl/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "virls": {
+    "ipa": "/vɜːlz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "whort": {
+    "ipa": "/hwɜːt/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "whorts": {
+    "ipa": "/hwɜːts/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "wigan": {
+    "ipa": "/ˈwiɡən/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "wigans": {
+    "ipa": "/ˈwiɡənz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "wog": {
+    "ipa": "/wɔɡ/",
+    "ipaSource": "wiktionary",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/wog"
+  },
+  "yirr": {
+    "ipa": "/jɜː(r)/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "yuga": {
+    "ipa": "/ˈjjɡə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  },
+  "yugas": {
+    "ipa": "/ˈjjɡəz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaRepair": "Legacy ^ glyph replaced by ɡ; repeated backslash glyph replaced by ɜ."
+  }
+}

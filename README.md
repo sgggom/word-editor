@@ -4,7 +4,7 @@
 
 ## 打开和运行
 
-双击 `wordpages-level-desk.html` 即可离线配置词库和生成关卡，无需安装应用依赖。需要释义、完整来源关卡或竞品关表时，在仓库根目录运行：
+双击 `wordpages-level-desk.html` 即可离线配置词库、生成关卡和查看默认 8 个词库中三字母及以上单词的双语释义与音标，无需安装应用依赖。需要默认范围外的旧释义、完整来源关卡或竞品关表时，在仓库根目录运行：
 
 ```sh
 python3 -m http.server 8000 --bind 127.0.0.1
@@ -123,6 +123,8 @@ python3 tools/sync_editor.py
 node tests/library_sets.cjs
 node tests/library_combinations.cjs
 node tests/library_overlap.cjs
+python3 tools/build_glossary.py --check
+node tests/glossary.cjs
 python3 -m unittest discover -s tests -p 'test_*.py'
 node tests/generate_libraries.cjs
 node src/nodetest.js 30 list0 /tmp/v2-list0.json
@@ -146,4 +148,8 @@ NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser
 
 生成引擎及阶段目标沿用 Word Tiles v2 交接包；当前词库来自用户提供的 `leveleditor` 校准数据。它是已取得竞品主线中的词条集合，并非游戏客户端完整字典，也不等于逐词人工确认的常用词白名单。
 
-词典署名：ECDICT（MIT）、Open English WordNet（CC BY 4.0）、CMUdict（BSD），以及部分改编自 Wiktionary 的英文释义（CC BY-SA 4.0）。版本历史由 `src/version_history.json` 管理。
+默认 8 个词库共用一份 **22,452 词**的内嵌词典，排除 28 个两字母词；原始范围中的 12 个长词也保留释义。以 NFC、大小写和空白规范化后的完整单词去重，不合并词形。原有 11,543 个词的释义直接复用并修正发现的错义，另补 10,909 个词；一个词只维护一份中英释义与音标。点击词条或悬停即可查看，分享 HTML 后同样可用。
+
+音标区分词典记录、明确词形关系推导和语音引擎预测；预测读音标为“推测，待核实”。释义不参与生成权限、词库集合计算和快照哈希。数据、逐字段来源、修正记录、许可和增量构建方法见 [词典说明](docs/GLOSSARY.md)。新增浏览器验证为 `node tests/browser_glossary.cjs`，使用与其余浏览器测试相同的环境变量。
+
+词典署名：ECDICT（MIT）、Open English WordNet / Princeton WordNet（CC BY 4.0 / WordNet License）、ipa-dict / CMUdict（MIT / BSD），以及改编自 Wiktionary 的释义（CC BY-SA 4.0）。少量罕见词经 Merriam-Webster 核对后另行编写简释。版本历史由 `src/version_history.json` 管理。

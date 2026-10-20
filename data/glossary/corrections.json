@@ -1,0 +1,4929 @@
+{
+  "aah": {
+    "zh": "感叹词：啊（表示惊讶、赞叹、愉快等）；动词：发出“啊”的赞叹声",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "note": "修正原释义误用大写 AAH 军事缩写",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/aah"
+  },
+  "aahs": {
+    "zh": "aah 的复数或第三人称单数：啊的叫声；发出赞叹声",
+    "zhSource": "Wiktionary form + Chinese adaptation",
+    "note": "修正原释义误用大写 AAH 军事缩写",
+    "zhBase": "aah",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/aah"
+  },
+  "aahed": {
+    "zh": "aah 的过去式和过去分词：发出“啊”的惊讶或赞叹声",
+    "zhSource": "Wiktionary form + Chinese adaptation",
+    "note": "修正 ECDICT 将感叹词误作军事缩写",
+    "zhBase": "aah",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/aah"
+  },
+  "aal": {
+    "zh": "名词：印度桑／诺丽等巴戟天属灌木；从其根提取的红色染料",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "note": "采用英语普通名词植物及染料义，避免同形外语或缩写误释",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/aal"
+  },
+  "aals": {
+    "zh": "aal 的复数：印度桑／诺丽等巴戟天属灌木；其根提取的红色染料",
+    "zhSource": "Wiktionary form + Chinese adaptation",
+    "zhBase": "aal",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/aals"
+  },
+  "abased": {
+    "ipa": "/əˈbeɪst/",
+    "ipaSource": "wiktionary",
+    "ipaStatus": "sourced",
+    "zh": "abase 的过去式和过去分词：贬低、使卑微；形容词：地位降低的、受辱的",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "note": "修正原释义误用 Abas 人名",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/abased",
+    "zhBase": "abase",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/abased"
+  },
+  "arias": {
+    "zh": "aria 的复数：咏叹调；独唱曲",
+    "zhSource": "ECDICT exchange + Chinese adaptation",
+    "note": "采用已验证 aria 复数义，避免同形 Arias 姓氏覆盖",
+    "zhBase": "aria",
+    "zhSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "cats": {
+    "zh": "cat 的复数：猫；也可为 cat 的第三人称单数形式",
+    "zhSource": "ECDICT definition + Chinese adaptation",
+    "note": "修正原释义误用大写 CATS 缩写",
+    "zhBase": "cat",
+    "zhSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "hollo": {
+    "zh": "感叹词：喂、嗨（用来引起注意）；名词：大喊声；动词：大声喊叫",
+    "zhSource": "ECDICT definition (Chinese adaptation)",
+    "note": "修正普通感叹词被 Hollo 人名覆盖",
+    "zhSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "holloa": {
+    "ipa": "/ˈhɔləu/, /həˈləu/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced",
+    "zh": "hollo 的变体：喂、嗨（引起注意的喊声）；大声喊叫",
+    "zhSource": "ECDICT definition (Chinese adaptation)",
+    "zhBase": "hollo",
+    "zhSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "lotte": {
+    "zh": "名词：鮟鱇鱼（一种口大、头部有诱饵状丝状附肢的鱼）",
+    "zhSource": "ECDICT definition (Chinese adaptation)",
+    "note": "修正普通鱼名被 Lotte 品牌覆盖",
+    "zhSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "lottes": {
+    "zh": "lotte 的复数：鮟鱇鱼",
+    "zhSource": "ECDICT definition (Chinese adaptation)",
+    "zhBase": "lotte",
+    "zhSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "troak": {
+    "zh": "动词：交换、交易，尤指绕过政府垄断进行的交易",
+    "zhSource": "ECDICT definition (Chinese adaptation)",
+    "zhSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "abel": {
+    "ipa": "/ˈeɪbəl/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "ane": {
+    "ipa": "/en/, /jɪn/, /in/",
+    "ipaSource": "wiktionary-scots",
+    "ipaStatus": "sourced"
+  },
+  "bern": {
+    "ipa": "/bˈɜːn/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "blaw": {
+    "ipa": "/blɑː/, /blɔː/, /bl(j)aːv/",
+    "ipaSource": "wiktionary-scots",
+    "ipaStatus": "sourced"
+  },
+  "blume": {
+    "ipa": "/blˈuːm/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "zh": "【苏格兰】开花。",
+    "zhSource": "Wiktionary (Scots Chinese adaptation)",
+    "en": "(Scots) to bloom",
+    "enSource": "wiktionary-scots",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/blume",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/blume"
+  },
+  "blumes": {
+    "ipa": "/blˈuːmz/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "zh": "blume 的第三人称单数：开花、绽放",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Third-person singular of blume: to produce blossoms.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/blumes",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/blumes"
+  },
+  "cannie": {
+    "zh": "【苏格兰】谨慎的；稳妥的；舒适的；和善的；精明的。作副词指小心地、谨慎地，是 canny 的异体。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "en": "(Scots) Careful, cautious or prudent; comfortable, gentle or pleasing. As an adverb, carefully or cautiously; a variant of canny.",
+    "enSource": "Wiktionary (Scots adaptation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/cannie",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/cannie"
+  },
+  "cloot": {
+    "ipa": "/klˈuːt/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "cuddie": {
+    "ipa": "/kˈʌdi/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "daut": {
+    "ipa": "/dˈaʊt/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "deave": {
+    "ipa": "/diːv/",
+    "ipaSource": "wiktionary-scots",
+    "ipaStatus": "sourced"
+  },
+  "deil": {
+    "ipa": "/dil/, /divəl/",
+    "ipaSource": "wiktionary-scots",
+    "ipaStatus": "sourced"
+  },
+  "dirl": {
+    "ipa": "/dˈɜːl/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "donsy": {
+    "ipa": "/dˈɑːnzi/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "dover": {
+    "ipa": "/ˈdɔːvər/",
+    "ipaSource": "wiktionary-scots",
+    "ipaStatus": "sourced"
+  },
+  "ferlie": {
+    "ipa": "/fˈɜːli/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "ferly": {
+    "ipa": "/fˈɜːli/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "fodgel": {
+    "ipa": "/fˈɑːdʒəl/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "frae": {
+    "ipa": "/fɹˈiː/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "gie": {
+    "ipa": "/ɡiː/",
+    "ipaSource": "Collins (Scots pronunciation)",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/gie",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us",
+    "zh": "【苏格兰】给、给予（相当于 give）。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "zhBase": "give",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/gie",
+    "en": "(Scots) To give.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "enBase": "give",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/gie",
+    "note": "核对同族词形，修正缩写误义或只有英文交叉引用的中文释义"
+  },
+  "gied": {
+    "ipa": "/ɡiːd/",
+    "ipaSource": "Collins + reviewed inflection",
+    "ipaStatus": "derived",
+    "zh": "【苏格兰】gie（给、给予）的过去式和过去分词。",
+    "zhSource": "Wiktionary (Scots Chinese adaptation)",
+    "en": "(Scots) simple past tense of gie",
+    "enSource": "wiktionary-scots",
+    "ipaBase": "gie",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/gie",
+    "note": "核对苏格兰语普通词义，修正同形大写缩写或姓氏及错误词根来源",
+    "zhBase": "gie",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/gied",
+    "enBase": "gie",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/gied"
+  },
+  "gien": {
+    "ipa": "/ˈɡiən/, /ɡin/",
+    "ipaSource": "Collins (Scots pronunciation)",
+    "ipaStatus": "sourced",
+    "zh": "【苏格兰】gie（给、给予）的过去分词，相当于 given。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "en": "(Scots) Past participle of gie, meaning to give; equivalent to given.",
+    "enSource": "Wiktionary (Scots adaptation)",
+    "ipaBase": "gie",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/gie",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/gien",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/gien"
+  },
+  "gies": {
+    "ipa": "/ɡiːz/",
+    "ipaSource": "Collins + reviewed inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "gie",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/gie",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us",
+    "zh": "【苏格兰】gie（给、给予）的第三人称单数。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "zhBase": "gie",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/gies",
+    "en": "(Scots) Third-person singular of gie: to give.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "enBase": "gie",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/gies",
+    "note": "核对同族词形，修正缩写误义或只有英文交叉引用的中文释义"
+  },
+  "gowd": {
+    "ipa": "/ɡʌud/",
+    "ipaSource": "wiktionary-scots",
+    "ipaStatus": "sourced"
+  },
+  "gude": {
+    "ipa": "/ɡʏd/",
+    "ipaSource": "Collins (Scots pronunciation)",
+    "ipaStatus": "sourced",
+    "zh": "【苏格兰】好的；善良的。",
+    "zhSource": "Wiktionary (Scots Chinese adaptation)",
+    "en": "(Scots) good",
+    "enSource": "wiktionary-scots",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/gude",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us",
+    "note": "核对苏格兰语普通词义，修正同形大写缩写或姓氏及错误词根来源",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/gude",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/gude"
+  },
+  "gudes": {
+    "ipa": "/ɡʏdz/",
+    "ipaSource": "Collins + reviewed inflection",
+    "ipaStatus": "derived",
+    "zh": "gude 的复数（苏格兰语）：善事、好处；货物、财物",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Plural of gude, a Scots form of good: goods or beneficial things.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "ipaBase": "gude",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/gude",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/gudes",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/gudes"
+  },
+  "haen": {
+    "ipa": "/heɪn/",
+    "ipaSource": "Collins + reviewed inflection",
+    "ipaStatus": "derived",
+    "zh": "【苏格兰】“有、拥有”的过去分词，相当于 had。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "en": "(Scots) Had, the past participle of the verb meaning to have.",
+    "enSource": "Wiktionary (Scots adaptation)",
+    "ipaBase": "hae",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/hae",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/haen",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/haen"
+  },
+  "ither": {
+    "ipa": "/ˈɪðɚ/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "kirn": {
+    "ipa": "/kˈɜːn/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "zh": "【苏格兰】搅乳器；搅乳制酪；搅动或混合。",
+    "zhSource": "Wiktionary (Scots Chinese adaptation)",
+    "en": "(Scots) a churn; to churn (as milk into butter); to churn up, stir, mix",
+    "enSource": "wiktionary-scots",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/kirn",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/kirn"
+  },
+  "kirns": {
+    "ipa": "/kˈɜːnz/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "zh": "【苏格兰】kirn（搅乳制酪；搅动）的第三人称单数。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "(Scots) The third-person singular form of kirn, meaning to churn.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us",
+    "zhBase": "kirn",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/kirns",
+    "enBase": "kirn",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/kirns"
+  },
+  "laigh": {
+    "ipa": "/lˈeɪɡ/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "licht": {
+    "ipa": "/lɪçt/, /lɪxt/",
+    "ipaSource": "wiktionary-scots",
+    "ipaStatus": "sourced"
+  },
+  "lipper": {
+    "ipa": "/lˈɪpɚ/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "lyart": {
+    "ipa": "/ljˈɑːɹt/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "nae": {
+    "ipa": "/ne/",
+    "ipaSource": "wiktionary-scots",
+    "ipaStatus": "sourced",
+    "zh": "【苏格兰】不；没有；并非。",
+    "zhSource": "Wiktionary (Scots Chinese adaptation)",
+    "en": "(Scots) Doric Scots form of na (“not”); no; not",
+    "enSource": "wiktionary-scots",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/nae",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/nae"
+  },
+  "owse": {
+    "ipa": "/ˈoʊz/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "ryke": {
+    "ipa": "/ɹˈaɪk/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "sae": {
+    "ipa": "/se/",
+    "ipaSource": "Collins (Scots pronunciation)",
+    "ipaStatus": "sourced",
+    "zh": "【苏格兰】如此；这样（相当于 so）。",
+    "zhSource": "Wiktionary (Scots Chinese adaptation)",
+    "en": "(Scots) so",
+    "enSource": "wiktionary-scots",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/sae",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us",
+    "note": "核对苏格兰语普通词义，修正同形大写缩写或姓氏及错误词根来源",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sae",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/sae"
+  },
+  "sall": {
+    "ipa": "/sˈɔːl/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "sauch": {
+    "ipa": "/sˈɔːtʃ/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "sel": {
+    "ipa": "/sˈɛl/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "zh": "【苏格兰】自己；自我（相当于 self）。",
+    "zhSource": "Wiktionary (Scots Chinese adaptation)",
+    "en": "(Scots) self",
+    "enSource": "wiktionary-scots",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sel",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/sel"
+  },
+  "sels": {
+    "ipa": "/sˈɛlz/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "zh": "【苏格兰】sel（自己、自我）的复数，相当于 selves。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "(Scots) Plural of sel: selves.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us",
+    "zhBase": "sel",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/sel",
+    "enBase": "sel",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/sel"
+  },
+  "sneesh": {
+    "ipa": "/snˈiːʃ/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "speir": {
+    "ipa": "/spiːr/",
+    "ipaSource": "wiktionary-scots",
+    "ipaStatus": "sourced"
+  },
+  "staig": {
+    "ipa": "/stˈeɪɡ/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "stey": {
+    "ipa": "/stˈeɪ/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "stime": {
+    "ipa": "/stˈaɪm/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "sugh": {
+    "ipa": "/sˈʌɡ/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "tae": {
+    "ipa": "[teː]",
+    "ipaSource": "wiktionary-scots",
+    "ipaStatus": "sourced",
+    "zh": "【苏格兰】向；到；动词不定式标记 to；也、同样（相当于 too）。",
+    "zhSource": "Wiktionary (Scots Chinese adaptation)",
+    "en": "(Scots) to, towards; to (infinitive marker); too, also, as well",
+    "enSource": "wiktionary-scots",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tae",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tae"
+  },
+  "tentie": {
+    "ipa": "/tˈɛnti/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "tenty": {
+    "ipa": "/tˈɛnti/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "thraw": {
+    "ipa": "/θɹˈɔː/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "twa": {
+    "ipa": "/twɑː/, /twɔː/",
+    "ipaSource": "wiktionary-scots",
+    "ipaStatus": "sourced",
+    "zh": "【苏格兰】二；两个。",
+    "zhSource": "Wiktionary (Scots Chinese adaptation)",
+    "en": "(Scots) two",
+    "enSource": "wiktionary-scots",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/twa",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/twa"
+  },
+  "twae": {
+    "ipa": "/twe/",
+    "ipaSource": "wiktionary-scots",
+    "ipaStatus": "sourced"
+  },
+  "waur": {
+    "ipa": "/wɑr/",
+    "ipaSource": "wiktionary-scots",
+    "ipaStatus": "sourced"
+  },
+  "yird": {
+    "ipa": "/jɪrd/",
+    "ipaSource": "wiktionary-scots",
+    "ipaStatus": "sourced"
+  },
+  "amis": {
+    "zh": "ami 的复数：朋友。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of ami: friends.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "ipa": "/ɑːˈmiz/",
+    "ipaSource": "Collins (male friends)",
+    "ipaBase": "ami",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/ami",
+    "ipaStatus": "sourced",
+    "zhBase": "ami",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/ami",
+    "enBase": "ami",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/ami"
+  },
+  "ates": {
+    "ipa": "/ˈeɪts/",
+    "ipaSource": "wiktionary-scots-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "ate",
+    "relationSource": "wiktionary-scots-inflection",
+    "baseIpaSource": "ipa-dict-en-US"
+  },
+  "broos": {
+    "ipa": "/bruːz/",
+    "ipaSource": "wiktionary-scots-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "broo",
+    "relationSource": "wiktionary-scots-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "bulbed": {
+    "ipa": "/ˈbəɫbd/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "bulb",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ipa-dict-en-US"
+  },
+  "cochin": {
+    "ipa": "/kˈoʊtʃɪn/",
+    "ipaSource": "espeak-ng (predicted)",
+    "ipaStatus": "unverified",
+    "ipaEngine": "eSpeak NG text-to-speech: 1.52.0",
+    "ipaVoice": "en-us"
+  },
+  "coffs": {
+    "ipa": "/kɒfs/, /kɔfs/",
+    "ipaSource": "wiktionary-scots-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "coff",
+    "relationSource": "wiktionary-scots-inflection",
+    "baseIpaSource": "wiktionary"
+  },
+  "deaved": {
+    "ipa": "/diːvd/",
+    "ipaSource": "wiktionary-scots-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "deave",
+    "relationSource": "wiktionary-scots-inflection",
+    "baseIpaSource": "wiktionary-scots"
+  },
+  "deils": {
+    "ipa": "/dilz/, /divəlz/",
+    "ipaSource": "wiktionary-scots-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "deil",
+    "relationSource": "wiktionary-scots-inflection",
+    "baseIpaSource": "wiktionary-scots"
+  },
+  "duits": {
+    "ipa": "/dɔits/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "duit",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "durrs": {
+    "zh": "durr 的复数：杜拉高粱（一种高粱作物，同 durra）",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Plural of durr: a kind of sorghum also called durra.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/durrs",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/durrs"
+  },
+  "emfs": {
+    "en": "Plural of EMF: electromotive forces, or electric potentials produced by an energy source.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "ipa": "/ˌiː ɛm ˈɛfs/",
+    "ipaSource": "Wiktionary initialism + reviewed plural",
+    "ipaBase": "emf",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/EMF",
+    "ipaStatus": "derived",
+    "zh": "EMF 的复数：电动势。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "zhBase": "EMF",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/EMF",
+    "enBase": "EMF",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/EMF"
+  },
+  "erses": {
+    "ipa": "/ˈɝzɪz/, /ˈiˈɑˈɹɛsɪz/",
+    "ipaSource": "wiktionary-scots-inflection",
+    "ipaStatus": "derived",
+    "zh": "ers 的复数：苦野豌豆（Vicia ervilia，同 ervil）",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Plural of ers: bitter vetch plants.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "ipaBase": "ers",
+    "relationSource": "wiktionary-scots-inflection",
+    "baseIpaSource": "ipa-dict-en-US",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/erses",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/erses"
+  },
+  "gamas": {
+    "zh": "gama 的复数：一种高大的美洲牧草（Tripsacum dactyloides）。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of gama: a tall American forage grass, Tripsacum dactyloides.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhBase": "gama",
+    "zhSourceUrl": "https://www.merriam-webster.com/dictionary/gama",
+    "enBase": "gama",
+    "enSourceUrl": "https://www.merriam-webster.com/dictionary/gama"
+  },
+  "gorps": {
+    "ipa": "/ˈɡɔɹps/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "gorp",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "wiktionary"
+  },
+  "haes": {
+    "ipa": "/heɪz/, /hæz/",
+    "ipaSource": "Collins + reviewed inflection",
+    "ipaStatus": "derived",
+    "zh": "【苏格兰】hae（有、拥有）的第三人称单数。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "(Scots) The third-person singular form of hae, meaning to have.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "ipaBase": "hae",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/hae",
+    "note": "核对苏格兰语普通词义，修正同形大写缩写或姓氏及错误词根来源",
+    "zhBase": "hae",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/haes",
+    "enBase": "hae",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/haes"
+  },
+  "hokier": {
+    "ipa": "/ˈhoʊkiəɹ/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "hokie",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "wiktionary-spelling"
+  },
+  "hoseys": {
+    "zh": "hosey 的第三人称单数：在儿童游戏中选择队伍；抢先声明自己的选择",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Third-person singular of hosey: to choose teams in a children's game or claim a choice.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/hoseys",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/hoseys"
+  },
+  "ichs": {
+    "zh": "ich 的复数：鱼类白点病，一种寄生虫病。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of ich: a parasitic disease affecting fish.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "ipa": "/ɪks/",
+    "ipaSource": "Wiktionary + reviewed inflection",
+    "ipaBase": "ich",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/ich",
+    "ipaStatus": "derived",
+    "zhBase": "ich",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/ichs",
+    "enBase": "ich",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/ichs"
+  },
+  "juried": {
+    "ipa": "/ˈdʒʊɹid/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "jury",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ipa-dict-en-US"
+  },
+  "keefs": {
+    "zh": "keef 的复数：大麻或大麻制品（同 kef、kif）。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of keef, a variant of kef or kif: cannabis or a cannabis preparation.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhBase": "keef",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/keefs",
+    "enBase": "keef",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/keefs"
+  },
+  "kois": {
+    "zh": "koi 的复数：锦鲤。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of koi: ornamental varieties of carp.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhBase": "koi",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/kois",
+    "enBase": "koi",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/kois"
+  },
+  "leveed": {
+    "ipa": "/ˈɫɛvid/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "levee",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ipa-dict-en-US"
+  },
+  "lieus": {
+    "en": "Plural of lieu: places or positions taken by a substitute.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "lieu 的复数：位置；被替代的位置。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "zhBase": "lieu",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/lieus",
+    "enBase": "lieu",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/lieus"
+  },
+  "limier": {
+    "ipa": "/ˈlʌɪ.miəɹ/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "limy",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "wiktionary"
+  },
+  "linier": {
+    "ipa": "/ˈlainiəɹ/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "liny",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "miches": {
+    "ipa": "/ˈmɪtʃɪz/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "zh": "mich 的第三人称单数（方言）：躲藏、偷偷溜走；逃学",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Third-person singular of mich: to skulk or play truant.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "ipaBase": "mich",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ipa-dict-en-US",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mitch",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/mitch"
+  },
+  "mirker": {
+    "ipa": "/məːkəɹ/",
+    "ipaSource": "wiktionary-scots-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "mirk",
+    "relationSource": "wiktionary-scots-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "moorier": {
+    "ipa": "/ˈmʊəɹiəɹ/, /ˈmɔːɹiəɹ/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "moory",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "wiktionary"
+  },
+  "muras": {
+    "zh": "mura 的复数：日本村落。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of mura: Japanese villages.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhBase": "mura",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/muras",
+    "enBase": "mura",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/muras"
+  },
+  "nonas": {
+    "ipa": "/ˈnɑnɑz/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "nona",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ipa-dict-en-US"
+  },
+  "nosier": {
+    "ipa": "/ˈnoʊziəɹ/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "nosy",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ipa-dict-en-US"
+  },
+  "oftest": {
+    "ipa": "/ˈɔftɪst/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "oft",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ipa-dict-en-US"
+  },
+  "oses": {
+    "ipa": "/ˈoʊzɪz/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "ose",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ipa-dict-en-US"
+  },
+  "peres": {
+    "zh": "pere 的复数：父亲；用法语 Père 尊称的神父等。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of pere: fathers, or men addressed with the French title Pere.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "ipa": "/pɛərz/",
+    "ipaSource": "Collins (fathers)",
+    "ipaBase": "pere",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/pere",
+    "ipaStatus": "sourced",
+    "zhBase": "pere",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/peres",
+    "enBase": "pere",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/peres"
+  },
+  "pias": {
+    "zh": "pia 的复数：软脑膜、软脊膜，即紧贴脑和脊髓表面的薄膜。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of pia: the delicate membrane directly covering the brain and spinal cord.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhBase": "pia",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/pias",
+    "enBase": "pia",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/pias"
+  },
+  "sanes": {
+    "zh": "sane 作动词时的第三人称单数：祝福；祝祷护佑（同 sain）。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Third-person singular of sane as a verb meaning to sain: to bless or protect by a blessing.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhBase": "sane",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/sanes",
+    "enBase": "sane",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/sanes"
+  },
+  "searer": {
+    "ipa": "/ˈsɪɹəɹ/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "sear",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ipa-dict-en-US"
+  },
+  "skas": {
+    "zh": "ska 的复数：斯卡音乐，起源于牙买加的一种流行音乐。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of ska: forms or examples of a Jamaican style of popular music.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhBase": "ska",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/skas",
+    "enBase": "ska",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/skas"
+  },
+  "sored": {
+    "ipa": "/ˈsɔɹd/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "sore",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ipa-dict-en-US"
+  },
+  "soring": {
+    "ipa": "/ˈsɔɹɪŋ/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "sore",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ipa-dict-en-US"
+  },
+  "speirs": {
+    "ipa": "/spiːrz/",
+    "ipaSource": "wiktionary-scots-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "speir",
+    "relationSource": "wiktionary-scots-inflection",
+    "baseIpaSource": "wiktionary-scots"
+  },
+  "spired": {
+    "ipa": "/ˈspaɪɹd/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "spire",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ipa-dict-en-US"
+  },
+  "teels": {
+    "en": "Plural of teel: sesame plants or sesame seeds.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "teel 的复数：芝麻或芝麻籽。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "zhBase": "teel",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/teels",
+    "enBase": "teel",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/teels"
+  },
+  "thens": {
+    "zh": "then 作名词时的复数：那些时候；过去的那些时段。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of then as a noun: those times or periods.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhBase": "then",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/then",
+    "enBase": "then",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/then"
+  },
+  "vised": {
+    "ipa": "/ˈvɪst/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "vis",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ipa-dict-en-US"
+  },
+  "vises": {
+    "ipa": "/ˈvɪsɪz/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "vis",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ipa-dict-en-US"
+  },
+  "vising": {
+    "ipa": "/ˈvɪsɪŋ/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "vis",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ipa-dict-en-US"
+  },
+  "yarer": {
+    "ipa": "/jɑɹəɹ/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "yar",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "wiktionary"
+  },
+  "yules": {
+    "en": "Plural of yule: Christmas seasons.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "yule 的复数：圣诞节；圣诞节期。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "zhBase": "yule",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/yules",
+    "enBase": "yule",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/yules"
+  },
+  "mit": {
+    "ipa": "/mɪt/",
+    "ipaSource": "wiktionary-spelling",
+    "ipaStatus": "derived",
+    "zh": "mitt 的旧拼写：连指手套、棒球手套；手（口语）",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "ipaBase": "mitt",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/mit",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mit"
+  },
+  "amens": {
+    "ipa": "/ɑːˈmen/, /eɪ-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "aroid": {
+    "ipa": "/ˈærɔid/, /ˈeər-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "aroids": {
+    "ipa": "/ˈærɔidz/, /ˈeər-z/",
+    "ipaSource": "ecdict-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "aroid",
+    "relationSource": "ecdict-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "awa": {
+    "ipa": "/əˈwɑː/, /-ˈwɔː/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "axions": {
+    "ipa": "/ˈæksi/, /ɔn/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "ceric": {
+    "ipa": "/ˈsiərik/, /ˈser-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "conine": {
+    "ipa": "/ˈkəuniiːn/, /-in/",
+    "ipaSource": "wiktionary-spelling",
+    "ipaStatus": "derived",
+    "ipaBase": "coniine",
+    "baseIpaSource": "ecdict"
+  },
+  "cornu": {
+    "ipa": "/ˈkɔːnjuː/, /-nuː/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "crambe": {
+    "ipa": "/ˈkræm/, /biː/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "croci": {
+    "ipa": "/ˈkrəjsai/, /-kai/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "cyano": {
+    "ipa": "/ˈsaiə/, /nəu/, /ˈsaiənəu/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "cyclo": {
+    "ipa": "/ˈsiːkləu/, /ˈsaikləu/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "danio": {
+    "ipa": "/ˈdæni/, /əu/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "danios": {
+    "ipa": "/ˈdæniz/, /əuz/",
+    "ipaSource": "ecdict-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "danio",
+    "relationSource": "ecdict-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "dawt": {
+    "ipa": "/dɔːt/, /dɔt/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "dawts": {
+    "ipa": "/dɔːts/, /dɔts/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "dawt",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "deiced": {
+    "ipa": "/diːˈais/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "deices": {
+    "ipa": "/diːˈais/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "deus": {
+    "ipa": "/ˈdeius/, /ˈdiəs/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "diols": {
+    "ipa": "/ˈdai/, /ɔls/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "durmast": {
+    "ipa": "/ˈdəːmɑːst/, /-mæst/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "eath": {
+    "ipa": "/iːθ/, /iːð/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "erenow": {
+    "ipa": "/eəˈnau/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "etamin": {
+    "ipa": "/ˈetəmiːn/, /-min/, /-min/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "exedra": {
+    "ipa": "/ikˈsiːdrə/, /ˈeksi-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "eyras": {
+    "ipa": "/ˈeərəz/, /ˈaiərəz/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "eyra",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "eyry": {
+    "ipa": "/ˈaiəri/, /ˈiəri/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "faquir": {
+    "ipa": "/ˈfɑːkiə/, /fəˈkiə/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "gaper": {
+    "ipa": "/ˈɡeipə(r)/, /ˈɡæp-/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "getas": {
+    "ipa": "/ˈɡetəz/, /-ɑːz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaBase": "geta",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "gipon": {
+    "ipa": "/dʒiˈpɔn/, /ˈdʒipɔn/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "girsh": {
+    "ipa": "/kɜːʃ/, /ɡɜːʃ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "gonion": {
+    "ipa": "/ˈɡəuni/, /ɔn/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "hae": {
+    "ipa": "/heɪ/, /hæ/",
+    "ipaSource": "Collins (Scots pronunciation)",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/hae"
+  },
+  "hela": {
+    "ipa": "/ˈhiːlə/, /ˈhe-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "hnd": {
+    "ipa": "/eitʃ en ˈdiː/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "hooka": {
+    "ipa": "/ˈhukə/, /-kɑː/",
+    "ipaSource": "wiktionary-spelling",
+    "ipaStatus": "derived",
+    "ipaBase": "hookah",
+    "baseIpaSource": "ecdict"
+  },
+  "hookas": {
+    "ipa": "/ˈhukəz/, /-kɑːz/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "hooka",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "wiktionary-spelling"
+  },
+  "idyls": {
+    "ipa": "/ˈidilz/, /ˈaidilz/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "idyl",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "imaum": {
+    "ipa": "/iˈmɑːm/, /iˈmɔːm/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "imido": {
+    "ipa": "/ˈimidəu/, /iˈmiːdəu/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "intine": {
+    "ipa": "/ˈintiːn/, /-tain/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "ixtle": {
+    "ipa": "/ˈikstli/, /ˈis-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "kaf": {
+    "ipa": "/kɑːf/, /kɔːf/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "khafs": {
+    "ipa": "/hɑːfs/, /hɔːfs/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "khaf",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "kobo": {
+    "ipa": "/ˈkɔː/, /bɔː/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "kobos": {
+    "ipa": "/ˈkɔːz/, /bɔːz/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "kobo",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "labra": {
+    "ipa": "/ˈleibrə/, /ˈlæbrə/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "lares": {
+    "ipa": "/ˈleəriːz/, /ˈlɑːreiz/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "latu": {
+    "ipa": "/ˈlætuː/, /ˈlɑː-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "lavage": {
+    "ipa": "/ləˈvɑːʒ/, /ˈlævidʒ/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "lavages": {
+    "ipa": "/ləˈvɑːʒɪz/, /ˈlævidʒɪz/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "lavage",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "lawine": {
+    "ipa": "/lɑːˈviːnə/, /ˈlɔːwin/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "leges": {
+    "ipa": "/ˈliːdʒiːz/, /ˈleiɡeis/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "librae": {
+    "ipa": "/ˈlaibriː/, /ˈliː-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "lichee": {
+    "ipa": "/ˈliː/, /tʃiː/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "lirot": {
+    "ipa": "/ˈliːrəjt/, /-rəjθ/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "loggy": {
+    "ipa": "/ˈlɔɡi/, /ˈlɔːɡi/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "lungyi": {
+    "ipa": "/ˈljŋɡiː/, /-dʒiː/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "luted": {
+    "ipa": "/luːt/, /ljuːt/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "magot": {
+    "ipa": "/ˈmæɡət/, /mɑːˈɡəu/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "magots": {
+    "ipa": "/ˈmæɡəts/, /mɑːˈɡəuz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaBase": "magot",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "malate": {
+    "ipa": "/ˈmæleit/, /ˈmeileit/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "mayest": {
+    "ipa": "/ˈmeiist/, /meist/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "murra": {
+    "ipa": "/ˈmʌrə/, /ˈmɜː-/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "nametag": {
+    "ipa": "/ˈneim/, /tæɡ/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "nonyl": {
+    "ipa": "/ˈnɔnil/, /ˈnəu-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "obe": {
+    "ipa": "/əu biː ˈiː/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "obes": {
+    "ipa": "/əu biː ˈiːz/",
+    "ipaSource": "ecdict-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "obe",
+    "relationSource": "ecdict-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "ocrea": {
+    "ipa": "/ˈɔkriə/, /ˈəukriə/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "okeh": {
+    "ipa": "/ˈəjˈkei/, /əjˈkei/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "okehs": {
+    "ipa": "/ˈəjˈkeiz/, /əjˈkeiz/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "okeh",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "oracy": {
+    "ipa": "/ˈɔːrəsi/, /ˈɔ-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "orrice": {
+    "ipa": "/ˈɔris/, /ˈɔː-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "osmol": {
+    "ipa": "/ˈɔzməjl/, /ˈɔs-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "osmols": {
+    "ipa": "/ˈɔzməjlz/, /ˈɔs-z/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "osmol",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "osmous": {
+    "ipa": "/ˈɔzməs/, /ˈɔs-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "pareu": {
+    "ipa": "/ˈpɑːrei/, /uː/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "payor": {
+    "ipa": "/ˈpeiə(r)/, /peiˈɔː(r)/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "pereion": {
+    "ipa": "/pəˈraiɔn/, /-ˈrei-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "pieta": {
+    "ipa": "/pieˈtɑː/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "plena": {
+    "ipa": "/ˈpliːnə/, /ˈple-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "pollee": {
+    "ipa": "/pəuˈli/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "presa": {
+    "ipa": "/ˈpreisɑː/, /-sə/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "pruta": {
+    "ipa": "/ˈpruːtɑː/, /pruːˈtɑː/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "punji": {
+    "ipa": "/ˈpʌndʒi/, /ˈpjn-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "quass": {
+    "ipa": "/kvɑːs/, /kwɑːs/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "raggee": {
+    "ipa": "/ˈrɑːɡiː/, /ˈræɡi/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "rakee": {
+    "ipa": "/rɑːˈkiː/, /ˈræki/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "ramee": {
+    "ipa": "/ˈræmi/, /ˈrei-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "raphis": {
+    "ipa": "/ˈreifis/, /ˈræ-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "reedit": {
+    "ipa": "/riːˈedit/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "regild": {
+    "ipa": "/riːˈɡild/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "remap": {
+    "ipa": "/ˈriː/, /mæp/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "revers": {
+    "ipa": "/riˈviə/, /riˈveə/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "rnase": {
+    "ipa": "/ɑːˈren/, /eis/, /-/, /eiz/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "rugosa": {
+    "ipa": "/ruːˈɡəjsə/, /-zə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "rusine": {
+    "ipa": "/ˈruːsain/, /-sin/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "rynd": {
+    "ipa": "/raind/, /rind/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "rynds": {
+    "ipa": "/raindz/, /rindz/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "rynd",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "sabbat": {
+    "ipa": "/ˈsæbət/, /sæˈbɑː/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "samoyed": {
+    "ipa": "/sæmɔiˈed/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "satem": {
+    "ipa": "/ˈsɑːtəm/, /ˈseit-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "serail": {
+    "ipa": "/səˈrai/, /-ˈrail/, /-ˈreil/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "shahs": {
+    "ipa": "/ʃɑː/, /ʃɔː/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "shwas": {
+    "ipa": "/ʃwɑːz/, /ʃvɑːz/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "shwa",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "signee": {
+    "ipa": "/saiˈniː/, /ˈsainiː/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "signees": {
+    "ipa": "/saiˈniːz/, /ˈsainiːz/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "signee",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "skee": {
+    "ipa": "/ʃiː/, /skiː/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "skeed": {
+    "ipa": "/ʃiːd/, /skiːd/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "skee",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "skeeing": {
+    "ipa": "/ʃiːɪŋ/, /skiːɪŋ/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "skee",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "soldi": {
+    "ipa": "/ˈsɔldiː/, /ˈsɔː-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "stoss": {
+    "ipa": "/stɔs/, /ʃtəus/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "studdie": {
+    "ipa": "/ˈstʌdi/, /ˈstj-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "sundog": {
+    "ipa": "/ˈsʌndɔɡ/, /-dɔːɡ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "surra": {
+    "ipa": "/ˈsʌrə/, /ˈsuːrə/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "tablas": {
+    "ipa": "/ˈtæblə/, /ˈtʌblə/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "talas": {
+    "ipa": "/ˈteiləz/, /-lɑːz/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "tala",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "taroc": {
+    "ipa": "/ˈtærɔk/, /-ək/, /təˈrɔk/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "tarok": {
+    "ipa": "/ˈtærɔk/, /-ək/, /təˈrɔk/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "tav": {
+    "ipa": "/tɑːv/, /tɑːf/, /tɔːf/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "tavs": {
+    "ipa": "/tɑːvz/, /tɑːfs/, /tɔːfs/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "tav",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "teths": {
+    "ipa": "/teθs/, /tesɪz/, /tets/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "teth",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "thebe": {
+    "ipa": "/ˈθeibe/, /ˈte-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "thir": {
+    "ipa": "/ðiə(r)/, /ðɜː(r)/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaStatus": "derived",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "torose": {
+    "ipa": "/ˈtɔːrəus/, /tɔːˈrəus/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "triol": {
+    "ipa": "/ˈtraiɔːl/, /-əul/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "tutee": {
+    "ipa": "/tjuːˈtiː/, /tuː-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "tutees": {
+    "ipa": "/tjuːˈtiːz/, /tuː-z/",
+    "ipaSource": "ecdict-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "tutee",
+    "relationSource": "ecdict-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "tzar": {
+    "ipa": "/zɑː(r)/, /tsɑː(r)/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "ulama": {
+    "ipa": "/ˈuːləˈmɑː/, /uːləˈmɑː/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "unbe": {
+    "ipa": "/ʌnˈbiː/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "unlet": {
+    "ipa": "/ʌnˈlet/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "unpile": {
+    "ipa": "/ʌnˈpail/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "unrent": {
+    "ipa": "/ʌnˈrent/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "unsew": {
+    "ipa": "/ʌnˈsəʊ/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "unshed": {
+    "ipa": "/ʌnˈʃed/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "untying": {
+    "ipa": "/ʌnˈtaiŋ/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "uptempo": {
+    "ipa": "/ˈʌp/, /tempəu/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "urase": {
+    "ipa": "/ˈjjəreis/, /-reiz/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "ureide": {
+    "ipa": "/ˈjjəriaid/, /-id/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "urtext": {
+    "ipa": "/ˈjətekst/, /ˈuːr-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "varier": {
+    "ipa": "/ˈveəriə/, /ˈvær-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "vasa": {
+    "ipa": "/ˈveisə/, /-zə/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "vau": {
+    "ipa": "/vɔv/, /vɔːv/",
+    "ipaSource": "wiktionary-spelling",
+    "ipaStatus": "derived",
+    "ipaBase": "vav",
+    "baseIpaSource": "ecdict"
+  },
+  "vaus": {
+    "ipa": "/vɔvz/, /vɔːvz/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "zh": "vau 的复数：希伯来字母表第六个字母（同 vav）",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of vau: vav, the sixth Hebrew letter.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "ipaBase": "vau",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "wiktionary-spelling",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/vaus",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/vaus"
+  },
+  "vav": {
+    "ipa": "/vɔv/, /vɔːv/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "vavs": {
+    "ipa": "/vɔvz/, /vɔːvz/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "vav",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "vinic": {
+    "ipa": "/ˈvainik/, /ˈvinik/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "wady": {
+    "ipa": "/ˈwɔdi/, /ˈwɑː-/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "waucht": {
+    "ipa": "/wɑːkt/, /wɔːkt/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "wauk": {
+    "ipa": "/wɔːk/, /wɑːk/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "whap": {
+    "ipa": "/wɑːp/, /hwɑːp/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "wud": {
+    "ipa": "/wjd/, /wuːd/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "yaud": {
+    "ipa": "/jɔːd/, /jɔd/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "yauds": {
+    "ipa": "/jɔːdz/, /jɔdz/",
+    "ipaSource": "wiktionary-inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "yaud",
+    "relationSource": "wiktionary-inflection",
+    "baseIpaSource": "ecdict"
+  },
+  "yauld": {
+    "ipa": "/jɔːd/, /jɔd/, /jɔːld/",
+    "ipaSource": "ecdict",
+    "ipaStatus": "sourced"
+  },
+  "teas": {
+    "zh": "tea 的复数：n. 茶, 茶叶",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "tea",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/teas"
+  },
+  "tins": {
+    "zh": "tin 的复数：n. 锡, 马口铁, 罐头",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "tin",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tins"
+  },
+  "toms": {
+    "zh": "tom 的复数：n. 雄性动物, 雄猫",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "tom",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/toms"
+  },
+  "trips": {
+    "zh": "trip 的复数：n. 旅行, 绊倒, 摔倒, 失足, 差错, 旅程",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "trip",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/trips"
+  },
+  "acts": {
+    "zh": "act 的复数：n. 行动, 行为, 幕, 法案",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "act",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/acts"
+  },
+  "adds": {
+    "zh": "add 的第三人称单数：vt. 增加, 添加, 附带说明, 计算...总和；vi. 做加法, 积累而成, 增添",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "add",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/adds"
+  },
+  "ages": {
+    "zh": "age 的复数：n. 年龄, 老年, 成年, 寿命, 时代, 时期",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "age",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ages"
+  },
+  "ails": {
+    "zh": "ail 的第三人称单数：vt. 使苦恼；vi. 生病, 处境困难",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "ail",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ails"
+  },
+  "ales": {
+    "zh": "ale 的复数：n. 麦芽酒",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "ale",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ales"
+  },
+  "asks": {
+    "zh": "ask 的第三人称单数：vi. 问, 要求；vt. 问, 要求, 邀请, 需要",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "ask",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/asks"
+  },
+  "awes": {
+    "zh": "awe 的第三人称单数：vt. 使敬畏",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "awe",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/awes"
+  },
+  "ayes": {
+    "zh": "aye 的复数：n. 赞成票, 投赞成票者",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "aye",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ayes"
+  },
+  "macs": {
+    "zh": "mac 的复数：n. 防水胶布, (英)雨衣, 老兄, 老弟",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "mac",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/macs"
+  },
+  "maids": {
+    "zh": "maid 的复数：n. 少女, 未婚女子, 女仆",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "maid",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/maids"
+  },
+  "mans": {
+    "zh": "man 的第三人称单数：vt. 为...配备人手, 操纵, 使振奋",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "man",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mans"
+  },
+  "maps": {
+    "zh": "map 的复数：n. 地图, 天体图, 映像",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "map",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/maps"
+  },
+  "mares": {
+    "zh": "mare 的复数：n. 母马, 母驴, 月球表面阴暗部",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "mare",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mares"
+  },
+  "mats": {
+    "zh": "mat 的复数：n. 垫, 丛, 衬边",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "mat",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mats"
+  },
+  "mills": {
+    "zh": "mill 的复数：n. 压榨机, 磨坊, 制造厂",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "mill",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mills"
+  },
+  "mils": {
+    "zh": "mil 的复数：n. 千分之一英寸",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "mil",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mils"
+  },
+  "mits": {
+    "ipa": "/mɪts/",
+    "ipaSource": "ecdict-inflection",
+    "ipaStatus": "derived",
+    "zh": "mit 的复数：连指手套、棒球手套；手（口语）",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "ipaBase": "mit",
+    "relationSource": "ecdict-inflection",
+    "baseIpaSource": "wiktionary-spelling",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mits"
+  },
+  "moms": {
+    "zh": "mom 的复数：n. 妈妈",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "mom",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/moms"
+  },
+  "mops": {
+    "zh": "mop 的第三人称单数：vt. 用拖把洗擦, 擦, 拭；vi. 做鬼脸",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "mop",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mops"
+  },
+  "mots": {
+    "zh": "mot 的复数：n. 警句",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "mot",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mots"
+  },
+  "laces": {
+    "zh": "lace 的复数：n. 饰带, 花边, 缎带, 鞋带",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "lace",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/laces"
+  },
+  "lads": {
+    "zh": "lad 的复数：n. 青年, 家伙, 少年, 情人",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "lad",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/lads"
+  },
+  "laps": {
+    "zh": "lap 的复数：n. 膝盖, 舔, 一圈, 下摆, 衣兜, 山坳",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "lap",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/laps"
+  },
+  "lets": {
+    "zh": "let 的复数：n. 出租屋, 障碍",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "let",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/lets"
+  },
+  "lids": {
+    "zh": "lid 的复数：n. 盖子, 限制, 眼睑",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "lid",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/lids"
+  },
+  "lutes": {
+    "zh": "lute 的复数：n. 鲁特诗琴, 封泥",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "lute",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/lutes"
+  },
+  "yaps": {
+    "zh": "yap 的复数：n. 狂吠, 狂吠声, 废话, 乖戾的人",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "yap",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/yaps"
+  },
+  "uses": {
+    "zh": "use 的复数：n. 使用, 习惯, 使用价值, 用法, 使用权",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "use",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/uses"
+  },
+  "raids": {
+    "zh": "raid 的复数：n. 袭击, 突袭, 搜捕",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "raid",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/raids"
+  },
+  "rams": {
+    "zh": "ram 的复数：公羊、撞锤；也可为 ram 的第三人称单数：猛撞、塞紧",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/rams"
+  },
+  "reeves": {
+    "zh": "reeve 的复数：n. 地方长官",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "reeve",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/reeves"
+  },
+  "refs": {
+    "zh": "ref 的复数：n. 裁判员",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "ref",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/refs"
+  },
+  "revs": {
+    "zh": "rev 的复数：n. 一次回转",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "rev",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/revs"
+  },
+  "rivers": {
+    "zh": "river 的复数：n. 河, 江",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "river",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/rivers"
+  },
+  "rotas": {
+    "zh": "rota 的复数：n. 值班名册, 值班, 花名册",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "rota",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/rotas"
+  },
+  "gams": {
+    "zh": "gam 的复数：n. 鲸鱼群, 社交, 腿",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "gam",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/gams"
+  },
+  "gets": {
+    "zh": "get 的第三人称单数：vt. 得到, 获得, 变成, 使得, 收获, 接通, 抓住, 染上；vi. 到达, 成为, 变得",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "get",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/gets"
+  },
+  "sages": {
+    "zh": "sage 的复数：n. 圣人, 哲人, 鼠尾草属植物",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "sage",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sages"
+  },
+  "scans": {
+    "zh": "scan 的复数：n. 审视, 浏览, 扫描, 细查",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "scan",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/scans"
+  },
+  "sees": {
+    "zh": "see 的第三人称单数：vt. 看见, 查看, 参观, 游览, 理解, 知道, 同意；vi. 看, 观看, 注意, 知道, 考虑",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "see",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sees"
+  },
+  "sirs": {
+    "zh": "sir 的复数：n. 先生, 阁下",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "sir",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sirs"
+  },
+  "icons": {
+    "zh": "icon 的复数：n. 画像, 肖像, 偶像, 图标, 像标",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "icon",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/icons"
+  },
+  "ideas": {
+    "zh": "idea 的复数：n. 主意, 办法, 理想, 思想, 概念, 意见",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "idea",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ideas"
+  },
+  "ids": {
+    "zh": "id 的复数：n. 遗传素质, 本能冲动",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "id",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ids"
+  },
+  "inns": {
+    "zh": "inn 的复数：n. 旅馆, 客栈",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "inn",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/inns"
+  },
+  "ins": {
+    "zh": "in 的复数：n. 执政者, 交情",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "in",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ins"
+  },
+  "ears": {
+    "zh": "ear 的复数：n. 耳朵, 倾听, 听觉, 穗",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "ear",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ears"
+  },
+  "edits": {
+    "zh": "edit 的第三人称单数：vt. 编辑, 编校, 修订, 剪辑",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "edit",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/edits"
+  },
+  "eels": {
+    "zh": "eel 的复数：n. 鳗鱼, 鳝鱼",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "eel",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/eels"
+  },
+  "eves": {
+    "zh": "eve 的复数：n. 前夕, 前夜",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "eve",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/eves"
+  },
+  "ewes": {
+    "zh": "ewe 的复数：n. 母羊",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "ewe",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ewes"
+  },
+  "paler": {
+    "zh": "pale 的比较级：a. 苍白的, 暗淡的, 无力的",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "pale",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/paler"
+  },
+  "pals": {
+    "zh": "pal 的复数：n. 朋友, 伙伴, 同志, 同谋",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "pal",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/pals"
+  },
+  "parks": {
+    "zh": "park 的复数：n. 公园, 停车处",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "park",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/parks"
+  },
+  "pats": {
+    "zh": "pat 的复数：n. 轻拍",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "pat",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/pats"
+  },
+  "pears": {
+    "zh": "pear 的复数：n. 梨子, 梨树, 梨木",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "pear",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/pears"
+  },
+  "pees": {
+    "zh": "pee 的复数：n. (英)便士, 小便",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "pee",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/pees"
+  },
+  "peons": {
+    "zh": "peon 的复数：n. 劳工, 短工, 马夫, 劳役犯, (土著)警察, 勤杂工",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "peon",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/peons"
+  },
+  "peps": {
+    "zh": "pep 的复数：n. 活力, 气力, 劲头, 锐气",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "pep",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/peps"
+  },
+  "pets": {
+    "zh": "pet 的复数：n. 宠物, 受宠爱的人, 宠坏的孩子, 不悦, 生气",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "pet",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/pets"
+  },
+  "pies": {
+    "zh": "pie 的复数：n. 馅饼, 财富, 总额, 贪污受贿, 杂乱, 喜鹊",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "pie",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/pies"
+  },
+  "pods": {
+    "zh": "pod 的复数：n. 豆荚, (豆荚状的)保护性外壳, 扁豆形矿体",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "pod",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/pods"
+  },
+  "pois": {
+    "zh": "poi 的复数：n. 夏威夷芋泥饼",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "poi",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/pois"
+  },
+  "pops": {
+    "zh": "pop 的复数：n. 砰然声, 枪击, 含气饮料, 流行音乐, 通俗艺术",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "pop",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/pops"
+  },
+  "pumas": {
+    "zh": "puma 的复数：n. 美洲狮, 美洲狮毛皮",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "puma",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/pumas"
+  },
+  "dams": {
+    "zh": "dam 的复数：n. 水坝, 障碍",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "dam",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/dams"
+  },
+  "debs": {
+    "zh": "deb 的复数：n. 初上舞台的人, 初进社交界的女孩",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "deb",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/debs"
+  },
+  "denser": {
+    "zh": "dense 的比较级：a. 密集的, 浓厚的",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "dense",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/denser"
+  },
+  "dips": {
+    "zh": "dip 的复数：n. 浸, 涉猎",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "dip",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/dips"
+  },
+  "dots": {
+    "zh": "dot 的复数：n. 点, 圆点, 小数点, 小东西, 嫁妆",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "dot",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/dots"
+  },
+  "duns": {
+    "zh": "dun 的复数：n. 催促者, 讨债者, 催债",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "dun",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/duns"
+  },
+  "haled": {
+    "zh": "hale 的过去式和过去分词：vt. 猛拉, 拖曳",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "hale",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/haled"
+  },
+  "hales": {
+    "zh": "hale 的第三人称单数：vt. 猛拉, 拖曳",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "hale",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/hales"
+  },
+  "halls": {
+    "zh": "hall 的复数：n. 门厅, 走廊, 会堂",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "hall",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/halls"
+  },
+  "hats": {
+    "zh": "hat 的复数：n. 帽子",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "hat",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/hats"
+  },
+  "hays": {
+    "zh": "hay 的复数：n. 干草",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "hay",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/hays"
+  },
+  "hes": {
+    "zh": "he 的复数：n. 男孩, 男人, 雄性动物",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "he",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/hes"
+  },
+  "hinds": {
+    "zh": "hind 的复数：n. 雌鹿",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "hind",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/hinds"
+  },
+  "hums": {
+    "zh": "hum 的复数：n. 嗡嗡声, 哼声, 杂声",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "hum",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/hums"
+  },
+  "cants": {
+    "zh": "cant 的复数：n. 伪善之言, 黑话, 斜面, 角落",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "cant",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/cants"
+  },
+  "caps": {
+    "zh": "cap 的复数：n. 盖子, 帽子",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "cap",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/caps"
+  },
+  "cars": {
+    "zh": "car 的复数：n. 汽车, 客车",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "car",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/cars"
+  },
+  "cots": {
+    "zh": "cot 的复数：n. 行军床, 小屋, (家畜等的)棚, (家畜等的)栏",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "cot",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/cots"
+  },
+  "vets": {
+    "zh": "vet 的复数：n. 兽医",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "vet",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/vets"
+  },
+  "orbs": {
+    "zh": "orb 的复数：n. 球, 天体, 球状物",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "orb",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/orbs"
+  },
+  "zeros": {
+    "zh": "zero 的复数：n. 零, 零点, 零度, 无, 乌有, 最低点",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "zero",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/zeros"
+  },
+  "naps": {
+    "zh": "nap 的复数：n. 小睡, 稍睡, 细毛, 孤注一掷",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "nap",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/naps"
+  },
+  "nats": {
+    "zh": "nat 的复数：n. 守护神, 精灵",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "nat",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/nats"
+  },
+  "nears": {
+    "zh": "near 的第三人称单数：v. 接近, 走近",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "near",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/nears"
+  },
+  "wags": {
+    "zh": "wag 的复数：n. 摇摆, 爱说笑打趣的人",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "wag",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/wags"
+  },
+  "weeks": {
+    "zh": "week 的复数：n. 星期, 周",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "week",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/weeks"
+  },
+  "wells": {
+    "zh": "well 的复数：n. 井, 泉水, 源泉, 好",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "well",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/wells"
+  },
+  "wins": {
+    "zh": "win 的复数：n. 胜利, 赢, 收益",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "win",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/wins"
+  },
+  "bets": {
+    "zh": "bet 的复数：n. 打赌, 赌注",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "bet",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/bets"
+  },
+  "bits": {
+    "zh": "bit 的复数：n. 少量, 马嚼子, 辅币",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "bit",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/bits"
+  },
+  "boas": {
+    "zh": "boa 的复数：n. 蟒蛇, 女用围巾, 羽毛围巾",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "boa",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/boas"
+  },
+  "bras": {
+    "zh": "bra 的复数：n. 奶罩",
+    "zhSource": "Wiktionary form + ECDICT translation (correction)",
+    "note": "按已核实的普通词形修正原中文中的缩写或专名误释",
+    "zhBase": "bra",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/bras"
+  },
+  "admins": {
+    "zh": "admin 的复数：管理员、行政管理人员或管理机构",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/admins"
+  },
+  "bap": {
+    "zh": "名词：软面包卷（原为苏格兰面包）；俚语中也可指乳房",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/bap"
+  },
+  "baps": {
+    "zh": "bap 的复数：软面包卷；（俚语）乳房",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/baps"
+  },
+  "ceps": {
+    "zh": "cep 的复数：美味牛肝菌、牛肝菌类食用蘑菇",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ceps"
+  },
+  "emo": {
+    "zh": "名词：情绪摇滚及其亚文化成员；形容词：情绪敏感的、忧郁的，或与该音乐文化有关的",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/emo"
+  },
+  "garde": {
+    "zh": "guard 的旧拼写：守卫、警卫；守护、看守",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/garde"
+  },
+  "hos": {
+    "zh": "ho 的复数（粗俗、冒犯性俚语）：妓女；对女性的辱称",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/hos"
+  },
+  "hots": {
+    "zh": "名词（口语）：强烈的性吸引或迷恋；也可为 hot 的第三人称单数：使变热、变热",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/hots"
+  },
+  "mins": {
+    "zh": "min 的复数或缩略形式：分钟",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mins"
+  },
+  "pol": {
+    "zh": "名词（口语）：政治人物、政客",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/pol"
+  },
+  "pols": {
+    "zh": "pol 的复数（口语）：政治人物、政客",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/pols"
+  },
+  "riffed": {
+    "zh": "riff 的过去式和过去分词：即兴演奏、即兴发挥；也可为 rif 的过去式和过去分词：裁员",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/riffed"
+  },
+  "secs": {
+    "zh": "sec 的复数：秒；短短片刻；秘书（口语缩称）",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/secs"
+  },
+  "stats": {
+    "zh": "名词（口语）：统计学；统计数据；游戏单位的属性数值",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/stats"
+  },
+  "tis": {
+    "zh": "it is 的缩略形式（同 ’tis）；也可为 ti 的复数：音阶第七音，或朱蕉属植物",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tis"
+  },
+  "vids": {
+    "zh": "vid 的复数（口语）：视频、录像、录像带",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/vids"
+  },
+  "admin": {
+    "zh": "名词：行政管理工作、管理机构；管理员、系统管理员",
+    "zhSource": "Wiktionary (Chinese adaptation; correction)",
+    "note": "核对普通词义，修正原中文误取缩写或专名",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/admin"
+  },
+  "agria": {
+    "ipa": "/ˈæɡriə/",
+    "ipaSource": "American Heritage (respelling converted)",
+    "ipaStatus": "derived",
+    "zh": "【医学】严重的脓疱性皮疹；大片脓疱的发作。",
+    "zhSource": "Collins English Dictionary (Chinese adaptation)",
+    "en": "A severe outbreak of pustules on the skin.",
+    "enSource": "Collins English Dictionary (adaptation)",
+    "ipaSourceUrl": "https://www.ahdictionary.com/word/search.html?q=agria",
+    "zhSourceUrl": "https://www.collinsdictionary.com/dictionary/english/agria",
+    "enSourceUrl": "https://www.collinsdictionary.com/dictionary/english/agria"
+  },
+  "gae": {
+    "ipa": "/ɡeɪ/",
+    "ipaSource": "Collins (Scots pronunciation)",
+    "ipaStatus": "sourced",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/gae"
+  },
+  "gaes": {
+    "ipa": "/ɡeɪz/",
+    "ipaSource": "Collins + reviewed inflection",
+    "ipaStatus": "derived",
+    "zh": "【苏格兰】gae（去、走）的第三人称单数形式。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "(Scots) Third-person singular of gae, meaning to go.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "ipaBase": "gae",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/gae",
+    "zhSourceUrl": "https://www.merriam-webster.com/dictionary/gae",
+    "enSourceUrl": "https://www.merriam-webster.com/dictionary/gae"
+  },
+  "gieing": {
+    "ipa": "/ˈɡiːɪŋ/",
+    "ipaSource": "Collins + reviewed inflection",
+    "ipaStatus": "derived",
+    "ipaBase": "gie",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/gie"
+  },
+  "nomas": {
+    "ipa": "/ˈnoʊməz/",
+    "ipaSource": "Merriam-Webster + reviewed inflection",
+    "ipaStatus": "derived",
+    "zh": "noma 的复数：走马疳，即累及口腔等部位的坏疽性溃疡。",
+    "zhSource": "Dictionary.com (Chinese adaptation)",
+    "en": "Plural of noma: severe gangrenous sores affecting the mouth or genital area.",
+    "enSource": "Dictionary.com (adaptation)",
+    "ipaBase": "noma",
+    "ipaSourceUrl": "https://www.merriam-webster.com/dictionary/noma",
+    "zhSourceUrl": "https://www.dictionary.com/browse/nomas",
+    "enSourceUrl": "https://www.dictionary.com/browse/nomas"
+  },
+  "alefs": {
+    "zh": "alef 的复数：希伯来字母表的第一个字母",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of alef, the first Hebrew letter.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/alefs",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/alefs"
+  },
+  "amus": {
+    "zh": "amu 的复数：原子质量单位（atomic mass unit 的缩写）",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of amu, an abbreviation for atomic mass unit.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/amus",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/amus"
+  },
+  "biders": {
+    "zh": "bider 的复数：等待、逗留的人",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of bider: someone who waits or remains.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/biders",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/biders"
+  },
+  "blams": {
+    "zh": "blam 的复数：砰的一声、枪击般的爆响",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of blam: a sharp explosive noise.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/blams",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/blams"
+  },
+  "borks": {
+    "zh": "bork 的第三人称单数：通过媒体攻击阻挠候选人的任命；也可指弄坏复杂设备",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Third-person singular of bork: to campaign against a candidate or to break a complex device.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/borks",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/borks"
+  },
+  "bromes": {
+    "zh": "brome 的复数：雀麦属禾草",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of brome: grasses of the genus Bromus.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/bromes",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/bromes"
+  },
+  "cacas": {
+    "zh": "caca 的复数（儿语、俚语）：粪便",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of caca: excrement, in childish or informal speech.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/cacas",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/cacas"
+  },
+  "calos": {
+    "zh": "calo 的复数：墨西哥裔美国青年使用的西班牙语俚语",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Plural of calo: Spanish-based slang used among Chicano youths.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/calos",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/calos"
+  },
+  "cepes": {
+    "zh": "cepe 的复数：美味牛肝菌等食用蘑菇",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of cepe: porcini mushrooms.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/cepes",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/cepes"
+  },
+  "chiros": {
+    "zh": "chiro 的复数（口语）：脊椎指压治疗师",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of chiro: chiropractors.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/chiros",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/chiros"
+  },
+  "codens": {
+    "zh": "coden 的复数：用于分类识别出版物等的编码",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Plural of coden: classification codes, especially for publications.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/codens",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/codens"
+  },
+  "dahls": {
+    "zh": "dahl 的复数：印度扁豆、豆类或以其烹制的菜肴",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of dahl, a spelling of dal: pulses or dishes made from them.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/dahls",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/dahls"
+  },
+  "darers": {
+    "zh": "darer 的复数：敢于冒险、敢于尝试的人",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of darer: people who dare.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/darers",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/darers"
+  },
+  "decos": {
+    "zh": "deco 的复数：装饰风格，尤指装饰艺术风格",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Plural of deco: decorative styles, particularly Art Deco.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/decos",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/decos"
+  },
+  "delts": {
+    "zh": "delt 的复数（口语）：三角肌",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of delt: deltoid muscles.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/delts",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/delts"
+  },
+  "devs": {
+    "zh": "dev 的复数：开发者、开发人员（developer 的简称）",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of dev: developers.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/devs",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/devs"
+  },
+  "dexes": {
+    "zh": "dex 的复数：十进位数量级；也可指游戏中的敏捷属性",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of dex: factors of ten; also dexterity as a game statistic.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/dexes",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/dexes"
+  },
+  "difs": {
+    "zh": "dif 的复数：差异、不同之处（同 diff）",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of dif, a variant of diff: differences.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/difs",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/difs"
+  },
+  "egers": {
+    "zh": "eger 的复数：涌潮、潮汐形成的水墙（同 eagre）",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of eger, a spelling of eagre: tidal bores.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/egers",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/egers"
+  },
+  "emdash": {
+    "zh": "em dash 的另一写法：长破折号",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "An alternative spelling of em dash, a long dash punctuation mark.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/emdash",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/emdash"
+  },
+  "eths": {
+    "zh": "eth 的复数：字母 Ð、ð，用来表示浊齿擦音",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of eth: the letter Ð or ð, used for a voiced dental fricative.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/eths",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/eths"
+  },
+  "fanos": {
+    "zh": "fano 的复数：教宗礼仪用披肩、祭披（同 fanon）",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Plural of fano: a papal ceremonial cape, also called a fanon.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/fanos",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/fanos"
+  },
+  "fiars": {
+    "zh": "fiar 的复数：受终身收益权限制的地产所有人；苏格兰依法年度确定的谷物价格",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of fiar: an estate owner subject to a life interest, or legally assessed Scottish grain prices.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/fiars",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/fiars"
+  },
+  "flirs": {
+    "zh": "flir 的复数：电子热传感器、前视红外探测器",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Plural of flir: electronic sensors that detect heat.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/flir",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/flir"
+  },
+  "geds": {
+    "zh": "ged 的复数（苏格兰语）：狗鱼；也可指贪婪的人",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of ged: pike fish; also greedy people, chiefly Scots.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/geds",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/geds"
+  },
+  "guids": {
+    "zh": "guid 的复数（苏格兰语）：善事、好处；货物、财物",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Plural of guid, a Scots form of good: goods or beneficial things.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/guids",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/guids"
+  },
+  "hets": {
+    "zh": "het 的复数（口语）：异性恋者；也可指异性恋题材的同人作品",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of het: heterosexual people or opposite-sex romantic fan fiction.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/hets",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/hets"
+  },
+  "hosers": {
+    "zh": "hoser 的复数：使用水管的人；加拿大俚语中指粗鲁笨拙的人",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of hoser: hose operators; in Canadian slang, clumsy or uncouth people.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/hosers",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/hosers"
+  },
+  "igged": {
+    "zh": "ig／igg 的过去式和过去分词（俚语）：不理睬、忽视",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Past tense and past participle of ig or igg: to ignore someone.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "ipa": "/iɡd/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/igged",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/igged"
+  },
+  "joles": {
+    "zh": "jole 的复数（旧拼写）：下颌、面颊；松垂的腮肉",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of jole, an old spelling of jowl.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/joles",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/joles"
+  },
+  "kanes": {
+    "zh": "kane 的复数：波利尼西亚或毛利男子",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of kane: Polynesian or Maori men.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/kanes",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/kanes"
+  },
+  "kune": {
+    "zh": "kuna 的复数：克罗地亚旧货币库纳",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of kuna, the former Croatian currency.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/kune",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/kune"
+  },
+  "leses": {
+    "zh": "les 的复数（俚语）：女同性恋者",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of les, a slang shortening of lesbian.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/leses",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/leses"
+  },
+  "litai": {
+    "zh": "litas 的复数：立陶宛旧货币立特",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of litas, the former Lithuanian currency.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/litai",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/litai"
+  },
+  "mabes": {
+    "zh": "mabe 的复数：马贝珠、附壳养殖珍珠",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of mabe: cultured blister pearls.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mabes",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/mabes"
+  },
+  "maxed": {
+    "zh": "max 的过去式和过去分词：达到最大值、用到限度",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Past tense and past participle of max: to reach a maximum or limit.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/maxed",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/maxed"
+  },
+  "maxes": {
+    "zh": "max 的第三人称单数：达到最大值、用到限度",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Third-person singular of max: to reach a maximum or limit.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/maxes",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/maxes"
+  },
+  "miched": {
+    "zh": "mich 的过去式和过去分词（方言）：躲藏、偷偷溜走；逃学",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Past tense and past participle of mich: to skulk or play truant.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mitch",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/mitch"
+  },
+  "midis": {
+    "zh": "midi 的复数：长及小腿中部的裙子、外套或靴子",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of midi: skirts, coats or boots reaching mid-calf.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/midis",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/midis"
+  },
+  "murrs": {
+    "zh": "murr 的复数：呼噜声；旧语中也可指黏膜炎、卡他",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of murr: purring sounds; also catarrhs in older usage.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/murrs",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/murrs"
+  },
+  "neif": {
+    "zh": "名词（古）：女性农奴；也可指拳头（同 nief）",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "A female serf; also a spelling of nief, meaning a fist.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/neif",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/neif"
+  },
+  "neifs": {
+    "zh": "neif 的复数：女性农奴；拳头",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of neif: female serfs or fists.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/neifs",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/neifs"
+  },
+  "nixe": {
+    "zh": "nix 的复数之一：水中精灵、水妖；也有 nixie 的变体用法",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Plural of nix: water spirits; also a form of nixie.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/nixe",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/nixe"
+  },
+  "nomoi": {
+    "zh": "nomos 的复数：法律或行为规范体系；古埃及行政区",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of nomos: systems of law or ancient Egyptian territorial divisions.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/nomoi",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/nomoi"
+  },
+  "ocas": {
+    "zh": "oca 的复数：块茎酢浆草及其可食用块茎",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of oca: Oxalis tuberosa plants or their edible tubers.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ocas",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/ocas"
+  },
+  "odah": {
+    "zh": "名词：后宫中的房间（oda 的异体拼写）",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "A variant of oda: a room in a harem.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/odah",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/odah"
+  },
+  "odahs": {
+    "zh": "odah 的复数：后宫中的房间",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of odah: rooms in a harem.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/odahs",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/odahs"
+  },
+  "odas": {
+    "zh": "oda 的复数：后宫中的房间",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of oda: rooms in a harem.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/odas",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/odas"
+  },
+  "ouph": {
+    "zh": "名词（古）：小精灵；笨人、呆子（awf 的异体拼写）",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "An old form of awf: an elf, fool or simpleton.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ouph",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/ouph"
+  },
+  "padis": {
+    "zh": "padi 的复数：稻谷；稻田（同 paddy）",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of padi: unhusked rice or flooded rice fields.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/padis",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/padis"
+  },
+  "pams": {
+    "zh": "pam 的复数：卢牌游戏中的梅花J；以该牌为最高王牌的牌戏",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of pam: the jack of clubs in loo, or a related card game.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/pams",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/pams"
+  },
+  "paxes": {
+    "zh": "pax 的复数：弥撒中供亲吻的圣像牌；和平、休战或接吻礼",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of pax: devotional tablets, periods of peace or the kiss of peace.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/paxes",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/paxes"
+  },
+  "preops": {
+    "zh": "preop 的复数：正在接受术前准备的患者",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Plural of preop: patients being prepared for an operation.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/preops",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/preops"
+  },
+  "pyes": {
+    "zh": "pye 的复数（旧拼写）：馅饼",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of pye, an old spelling of pie.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/pyes",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/pyes"
+  },
+  "queys": {
+    "zh": "quey 的复数（苏格兰语）：小母牛、未生育过的母牛",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of quey: heifers.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/queys",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/queys"
+  },
+  "raxed": {
+    "zh": "rax 的过去式和过去分词（苏格兰语）：伸展、伸手够取",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Past tense and past participle of rax: to stretch or reach.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/raxed",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/raxed"
+  },
+  "raxes": {
+    "zh": "rax 的第三人称单数（苏格兰语）：伸展、伸手够取",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Third-person singular of rax: to stretch or reach.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/raxes",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/raxes"
+  },
+  "rayas": {
+    "zh": "raya 的复数：奥斯曼帝国直接管辖的地区；也可指非穆斯林臣民",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of raya: Ottoman-administered territories; also a form of rayah, a non-Muslim subject.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/rayas",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/rayas"
+  },
+  "retests": {
+    "zh": "retest 的复数：重新进行的测试；也可为第三人称单数：再次测试",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural or third-person singular of retest: another test or testing again.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/retests",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/retests"
+  },
+  "rifs": {
+    "zh": "rif 的第三人称单数：裁减、解雇雇员",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Third-person singular of rif: to lay off an employee.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/rif",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/rif"
+  },
+  "saice": {
+    "zh": "名词：印度男仆、马夫（同 sais、syce）",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "A variant of syce or sais: an Indian male servant, especially a groom.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/saice",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/saice"
+  },
+  "saices": {
+    "zh": "saice 的复数：印度男仆、马夫",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Plural of saice: Indian servants or grooms.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/saices",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/saices"
+  },
+  "sords": {
+    "zh": "sord 的复数：绿头鸭群；也可指草皮（sward 的旧形式）",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of sord: flocks of mallards; also an old form of sward.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sords",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/sords"
+  },
+  "soths": {
+    "zh": "soth 的复数（古）：真相、真理（同 sooth）",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Plural of soth, an old form of sooth: truths.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/soths",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/soths"
+  },
+  "subas": {
+    "zh": "suba 的复数：莫卧儿帝国的行省（同 subah）",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Plural of suba, a variant of subah: Mughal provinces.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/subas",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/subas"
+  },
+  "tarres": {
+    "zh": "tarre 的第三人称单数（古）：煽动、刺激、唆使",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Third-person singular of tarre: to incite or provoke.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tarres",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tarres"
+  },
+  "tates": {
+    "zh": "tate 的复数：一绺、一簇头发",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Plural of tate: tufts or locks of hair.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/tates",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/tates"
+  },
+  "tets": {
+    "zh": "tet 的复数：闪米特字母 teth；也可指四面体等术语的简称",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of tet: the Semitic letter teth; also shortened names for tetrahedra and related terms.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tets",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tets"
+  },
+  "toits": {
+    "zh": "toit 的第三人称单数：闲逛、漫步",
+    "zhSource": "Merriam-Webster (adaptation)",
+    "en": "Third-person singular of toit: to walk leisurely or saunter.",
+    "enSource": "Merriam-Webster (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/toits",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/toits"
+  },
+  "tokers": {
+    "zh": "toker 的复数：吸烟者，尤指吸食大麻的人",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of toker: people who take puffs, especially of marijuana.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tokers",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tokers"
+  },
+  "wyns": {
+    "zh": "wyn 的复数：古英语字母 ƿ，表示 w 音（同 wynn）",
+    "zhSource": "Wiktionary (adaptation)",
+    "en": "Plural of wyn: the Old English wynn letter, representing the sound w.",
+    "enSource": "Wiktionary (adaptation)",
+    "note": "按词典普通词义修正词根的缩写或专名污染",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/wyns",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/wyns"
+  },
+  "anga": {
+    "zh": "瑜伽八支中的一支或一种修习",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "One of the eight branches or disciplines of yoga.",
+    "enSource": "Merriam-Webster (reviewed paraphrase)",
+    "note": "依据核对后的普通词义修正原中文的缩写或专名误释",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/anga",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/anga"
+  },
+  "belon": {
+    "zh": "一种扁平的牡蛎；贝隆牡蛎",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "A flat oyster.",
+    "enSource": "Merriam-Webster (reviewed paraphrase)",
+    "note": "依据核对后的普通词义修正原中文的缩写或专名误释",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/belon",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/belon"
+  },
+  "bennis": {
+    "zh": "benni 的复数：芝麻或芝麻籽",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of benni: sesame plants or seeds.",
+    "enSource": "Merriam-Webster (reviewed paraphrase)",
+    "note": "依据核对后的普通词义修正原中文的缩写或专名误释",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/bennis",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/bennis"
+  },
+  "buras": {
+    "zh": "bura 的复数：强烈的寒风或暴风雪",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of bura: violent, cold winds or snowstorms.",
+    "enSource": "Merriam-Webster (reviewed paraphrase)",
+    "note": "依据核对后的普通词义修正原中文的缩写或专名误释",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/buras",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/buras"
+  },
+  "madres": {
+    "zh": "madre 的复数：母亲",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of madre: mothers.",
+    "enSource": "Merriam-Webster (reviewed paraphrase)",
+    "note": "依据核对后的普通词义修正原中文的缩写或专名误释",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/madres",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/madres"
+  },
+  "pomos": {
+    "zh": "pomo 的复数：后现代主义或后现代运动的不同形式",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of pomo: forms of postmodernism or the postmodern movement.",
+    "enSource": "Merriam-Webster (reviewed paraphrase)",
+    "note": "依据核对后的普通词义修正原中文的缩写或专名误释",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/pomos",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/pomos"
+  },
+  "prese": {
+    "zh": "presa 的复数：卡农或轮唱中指示声部进入位置的记号",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of presa: marks showing where a voice enters a canon or round.",
+    "enSource": "Merriam-Webster (reviewed paraphrase)",
+    "note": "依据核对后的普通词义修正原中文的缩写或专名误释",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/prese",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/prese"
+  },
+  "releve": {
+    "zh": "芭蕾动作：踮起脚尖或前脚掌上升",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "A ballet movement rising onto the toes or balls of the feet.",
+    "enSource": "Merriam-Webster (reviewed paraphrase)",
+    "note": "依据核对后的普通词义修正原中文的缩写或专名误释",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/releve",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/releve"
+  },
+  "urb": {
+    "zh": "城市；城区",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "A city or urban district.",
+    "enSource": "Merriam-Webster (reviewed paraphrase)",
+    "note": "依据核对后的普通词义修正原中文的缩写或专名误释",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/urb",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/urb"
+  },
+  "vims": {
+    "zh": "vim 的复数：活力；精力",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of vim: instances or reserves of energy and vigour.",
+    "enSource": "Merriam-Webster (reviewed paraphrase)",
+    "note": "依据核对后的普通词义修正原中文的缩写或专名误释",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/vims",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/vims"
+  },
+  "wyle": {
+    "zh": "欺骗；诱骗；迷惑",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "To deceive, entice, or beguile.",
+    "enSource": "Merriam-Webster (reviewed paraphrase)",
+    "note": "依据核对后的普通词义修正原中文的缩写或专名误释",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/wyle",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/wyle"
+  },
+  "alands": {
+    "zh": "aland 的复数：大型猎犬，亦称 alan",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of aland: large hunting dogs, also called alans.",
+    "enSource": "Merriam-Webster (reviewed paraphrase)",
+    "note": "依据核对后的普通词义修正原中文的缩写或专名误释",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/aland",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/aland"
+  },
+  "airn": {
+    "zh": "【苏格兰】铁；熨烫。另有【英国方言】赚得、挣得之义。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "en": "(Scots) Iron; to press or smooth with an iron. Also (UK dialect) to earn.",
+    "enSource": "Wiktionary (Scots and English adaptation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/airn",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/airn"
+  },
+  "airns": {
+    "zh": "【苏格兰】airn（铁）的复数；airn（熨烫）的第三人称单数。另可为英国方言 airn（赚得）的第三人称单数。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "en": "(Scots) Plural of airn (iron), or the third-person singular of airn (to iron). Also a form of the dialect verb meaning to earn.",
+    "enSource": "Wiktionary (Scots and English adaptation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/airns",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/airns"
+  },
+  "oots": {
+    "zh": "【苏格兰】oot 的复数；oot 是 out 的方言形式，可指出口、脱身办法或比赛中的出局。",
+    "zhSource": "Merriam-Webster and Wiktionary (Chinese adaptation)",
+    "en": "(Scots) Plural of oot, the dialect form of the noun out: an exit, a means of escape, or an out in a game.",
+    "enSource": "Merriam-Webster and Wiktionary (adaptation)",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/oots",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/oots"
+  },
+  "acta": {
+    "zh": "会议记录；议事录；学会会刊或学报。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Written records of proceedings, such as the minutes or transactions of a society.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/acta",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/acta"
+  },
+  "amie": {
+    "zh": "女性朋友；女友（源自法语）。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "A woman who is a friend; borrowed from French.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "ipa": "/ɑːˈmi/",
+    "ipaSource": "Collins (female friend)",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/amie",
+    "ipaStatus": "sourced",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/amies",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/amies"
+  },
+  "amies": {
+    "zh": "amie 的复数：女性朋友。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of amie: women who are friends.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "ipa": "/ɑːˈmiz/",
+    "ipaSource": "Collins (female friends)",
+    "ipaBase": "amie",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/amie",
+    "ipaStatus": "sourced",
+    "zhBase": "amie",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/amies",
+    "enBase": "amie",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/amies"
+  },
+  "barbe": {
+    "zh": "中世纪妇女戴的布质头巾，尤用于遮住下半脸和颈部。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "A cloth head-covering worn in medieval times, especially around the lower face and neck.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/barbe",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/barbe"
+  },
+  "barca": {
+    "zh": "两头尖的船；双尖船。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "A boat with a pointed shape at both ends.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/barca",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/barca"
+  },
+  "bonita": {
+    "zh": "鲣鱼一类与金枪鱼近缘的鱼；bonito 的变体。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "A bonito: a fish related to the tuna.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/bonita",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/bonita"
+  },
+  "brugh": {
+    "zh": "【方言】市镇；自治镇。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "A borough or town; a dialectal form.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/brugh",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/brugh"
+  },
+  "bunas": {
+    "zh": "buna 的复数：丁二烯类合成橡胶；布纳橡胶。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of buna: synthetic rubbers made using butadiene.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhBase": "buna",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/bunas",
+    "enBase": "buna",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/bunas"
+  },
+  "calo": {
+    "zh": "墨西哥裔美国青年使用的一种以西班牙语为基础的俚语或行话。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "A Spanish-based slang or argot associated with Chicano youths.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/calo",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/calo"
+  },
+  "chao": {
+    "zh": "越南的一种货币单位。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "A unit of Vietnamese money.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/chao",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/chao"
+  },
+  "colby": {
+    "zh": "科尔比干酪，一种味道温和的奶酪。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "A mild variety of cheese.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/colby",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/colby"
+  },
+  "cripe": {
+    "zh": "【感叹词】哎呀；真是的（较委婉的咒誓语）。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "A mild exclamation used instead of a stronger oath.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/cripe",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/cripe"
+  },
+  "defi": {
+    "zh": "挑战；违抗；蔑视。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "A challenge, or an act of defiance.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "ipa": "/dɛˈfiː/",
+    "ipaSource": "Collins (ordinary-word pronunciation)",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/defi",
+    "ipaStatus": "sourced",
+    "zhSourceUrl": "https://www.merriam-webster.com/dictionary/defi",
+    "enSourceUrl": "https://www.merriam-webster.com/dictionary/defi"
+  },
+  "duro": {
+    "zh": "杜罗：西班牙或西属美洲使用的一种比索或银元。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "A Spanish or Spanish-American peso or silver dollar.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhSourceUrl": "https://www.merriam-webster.com/dictionary/duro",
+    "enSourceUrl": "https://www.merriam-webster.com/dictionary/duro"
+  },
+  "duros": {
+    "zh": "duro 的复数：西班牙或西属美洲的比索或银元。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of duro: Spanish or Spanish-American pesos or silver dollars.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhBase": "duro",
+    "zhSourceUrl": "https://www.merriam-webster.com/dictionary/duro",
+    "enBase": "duro",
+    "enSourceUrl": "https://www.merriam-webster.com/dictionary/duro"
+  },
+  "mae": {
+    "zh": "【苏格兰】更多；额外的数量。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "(Scots) More; an additional amount.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/maes",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/maes"
+  },
+  "maes": {
+    "zh": "【苏格兰】mae（更多；额外数量）的复数形式。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of mae: additional amounts; a Scots form of more.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhBase": "mae",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/maes",
+    "enBase": "mae",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/maes"
+  },
+  "meno": {
+    "zh": "【音乐】较少地；减弱些（用于指示降低速度、力度等）。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Less; a musical instruction to reduce a specified quality, as in a slower or softer passage.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/meno",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/meno"
+  },
+  "mor": {
+    "zh": "森林中的一种粗腐殖质。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "A type of forest humus.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/mor",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/mor"
+  },
+  "mosso": {
+    "zh": "【音乐】活跃地；较快地。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "In a brisk or animated manner; used as a musical direction.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/mosso",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/mosso"
+  },
+  "mugg": {
+    "zh": "扮鬼脸；做夸张滑稽的表情。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "To pull exaggerated or funny faces.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "ipa": "/mʌɡ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/mugg",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/mugg"
+  },
+  "nema": {
+    "zh": "【生物学】丝状结构；线虫（nematode 的简称）。",
+    "zhSource": "Collins English Dictionary (Chinese adaptation)",
+    "en": "A fine thread-like structure in biology; also a shortened name for a nematode.",
+    "enSource": "Collins English Dictionary (sense adaptation)",
+    "ipa": "/ˈniːmə/",
+    "ipaSource": "Collins (biology sense)",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/nema",
+    "ipaStatus": "sourced",
+    "zhSourceUrl": "https://www.collinsdictionary.com/dictionary/english/nema",
+    "enSourceUrl": "https://www.collinsdictionary.com/dictionary/english/nema"
+  },
+  "nicol": {
+    "zh": "尼科尔棱镜，用于产生或分析偏振光的光学器件。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "A Nicol prism, an optical device used to produce or analyse polarized light.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhSourceUrl": "https://www.merriam-webster.com/dictionary/nicol",
+    "enSourceUrl": "https://www.merriam-webster.com/dictionary/nicol"
+  },
+  "pardee": {
+    "zh": "【旧用法】天哪；真的；以上帝之名（表示强调的誓语）。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "An old oath used for emphasis, equivalent to pardi or by God.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/pardee",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/pardee"
+  },
+  "pekin": {
+    "zh": "一种丝织物；北京宽条子绸。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "A kind of silk fabric.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "ipa": "/ˈpiˈkɪn/",
+    "ipaSource": "Collins (silk fabric)",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/pekin",
+    "ipaStatus": "sourced",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/pekin",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/pekin"
+  },
+  "prost": {
+    "zh": "【祝酒词】干杯；祝健康。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "A toast wishing good health; cheers.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/prost",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/prost"
+  },
+  "shaul": {
+    "zh": "【英格兰方言】扬谷用的木铲；揉面或洗涤用的盆。",
+    "zhSource": "Collins English Dictionary (Chinese adaptation)",
+    "en": "(English dialect) A wooden scoop for winnowing grain, or a tub used for kneading dough or washing.",
+    "enSource": "Collins English Dictionary (sense adaptation)",
+    "zhSourceUrl": "https://www.collinsdictionary.com/dictionary/english/shaul",
+    "enSourceUrl": "https://www.collinsdictionary.com/dictionary/english/shaul"
+  },
+  "skeen": {
+    "zh": "斯基恩短剑，一种苏格兰或爱尔兰传统匕首（skean 的变体）。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "A skean, a traditional dagger associated with Scotland or Ireland.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/skeen",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/skeen"
+  },
+  "soth": {
+    "zh": "【古语】事实；真相；实话（同 sooth）。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "An old form of sooth: truth or a true statement.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/soth",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/soth"
+  },
+  "sri": {
+    "zh": "印度敬称，相当于“先生”“阁下”。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "An honorific title used in India, comparable to Mister or Sir.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "ipa": "/ʃriː/",
+    "ipaSource": "Collins (honorific sense)",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/sri",
+    "ipaStatus": "sourced",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/sri",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/sri"
+  },
+  "sris": {
+    "zh": "sri 的复数：印度敬称“先生”“阁下”。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "en": "Plural of sri, a respectful title used in India.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "ipa": "/ʃriːz/",
+    "ipaSource": "Collins + reviewed inflection",
+    "ipaBase": "sri",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/sri",
+    "ipaStatus": "derived",
+    "zhBase": "sri",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/sris",
+    "enBase": "sri",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/sris"
+  },
+  "suba": {
+    "zh": "匈牙利牧羊人旧时穿的羊皮斗篷。",
+    "zhSource": "Collins English Dictionary (Chinese adaptation)",
+    "en": "A sheepskin cloak traditionally worn by Hungarian shepherds.",
+    "enSource": "Collins English Dictionary (sense adaptation)",
+    "zhSourceUrl": "https://www.collinsdictionary.com/dictionary/english/suba",
+    "enSourceUrl": "https://www.collinsdictionary.com/dictionary/english/suba"
+  },
+  "trigo": {
+    "zh": "小麦；麦田（源自西班牙语）。",
+    "zhSource": "Collins English Dictionary (Chinese adaptation)",
+    "en": "Wheat, or a field of wheat; a word borrowed from Spanish.",
+    "enSource": "Collins English Dictionary (sense adaptation)",
+    "zhSourceUrl": "https://www.collinsdictionary.com/dictionary/english/trigo",
+    "enSourceUrl": "https://www.collinsdictionary.com/dictionary/english/trigo"
+  },
+  "yom": {
+    "zh": "日；一天（希伯来语词，常见于犹太节日名称）。",
+    "zhSource": "Collins English Dictionary (Chinese adaptation)",
+    "en": "A day; a Hebrew word used in names of Jewish festivals.",
+    "enSource": "Collins English Dictionary (sense adaptation)",
+    "zhSourceUrl": "https://www.collinsdictionary.com/dictionary/english/yom",
+    "enSourceUrl": "https://www.collinsdictionary.com/dictionary/english/yom"
+  },
+  "dore": {
+    "zh": "玻璃梭鲈，即北美洲的 walleye 淡水鱼；doré 的无重音拼法。",
+    "zhSource": "Collins English Dictionary (Chinese adaptation)",
+    "en": "A walleye, a North American freshwater fish; an unaccented form of doré.",
+    "enSource": "Collins English Dictionary (sense adaptation)",
+    "ipa": "/ˈdɔːreɪ/, /ˈdɔːriː/",
+    "ipaSource": "Collins (fish sense)",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/dore",
+    "ipaStatus": "sourced",
+    "zhSourceUrl": "https://www.collinsdictionary.com/dictionary/english/dore",
+    "enSourceUrl": "https://www.collinsdictionary.com/dictionary/english/dore"
+  },
+  "agamid": {
+    "ipa": "/ˈæɡəmid/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "agha": {
+    "ipa": "/ˈɑːɡə/, /ɑːˈɡɑː/",
+    "ipaSource": "wiktionary",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/agha",
+    "ipaStatus": "sourced"
+  },
+  "agone": {
+    "ipa": "/ə ˈ ɡɔn/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "anlage": {
+    "ipa": "/ˈɑːnlɑːɡə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "anlages": {
+    "ipa": "/ˈɑːnlɑːɡəz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "cerci": {
+    "ipa": "/sɜːsai/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "cercis": {
+    "ipa": "/ˈsɜːsis/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "cogon": {
+    "ipa": "/kəˈɡəun/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "cotinga": {
+    "ipa": "/kəˈtiŋɡə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "dags": {
+    "ipa": "/dæɡz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "dawg": {
+    "ipa": "/dɔɡ/",
+    "ipaSource": "wiktionary",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/dawg",
+    "ipaStatus": "sourced"
+  },
+  "degust": {
+    "ipa": "/diˈɡʌst/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "dogleg": {
+    "ipa": "/ˈdɔɡˌlɛɡ/",
+    "ipaSource": "wiktionary",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/dogleg",
+    "ipaStatus": "sourced"
+  },
+  "dogy": {
+    "ipa": "/ˈdəuɡi/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "drongo": {
+    "ipa": "/ˈdrɔŋɡəj/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "eggar": {
+    "ipa": "/ˈɛɡɚ/",
+    "ipaSource": "wiktionary",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/eggar",
+    "ipaStatus": "sourced"
+  },
+  "englut": {
+    "ipa": "/inˈɡlʌt/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "erg": {
+    "ipa": "/ɝɡ/",
+    "ipaSource": "wiktionary",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/erg",
+    "ipaStatus": "sourced"
+  },
+  "ergate": {
+    "ipa": "/ˈəːɡeit/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "exempla": {
+    "ipa": "/iɡˈzemplə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "fogger": {
+    "ipa": "/ˈfɔɡə(r)/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gaddi": {
+    "ipa": "/ˈɡʌdi/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gadid": {
+    "ipa": "/ˈɡeidid/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gahnite": {
+    "ipa": "/ˈɡɑːnait/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gainst": {
+    "ipa": "/ɡeinst/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "galeas": {
+    "ipa": "/ˈɡæliəs/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gamic": {
+    "ipa": "/ˈɡæmik/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gamine": {
+    "ipa": "/ɡæˈmiːn/, /ˈɡæmiːn/",
+    "ipaSource": "wiktionary",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/gamine",
+    "ipaStatus": "sourced"
+  },
+  "ganof": {
+    "ipa": "/ˈɡɑːnəf/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "garni": {
+    "ipa": "/ɡɑːˈniː/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gateman": {
+    "ipa": "/ˈɡeitmən/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gaur": {
+    "ipa": "/ˈɡaʊ.əɹ/",
+    "ipaSource": "wiktionary",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/gaur",
+    "ipaStatus": "sourced"
+  },
+  "gavot": {
+    "ipa": "/ɡəˈvɔt/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gelt": {
+    "ipa": "/ɡɛlt/",
+    "ipaSource": "wiktionary",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/gelt",
+    "ipaStatus": "sourced"
+  },
+  "gerah": {
+    "ipa": "/ˈɡiːrə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "geta": {
+    "ipa": "/ˈɡetə, -ɑː/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "ghat": {
+    "ipa": "/ɡɑt/",
+    "ipaSource": "wiktionary",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/ghat",
+    "ipaStatus": "sourced"
+  },
+  "ghats": {
+    "ipa": "/ɡɔːts,ɡɑːts/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "ghi": {
+    "ipa": "/ɡiː/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "ghis": {
+    "ipa": "/ɡiːz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gid": {
+    "ipa": "/ɡid/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "giddap": {
+    "ipa": "/ɡiˈdæp/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gids": {
+    "ipa": "/ɡidz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "ginzo": {
+    "ipa": "/ˈɡinzəj/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gismo": {
+    "ipa": "/ˈɡizməu/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gleed": {
+    "ipa": "/ɡliːd/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gleeds": {
+    "ipa": "/ɡliːdz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gleg": {
+    "ipa": "/ɡlɛɡ/",
+    "ipaSource": "wiktionary",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/gleg",
+    "ipaStatus": "sourced"
+  },
+  "glia": {
+    "ipa": "/ˈɡliə/, /ˈɡlaɪə/",
+    "ipaSource": "wiktionary",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/glia",
+    "ipaStatus": "sourced"
+  },
+  "glost": {
+    "ipa": "/ɡlɔst/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gluer": {
+    "ipa": "/ˈɡluːə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "godling": {
+    "ipa": "/ˈɡɔdliŋ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "goglet": {
+    "ipa": "/ˈɡɔɡlit/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gondi": {
+    "ipa": "/ˈɡɔndi/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gonof": {
+    "ipa": "/ˈɡɔnəf/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gorily": {
+    "ipa": "/ˈɡɔː rili/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gorp": {
+    "ipa": "/ˈɡɔɹp/",
+    "ipaSource": "wiktionary",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/gorp",
+    "ipaStatus": "sourced"
+  },
+  "gramp": {
+    "ipa": "/ɡræmp/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "grandam": {
+    "ipa": "/ˈɡrændæm/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "grees": {
+    "ipa": "/ɡriːz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gript": {
+    "ipa": "/ɡript/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "grison": {
+    "ipa": "/ˈɡrizən/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "grot": {
+    "ipa": "/ɡɹɑt/",
+    "ipaSource": "wiktionary",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/grot",
+    "ipaStatus": "sourced"
+  },
+  "grouty": {
+    "ipa": "/ˈɡrauti/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "growly": {
+    "ipa": "/ˈɡrajli/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "guaco": {
+    "ipa": "/ˈɡwɑːkəu/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gulden": {
+    "ipa": "/ˈɡuldən/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gumma": {
+    "ipa": "/ˈɡʌmə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gur": {
+    "ipa": "/ɡjə(r)/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gurnet": {
+    "ipa": "/ˈɡɜːnit/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "gushy": {
+    "ipa": "/ˈɡʌʃi/",
+    "ipaSource": "wiktionary",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/gushy",
+    "ipaStatus": "sourced"
+  },
+  "hognut": {
+    "ipa": "/ˈhɔɡnʌt/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "igg": {
+    "ipa": "/iɡ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "incog": {
+    "ipa": "/inˈkɔɡ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "incogs": {
+    "ipa": "/inˈkɔɡz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "ingraft": {
+    "ipa": "/inˈɡrɑːft/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "inturn": {
+    "ipa": "/ˈintɜːn/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "jugged": {
+    "ipa": "/dʒʌɡd/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "jugula": {
+    "ipa": "/ˈdʒʌɡjjlə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "kermis": {
+    "ipa": "/ˈkɜːmis/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "kerne": {
+    "ipa": "/kɜːn/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "lagger": {
+    "ipa": "/ˈlæɡə(r)/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "lig": {
+    "ipa": "/lɪɡ/",
+    "ipaSource": "wiktionary",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/lig",
+    "ipaStatus": "sourced"
+  },
+  "ligan": {
+    "ipa": "/ˈlaiɡən/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "linga": {
+    "ipa": "/ˈliŋɡə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "lingam": {
+    "ipa": "/ˈliŋɡəm/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "lingas": {
+    "ipa": "/ˈliŋɡəz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "logia": {
+    "ipa": "/ˈlɔɡiə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "lungi": {
+    "ipa": "/ˈluŋɡi/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "megasse": {
+    "ipa": "/məˈɡæs/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "nagger": {
+    "ipa": "/ˈnæɡɚ/",
+    "ipaSource": "wiktionary",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/nagger",
+    "ipaStatus": "sourced"
+  },
+  "nerts": {
+    "ipa": "/nɜːts/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "nogg": {
+    "ipa": "/nɔɡ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "ogam": {
+    "ipa": "/ˈɔɡəm/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "ogams": {
+    "ipa": "/ˈɔɡəmz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "ogham": {
+    "ipa": "/ˈɔɡəm/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "olingo": {
+    "ipa": "/ˈɔliŋɡəj/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "organa": {
+    "ipa": "/ˈɔːɡənə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "padnag": {
+    "ipa": "/ˈpædnæɡ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "pardah": {
+    "ipa": "/ˈpɜːdə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "pargo": {
+    "ipa": "/ˈpɑːɡəu/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "pignus": {
+    "ipa": "/ˈpiɡnəs/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "ragee": {
+    "ipa": "/ˈrɑːɡi, ˈræɡi/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "regma": {
+    "ipa": "/ˈreɡmə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "regna": {
+    "ipa": "/ˈreɡnə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "regrind": {
+    "ipa": "/riˈɡraind/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "renig": {
+    "ipa": "/riˈniɡ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "renigs": {
+    "ipa": "/riˈniɡz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "sagum": {
+    "ipa": "/ˈseiɡəm/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "saiga": {
+    "ipa": "/ˈsaiɡə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "sangh": {
+    "ipa": "/sʌŋɡ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "sargo": {
+    "ipa": "/ˈsɑːɡəu/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "siglos": {
+    "ipa": "/ˈsiɡlɔs/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "squeg": {
+    "ipa": "/skweɡ/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "tanga": {
+    "ipa": "/ˈtæŋɡə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "teg": {
+    "ipa": "/tɛɡ/",
+    "ipaSource": "wiktionary",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/teg",
+    "ipaStatus": "sourced"
+  },
+  "terga": {
+    "ipa": "/ˈtɜːɡə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "termly": {
+    "ipa": "/ˈtɜːmli/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "thyrsi": {
+    "ipa": "/ˈθɜːsai/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "tragi": {
+    "ipa": "/ˈtreidʒai,-ɡai/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "trigly": {
+    "ipa": "/ˈtriɡli/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "ungirt": {
+    "ipa": "/ˈʌnˈɡəːt/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "virl": {
+    "ipa": "/vɜːl/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "virls": {
+    "ipa": "/vɜːlz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "whort": {
+    "ipa": "/hwɜːt/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "whorts": {
+    "ipa": "/hwɜːts/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "wigan": {
+    "ipa": "/ˈwiɡən/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "wigans": {
+    "ipa": "/ˈwiɡənz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "wog": {
+    "ipa": "/wɔɡ/",
+    "ipaSource": "wiktionary",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/wog",
+    "ipaStatus": "sourced"
+  },
+  "yirr": {
+    "ipa": "/jɜː(r)/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "yuga": {
+    "ipa": "/ˈjjɡə/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "yugas": {
+    "ipa": "/ˈjjɡəz/",
+    "ipaSource": "ECDICT (legacy phonetic glyphs repaired)",
+    "ipaSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "ipaStatus": "derived"
+  },
+  "guid": {
+    "ipa": "[ɡɪd]",
+    "ipaSource": "wiktionary-scots (Central Scots / Ulster)",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/guid",
+    "ipaStatus": "sourced",
+    "zh": "【苏格兰】好的、体面的；善事、好处（相当于 good）。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "zhBase": "good",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/guid",
+    "en": "(Scots) Good or respectable; as a noun, something good.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "enBase": "good",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/guid",
+    "note": "核对同族词形，修正缩写误义或只有英文交叉引用的中文释义"
+  },
+  "frise": {
+    "ipa": "/ˈfriːzeɪ/, /frɪˈzeɪ/",
+    "ipaSource": "Collins (fabric sense)",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/frise",
+    "ipaStatus": "sourced",
+    "zh": "圈绒织物，通常保留未剪断的长绒圈，用于家具饰面或地毯。",
+    "zhSource": "Collins English Dictionary (Chinese adaptation)",
+    "zhSourceUrl": "https://www.collinsdictionary.com/dictionary/english/frise",
+    "en": "A loop-pile fabric, used for furnishings or rugs, whose pile is usually left uncut.",
+    "enSource": "Collins English Dictionary (sense adaptation)",
+    "enSourceUrl": "https://www.collinsdictionary.com/dictionary/english/frise"
+  },
+  "pele": {
+    "ipa": "/pil/",
+    "ipaSource": "Collins (tower sense)",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/pele",
+    "ipaStatus": "sourced",
+    "zh": "【历史】英格兰与苏格兰边境地区的一种小型防御性住宅或塔楼。",
+    "zhSource": "Collins English Dictionary (Chinese adaptation)",
+    "zhSourceUrl": "https://www.collinsdictionary.com/dictionary/english/pele",
+    "en": "A small fortified house or tower formerly built in the border region of England and Scotland.",
+    "enSource": "Collins English Dictionary (sense adaptation)",
+    "enSourceUrl": "https://www.collinsdictionary.com/dictionary/english/pele"
+  },
+  "coden": {
+    "ipa": "/ˈkəʊdɛn/",
+    "ipaSource": "Collins (bibliographic code)",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/coden",
+    "ipaStatus": "sourced",
+    "zh": "由字母和数字组成的出版物识别码，用于期刊及其他出版物。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/CODEN",
+    "en": "A bibliographic identifier consisting of letters and numbers, used for periodicals and other publications.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/CODEN"
+  },
+  "obelus": {
+    "ipa": "/ˈɑbələs/",
+    "ipaSource": "wiktionary (singular pronunciation)",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/obelus",
+    "ipaStatus": "sourced",
+    "en": "A mark used in old texts to flag a doubtful passage; also the dagger sign (†) used for notes or death dates.",
+    "enSource": "Wiktionary (reviewed paraphrase)",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/obelus",
+    "note": "Replace the damaged replacement character in the inherited source definition."
+  },
+  "haed": {
+    "zh": "had 的发音拼写：有、拥有（have 的过去式和过去分词）。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "zhBase": "had",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/haed",
+    "en": "A pronunciation spelling of had, the past tense and past participle of have.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "enBase": "had",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/haed",
+    "note": "核对同族词形，修正缩写误义或只有英文交叉引用的中文释义"
+  },
+  "emmys": {
+    "zh": "Emmy 的复数：艾美奖，表彰电视行业成就的奖项。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "zhBase": "Emmy",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/Emmy",
+    "en": "Plural of Emmy: awards honouring achievement in television.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "enBase": "Emmy",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/Emmy"
+  },
+  "flir": {
+    "zh": "前视红外技术或成像系统（forward-looking infrared 的缩写）。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/FLIR",
+    "en": "Forward-looking infrared: a thermal-imaging technology or system.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/FLIR"
+  },
+  "lago": {
+    "zh": "湖泊（西班牙语、意大利语词，常见于地名）。",
+    "zhSource": "ECDICT (Chinese adaptation)",
+    "zhSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "en": "A lake; a word found in Spanish and Italian geographical names.",
+    "enSource": "ECDICT (sense adaptation)",
+    "enSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "lehigh": {
+    "zh": "利哈伊河，美国宾夕法尼亚州的河流；也用于姓氏和地名。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/Lehigh",
+    "en": "The Lehigh River in Pennsylvania, United States; also a surname and a place name.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/Lehigh"
+  },
+  "liri": {
+    "zh": "马耳他旧货币里拉的复数形式。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "zhBase": "lira",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/liri",
+    "en": "Plural of lira when referring to the former monetary unit of Malta.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "enBase": "lira",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/liri"
+  },
+  "mikra": {
+    "zh": "希伯来圣经；Miqra 的另一形式。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/Miqra",
+    "en": "The Hebrew Bible; an alternative form of Miqra.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/Miqra"
+  },
+  "nairu": {
+    "zh": "非加速通货膨胀失业率，即不促使通胀加速的失业率水平。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/NAIRU",
+    "en": "Non-accelerating inflation rate of unemployment: an unemployment rate consistent with inflation not accelerating.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/NAIRU"
+  },
+  "notre": {
+    "zh": "【法语】我们的，常见于 Notre Dame 等名称。",
+    "zhSource": "ECDICT (Chinese adaptation)",
+    "zhSourceUrl": "https://github.com/skywind3000/ECDICT",
+    "en": "French for our, especially as used in names such as Notre Dame.",
+    "enSource": "ECDICT (sense adaptation)",
+    "enSourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "novo": {
+    "zh": "专名：姓氏 Novo。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/Novo",
+    "en": "Novo, a surname.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/Novo"
+  },
+  "optimus": {
+    "zh": "专名：Optimus，可用作汽车、计算机或机器人等设备的名字或昵称。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/Optimus",
+    "en": "Optimus, a name or nickname given to a device such as a car, computer or robot.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/Optimus"
+  },
+  "paso": {
+    "zh": "帕索菲诺马（Paso Fino 马）。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/Paso",
+    "en": "A Paso Fino horse.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/Paso"
+  },
+  "rouens": {
+    "zh": "Rouen 的复数：鲁昂鸭，原产法国的一种大型家鸭。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "zhBase": "Rouen",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/rouens",
+    "en": "Plural of Rouen: ducks of a heavy domestic breed originating in France.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "enBase": "Rouen",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/rouens"
+  },
+  "sau": {
+    "zh": "越南的一种小额货币单位，同 xu。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/sau",
+    "en": "Xu, a small monetary unit of Vietnam.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "enSourceUrl": "https://scrabble.merriam.com/finder/sau"
+  },
+  "sayid": {
+    "zh": "赛义德，一种穆斯林尊称，尤用于穆罕默德经女儿法蒂玛一系的男性后裔；也用作男子名。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/Sayyid",
+    "en": "A form of Sayyid: a Muslim honorific, especially for male descendants of Muhammad through Fatima; also a male given name.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/Sayyid"
+  },
+  "sokol": {
+    "zh": "索科尔体操运动组织；该组织的分会或成员。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/Sokol",
+    "en": "A member or branch of the Czech Sokol gymnastics movement, or the organization itself.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/Sokol"
+  },
+  "torot": {
+    "zh": "Torah 的复数：教导、律法，或《妥拉》文本。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "zhBase": "Torah",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/Torot",
+    "en": "Plural of Torah: teachings or laws, or Torah texts.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "enBase": "Torah",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/Torot"
+  },
+  "yags": {
+    "zh": "YAG 的复数：钇铝石榴石，一种用于激光器和人造宝石的合成材料。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "zhBase": "YAG",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/YAG",
+    "en": "Plural of YAG: synthetic yttrium aluminium garnets, used in lasers and as artificial gemstones.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "enBase": "YAG",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/YAG"
+  }
+}

@@ -9,6 +9,10 @@
   const provenanceLoads = new Map();
   const cloneLibrary = x => JSON.parse(JSON.stringify(x));
   function shortZh(s) { return String(s || '').split(/[；;。]/)[0].slice(0, 42); }
+  function bankDefinitionLetter(word) {
+    const letter = word.normalize('NFD').charAt(0).toLowerCase();
+    return /^[a-z]$/.test(letter) ? letter : '';
+  }
   function libraryDirty() {
     return bankDraft && JSON.stringify(bankDraft) !== JSON.stringify(libraryRecipes.find(r => r.id === bankDraft.id));
   }
@@ -107,8 +111,7 @@
     const need = new Map();
     root.querySelectorAll('[data-def]').forEach(el => { const letter = el.dataset.def; if (!need.has(letter)) need.set(letter, []); need.get(letter).push(el); });
     for (const [letter, els] of need) {
-      if (location.protocol === 'file:') { els.forEach(el => el.textContent = '释义需本地服务'); continue; }
-      loadShard(letter).then(dict => els.forEach(el => { if (el.isConnected) el.textContent = shortZh(dict?.[el.dataset.w]?.[1]) || '暂无释义'; })).catch(() => els.forEach(el => { if (el.isConnected) el.textContent = '释义未加载'; }));
+      loadShard(letter, els.map(el => el.dataset.w)).then(dict => els.forEach(el => { if (el.isConnected) el.textContent = shortZh(dict?.[el.dataset.w]?.[1]) || '暂无释义'; })).catch(() => els.forEach(el => { if (el.isConnected) el.textContent = '释义未加载'; }));
     }
   }
   async function loadProvenance(game) {
@@ -156,14 +159,18 @@
     card.hidden = !word; if (!word) { card.innerHTML = ''; return; }
     const role = bankWordRole(word), sources = vocabularyIndex.get(word) || [];
     const roleText = role ? AUDIT_ROLE[role] : bankExcludedSet.has(word) ? '不符合生成词长或字母范围' : '未进入当前配置的生效词表';
-    card.innerHTML = '<div class="g-top"><b>' + esc(word) + '</b><span>' + roleText + '</span></div><p id="bankDef" class="note"></p>' +
+    card.innerHTML = '<div class="g-top"><b>' + esc(word) + '</b><span>' + roleText + '</span></div><div id="bankDef" aria-live="polite">正在加载释义…</div>' +
       '<p class="note">' + esc(sourceSummary(word) || '当前资源中没有来源记录') + '</p>' +
       '<details id="bankSources"><summary>查看全部游戏、版本和来源关卡</summary><div id="bankProvenance">展开后加载</div></details>';
     const uses = campaign.levels.flatMap((d, i) => d.words.includes(word) || d.extras.includes(word) ? [i] : []);
     if (uses.length) card.insertAdjacentHTML('beforeend', '<div class="blevels">' + uses.slice(0, 100).map(i => '<button type="button" data-jump="' + i + '">第 ' + (i + 1) + ' 关</button>').join('') + '</div>');
-    if (/^[A-Z]/.test(word) && location.protocol !== 'file:') loadShard(word[0].toLowerCase()).then(dict => {
-      if (request === bankCardRequest) $('#bankDef').textContent = dict?.[word.toLowerCase()]?.[1] || '暂无释义';
-    }).catch(() => {});
+    const letter = bankDefinitionLetter(word);
+    if (letter) loadShard(letter, word).then(dict => {
+      if (request === bankCardRequest) $('#bankDef').innerHTML = glossBodyHtml(dict?.[word.toLowerCase()]);
+    }).catch(() => {
+      if (request === bankCardRequest) $('#bankDef').textContent = '释义未加载，请稍后重试';
+    });
+    else $('#bankDef').innerHTML = glossBodyHtml();
     const details = $('#bankSources'); let started = false;
     details.addEventListener('toggle', async () => {
       if (!details.open || started) return; started = true;
@@ -188,7 +195,7 @@
     const stat = computeBank(), slice = bankMatches.slice(bankState.page * bankState.pageSize, (bankState.page + 1) * bankState.pageSize);
     const scopeNote = bankState.view === 'range' ? ' · ' + rangeSelectionLabel() : snapshotView ? ' · 本关快照：' + levelLibrary().snapshot.recipe.name + ' v' + levelLibrary().snapshot.recipe.revision : '';
     $('#bankMeta').textContent = bankMatches.length + ' / ' + stat.total + ' 词 · 第 ' + (bankState.page + 1) + ' / ' + stat.pages + ' 页' + scopeNote;
-    $('#bankList').innerHTML = slice.map(w => '<button type="button" class="brow' + (w === bankState.picked ? ' on' : '') + '" data-w="' + esc(w) + '"><b class="gw">' + esc(w) + '</b><span>' + (AUDIT_ROLE[bankWordRole(w)] || (bankExcludedSet.has(w) ? '不适用' : '来源词条')) + '</span><span class="nums" title="' + esc(sourceSummary(w)) + '">' + new Set((vocabularyIndex.get(w) || []).map(s => s.gameId)).size + ' 款游戏</span><span class="bzh"' + (/^[A-Z]/.test(w) ? ' data-def="' + w[0].toLowerCase() + '" data-w="' + esc(w.toLowerCase()) + '"' : '') + '>…</span></button>').join('') || '<p class="note" style="padding:16px">没有符合条件的词条。</p>';
+    $('#bankList').innerHTML = slice.map(w => '<button type="button" class="brow' + (w === bankState.picked ? ' on' : '') + '" data-w="' + esc(w) + '"><b class="gw">' + esc(w) + '</b><span>' + (AUDIT_ROLE[bankWordRole(w)] || (bankExcludedSet.has(w) ? '不适用' : '来源词条')) + '</span><span class="nums" title="' + esc(sourceSummary(w)) + '">' + new Set((vocabularyIndex.get(w) || []).map(s => s.gameId)).size + ' 款游戏</span><span class="bzh"' + (bankDefinitionLetter(w) ? ' data-def="' + bankDefinitionLetter(w) + '" data-w="' + esc(w.toLowerCase()) + '"' : '') + '>…</span></button>').join('') || '<p class="note" style="padding:16px">没有符合条件的词条。</p>';
     $('#bankPage').innerHTML = '<button type="button" id="bankPrev"' + (!bankState.page ? ' disabled' : '') + '>上一页</button><button type="button" id="bankNext"' + (bankState.page + 1 >= stat.pages ? ' disabled' : '') + '>下一页</button>';
     fillBankDefs($('#bankList')); renderBankCard();
   }

@@ -1,0 +1,634 @@
+{
+  "acta": {
+    "en": "Written records of proceedings, such as the minutes or transactions of a society.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "会议记录；议事录；学会会刊或学报。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/acta"
+  },
+  "amie": {
+    "en": "A woman who is a friend; borrowed from French.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "女性朋友；女友（源自法语）。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/amies"
+  },
+  "amies": {
+    "en": "Plural of amie: women who are friends.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "amie 的复数：女性朋友。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/amies",
+    "enBase": "amie",
+    "zhBase": "amie"
+  },
+  "amis": {
+    "en": "Plural of ami: friends.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "ami 的复数：朋友。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/ami",
+    "enBase": "ami",
+    "zhBase": "ami"
+  },
+  "barbe": {
+    "en": "A cloth head-covering worn in medieval times, especially around the lower face and neck.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "中世纪妇女戴的布质头巾，尤用于遮住下半脸和颈部。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/barbe"
+  },
+  "barca": {
+    "en": "A boat with a pointed shape at both ends.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "两头尖的船；双尖船。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/barca"
+  },
+  "bonita": {
+    "en": "A bonito: a fish related to the tuna.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "鲣鱼一类与金枪鱼近缘的鱼；bonito 的变体。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/bonita"
+  },
+  "brugh": {
+    "en": "A borough or town; a dialectal form.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "【方言】市镇；自治镇。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/brugh"
+  },
+  "bunas": {
+    "en": "Plural of buna: synthetic rubbers made using butadiene.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "buna 的复数：丁二烯类合成橡胶；布纳橡胶。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/bunas",
+    "enBase": "buna",
+    "zhBase": "buna"
+  },
+  "calo": {
+    "en": "A Spanish-based slang or argot associated with Chicano youths.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "墨西哥裔美国青年使用的一种以西班牙语为基础的俚语或行话。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/calo"
+  },
+  "chao": {
+    "en": "A unit of Vietnamese money.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "越南的一种货币单位。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/chao"
+  },
+  "colby": {
+    "en": "A mild variety of cheese.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "科尔比干酪，一种味道温和的奶酪。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/colby"
+  },
+  "cripe": {
+    "en": "A mild exclamation used instead of a stronger oath.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "【感叹词】哎呀；真是的（较委婉的咒誓语）。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/cripe"
+  },
+  "defi": {
+    "en": "A challenge, or an act of defiance.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "挑战；违抗；蔑视。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://www.merriam-webster.com/dictionary/defi"
+  },
+  "duro": {
+    "en": "A Spanish or Spanish-American peso or silver dollar.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "杜罗：西班牙或西属美洲使用的一种比索或银元。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://www.merriam-webster.com/dictionary/duro"
+  },
+  "duros": {
+    "en": "Plural of duro: Spanish or Spanish-American pesos or silver dollars.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "duro 的复数：西班牙或西属美洲的比索或银元。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://www.merriam-webster.com/dictionary/duro",
+    "enBase": "duro",
+    "zhBase": "duro"
+  },
+  "gamas": {
+    "en": "Plural of gama: a tall American forage grass, Tripsacum dactyloides.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "gama 的复数：一种高大的美洲牧草（Tripsacum dactyloides）。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://www.merriam-webster.com/dictionary/gama",
+    "enBase": "gama",
+    "zhBase": "gama"
+  },
+  "haes": {
+    "en": "(Scots) The third-person singular form of hae, meaning to have.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "【苏格兰】hae（有、拥有）的第三人称单数。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/haes",
+    "enBase": "hae",
+    "zhBase": "hae"
+  },
+  "ichs": {
+    "en": "Plural of ich: a parasitic disease affecting fish.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "ich 的复数：鱼类白点病，一种寄生虫病。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/ichs",
+    "enBase": "ich",
+    "zhBase": "ich"
+  },
+  "keefs": {
+    "en": "Plural of keef, a variant of kef or kif: cannabis or a cannabis preparation.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "keef 的复数：大麻或大麻制品（同 kef、kif）。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/keefs",
+    "enBase": "keef",
+    "zhBase": "keef"
+  },
+  "kirns": {
+    "en": "(Scots) The third-person singular form of kirn, meaning to churn.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "【苏格兰】kirn（搅乳制酪；搅动）的第三人称单数。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/kirns",
+    "enBase": "kirn",
+    "zhBase": "kirn"
+  },
+  "kois": {
+    "en": "Plural of koi: ornamental varieties of carp.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "koi 的复数：锦鲤。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/kois",
+    "enBase": "koi",
+    "zhBase": "koi"
+  },
+  "mae": {
+    "en": "(Scots) More; an additional amount.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "【苏格兰】更多；额外的数量。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/maes"
+  },
+  "maes": {
+    "en": "Plural of mae: additional amounts; a Scots form of more.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "【苏格兰】mae（更多；额外数量）的复数形式。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/maes",
+    "enBase": "mae",
+    "zhBase": "mae"
+  },
+  "meno": {
+    "en": "Less; a musical instruction to reduce a specified quality, as in a slower or softer passage.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "【音乐】较少地；减弱些（用于指示降低速度、力度等）。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/meno"
+  },
+  "mor": {
+    "en": "A type of forest humus.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "森林中的一种粗腐殖质。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/mor"
+  },
+  "mosso": {
+    "en": "In a brisk or animated manner; used as a musical direction.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "【音乐】活跃地；较快地。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/mosso"
+  },
+  "mugg": {
+    "en": "To pull exaggerated or funny faces.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "扮鬼脸；做夸张滑稽的表情。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/mugg"
+  },
+  "muras": {
+    "en": "Plural of mura: Japanese villages.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "mura 的复数：日本村落。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/muras",
+    "enBase": "mura",
+    "zhBase": "mura"
+  },
+  "nema": {
+    "en": "A fine thread-like structure in biology; also a shortened name for a nematode.",
+    "enSource": "Collins English Dictionary (sense adaptation)",
+    "zh": "【生物学】丝状结构；线虫（nematode 的简称）。",
+    "zhSource": "Collins English Dictionary (Chinese adaptation)",
+    "sourceUrl": "https://www.collinsdictionary.com/dictionary/english/nema"
+  },
+  "nicol": {
+    "en": "A Nicol prism, an optical device used to produce or analyse polarized light.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "尼科尔棱镜，用于产生或分析偏振光的光学器件。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://www.merriam-webster.com/dictionary/nicol"
+  },
+  "pardee": {
+    "en": "An old oath used for emphasis, equivalent to pardi or by God.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "【旧用法】天哪；真的；以上帝之名（表示强调的誓语）。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/pardee"
+  },
+  "pekin": {
+    "en": "A kind of silk fabric.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "一种丝织物；北京宽条子绸。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/pekin"
+  },
+  "peres": {
+    "en": "Plural of pere: fathers, or men addressed with the French title Pere.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "pere 的复数：父亲；用法语 Père 尊称的神父等。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/peres",
+    "enBase": "pere",
+    "zhBase": "pere"
+  },
+  "pias": {
+    "en": "Plural of pia: the delicate membrane directly covering the brain and spinal cord.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "pia 的复数：软脑膜、软脊膜，即紧贴脑和脊髓表面的薄膜。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/pias",
+    "enBase": "pia",
+    "zhBase": "pia"
+  },
+  "prost": {
+    "en": "A toast wishing good health; cheers.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "【祝酒词】干杯；祝健康。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/prost"
+  },
+  "sanes": {
+    "en": "Third-person singular of sane as a verb meaning to sain: to bless or protect by a blessing.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "sane 作动词时的第三人称单数：祝福；祝祷护佑（同 sain）。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/sanes",
+    "enBase": "sane",
+    "zhBase": "sane"
+  },
+  "sels": {
+    "en": "(Scots) Plural of sel: selves.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "【苏格兰】sel（自己、自我）的复数，相当于 selves。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/sel",
+    "enBase": "sel",
+    "zhBase": "sel"
+  },
+  "shaul": {
+    "en": "(English dialect) A wooden scoop for winnowing grain, or a tub used for kneading dough or washing.",
+    "enSource": "Collins English Dictionary (sense adaptation)",
+    "zh": "【英格兰方言】扬谷用的木铲；揉面或洗涤用的盆。",
+    "zhSource": "Collins English Dictionary (Chinese adaptation)",
+    "sourceUrl": "https://www.collinsdictionary.com/dictionary/english/shaul"
+  },
+  "skas": {
+    "en": "Plural of ska: forms or examples of a Jamaican style of popular music.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "ska 的复数：斯卡音乐，起源于牙买加的一种流行音乐。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/skas",
+    "enBase": "ska",
+    "zhBase": "ska"
+  },
+  "skeen": {
+    "en": "A skean, a traditional dagger associated with Scotland or Ireland.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "斯基恩短剑，一种苏格兰或爱尔兰传统匕首（skean 的变体）。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/skeen"
+  },
+  "soth": {
+    "en": "An old form of sooth: truth or a true statement.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "【古语】事实；真相；实话（同 sooth）。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/soth"
+  },
+  "sri": {
+    "en": "An honorific title used in India, comparable to Mister or Sir.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "印度敬称，相当于“先生”“阁下”。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/sri"
+  },
+  "sris": {
+    "en": "Plural of sri, a respectful title used in India.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "sri 的复数：印度敬称“先生”“阁下”。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/sris",
+    "enBase": "sri",
+    "zhBase": "sri"
+  },
+  "suba": {
+    "en": "A sheepskin cloak traditionally worn by Hungarian shepherds.",
+    "enSource": "Collins English Dictionary (sense adaptation)",
+    "zh": "匈牙利牧羊人旧时穿的羊皮斗篷。",
+    "zhSource": "Collins English Dictionary (Chinese adaptation)",
+    "sourceUrl": "https://www.collinsdictionary.com/dictionary/english/suba"
+  },
+  "thens": {
+    "en": "Plural of then as a noun: those times or periods.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "then 作名词时的复数：那些时候；过去的那些时段。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/then",
+    "enBase": "then",
+    "zhBase": "then"
+  },
+  "trigo": {
+    "en": "Wheat, or a field of wheat; a word borrowed from Spanish.",
+    "enSource": "Collins English Dictionary (sense adaptation)",
+    "zh": "小麦；麦田（源自西班牙语）。",
+    "zhSource": "Collins English Dictionary (Chinese adaptation)",
+    "sourceUrl": "https://www.collinsdictionary.com/dictionary/english/trigo"
+  },
+  "yom": {
+    "en": "A day; a Hebrew word used in names of Jewish festivals.",
+    "enSource": "Collins English Dictionary (sense adaptation)",
+    "zh": "日；一天（希伯来语词，常见于犹太节日名称）。",
+    "zhSource": "Collins English Dictionary (Chinese adaptation)",
+    "sourceUrl": "https://www.collinsdictionary.com/dictionary/english/yom"
+  },
+  "dore": {
+    "en": "A walleye, a North American freshwater fish; an unaccented form of doré.",
+    "enSource": "Collins English Dictionary (sense adaptation)",
+    "zh": "玻璃梭鲈，即北美洲的 walleye 淡水鱼；doré 的无重音拼法。",
+    "zhSource": "Collins English Dictionary (Chinese adaptation)",
+    "sourceUrl": "https://www.collinsdictionary.com/dictionary/english/dore"
+  },
+  "blume": {
+    "en": "(Scots) to bloom",
+    "enSource": "wiktionary-scots",
+    "zh": "【苏格兰】开花。",
+    "zhSource": "Wiktionary (Scots Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/blume"
+  },
+  "gied": {
+    "en": "(Scots) simple past tense of gie",
+    "enSource": "wiktionary-scots",
+    "zh": "【苏格兰】gie（给、给予）的过去式和过去分词。",
+    "zhSource": "Wiktionary (Scots Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/gied",
+    "enBase": "gie",
+    "zhBase": "gie"
+  },
+  "gude": {
+    "en": "(Scots) good",
+    "enSource": "wiktionary-scots",
+    "zh": "【苏格兰】好的；善良的。",
+    "zhSource": "Wiktionary (Scots Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/gude"
+  },
+  "kirn": {
+    "en": "(Scots) a churn; to churn (as milk into butter); to churn up, stir, mix",
+    "enSource": "wiktionary-scots",
+    "zh": "【苏格兰】搅乳器；搅乳制酪；搅动或混合。",
+    "zhSource": "Wiktionary (Scots Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/kirn"
+  },
+  "nae": {
+    "en": "(Scots) Doric Scots form of na (“not”); no; not",
+    "enSource": "wiktionary-scots",
+    "zh": "【苏格兰】不；没有；并非。",
+    "zhSource": "Wiktionary (Scots Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/nae"
+  },
+  "sae": {
+    "en": "(Scots) so",
+    "enSource": "wiktionary-scots",
+    "zh": "【苏格兰】如此；这样（相当于 so）。",
+    "zhSource": "Wiktionary (Scots Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/sae"
+  },
+  "sel": {
+    "en": "(Scots) self",
+    "enSource": "wiktionary-scots",
+    "zh": "【苏格兰】自己；自我（相当于 self）。",
+    "zhSource": "Wiktionary (Scots Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/sel"
+  },
+  "tae": {
+    "en": "(Scots) to, towards; to (infinitive marker); too, also, as well",
+    "enSource": "wiktionary-scots",
+    "zh": "【苏格兰】向；到；动词不定式标记 to；也、同样（相当于 too）。",
+    "zhSource": "Wiktionary (Scots Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/tae"
+  },
+  "twa": {
+    "en": "(Scots) two",
+    "enSource": "wiktionary-scots",
+    "zh": "【苏格兰】二；两个。",
+    "zhSource": "Wiktionary (Scots Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/twa"
+  },
+  "coden": {
+    "en": "A bibliographic identifier consisting of letters and numbers, used for periodicals and other publications.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "zh": "由字母和数字组成的出版物识别码，用于期刊及其他出版物。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/CODEN"
+  },
+  "emfs": {
+    "en": "Plural of EMF: electromotive forces, or electric potentials produced by an energy source.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "zh": "EMF 的复数：电动势。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/EMF",
+    "enBase": "EMF",
+    "zhBase": "EMF"
+  },
+  "emmys": {
+    "en": "Plural of Emmy: awards honouring achievement in television.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "zh": "Emmy 的复数：艾美奖，表彰电视行业成就的奖项。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/Emmy",
+    "enBase": "Emmy",
+    "zhBase": "Emmy"
+  },
+  "flir": {
+    "en": "Forward-looking infrared: a thermal-imaging technology or system.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "zh": "前视红外技术或成像系统（forward-looking infrared 的缩写）。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/FLIR"
+  },
+  "frise": {
+    "en": "A loop-pile fabric, used for furnishings or rugs, whose pile is usually left uncut.",
+    "enSource": "Collins English Dictionary (sense adaptation)",
+    "zh": "圈绒织物，通常保留未剪断的长绒圈，用于家具饰面或地毯。",
+    "zhSource": "Collins English Dictionary (Chinese adaptation)",
+    "sourceUrl": "https://www.collinsdictionary.com/dictionary/english/frise"
+  },
+  "lago": {
+    "en": "A lake; a word found in Spanish and Italian geographical names.",
+    "enSource": "ECDICT (sense adaptation)",
+    "zh": "湖泊（西班牙语、意大利语词，常见于地名）。",
+    "zhSource": "ECDICT (Chinese adaptation)",
+    "sourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "lehigh": {
+    "en": "The Lehigh River in Pennsylvania, United States; also a surname and a place name.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "zh": "利哈伊河，美国宾夕法尼亚州的河流；也用于姓氏和地名。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/Lehigh"
+  },
+  "lieus": {
+    "en": "Plural of lieu: places or positions taken by a substitute.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "lieu 的复数：位置；被替代的位置。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/lieus",
+    "enBase": "lieu",
+    "zhBase": "lieu"
+  },
+  "liri": {
+    "en": "Plural of lira when referring to the former monetary unit of Malta.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "马耳他旧货币里拉的复数形式。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/liri",
+    "enBase": "lira",
+    "zhBase": "lira"
+  },
+  "mikra": {
+    "en": "The Hebrew Bible; an alternative form of Miqra.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "zh": "希伯来圣经；Miqra 的另一形式。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/Miqra"
+  },
+  "nairu": {
+    "en": "Non-accelerating inflation rate of unemployment: an unemployment rate consistent with inflation not accelerating.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "zh": "非加速通货膨胀失业率，即不促使通胀加速的失业率水平。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/NAIRU"
+  },
+  "notre": {
+    "en": "French for our, especially as used in names such as Notre Dame.",
+    "enSource": "ECDICT (sense adaptation)",
+    "zh": "【法语】我们的，常见于 Notre Dame 等名称。",
+    "zhSource": "ECDICT (Chinese adaptation)",
+    "sourceUrl": "https://github.com/skywind3000/ECDICT"
+  },
+  "novo": {
+    "en": "Novo, a surname.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "zh": "专名：姓氏 Novo。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/Novo"
+  },
+  "optimus": {
+    "en": "Optimus, a name or nickname given to a device such as a car, computer or robot.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "zh": "专名：Optimus，可用作汽车、计算机或机器人等设备的名字或昵称。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/Optimus"
+  },
+  "paso": {
+    "en": "A Paso Fino horse.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "zh": "帕索菲诺马（Paso Fino 马）。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/Paso"
+  },
+  "pele": {
+    "en": "A small fortified house or tower formerly built in the border region of England and Scotland.",
+    "enSource": "Collins English Dictionary (sense adaptation)",
+    "zh": "【历史】英格兰与苏格兰边境地区的一种小型防御性住宅或塔楼。",
+    "zhSource": "Collins English Dictionary (Chinese adaptation)",
+    "sourceUrl": "https://www.collinsdictionary.com/dictionary/english/pele"
+  },
+  "rouens": {
+    "en": "Plural of Rouen: ducks of a heavy domestic breed originating in France.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "Rouen 的复数：鲁昂鸭，原产法国的一种大型家鸭。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/rouens",
+    "enBase": "Rouen",
+    "zhBase": "Rouen"
+  },
+  "sau": {
+    "en": "Xu, a small monetary unit of Vietnam.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "越南的一种小额货币单位，同 xu。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/sau"
+  },
+  "sayid": {
+    "en": "A form of Sayyid: a Muslim honorific, especially for male descendants of Muhammad through Fatima; also a male given name.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "zh": "赛义德，一种穆斯林尊称，尤用于穆罕默德经女儿法蒂玛一系的男性后裔；也用作男子名。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/Sayyid"
+  },
+  "sokol": {
+    "en": "A member or branch of the Czech Sokol gymnastics movement, or the organization itself.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "zh": "索科尔体操运动组织；该组织的分会或成员。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/Sokol"
+  },
+  "teels": {
+    "en": "Plural of teel: sesame plants or sesame seeds.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "teel 的复数：芝麻或芝麻籽。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/teels",
+    "enBase": "teel",
+    "zhBase": "teel"
+  },
+  "torot": {
+    "en": "Plural of Torah: teachings or laws, or Torah texts.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "zh": "Torah 的复数：教导、律法，或《妥拉》文本。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/Torot",
+    "enBase": "Torah",
+    "zhBase": "Torah"
+  },
+  "yags": {
+    "en": "Plural of YAG: synthetic yttrium aluminium garnets, used in lasers and as artificial gemstones.",
+    "enSource": "Wiktionary (sense adaptation)",
+    "zh": "YAG 的复数：钇铝石榴石，一种用于激光器和人造宝石的合成材料。",
+    "zhSource": "Wiktionary (Chinese adaptation)",
+    "sourceUrl": "https://en.wiktionary.org/wiki/YAG",
+    "enBase": "YAG",
+    "zhBase": "YAG"
+  },
+  "yules": {
+    "en": "Plural of yule: Christmas seasons.",
+    "enSource": "Merriam-Webster (sense adaptation)",
+    "zh": "yule 的复数：圣诞节；圣诞节期。",
+    "zhSource": "Merriam-Webster (Chinese adaptation)",
+    "sourceUrl": "https://scrabble.merriam.com/finder/yules",
+    "enBase": "yule",
+    "zhBase": "yule"
+  }
+}

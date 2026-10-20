@@ -16,7 +16,7 @@ end = text.index('</script>', start)
 source = '\n'.join((root / name).read_text() for name in ['src/validation.js', 'src/gen.js', 'src/v2_adapter.js', 'src/library.js', 'src/library_overlap.js', 'src/proportional_venn.js'])
 source += '\nwindow.WT_PROFILES = ' + (root / 'src/profiles.json').read_text().strip() + ';\n'
 text = text[:start] + source + text[end:]
-for key, filename in [('lex', 'src/lex.json'), ('gameVocab', 'data/game_vocab/catalog.json'), ('policy', 'src/policy.json'), ('versions', 'src/version_history.json')]:
+for key, filename in [('lex', 'src/lex.json'), ('gameVocab', 'data/game_vocab/catalog.json'), ('policy', 'src/policy.json'), ('versions', 'src/version_history.json'), ('defaultGlossary', 'data/glossary/default.json')]:
     payload = json.dumps(json.loads((root / filename).read_text()), ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
     text = re.sub(r'(<script id="' + key + r'"[^>]*>).*?(</script>)', lambda m: m[1] + payload + m[2], text, flags=re.S)
 for name, start_marker, end_marker in [

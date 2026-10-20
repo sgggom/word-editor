@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "datasetHash": "d7b7a2ecb5603dc00efbd9916b5933239addb5abb22537c8b24ad262846bade6",
+  "minimumLength": 3,
+  "uniqueWords": 22452,
+  "excludedShortWords": [
+    "AM",
+    "AN",
+    "AS",
+    "AT",
+    "BE",
+    "BY",
+    "DO",
+    "GO",
+    "HE",
+    "HI",
+    "IF",
+    "IN",
+    "IS",
+    "IT",
+    "ME",
+    "MY",
+    "NO",
+    "OF",
+    "ON",
+    "OR",
+    "OX",
+    "PO",
+    "SO",
+    "TI",
+    "TO",
+    "UP",
+    "US",
+    "WE"
+  ],
+  "duplicateOccurrencesBeforeLengthFilter": 6,
+  "libraries": [
+    {
+      "id": "four-game-target-core",
+      "name": "核心 · 必答词（4款共有）",
+      "words": 1627
+    },
+    {
+      "id": "four-game-extra-core",
+      "name": "核心 · 仅额外词（4款共有）",
+      "words": 177
+    },
+    {
+      "id": "four-game-target-level1",
+      "name": "一级 · 必答词（恰好3款）",
+      "words": 1736
+    },
+    {
+      "id": "four-game-extra-level1",
+      "name": "一级 · 仅额外词（恰好3款）",
+      "words": 1509
+    },
+    {
+      "id": "four-game-target-level2",
+      "name": "二级 · 必答词（恰好2款）",
+      "words": 2643
+    },
+    {
+      "id": "four-game-extra-level2",
+      "name": "二级 · 仅额外词（恰好2款）",
+      "words": 4591
+    },
+    {
+      "id": "four-game-target-level3",
+      "name": "三级 · 必答词（各自独有）",
+      "words": 4746
+    },
+    {
+      "id": "four-game-extra-level3",
+      "name": "三级 · 仅额外词（各自独有）",
+      "words": 5423
+    }
+  ],
+  "legacyWordsReused": 11543,
+  "newWords": 10909,
+  "correctedWords": 675,
+  "pronunciations": {
+    "derived": 1810,
+    "sourced": 19716,
+    "unverified": 926
+  },
+  "sources": {
+    "ipa": {
+      "American Heritage (respelling converted)": 1,
+      "Collins (Scots pronunciation)": 6,
+      "Collins (bibliographic code)": 1,
+      "Collins (biology sense)": 1,
+      "Collins (fabric sense)": 1,
+      "Collins (fathers)": 1,
+      "Collins (female friend)": 1,
+      "Collins (female friends)": 1,
+      "Collins (fish sense)": 1,
+      "Collins (honorific sense)": 1,
+      "Collins (male friends)": 1,
+      "Collins (ordinary-word pronunciation)": 1,
+      "Collins (silk fabric)": 1,
+      "Collins (tower sense)": 1,
+      "Collins + reviewed inflection": 8,
+      "ECDICT (legacy phonetic glyphs repaired)": 131,
+      "Merriam-Webster + reviewed inflection": 1,
+      "Wiktionary + reviewed inflection": 1,
+      "Wiktionary initialism + reviewed plural": 1,
+      "ecdict": 1962,
+      "ecdict-inflection": 531,
+      "espeak-ng (predicted)": 926,
+      "ipa-dict-en-US": 4570,
+      "legacy-dict": 11106,
+      "wiktionary": 2035,
+      "wiktionary (singular pronunciation)": 1,
+      "wiktionary-inflection": 1055,
+      "wiktionary-initialism": 31,
+      "wiktionary-scots": 23,
+      "wiktionary-scots (Central Scots / Ulster)": 1,
+      "wiktionary-scots-inflection": 8,
+      "wiktionary-spelling": 42
+    },
+    "zh": {
+      "Collins English Dictionary (Chinese adaptation)": 9,
+      "Dictionary.com (Chinese adaptation)": 1,
+      "ECDICT": 9260,
+      "ECDICT (Chinese adaptation)": 2,
+      "ECDICT definition (Chinese adaptation)": 11,
+      "ECDICT definition + Chinese adaptation": 1,
+      "ECDICT exchange + Chinese adaptation": 1,
+      "ECDICT exchange + translation": 2,
+      "Merriam-Webster (Chinese adaptation)": 229,
+      "Merriam-Webster (adaptation)": 21,
+      "Merriam-Webster and Wiktionary (Chinese adaptation)": 1,
+      "Open English WordNet (Chinese adaptation)": 8,
+      "Wiktionary (Chinese adaptation)": 282,
+      "Wiktionary (Chinese adaptation; correction)": 20,
+      "Wiktionary (Scots Chinese adaptation)": 9,
+      "Wiktionary (adaptation)": 57,
+      "Wiktionary Scots (Chinese adaptation)": 20,
+      "Wiktionary form + Chinese adaptation": 3,
+      "Wiktionary form + ECDICT translation (correction)": 99,
+      "Wiktionary form + reused Chinese definition": 997,
+      "legacy-dict": 11419
+    },
+    "en": {
+      "Collins English Dictionary (adaptation)": 1,
+      "Collins English Dictionary (sense adaptation)": 8,
+      "Dictionary.com (adaptation)": 1,
+      "ECDICT (English adaptation)": 44,
+      "ECDICT (sense adaptation)": 2,
+      "Merriam-Webster (adaptation)": 22,
+      "Merriam-Webster (reviewed paraphrase)": 180,
+      "Merriam-Webster (sense adaptation)": 49,
+      "Merriam-Webster and Wiktionary (adaptation)": 1,
+      "Wiktionary (Scots adaptation)": 3,
+      "Wiktionary (Scots and English adaptation)": 2,
+      "Wiktionary (adaptation)": 57,
+      "Wiktionary (reviewed paraphrase)": 1,
+      "Wiktionary (sense adaptation)": 18,
+      "ecdict": 7516,
+      "legacy-dict": 11543,
+      "oewn-2025-plus": 53,
+      "wiktionary": 2881,
+      "wiktionary-inflection": 7,
+      "wiktionary-scots": 57,
+      "wiktionary-scots-inflection": 6
+    }
+  },
+  "missing": {
+    "ipa": [],
+    "zh": [],
+    "en": []
+  },
+  "sha256": "bd0ade24441a0d1334e0355da16a4203faa759e244fb1ad18d89b05d2fe01287",
+  "sourceFiles": {
+    "ecdict.csv": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf",
+    "english-wordnet-2025-plus.xml.gz": "31f4af16c54b532fd5484d4cc33aee588a31bb5b70683ae8197842fde5b586bc",
+    "ipa-en_US.txt": "2af6f154a5c363275f052d1f85acedef38ed185ca9745aa4314be77f6b70de67",
+    "kaikki-English.jsonl.gz": "6d40e0067718aeb3321db30297761ca803838390627111a29a5426fee4557faf",
+    "kaikki-Scots.jsonl.gz": "b7217d4fcbb8cf2059415740743d315fd98d698538c9bd44b4f272f2faaa35c0"
+  }
+}

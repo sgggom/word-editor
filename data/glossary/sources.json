@@ -1,0 +1,42 @@
+[
+  {
+    "id": "ecdict",
+    "file": "ecdict.csv",
+    "url": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "license": "MIT",
+    "retrieved": "2026-10-20",
+    "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+  },
+  {
+    "id": "ipa-dict-en-US",
+    "file": "ipa-en_US.txt",
+    "url": "https://raw.githubusercontent.com/open-dict-data/ipa-dict/master/data/en_US.txt",
+    "license": "MIT; underlying CMUdict BSD",
+    "sha256": "2af6f154a5c363275f052d1f85acedef38ed185ca9745aa4314be77f6b70de67",
+    "retrieved": "2026-10-20"
+  },
+  {
+    "id": "oewn-2025-plus",
+    "file": "english-wordnet-2025-plus.xml.gz",
+    "url": "https://en-word.net/static/english-wordnet-2025-plus.xml.gz",
+    "license": "CC BY 4.0",
+    "sha256": "31f4af16c54b532fd5484d4cc33aee588a31bb5b70683ae8197842fde5b586bc",
+    "retrieved": "2026-10-20"
+  },
+  {
+    "id": "wiktionary",
+    "file": "kaikki-English.jsonl.gz",
+    "url": "https://kaikki.org/dictionary/English/kaikki.org-dictionary-English.jsonl.gz",
+    "license": "CC BY-SA 4.0 / GFDL",
+    "sha256": "6d40e0067718aeb3321db30297761ca803838390627111a29a5426fee4557faf",
+    "retrieved": "2026-10-20"
+  },
+  {
+    "id": "wiktionary-scots",
+    "file": "kaikki-Scots.jsonl.gz",
+    "url": "https://kaikki.org/dictionary/Scots/kaikki.org-dictionary-Scots.jsonl.gz",
+    "license": "CC BY-SA 4.0 / GFDL",
+    "sha256": "b7217d4fcbb8cf2059415740743d315fd98d698538c9bd44b4f272f2faaa35c0",
+    "retrieved": "2026-10-20"
+  }
+]
