@@ -40,11 +40,14 @@ const changing=structuredClone(recipe);const cached=L.partitionPool(data,changin
 changing.targetPool.sources[0].configId='list0';assert.equal(cached.entries[0].source.configId,'*');
 const tiers=L.tieredRecipes(data), tierLex=tiers.map(r=>L.compile(data,r));
 assert.equal(tiers.length,8);assert.equal(new Set(tiers.map(r=>r.id)).size,8);
-assert.deepEqual(tierLex.map(c=>[c.stats.candidates,c.stats.extras]),[[1627,0],[0,177],[1736,0],[0,1509],[2643,0],[0,4591],[4742,0],[0,5443]]);
-assert.deepEqual(tierLex.flatMap(c=>c.lex).sort((a,b)=>a.word.localeCompare(b.word)),[...compiled.lex].sort((a,b)=>a.word.localeCompare(b.word)));
-assert.equal(new Set(tierLex.flatMap(c=>c.lex.map(x=>x.word))).size,compiled.lex.length);
+assert.deepEqual(tierLex.map(c=>[c.stats.candidates,c.stats.extras]),[[1627,0],[0,177],[1736,0],[0,1509],[2643,0],[0,4591],[4742,0],[0,5415]]);
+assert.deepEqual(tierLex.flatMap(c=>c.lex).sort((a,b)=>a.word.localeCompare(b.word)),compiled.lex.filter(x=>x.word.length!==2).sort((a,b)=>a.word.localeCompare(b.word)));
+assert.equal(new Set(tierLex.flatMap(c=>c.lex.map(x=>x.word))).size,22440);
+assert(tierLex.every(c=>c.words.every(w=>w.length!==2)));
+assert.equal(new Set(tierLex.flatMap(c=>c.words)).size,22452);
 for(const [i,r] of tiers.entries()) {
   const key=i%2?'extraPool':'targetPool',other=i%2?'targetPool':'extraPool',n=4-Math.floor(i/2);
+  assert.equal(r.targetPool.excludeTwoLetter,true);assert.equal(r.extraPool.excludeTwoLetter,true);
   assert.equal(r[other].sources.length,0);assert.equal(r[key].sources.length,4);
   assert(r[key].selectedRegions.every(mask=>BigInt(mask).toString(2).replace(/0/g,'').length===n));
   for(const {word} of tierLex[i].lex) assert.equal(r[key].sources.filter(s=>L.sourceWords(data,s).has(word)).length,n);
@@ -79,6 +82,14 @@ assert.deepEqual(L.compile(versions,onlyExtras).lex.map(x=>x.word),['EMU','OX','
 const repeatedExtra=structuredClone(onlyExtras);repeatedExtra.extraPool.sources.push({...src,roles:['extra','onlyExtra','bonus']});
 assert.deepEqual(L.compile(synthetic,repeatedExtra).lex,L.compile(synthetic,onlyExtras).lex);
 assert.throws(()=>L.compile(synthetic,{...onlyExtras,extraPool:{...onlyExtras.extraPool,excludeTargets:'yes'}}));
+const noShort={...r,targetPool:{...r.targetPool,excludeTwoLetter:true},extraPool:{...r.extraPool,excludeTwoLetter:true}};
+assert.deepEqual(L.compile(synthetic,noShort).lex.map(x=>x.word),['ACTS','CAT','ELK','EMU']);
+assert(!L.compile(synthetic,noShort).words.includes('TO'));
+assert(L.partitionPool(synthetic,r.extraPool).union.includes('TO'));
+assert(!L.partitionPool(synthetic,noShort.extraPool).union.includes('TO'));
+assert(L.partitionPool(synthetic,r.extraPool).union.includes('TO'),'unfiltered cache remains separate');
+assert.throws(()=>L.compile(synthetic,{...r,extraPool:{...r.extraPool,excludeTwoLetter:3}}));
+assert.deepEqual(L.compile(synthetic,JSON.parse(JSON.stringify(noShort))).lex,L.compile(synthetic,noShort).lex);
 const empty = structuredClone(r); empty.targetPool={operation:'intersection',sources:[src,{...src,gameId:'b'}]};
 assert.equal(L.compile(synthetic,empty).stats.candidates,0);
 for(const role of L.ROLES) assert.equal(L.sourceWords(synthetic,{...src,roles:[role]}).size,new Set(synthetic.games[0].configs[0].words[role].map(L.normalize)).size);

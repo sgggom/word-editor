@@ -4,6 +4,7 @@ const puppeteer=require('puppeteer-core'),L=require('../src/library'),data=requi
 const base=process.env.BASE_URL||'http://127.0.0.1:8000/';
 const chrome=process.env.CHROMIUM_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const core='four-game-target-core',level1='four-game-target-level1',extraCore='four-game-extra-core',extraLevel1='four-game-extra-level1';
+const updatedCoreRevision=L.tieredRecipes(data).find(r=>r.id===core).revision+1;
 const checkbox=(kind,id)=>'[data-batch-library="'+kind+'"][value="'+id+'"]';
 const chosen=(page,kind)=>page.$$eval('[data-batch-library="'+kind+'"]:checked',es=>es.map(e=>e.value).sort());
 (async()=>{
@@ -47,7 +48,7 @@ const chosen=(page,kind)=>page.$$eval('[data-batch-library="'+kind+'"]:checked',
 
   // Saved source changes update future combinations without mutating earlier snapshots.
   await page.click('#btnBank');await page.select('#librarySelect',core);await page.select('[data-operation="targetPool"]','union');
-  await page.click('#librarySave');await page.waitForFunction(()=>document.querySelector('#libraryStatus').textContent.startsWith('已保存 · v2'));
+  await page.click('#librarySave');await page.waitForFunction(revision=>document.querySelector('#libraryStatus').textContent.startsWith('已保存 · v'+revision),{},updatedCoreRevision);
   assert.deepEqual(await page.evaluate(()=>__desk.exportLevels()),originalLevels);
   assert.deepEqual(await page.evaluate(id=>__desk.campaign().librarySnapshots[id],first.snapshot.id),first.snapshot);
   const revised=await page.evaluate(()=>__desk.libraries().recipes);
@@ -55,7 +56,7 @@ const chosen=(page,kind)=>page.$$eval('[data-batch-library="'+kind+'"]:checked',
   assert.deepEqual(await chosen(page,'target'),[core,level1]);assert.match(await page.$eval('#bLexNote',e=>e.textContent),/10,748/);
   const second=await generate(1,'after','revised');assert.notEqual(second.snapshot.id,first.snapshot.id);
   assert.deepEqual(second.snapshot,L.combine(data,{target:revised.filter(r=>[core,level1].includes(r.id)),extra:revised.filter(r=>[extraCore,extraLevel1].includes(r.id))}).snapshot);
-  assert.equal(second.snapshot.recipe.selection.target.find(r=>r.id===core).revision,2);
+  assert.equal(second.snapshot.recipe.selection.target.find(r=>r.id===core).revision,updatedCoreRevision);
   assert.deepEqual(await page.evaluate(id=>__desk.campaign().librarySnapshots[id],first.snapshot.id),first.snapshot);
 
   await page.click('#btnBank');await page.select('#librarySelect',extraLevel1);await page.click('#libraryDelete');
@@ -90,10 +91,10 @@ const chosen=(page,kind)=>page.$$eval('[data-batch-library="'+kind+'"]:checked',
   await offline.goto('file://'+path.resolve(__dirname,'../wordpages-level-desk.html'),{waitUntil:'load'});await offline.evaluate(()=>__desk.ready());await offline.click('#btnBatch');
   await offline.click('[data-batch-select="target"][data-select-all="1"]');await offline.click('[data-batch-select="extra"][data-select-all="1"]');
   assert.equal((await chosen(offline,'target')).length,4);assert.equal((await chosen(offline,'extra')).length,4);
-  assert.match(await offline.$eval('#bLexNote',e=>e.textContent),/10,748/);assert.match(await offline.$eval('#bLexNote',e=>e.textContent),/11,720/);
+  assert.match(await offline.$eval('#bLexNote',e=>e.textContent),/10,748/);assert.match(await offline.$eval('#bLexNote',e=>e.textContent),/11,692/);
   await offline.evaluate(()=>{bCount.value=1;bFrom.value=1;bMode.value='replace';bSeed.value='offline-multi-QA'});await offline.click('#bGo');
   await offline.waitForFunction(()=>window.__lastBatch,{timeout:60000});assert.equal(await offline.evaluate(()=>__lastBatch.made),1);
-  const saved=await offline.evaluate(()=>{const c=__desk.campaign();return c.librarySnapshots[c.levels[0].librarySnapshotId]});assert.deepEqual(saved.lex,L.compile(data,L.defaultRecipe(data)).lex);
+  const saved=await offline.evaluate(()=>{const c=__desk.campaign();return c.librarySnapshots[c.levels[0].librarySnapshotId]});assert.deepEqual(saved.lex,L.compile(data,L.defaultRecipe(data)).lex.filter(x=>x.word.length!==2));
   await offline.click('#bClose');await offline.evaluate(()=>__desk.flush());await offline.reload({waitUntil:'load'});await offline.evaluate(()=>__desk.ready());await offline.click('#btnBatch');
   assert.equal((await chosen(offline,'target')).length,4);assert.equal((await chosen(offline,'extra')).length,4);await context.close();
   assert.deepEqual(errors,[]);console.log('standalone HTML: all eight selections, generation, combined snapshot and refresh persistence passed');

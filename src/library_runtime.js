@@ -1,6 +1,6 @@
   /* ---------- 词库运行上下文（由同步脚本内嵌） ---------- */
   const libraryData = JSON.parse($('#gameVocab').textContent);
-  const libraryPresetVersion = 'four-game-tiers-v1';
+  const libraryPresetVersion = 'four-game-tiers-v2';
   const initialRecipes = WPLibrary.tieredRecipes(libraryData);
   const initialRecipe = initialRecipes[0];
   const initialSnapshot = WPLibrary.snapshot(libraryData, initialRecipe);
@@ -100,7 +100,7 @@
       const fallback = JSON.parse(localStorage.getItem('wp.leveldesk.libraries') || 'null');
       if (fallback && (!state || (fallback.savedAt || 0) > (state.savedAt || 0))) state = fallback;
     } catch (e) {}
-    if (!state || state.presetVersion !== libraryPresetVersion) {
+    if (!state || ![libraryPresetVersion, 'four-game-tiers-v1'].includes(state.presetVersion)) {
       // Replace the previous recipe list once, as requested. Level snapshots are independent.
       await saveLibraryState(initialRecipes, initialRecipe.id); return;
     }
@@ -113,6 +113,17 @@
     }
     libraryRecipes = state.recipes.length ? state.recipes : initialRecipes;
     defaultLibraryId = libraryRecipes.some(r => r.id === state.defaultId) ? state.defaultId : libraryRecipes[0].id;
+    if (state.presetVersion === 'four-game-tiers-v1') {
+      const presetIds = new Set(initialRecipes.map(r => r.id));
+      const recipes = libraryRecipes.map(recipe => {
+        if (!presetIds.has(recipe.id) || (recipe.targetPool.excludeTwoLetter && recipe.extraPool.excludeTwoLetter)) return recipe;
+        return {...recipe, revision: recipe.revision + 1,
+          targetPool: {...recipe.targetPool, excludeTwoLetter: true},
+          extraPool: {...recipe.extraPool, excludeTwoLetter: true}};
+      });
+      // Upgrade only the eight preset identities; preserve edits, deletions and level snapshots.
+      await saveLibraryState(recipes, defaultLibraryId);
+    }
   }
   async function saveLibraryState(recipes = libraryRecipes, defaultId = defaultLibraryId) {
     const state = {schemaVersion: 1, presetVersion: libraryPresetVersion, recipes, defaultId, savedAt: Date.now()};

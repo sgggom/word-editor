@@ -8,7 +8,7 @@ assert.equal(combined.snapshot.recipe.kind,'library-selection');
 L.validateSnapshot(JSON.parse(JSON.stringify(combined.snapshot)));
 assert.deepEqual(L.combine(data,combined.snapshot.recipe.selection,combined.snapshot.rules).snapshot,combined.snapshot);
 const all=L.combine(data,{target,extra}),template=L.defaultRecipe(data);
-assert.deepEqual(all.lex,L.compile(data,template).lex);
+assert.deepEqual(all.lex,L.compile(data,template).lex.filter(x=>x.word.length!==2));
 assert.deepEqual(L.combine(data,{target:[template]}).lex,L.compile(data,template).lex.filter(x=>x.role==='candidate'));
 assert.deepEqual(L.combine(data,{extra:[template]}).lex,L.compile(data,template).lex.filter(x=>x.role==='extra'));
 assert.deepEqual(L.combine(data,{target:[template],extra:[template]}).lex,L.compile(data,template).lex);

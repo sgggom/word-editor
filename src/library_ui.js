@@ -43,8 +43,9 @@
     const pool = bankDraft[key];
     const selectionNote = pool.operation === 'regions' ? '<div class="lib-region-summary">区域多选 · 已选 <b>' + pool.selectedRegions.length + '</b> 个区域<button type="button" data-edit-pool-chart="' + key + '">在饼图中编辑</button><small>调整来源、版本或词类后，需要重新选择区域。</small></div>' : '';
     const exclusion = key === 'extraPool' || pool.excludeTargets ? '<label class="lib-exclude-targets"><input type="checkbox" data-exclude-targets="' + key + '"' + (pool.excludeTargets ? ' checked' : '') + '>剔除所选游戏全部版本的必答候选（3–8 字母）</label>' : '';
+    const lengthNote = pool.excludeTwoLetter ? '<p class="note">已排除两字母词</p>' : '';
     return '<section class="lib-pool"><div class="lib-pool-heading"><h4>' + name + '</h4><select data-operation="' + key + '" aria-label="' + name + '运算"><option value="union"' + (pool.operation === 'union' ? ' selected' : '') + '>并集 · 任一来源</option><option value="intersection"' + (pool.operation === 'intersection' ? ' selected' : '') + '>交集 · 每个来源</option><option value="regions"' + (pool.operation === 'regions' ? ' selected' : '') + '>区域多选</option></select></div>' + selectionNote +
-      exclusion + pool.sources.map((s, i) => sourceEditor(key, s, i)).join('') + '<button type="button" class="ghost" data-add-source="' + key + '">＋ 添加来源</button></section>';
+      lengthNote + exclusion + pool.sources.map((s, i) => sourceEditor(key, s, i)).join('') + '<button type="button" class="ghost" data-add-source="' + key + '">＋ 添加来源</button></section>';
   }
   function renderLibraryEditor() {
     $('#librarySelect').innerHTML = recipeOptionHtml(); $('#librarySelect').value = bankDraft.id;

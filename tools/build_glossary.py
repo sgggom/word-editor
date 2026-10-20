@@ -31,11 +31,12 @@ def key(word):
 
 def scope():
     script = """const L=require('./src/library'),d=require('./data/game_vocab/catalog.json');
-    const libraries=L.tieredRecipes(d).map(r=>({id:r.id,name:r.name,words:L.compile(d,r).words}));
+    const libraries=L.tieredRecipes(d).map(r=>({id:r.id,name:r.name,words:L.compile(d,r).words,
+      rawWords:L.compile(d,{...r,targetPool:{...r.targetPool,excludeTwoLetter:false},extraPool:{...r.extraPool,excludeTwoLetter:false}}).words}));
     process.stdout.write(JSON.stringify({datasetHash:d.datasetHash,libraries}));"""
     result = json.loads(subprocess.check_output(['node', '-e', script], cwd=ROOT, text=True))
-    raw = [key(w) for lib in result['libraries'] for w in lib['words']]
-    words = sorted({w for w in raw if len(w) >= 3})
+    raw = [key(w) for lib in result['libraries'] for w in lib['rawWords']]
+    words = sorted({key(w) for lib in result['libraries'] for w in lib['words'] if len(key(w)) >= 3})
     short = sorted({w for w in raw if len(w) < 3})
     return result, words, short, len(raw) - len(set(raw))
 
