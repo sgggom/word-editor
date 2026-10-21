@@ -19,7 +19,7 @@ text = text[:start] + source + text[end:]
 worker_source = (root / 'src/gen.js').read_text() + '\n' + (root / 'src/batch_worker.js').read_text()
 worker_payload = json.dumps(worker_source, ensure_ascii=False).replace('</', '<\\/')
 text = re.sub(r'(<script id="batchWorker"[^>]*>).*?(</script>)', lambda m: m[1] + worker_payload + m[2], text, flags=re.S)
-for key, filename in [('lex', 'src/lex.json'), ('gameVocab', 'data/game_vocab/catalog.json'), ('policy', 'src/policy.json'), ('versions', 'src/version_history.json'), ('defaultGlossary', 'data/glossary/default.json')]:
+for key, filename in [('lex', 'src/lex.json'), ('gameVocab', 'data/game_vocab/catalog.json'), ('policy', 'src/policy.json'), ('versions', 'src/version_history.json'), ('defaultGlossary', 'data/glossary/default.json'), ('requiredLetters', 'data/required_letters.json')]:
     payload = json.dumps(json.loads((root / filename).read_text()), ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
     text = re.sub(r'(<script id="' + key + r'"[^>]*>).*?(</script>)', lambda m: m[1] + payload + m[2], text, flags=re.S)
 for name, start_marker, end_marker in [

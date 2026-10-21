@@ -2,7 +2,7 @@
 (function(root,factory){let out=factory();if(typeof module==='object'&&module.exports)module.exports=out;else root.WTEngine=out;})(typeof self!=='undefined'?self:this,function(){
 'use strict';
 const ROLES=new Set(['candidate','extra','pending','blocked']);
-const SEARCH_VERSION='independent-attempts-v1';
+const SEARCH_VERSION='required-board-letters-v2';
 const DEFAULTS={preset:'list0',seed:'WT-2026',start:1,count:20,effort:45,attempts:100,cooldown:20,strictMorph:true,adjacency:true,allowUnsafe:false,variance:0.16,extraWeight:0.8,readingBias:1.0,uniqueMin:0.88,maxUse:13};
 function hash(s){let h=2166136261>>>0;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)>>>0;}return h>>>0;}
 function random(seed){let s=hash(seed)||12345;return function(){s+=0x6D2B79F5;let t=s;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;};}
@@ -10,13 +10,34 @@ function shuffle(a,rng){a=a.slice();for(let i=a.length-1;i>0;i--){let j=Math.flo
 function pick(a,rng){return a[Math.floor(rng()*a.length)];}
 function clamp(v,l,h){return Math.max(l,Math.min(h,v));}
 function avg(a){return a.length?a.reduce((x,y)=>x+y,0)/a.length:0;}
+function requiredLettersFor(n,config={}){
+ const value=config.requiredLettersByLevel?.[n];
+ if(value==null)return [];
+ const letters=Array.isArray(value)?value:typeof value==='string'?value.split(''):null;
+ if(!letters||letters.some(c=>typeof c!=='string'||!/^[A-Z]$/.test(c)))throw new Error(`第${n}关必选字母配置无效，必须是A–Z字母`);
+ return [...new Set(letters)];
+}
+function generationTarget(n,profiles,config){const d={...targetFor(n,config,profiles),n},required=requiredLettersFor(n,config);if(required.length)d.requiredLetters=required;return d;}
 function stage(n){return n<=5?Math.max(1,n):n<=10?6:n<=20?11:n<=50?21:n<=100?51:n<=200?101:n<=500?201:n<=1000?501:1001;}
 function getProfile(n,preset,profiles){const a=profiles[preset]||profiles.list0;let prof=a.find(x=>{let lo=Number(x.stage.split(/[–-]/)[0]);let hi=Number(x.stage.split(/[–-]/)[1]);return n>=lo&&n<=hi;});return prof||a[a.length-1];}
 function targetFor(n,config,profiles){let rng=random(config.seed+'|profile|'+config.preset+'|'+n),p=getProfile(n,config.preset,profiles);let early=n<=5,spread=early?0:clamp(Math.round(p.k*(config.variance??.16)),1,3);let k=early?Math.round(p.k):clamp(Math.round(p.k)+(Math.floor(rng()*(spread*2+1))-spread),2,16);
  let cells=early?Math.round(p.cells):pick([8,9,9,12,12,12,15],rng);if(!early){let options=(n>20&&p.cells>=10)?[9,12,15]:[8,9,12,15];let dist=options.map(x=>Math.exp(-Math.abs(x-p.cells)*1.0)*(x===12?1.35:1));let sum=dist.reduce((x,y)=>x+y,0),v=rng()*sum;cells=options[0];for(let i=0;i<options.length;i++){v-=dist[i];if(v<=0){cells=options[i];break}}}
  const dim=cells===8?[4,2]:cells===9?[3,3]:cells===12?[4,3]:[5,3];return {...p,k,cells,width:dim[0],height:dim[1],stageStart:stage(n)};}
 function normalizeLex(raw){let seen=new Set(),a=[];for(let v of raw){let word=String(v.word||'').trim().toUpperCase();if(!/^[A-Z]{2,12}$/.test(word)||seen.has(word))continue;seen.add(word);let role=ROLES.has(v.role)?v.role:'pending';a.push({...v,word,role});}return a;}
-function buildIndex(lex){let tree={},byLength={},byWord=new Map(),acceptable=[];for(let x of normalizeLex(lex)){byWord.set(x.word,x);if(x.role!=='candidate'&&x.role!=='extra')continue;acceptable.push(x);if(x.role==='candidate'){(byLength[x.word.length]??=[]).push(x);}let node=tree;for(let c of x.word)node=node[c]||(node[c]={});node.$=x.word;}return {tree,byLength,byWord,acceptable};}
+function buildIndex(lex){let tree={},byLength={},byLetter={},byWord=new Map(),acceptable=[];for(let x of normalizeLex(lex)){byWord.set(x.word,x);if(x.role!=='candidate'&&x.role!=='extra')continue;acceptable.push(x);if(x.role==='candidate'){(byLength[x.word.length]??=[]).push(x);if(x.word.length>=3&&x.word.length<=8)for(const c of new Set(x.word))(byLetter[c]??=[]).push(x);}let node=tree;for(let c of x.word)node=node[c]||(node[c]={});node.$=x.word;}return {tree,byLength,byLetter,letterPools:new Map(),byWord,acceptable};}
+function requiredSeedPool(missing,lengths,preferredLength,ix,rng){
+ let best=null;
+ for(const c of missing){
+  const key=lengths.join(',')+'|'+c;
+  if(!ix.letterPools.has(key))ix.letterPools.set(key,(ix.byLetter[c]||[]).filter(x=>lengths.includes(x.word.length)));
+  const pool=ix.letterPools.get(key);
+  if(pool.length&&(!best||pool.length<best.length))best=pool;
+ }
+ if(!best)return null;
+ const available=lengths.filter(len=>best.some(x=>x.word.length===len));
+ const len=available.includes(preferredLength)?preferredLength:pick(available,rng);
+ return best.filter(x=>x.word.length===len);
+}
 function neighbors(w,h){let n=w*h;return Array.from({length:n},(_,i)=>{let x=i%w,y=Math.floor(i/w);return [x>0?i-1:-1,x<w-1?i+1:-1,y>0?i-w:-1,y<h-1?i+w:-1].filter(x=>x>=0);});}
 function direction(p,w){if(p.length<2)return 'X';let d=p[1]-p[0];if(p.every((x,i)=>i===0||x-p[i-1]===d))return d===1?'R':d===-1?'L':d===w?'D':d===-w?'U':'X';return 'T';}
 function turns(p,w){let v=0;for(let i=2;i<p.length;i++)if(p[i]-p[i-1]!==p[i-1]-p[i-2])v++;return v;}
@@ -34,21 +55,36 @@ function placeWord(g,word,nb,rng,maxTry=48){let n=g.length,choices=[];
  choices.sort((a,b)=>b.score-a.score);let c=choices[0];if(!c)return null;c.p.forEach((v,k)=>g[v]=word[k]);return c;
 }
 function fillBoard(target,ix,rng,config,recent){let {width:w,height:h,cells:N,k}=target,nb=neighbors(w,h),g=Array(N).fill(''),seeds=[],used=new Set(),needEarly=target.stageStart<=5;
+ const required=target.requiredLetters||[];
  const trialLen=needEarly?[3,4]:target.k<6?[4,5,6]:target.stageStart>=51?[5,6,7,8]:[4,5,6,7];
  for(let step=0;step<5&&g.some(x=>!x);step++){
+  const missing=required.filter(c=>!g.includes(c));
   let len=pick(trialLen,rng),pool=ix.byLength[len]||[];
+  if(missing.length){
+   // Seed words help the board cover the remaining letters. Individual target
+   // words are never required to contain every configured letter.
+   const guidedLengths=[...new Set([...trialLen,3,4])];
+   const guided=requiredSeedPool(missing,guidedLengths,rng()<.5?pick([3,4],rng):len,ix,rng);
+   if(guided)pool=guided;
+  }
   if(!pool.length)continue;
   let best=null;for(let a=0;a<42;a++){
     let x=pool[Math.floor(rng()*pool.length)];if(used.has(x.word))continue;
     if(recent.has(x.word)&&rng()<.85)continue;
     let scratch=g.slice(), placement=placeWord(scratch,x.word,nb,rng,18);if(!placement)continue;
     let fresh=placement.fresh; if(fresh===0&&g.some(v=>!v))continue;
+    const remaining=missing.filter(c=>!scratch.includes(c));
+    if(remaining.length>scratch.filter(c=>!c).length)continue;
     let score= fresh*1.5+placement.old*.5-Math.max(0,fresh-(N-g.filter(Boolean).length))*.4;
+    if(missing.length)score+=(missing.length-remaining.length)*12;
     if(step===0)score+=x.word.length*.1;
     if(!best||score>best.score)best={x,scratch,placement,score};
   }
   if(best){g=best.scratch;used.add(best.x.word);seeds.push(best.x.word);}
  }
+ // Fill any still-missing required letter only into an empty square. The usual
+ // target/path/coverage checks below still have to prove the entire board usable.
+ for(const c of required)if(!g.includes(c)){const empty=g.map((v,i)=>v?-1:i).filter(i=>i>=0);if(!empty.length)return {g,seeds,nb};g[pick(empty,rng)]=c;}
  const freq='EEEEEEEEEEAAAAAAAOOOOOOOIIIIIIITTTTTTRRRRRRNNNNNLLLLSSSSDDCCUUUMMHPBGFVWYK';
  for(let i=0;i<N;i++)if(!g[i])g[i]=freq[Math.floor(rng()*freq.length)];
  return {g,seeds,nb};
@@ -104,6 +140,11 @@ function metrics(board,target,items,sel,index,config){let {g,w,h,counts}=board,w
 }
 function validate(level,ix,config){if(!level||!Array.isArray(level.grid)||!Array.isArray(level.targets))return {ok:false,errors:['格式无效']};let errors=[],w=level.width,h=level.height,g=level.grid,items=scan(g,w,h,ix,32),found=new Map(items.map(x=>[x.word,x]));let needed=Array(g.length).fill(0);
  if(g.length!==w*h)errors.push('棋盘格数不匹配');
+ try{
+  const configured=requiredLettersFor(level.number,config),saved=requiredLettersFor(level.number,{requiredLettersByLevel:{[level.number]:level.requiredLetters||[]}});
+  const missing=[...new Set([...configured,...saved])].filter(c=>!g.includes(c));
+  if(missing.length)errors.push('棋盘缺少必选字母：'+missing.join('、'));
+ }catch(error){errors.push(error.message);}
  if(!level.targets.length)errors.push('没有必答词');
  for(let t of level.targets){let x=found.get(t);if(!x)errors.push(`${t}在棋盘不可达或不在合法词库`);else if(!x.safe)errors.push(`${t}存在用格不一致的多路径，顺序安全未证明`);else for(let i of x.path)needed[i]++;
  if(ix.byWord.get(t)?.role!=='candidate')errors.push(`${t}已非必答候选`);}
@@ -116,28 +157,33 @@ function validate(level,ix,config){if(!level||!Array.isArray(level.grid)||!Array
 // An attempt has its own random stream, so dispatch order and thread count cannot change a level.
 function attemptLimit(config){return Math.max(1,Math.floor(config.attempts||DEFAULTS.attempts));}
 function tryAttempt(d,a,ix,config,history){
+ if((d.requiredLetters||[]).length>d.cells)return null;
+ if((d.requiredLetters||[]).some(c=>!ix.byLetter[c]?.length))return null;
  let rng=random(config.seed+'|'+config.preset+'|'+d.n+'|generate|attempt|'+a);
- let {g}=fillBoard(d,ix,rng,config,history.recent||new Map()),items=scan(g,d.width,d.height,ix,18),pickings=selectTargets(items,d,ix,config,history,rng);
+ let {g}=fillBoard(d,ix,rng,config,history.recent||new Map());
+ if((d.requiredLetters||[]).some(c=>!g.includes(c)))return null;
+ let items=scan(g,d.width,d.height,ix,18),pickings=selectTargets(items,d,ix,config,history,rng);
  if(!pickings)return null;
  let {selected,demands}=pickings;
  let board={g,w:d.width,h:d.height,counts:demands},evaluation=metrics(board,d,items,selected,ix,config);
  let lv={id:`${config.preset}-${d.n}-${hash(g.join('')+'|'+selected.map(x=>x.word).join(',')).toString(16)}`,number:d.n,preset:config.preset,width:d.width,height:d.height,grid:g,counts:demands,targets:selected.map(x=>x.word),extras:evaluation.extras,paths:Object.fromEntries(selected.map(x=>[x.word,x.path])),source:'generated',profile:d.stage,validated:true,metrics:evaluation.metrics};
+ if(d.requiredLetters?.length)lv.requiredLetters=d.requiredLetters.slice();
  if(!validate(lv,ix,config).ok)return null;
  return {ok:true,level:lv,score:evaluation.score,attempts:a+1,profile:d};
 }
 function generateAttempts(n,ix,profiles,config={},history={},start=0,count=1){
- config={...DEFAULTS,...config};const d={...targetFor(n,config,profiles),n},out=[],end=Math.min(attemptLimit(config),start+count);
+ config={...DEFAULTS,...config};const d=generationTarget(n,profiles,config),out=[],end=Math.min(attemptLimit(config),start+count);
  for(let a=start;a<end;a++)out.push(tryAttempt(d,a,ix,config,history));
  return out;
 }
 function stopAfterAttempt(best,candidate,index,limit){return !!candidate&&best.score>=-2&&index>Math.min(15,limit/3);}
 function finishGeneration(n,profiles,config,best){
  if(best)return best;
- config={...DEFAULTS,...config};const d={...targetFor(n,config,profiles),n},N=attemptLimit(config);
- return {ok:false,number:n,reason:`尝试${N}次后未找到满足覆盖和全路径安全的${d.width}×${d.height}棋盘；未放宽规则`,profile:d,attempts:N};
+ config={...DEFAULTS,...config};const d=generationTarget(n,profiles,config),N=attemptLimit(config);
+ return {ok:false,number:n,reason:`尝试${N}次后未找到满足${d.requiredLetters?.length?'必选字母 '+d.requiredLetters.join(' ')+'、':''}覆盖和全路径安全的${d.width}×${d.height}棋盘；未放宽规则`,profile:d,attempts:N};
 }
 function generateOne(n,ix,profiles,config={},history={}){
- config={...DEFAULTS,...config};const d={...targetFor(n,config,profiles),n},N=attemptLimit(config);let best=null;
+ config={...DEFAULTS,...config};const d=generationTarget(n,profiles,config),N=attemptLimit(config);let best=null;
  for(let a=0;a<N;a++){
   const candidate=tryAttempt(d,a,ix,config,history);
   if(candidate&&(!best||candidate.score>best.score))best=candidate;
@@ -150,5 +196,5 @@ function generateRange(ix,profiles,options,onProgress){let opts={...DEFAULTS,...
 function exportGame(levels){return {kind:'word-tiles-levels-v2',version:2,levels:levels.map(l=>({id:l.id,number:l.number,width:l.width,height:l.height,rows:Array.from({length:l.height},(_,i)=>l.grid.slice(i*l.width,(i+1)*l.width).join('')),counts:l.counts,targets:l.targets,extras:l.extras}))};}
 function parseCSV(text){let rows=[],cur=[],v='',quoted=false;for(let i=0;i<text.length;i++){let c=text[i];if(quoted){if(c==='"'&&text[i+1]==='"'){v+='"';i++}else if(c==='"')quoted=false;else v+=c;}else if(c==='"')quoted=true;else if(c===','){cur.push(v);v=''}else if(c==='\n'||c==='\r'){if(c==='\r'&&text[i+1]==='\n')i++;cur.push(v);v='';if(cur.some(x=>x))rows.push(cur);cur=[];}else v+=c;}if(v||cur.length){cur.push(v);rows.push(cur)}let heads=(rows.shift()||[]).map(x=>x.replace(/^\uFEFF/,'').trim());return rows.map(x=>Object.fromEntries(heads.map((k,i)=>[k,x[i]||''])));}
 function historyFromLevels(levels){let recent=new Map(),usage={};for(let level of [...levels].sort((a,b)=>a.number-b.number)){for(let w of level.targets||[]){recent.set(w,level.number);usage[w]=(usage[w]||0)+1;}}return {recent,usage};}
-return {DEFAULTS,SEARCH_VERSION,stage,getProfile,targetFor,normalizeLex,buildIndex,scan,metrics,validate,attemptLimit,generateAttempts,stopAfterAttempt,finishGeneration,generateOne,generateRange,exportGame,parseCSV,historyFromLevels,random,direction,turns,adjacencyStats};
+return {DEFAULTS,SEARCH_VERSION,stage,getProfile,targetFor,requiredLettersFor,normalizeLex,buildIndex,scan,metrics,validate,attemptLimit,generateAttempts,stopAfterAttempt,finishGeneration,generateOne,generateRange,exportGame,parseCSV,historyFromLevels,random,direction,turns,adjacencyStats};
 });

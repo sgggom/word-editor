@@ -1,5 +1,28 @@
   /* ---------- 批量生成（WTEngine v2） ---------- */
+  const requiredLetterSchedule = JSON.parse($('#requiredLetters').textContent);
+  try {
+    const saved = localStorage.getItem('wp.leveldesk.requiredLetterMode');
+    if (saved === 'required' || saved === 'none') $('#bLetterMode').value = saved;
+  } catch (e) {}
   let batchPlanCache = null;
+  function batchLetterRows(cfg) {
+    const rows = [];
+    for (let n = cfg.from; n < cfg.from + cfg.count; n++) {
+      const letters = WTEngine.requiredLettersFor(n, cfg);
+      if (letters.length) rows.push({number: n, letters});
+    }
+    return rows;
+  }
+  function batchLetterProblem(cfg, plan) {
+    for (const stage of plan.stages) {
+      const ix = makeLibraryContext(stage.plan.snapshot).ix;
+      for (let n = stage.from; n <= stage.to; n++) {
+        const letters = WTEngine.requiredLettersFor(n, cfg), missing = letters.filter(c => !ix.byLetter[c]?.length);
+        if (missing.length) return '第 ' + n + ' 关必选 ' + missing.join(' ') + '，但本阶段必答词库没有包含这些字母的可用单词';
+      }
+    }
+    return '';
+  }
   function batchLibraryPlan(cfg = batchCfg()) {
     const selection = {mode: cfg.libraryMode, targetIds: cfg.targetLibraryIds, extraIds: cfg.extraLibraryIds, unlockAt: cfg.libraryUnlockAt};
     const rules = {abbr: [...abbrSet].sort()}, range = {start: cfg.from, count: cfg.count};
@@ -50,6 +73,7 @@
     const libraryMode = batchLibrarySelection?.mode || 'fixed';
     const ids = key => (libraryMode === 'staged' ? batchLibrarySelection?.stagedIds[key] : batchLibrarySelection?.[key + 'Ids']) || [];
     return {...WTEngine.DEFAULTS, seed: $('#bSeed').value || 'WT-2026', preset: $('#bPreset').value,
+      requiredLettersByLevel: $('#bLetterMode').value === 'required' ? requiredLetterSchedule.levels : undefined,
       workerCount: WPBatchGenerator.threadCount($('#bThreads').value, navigator.hardwareConcurrency),
       libraryMode, libraryUnlockAt: JSON.parse(JSON.stringify(batchLibrarySelection?.unlockAt || {})),
       targetLibraryIds: ids('target').slice(), extraLibraryIds: ids('extra').slice(),
@@ -62,6 +86,13 @@
     try { plan = batchRun?.plan || batchLibraryPlan(cfg); }
     catch (e) { $('#bLexNote').textContent = e.message; $('#bStagePreview').hidden = true; $('#bGo').disabled = true; return; }
     const empty = plan.stages.find(stage => !stage.plan.stats.candidates), staged = plan.mode === 'staged';
+    const letterRows = batchLetterRows(cfg), letterProblem = batchLetterProblem(cfg, plan);
+    $('#bLetterNote').textContent = cfg.requiredLettersByLevel ?
+      '按生成关号匹配配置：本批 ' + letterRows.length + ' / ' + cfg.count + ' 关有必选字母。每个字母在整关棋盘中至少出现一次，其他字母仍可出现；每个单词可以只用其中一部分。表外关号不受此配置限制。' :
+      '本批不使用必选字母配置。';
+    if (letterProblem) $('#bLetterNote').textContent += ' ' + letterProblem + '。';
+    $('#bLetterDetails').hidden = !letterRows.length;
+    $('#bLetterPreview tbody').innerHTML = letterRows.map(row => '<tr><td>' + row.number + '</td><td>' + row.letters.join(' ') + '</td></tr>').join('');
     const {stats, snapshot} = plan.stages[0].plan, selection = snapshot.recipe.selection;
     $('#bLexNote').textContent = staged ? '按生成关号累计加入词库，本批跨 ' + plan.stages.length + ' 个阶段。' :
       '必答：已选 ' + selection.target.length + ' 库，生效 ' + stats.candidates.toLocaleString() + ' 词；仅额外：已选 ' + selection.extra.length + ' 库，生效 ' + stats.extras.toLocaleString() + ' 词。';
@@ -70,7 +101,7 @@
     $('#bStagePreview tbody').innerHTML = staged ? plan.stages.map(stage => '<tr><td>' + batchStageLabel(stage) + '</td>' +
       ['target', 'extra'].map(key => '<td title="' + esc(stage.plan.snapshot.recipe.selection[key].map(r => r.name).join('、')) + '">' +
         stage.plan.snapshot.recipe.selection[key].length + ' 库 · ' + stage.plan.stats[key === 'target' ? 'candidates' : 'extras'].toLocaleString() + ' 词</td>').join('') + '</tr>').join('') : '';
-    if (!batchRun) $('#bGo').disabled = !!empty;
+    if (!batchRun) $('#bGo').disabled = !!empty || !!letterProblem;
     const cv = $('#bCurve'), ctx = cv.getContext('2d'), W = cv.width, H = cv.height;
     if (!batchRun) $('#bComputeStatus').textContent = '将使用 ' + cfg.workerCount + ' 个计算线程；相同种子和设置的结果不受线程数影响。';
     ctx.clearRect(0, 0, W, H); ctx.strokeStyle = '#d2c2a4'; ctx.strokeRect(.5,.5,W-1,H-1);
@@ -93,6 +124,9 @@
     try { plan = batchLibraryPlan(cfg); } catch (e) { toast(e.message); return; }
     const empty = plan.stages.find(stage => !stage.plan.stats.candidates);
     if (empty) { toast(batchStageLabel(empty) + '没有生效必答候选，请调整词库设置'); return; }
+    const letterProblem = batchLetterProblem(cfg, plan);
+    if (letterProblem) { toast(letterProblem); return; }
+    const preserveNumbers = batchLetterRows(cfg).length > 0;
     snapshot();
     for (const stage of plan.stages) registerLibrarySnapshot(stage.plan.snapshot);
     const librarySnapshotId = plan.stages[0].plan.snapshot.id;
@@ -148,6 +182,10 @@
           const d = C.fromLevel(game);
           d.librarySnapshotId = stage.plan.snapshot.id;
           d.gen = {sig:genSig(d), n:game.n, seed:cfg.seed, no:n, preset:cfg.preset, profile:lv.profile, metrics:lv.metrics, searchVersion:WTEngine.SEARCH_VERSION};
+          if (lv.requiredLetters?.length) {
+            d.gen.requiredLetters = lv.requiredLetters.slice();
+            d.gen.requiredLetterScheduleId = requiredLetterSchedule.id;
+          }
           if (plan.mode === 'staged') d.gen.libraryStage = {from:stage.unlockFrom, to:stage.unlockTo};
           made.push(d);
           for (const w of lv.targets) { history.usage[w]=(history.usage[w]||0)+1; history.recent.set(w,n); }
@@ -158,6 +196,7 @@
       }
       k++; $('#bBar').style.width = Math.round(100*k/cfg.count)+'%';
       $('#bProg').textContent = '第 '+n+' 关 · '+k+' / '+cfg.count+' · '+((performance.now()-t0)/1000).toFixed(1)+' 秒';
+      if (preserveNumbers && failures.length) { run.stoppedOnFailure = true; return finish(); }
       queueMicrotask(step);
     }
     function finish() {
@@ -177,10 +216,12 @@
       const stages = plan.stages.map(stage => ({from:stage.from, to:stage.to, librarySnapshotId:stage.plan.snapshot.id,
         targetLibraryIds:stage.targetLibraryIds, extraLibraryIds:stage.extraLibraryIds,
         made:made.filter(d => d.gen.no >= stage.from && d.gen.no <= stage.to).length}));
-      window.__lastBatch={made:discarded?0:made.length,generated:made.length,discarded,failed:failures.length,failures,secs,cancelled,engine:'v2',preset:cfg.preset,librarySnapshotId,librarySnapshotIds:[...new Set(made.map(d=>d.librarySnapshotId))],libraryMode:plan.mode,stages,targetLibraryIds:cfg.targetLibraryIds,extraLibraryIds:cfg.extraLibraryIds,workers:execution.workers,execution:execution.mode};
+      window.__lastBatch={made:discarded?0:made.length,generated:made.length,discarded,failed:failures.length,failures,secs,cancelled,stoppedOnFailure:!!run.stoppedOnFailure,requiredLetterScheduleId:cfg.requiredLettersByLevel?requiredLetterSchedule.id:null,engine:'v2',preset:cfg.preset,librarySnapshotId,librarySnapshotIds:[...new Set(made.map(d=>d.librarySnapshotId))],libraryMode:plan.mode,stages,targetLibraryIds:cfg.targetLibraryIds,extraLibraryIds:cfg.extraLibraryIds,workers:execution.workers,execution:execution.mode};
       $('#bOut').innerHTML='<p>生成 <b>'+made.length+'</b> 关，用时 '+secs+' 秒 · '+(execution.mode==='fallback'?'单线程计算':execution.mode==='mixed'?'后台线程与单线程回退':execution.workers+' 个后台线程')+(cancelled?'（已中止）':'')+'。</p>'+
         (discarded?'<p class=\"bad\">关序已变更，本批结果未写入，请重新开始生成。</p>':made.length?'<p>必答权限、全路径同组用格、全盘覆盖和逐格次数检查通过；不自动降低安全条件或难度。</p>':'<p>未完成关卡，保留原关序。</p>')+
         (failures.length?'<p class="bad">未生成 '+failures.length+' 关：'+failures.map(x=>esc(x.number+'：'+x.reason)).join('；')+'</p>':'')+
+        (run.stoppedOnFailure?'<p>本批已停在未生成的关号，保留此前完成的关卡；后续配置不会提前套用到这一关。</p>':'')+
+        (cfg.requiredLettersByLevel&&made.length?'<p>已逐关检查棋盘必选字母；每个字母至少出现一次，不要求每个单词都包含这些字母。</p>':'')+
         plan.stages.map(stage => '<p>' + (plan.mode === 'staged' ? batchStageLabel(stage) + ' · ' : '') + '必答：' +
           stage.plan.snapshot.recipe.selection.target.map(r => esc(r.name)).join('、') + '；仅额外：' +
           (stage.plan.snapshot.recipe.selection.extra.map(r => esc(r.name)).join('、') || '无') + '。</p>').join('');

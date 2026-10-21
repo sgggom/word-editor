@@ -43,6 +43,8 @@ const browserPath = process.env.CHROMIUM_PATH || '/usr/bin/chromium';
     for (const preset of ['list0','list5']) {
       await page.click('#btnBatch');
       await page.evaluate(preset => {
+        // Legacy generation parity; board-letter schedules have a dedicated browser test.
+        bLetterMode.value='none';
         bFrom.value=1; bCount.value=10; bMode.value='replace'; bPreset.value=preset;
         bAttempts.value=60; bExtraWeight.value=.9; bSeed.value='QA-v2-2026';
       }, preset);

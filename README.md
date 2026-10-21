@@ -10,7 +10,7 @@
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-打开 [本地项目](http://127.0.0.1:8000/) 。`index.html` 与 `wordpages-level-desk.html` 内容相同，GitHub Pages 使用前者。首次打开是空关；关卡台文件和游戏关卡文件统一通过顶部“打开”载入。编辑撤销使用 ⌘/Ctrl+Z。`?fresh=1` 跳过旧关序，`?sample=1` 加载 20 个使用当前默认词库生成的示例；词库配置独立保存在当前浏览器和站点地址下。
+打开 [本地项目](http://127.0.0.1:8000/) 。`index.html` 与 `wordpages-level-desk.html` 内容相同，GitHub Pages 使用前者。首次打开默认加载用户提供的“示例关序”100 关，从第 1 关开始；已有浏览器存档时恢复存档。关卡台文件和游戏关卡文件统一通过顶部“打开”载入。编辑撤销使用 ⌘/Ctrl+Z。`?fresh=1` 打开空白关序，`?sample=1` 重新加载这 100 个默认关卡；词库配置独立保存在当前浏览器和站点地址下。
 
 关卡编辑使用列表每行的“编辑”，在棋盘面板点击“返回列表”结束编辑。游戏关卡导出入口位于“批量生成”窗口。
 
@@ -89,6 +89,20 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 批量生成还可设置 list0／list5 阶段、起始关号、数量、种子、尝试次数、近期重复窗口、额外词惩罚和单格次数上限。引擎保留 13 段目标，按上下左右路径填盘，检查全盘覆盖、同词所有已扫描路径用格一致和次数约束。旧基础词门槛和来源加分已移除。近期重复和额外数量仍是评分目标；失败不自动放宽规则。全失败或立即中止保留原关序，部分成功按选定插入／替换方式接纳。
 
+批量生成默认启用“整关必选字母”，按起始关号和生成序号匹配用户提供的第 1–1000 关配置。例如第 1 关的 A、B、C 必须各自在棋盘中至少出现一次，其他字母仍可出现或重复。约束只检查整关棋盘，不要求每个目标词包含这些字母，也不限制它们必须在词首。目标词仍须满足当前词库、四方向路径、全盘覆盖和使用次数规则。
+
+“查看本批必选字母”可检查具体关号与字母；下拉框可关闭此配置，选择会随刷新保存。1001 关及以后没有此表的字母限制。界面默认每关尝试 300 次；启用且本批覆盖字母配置时，遇到未生成的关卡即停止，保留已完成的连续前缀，后续配置不会跳过失败关号前移。生成关号保存在每关的 `gen.no`，与既有阶段目标使用同一个编号。
+
+每关保存生成时的必选字母与配置标识；关卡台文件和浏览器存档保留它们。手动编辑后若缺少必选字母，检查区会提示，并阻止本次游戏导出。游戏导出的九字段格式不变。已有未绑定此配置的关卡不会自动改写。
+
+配置源为 Excel 的“关卡配置”工作表实际单元格，保存为 `data/required_letters.json` 并内嵌在两份 HTML 中，不依赖在线读取 Excel。仅使用每行的关号与字母，不把统计页配额、相邻行去重说明追加成棋盘限制。更新同格式 Excel 后运行：
+
+```bash
+python3 tools/import_required_letters.py /path/to/word_tiles_letters_1_1000.xlsx
+python3 tools/import_required_letters.py /path/to/word_tiles_letters_1_1000.xlsx --check
+python3 tools/sync_editor.py
+```
+
 “计算线程”提供自动、1、2、4、8 线程。自动模式按浏览器报告的逻辑处理器数减一选择，下限 1、上限 4；手动选择也受浏览器报告的处理器数及 8 线程上限约束。单关的候选尝试由 Web Worker 并行计算，关卡按顺序接纳，因此近期重复窗口和累计用词记录继续有效。尝试次数是所有线程合计的每关上限，不会乘以线程数。
 
 生成期间设置锁定，页面与中止按钮保持响应。若期间切换或编辑关序，过期生成结果不会覆盖当前内容。中止立即终止计算线程，只接纳已经完成的关卡；若尚未完成任何关，则保留原关序。线程不可用、启动超时或运行异常时，自动改用分段执行的单线程，按相同种子重试当前关。计算源码内嵌为 Blob Worker，两份独立 HTML 的 `file://` 打开方式同样可用，无需请求外部 worker 文件。
@@ -141,6 +155,7 @@ node tests/library_combinations.cjs
 node tests/library_schedule.cjs
 node tests/library_overlap.cjs
 node tests/generation_attempts.cjs
+node tests/required_letters.cjs
 python3 tools/build_glossary.py --check
 node tests/glossary.cjs
 python3 -m unittest discover -s tests -p 'test_*.py'
@@ -156,6 +171,7 @@ python3 verify/verify_levels.py /tmp/v2-list0.json --report /tmp/v2-list0-report
 ```sh
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_v2.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_batch_workers.cjs
+NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_required_letters.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_libraries.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_library_range.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_batch_libraries.cjs
