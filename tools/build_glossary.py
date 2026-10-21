@@ -148,7 +148,7 @@ def build(sources=None):
     # initial audit. A future full audit can still supersede an older follow-up.
     def review_order(path):
         date = re.search(r'\d{4}-\d{2}-\d{2}', path.parent.name)
-        return (date.group() if date else '', path.parent.name.startswith('dictionary-followup-'), path.name)
+        return (date.group() if date else '', path.parent.name.startswith('dictionary-followup-'), path.parent.name, path.name)
     review_paths += sorted(dated_reviews, key=review_order)
     for path in review_paths:
         for word, correction in read(path).items():

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "version": "2026.10.21.4",
+  "scopeWords": 19,
+  "statuses": {
+    "resolved": 16,
+    "pending": 3
+  },
+  "changedWords": 16,
+  "changedFields": {
+    "ipa": 15,
+    "zh": 10,
+    "en": 11
+  },
+  "remainingPendingWords": [
+    "andros",
+    "filles",
+    "pht"
+  ],
+  "runtimeWords": 22452,
+  "runtimePendingWords": 3,
+  "unrelatedEntriesUnchanged": true,
+  "baselineSha256": "edf4fa3619e0dd113a8dc57dd67a7bcc63448b60a3babf309a65f109c1320bd1",
+  "runtimeSha256": "8d0d19c615011f93ed38c5610c8a4a46f2ae1b5083936434ffe1738be971f65a",
+  "correctionFiles": {
+    "data/glossary/reviewed/dictionary-followup-2026-10-21-pending-19/confirmed.json": "19c3c849abad9fd905d20b01539ae24447bb9fe0e2828f74b774b5c35d8d4539"
+  },
+  "reviewerModel": "gpt-6-luna",
+  "reviewerCount": 3,
+  "pronunciations": {
+    "derived": 2088,
+    "sourced": 19548,
+    "unverified": 816
+  },
+  "scopeNote": "The 19 remaining reviewed uncertainties only; other predicted pronunciations retain their unverified status."
+}

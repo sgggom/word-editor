@@ -79,6 +79,19 @@ assert(!/chief justice|political journalist|United States architect/i.test(entri
 assert.match(entries.typo[2],/typographer/,'retain the dictionary-attested dated sense');
 assert.match(entries.plasma[2],/protoplasm/,'retain the dictionary-attested old biology sense');
 assert.match(entries.aurate[1],/耳/,'retain the dictionary-attested adjective');
+for(const [word,ipa] of Object.entries({acmic:'/ˈækmɪk/',alans:'/əˈlænz/',apos:'/ˈeɪpoʊz/',ates:'/ˈɑːteɪz/',gighe:'/ˈdʒiːɡeɪ/',renate:'/riːˈneɪt/',uma:'/ˈuːmə/'})) {
+ assert.equal(entries[word][0],ipa,word+': confirmed lexical pronunciation regression');
+ assert.notEqual(entries[word][3].reviewStatus,'pending',word+': a resolved review must clear its marker');
+ assert(!entries[word][3].ipaEngine,word+': a dictionary correction must clear the old prediction provenance');
+}
+assert.equal(entries.apos[3].ipaBase,'apo');
+assert.equal(entries.ates[3].ipaBase,'ate');
+assert.equal(entries.areae[3].ipaBase,'area');
+assert.match(entries.areae[0],/i\.i/,'retain the medial vowel in the medical plural');
+assert.match(entries.farc[1],/哥伦比亚/);
+assert(!/farce|闹剧/.test(entries.farc[1]+entries.farc[2]));
+assert.match(entries.oig[2],/Office of Inspector General/);
+assert(!/Scots|催促/.test(entries.oig[1]+entries.oig[2]));
 const auditDir=require('node:path').resolve(__dirname,'../data/glossary/audits/2026-10-21');
 const audit=JSON.parse(fs.readFileSync(require('node:path').join(auditDir,'summary.json'),'utf8'));
 const ledger=fs.readFileSync(require('node:path').join(auditDir,'ledger.jsonl'),'utf8').trim().split('\n').map(line=>JSON.parse(line));
@@ -91,10 +104,24 @@ const counts={};for(const row of ledger) {
  assert(['pass','corrected','pending'].includes(row.status),row.word+': missing audit verdict');
  counts[row.status]=(counts[row.status]||0)+1;
  if(row.status==='pending') assert(row.issue,row.word+': pending without an explained finding');
- assert.equal(entries[row.word][3].reviewStatus==='pending',row.status==='pending',row.word+': unresolved review must be visible in the runtime glossary');
 }
 assert.deepEqual(counts,audit.statuses);
 assert.deepEqual(pending.map(row=>row.word),ledger.filter(row=>row.status==='pending').map(row=>row.word),'pending list must match the complete audit ledger');
+const auditRoot=require('node:path').dirname(auditDir);
+const latestAuditDir=fs.readdirSync(auditRoot).filter(name=>fs.existsSync(require('node:path').join(auditRoot,name,'pending.json'))).sort().at(-1);
+const currentPending=JSON.parse(fs.readFileSync(require('node:path').join(auditRoot,latestAuditDir,'pending.json'),'utf8'));
+assert.deepEqual(Object.keys(entries).filter(word=>entries[word][3].reviewStatus==='pending').sort(),currentPending.map(row=>row.word).sort(),'runtime markers follow the latest audit, while old audit records remain immutable');
+const followupDir=require('node:path').join(auditRoot,'2026-10-21-pending-19');
+const followup=JSON.parse(fs.readFileSync(require('node:path').join(followupDir,'summary.json'),'utf8'));
+const followupLedger=fs.readFileSync(require('node:path').join(followupDir,'ledger.jsonl'),'utf8').trim().split('\n').map(line=>JSON.parse(line));
+assert.equal(followupLedger.length,19);
+assert.deepEqual(followupLedger.map(row=>row.word).sort(),pending.map(row=>row.word).sort(),'follow-up covers every previously pending word exactly once');
+assert.equal(followup.runtimeSha256,manifest.sha256,'latest audit must match the shipped dictionary');
+for(const row of followupLedger) {
+ assert.equal(row.status==='pending',entries[row.word][3].reviewStatus==='pending',row.word+': wrong latest review marker');
+ assert.deepEqual(entries[row.word].slice(0,3),['ipa','zh','en'].map(field=>row.after[field]),row.word+': latest audited fields not applied');
+ if(row.status==='pending') assert.deepEqual(row.after,row.before,row.word+': uncertain pronunciation must not be guessed');
+}
 for(const [file,record] of Object.entries(audit.reviewFiles)) {
  const raw=fs.readFileSync(require('node:path').join(reviewDir,'full-audit-2026-10-21',file));
  assert.equal(record.sha256,crypto.createHash('sha256').update(raw).digest('hex'),file+': review changed after audit aggregation');

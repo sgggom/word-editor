@@ -1,0 +1,32 @@
+[
+  {
+    "word": "andros",
+    "status": "pending",
+    "issue": "No reliable English pronunciation was found for andro in the specified Meitei-beverage sense, so there is no valid base pronunciation from which to derive andros. Collins documents a separate biochemical andro, but its meaning does not match this entry.",
+    "evidence": [
+      "https://en.wiktionary.org/wiki/andro#English",
+      "https://dictionary.cambridge.org/pronunciation/english/andros",
+      "https://www.collinsdictionary.com/us/dictionary/english/andro"
+    ]
+  },
+  {
+    "word": "filles",
+    "status": "pending",
+    "issue": "The Collins English entry gives singular fille /fiː/ and defines it as a girl or young woman; Merriam-Webster Scrabble confirms the written English noun plural filles, but neither directly transcribes that plural. /fiːz/ is a plausible English regular-plural derivation after a vowel, while Webster's New International entry for the French expression fille de joie lists plural filles de joie with no change in the published pronunciation, and Random House Webster likewise gives the French plural jeune(s) fille(s) with the same respelling. Those compound expressions are explicitly French and do not settle how the standalone count noun is pronounced when pluralized in English. The available evidence therefore does not justify choosing /fiːz/ over /fiː/ as a directly dictionary-confirmed form.",
+    "evidence": [
+      "https://www.collinsdictionary.com/dictionary/english/fille",
+      "https://scrabble.merriam.com/finder/fille",
+      "https://slovar-vocab.com/english/websters-international-vocab/fille-de-joie-8503237.html",
+      "https://slovar-vocab.com/english/websters-international-vocab/fille-de-joie-8503237.html",
+      "https://slovar-vocab.com/english/websters-international-vocab/fille-de-joie-8503237.html"
+    ]
+  },
+  {
+    "word": "pht",
+    "status": "pending",
+    "issue": "Wiktionary英语条目列出表示轻微不悦/不同意及短促放屁声的拟声义，但不列Pronunciation，并将本页归入“Requests for pronunciation in English entries”。这支持缺少辞书标音；未找到明确说明其有唯一固定发音的来源，故不造IPA并保持pending。",
+    "evidence": [
+      "https://en.wiktionary.org/wiki/pht"
+    ]
+  }
+]

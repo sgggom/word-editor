@@ -34,7 +34,7 @@
 - `data/glossary/reviewed/full-audit-2026-10-21/*.json`：完整分区审核的成对修正；修正记录说明原因，显示用释义不混入审核流程说明。
 - `data/glossary/audits/2026-10-21/summary.json`：审核基线、范围、统计、修正文件哈希及运行词典哈希。
 - `data/glossary/audits/2026-10-21/ledger.jsonl`：22,452 条逐词结论，包括问题、证据和实际变更字段。
-- `data/glossary/audits/2026-10-21/pending.json`：仍有疑点的完整清单；不能据此声称这些词已全部修复。
+- `data/glossary/audits/2026-10-21/pending.json`：初次全量审阅时的 19 条疑点，作为历史记录保留；当前未决项以最新审计目录的 `pending.json` 为准。
 - `data/glossary/sources.json`、`licenses/`：来源地址、许可证及署名。许可文本同时内嵌进分享 HTML，可在词库窗口底部展开。
 
 词典只负责解释单词，**不改变集合运算、生成权限、用户禁表或关卡词库快照**，也不增加游戏导出字段。2026.10.20.2 已将相同的两字母排除要求应用到八个词库自身；现有 22,452 词释义完整复用，无需重新生成。
@@ -91,6 +91,26 @@ python3 -m unittest discover -s tests -p 'test_google_translate_audit.py'
 python3 tools/build_glossary.py --check
 python3 tools/report_dictionary_followup.py --audit-dir outputs/dictionary-followup-2026-10-21
 ```
+
+### 剩余 19 条复核与回写（2026.10.21.4）
+
+三个 `gpt-6-luna` 子代理按 7、6、6 条分组，逐条查询词典；主代理交叉核对来源、义项和读音转换，并复查争议结论。本轮 **16 条确认并修正，3 条仍待核实**，实际改变 15 个音标、10 个中文字段和 11 个英文字段。22,452 个词头及其必答、额外范围保持不变；这 19 条之外的运行词条逐项比较完全相同。
+
+读音依据来自 Merriam-Webster、American Heritage、Oxford、Collins 及历史英语词典原文。原词典直接列出的读音或拼音式注音转换标为 `sourced`；结合明确词形关系、复数词尾或字母名推导的完整读音标为 `derived`。没有把义项不同的同形词或人名读音借给当前词义。`alans` 的 OCR 将首元音误识别为 i，最终对照 1907 年 Webster 原页及同书发音指南修正；`filles` 最初按英语规则加 /z/ 的提议因法语借词复数读音证据不足而撤回。`farc` 和 `oig` 改为有词典依据的缩写义，中英文同步。
+
+当前仍待核实的是：
+
+- `andros`：Meitei 酒饮义的英语读音未找到可靠依据，不能套用同形的生化缩写或地名读音。
+- `filles`：已确认是 fille 的复数，但独立英语词条是否保留法语静音词尾尚未确认。
+- `pht`：感叹词义可核实，但尚缺可信的明确注音，不能把逐字母读法当作已核实读音。
+
+这三条保留原数据和“待核实”标记；16 条已确认记录清除该标记。全库另有 **816 条机器预测音标**仍标为 `unverified`，不等于本轮的三条未决项。运行词典 SHA-256 为 `8d0d19c615011f93ed38c5610c8a4a46f2ae1b5083936434ffe1738be971f65a`。
+
+- `reviewed/dictionary-followup-2026-10-21-pending-19/confirmed.json`：16 条正式修正及逐字段来源，离线重建自动应用。
+- `audits/2026-10-21-pending-19/ledger.jsonl`：全部 19 条的来源、结论、修正前后字段及元数据。
+- `audits/2026-10-21-pending-19/summary.json`、`pending.json`：本轮统计、哈希及剩余三条的具体疑点。
+
+历史审计和旧修正文件保持不变；同一天的后续复核按目录批次顺序覆盖早期结果，当前待核标记取最新审计目录。两份独立 HTML 同步新版配置；HTTP 和本地文件模式验证这 19 条的释义、音标与状态显示。
 
 ### 词典来源更新
 

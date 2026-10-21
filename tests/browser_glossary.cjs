@@ -91,6 +91,10 @@ async function checkDefinition(page, word, root = '#bankDef') {
         await findWord(page, word);
         await checkDefinition(page, word);
       }
+      for (const word of ['ACMIC', 'ALANS', 'ANDROS', 'APOS', 'AREAE', 'ATES', 'BAALIM', 'BESES', 'COMPAS', 'DOLCI', 'DUCI', 'FARC', 'FILLES', 'GIGHE', 'INIA', 'OIG', 'PHT', 'RENATE', 'UMA']) {
+        await findWord(page, word);
+        await checkDefinition(page, word);
+      }
       await findWord(page, 'CUS');
       assert.match(await page.$eval('#bankDef .g-zh', el => el.textContent), /因为/);
       assert.match(await page.$eval('#bankDef .g-en', el => el.textContent), /because/);

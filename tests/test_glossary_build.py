@@ -40,6 +40,12 @@ class GlossarySenseReviewTests(unittest.TestCase):
             reviews['mams']['zh'] = 'n. 母亲们（mam 的复数）。'
             reviews['mams']['enSourceUrl'] = 'https://example.test/dictionary/mam'
             (followup / 'part01.json').write_text(json.dumps({'mams': reviews['mams']}))
+            # Same-day follow-up batches apply as a whole, even when the later
+            # batch's filename sorts before an earlier batch's filename.
+            later = review_path.parent / 'dictionary-followup-2026-10-21-pending-19'
+            later.mkdir()
+            reviews['mams']['en'] = ('Later dictionary-confirmed definition without truncation. ' * 7).strip()
+            (later / 'a.json').write_text(json.dumps({'mams': reviews['mams']}))
             sources = root / 'sources'
             sources.mkdir()
             # A fresh extraction can contain a complete but unrelated sense,
@@ -120,9 +126,12 @@ class GlossarySenseReviewTests(unittest.TestCase):
                 self.assertNotIn('reviewStatus', package['entries']['cat'][3])
                 self.assertEqual(package['entries']['dog'][3]['reviewStatus'], 'pending')
                 output.write_bytes(glossary.canonical(package))
-                pending.write_text('[]')
+                later_pending = root / 'data/glossary/audits/2026-10-21-pending-19/pending.json'
+                later_pending.parent.mkdir()
+                later_pending.write_text('[]')
                 package, _ = glossary.build()
                 self.assertNotIn('reviewStatus', package['entries']['dog'][3])
+                self.assertEqual(json.loads(pending.read_text())[0]['word'], 'dog', 'Historical audit remains unchanged')
 
 
 if __name__ == '__main__':
