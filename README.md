@@ -12,6 +12,8 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 打开 [本地项目](http://127.0.0.1:8000/) 。`index.html` 与 `wordpages-level-desk.html` 内容相同，GitHub Pages 使用前者。首次打开默认加载用户提供的“示例关序”100 关，从第 1 关开始；已有浏览器存档时恢复存档。关卡台文件和游戏关卡文件统一通过顶部“打开”载入。编辑撤销使用 ⌘/Ctrl+Z。`?fresh=1` 打开空白关序，`?sample=1` 重新加载这 100 个默认关卡；词库配置独立保存在当前浏览器和站点地址下。
 
+已有本地关序时，点击“打开历史 → 默认关卡 → 导入”即可切回默认关卡。默认入口固定在历史列表第一项，不可删除；确认后替换当前关序并从第 1 关开始，取消保留现有关卡，也可用 ⌘/Ctrl+Z 撤销切换。原历史文件记录继续保留。
+
 关卡编辑使用列表每行的“编辑”，在棋盘面板点击“返回列表”结束编辑。游戏关卡导出入口位于“批量生成”窗口。
 
 ## 词库配置
@@ -170,6 +172,7 @@ python3 verify/verify_levels.py /tmp/v2-list0.json --report /tmp/v2-list0-report
 
 ```sh
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_v2.cjs
+NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_history_default.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_batch_workers.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_required_letters.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_libraries.cjs
