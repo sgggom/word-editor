@@ -1,0 +1,1388 @@
+{
+  "oscar": {
+    "zh": "n. 奥斯卡金像奖；无线电字母表的“O”代码词；南美眼斑丽鱼；（澳新押韵俚语）现金、钱。",
+    "en": "n. An Academy Award for achievement in film; the ICAO/NATO radio code word for O; a South American cichlid fish (Astronotus ocellatus); Australian/New Zealand rhyming slang for cash or money.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/oscar",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "保留大写 Oscar 的奖项及小写 code word、鱼类义，并查得 cash/money 的澳新押韵俚语用法；删除未证实的独立“现金”同形义。"
+  },
+  "ostrich": {
+    "zh": "n. 逃避现实、不愿承认真相的人；非洲大型不会飞、足有两趾的鸵鸟。",
+    "en": "n. A person who refuses to face reality or acknowledge the truth; a large African flightless bird with two-toed feet.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/ostrich",
+    "enSourceUrl": "https://en-word.net/lemma/ostrich",
+    "note": "补回英文中的比喻义，并确认其与鸵鸟义分别对应中文两项。"
+  },
+  "ozone": {
+    "zh": "n. 臭氧；（尤指海边）清新、宜人的空气。",
+    "en": "n. A toxic triatomic form of oxygen (O₃), formed by electrical discharge or ultraviolet action; fresh, clean air, especially near the sea.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://www.oxfordlearnersdictionaries.com/us/definition/english/ozone",
+    "enSourceUrl": "https://www.oxfordlearnersdictionaries.com/us/definition/english/ozone",
+    "note": "恢复臭氧气体的完整定义，并以词典的海边清新空气义对应原中文“新鲜空气”；删除无独立词典支持的单独“愉快影响”义。"
+  },
+  "panda": {
+    "zh": "n. 大熊猫（中国和西藏的大型黑白食草动物）；小熊猫（亚洲红褐色、形似浣熊的哺乳动物）。",
+    "en": "n. The giant panda, a large black-and-white herbivore native to China and Tibet; the red panda, a reddish-brown raccoon-like mammal of Asia.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/panda",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "完整恢复大熊猫与小熊猫两项物种定义，并逐项对应现有中文。"
+  },
+  "partial": {
+    "zh": "a. 部分的、不完全的；偏袒的；偏爱的。n. 偏导数；分音（频率为基音整数倍的声音成分）。",
+    "en": "a. Constituting only part of a whole; incomplete; biased; having a preference for something. n. A partial derivative; a component tone whose frequency is a multiple of the fundamental.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/partial",
+    "enSourceUrl": "https://en-word.net/lemma/partial",
+    "note": "按词典补全形容词偏爱义及名词偏导数、分音义，中文改为对应这些完整义项。"
+  },
+  "pelvis": {
+    "zh": "n. 骨盆；（肾脏的）肾盂。",
+    "en": "n. The bony structure supporting the lower limbs; also, a funnel-shaped cavity in the kidney that drains urine into the ureter.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/pelvis",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "将完整的第二义“肾盂”补入中文；原译只含骨盆，造成英文多出义项。"
+  },
+  "phone": {
+    "zh": "n. 电话；受话器、耳机；语音（不论其是否构成某语言的音位）。v. 给……打电话；通过电话说。",
+    "en": "n. A device for transmitting speech or sound over distance; an individual speech sound considered as a physical event; an earpiece or electro-acoustic transducer. v. To call or speak to someone by telephone.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/phone",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "区分电话设备、语音单位和通话动词；补入原中文缺少的语音单位义。"
+  },
+  "phoned": {
+    "zh": "v. phone 的过去式和过去分词：给某人打电话、通过电话交谈。",
+    "en": "v. Simple past and past participle of phone: called or spoke to someone by telephone.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/phoned",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/phoned",
+    "note": "恢复词形项完整释义，保留电话动词的过去式/过去分词词性。"
+  },
+  "pic": {
+    "zh": "n. 影片；照片、图片。",
+    "en": "n. A motion picture; a photograph or other still image.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/pic",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补全电影义与静态照片/图像义，并移除没有证据的截断尾文。"
+  },
+  "piers": {
+    "zh": "n. pier 的复数：伸入水中的码头、栈桥；建筑支墩；桥跨间的桥墩。",
+    "en": "n. Plural of pier: a platform projecting from shore into water for access by boats; a vertical supporting structure; a support between adjacent bridge spans.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/piers",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "核对 pier 的复数及三种工程/建筑义，补全英文并让中文覆盖码头、支柱和桥墩。"
+  },
+  "plasma": {
+    "zh": "n. 血浆、淋巴液；绿玉髓；原生质、细胞质（旧称）；等离子体。",
+    "en": "n. The fluid part of blood or lymph; a green, slightly translucent variety of chalcedony; formerly, protoplasm or cytoplasm; a highly ionized gas.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://www.collinsdictionary.com/us/dictionary/english/plasma",
+    "enSourceUrl": "https://www.collinsdictionary.com/us/dictionary/english/plasma",
+    "note": "Collins distinguishes the obsolete biological sense (former name for protoplasm/cytoplasm) and independently confirms the blood-fluid, green chalcedony, and ionized-gas senses; retained and translated all selected senses."
+  },
+  "plastic": {
+    "zh": "a. 可塑的、可塑造的；易受影响的。n. 塑料、可塑性材料；信用卡或借记卡（口语）。",
+    "en": "a. Capable of being molded, shaped, or influenced. n. A moldable synthetic or semisynthetic material; a credit or debit card used instead of cash.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/plastic",
+    "enSourceUrl": "https://en-word.net/lemma/plastic",
+    "note": "区分形容词可塑/易受影响义与名词材料/卡片义；补入原译未覆盖的卡片义。"
+  },
+  "plaza": {
+    "zh": "n. 广场；购物中心、市场或商业区。",
+    "en": "n. A public square; a shopping complex or marketplace, often landscaped and including shops and restaurants.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/plaza",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "完整恢复公共广场和商业综合体两义，并统一对应“广场、市场、购物区”。"
+  },
+  "poked": {
+    "zh": "v. poke 的过去式和过去分词：戳、捅、拨弄；（俚语）与……性交。",
+    "en": "v. Simple past and past participle of poke: prodded, thrust, or moved something with a poke; also a slang sexual use.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/poked",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/poked",
+    "note": "将原来的植物名词截断内容改为该词形的动词义；中文保留词典所列一般及俚语动词义。"
+  },
+  "pokes": {
+    "zh": "v. poke 的第三人称单数现在时：戳、捅、拨弄；（俚语）与……性交。",
+    "en": "v. Third-person singular simple present of poke: prods, thrusts, fiddles with, or has sex with someone (slang).",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/pokes",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/pokes",
+    "note": "只保留中文已列出的动词词形义，不把名词复数或植物义混入。"
+  },
+  "polyp": {
+    "zh": "n. 黏膜息肉；水螅型动物（通常固着，身体中空、口周有触手）。",
+    "en": "n. A small growth on a mucous membrane; a usually sessile, hollow-bodied cnidarian form with tentacles around the mouth.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/polyp",
+    "enSourceUrl": "https://en-word.net/lemma/polyp",
+    "note": "英文两项分别对应息肉与水螅型动物，原译义项完整。"
+  },
+  "polyps": {
+    "zh": "n. polyp 的复数：息肉；水螅型或珊瑚虫类动物。",
+    "en": "n. Plural of polyp: mucosal growths or the sessile, tentacled form of a cnidarian.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/polyps",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/polyps",
+    "note": "恢复完整词形义，并明确中文“珊瑚虫（水螅型）”与息肉两义。"
+  },
+  "pox": {
+    "zh": "n. 梅毒（旧称“痘”）；引起脓疱性皮疹、可能留下痘痕的传染病。",
+    "en": "n. Syphilis (historically called the pox); a contagious disease causing pustular skin eruptions that may leave pockmarks.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/pox",
+    "enSourceUrl": "https://en-word.net/lemma/pox",
+    "note": "补入词典的梅毒义，并把泛称痘病与传染性皮疹义对应。"
+  },
+  "prog": {
+    "zh": "v. 行乞或以不正当手段寻食；偷窃；戳、刺。n. 行乞所得的食物和给养；流浪乞丐；掠夺物。另可作 progressive、progressive rock 或 program 的缩略语。",
+    "en": "v. To wander and beg or seek food by dishonest means; to steal; to prick or goad. n. Food or supplies obtained by begging; a vagrant or beggar; plunder. Also a clipping of progressive, progressive rock, or program.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/prog",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "把古义行乞、偷窃、刺戳与名词食物/乞丐/赃物逐项配译；另标明现代缩略语，不再误译为“学监/处罚”。"
+  },
+  "pumpkin": {
+    "zh": "n. 南瓜藤；南瓜果实（通常大而圆、橙黄或深黄色，秋季成熟）。",
+    "en": "n. A widely cultivated vine of the squash family; its large round orange or deep-yellow fruit, harvested in late summer or autumn.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/pumpkin",
+    "enSourceUrl": "https://en-word.net/lemma/pumpkin",
+    "note": "恢复植物和果实两项完整释义，并把中文“南瓜”对应到两者。"
+  },
+  "punks": {
+    "zh": "n. punk 的复数：朋克亚文化成员、朋克摇滚乐迷；无用之物或行为暴戾的年轻人；点引线用的引火物。",
+    "en": "n. Plural of punk: members of the punk subculture or punk-rock fans; worthless or aggressive young people; punk material used to light a fuse.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/punks",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复截断的亚文化定义并补齐中文已列的摇滚迷、无用者及不良青少年义；补充词典的引火物义。"
+  },
+  "reeds": {
+    "zh": "n. reed 的复数：芦苇类植物，尤指芦竹属和芦苇属。",
+    "en": "n. Plural of reed: tall hollow-stemmed grasses, especially Arundo and Phragmites.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/reeds",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/reeds",
+    "note": "按中文限定为芦苇植物义，未混入同形人名或乐器义。"
+  },
+  "rhea": {
+    "zh": "n. 美洲鸵（南美三趾不会飞的鸟）；苎麻（可取纤维的植物）。",
+    "en": "n. A South American flightless bird with three toes; also, ramie (Boehmeria nivea), a fiber-yielding plant.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://www.dictionary.com/browse/rhea",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "大小写核对后只保留小写 rhea 的鸟类和植物义；大写神祇 Rhea 不属于原词头。"
+  },
+  "rheas": {
+    "zh": "n. rhea 的复数：美洲鸵；苎麻植株或其纤维。",
+    "en": "n. Plural of rhea: South American flightless birds; also, ramie plants or fibers.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/rheas",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补完复数词形和截断的鸟类定义，保留经植物词典确认的苎麻义。"
+  },
+  "rubies": {
+    "zh": "n. ruby 的复数：红宝石；红宝石色、深红色的物品。",
+    "en": "n. Plural of ruby: transparent red precious gems; also, ruby-red color or things of that color.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/rubies",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/rubies",
+    "note": "只保留 ruby 的名词复数及宝石/颜色义；删除没有根据的动词第三人称形式。"
+  },
+  "ryes": {
+    "zh": "n. rye 的复数：黑麦植株和籽粒；黑麦威士忌；（旧）吉卜赛男子，或与吉卜赛人交往的绅士。",
+    "en": "n. Plural of rye: the cereal plant and its seed; rye whiskey; also, a Romani man or (in “Romany rye”) a gentleman associated with Romani people.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ryes",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "词典分别证实黑麦及 Romany rye 义；补入黑麦威士忌，避免把异义遗漏或混同。"
+  },
+  "sabin": {
+    "zh": "n. 赛宾：声吸收单位，相当于一平方英尺完全吸声表面的吸收量。",
+    "en": "n. A unit of acoustic absorption equal to the absorption of one square foot of a perfectly absorbing surface.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/sabin",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "限定为中文对应的声学单位义，排除同形科学家人名。"
+  },
+  "savour": {
+    "zh": "n. 咸味调味品入口后的滋味。v. 有……的滋味；给……调味；细细品尝；享受、欣赏。",
+    "en": "n. The taste experience of a savoury condiment. v. To have or give flavour; to taste appreciatively; to take pleasure in.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/savour",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "逐项对应中文滋味/气味、调味、品尝和享受义，补全英文的 give taste to。"
+  },
+  "scallop": {
+    "zh": "n. 扇贝及其可食闭壳肌；扇贝状的圆弧边饰或凹口。v. 做成扇贝状边饰；用扇贝形盘或酱汁烘烤；采拾扇贝。",
+    "en": "n. A fan-shelled marine bivalve and its edible muscle; a rounded or notched curve along an edge. v. To decorate an edge with scallops; to cook in a scallop-shaped dish or sauce; to gather scallops.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/scallop",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "保留与扇贝、烘烤和采拾相对应的义项；补译原英文的边饰义，排除血细胞、肉片等不对应义。"
+  },
+  "scup": {
+    "zh": "n. 北美大西洋沿岸的鲷科鱼（scup）；其可食鱼肉，尤指北部较冷水域的鱼。",
+    "en": "n. A porgy found along the North American Atlantic coast; its edible flesh, especially the fish from colder northern waters.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/scup",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "将物种名与鱼肉义并列，避免把 scup 泛译为其他鱼种。"
+  },
+  "she": {
+    "zh": "pron. 她；前文提到的女性或雌性动物；拟作阴性的事物。",
+    "en": "pron. The female person or animal previously mentioned; a woman or female; also used for an entity personified as feminine.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/she",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/she",
+    "note": "恢复完整代词定义并保留其对象代词位置说明。"
+  },
+  "shea": {
+    "zh": "n. 非洲酪脂树（Vitellaria paradoxa）；其果实及富油种子。",
+    "en": "n. An African tree (Vitellaria paradoxa); its fruit, which contains a large oil-rich seed.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/shea",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/shea",
+    "note": "补齐原英文在果实说明处的截断，并在中文中区分树与果实。"
+  },
+  "sill": {
+    "zh": "n. 窗台、门槛或结构底梁；夹在较老岩层间的水平侵入火成岩床。",
+    "en": "n. A horizontal base or threshold of a window, door, or structure; a horizontal intrusive layer of igneous rock between older strata.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/sill",
+    "enSourceUrl": "https://en-word.net/lemma/sill",
+    "note": "恢复建筑横梁与地质岩床两义，并修正中文“海底山脊”这种不对应译法。"
+  },
+  "silver": {
+    "zh": "n. 银；银币；银器；银白色。a. 银制的、银色的；（声音）清亮柔和的。v. 镀银；使呈银白色。",
+    "en": "n. A white, lustrous metallic element; silver coins and utensils; the color of silver. a. Made of silver or having its silvery color; clear and soft in tone. v. To cover or coat with silver or make silvery.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/silver",
+    "enSourceUrl": "https://en-word.net/lemma/silver",
+    "note": "保留中文已有的银、银币、银器和镀银义，补足颜色/声音义，不再混入不对应的人名或竞赛奖项。"
+  },
+  "slum": {
+    "zh": "n. 贫民窟、贫困破败的城区。v. 出于好奇或冒险而访问贫民区。",
+    "en": "n. A poor, run-down city neighborhood. v. To visit or spend time in a poorer neighborhood, often out of curiosity or for adventure.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/slum",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "保留名词与动词两义，并补足英文中“访问”行为的用法说明。"
+  },
+  "slums": {
+    "zh": "n. slum 的复数：贫民窟、贫困城区。",
+    "en": "n. Plural of slum: poor, run-down city neighborhoods.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/slums",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/slums",
+    "note": "完整恢复名词复数义，未把动词义混进仅标为名词的中文。"
+  },
+  "sodium": {
+    "zh": "n. 钠：柔软的银白色碱金属，存在于盐等化合物中；与水剧烈反应，燃烧时呈黄色火焰。",
+    "en": "n. A soft, silvery alkali metal found in compounds such as salt; it reacts strongly with water and burns with a yellow flame.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/sodium",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复截断的元素特征说明，中文钠义保持准确。"
+  },
+  "sora": {
+    "zh": "n. 黑脸田鸡（Porzana carolina），常见于美国东部；又称 sora rail 或 Carolina rail。",
+    "en": "n. A North American rail (Porzana carolina), especially common in the eastern United States; also called the sora rail or Carolina rail.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sora",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补齐颜色和别名说明，并按词典物种定义保留“黑脸田鸡”义。"
+  },
+  "soy": {
+    "zh": "n. 大豆及其种子（供食用、榨油或作饲料）；酱油。",
+    "en": "n. The soybean plant and its seeds, cultivated for food, oil, and forage; a thin sauce made from fermented soybeans.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/soy",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "将大豆植株/种子和酱油两义分别写清，避免把种子用途误译成酱油。"
+  },
+  "spider": {
+    "zh": "n. 蜘蛛；搜索并索引网页的网络爬虫；铸铁煎锅。",
+    "en": "n. An eight-legged predatory arachnid that spins silk; a program that searches the internet for pages to index; a cast-iron skillet.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/spider",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复原文的网络爬虫与铸铁锅义，并分别译出中文，不把“设圈套者”当作全部定义。"
+  },
+  "sponge": {
+    "zh": "n. 海绵动物；吸水海绵或类似吸水材料。v. 用海绵擦拭、清洁、擦除或吸收；采集海绵；（口）靠别人供养。",
+    "en": "n. A porous marine animal or absorbent material made from its fibrous skeleton or a substitute. v. To wipe, clean, erase, or absorb with a sponge; to gather sponges; (informal) to live at another’s expense.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sponge",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补齐中文中的吸收/擦除义，并仅加入词典支持的“采集海绵、靠人供养”解释。"
+  },
+  "spore": {
+    "zh": "n. 孢子：真菌、藻类、植物或部分细菌释放的繁殖体。v. 产生孢子。",
+    "en": "n. A usually single-celled reproductive body released by a fungus, alga, plant, or some bacteria. v. To produce spores.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/spore",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复原文的抗逆细菌孢子说明所涵盖的繁殖义，并为中文已有“长孢子”补上英文动词。"
+  },
+  "starch": {
+    "zh": "n. 淀粉；浆衣用的淀粉制剂；僵硬或刻板。v. 用淀粉浆硬。",
+    "en": "n. A plant carbohydrate found in grains, seeds, roots, and tubers; laundry starch; stiffness or rigid formality. v. To stiffen with starch.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/starch",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补回中文“刻板”对应的僵硬/拘谨义，并保留淀粉、浆糊和浆硬义。"
+  },
+  "stere": {
+    "zh": "n. 立方米（容量单位，等于1,000升）；常用于木材计量。",
+    "en": "n. A metric unit of volume equal to one cubic metre (1,000 litres), commonly used for stacked wood.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/stere",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "仅保留与中文立方米相对应的 stere 容积义；排除同形动词、舵和舵手义。"
+  },
+  "stich": {
+    "zh": "n. 诗行、诗句；尤指《圣经》中的一行或希伯来诗歌的韵律行。",
+    "en": "n. A verse or line of verse; especially a line in Scripture or a rhythmic line in Hebrew poetry.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/stich",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/stich",
+    "note": "从原文截断处恢复完整释义，并限定为与“诗行”对应的名词义。"
+  },
+  "stoma": {
+    "zh": "n. 植物表皮上供气体和水汽通过的微小气孔；口状开口或手术造口。",
+    "en": "n. A minute pore in a plant epidermis through which gases and water vapor pass; a mouthlike or surgically created opening in the body.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/stoma",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补全气孔与医学造口两义，中文分别对应植物和人体用法。"
+  },
+  "strata": {
+    "zh": "n. stratum 的复数：物质层、地层；社会阶层；抽象层面。",
+    "en": "n. Plural of stratum: layers of material or rock; social groups of similar status; an abstract level or layer.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/strata",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复截断的社会与抽象层面义，中文逐项对应层、地层和阶层。"
+  },
+  "stum": {
+    "zh": "n. 未发酵的葡萄汁或葡萄酒（用于重新发酵）；加入葡萄汁后重新发酵的酒。v. 加入葡萄汁使酒重新发酵。",
+    "en": "n. Unfermented grape juice or wine used to restart fermentation; wine revived by adding must. v. To renew wine by adding must and inducing fermentation.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/stum",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补回截断的酿酒动词释义并对应中文；规范原文中的拼写错误。"
+  },
+  "sub": {
+    "zh": "n. 潜水艇；潜艇三明治；替补人员、下属或订户。a. 附属的、次级的。v. 替代、代课或转包。",
+    "en": "n. A submarine; a long sandwich; a substitute, subordinate, or subscriber. a. Subordinate or secondary. v. To substitute for or subcontract.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sub",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "将现有中文各义分别对应到词典中的潜艇、三明治、替补/下属/订户及替代动词；删除无根据的“胶层、傻子”。"
+  },
+  "sulfur": {
+    "zh": "n. 硫、硫磺：常见的黄色非金属元素。v. 用硫磺处理（尤指防腐）。",
+    "en": "n. An abundant, odorless, tasteless nonmetallic element, commonly seen as yellow crystals. v. To treat with sulfur, especially to preserve.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/sulfur",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "按完整词典恢复元素与处理动词义，中文对应准确。"
+  },
+  "sunfish": {
+    "zh": "n. 北美太阳鱼（Centrarchidae）的鱼肉；翻车鱼（体侧扁、尾鳍退化的大型海鱼）。",
+    "en": "n. The flesh of North American freshwater sunfishes (Centrarchidae); also, a large oceanic fish with a compressed body and reduced tail.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/sunfish",
+    "enSourceUrl": "https://en-word.net/lemma/sunfish",
+    "note": "区分淡水太阳鱼与大型海洋翻车鱼，补足中文所列两种鱼义。"
+  },
+  "syphon": {
+    "zh": "n. 虹吸管；水生动物的管状进出水器官。v. 用虹吸管抽出、输送或排空。",
+    "en": "n. A tube that draws liquid from a vessel by atmospheric pressure; a tubular water-inlet or outlet in an aquatic animal. v. To convey, draw off, or empty by means of a siphon.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/syphon",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复管状器官义和动词义，保留虹吸、虹管及输送/抽出释义。"
+  },
+  "tabu": {
+    "zh": "n. 禁忌、禁制。a. 禁忌的；禁止使用或谈论的。",
+    "en": "n. A prohibition or inhibition arising from sacred status, social custom, or aversion. a. Forbidden to profane use; excluded from mention.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/tabu",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "词典还列出 tabu 的形容词义，补入中文以与英文对应。"
+  },
+  "teak": {
+    "zh": "n. 柚木（树）；耐虫、不易变形的黄褐色柚木材。",
+    "en": "n. Durable yellowish-brown wood resistant to insects and warping; the tall tropical tree that yields this wood.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/teak",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复“树木”和“木材”两义，中文柚木对应两者。"
+  },
+  "tegu": {
+    "zh": "n. 泰加蜥；南美泰加蜥科或裸眼蜥科的蜥蜴，尤指 Tupinambis 属。",
+    "en": "n. Any of several South American lizards in the families Teiidae or Gymnophthalmidae, especially species of Tupinambis.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tegu",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tegu",
+    "note": "按小写 tegu 的蜥蜴词条修复，排除大写 Tegu 的韩国城市同形义。"
+  },
+  "theory": {
+    "zh": "n. 理论、学说；有根据的自然现象解释；系统知识体系；尚待验证的解释性设想或信念。",
+    "en": "n. A well-substantiated explanation of the natural world; an organized system of accepted knowledge; a tentative explanatory idea or belief.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/theory",
+    "enSourceUrl": "https://en-word.net/lemma/theory",
+    "note": "合并词典中理论、学说、推测/意见的相应义项，补足英文完整定义。"
+  },
+  "there": {
+    "zh": "adv. 在那里；在这件事上、在这一点上；到那里、往那里。n. 那个地方。",
+    "en": "adv. In or at that place; in that matter or respect; to or toward that place. n. A place other than here.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/there",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "删去重复列出的量词/代词结构，只保留词典实有且中文可对应的副词和地点名词义。"
+  },
+  "torah": {
+    "zh": "n. 犹太教圣典与传统；《希伯来圣经》首五卷《托拉》；书写这五卷的经卷。",
+    "en": "n. The Jewish sacred writings and tradition; the first five books of the Hebrew Bible; the parchment scroll containing those books.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/torah",
+    "enSourceUrl": "https://en-word.net/lemma/torah",
+    "note": "补全卷轴义，并将“教导、律法”与圣典、首五卷对应。"
+  },
+  "tropic": {
+    "zh": "a. 热带的；具有热带特征的（炎热潮湿）。n. 回归线（约北纬或南纬23.5°）。",
+    "en": "a. Relating to or characteristic of the tropics; hot and humid as in the tropics. n. Either of the two parallels at about 23.5° north or south latitude.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/tropic",
+    "enSourceUrl": "https://en-word.net/lemma/tropic",
+    "note": "恢复原文被截断的形容词义，并在中文中增加对应词性和释义。"
+  },
+  "virus": {
+    "zh": "n. 病毒；由蛋白外壳包裹核酸的感染因子；有害或腐蚀性影响；计算机病毒。",
+    "en": "n. An infectious agent that replicates only within living cells; a nucleic-acid particle in a protein coat; a harmful or corrupting influence; a self-replicating computer program.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/virus",
+    "enSourceUrl": "https://en-word.net/lemma/virus",
+    "note": "区分生物病毒、有害影响和计算机病毒，补入中文未显出的计算机义。"
+  },
+  "volt": {
+    "zh": "n. 伏特：电势差的国际单位，等于每安培一瓦或一安培流过一欧姆时两端的电势差。",
+    "en": "n. The SI unit of electric potential difference, equal to one watt per ampere or the potential difference across one ohm at one ampere.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/volt",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复被截断的定义尾部，补足伏特单位关系。"
+  },
+  "well": {
+    "zh": "adv. 好地、妥当地、熟练地；充分地、适当地。a. 健康的；良好的、有利的、明智的。n. 井；泉源；容液的腔或容器。v. （液体）涌出。",
+    "en": "adv. In a good, proper, satisfactory, or skillful manner; fully or to a suitable degree. a. In good health; favorable, wise, or advisable. n. A deep shaft for water, oil, or gas; a source or liquid-containing cavity. v. To rise or flow up, as liquid.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/well",
+    "enSourceUrl": "https://en-word.net/lemma/well",
+    "note": "按中文现有词性和释义筛出 well 的常用副词、形容词、名词和动词义，排除楼梯井/船舱等未译义。"
+  },
+  "when": {
+    "zh": "adv. 何时、什么时候；在……时、在……之后。conj. 当……时；既然、由于；而、却、虽然。pron. 什么时间、哪个时候。n. 发生的时间。",
+    "en": "adv. At what time?; at or just after the time that. conj. At or during the time that; since, given that; whereas, although. pron. What time; which time. n. The time at which something happens.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/when",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/when",
+    "note": "逐项区分词性：Wiktionary 将 whereas/although 等列为 conjunction，疑问/时间用法列为 adverb，并收 pronoun 与 noun；对应中文改为逐类标注。"
+  },
+  "whin": {
+    "zh": "n. 荆豆、金雀花等多刺常绿灌木；可制黄色染料的小灌木。",
+    "en": "n. A dense, spiny evergreen shrub with fragrant yellow flowers, especially gorse or furze; also, a small shrub used for yellow dye.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/whin",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "限定为中文所列灌木/荆豆义，删除没有对应中文的硬质岩石义。"
+  },
+  "white": {
+    "zh": "a. 白色的；白种人的；纯洁的；有雪的；空白的；苍白的；（头发）变白的。n. 白色、洁白；蛋白、眼白；白人；棋类中的白方棋子。",
+    "en": "a. Of the achromatic color of greatest lightness; light-skinned; pure or morally unsullied; snow-covered; blank or unmarked; pale; (of hair) having lost color. n. The color white; the white of an egg or eye; a white person; the lighter pieces in a game.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/white",
+    "enSourceUrl": "https://en-word.net/lemma/white",
+    "note": "只保留小写普通形容词/名词义，排除大写姓氏、作家、河流及政治人物；补齐蛋白/眼白等对应项。"
+  },
+  "who": {
+    "zh": "pron. 谁；用于询问或指代某人；引导指人的关系从句，可作主语或宾语；……的人、任何人。",
+    "en": "pron. What person or people; asks for a person’s identity; introduces a relative clause referring to a human antecedent, as subject or object; whoever or the person who.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/who",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/who",
+    "note": "大小写核对后保留小写疑问/关系代词，删除大写 WHO（联合国机构）的异形义。"
+  },
+  "window": {
+    "zh": "n. 窗户、窗子；车窗；信封透明窗；类似窗户的开口、窗口。v. 给……开窗、装窗。",
+    "en": "n. A framed opening fitted with glass; a vehicle window; a transparent panel in an envelope; an opening resembling a window. v. To furnish or fit with windows.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/window",
+    "enSourceUrl": "https://en-word.net/lemma/window",
+    "note": "恢复窗体各义并补入中文已有的动词“给……开窗”。"
+  },
+  "worm": {
+    "zh": "n. 蠕虫；卑劣小人物；计算机蠕虫病毒；蜗杆、螺纹。v. 蠕动；慢慢前进或设法钻行。",
+    "en": "n. A small elongated soft-bodied animal; a contemptible person; a self-replicating computer program; a screw thread on a gear. v. To move in a twisting motion; to move or work one’s way gradually.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/worm",
+    "enSourceUrl": "https://en-word.net/lemma/worm",
+    "note": "补足中文已有的计算机蠕虫、螺纹及慢慢移动义，并修正搭配。"
+  },
+  "yew": {
+    "zh": "n. 紫杉；紫杉木（细密坚韧，可制家具和弓）。",
+    "en": "n. An evergreen tree or shrub with red cup-shaped berries and flattened needlelike leaves; its durable fine-grained wood.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/yew",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补入英文中木材义对应的“紫杉木”。"
+  },
+  "yoga": {
+    "zh": "n. 瑜伽：追求精神洞见与宁静的印度修行；通过体位、呼吸和冥想控制身心的练习体系。",
+    "en": "n. A Hindu discipline for spiritual insight and tranquility; a system of physical, breathing, and meditation exercises to control body and mind.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/yoga",
+    "enSourceUrl": "https://en-word.net/lemma/yoga",
+    "note": "补齐传统修行与现代身体/呼吸/冥想练习两义。"
+  },
+  "zen": {
+    "zh": "n. 禅宗；通过禅修和直觉获得觉悟的教义。",
+    "en": "n. A school of Mahayana Buddhism emphasizing meditation and intuitive enlightenment; the doctrine that enlightenment is attained through direct insight.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/zen",
+    "enSourceUrl": "https://en-word.net/lemma/zen",
+    "note": "删除同形俚语 LSD 义；按大写 Zen 的佛教词条只保留与中文禅宗对应的宗教义。"
+  },
+  "zinc": {
+    "zh": "n. 锌：蓝白色金属，常温下较脆，用于合金和镀层。v. 镀锌。",
+    "en": "n. A bluish-white lustrous metal, brittle at ordinary temperatures and used in alloys and galvanizing. v. To coat or cover with zinc.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/zinc",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复截断的元素特征说明，中文补足金属及镀锌动词。"
+  },
+  "zodiac": {
+    "zh": "n. 黄道带；黄道十二宫图。",
+    "en": "n. The belt of the heavens along the ecliptic, divided into twelve constellations or signs; a circular diagram showing those signs.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/zodiac",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复“显示十二星座符号的圆形图”完整定义，与中文两项对应。"
+  },
+  "seepy": {
+    "zh": "a. 渗水的；（土地）沼泽状、排水不良的。",
+    "en": "a. That seeps; (of land) boggy or marshy, with poor drainage.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/seepy",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/seepy",
+    "note": "依独立词典区分渗水与土地排水差义，修正旧译“充满水分”的含混表达。"
+  },
+  "shacks": {
+    "zh": "n. shack 的复数：简陋棚屋。v. shack 的第三人称单数现在时：在某处或某社区居住。",
+    "en": "n. Plural of shack, a small crude shelter; v. Third-person singular simple present of shack, to live in a particular place or community.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/shacks",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/shacks",
+    "note": "补回原文中被截断的动词义，并使两种词形各自对应中文。"
+  },
+  "thon": {
+    "zh": "pron. （拟议、罕用）中性第三人称单数主格代词“他们/她们”及宾格代词“他们/她们”；苏格兰语 a. 那边的、那个。",
+    "en": "pron. A rare, nonstandard gender-neutral singular subject pronoun corresponding to they, and object pronoun corresponding to them; Scots a. yon, that.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/thon",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/thon",
+    "note": "恢复被截断的主格/宾格区分，并保留原英文末尾 Scots yon 义。"
+  },
+  "tins": {
+    "zh": "n. tin 的复数：锡、马口铁；锡罐、铁皮罐。",
+    "en": "n. Plural of tin: the metal or containers made of tinplate.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tins",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tins",
+    "note": "按小写 tins 的词形页改为 tin 的复数，排除错误的大写缩写 TINS（夜视系统）。"
+  },
+  "trees": {
+    "zh": "n. tree 的复数：树木；树状结构。v. tree 的第三人称单数现在时：把动物赶上树或困在树上；种树、植树。",
+    "en": "n. Plural of tree: woody plants or a branching diagram. v. Third-person singular simple present of tree: to drive an animal up a tree or trap it there; to furnish or plant with trees.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/trees",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补回被截断的植物与树状结构定义，并为 tree 的动词词形补齐中文。"
+  },
+  "unrove": {
+    "zh": "v. 拆开、松散已经捻合的纺织纤维。",
+    "en": "v. To separate textiles that have been roved or twisted together.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/unrove",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/unrove",
+    "note": "纠正旧译的 unreeve 过去式说法；词典将 unrove 收作拆解捻合纺织物的动词。"
+  },
+  "waged": {
+    "zh": "a. 领取工资的、有薪水的。v. wage 的过去式和过去分词：发动、进行（战争、战役或运动）。",
+    "en": "a. Receiving a wage. v. Simple past and past participle of wage: to carry on a war, battle, or campaign.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/waged",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/waged",
+    "note": "恢复形容词“有薪水的”与战争动词过去式两项，修正旧文把 wage 本义当成 waged 词形。"
+  },
+  "volts": {
+    "zh": "n. volt 的复数：伏特（电势差的国际单位）。",
+    "en": "n. Plural of volt, the SI unit of electric potential difference.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/volts",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "用精确词形页核实复数，并以 volt 的词典定义补全单位义。"
+  },
+  "worms": {
+    "zh": "n. worm 的复数：蠕虫；卑劣的人；计算机蠕虫；蜗杆、螺纹。v. worm 的第三人称单数现在时：蠕动。",
+    "en": "n. Plural of worm: elongated soft-bodied animals, contemptible people, computer worms, or screw threads. v. Third-person singular simple present of worm: to move in a twisting motion.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/worms",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补齐原文截断后的几类 worm 名词义及动词词形，并与中文逐项对应。"
+  },
+  "yews": {
+    "zh": "n. yew 的复数：紫杉树或灌木；紫杉木。",
+    "en": "n. Plural of yew: evergreen trees or shrubs with red cup-shaped berries; also, their fine-grained wood.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/yews",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "依据词形页确认复数，并补入词典中与中文对应的木材义。"
+  },
+  "spoors": {
+    "zh": "n. spoor 的复数：动物留下的踪迹或气味，追踪者据以追踪的线索。v. spoor 的第三人称单数现在时：循踪追踪。",
+    "en": "n. Plural of spoor: tracks or scent left by an animal; what a tracker follows. v. Third-person singular simple present of spoor: to track by following a spoor.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/spoors",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "核实 noun plural 与 verb 3sg 两种词形；补入中文缺少的动词循踪义。"
+  },
+  "subs": {
+    "zh": "n. sub 的复数：潜艇、潜艇三明治、替补人员、下属、订户。v. sub 的第三人称单数现在时：替代、替补、代课或订阅。",
+    "en": "n. Plural of sub: submarines, submarine sandwiches, substitutes, subordinates, or subscriptions/subscribers. v. Third-person singular simple present of sub: substitutes, replaces, teaches as a substitute, or subscribes.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/subs",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "按 sub/subs 词典条目筛选与原译相符的名词和动词义，删除未能证实的“胶层、傻子”等解释。"
+  },
+  "tatars": {
+    "zh": "n. Tatar 的复数：鞑靼人、塔塔尔人（东欧、俄罗斯及中亚的突厥语族群）。",
+    "en": "n. Plural of Tatar: members of Turkic-speaking ethnic groups of Eastern Europe, Russia, and Central Asia.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tatars",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "词典确认 Tatars 是 Tatar 的复数；按小写页的 Swedish 同形义区分后，配对英语民族名。"
+  },
+  "thraw": {
+    "zh": "v. （苏格兰语）扭转、拧；扭动、蜷曲；行为乖僻。n. 剧烈阵痛或痉挛；强烈情绪发作。",
+    "en": "v. (Scots) To twist or wrench; to writhe or wriggle; to act perversely. n. A severe pang or spasm of pain or feeling.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/thraw",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/thraw",
+    "note": "根据 Scots 词条恢复名词与动词义，修正原中文将 thraw 概括为“不一致/盘绕”的不完整对应。"
+  },
+  "tongas": {
+    "zh": "n. tonga（印度双轮马车）的复数。",
+    "en": "n. Plural of tonga: light, two-wheeled horse-drawn carriages used in India.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tonga",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tonga",
+    "note": "Wiktionary 明列小写 tonga 的复数为 tongas，并定义其为印度等地使用的双轮马车；未把单数雅司病地方名扩展为复数义，也未混入大写 Tonga。"
+  },
+  "tufter": {
+    "zh": "n. 簇绒机（如地毯簇绒机）；操作或使用簇绒机的人。",
+    "en": "n. A machine that forms tufts, such as a carpet-tufting machine; a person who operates or uses such a machine.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tufter",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tufter",
+    "note": "词典释义是簇绒设备及其操作者；修正原中文“驱赶者、装衬物者”的错译。"
+  },
+  "vats": {
+    "zh": "n. vat 的复数：盛放或处理液体的大桶、大盆；VAT（增值税）的复数。v. vat 的第三人称单数现在时：把……放入大桶处理。",
+    "en": "n. Plural of vat: large open vessels for holding or processing liquids; plural of VAT, value-added taxes. v. Third-person singular simple present of vat: to put or process in a vat.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/vats",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "用词形页确认 vats 的名词和动词形式，结合 vat/VAT 词典义修正错误的“varieties”缩写译法。"
+  },
+  "yelm": {
+    "zh": "n. （方言）铺直用于盖茅屋的草捆。v. 把草理齐铺直，用作饲料或茅草。",
+    "en": "n. (Dialectal) A straight-laid bundle of straw used for thatching. v. To choose and lay out straw straight for animal fodder or thatching.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/yelm",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/yelm",
+    "note": "恢复原文截断的草捆名词及整理铺草动词，并将动词义补进中文。"
+  },
+  "yill": {
+    "zh": "n. 喊叫；（苏格兰语）麦芽酒、艾尔啤酒。v. （古语/方言）大声喊叫。",
+    "en": "n. A yell; (Scots) ale. v. (Archaic/dialectal) To yell.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/yill",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "保留英格兰方言喊叫与苏格兰语 ale 两个词源义，补入原中文漏掉的喊叫词性。"
+  },
+  "zoa": {
+    "zh": "n. zoon 的复数；大写缩写 ZOA：美国犹太复国组织。",
+    "en": "n. Plural of zoon. Also, ZOA is the initialism for the Zionist Organization of America.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://www.ahdictionary.com/word/search.html?q=zoa",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "分别标明小写生物学复数和大写机构缩写，保留原中文列出的两个合法义项。"
+  },
+  "pell": {
+    "zh": "n. 一卷羊皮纸；兽皮、毛皮。v. 掷打、殴打。",
+    "en": "n. A roll of parchment; a hide or skin. v. To pelt or knock about.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/pell",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/pell",
+    "note": "改用与中文“羊皮纸卷”相符的古义，并补回兽皮义和原词的动词义。"
+  },
+  "potto": {
+    "zh": "n. 树熊猴：原产中非热带森林的 Perodicticus 属夜行灵长类。",
+    "en": "n. A small nocturnal primate of the genus Perodicticus, native to tropical African forests.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/potto",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/potto",
+    "note": "排除美国 kinkajou 的同形混淆，改为中文所指的中非树熊猴。"
+  },
+  "puffed": {
+    "zh": "a. 膨胀的、鼓起的；（布料）打褶鼓起的、蓬松的。",
+    "en": "a. Swollen or expanded; gathered into rounded folds or ridges; inflated.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/puffed",
+    "enSourceUrl": "https://en-word.net/lemma/puffed",
+    "note": "按原中文形容词“疏松”恢复 puffed 的形态义，不再列出未译出的吸烟、喘气等动词义。"
+  },
+  "quints": {
+    "zh": "n. 五；五胞胎之一。",
+    "en": "n. The number five; one of five children born in the same pregnancy (a quintuplet).",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/quints",
+    "enSourceUrl": "https://en-word.net/lemma/quints",
+    "note": "补入原英文中的数词义，并把五胞胎义翻成中文全称。"
+  },
+  "raining": {
+    "zh": "n. 降雨、雨淋；（化）淋降现象。",
+    "en": "n. A fall of rain; falling in drops or as if falling like rain. In chemistry, deposition or precipitation from the atmosphere.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://www.collinsdictionary.com/dictionary/english/raining",
+    "enSourceUrl": "https://www.collinsdictionary.com/dictionary/english/raining",
+    "note": "将常规降雨义与词典所标的化学淋降义分别列出，避免只保留截断的英语定义。"
+  },
+  "rami": {
+    "zh": "n. ramus 的复数：分支；（解剖）下颌支、神经或血管支。",
+    "en": "n. Plural of ramus: branches, especially the ascending part of the mandible or branches of nerves and vessels.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/rami",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/rami",
+    "note": "修正原英文只写下颌后部、中文只写复数的错位，按 ramus 的复数及解剖义配对。"
+  },
+  "ramus": {
+    "zh": "n. 分支；（解剖）神经或血管支、下颌支。",
+    "en": "n. A branch, especially a branch of a nerve or blood vessel; the ascending posterior part of the mandible.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/ramus",
+    "enSourceUrl": "https://en-word.net/lemma/ramus",
+    "note": "将“下颌支”纳入中文，避免把词典中的解剖学特指仅译为泛泛的枝条。"
+  },
+  "rarest": {
+    "zh": "a. rare 的最高级：最稀有的、最罕见的、最珍贵的。",
+    "en": "a. Superlative of rare: most uncommon, scarce, or exceptional.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/rarest",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/rarest",
+    "note": "把原文中 unrelated “not widely known/low density”同形定义改为 rare 的最高级，并补齐词形关系。"
+  },
+  "rase": {
+    "zh": "v. 铲平、拆毁；抹去、消除（文字或记忆）。",
+    "en": "v. To raze or demolish; to erase or efface.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/rase",
+    "enSourceUrl": "https://en-word.net/lemma/rase",
+    "note": "把“夷平”与“抹去/消除”两种近形拼写义分列，补齐中文对应。"
+  },
+  "ratoon": {
+    "zh": "n. 根蘖、再生芽；藤条。v. 生根蘖、长出再生芽。",
+    "en": "n. A new shoot growing from the base of a crop after harvesting; a rattan cane. v. To produce ratoons.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ratoon",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/ratoon",
+    "note": "补译原英文另列的藤条义，并保留根蘖名词及生根蘖动词。"
+  },
+  "ravin": {
+    "zh": "n. 掠夺物、战利品；（动物）捕食、猎食；贪婪。",
+    "en": "n. Prey or property seized by force; plunder. Of an animal, the act of seizing or devouring prey; rapacity.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ravin",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/ravin",
+    "note": "恢复 ravin 的猎食/掠夺名词义，排除误把 ravenous/ravine 的释义混在一起。"
+  },
+  "reaches": {
+    "zh": "n. 河段、河道；范围、限度。v. reach 的第三人称单数：到达、达到。",
+    "en": "n. Plural of reach: stretches or limits, especially a stretch of river. v. Third-person singular simple present of reach: arrives at or attains.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/reaches",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/reaches",
+    "note": "将中文的河段/流域义补入英文，并补上该词形的动词义。"
+  },
+  "redraw": {
+    "zh": "vt. 重画、重新绘制；重新起草。vi. （计算机）重画、刷新显示。",
+    "en": "v. To draw again; to revise or make a new draft; to redraw or refresh a display.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/redraw",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/redraw",
+    "note": "补上中文列出的屏幕刷新义，并保留重画、重拟草图及票据重开义。"
+  },
+  "redraws": {
+    "zh": "v. redraw 的第三人称单数现在时：重画、刷新屏幕。n. redraw 的复数：重新绘制或刷新。",
+    "en": "v. Third-person singular simple present of redraw; n. plural of redraw (an act of drawing or screen refresh).",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/redraws",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/redraws",
+    "note": "将动词刷新屏幕义补入中文，并明确 -s 词形可作名词复数或动词第三人称单数。"
+  },
+  "redrill": {
+    "zh": "vt. 再钻、重新钻孔；（农业）再次条播。",
+    "en": "v. To drill again or anew; in agriculture, to sow again in drill rows.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/redrill",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/redrill",
+    "note": "补上农业条播义，使英文与中文“再次条播”完全对应。"
+  },
+  "revile": {
+    "zh": "v. 辱骂、斥责；恶言攻击。",
+    "en": "v. To criticize or abuse someone angrily; to speak of someone in a contemptuous or insulting way.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/revile",
+    "enSourceUrl": "https://en-word.net/lemma/revile",
+    "note": "把含混的“散布负面信息”改为词典中的辱骂、恶语攻击义。"
+  },
+  "riff": {
+    "zh": "n. （爵士或摇滚乐）连复段、反复乐句。v. 浏览、翻阅书籍或其他文字材料。",
+    "en": "n. A repeated musical phrase, especially a short jazz or rock motif. v. To browse or riffle through a book or other written material.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/riff",
+    "enSourceUrl": "https://en-word.net/lemma/riff",
+    "note": "补回与原英文并列的“浏览文字”动词义，并增加对应中文。"
+  },
+  "roband": {
+    "zh": "n. （航海）束帆索：把帆系在横桁或桅杆上的短绳。",
+    "en": "n. (Nautical) A ropeband: a short cord used to secure a sail to a yard or spar.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/roband",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/roband",
+    "note": "用航海词典确认 roband 是 ropeband，补明其束帆用途以对应中文。"
+  },
+  "rod": {
+    "zh": "n. 杆、竿；杆状细菌；细枝。",
+    "en": "n. A long thin implement of metal or wood; a rod-shaped bacterium; a slender branch or twig.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/rod",
+    "enSourceUrl": "https://en-word.net/lemma/rod",
+    "note": "把英文的杆状菌义及中文的细枝义补入对应项。"
+  },
+  "rollout": {
+    "zh": "n. 推出、首次发布；逐步部署；飞机着陆后减速滑跑阶段。",
+    "en": "n. An act of rolling something out; a gradual launch or deployment; the aircraft phase after touchdown before taxiing.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/rollout",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/rollout",
+    "note": "补齐中文“首次展示”所对应的发布义及原英文中飞机着陆滑跑义。"
+  },
+  "romance": {
+    "zh": "n. 恋爱关系；浪漫或冒险故事、传奇文学。v. 向某人求爱、示爱。",
+    "en": "n. A love relationship; a romantic or adventurous story or literary genre. v. To court or make amorous advances toward someone.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/romance",
+    "enSourceUrl": "https://en-word.net/lemma/romance",
+    "note": "补入原中文的传奇/冒险故事名词义，并保留英文恋爱关系及求爱动词义。"
+  },
+  "roto": {
+    "zh": "n. rotogravure（轮转照相凹版印刷）的缩略形式。",
+    "en": "n. Clipping of rotogravure, a rotary photogravure printing process.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/roto",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/roto",
+    "note": "按中文词典限定为 rotogravure 的美式缩略语，不把棒球或运动统计的另义混入。"
+  },
+  "rotos": {
+    "zh": "n. roto（rotogravure 的缩略形式）的复数；也可作 roto 的第三人称单数现在时。",
+    "en": "n. Plural of roto (rotogravure); also, third-person singular simple present of roto.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/rotos",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/rotos",
+    "note": "明确原中文指 rotogravure 的复数形式，并补齐该词形页另列的动词形式。"
+  },
+  "roust": {
+    "zh": "vt. 唤醒、驱逐、鼓舞。vi. 勤奋工作。n. 强潮、急流（尤指狭窄水道）。",
+    "en": "v. To rouse, disturb, or drive someone out; to work hard. n. A strong tide or current, especially in a narrow channel.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/roust",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/roust",
+    "note": "恢复原英文的名词潮流义，并保留现有中文的唤醒、驱逐和工作动词义。"
+  },
+  "rowdy": {
+    "zh": "a. 吵闹的、粗野的、扰乱治安的。n. 闹事者、暴徒。",
+    "en": "a. Loud, rough, and disorderly; disturbing the public peace. n. A noisy, unruly, sometimes violent person.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/rowdy",
+    "enSourceUrl": "https://en-word.net/lemma/rowdy",
+    "note": "将“残暴之人”与吵闹、粗野行为者配对，补入中文名词义。"
+  },
+  "rubbish": {
+    "zh": "n. 废物、垃圾；胡说。vt. 严厉批评、驳斥。",
+    "en": "n. Worthless material or refuse; nonsense. v. (British) To criticize or dismiss something strongly.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/rubbish",
+    "enSourceUrl": "https://en-word.net/lemma/rubbish",
+    "note": "将英语中作动词的 attack strongly 与中文“斥责/驳斥”区分，避免只用名词翻译。"
+  },
+  "rugged": {
+    "zh": "a. 结实耐用的；崎岖、粗糙不平的；表面有长而浅的沟槽或皱纹的。",
+    "en": "a. Strong and durable; rough or uneven in surface; having long shallow grooves or wrinkles.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/rugged",
+    "enSourceUrl": "https://en-word.net/lemma/rugged",
+    "note": "补上原文中的强健耐用义及表面沟纹义，中文不再只对应“崎岖”。"
+  },
+  "saccade": {
+    "zh": "n. 眼睛在注视点间快速跳动；（骑术）猛拉缰绳使马骤然停步。",
+    "en": "n. A rapid, jerky movement of the eyes between fixation points; a quick check of a horse with one strong pull of the reins.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://www.dictionary.com/browse/saccade",
+    "enSourceUrl": "https://www.dictionary.com/browse/saccade",
+    "note": "词典确认该词兼有眼球运动与勒马动作两义；中文补齐后者。"
+  },
+  "saul": {
+    "zh": "n. 扫罗：以色列的第一位君王；亦作男子名。",
+    "en": "n. Saul, the first king of the Israelites; also a male given name.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/Saul",
+    "enSourceUrl": "https://en-word.net/lemma/Saul",
+    "note": "补入词典条目中的圣经人物义，保留中文音译人名。"
+  },
+  "scarce": {
+    "zh": "a. 缺乏的、数量不足的；稀少的、难得的。adv. 几乎不、仅仅；刚刚、差一点。",
+    "en": "a. Deficient in quantity or number; rare or hard to find. adv. Only just; barely; shortly before.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/scarce",
+    "enSourceUrl": "https://en-word.net/lemma/scarce",
+    "note": "补入英语词典的“刚刚/仅仅”副词义并与中文稀少、缺乏形容词义分列。"
+  },
+  "selling": {
+    "zh": "n. 销售、出售。a. 有销路的、畅销的。",
+    "en": "n. The exchange of goods for an agreed price. a. Of a product or quality: attractive to buyers or likely to sell well.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/selling",
+    "enSourceUrl": "https://en-word.net/lemma/selling",
+    "note": "补齐英文中“selling”作定语表示销路好的义，与中文原译“销路好”对应。"
+  },
+  "sensing": {
+    "zh": "n. 感知、察觉；传感器或仪器的检测、测知；测向或偏航显示。",
+    "en": "n. Becoming aware through the senses; detection or measurement by a sensor or instrument, including direction or deviation indication.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/sensing",
+    "enSourceUrl": "https://en-word.net/lemma/sensing",
+    "note": "以原中文的电学/测向词义为准，补足英文对应的仪器检测义，而非只保留泛指“察觉”。"
+  },
+  "sent": {
+    "zh": "v. send 的过去式和过去分词：送去、传送、传达。n. 爱沙尼亚克朗的百分之一（100 senti 为1 kroon）。",
+    "en": "v. Simple past and past participle of send: caused or enabled to go, conveyed, or transmitted. n. A subdivision of the Estonian kroon; 100 senti equaled one kroon.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/sent",
+    "enSourceUrl": "https://en-word.net/lemma/sent",
+    "note": "保留 send 词形及货币单位两义；补入中文缺失的 sent 旧货币单位。"
+  },
+  "sexts": {
+    "zh": "n. sext 的复数：天主教日课中的第六时祷（约中午）。v. sext 的第三人称单数现在时：发送露骨性信息。",
+    "en": "n. Plural of sext, the fourth of the canonical hours, traditionally observed around noon; v. Third-person singular simple present of sext, to send sexually explicit messages.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sexts",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/sexts",
+    "note": "补入词典词形页所列的 verb sexts 义，并把 sext 的祷告时刻翻译准确。"
+  },
+  "shanty": {
+    "zh": "n. 简陋棚屋；船夫或水手劳动时唱的号子。",
+    "en": "n. A small crude dwelling; a rhythmic work song originally sung by sailors.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/shanty",
+    "enSourceUrl": "https://en-word.net/lemma/shanty",
+    "note": "补入英文原有的水手工作歌义及对应中文“号子”。"
+  },
+  "shawn": {
+    "zh": "n. 肖恩（人名，通常为男子名）；特德·肖恩（美国舞蹈家、编舞家）。",
+    "en": "n. Shawn, a given name; also, Ted Shawn, the American dancer and choreographer who collaborated with Ruth St. Denis.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/Shawn",
+    "enSourceUrl": "https://en-word.net/lemma/Shawn",
+    "note": "区分普通人名与该英文词条所指舞蹈家，补足原中文中缺失的具体人物。"
+  },
+  "shelled": {
+    "zh": "a. 带壳的；（食物）已去壳/去荚的。v. shell 的过去式和过去分词。",
+    "en": "a. Having a shell; (of food) having had the shell or husk removed. v. Past tense and past participle of shell.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/shelled",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/shelled",
+    "note": "保留 shelled 的反义两用（有壳/已去壳），这是英文词形的两个可证义项，中文分别标明。"
+  },
+  "shire": {
+    "zh": "n. 英格兰旧行政区（相当于郡）；夏尔马（一种体型高大、重型挽马）。",
+    "en": "n. A former English administrative district equivalent to a county; a breed of large, heavy draft horse.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/shire",
+    "enSourceUrl": "https://en-word.net/lemma/shire",
+    "note": "补回中文未列出的 Shire 马种义，并保留郡的行政区义。"
+  },
+  "shrank": {
+    "zh": "v. shrink 的过去式：缩小、收缩（如因失水而缩水）。",
+    "en": "v. Simple past of shrink: became smaller or contracted, as from loss of moisture.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/shrank",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/shrank",
+    "note": "删除原英文混入的 psychiatrist/shrink 名词义，按中文词形只保留过去式。"
+  },
+  "shrunk": {
+    "zh": "v. shrink 的过去式和过去分词：缩小、收缩。",
+    "en": "v. Simple past and past participle of shrink: became smaller or contracted.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/shrunk",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/shrunk",
+    "note": "删除来自名词 shrink 的精神科医生义，恢复该词形的完整动词定义。"
+  },
+  "sic": {
+    "zh": "adv. 原文如此（置于引文后表示照原文保留）。v. 唆使狗或人攻击。",
+    "en": "adv. Thus; so; used after a quoted word or phrase to show it is reproduced exactly as in the source. v. To urge or set a dog or person to attack.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sic",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/sic",
+    "note": "补入英语中动词 sic（唆使攻击）义及其中文，保留引文标记义。"
+  },
+  "sider": {
+    "zh": "n. 支持一方或加入某一派别的人；（废旧）苹果酒。",
+    "en": "n. One who takes a side or joins a party; an obsolete form of cider.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://1828.mshaffer.com/d/word/sider",
+    "enSourceUrl": "https://1828.mshaffer.com/d/word/sider",
+    "note": "将中文“帮派成员”改为更准确的站队/加入一方，并补入词典所列 cider 旧义。"
+  },
+  "simple": {
+    "zh": "a. 简单的、朴素的、不复杂的；真诚不做作的。n. 药草；出身低微者；傻子。",
+    "en": "a. Having few parts; plain, uncomplicated, or not elaborate; sincere or unpretentious. n. A medicinal herb; a person of low rank; a fool.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/simple",
+    "enSourceUrl": "https://en-word.net/lemma/simple",
+    "note": "将原文的药草义与中文名词项、形容词常用义对应，补全英文未覆盖的“出身低微者/傻子”。"
+  },
+  "skein": {
+    "zh": "n. 一绞纱线；飞鸟群（尤指雁群）；错综复杂的一团事物或局面。",
+    "en": "n. A coil or length of yarn; a flock of flying geese or other birds; a tangled or complex situation.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/skein",
+    "enSourceUrl": "https://en-word.net/lemma/skein",
+    "note": "补齐中文已列的飞鸟群和纠纷/错综义，英文不再只解释纱线。"
+  },
+  "skimpy": {
+    "zh": "a. 不足的、稀少的；（衣着）暴露的、遮盖不足的。",
+    "en": "a. Scanty or inadequate; (of clothing) revealing more of the body than usual.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/skimpy",
+    "enSourceUrl": "https://en-word.net/lemma/skimpy",
+    "note": "恢复英文中衣着暴露义，并把“吝啬”改成更精确的不足/少量。"
+  },
+  "skin": {
+    "zh": "n. 皮肤、表皮。v. 剥皮；擦伤皮肤；植皮；艰难攀爬；蜕皮。",
+    "en": "n. The body’s protective outer covering and organ of touch. v. To remove the skin or outer covering; to graze or injure the skin; to graft skin; to climb awkwardly; to shed skin.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/skin",
+    "enSourceUrl": "https://en-word.net/lemma/skin",
+    "note": "将皮肤、剥皮、植皮、愈合/蜕皮等义与英文动词逐项配对，未再遗漏原有动词项。"
+  },
+  "skirr": {
+    "zh": "n. 轰轰/刮擦声（尤指鸟翼飞动声）；燕鸥。v. 急速移动、飞掠；迅速搜查或跑过。",
+    "en": "n. A whirring or grating sound, especially of wings in flight; also, a tern. v. To move or fly rapidly; to scour or run over an area.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://www.collinsdictionary.com/dictionary/english/skirr",
+    "enSourceUrl": "https://www.collinsdictionary.com/dictionary/english/skirr",
+    "note": "通过 Collins 和 Wiktionary 区分声音、鸟名及快速移动/搜查动词，保留中文已有的两类义。"
+  },
+  "slashed": {
+    "zh": "v. slash 的过去式和过去分词：挥砍、割破、削减。a. 有长窄切口或露出衬底装饰的。",
+    "en": "v. Simple past and past participle of slash: cut, strike, or reduce sharply. a. Cut with long narrow openings; decorated with contrasting fabric showing through.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/slashed",
+    "enSourceUrl": "https://en-word.net/lemma/slashed",
+    "note": "补回原英文的色彩/服饰装饰义，并区分动词砍割与形容词 slashed pattern。"
+  },
+  "slung": {
+    "zh": "v. sling 的过去式和过去分词：投掷、悬挂或用吊带携带。",
+    "en": "v. Simple past and past participle of sling: threw, hung, or carried in a sling.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/slung",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/slung",
+    "note": "删除误把 sling 鸡尾酒义并入 slung 的写法，按中文词形恢复 sling 的动词过去式。"
+  },
+  "sorb": {
+    "zh": "n. 山梨树的酸涩果实；山梨树。v. 吸附、吸收液体或气体。",
+    "en": "n. The acid, gritty-textured fruit of the service tree. v. To take up a liquid or gas by adsorption or absorption.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/sorb",
+    "enSourceUrl": "https://en-word.net/lemma/sorb",
+    "note": "补回英文原有的果实义，并以树/果实区分中文名词和吸收动词。"
+  },
+  "stating": {
+    "zh": "n. 陈述、说明。v. state 的现在分词：用言语表达、提出或指出。",
+    "en": "n. The act of expressing something in words; a statement or explanation. v. Present participle of state: express in words, put before, or indicate.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/stating",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/stating",
+    "note": "将中文的名词性“叙述/说明”与原英文动词及其 -ing 词形对应。"
+  },
+  "stems": {
+    "zh": "n. stem 的复数：茎；词干；管状或杆状部件。v. stem 的第三人称单数：源自；阻止、遏止。",
+    "en": "n. Plural of stem: plant stalks; word forms left after affixes are removed; upright pipes or shafts. v. Third-person singular of stem: to originate from; stop or restrain a flow.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/stems",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/stems",
+    "note": "补回词干、管状部件及动词源自/阻止义，并逐项对应原中文。"
+  },
+  "stoke": {
+    "zh": "v. 添燃料、照料炉火；激起、加强。（口语 stoke up）大量进食。",
+    "en": "v. To add fuel to and tend a fire or furnace; to stir up or intensify. (informal, stoke up) To eat a large amount.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/stoke",
+    "enSourceUrl": "https://en-word.net/lemma/stoke",
+    "note": "将“司炉”和“（使）大吃”分别对应到照料炉火与 stoke up 口语义。"
+  },
+  "stored": {
+    "zh": "a. 储存的、保存起来的。v. store 的过去式和过去分词：储存、存放。",
+    "en": "a. Kept or put away for future use. v. Simple past and past participle of store: to keep or lay aside for future use.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/stored",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/stored",
+    "note": "把中文“储存的”与动词过去分词对应，并补回词形项英文说明。"
+  },
+  "thein": {
+    "zh": "n. 茶碱、咖啡因（theine 的异拼）；（古）领主、贵族（thane 的旧拼）。",
+    "en": "n. Alternative spelling of theine (caffeine); also, an obsolete form of thane, a feudal lord or noble.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/thein",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/thein",
+    "note": "补全原英文的 thane 旧拼写义，并译出对应的领主/贵族含义。"
+  },
+  "tole": {
+    "zh": "n. 托勒彩绘金属器：施以珐琅或漆、常镀金并精细彩绘的金属器皿。",
+    "en": "n. Toleware: enameled or lacquered metalware, often gilded and elaborately painted, especially popular in the 18th century.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/tole",
+    "enSourceUrl": "https://en-word.net/lemma/tole",
+    "note": "原译“马口铁、金属薄片”错把材质当器物；按词典的彩绘漆金属器义重译。"
+  },
+  "tower": {
+    "zh": "n. 塔、塔楼；拖带或推动船舶的强力小船。v. 高耸、远高于周围；翱翔。",
+    "en": "n. A tall structure whose height exceeds its diameter; a strong boat used to pull or push ships. v. To rise high above surroundings; to soar.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/tower",
+    "enSourceUrl": "https://en-word.net/lemma/tower",
+    "note": "补齐英文原有的拖船义和动词高耸/翱翔义，并增译对应中文。"
+  },
+  "typo": {
+    "zh": "n. 排印或打字错误；错字。",
+    "en": "n. A typographical or typing error; an error in typed or typeset material.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://www.merriam-webster.com/dictionary/typo",
+    "enSourceUrl": "https://www.merriam-webster.com/dictionary/typo",
+    "note": "Merriam-Webster 将 typo 定义为印刷或打字材料中的错误；未查到“印刷工/排字工”作为 typo 义，已删去该错误义项。"
+  },
+  "recepts": {
+    "zh": "n. recept 的复数：由对相似事物的反复感知形成的概念。",
+    "en": "n. Plural of recept: an idea formed through the repeated experience of similar perceptions.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://www.dictionary.com/browse/recept",
+    "enSourceUrl": "https://www.dictionary.com/browse/recept",
+    "note": "核实心理学专义 recept（recept 的复数）指由多个相似 percept 形成的概念；按此补全英文并译出。"
+  },
+  "toned": {
+    "zh": "a. 有特定声调/音色的；（身体）肌肉结实有线条的。v. tone 的过去式和过去分词。",
+    "en": "a. Having a specified tone; physically fit with defined muscles. v. Simple past and past participle of tone.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/toned",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/toned",
+    "note": "依据词典删除无独立来源支持的“年久变色”义；保留 tone 的词形义与有声调/健美义。"
+  },
+  "tonga": {
+    "zh": "n. 印度乡村用的双轮马车；（历史上萨摩亚）雅司病的地方名称。",
+    "en": "n. A light, two-wheeled, usually horse-drawn carriage used in India; historically, a Samoan local name for yaws.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://www.collinsdictionary.com/dictionary/english/tonga",
+    "enSourceUrl": "https://www.collinsdictionary.com/dictionary/english/tonga",
+    "note": "大小写区分：Collins/Wiktionary确认小写 tonga 为印度双轮马车，1911 Britannica 确认 tonga 是萨摩亚对雅司病的地方名称；不并入大写 Tonga 的国家义。"
+  }
+}

@@ -1,0 +1,632 @@
+{
+  "abhor": {
+    "zh": "vt. 憎恶；痛恨",
+    "en": "v. find repugnant",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/abhor",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/abhor",
+    "note": "词典将及物义释为视为可憎或对其深感厌恶；回避、拒绝并非该义的直接释义，予以收窄。"
+  },
+  "absolute": {
+    "zh": "a. 绝对的；专制的；完全的；独立的 n. 绝对事物",
+    "en": "a. perfect, complete, or pure; complete and without restriction or qualification; not limited by law. n. Something conceived or existing independently and not in relation to other things; something that does not depend on anything else and is beyond human control; something that is not relative.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/absolute",
+    "note": "原英文n.句在“something that is no”处截断；OEWN原始名词义完整句已恢复，且核对形容词/名词词性。保留中文原有义项。"
+  },
+  "ace": {
+    "zh": "n. 幺点；好手；少许；发球得分 a. 一流的；杰出的 v. 轻松成功；（考试等）取得高分",
+    "en": "n. A playing card marked with one spot; the number one; a person who excels; a winning serve in tennis. adj. First-rate; excellent. v. To succeed at easily.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ace",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/ace",
+    "note": "词典核实 ace 的牌面/数值、杰出者、网球制胜发球、优秀及轻松成功等义；重整英文词性与义项使之覆盖中文条目。"
+  },
+  "adoption": {
+    "zh": "n. 采用；采纳；收养",
+    "en": "n. The act of accepting with approval; favorable reception; a legal proceeding that creates a parent-child relation between persons not related by blood; the adopted child is entitled to all privileges belonging to a natural child of the adoptive parents (including the right to inherit); the appropriation of ideas or words from another source.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/adoption",
+    "note": "原英文法律释义在“belonging to a natura”处截断；OEWN恢复为自然父母收养子女之完整定义（含继承权），并另有挪用/借用义。中文原有采用、采纳、收养均保留。"
+  },
+  "aboon": {
+    "zh": "adv., prep. [苏格兰及英格兰方言] 在上方；在上面",
+    "en": "prep., adv. (Scots and UK dialectal) above.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/aboon",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/aboon",
+    "note": "词典还列出adjective和noun方言用法；输入EN与ZH列的是prep./adv.义，作规范化并统一词性格式。"
+  },
+  "akee": {
+    "zh": "n. 阿开木（西非荔枝果树）；其果实仅假种皮可食，其余部分有毒",
+    "en": "n. A tropical tree cultivated for its fragrant flowers and colorful fruit; its red pear-shaped fruit has poisonous seeds and flesh when unripe or overripe.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ackee",
+    "enSourceUrl": "https://en-word.net/lemma/akee",
+    "note": "Wiktionary将akee列为ackee的异体，并列出树及果实两义，说明果实只有假种皮可食、其余有毒；OEWN补足其红色梨形果实以及未熟/过熟时果肉有毒的描述，修正原中文误写并补齐义项。"
+  },
+  "album": {
+    "zh": "n. 唱片集；相册；邮票集",
+    "en": "n. One or more recordings issued together, first on phonograph records and later on tape or CD; a book with blank pages and pockets or envelopes for organizing photographs, stamps, etc.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/album",
+    "note": "原英文在“pockets or en”处截断；OEWN恢复为用于整理照片/邮票的空白页册完整释义，中文对应唱片集和粘贴簿。"
+  },
+  "alder": {
+    "zh": "n. 桤木；桤木木材",
+    "en": "n. A north-temperate shrub or tree with toothed leaves and cone-like fruit; its bark is used in tanning and dyeing, and its rot-resistant wood is used for bridges and other purposes.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/alder",
+    "note": "原英文在“rot-resi”处截断；OEWN完整词条确认桤木和耐腐木材用途，中文补充木材义。"
+  },
+  "almanac": {
+    "zh": "n. 年历；历书；年鉴",
+    "en": "n. An annual publication with forecasts and miscellaneous calendar-organized information; an annual publication of tabular information in a particular field or fields.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/almanac",
+    "note": "原英文在“fiel”处截断；OEWN完整词条恢复专门领域表格资料年鉴这一分义。"
+  },
+  "amicus": {
+    "zh": "n. 法庭之友（向法院提交书面意见或口头陈述的非当事人）",
+    "en": "n. A non-party to a case who submits a brief or presents oral argument in that case; informal shortening of amicus curiae.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/amicus",
+    "note": "Wiktionary将amicus列为amicus curiae的法律非正式简称；“法官的顾问”过窄，改为法庭之友。"
+  },
+  "angina": {
+    "zh": "n. 咽峡炎；心绞痛；（泛指）发作性剧烈疼痛",
+    "en": "n. A disease of the throat or fauces marked by spasmodic attacks of intense suffocative pain; a heart condition marked by paroxysms of chest pain due to reduced oxygen to the heart.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/angina",
+    "note": "OEWN除咽喉疾病外还列心脏供氧不足所致胸痛；中文补充常用医学义心绞痛。"
+  },
+  "anomy": {
+    "zh": "n. 失范；社会道德规范缺失；因缺乏社会调控而产生的孤立和焦虑",
+    "en": "n. A personal state of isolation and anxiety resulting from a lack of social control and regulation; a lack of moral standards in a society.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/anomy",
+    "note": "OEWN的两义为个人孤立焦虑及社会道德规范缺失；原译“无目的性、杂乱”不能准确表达，予以修正。"
+  },
+  "amido": {
+    "zh": "n. 酰氨基；a. 含有或衍生自氨基的",
+    "en": "n. (organic chemistry) The univalent -NH₂ radical when attached via a carboxyl group. a. Containing or derived from amidogen.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/amido",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/amido",
+    "note": "核实词典名词义具体指经羧基连接的-NH2单价基团，形容词指含有或衍生自amidogen；补足中文化学词义说明。"
+  },
+  "airing": {
+    "zh": "n. 短途户外散步或兜风；晾晒；通风；公开讨论",
+    "en": "n. A short excursion in the open air; the act of exposing to air or ventilating; public discussion of a subject.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/airing",
+    "note": "OEWN还列公开讨论及通风义；中文已列通风与兜风，原文只列短途出游，补全对应常用义。"
+  },
+  "alfa": {
+    "zh": "n. 阿尔法草；西班牙草（北非草的一种）",
+    "en": "n. Alfa grass; esparto, a coarse grass native to North Africa.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/alfa",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/alfa_grass",
+    "note": "词典将alfa grass释为esparto；原译“芦苇草”过于宽泛，修订为北非西班牙草。"
+  },
+  "arabs": {
+    "zh": "n. 阿拉伯人（Arab的复数）；阿拉伯马",
+    "en": "n. A member of an Arabic-speaking Semitic people native to the Arabian Peninsula and surrounding regions; a spirited, graceful riding horse native to Arabia.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "原英文包含阿拉伯人及阿拉伯马两义，第二义在220字符附近截断；补足阿拉伯马义并保留中文复数提示。"
+  },
+  "awful": {
+    "zh": "a. 极坏的；可怕的；令人敬畏的；庄严的；虔敬的 adv. 极其；非常",
+    "en": "adj. Exceptionally bad or displeasing; causing fear or terror; inspired by fearful wonder or reverence; inspiring awe or admiration. adv. Used as an intensifier.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/awful",
+    "note": "OEWN列可怕/恶劣、因敬畏而产生、令人敬畏以及副词强化用法；原英文只列恶劣义及强化用法，补足与中文庄严、虔敬相对应义。"
+  },
+  "aye": {
+    "zh": "n. 赞成票；投赞成票者 adv. 永远（古旧） interj. （表决时）赞成；是",
+    "en": "n. An affirmative vote; one who votes in the affirmative. adv. (Archaic) ever, always. interj. An affirmative response or vote.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/aye",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/aye",
+    "note": "原英文在例句处截断；Wiktionary确认名词投票义和古旧副词“永远/总是”，并支持赞成应答义，补齐词性与释义。"
+  },
+  "azine": {
+    "zh": "n. 吖嗪；氮杂环化合物",
+    "en": "n. An organic compound of formula R₂C=NN=CR₂, produced by a carbonyl compound reacting with hydrazine; a nitrogen-containing heterocyclic compound, especially one with a six-membered aromatic ring or fused rings.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/azine",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/azine",
+    "note": "Wiktionary列出azine两类有机化合物并给出中文“吖嗪”；原译“二氮陆圜”明显乱码，改为“吖嗪/氮杂环化合物”。"
+  },
+  "better": {
+    "zh": "a. 较好的；更好的 adv. 更好地；更有利地",
+    "en": "adj. Comparative of good: superior in quality or suitability; more highly skilled; improved in health or fitness. adv. Comparative of well: in a more excellent or advantageous manner.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en-word.net/lemma/better",
+    "enSourceUrl": "https://en-word.net/lemma/better",
+    "note": "OEWN区分better的形容词比较级及well的副词比较级；补足原英文遗漏的副词对应义。"
+  },
+  "beat": {
+    "zh": "n. 心跳（声）；巡逻路线；敲打声；节拍；一击 v. 打；拍打；打败；搅打 a. 疲乏的；颓废的（垮掉派的）",
+    "en": "n. A regular route; heartbeat; rhythmic unit; sound of a blow; a stroke or blow. v. To hit repeatedly; defeat; move rhythmically; stir vigorously; make a rhythmic sound. adj. Very tired; associated with the Beat Generation.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/beat",
+    "note": "OEWN完整词条证实中文所列心跳、节拍、巡逻路线、击打/打败及疲惫等合法多义；原英文仅写巡逻路线和竞争胜出，补齐所列义项并标明词性。"
+  },
+  "bishop": {
+    "zh": "n. 主教；（国际象棋）象；热果子酒",
+    "en": "n. A senior Christian clergyman with spiritual and administrative authority, regarded in some churches as a successor of the Apostles; port wine mulled with oranges and cloves; a chess piece moving diagonally over unoccupied squares of one color.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/bishop",
+    "note": "原英文在Apostles后截断；OEWN完整词条确认国际象棋棋子与橙丁香热葡萄酒义，和中文对应，补齐英文。"
+  },
+  "bitter": {
+    "zh": "a. 苦的；痛苦的；怀恨的 adv. 刺骨地 v. （使）变苦",
+    "en": "adj. Marked by strong resentment or cynicism; hard to accept or bear; harsh in tone; grief-stricken or hostile; sharp/acrid-tasting; sharply painful, especially of cold. n. A dry, sharp-tasting ale; a harsh taste. adv. Extremely and sharply. v. Make bitter.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/bitter",
+    "note": "OEWN确认苦味、苦痛、怀恨、刺骨、苦啤酒和使变苦等义；按中英列出的合法义项补全英文，并保留副词及动词。"
+  },
+  "black": {
+    "zh": "n. 黑色；黑颜料 a. 黑色的",
+    "en": "n. The quality or state of the achromatic color of least lightness; also, black pigment. adj. Of maximum darkness, with little or no hue owing to absorption of nearly all incident light.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/black",
+    "note": "原英文恰在220字符截断并有未闭合括号；依据OEWN补完整名词/形容词颜色义，中文相应保留。"
+  },
+  "blast": {
+    "zh": "n. 一阵风；爆炸；枯萎病 vt. 炸；使枯萎 vi. 炸；猛攻；猛烈抨击；枯萎",
+    "en": "n. A very long fly ball; a sudden loud noise; a strong current of air; an explosion; a pleasurable experience; intense criticism. v. Make a strident sound; strike forcefully; use explosives; apply a strong wind; wither plants; criticize harshly; shatter or shrivel.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/blast",
+    "note": "OEWN确认风、爆炸、噪声、枯萎/枯萎病以及严厉批评等义；原英文只列噪声及长飞球，补足中文所列义项。"
+  },
+  "blest": {
+    "zh": "a. 神圣的；幸福的；bless的过去式和过去分词",
+    "en": "adj. Highly favored or fortunate, especially by divine grace; past tense and past participle of bless.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/blest",
+    "note": "原英文在“a highly favored or f”处截断且未突出blest形式；OEWN确认fortunate义，恢复为清楚的形容词及过去分词说明。"
+  },
+  "board": {
+    "zh": "n. 木板；甲板；膳食；会议桌；（电路）板；棋盘 vt. 乘船；供膳食；住宿；用板覆盖 vi. 搭伙",
+    "en": "n. A committee with supervisory powers; a length of sawn timber; a flat piece of material for a purpose; meals; a display surface; a dining table; a control or circuit board; a board-game surface. v. Get on a vehicle or vessel; live and take meals at a place; lodge and take meals; provide food and lodging.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/board",
+    "note": "OEWN完整条目支持木板、膳食、会议桌/展示板、电路板、棋盘及乘坐、供膳和寄宿等中文多义，补齐原英文未列明的词义。"
+  },
+  "bonding": {
+    "zh": "n. 结合；（牙科）粘接；屏蔽接地；搭接",
+    "en": "n. A close personal relationship; a dental repair technique in which resin adheres to enamel; fastening firmly together, including electrical bonding.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/bonding",
+    "note": "原英文在“where it”处截断；OEWN补全牙科树脂粘合定义，并确认紧密结合义，中文屏蔽接地/搭接予以保留。"
+  },
+  "boss": {
+    "zh": "n. 老板；上司；岩瘤；浮雕；（口语）极好的人/物 vt. 指挥；控制；作浮雕",
+    "en": "n. A person who exercises control or makes decisions; a political leader who controls votes; a circular projection or protuberance; something exceptionally good. v. Raise in relief.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/boss",
+    "note": "OEWN列管理者、凸起、浮雕及极好等义；英文原列出的boss形容词及名词/动词需按中文词性整理并补齐。"
+  },
+  "burse": {
+    "zh": "n. 钱包；（大学）贫困学生奖学金基金；（宗教）圣餐布套",
+    "en": "n. A purse; a fund or foundation for maintaining needy scholars; an ornamental ecclesiastical case holding the corporal when not in use.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/burse",
+    "note": "原英文在ornamental case句末截断；Wiktionary完整词条确认钱包、贫困学者基金与宗教圣餐布套三义，补全中英对应。"
+  },
+  "bushed": {
+    "zh": "a. 长满灌木的；疲倦的 v. 装上衬套",
+    "en": "adj. (Informal) very tired or exhausted; overgrown with bushes; (Canadian) mentally disoriented from isolation. v. Fit or line with a bush/bushing.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/bushed",
+    "note": "Wiktionary确认bushed形容词有疲倦、机械衬套及偏远地迷失等义；原英文词性行未规范，整理词性并补明。"
+  },
+  "champ": {
+    "zh": "v. 大声咀嚼；像马一样啮嚼、急躁地咬 n. 咀嚼声；冠军",
+    "en": "v. To chafe at the bit like a horse; to chew noisily or vigorously. n. Someone who has won first place in a competition; a noisy chewing sound.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/champ",
+    "note": "OEWN确认名词为冠军、动词为马衔嚼/大声咀嚼；补足英文对中文嚼咬声、冠军义的覆盖。"
+  },
+  "choker": {
+    "zh": "n. 勒死者；使人窒息的东西；紧贴颈部的项链或高领；因紧张而发挥失常的人",
+    "en": "n. Someone who kills by strangling; an unfortunate person unable to perform effectively under nervous tension; a tight-fitting necklace or high collar.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/choker",
+    "note": "OEWN除原英文两义外还列紧贴女性颈部的项链及高领；中文包含宽领带/窒息物，补足相应义。"
+  },
+  "chou": {
+    "zh": "n. 周朝；甘蓝；奶油泡芙；（法语称呼）亲爱的人",
+    "en": "n. The Zhou dynasty; a cabbage; choux pastry, usually a small sweet-filled round cake; (French, affectionate address) darling or sweetheart.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://dictionary.cambridge.org/dictionary/french-english/chou",
+    "note": "OEWN支持周朝、甘蓝和泡芙；权威法英词典将法语称呼chou译为sweetheart，支持中文“心爱的人”，补入标签避免误作英文常用义。"
+  },
+  "coconut": {
+    "zh": "n. 椰子；椰果白肉；椰子树",
+    "en": "n. The edible white meat of a coconut; the large hard-shelled oval fruit containing the meat and (when fresh) liquid; the tall palm tree bearing coconuts.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/coconut",
+    "note": "原英文在“filled with flui”处截断；OEWN完整词条恢复椰果所含液体及椰树义。"
+  },
+  "colder": {
+    "zh": "a. 更冷的",
+    "en": "adj. Comparative form of cold: more cold.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/colder",
+    "note": "词典词形条目将colder定义为cold的比较级，原译“越来越冷的”带变化过程，修正为单纯比较级。"
+  },
+  "carny": {
+    "zh": "n. 流动游艺场；游艺场工作人员；游艺场黑话；vt. 哄骗；哄劝",
+    "en": "n. A person who works in a carnival; carnival workers’ jargon; a carnival. v. To cajole, wheedle, or coax.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://kaikki.org/dictionary/English/meaning/c/ca/carny.html",
+    "note": "Kaikki/Wiktionary英词条还列动词cajole/wheedle/coax，与中文哄骗对应；原英文仅列名词，补完整。"
+  },
+  "aji": {
+    "zh": "n. 秘鲁辣酱；秘鲁辣椒；日本竹荚鱼（竹荚鱼属鱼类）",
+    "en": "n. A spicy Peruvian sauce; a chili pepper in South American cuisine; a horse mackerel, especially the Japanese horse mackerel Trachurus japonicus.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/aji",
+    "note": "原英文在日本竹荚鱼名处截断；OEWN完整词条支持酱料、辣椒及日本竹荚鱼三义，中文补上鱼类对应义。"
+  },
+  "almond": {
+    "zh": "n. 杏仁；杏树",
+    "en": "n. A small bushy deciduous tree native to Asia and North Africa, with pink blossoms and edible nuts in a hard green hull; also the oval-shaped edible seed of this tree.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/almond",
+    "note": "原英文在edible seed处截断；按OEWN补全该种子属于杏树的句尾，保留中文杏仁义。"
+  },
+  "and": {
+    "zh": "conj. 和；与；连接词语、分句或句子以表示连接或添加",
+    "en": "conj. A particle expressing connection or addition; used to join words, clauses, or sentences.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/and",
+    "note": "原英文结尾悬挂在冠词“a”处；Wiktionary连词条目确认连接/添加关系，补为完整定义。"
+  },
+  "anxiety": {
+    "zh": "n. 焦虑；忧虑；令人焦虑的事",
+    "en": "n. A relatively permanent state of worry and nervousness occurring in some mental disorders, often with compulsive behavior or panic; a vague unpleasant emotion experienced in anticipation of possible misfortune.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/anxiety",
+    "note": "原英文在“a vague unpleasant emotion that is experience”处截断；OEWN完整词条补足对不幸的预期及句尾。"
+  },
+  "aries": {
+    "zh": "n. 白羊座出生者；白羊座；白羊宫",
+    "en": "n. A person born while the sun is in Aries; a small constellation in the Northern Hemisphere between Pisces and Taurus; the first zodiac sign entered by the sun at the vernal equinox, approximately March 21 to April 19.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/Aries",
+    "note": "原英文在vernal equinox处截断；OEWN补全太阳行经日期，并保留白羊座出生者、星座和黄道宫义。"
+  },
+  "banana": {
+    "zh": "n. 香蕉植物；香蕉果实",
+    "en": "n. Any of several tropical or subtropical treelike herbs of genus Musa with a crown of large leaves and hanging fruit; an elongated crescent-shaped yellow fruit with soft sweet flesh.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/banana",
+    "note": "原英文在“fruit wit”处截断；OEWN补全果肉特征，中文香蕉对应完整果实义。"
+  },
+  "banking": {
+    "zh": "n. 银行业务；存款、取款、兑换及贷款业务",
+    "en": "n. The business of keeping savings/checking accounts, exchanging money, or issuing loans and credit; transactions such as depositing or withdrawing funds or requesting a loan.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/banking",
+    "note": "原英文在220字符限制处被截断；OEWN完整条目中的资金存取及申请贷款内容已恢复。"
+  },
+  "barn": {
+    "zh": "n. 谷仓；农舍附属建筑；（物理）截面单位barn",
+    "en": "n. An outlying farm building for storing grain or feed and housing animals; (physics) a unit of nuclear cross section, the effective target area one particle presents to another.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/barn",
+    "note": "原英文在“encount”处截断；OEWN补全核物理单位定义的“encounter”句尾，中文谷仓义保留。"
+  },
+  "barns": {
+    "zh": "n. barn的复数：谷仓；（物理）截面单位barn",
+    "en": "n. Plural of barn: a farm building for grain/feed or animals; also the physics unit of nuclear cross section, the effective area a particle presents as a target.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/barn",
+    "note": "原英文在“encounter”处截断；按OEWN完整barn定义恢复末句，并保留输入中文所列其他常用义。"
+  },
+  "blood": {
+    "zh": "n. 血液；血统；气质；某一群体的人 vt. 用血涂抹",
+    "en": "n. The fluid pumped through the body by the heart; temperament or disposition; hereditary derivation; people viewed as members of a group; (dated) a dissolute man in fashionable society. v. Smear with blood, as in a hunting initiation rite.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/blood",
+    "note": "原英文在狩猎入会仪式的血液涂抹义中截断；OEWN完整条目已补全句尾，并覆盖中文血液/血统/气质等义。"
+  },
+  "camera": {
+    "zh": "n. 照相机；摄影机；（历史/建筑）密谈室；暗箱",
+    "en": "n. Equipment for taking photographs using a lightproof box, lens, and light-sensitive film; television equipment focusing an image on a photosensitive mosaic scanned by an electron beam.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/camera",
+    "note": "原英文在“photosensitive”处截断；OEWN补全电视摄像设备影像聚焦及扫描的完整定义。"
+  },
+  "carbon": {
+    "zh": "n. 碳；复写纸；复写副本",
+    "en": "n. An abundant nonmetallic tetravalent element occurring as amorphous carbon, graphite, and diamond; a thin sheet coated with dark waxy carbon for transferring writing to an underlying sheet; a copy made with carbon paper.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/carbon",
+    "note": "原英文在“often”处截断且括号未闭；OEWN完整条目补足复写纸用途及复写副本义，保留中文对应。"
+  },
+  "cells": {
+    "zh": "n. cell的复数：小隔间；细胞；牢房；电池；单元格；组织/运动小组",
+    "en": "n. Plural of cell: any small compartment; the basic structural and functional unit of organisms; an electric-current device; a small nucleus of a political movement; a mobile telephone; a monk’s room; a prisoner’s room.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/cell",
+    "note": "原英文在220字符处截断；OEWN的cell词条完整列出细胞、隔间、电池、政治小组、手机、修道室及牢房等义，恢复可对齐释义。"
+  },
+  "citrus": {
+    "zh": "n. 柑橘属植物；柑橘类果实",
+    "en": "n. Any of numerous warm-region Citrus fruits with thick rind and juicy pulp; any of numerous usually thorny evergreen trees of the genus, with leathery leaves, cultivated for juicy edible fruits with aromatic rinds.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/citrus",
+    "note": "原英文在“widely”处截断；OEWN补全柑橘树的常绿叶、栽培用途及芳香果皮描述。"
+  },
+  "colds": {
+    "zh": "n. cold的复数：感冒；寒冷",
+    "en": "n. Plural of cold: a mild viral infection of the nose and respiratory passages (not the lungs); also the absence of heat or the sensation produced by low temperatures.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/cold",
+    "note": "原英文在“but not”处截断；OEWN补足“肺部”限定及寒冷名词义。"
+  },
+  "colony": {
+    "zh": "n. 殖民地；侨民群体；同类生物群落；同一职业或兴趣者聚居地；（微生物）菌落；（美国史）英属殖民地",
+    "en": "n. A body of settlers who maintain ties with their homeland; a group of organisms of one type living or growing together; a place where people with a shared interest or occupation are concentrated; a territory politically controlled by a distant country; a microbiological group grown from one parent cell; one of the original British colonies in North America.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/colony",
+    "note": "OEWN完整词条列出六个名词义；原英文在生物群落义处截断，恢复完整定义，并将各义项逐一对应翻译。"
+  },
+  "column": {
+    "zh": "n. 专栏；圆柱；纵队；列；柱形物；表格列",
+    "en": "n. A line or vertical array of units or information; a chromatography tube; something column-shaped; an opinion article; a freestanding cylindrical structure or architectural support; a vertically divided page/text; a tubular or pillar-like body structure.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/column",
+    "note": "原英文在色带被吸附描述处截断；OEWN完整column条目恢复该句尾及表格列、专栏、建筑柱和身体管状结构等义。"
+  },
+  "copper": {
+    "zh": "n. 铜；铜币；铜色；警察；铜色小灰蝶",
+    "en": "n. A ductile reddish-brown metal used as an electrical/thermal conductor; a copper penny; slang for a policeman; a reddish-brown color; small Lycaenidae butterflies with coppery wings. v. Coat with copper.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/copper",
+    "note": "原英文在220字符处截断；OEWN完整词条补足金属、复写用途及其他词义，中文铜/警察对应主要义。"
+  },
+  "cough": {
+    "zh": "n. 咳嗽；咳嗽声 vi. 咳嗽 vt. 咳出",
+    "en": "n. A sudden noisy expulsion of air from the lungs that clears air passages; a symptom of respiratory infections. v. Exhale abruptly, as when one has a chest cold or congestion.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/cough",
+    "note": "原英文在“cold or co”处截断；OEWN补全congestion句尾和及物/不及物词性。"
+  },
+  "council": {
+    "zh": "n. 行政委员会；会议；（基督教）教会议会",
+    "en": "n. A body serving in an administrative capacity; a meeting for consultation; in Christianity, an assembly of theologians, bishops, and church representatives convened to regulate discipline or doctrine.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/council",
+    "note": "原英文在教会议会用途处截断；OEWN恢复完整会议目的及咨询会议义。"
+  },
+  "dada": {
+    "zh": "n. 爸爸；达达主义（派）的文艺作品",
+    "en": "n. An informal term for a father, probably from baby talk; a nihilistic early-20th-century art movement based on irrationality and rejection of accepted laws of beauty.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/dada",
+    "note": "原英文在达达主义“accepted”处截断；OEWN补全被否定的审美规范描述。"
+  },
+  "dele": {
+    "zh": "vt. 删除；删去 n. （印刷校样）删除符号/指示",
+    "en": "v. (Printing, usually imperative) Delete. n. A printing mark or instruction indicating deletion.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/dele",
+    "note": "原英文在220字符处截断并混有释义格式残片；Wiktionary确认dele是印刷校对中删除的指令及其删除标记。"
+  },
+  "avails": {
+    "zh": "n. 利益；好处；收益；（法律/商业）财产出售所得款项 v. avail的第三人称单数",
+    "en": "n. Plural of avail: use, purpose, advantage, or profit; in commerce/legal usage, profits or proceeds, especially from selling property or insurance. v. Third-person singular simple present of avail.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://dictionary.cambridge.org/us/dictionary/english/avail",
+    "note": "Wiktionary确认该词形同时为avail名词复数及动词第三人称；Cambridge支持use/advantage/profit义，Cornell Wex支持出售财产或保险所得款项义，补齐中文映射。"
+  },
+  "animes": {
+    "zh": "n. anime（日本动画作品）的复数；anime亦指硬树脂/天然树脂",
+    "en": "n. Plural of anime: Japanese-style animation works; anime also denotes hard copal or one of several natural resins.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en-word.net/lemma/anime",
+    "note": "Wiktionary确认animes是anime复数；OEWN词头anime另含硬copal及树脂义，原中文只有“硬树脂”且原英文未区分动画义，补齐两种词义并明确复数范围。"
+  },
+  "curial": {
+    "zh": "a. 宫廷的；教廷的；（古罗马）元老院/库里亚的",
+    "en": "adj. Pertaining to a court or courtly; pertaining to the papal curia; relating to a Roman curia, a senate-like civic council.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://kaikki.org/dictionary/English/meaning/c/cu/curial.html",
+    "note": "词典支持courtly/papal curia义；另查历史词典确认古罗马curia可指元老院或市政议会，中文“元老院的”保留并限定历史语境。"
+  },
+  "dint": {
+    "zh": "n. 凹痕；打击；作用、力量（常见于by dint of） v. 敲出凹痕",
+    "en": "n. A dent or indentation left by a blow; an old blow or stroke; force or power, especially in “by dint of”. v. To dent.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/dint",
+    "note": "Wiktionary完整词条列凹痕、打击/冲击、by dint of中的力量义；Merriam-Webster及American Heritage支持动词“使出现凹痕”，补齐中文所列词性。"
+  },
+  "dints": {
+    "zh": "n. dint的复数：凹痕、打击；by dint of中的作用/力量 v. dint的第三人称单数：敲出凹痕",
+    "en": "n. Plural of dint, meaning dents/indentations or blows. v. Third-person singular simple present of dint, meaning to dent.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://www.merriam-webster.com/dictionary/dint",
+    "note": "Wiktionary确认名词复数；Merriam-Webster/American Heritage确认dint可作“使凹陷”动词，其第三人称形式为dints，和中文动词义对应。"
+  },
+  "coomb": {
+    "zh": "n. 英制干量单位（四蒲式耳）；山旁谷地/峡谷（combe的异体）",
+    "en": "n. An old English dry measure for corn equal to four bushels or half a quarter; a valley or hollow, alternative spelling of combe.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://kaikki.org/dictionary/English/meaning/c/co/coomb.html",
+    "note": "Kaikki完整词条列干量单位、盛酿造液体的大桶，并确认com(b)e异体；相关词典释combe为谷地，支持中文地貌义。"
+  },
+  "aurate": {
+    "zh": "n. 金酸盐（无机化学：金酸的盐） a. 具耳的；有穗状花序的",
+    "en": "n. (Inorganic chemistry) Any salt of auric acid. adj. Having ears; ear-bearing (especially of plants).",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://scrabble.merriam.com/finder/aurate",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/aurate",
+    "note": "复核发现原中文“具耳的”并非误译：Merriam-Webster Scrabble Dictionary确列aurate作形容词“having ears”；Wiktionary则确认化学名词义为金酸盐。两种不同词性/词义均保留并明确标注。"
+  },
+  "bossy": {
+    "zh": "a. 专横的；（尤指家具）饰有凸钮/凸饰的 n. [美] 母牛或小牛（昵称）",
+    "en": "adj. Given to ordering people about; domineering. adj. (Of furniture) decorated or studded with bosses (raised knobs/projections). n. (US, informal) a familiar name for a cow or calf.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://www.collinsdictionary.com/us/dictionary/english/bossy",
+    "enSourceUrl": "https://www.collinsdictionary.com/us/dictionary/english/bossy",
+    "note": "Collins/Dictionary.com证实bossy除“专横的”外还有“饰有凸钮/凸饰的”形容词义及母牛/小牛昵称名词义；分别保留并标注词性、语域，原中文“浮雕装饰的”改为更贴合定义的表述。"
+  },
+  "conus": {
+    "zh": "n. 圆锥；芋螺属（锥形贝壳的海螺属） abbr. CONUS：美国本土（通常指美国48个相连州及哥伦比亚特区；具体边界依机构定义）",
+    "en": "n. A cone; the genus Conus, a group of cone snails with conical shells. abbr. CONUS (capitalized): the Continental United States, commonly the 48 contiguous states and the District of Columbia.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://samm.dsca.mil/glossary/continental-united-states-conus",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/Conus",
+    "note": "Wiktionary/Webster系词典支持普通名词conus的cone及芋螺属义；美国国防安全合作局和FAA将全大写CONUS定义为美国本土缩写。区分小写词头与大写缩写，并说明机构边界定义的差异。"
+  },
+  "baller": {
+    "zh": "n. 食物挖球器（如蜜瓜挖球器）；将熔融金属分成小球的工人；（美）篮球运动员／（英）足球运动员；（工业）切边废料卷球机",
+    "en": "n. A kitchen utensil for cutting or scooping ball-shaped pieces of food; a worker who divides molten metal into balls before hammering; (US/UK sports slang) a basketball/association-football player; (metal processing) a scrap baller that winds cut-edge scrap into a ball or coil.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/baller",
+    "enSourceUrl": "https://www.boyamachinery.com/products/scrap-baller/",
+    "note": "Wiktionary确认厨具、炼金属工及体育运动员义；设备厂商将scrap baller定义为把切边废料卷成球/卷的设备，故原“切边卷取机”属工业专门义，规范译为切边废料卷球机。"
+  },
+  "crocs": {
+    "zh": "n. croc（鳄鱼）的复数；Crocs品牌的洞洞鞋/凉鞋；crux的误构词拼写（eggcorn）",
+    "en": "n. Plural of croc (“crocodile”); plural of croc, a colloquial name for Crocs-style slip-on clog shoes (from the Crocs brand); an eggcorn spelling of crux.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/croc",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/crux",
+    "note": "Wiktionary确认croc复数可指鳄鱼，也有源自Crocs公司的鞋类通名义；Crocs官网证实品牌经营鞋履；crux词条列crocs为eggcorn。区分小写词形、品牌来源及误构词义，保留原中译合法品牌义并补全英中映射。"
+  }
+}

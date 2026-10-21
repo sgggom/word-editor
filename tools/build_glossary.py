@@ -67,7 +67,7 @@ def merge_correction(target, correction):
                 target[field + suffix] = value
         if field == 'ipa':
             target['ipaStatus'] = correction.get('ipaStatus', 'sourced')
-            for detail in ('ipaEngine', 'ipaVoice', 'relationSource', 'baseIpaSource'):
+            for detail in ('ipaEngine', 'ipaVoice', 'relationSource', 'baseIpaSource', 'baseIpaSourceUrl'):
                 target.pop(detail, None)
                 if correction.get(detail):
                     target[detail] = correction[detail]
@@ -114,7 +114,7 @@ def build(sources=None):
                             row[3][field + 'Base'] = addition.get(field + 'Base') or addition['base']
                         if field == 'ipa':
                             row[3]['ipaStatus'] = addition.get('ipaStatus', 'sourced')
-                            for detail in ('ipaEngine', 'ipaVoice', 'relationSource', 'baseIpaSource'):
+                            for detail in ('ipaEngine', 'ipaVoice', 'relationSource', 'baseIpaSource', 'baseIpaSourceUrl'):
                                 if addition.get(detail):
                                     row[3][detail] = addition[detail]
                 for field in ('note',):
@@ -138,6 +138,23 @@ def build(sources=None):
             (ROOT / 'data/glossary/corrections.json').write_text(json.dumps(corrections, ensure_ascii=False, indent=2) + '\n')
     else:
         corrections = read(ROOT / 'data/glossary/corrections.json')
+    # Paired sense reviews must win over both legacy rows and refreshed source
+    # caches. Apply them in offline builds too, without requiring /tmp inputs.
+    review_dir = ROOT / 'data/glossary/reviewed'
+    review_paths = [review_dir / 'sense-alignment.json']
+    dated_reviews = list(review_dir.glob('full-audit-*/*.json'))
+    dated_reviews += list(review_dir.glob('dictionary-followup-*/*.json'))
+    # Later evidence wins; within a date, dictionary follow-ups supersede the
+    # initial audit. A future full audit can still supersede an older follow-up.
+    def review_order(path):
+        date = re.search(r'\d{4}-\d{2}-\d{2}', path.parent.name)
+        return (date.group() if date else '', path.parent.name.startswith('dictionary-followup-'), path.name)
+    review_paths += sorted(dated_reviews, key=review_order)
+    for path in review_paths:
+        for word, correction in read(path).items():
+            if not correction.get('zh') or not correction.get('en'):
+                raise ValueError('Sense review requires both zh and en: ' + word)
+            merge_correction(corrections.setdefault(key(word), {}), correction)
     for word, correction in corrections.items():
         if word not in entries:
             continue
@@ -155,7 +172,7 @@ def build(sources=None):
                     row[3][field + 'SourceUrl'] = source_url
                 if field == 'ipa':
                     row[3]['ipaStatus'] = correction.get('ipaStatus', 'sourced')
-                    for detail in ('ipaEngine', 'ipaVoice', 'relationSource', 'baseIpaSource'):
+                    for detail in ('ipaEngine', 'ipaVoice', 'relationSource', 'baseIpaSource', 'baseIpaSourceUrl'):
                         row[3].pop(detail, None)
                         if correction.get(detail):
                             row[3][detail] = correction[detail]
@@ -164,6 +181,14 @@ def build(sources=None):
         if correction.get('usageNote'):
             row[3]['note'] = correction['usageNote']
 
+    # A reviewed but unresolved entry must remain visibly distinct from a
+    # confirmed correction, even when the legacy dictionary supplied its IPA.
+    audit_paths = sorted((ROOT / 'data/glossary/audits').glob('*/pending.json'))
+    pending = {key(item['word']) for item in read(audit_paths[-1], [])} if audit_paths else set()
+    for word, row in entries.items():
+        row[3].pop('reviewStatus', None)
+        if word in pending:
+            row[3]['reviewStatus'] = 'pending'
     missing = {field: [w for w, row in entries.items() if not row[i].strip() or (field == 'zh' and not re.search(r'[\u3400-\u9fff]', row[i]))] for i, field in enumerate(FIELDS)}
     for row in entries.values():
         row[3] = dict(sorted(row[3].items()))

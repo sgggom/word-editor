@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-21",
+  "scope": "默认八库中去重后的全部三字母及以上词条",
+  "baseline": {
+    "auditDate": "2026-10-21",
+    "baselineSha256": "1d050818407e5a1f51298110f55f8b121796919c49a0a8f4511eb6a5f0728656",
+    "wordCount": 22452,
+    "assignments": {
+      "a_d": {
+        "words": 5804,
+        "first": "aah",
+        "last": "dyno",
+        "input": "outputs/glossary-audit-2026-10-21/a_d-input.jsonl"
+      },
+      "e_l": {
+        "words": 5749,
+        "first": "each",
+        "last": "lytta",
+        "input": "outputs/glossary-audit-2026-10-21/e_l-input.jsonl"
+      },
+      "m_r": {
+        "words": 5183,
+        "first": "maar",
+        "last": "ryots",
+        "input": "outputs/glossary-audit-2026-10-21/m_r-input.jsonl"
+      },
+      "s_z": {
+        "words": 5716,
+        "first": "sab",
+        "last": "zydeco",
+        "input": "outputs/glossary-audit-2026-10-21/s_z-input.jsonl"
+      }
+    }
+  },
+  "reviewedWords": 22452,
+  "unreviewedWords": 0,
+  "groups": {
+    "a_d": 5804,
+    "e_l": 5749,
+    "m_r": 5183,
+    "s_z": 5716
+  },
+  "statuses": {
+    "corrected": 3824,
+    "pass": 18609,
+    "pending": 19
+  },
+  "correctionRecords": 3833,
+  "changedWords": 3833,
+  "changedFields": {
+    "ipa": 575,
+    "zh": 3435,
+    "en": 3542
+  },
+  "pendingWithPartialCorrections": 9,
+  "reviewFiles": {
+    "a_d.json": {
+      "entries": 1031,
+      "sha256": "00d595829a21ea295573eaa22e7056d91815df10db20c69d7a63c9ab63c4a705"
+    },
+    "e_l.json": {
+      "entries": 1050,
+      "sha256": "b7206c112500f1f3141654286d852cd8b1bf34e5247bf0ab76e3cee81f23ef0c"
+    },
+    "m_r.json": {
+      "entries": 873,
+      "sha256": "63574c823358cf607c417988e1e34b6dac49871861142bd66273f6da825456fd"
+    },
+    "s_z.json": {
+      "entries": 296,
+      "sha256": "c96ceafe4c6e849737cfb856fdb8498649cfb8ef8ac56c4d3889b198be11cad2"
+    },
+    "s_z_a_d.json": {
+      "entries": 198,
+      "sha256": "2a2c5e9b1cebd07ea47f38c5e11945095e8bb126ecc8a84ff308ae117ef3f5d3"
+    },
+    "s_z_e_l.json": {
+      "entries": 200,
+      "sha256": "c05afbeb0d6a7c17c48978fd28317e38187a01a138ee929cc0f655b67750becf"
+    },
+    "s_z_m_r.json": {
+      "entries": 185,
+      "sha256": "dc0fed72d9925d078dddddeae287efc8125233c1f96d81d3847bcb82f3d60dfe"
+    }
+  },
+  "glossarySha256": "ca9ca316b1e19596d6e6f509cfe372727e589f408ca58fcc0ed2dc7bcfd0027f",
+  "method": "主代理与三个子代理逐词检查中英文词义、词性和词形关系；疑点另行查来源；未能确认的义项或读音保留 pending。pass 表示本轮未发现问题，不表示每个音标都经独立词典查证。",
+  "crossCheckedFollowupWords": 103,
+  "vocabularyMembershipChanged": false
+}

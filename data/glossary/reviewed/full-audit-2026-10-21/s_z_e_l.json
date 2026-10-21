@@ -1,0 +1,1975 @@
+{
+  "til": {
+    "zh": "n. 芝麻",
+    "en": "Sesame, the plant Sesamum indicum.",
+    "zhSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "enSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/til#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/til#English",
+    "note": "2026-10-21: 核实芝麻名词义，去除until异体义错配。"
+  },
+  "tinct": {
+    "zh": "n. 色调；adj. 染色的；v. 给……略微染色",
+    "en": "A tint or colour; coloured; to tint lightly.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 对齐名词、形容词与动词。"
+  },
+  "tined": {
+    "zh": "adj. 有尖齿的；有叉齿的",
+    "en": "Having tines or prongs.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除错误混入的tin镀锡和装罐义。"
+  },
+  "tinged": {
+    "zh": "adj. 略带某种颜色或情绪的；v. 略微染色（tinge的过去式和过去分词）",
+    "en": "Lightly coloured or affected by a feeling; simple past tense and past participle of tinge.",
+    "zhSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "enSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tinged#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tinged#English",
+    "note": "2026-10-21: 现义为tinge，去除ting响声同形词并修正IPA。",
+    "ipa": "/tɪndʒd/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Wiktionary",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/tinged#English"
+  },
+  "tinges": {
+    "zh": "n. 淡淡的色彩；一丝痕迹（tinge的复数）；v. 给……略微染色（tinge的第三人称单数）",
+    "en": "Plural of tinge: slight traces of colour or feeling; third-person singular of tinge.",
+    "zhSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "enSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tinge#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tinge#English",
+    "note": "2026-10-21: 去除ting混入；按已核实tinge基音和正常-iz词尾修复。",
+    "ipa": "/ˈtɪndʒɪz/",
+    "ipaStatus": "derived",
+    "ipaBase": "tinge",
+    "ipaSource": "Wiktionary base pronunciation + regular inflection",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/tinge#English",
+    "baseIpaSource": "Wiktionary base pronunciation + regular inflection",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/tinge#English",
+    "relationSource": "Full-audit manual review of the word-form or spelling relation; see correction note"
+  },
+  "tints": {
+    "zh": "n. 色调；淡色（tint的复数）；v. 给……染色（tint的第三人称单数）",
+    "en": "Plural of tint; third-person singular of tint, to colour lightly.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除大写设备缩写误配。"
+  },
+  "tips": {
+    "zh": "n. 小窍门；尖端；小费（tip的复数）；v. 使倾斜；给小费（tip的第三人称单数）",
+    "en": "Plural of tip: useful hints, pointed ends, or gratuities; third-person singular of tip.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 补齐中文小窍门与英文尖端及动词关系。"
+  },
+  "tiros": {
+    "zh": "n. 初学者；新手（tiro的复数）",
+    "en": "Plural of tiro: beginners or novices.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除气象卫星缩写误配。"
+  },
+  "titan": {
+    "zh": "n. 巨人；巨擘；有巨大影响力的人",
+    "en": "A person of exceptional power, stature, or influence.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 对齐英文巨擘义，删除太阳神误配。"
+  },
+  "titans": {
+    "zh": "n. 巨擘；巨人；泰坦诸神（titan的复数）",
+    "en": "Plural of titan: people of exceptional importance or the primordial giant deities of Greek mythology.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除单一土卫六与导弹型号专名混入。"
+  },
+  "titers": {
+    "zh": "n. 滴度；滴定量（titer的复数）",
+    "en": "Plural of titer.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 姓氏误配普通名词复数。"
+  },
+  "titi": {
+    "zh": "n. 南美洲的一类小型长尾猴（伶猴类）",
+    "en": "A small South American titi monkey, with a long nonprehensile tail.",
+    "zhSource": "Dictionary/reference checked in review",
+    "enSource": "Dictionary/reference checked in review",
+    "zhSourceUrl": "https://www.dictionary.com/browse/titi",
+    "enSourceUrl": "https://www.dictionary.com/browse/titi",
+    "note": "2026-10-21: 确认Callicebus等伶猴类，不是绢毛猴。"
+  },
+  "titis": {
+    "zh": "n. 南美洲的伶猴类小型长尾猴（titi的复数）",
+    "en": "Plural of titi: small South American monkeys with long nonprehensile tails.",
+    "zhSource": "Dictionary/reference checked in review",
+    "enSource": "Dictionary/reference checked in review",
+    "zhSourceUrl": "https://www.dictionary.com/browse/titi",
+    "enSourceUrl": "https://www.dictionary.com/browse/titi",
+    "note": "2026-10-21: 修正继承的绢毛猴误译。"
+  },
+  "tivy": {
+    "zh": "adv. 飞快地；迅速地（旧时猎人用语）",
+    "en": "adv. With great speed; -- a huntsman's word or sound.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 英文明确副词，修正中文动词标签。"
+  },
+  "toddy": {
+    "zh": "n. 棕榈汁或棕榈酒；热托迪酒（烈酒加水、糖和香料调制）",
+    "en": "Palm sap or palm wine; a hot drink of spirits, water, sugar, and spices.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 合并对应棕榈饮料与热调酒义。"
+  },
+  "tody": {
+    "zh": "n. 西印度群岛的一种小型食虫鸟",
+    "en": "A tiny insect-eating bird of the West Indies, typically with bright green and red plumage.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除没有英文依据的鱼狗属分类，采用已给描述。"
+  },
+  "tofts": {
+    "zh": "n. 宅地；屋基；小丘（toft的复数）",
+    "en": "Plural of toft: house sites or small hills.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 名词复数误标第三人称。"
+  },
+  "tofus": {
+    "zh": "n. 豆腐（tofu的复数，指不同份或种类）",
+    "en": "Plural of tofu: portions or varieties of bean curd.",
+    "zhSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "enSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tofu#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tofu#English",
+    "note": "2026-10-21: 核实豆腐复数，去除tophus同形异义；读音按tofu加正常复数尾音。",
+    "ipa": "/ˈtoʊfuz/",
+    "ipaStatus": "derived",
+    "ipaBase": "tofu",
+    "ipaSource": "Wiktionary base pronunciation + regular plural",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/tofu#English",
+    "baseIpaSource": "Wiktionary base pronunciation + regular plural",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/tofu#English",
+    "relationSource": "Full-audit manual review of the word-form or spelling relation; see correction note"
+  },
+  "togae": {
+    "zh": "n. 托加长袍（古罗马服装，toga的复数）",
+    "en": "Plural of toga: the draped outer garments worn in ancient Rome.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 明确服装类别及复数。"
+  },
+  "togate": {
+    "zh": "adj. 穿托加长袍的；被描绘为穿托加袍的",
+    "en": "Clad in a toga; represented in art as wearing a toga.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 官服泛译应明确托加袍。"
+  },
+  "toils": {
+    "zh": "n. 苦工；辛劳；罗网；圈套；v. 辛苦劳作（toil的复数或第三人称单数）",
+    "en": "Hard labours; nets or snares; third-person singular of toil, to work hard.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 对齐罗网和辛劳义。"
+  },
+  "toit": {
+    "zh": "n. 垫子；坐垫",
+    "en": "A cushion.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 中文姓氏与已有英文普通名词错配。"
+  },
+  "toked": {
+    "zh": "v. 吸一口烟（尤指大麻烟，toke的过去式和过去分词）",
+    "en": "Simple past tense and past participle of toke, to inhale smoke.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 过去式应为动词释义。"
+  },
+  "toker": {
+    "zh": "n. 吸烟者（尤指吸大麻者）",
+    "en": "One who tokes, especially marijuana.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除姓氏误配。"
+  },
+  "tolar": {
+    "zh": "n. 托拉尔（斯洛文尼亚1991—2006年使用的旧货币单位）",
+    "en": "A state currency formerly used by the Republic of Slovenia between 1991 and 2006, divided into 100 stotins.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除地名误配，按已有英文货币释义翻译。"
+  },
+  "toled": {
+    "zh": "v. （古语）引诱；吸引（tole的过去式和过去分词）",
+    "en": "Simple past tense and past participle of tole, to entice or attract.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tole#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tole#English",
+    "note": "2026-10-21: 核实普通动词，不是TOLED设备缩写。"
+  },
+  "toles": {
+    "zh": "n. 托拉（一种重量单位，tole的复数）；v. （古语）引诱（tole的第三人称单数）",
+    "en": "Plural of tole, an uncommon variant of tola; third-person singular of tole, to entice.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tole#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tole#English",
+    "note": "2026-10-21: 外查tole的可数名词和动词形式；金属器皿义标为不可数，改用明确词形。"
+  },
+  "toller": {
+    "zh": "n. 敲钟人；收费员；征税员",
+    "en": "A bell-ringer; a collector of tolls or taxes.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 对齐toll两个动词派生义。"
+  },
+  "toman": {
+    "zh": "n. 图曼（波斯的旧记账货币或金币；亦指伊朗相当于十里亚尔的金额）",
+    "en": "A Persian money of account or historical gold coin; informally, an amount of ten Iranian rials.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/toman#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/toman#English",
+    "note": "2026-10-21: 删除过时美元比价，外查货币义和相应音标。",
+    "ipa": "/toʊˈmɑːn/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Reviewed dictionary pronunciation",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/toman#English"
+  },
+  "tomans": {
+    "zh": "n. 图曼（toman的复数，波斯或伊朗的货币计量）",
+    "en": "Plural of toman, a Persian or Iranian monetary unit or amount.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/toman#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/toman#English",
+    "note": "2026-10-21: 修正继承的金币限定，按已核实货币义读音派生。",
+    "ipa": "/toʊˈmɑːnz/",
+    "ipaStatus": "derived",
+    "ipaSource": "Reviewed dictionary base + regular inflection",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/toman#English",
+    "ipaBase": "toman",
+    "baseIpaSource": "Reviewed dictionary base + regular inflection",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/toman#English",
+    "relationSource": "Full-audit manual review of the word-form or spelling relation; see correction note"
+  },
+  "tony": {
+    "zh": "adj. 时髦的；高档的",
+    "en": "Fashionable, stylish, or upscale.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 中文常用形容词与英文罕见傻子名词错配。"
+  },
+  "toon": {
+    "zh": "n. 卡通；动画片",
+    "en": "A cartoon or animated film.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 采用英文常用动画义，去除树木义错配。"
+  },
+  "toons": {
+    "zh": "n. 卡通；动画片（toon的复数）",
+    "en": "Plural of toon: cartoons or animated films.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 修复继承的树木义错配。"
+  },
+  "toots": {
+    "zh": "n. 喇叭声（toot的复数）；v. 鸣喇叭；（俚语称呼）亲爱的",
+    "en": "Plural of toot, a short horn blast; third-person singular of toot; an informal term of address for a woman.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 原中英文对应不同同形词，两类发音已同时给出，补齐释义。"
+  },
+  "topics": {
+    "zh": "n. 话题；主题（topic的复数）",
+    "en": "Plural of topic: subjects of discussion or thought.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除系统缩写误配。"
+  },
+  "topoi": {
+    "zh": "n. 传统主题；文学惯例；常用论题（topos的复数）",
+    "en": "Plural of topos: conventional themes or motifs.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 按英文补充中文实义。"
+  },
+  "tora": {
+    "zh": "n. 托拉狷羚（一种非洲羚羊）",
+    "en": "The tora hartebeest, an African antelope.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 已有英文明确为羚羊，删除宗教教义误配。"
+  },
+  "toras": {
+    "zh": "n. 托拉狷羚（tora的复数）",
+    "en": "Plural of tora: tora hartebeests.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 按tora既有英文义修正继承的错误。"
+  },
+  "tore": {
+    "zh": "v. 撕裂（tear的过去式）",
+    "en": "Simple past tense of tear, to rip.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 英文圆凸线脚名词与中文常用过去式不同义。"
+  },
+  "tores": {
+    "zh": "n. 圆凸线脚；柱基圆凸饰（tore的复数）",
+    "en": "Plural of tore: rounded mouldings, especially at column bases.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 名词复数不能复用tear过去式，采用输入tore提供的名词义。"
+  },
+  "tori": {
+    "zh": "n. 环面；圆凸线脚；隆凸（torus的复数）",
+    "en": "Plural of torus: ring-shaped surfaces, rounded architectural mouldings, or anatomical protuberances.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 统一数学、建筑与解剖义。"
+  },
+  "torii": {
+    "zh": "n. 鸟居（日本神社的传统门）",
+    "en": "A traditional gateway at a Japanese Shinto shrine.",
+    "zhSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "enSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/torii#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/torii#English",
+    "note": "2026-10-21: 已查英文torus复数torii仅为误拼，删除其污染。"
+  },
+  "tornado": {
+    "zh": "n. 龙卷风",
+    "en": "A violently rotating column of air extending from a storm cloud toward the ground.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 保留双方天气本义，删除不相关毒品俚语及大雷雨泛译。"
+  },
+  "toro": {
+    "zh": "n. 日本传统灯笼；金枪鱼的肥美腹肉",
+    "en": "A traditional Japanese lantern; fatty tuna meat served as sushi or sashimi.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/toro#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/toro#English",
+    "note": "2026-10-21: 外查英语词条为日语借词，删除公牛误配。"
+  },
+  "toros": {
+    "zh": "n. 日本传统灯笼（toro的复数）",
+    "en": "Plural of toro: traditional Japanese lanterns.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/toro#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/toro#English",
+    "note": "2026-10-21: 修复继承的公牛义。"
+  },
+  "torrid": {
+    "zh": "adj. 酷热的；热烈的；感情强烈的",
+    "en": "Extremely hot; intensely passionate or emotionally charged.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 补齐中英文不同义项。"
+  },
+  "torsi": {
+    "zh": "n. 躯干；躯干雕塑（torso的复数）",
+    "en": "Plural of torso: bodies without the head and limbs, or sculptures of such bodies.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 中文未完成作品未对齐主要人体义。"
+  },
+  "torte": {
+    "zh": "n. 奶油、水果或坚果等制成的浓郁蛋糕",
+    "en": "A rich cake, often made or decorated with cream, fruit, or nuts.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除不一致的产地限定。"
+  },
+  "torten": {
+    "zh": "n. 奶油、水果或坚果蛋糕（torte的复数）",
+    "en": "Plural of torte.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 修正继承的产地限定。"
+  },
+  "toshes": {
+    "zh": "n. 胡说；废话（tosh的复数）",
+    "en": "Plural of tosh in its countable senses: instances of nonsense.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 采用已有英文明确列出的名词复数，移除未对应的动词标签。"
+  },
+  "toter": {
+    "zh": "n. 搬运者；搬运工",
+    "en": "n someone whose employment involves carrying something",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 中文机器义与英文人员义错配。"
+  },
+  "tours": {
+    "zh": "n. 旅行；游览（tour的复数）；v. 巡回旅行（tour的第三人称单数）",
+    "en": "Plural of tour; third-person singular of tour, to travel around a place.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 大小写专名遮蔽普通词复数，采用常见tour词形。"
+  },
+  "toused": {
+    "zh": "v. 弄乱、搅乱；粗暴对待（touse 的过去式和过去分词）。",
+    "en": "Past tense and past participle of touse: to ruffle, disarrange, or handle roughly.",
+    "zhSource": "Checked dictionary entry (Chinese translation)",
+    "enSource": "Checked dictionary entry (paraphrase)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/touse#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/touse#English",
+    "note": "2026-10-21 full audit: final source check resolves sense or pronunciation mismatch.",
+    "ipa": "/taʊzd/",
+    "ipaStatus": "derived",
+    "ipaBase": "touse",
+    "ipaSource": "Regular past tense from Collins pronunciation of touse",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/touse",
+    "baseIpaSource": "Collins English Dictionary",
+    "relationSource": "https://en.wiktionary.org/wiki/touse#English",
+    "baseIpaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/touse"
+  },
+  "towns": {
+    "zh": "n. 城镇；镇民（town的复数）",
+    "en": "Plural of town: urban settlements smaller than cities, or their inhabitants.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除姓氏和建筑师专名误配。"
+  },
+  "toyo": {
+    "zh": "n. （菲律宾英语）酱油",
+    "en": "Soy sauce, in Philippine English.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/toyo#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/toyo#English",
+    "note": "2026-10-21: 外查明确酱油义，删除日本东洋专名。"
+  },
+  "tpn": {
+    "zh": "abbr. 全肠外营养（total parenteral nutrition）",
+    "en": "Total parenteral nutrition: providing complete nutrition intravenously.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 中文与英文缩写展开不一，按已给英文医疗营养义对齐。"
+  },
+  "tracks": {
+    "zh": "n. 轨道；磁道；足迹；履带（track的复数）",
+    "en": "n a line or route along which something travels or moves; n evidence pointing to a possible solution; n a pair of parallel rails providing a runway for wheels; n a course over which races are run; n a distinct selection of music from a recording or a compact disc; n an endless metal belt on which tracked vehicles move over the ground; n (computer science) one of the circular magnetic paths on a magnetic disk that serve as a guide for writing and reading data; n a groove on a phonograph recording; n a bar or pair of parallel bars of rolled steel making the railway along which railroad cars or other vehicles can roll; n any road or path affording passage especially a rough one; n the act of participating in an athletic competition involving running on a track; v carry on the feet and deposit; v observe or plot the moving path of something; v go after with the intent to catch; v travel across or pass over; v make tracks upon",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 轮胎误译应为履带。"
+  },
+  "trad": {
+    "zh": "adj. 传统的；n. 传统爵士乐",
+    "en": "Traditional; traditional jazz.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 对齐形容词与名词。"
+  },
+  "tragi": {
+    "zh": "n. 耳屏（tragus的复数）",
+    "en": "Plural of tragus: the small cartilaginous projections in front of the ear openings.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 补全中文实义。"
+  },
+  "tram": {
+    "zh": "n. 有轨电车；缆车；v. 乘电车",
+    "en": "A streetcar or cable transport vehicle; to travel by tram.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 补齐电车及缆车义，统一动词。"
+  },
+  "trams": {
+    "zh": "n. 有轨电车；缆车（tram的复数）",
+    "en": "Plural of tram: streetcars or cable transport vehicles.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 补齐英文缺失的主要有轨电车义。"
+  },
+  "tranny": {
+    "zh": "n. 晶体管收音机；汽车变速器；（冒犯性用语）跨性别者或异装者",
+    "en": "A transistor radio; a vehicle transmission; an offensive slang term for a transgender person or cross-dresser.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 为已有侮辱性义项补充标签，并对应全部已列主要义。"
+  },
+  "trans": {
+    "zh": "adj. （化学）反式的；位于相对两侧的",
+    "en": "In (or constituting, forming, or describing) a double bond in which the greater radical on both ends is on the opposite side of the bond.; In (or constituting, forming, or describing) a coordination compound in which the two instances of a particular ligand are on opposite sides of the central atom.; Of the side of the Golgi apparatus farther from the endoplasmic reticulum.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 中文发射机缩写误配英文反式化学义。"
+  },
+  "traps": {
+    "zh": "n. 陷阱；圈套；随身物品；行李（trap的复数或复数专用义）",
+    "en": "Traps or snares; personal belongings or baggage.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 补齐陷阱与随身物品两义。"
+  },
+  "trays": {
+    "zh": "n. 托盘；浅盘（tray的复数）",
+    "en": "Plural of tray: shallow flat containers used for carrying or holding items.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 替换不清楚的古词交叉引用。"
+  },
+  "treed": {
+    "zh": "adj. 长有树木的；被逼上树的；陷入困境的",
+    "en": "Covered with trees; driven up a tree or cornered.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 对齐植被与被困的形容词义。"
+  },
+  "treens": {
+    "zh": "n. 小木制器皿（treen的复数）",
+    "en": "Plural of treen: small wooden household articles.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 名词复数不应套用木制的形容词。"
+  },
+  "tres": {
+    "zh": "n. 特雷斯琴（一种三组弦的吉他类乐器）",
+    "en": "A guitar-like instrument with three courses of strings.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 中文数字三误配乐器。"
+  },
+  "treys": {
+    "zh": "n. 三点牌；点数三（trey的复数）",
+    "en": "Plural of trey: playing cards or dice faces showing three.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 保留已明确名词复数，删除缺少实义的第三人称关系。"
+  },
+  "trf": {
+    "zh": "abbr. 促甲状腺激素释放因子（thyrotropin-releasing factor）",
+    "en": "Thyrotropin-releasing factor, a hormone that stimulates the release of thyroid-stimulating hormone.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 中英文缩写展开不同，按已有英文激素义对齐。"
+  },
+  "trials": {
+    "zh": "n. 试验；尝试；考验；审判；选拔赛（trial的复数）",
+    "en": "n the act of testing something; n trying something to find out about it; n the act of undergoing testing; n (law) the determination of a person's innocence or guilt by due process of law; n (sports) a preliminary competition to determine qualifications; n an annoying or frustrating or catastrophic event",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除中文顿顽乱码。"
+  },
+  "triced": {
+    "zh": "v. （用绳）吊起；拉起并缚住（trice的过去式和过去分词）",
+    "en": "Simple past tense and past participle of trice, to hoist and secure with a rope.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/trice#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/trice#English",
+    "note": "2026-10-21: 核实trice基音，加正常过去式/t/；删除名词和人名。",
+    "ipa": "/tɹaɪst/",
+    "ipaStatus": "derived",
+    "ipaSource": "Reviewed dictionary base + regular inflection",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/trice#English",
+    "ipaBase": "trice",
+    "baseIpaSource": "Reviewed dictionary base + regular inflection",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/trice#English",
+    "relationSource": "Full-audit manual review of the word-form or spelling relation; see correction note"
+  },
+  "trigs": {
+    "zh": "n. 楔子；垫块（trig的复数）",
+    "en": "Plural of trig: wedges or blocks used to hold something in place.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除错误形容词复数与无关三角学简称。"
+  },
+  "trilby": {
+    "zh": "n. 特里尔比软毡帽",
+    "en": "A soft felt hat with a narrow brim and an indented crown.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 中文帽子与小说人物专名错配，保留常见帽子义。"
+  },
+  "trill": {
+    "zh": "n. 颤音；啭鸣；v. 发颤音；用颤音唱",
+    "en": "A rapid alternation between two neighbouring musical notes; a vibrating speech sound or warbling sound; to produce such a sound.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 去除颤音只相差半音的不正确限制。"
+  },
+  "triste": {
+    "zh": "adj. 悲哀的；忧郁的；沉闷的",
+    "en": "Sad, melancholy, or gloomy.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 统一常用形容词，去除不同词源的牛市集。"
+  },
+  "trock": {
+    "zh": "n. 一种在桌面上玩的、类似槌球的游戏",
+    "en": "A game similar to croquet but played on a table.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 已有英文为桌上游戏，删除误继承truck全部义项。"
+  },
+  "troll": {
+    "zh": "n. （斯堪的纳维亚传说中的）巨怪；v. 曳绳钓鱼；高声轮唱",
+    "en": "A supernatural creature in Scandinavian folklore; to fish with a moving baited line or to sing loudly.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 补充主要名词义并对齐已有中文动词义。"
+  },
+  "trolls": {
+    "zh": "n. 巨怪（troll的复数）；v. 曳绳钓鱼；高声唱（troll的第三人称单数）",
+    "en": "Plural of troll, a mythical creature; third-person singular of troll.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 名词复数补齐巨怪，明确动词词形。"
+  },
+  "tromp": {
+    "zh": "v. 重踏；践踏；n. 水力鼓风装置",
+    "en": "To tread heavily or crush underfoot; a hydraulic blowing apparatus.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tromp#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tromp#English",
+    "note": "2026-10-21: 外查两义均成立，补齐对照并删截断。"
+  },
+  "trompe": {
+    "zh": "n. 水力鼓风装置；（古语）喇叭",
+    "en": "A hydraulic blowing apparatus used in a forge; an obsolete word for a trumpet.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/trompe#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/trompe#English",
+    "note": "2026-10-21: 外查确认两种名词义，对齐。"
+  },
+  "trone": {
+    "zh": "n. （苏格兰和英格兰北部的）商品大秤",
+    "en": "A large public weighing device for goods in a town or marketplace.",
+    "zhSource": "Dictionary/reference checked in review",
+    "enSource": "Dictionary/reference checked in review",
+    "zhSourceUrl": "https://www.dictionary.com/browse/trone",
+    "enSourceUrl": "https://www.dictionary.com/browse/trone",
+    "note": "2026-10-21: 词典确认中文衡器义，替换不对应交叉引用。"
+  },
+  "tropin": {
+    "zh": "n. 促激素（作用于另一内分泌腺的激素）；托品（tropine的另一拼写）",
+    "en": "any of the tropic hormones; one that is secreted by an endocrine gland and targets another such gland; Alternative spelling of tropine.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 中文调理素与已有英文不符，按明确英文翻译。"
+  },
+  "trots": {
+    "zh": "n. 小跑（trot的复数）；v. 小跑（trot的第三人称单数）",
+    "en": "Plural of trot; third-person singular of trot, to move at a moderate running pace.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 改正过去式标签，并移除大写Trots政治派别误配。"
+  },
+  "trout": {
+    "zh": "n. 鳟鱼",
+    "en": "flesh of any of several primarily freshwater game and food fishes; any of various game and food fishes of cool fresh waters mostly smaller than typical salmons",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 鲑鱼泛译改为鳟鱼。"
+  },
+  "trow": {
+    "zh": "v. （古语或方言）相信；信任",
+    "en": "To believe or trust; archaic or dialectal.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/trow#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/trow#English",
+    "note": "2026-10-21: 外查中文动词正确，改英文为相应动词义。"
+  },
+  "truer": {
+    "zh": "adj. 更真实的；更准确的（true的比较级）",
+    "en": "Comparative of true: more accurate or more faithful to fact.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 明确比较级，删除基词名词义。"
+  },
+  "truest": {
+    "zh": "adj. 最真实的；最准确的（true的最高级）",
+    "en": "Superlative of true: most accurate or most faithful to fact.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 明确最高级，删除基词名词义。"
+  },
+  "trug": {
+    "zh": "n. （园艺用的）浅底木条篮筐",
+    "en": "A shallow wooden basket used to carry plants or gardening tools.",
+    "zhSource": "Dictionary/reference checked in review",
+    "enSource": "Dictionary/reference checked in review",
+    "zhSourceUrl": "https://dictionary.cambridge.org/us/dictionary/english/trug",
+    "enSourceUrl": "https://dictionary.cambridge.org/us/dictionary/english/trug",
+    "note": "2026-10-21: 词典确认木制园艺篮本义。"
+  },
+  "truss": {
+    "zh": "n. 桁架；疝带；束；v. 捆扎",
+    "en": "A rigid framework supporting a structure; a support for a hernia; a bundle; to tie up.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 中文动词与英文匹配，但补齐已列主要名词义便于对照。"
+  },
+  "tsa": {
+    "zh": "abbr. 美国运输安全管理局（Transportation Security Administration）",
+    "en": "Transportation Security Administration, the US agency responsible for transportation security.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除其他缩写展开，按英文机构对齐。"
+  },
+  "tsores": {
+    "zh": "n. 麻烦；烦恼（tsuris的另一拼写）",
+    "en": "Alternative spelling of tsuris: troubles or worries.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 按已给tsuris英文补充实际中文含义。"
+  },
+  "tsuris": {
+    "zh": "n. 麻烦；烦恼（源自意第绪语）",
+    "en": "n (Yiddish) aggravating trouble",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 替换仅交叉引用的中文。"
+  },
+  "tubae": {
+    "zh": "n. 管；管状器官；古罗马军号（tuba的复数）",
+    "en": "plural of tuba (“a tube or tubular organ; a type of Roman military trumpet”)",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 将大号误配改为已有英文明确的历史/解剖义。"
+  },
+  "tubed": {
+    "zh": "adj. 有内胎的；v. 把……装入管中（tube的过去式和过去分词）",
+    "en": "Having an inner tube; simple past tense and past participle of tube, to put into a tube.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 对齐形容词和动词词形。"
+  },
+  "tuffs": {
+    "zh": "n. 凝灰岩（tuff的复数）",
+    "en": "Plural of tuff: rock formed from consolidated volcanic ash.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 名词复数误标第三人称。"
+  },
+  "tufts": {
+    "zh": "n. （毛、羽毛或草的）簇（tuft的复数）",
+    "en": "Plural of tuft: bunches of hair, feathers, or grass.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除大学专名误配。"
+  },
+  "tule": {
+    "zh": "n. 藨草；一种大型灯心草状湿地植物",
+    "en": "n. A large bulrush (Scirpus lacustris, and S. Tatora) growing;    abundantly on overflowed land in California and elsewhere.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 原草地误译为生境，改为植物本身。"
+  },
+  "tules": {
+    "zh": "n. 藨草（tule的复数）",
+    "en": "plural of tule (a large bulrush)",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 不是香蒲；按已给英文bulrush对齐。"
+  },
+  "tum": {
+    "zh": "n. 肚子；腹部（tummy的简称）",
+    "en": "The stomach or belly; short for tummy.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 中文拟声词与英文腹部义错配。"
+  },
+  "tumid": {
+    "zh": "adj. 肿胀的；膨大的",
+    "en": "Swollen or distended.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 英文过窄性器官义替换为与中文对应的普通肿胀义。"
+  },
+  "tumped": {
+    "zh": "v. 培土；打翻；翻倒（tump的过去式和过去分词）",
+    "en": "Simple past tense and past participle of tump: to mound earth around, knock over, or fall over.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tump#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tump#English",
+    "note": "2026-10-21: 外查动词义，并按基音加过去式/t/。",
+    "ipa": "/tʌmpt/",
+    "ipaStatus": "derived",
+    "ipaSource": "Reviewed dictionary base + regular inflection",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/tump#English",
+    "ipaBase": "tump",
+    "baseIpaSource": "Reviewed dictionary base + regular inflection",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/tump#English",
+    "relationSource": "Full-audit manual review of the word-form or spelling relation; see correction note"
+  },
+  "tums": {
+    "zh": "n. 肚子；腹部（tum的复数）",
+    "en": "Plural of tum: stomachs or bellies.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 纠正继承tum拟声义。"
+  },
+  "tupi": {
+    "zh": "n. 图皮人；图皮语；adj. 图皮人的",
+    "en": "A member of the Tupi peoples; a Tupi language; relating to the Tupi.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 补齐名词/形容词对应。"
+  },
+  "tur": {
+    "zh": "n. 原牛（一种已灭绝的野牛）",
+    "en": "The aurochs, an extinct wild ox.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 普通名词与专名缩写误配，按已有英文urus义翻译。"
+  },
+  "turbo": {
+    "zh": "n. 涡轮增压器",
+    "en": "A turbocharger.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 英文截断且混入Turbo蝾螺属，保留中文常见机械义。"
+  },
+  "turfy": {
+    "zh": "adj. 覆有草皮的；泥炭的；赛马的",
+    "en": "Covered with or consisting of turf; relating to horse racing.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 英文误标最高级，实际为形容词。"
+  },
+  "turnup": {
+    "zh": "n. 翻起的部分；裤脚翻边；a. 可翻起的。",
+    "en": "n. A turned-up part, especially a trouser cuff; a. capable of being turned up.",
+    "zhSource": "Checked dictionary entry (Chinese translation)",
+    "enSource": "Checked dictionary entry (paraphrase)",
+    "zhSourceUrl": "https://www.collinsdictionary.com/dictionary/english/turnup",
+    "enSourceUrl": "https://www.collinsdictionary.com/dictionary/english/turnup",
+    "note": "2026-10-21 full audit: final source check resolves sense or pronunciation mismatch.",
+    "ipa": "/ˈtɜɹnˌʌp/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Collins English Dictionary (reviewed)",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/turnup"
+  },
+  "turtle": {
+    "zh": "n. 龟；海龟；v. 翻覆",
+    "en": "A reptile with a protective shell, especially an aquatic one; to turn upside down.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 补回主要动物义，与中文对应。"
+  },
+  "tush": {
+    "zh": "n. 屁股；臀部（非正式用语）",
+    "en": "The buttocks; an informal term for the bottom.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 现IPA和英文对应臀部义，去除不同读音的感叹词/犬齿义。"
+  },
+  "tusses": {
+    "zh": "n. 阴茎；讨厌的人（tuss 的复数，康沃尔方言，粗俗用语）。",
+    "en": "Plural of tuss: penises, or obnoxious people; vulgar Cornish dialect.",
+    "zhSource": "Checked dictionary entry (Chinese translation)",
+    "enSource": "Checked dictionary entry (paraphrase)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tuss#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tuss#English",
+    "note": "2026-10-21 full audit: final source check resolves sense or pronunciation mismatch."
+  },
+  "tuts": {
+    "zh": "v. 发出啧啧声表示不满（tut的第三人称单数）",
+    "en": "v utter `tsk,' `tut,' or `tut-tut,' as in disapproval",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 嘘声误译改为啧啧声。"
+  },
+  "twaes": {
+    "zh": "n. 两个一组；数字二（twae 的复数，苏格兰语）。",
+    "en": "Plural of twae, a Scots form of two: twos or groups of two.",
+    "zhSource": "Checked dictionary entry (Chinese translation)",
+    "enSource": "Checked dictionary entry (paraphrase)",
+    "zhSourceUrl": "https://dsl.ac.uk/entry/snd/twa",
+    "enSourceUrl": "https://dsl.ac.uk/entry/snd/twa",
+    "note": "2026-10-21 full audit: final source check resolves sense or pronunciation mismatch.",
+    "ipa": "/tweːz/",
+    "ipaStatus": "derived",
+    "ipaBase": "twae",
+    "ipaSource": "Regular plural from the Scots Dictionary vowel variant of twa/twae",
+    "ipaSourceUrl": "https://dsl.ac.uk/entry/snd/twa",
+    "baseIpaSource": "Scottish National Dictionary",
+    "relationSource": "Supplied glossary: plural of twae",
+    "baseIpaSourceUrl": "https://dsl.ac.uk/entry/snd/twa"
+  },
+  "twas": {
+    "zh": "it was 的旧式或省略撇号写法：那是；当时是",
+    "en": "An obsolete or nonstandard spelling of ’twas, a contraction of it was.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除科学院缩写误配。"
+  },
+  "tween": {
+    "zh": "n. 动画补间；补间生成的帧；prep. 在……之间（between的缩略形式）",
+    "en": "An interpolated animation frame or sequence; a shortened form of between.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 去除表面活性剂商标误配。"
+  },
+  "tweens": {
+    "zh": "n. 动画补间；补间生成的帧（tween的复数）",
+    "en": "Plural of tween: interpolated animation frames or sequences.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 修复继承的商标义。"
+  },
+  "tweets": {
+    "zh": "n. 鸟的啁啾声（tweet的复数）；v. 啁啾（tweet的第三人称单数）",
+    "en": "Plural of tweet, a short chirping sound; third-person singular of tweet.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除误混入的squeeze捏紧义。"
+  },
+  "twier": {
+    "zh": "tuyere 的异体拼写：n. 鼓风口; [机] 风口, 风嘴",
+    "en": "Alternative spelling of tuyere.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tuyere#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tuyere#English",
+    "note": "2026-10-21: 按已核实tuyere读音替换非IPA字符；词形关系源自既有Wiktionary条目。",
+    "ipa": "/twiːˈjɛə/",
+    "ipaStatus": "derived",
+    "ipaSource": "Reviewed dictionary base + regular inflection",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/tuyere#English",
+    "ipaBase": "tuyere",
+    "baseIpaSource": "Reviewed dictionary base + regular inflection",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/tuyere#English",
+    "relationSource": "Full-audit manual review of the word-form or spelling relation; see correction note"
+  },
+  "twiers": {
+    "zh": "twier 的复数：tuyere 的异体拼写：n. 鼓风口; [机] 风口, 风嘴",
+    "en": "plural of twier",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tuyere#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tuyere#English",
+    "note": "2026-10-21: 按tuyere读音及规则复数替换非IPA字符。",
+    "ipa": "/twiːˈjɛəz/",
+    "ipaStatus": "derived",
+    "ipaSource": "Reviewed dictionary base + regular inflection",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/tuyere#English",
+    "ipaBase": "twier",
+    "baseIpaSource": "Reviewed dictionary base + regular inflection",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/tuyere#English",
+    "relationSource": "Full-audit manual review of the word-form or spelling relation; see correction note"
+  },
+  "twins": {
+    "zh": "n. 双胞胎；双晶（twin的复数）",
+    "en": "Plural of twin: one of a pair of children born together, or intergrown crystals in a symmetrical relation.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 对齐主要双胞胎与矿物双晶义，去除星座专名。"
+  },
+  "twiny": {
+    "zh": "adj. 缠绕的；由细绳制成的；像细绳的；烦躁的",
+    "en": "Tending to twine; twisting around.; Made of twine; having the appearance of twine.; fretful; uneasy",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 中文仅指向twine，无含义；按已有英文翻译。"
+  },
+  "twister": {
+    "zh": "n. 龙卷风；缠绕者或缠绕装置；扭结状油炸甜点",
+    "en": "A tornado; a person or device that twists; a twisted fried pastry.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 对齐已有两方释义。"
+  },
+  "tyee": {
+    "zh": "n. 奇努克人的酋长；大型奇努克鲑鱼",
+    "en": "A tribal chief of the Chinookan peoples in the Pacific Northwest of the United States.; A large chinook salmon that weighs more than 13.5 kg.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 已有英文为普通名词，删除地名。"
+  },
+  "tyees": {
+    "zh": "n. 酋长；大型奇努克鲑鱼（tyee的复数）",
+    "en": "Plural of tyee: chiefs or large Chinook salmon.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 修复误继承地名。"
+  },
+  "tyer": {
+    "zh": "n. 捆绑者；打结的人",
+    "en": "n. One who ties, or unites.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除姓氏误配。"
+  },
+  "tyers": {
+    "zh": "n. 捆绑者；打结的人（tyer的复数）",
+    "en": "Plural of tyer: people who tie things.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除姓氏误配。"
+  },
+  "tyin": {
+    "zh": "n. 提因（哈萨克斯坦辅币单位，等于百分之一坚戈）",
+    "en": "Alternative form of tiyn, one hundredth of a Kazakh tenge.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tiyn#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tiyn#English",
+    "note": "2026-10-21: 外查货币本义及tiyn读音，删除挪威地名。",
+    "ipa": "/ˈtiːjɪn/",
+    "ipaStatus": "derived",
+    "ipaSource": "Reviewed dictionary base + regular inflection",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/tiyn#English",
+    "ipaBase": "tiyn",
+    "baseIpaSource": "Reviewed dictionary base + regular inflection",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/tiyn#English",
+    "relationSource": "Full-audit manual review of the word-form or spelling relation; see correction note"
+  },
+  "tyned": {
+    "zh": "v. 丢失；迷失；死亡（tyne的过去式和过去分词，古语）",
+    "en": "Simple past tense and past participle of tyne, an obsolete verb meaning to lose or perish.",
+    "zhSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "enSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tyne#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tyne#English",
+    "note": "2026-10-21: 外查确认小写tyne动词，不是Tyne河名。"
+  },
+  "tynes": {
+    "zh": "n. 尖齿（tyne的复数）；v. 丢失（tyne的第三人称单数，古语）",
+    "en": "Plural of tyne, an alternative form of tine; third-person singular of tyne, to lose.",
+    "zhSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "enSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tyne#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tyne#English",
+    "note": "2026-10-21: 外查确认普通名词/动词，删除河名派生。"
+  },
+  "tyning": {
+    "zh": "v. 丢失；迷失（tyne的现在分词，古语）",
+    "en": "Present participle of tyne, an obsolete verb meaning to lose or become lost.",
+    "zhSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "enSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tyne#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tyne#English",
+    "note": "2026-10-21: 外查确认tyne动词，删除河名派生。"
+  },
+  "typhon": {
+    "zh": "n. 堤丰（希腊神话中的巨怪）",
+    "en": "Typhon, a monstrous figure in Greek mythology.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 统一神话专名，删除不对应喇叭/导弹义及错误谱系。"
+  },
+  "typos": {
+    "zh": "n. 打字错误；排印错误（typo的复数）",
+    "en": "Plural of typo: typographical errors.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 打字稿误译改为打字/排印错误。"
+  },
+  "tyred": {
+    "zh": "adj. 装有轮胎的；v. 给……装轮胎（tyre的过去式和过去分词）",
+    "en": "Fitted with tyres; simple past tense and past participle of tyre.",
+    "zhSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "enSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tyre#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tyre#English",
+    "note": "2026-10-21: 外查确认tyre派生，删除Tyr/酪氨酸误配；按基词读音修复。",
+    "ipa": "/ˈtaɪəɹd/",
+    "ipaStatus": "derived",
+    "ipaSource": "Wiktionary base pronunciation + regular inflection",
+    "ipaBase": "tyre",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/tyre#English",
+    "baseIpaSource": "Wiktionary base pronunciation + regular inflection",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/tyre#English",
+    "relationSource": "Full-audit manual review of the word-form or spelling relation; see correction note"
+  },
+  "tyring": {
+    "zh": "v. 给……装轮胎（tyre的现在分词）",
+    "en": "Present participle of tyre, to fit tyres to a vehicle.",
+    "zhSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "enSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/tyre#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/tyre#English",
+    "note": "2026-10-21: 外查确认tyre派生，删除Tyr/酪氨酸误配；按基词读音修复。",
+    "ipa": "/ˈtaɪəɹɪŋ/",
+    "ipaStatus": "derived",
+    "ipaSource": "Wiktionary base pronunciation + regular inflection",
+    "ipaBase": "tyre",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/tyre#English",
+    "baseIpaSource": "Wiktionary base pronunciation + regular inflection",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/tyre#English",
+    "relationSource": "Full-audit manual review of the word-form or spelling relation; see correction note"
+  },
+  "ufo": {
+    "zh": "n. 不明飞行物（unidentified flying object）",
+    "en": "An unidentified flying object.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 替换英文循环定义。"
+  },
+  "uglies": {
+    "zh": "n. 丑陋的人或物（ugly的复数）",
+    "en": "Plural of ugly as a noun: unattractive people or things.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 名词复数不应复用形容词。"
+  },
+  "uma": {
+    "zh": "n. 乌玛，印度教女神帕尔瓦蒂的别名。",
+    "en": "n. Uma, a name of the Hindu goddess Parvati.",
+    "zhSource": "Checked dictionary entry (Chinese translation)",
+    "enSource": "Checked dictionary entry (paraphrase)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/Uma#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/Uma#English",
+    "note": "2026-10-21 full audit: final source check resolves sense or pronunciation mismatch."
+  },
+  "umm": {
+    "zh": "interj. 嗯；呃（表示犹豫或迟疑）；v. 发出这种声音",
+    "en": "A sound expressing hesitation or uncertainty; to make such a sound.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除医学显微镜缩写误配。"
+  },
+  "umping": {
+    "zh": "v. 当裁判（ump的现在分词）",
+    "en": "Present participle of ump, to act as an umpire.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 现在分词应对应动词，而非裁判名词。"
+  },
+  "umps": {
+    "zh": "n. 裁判员（ump的复数）；v. 当裁判（ump的第三人称单数）",
+    "en": "Plural of ump, an umpire; third-person singular of ump.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除缩写误配。"
+  },
+  "uncles": {
+    "zh": "n. 叔伯；舅父；姑父；姨父（uncle的复数）",
+    "en": "Plural of uncle: a parent’s brother or an aunt’s husband.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 补齐uncle主要亲属范围。"
+  },
+  "unite": {
+    "zh": "vi. 联合, 接合, 混合 vt. 使联合, 统一, 使粘合, 使结合",
+    "en": "act in concert or unite in a common purpose or belief; become one",
+    "zhSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "enSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/unite#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/unite#English",
+    "note": "2026-10-21: 外查确认主重音在第二音节，保留原正确释义。",
+    "ipa": "/juˈnaɪt/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Wiktionary"
+  },
+  "unkept": {
+    "zh": "adj. （承诺等）未履行的；未被妥善照料的",
+    "en": "Not kept or fulfilled; not well maintained.",
+    "zhSource": "Dictionary/reference checked in review",
+    "enSource": "Dictionary/reference checked in review",
+    "zhSourceUrl": "https://dictionary.cambridge.org/pronunciation/english/unkept",
+    "enSourceUrl": "https://dictionary.cambridge.org/pronunciation/english/unkept",
+    "note": "2026-10-21: 词典核实意思及音标，删除检修误译。",
+    "ipa": "/ˌʌnˈkept/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Reviewed dictionary pronunciation",
+    "ipaSourceUrl": "https://dictionary.cambridge.org/pronunciation/english/unkept"
+  },
+  "unled": {
+    "zh": "形容词：无人引领的；缺乏指导或领导的",
+    "en": "Not led; without guidance or leadership.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/led#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/led#English",
+    "note": "2026-10-21: 按已核实led读音和透明否定前缀修复音节/辅音顺序。",
+    "ipa": "/ʌnˈlɛd/",
+    "ipaStatus": "derived",
+    "ipaSource": "Reviewed dictionary base + regular inflection",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/led#English",
+    "ipaBase": "led",
+    "baseIpaSource": "Reviewed dictionary base + regular inflection",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/led#English",
+    "relationSource": "Full-audit manual review of the word-form or spelling relation; see correction note"
+  },
+  "unmade": {
+    "zh": "adj. （床铺）未整理的；v. 撤销；拆毁（unmake的过去式和过去分词）",
+    "en": "Of a bed, not made or arranged; simple past tense and past participle of unmake.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 对齐未整理形容词和动词过去式。"
+  },
+  "uns": {
+    "zh": "pron. 那些人或东西（un / 'un 的复数，口语，相当于 ones）。",
+    "en": "Colloquial plural of un or 'un: ones, referring to people or things.",
+    "zhSource": "Checked dictionary entry (Chinese translation)",
+    "enSource": "Checked dictionary entry (paraphrase)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/un#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/un#English",
+    "note": "2026-10-21 full audit: final source check resolves sense or pronunciation mismatch."
+  },
+  "untrod": {
+    "zh": "adj. 未被踏过的；人迹罕至的",
+    "en": "Not trodden on; not travelled over.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 英文形容词与中文动词词形错配，明确主要未踏过义。"
+  },
+  "unworn": {
+    "zh": "adj. 未穿过的；未磨损的",
+    "en": "Not worn or used; showing no wear.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除否定释义后误接的肯定磨损定义。"
+  },
+  "upas": {
+    "zh": "n. 见血封喉树；其有毒汁液",
+    "en": "The tropical tree Antiaris toxicaria, or its poisonous sap.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除截断传说，保留双方已有植物及毒汁本义。"
+  },
+  "uplit": {
+    "zh": "v. 从下方向上照亮（uplight的过去式和过去分词）",
+    "en": "Simple past tense and past participle of uplight, to illuminate from below.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 动词词形不能继承灯具名词。"
+  },
+  "upon": {
+    "zh": "prep. 在……之上；一……就；在……时",
+    "en": "On; immediately after or at the time of an event.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除on所有用法都可互换的绝对表述。"
+  },
+  "upped": {
+    "zh": "v. 提高；增加；突然行动（up的过去式和过去分词）",
+    "en": "Simple past tense and past participle of up: to raise, increase, or act suddenly.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 英文应对应动词过去式。"
+  },
+  "upping": {
+    "zh": "v. 提高；增加（up的现在分词）",
+    "en": "Present participle of up: to raise or increase.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 英文应对应动词现在分词。"
+  },
+  "ups": {
+    "zh": "n. 上升；高峰；顺境（up的复数）；v. 提高；增加（up的第三人称单数）",
+    "en": "Plural of up, a rise or favourable period; third-person singular of up, to raise or increase.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除大写UPS电源缩写误配。"
+  },
+  "upsets": {
+    "zh": "n. 烦乱；不适；意外胜利（upset的复数）；v. 使心烦；打翻（upset的第三人称单数）",
+    "en": "Plural of upset: disturbances, discomfort, or unexpected victories; third-person singular of upset.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 中文孤立压折义未对应英文主要释义。"
+  },
+  "uptempo": {
+    "zh": "adj. 节奏快的；adv. 以快速节奏",
+    "en": "Having or proceeding at a fast tempo.",
+    "zhSource": "Dictionary/reference checked in review",
+    "enSource": "Dictionary/reference checked in review",
+    "zhSourceUrl": "https://www.oxfordlearnersdictionaries.com/definition/english/uptempo",
+    "enSourceUrl": "https://www.oxfordlearnersdictionaries.com/definition/english/uptempo",
+    "note": "2026-10-21: 词典核实完整音标，修正拆段。",
+    "ipa": "/ˈʌptempəʊ/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Reviewed dictionary pronunciation",
+    "ipaSourceUrl": "https://www.oxfordlearnersdictionaries.com/definition/english/uptempo"
+  },
+  "upto": {
+    "zh": "up to 的非标准连写或误拼：直到；不多于；由……负责",
+    "en": "A nonstandard spelling of up to: until, no more than, or within someone’s responsibility.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/up_to#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/up_to#English",
+    "note": "2026-10-21: 明确非标准词形，并按已核实up to读音对齐。",
+    "ipa": "/ˈʌp tuː/",
+    "ipaStatus": "derived",
+    "ipaSource": "Reviewed dictionary base + regular inflection",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/up_to#English",
+    "ipaBase": "up to",
+    "baseIpaSource": "Reviewed dictionary base + regular inflection",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/up_to#English",
+    "relationSource": "Full-audit manual review of the word-form or spelling relation; see correction note"
+  },
+  "uraei": {
+    "zh": "n. 乌雷乌斯蛇饰：古埃及王冠上的神圣眼镜蛇形象（uraeus 的复数）。",
+    "en": "Plural of uraeus: sacred cobra emblems on ancient Egyptian royal headdresses.",
+    "zhSource": "Checked dictionary entry (Chinese translation)",
+    "enSource": "Checked dictionary entry (paraphrase)",
+    "zhSourceUrl": "https://www.collinsdictionary.com/us/dictionary/english/uraeus",
+    "enSourceUrl": "https://www.collinsdictionary.com/us/dictionary/english/uraeus",
+    "note": "2026-10-21 full audit: final source check resolves sense or pronunciation mismatch.",
+    "ipa": "/jʊˈɹiˌaɪ/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Collins / Webster’s New World (explicit plural pronunciation)",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/us/dictionary/english/uraeus"
+  },
+  "urbs": {
+    "zh": "n. 城市；都市（urb的复数）",
+    "en": "Plural of urb: cities or urban areas.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 不是多个urban系列词的缩写，应为名词复数。"
+  },
+  "ureas": {
+    "zh": "n. 尿素或尿素类化合物（urea的复数）",
+    "en": "Plural of urea, referring to forms or compounds of urea.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 中文不应局限尿素塑料，需匹配英文尿素义。"
+  },
+  "urging": {
+    "zh": "n. 催促；劝说；鼓励；v. 催促；敦促（urge的现在分词）",
+    "en": "Encouragement or earnest persuasion; present participle of urge.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除误混入purge清除义，补齐名词动词。"
+  },
+  "usaf": {
+    "zh": "abbr. 美国空军（United States Air Force）",
+    "en": "United States Air Force.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除美国陆军部队误译。"
+  },
+  "use": {
+    "zh": "n. 使用；用途；v. 使用；利用",
+    "en": "The act or purpose of using; to employ for a purpose.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/use#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/use#English",
+    "note": "2026-10-21: 区分名词/s/与动词/z/发音。",
+    "ipa": "/juːs/, /juːz/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Reviewed dictionary pronunciation",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/use#English"
+  },
+  "uses": {
+    "zh": "n. 用途；使用（use的复数）；v. 使用（use的第三人称单数）",
+    "en": "Plural of use; third-person singular of use.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/use#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/use#English",
+    "note": "2026-10-21: 区分名词复数/sɪz/与动词第三人称/zɪz/。",
+    "ipa": "/ˈjuːsɪz/, /ˈjuːzɪz/",
+    "ipaStatus": "derived",
+    "ipaSource": "Reviewed dictionary base + regular inflection",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/use#English",
+    "ipaBase": "use",
+    "baseIpaSource": "Reviewed dictionary base + regular inflection",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/use#English",
+    "relationSource": "Full-audit manual review of the word-form or spelling relation; see correction note"
+  },
+  "using": {
+    "zh": "v. 使用；利用（use的现在分词）",
+    "en": "Present participle of use: to employ something for a purpose.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 英文过窄剥削义与中文普通使用义不符。"
+  },
+  "usmc": {
+    "zh": "abbr. 美国海军陆战队（United States Marine Corps）",
+    "en": "United States Marine Corps.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除错误的美国海军一个师定义。"
+  },
+  "uta": {
+    "zh": "n. 皮肤利什曼病",
+    "en": "Cutaneous leishmaniasis.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/uta#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/uta#English",
+    "note": "2026-10-21: 核实小写uta疾病义，去除大写蜥蜴属Uta混入。"
+  },
+  "utas": {
+    "zh": "n. （古语）节日后的第八天；节庆；欢乐",
+    "en": "n. The eighth day after any term or feast; the octave; as, the;    utas of St. Michael.; n. Hence, festivity; merriment.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除不对应机构缩写，翻译已有英文古义。"
+  },
+  "utes": {
+    "zh": "n. 小型货车；皮卡（ute的复数，澳大利亚和新西兰用语）",
+    "en": "Plural of ute: utility vehicles or pickup trucks.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除大写Utes族名及英文截断。"
+  },
+  "uts": {
+    "zh": "n. ut音名（旧式唱名中相当于do，ut的复数）",
+    "en": "Plural of ut, the older solmization name for the first note of a scale.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除UT时间/州名/计算机缩写误配。"
+  },
+  "vaccine": {
+    "zh": "n. 疫苗",
+    "en": "A preparation that stimulates an immune response to protect against a particular disease.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/vaccine#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/vaccine#English",
+    "note": "2026-10-21: 外查包含病原体衍生物及合成替代物，原限定减毒/灭活细胞过窄。"
+  },
+  "vade": {
+    "zh": "v. （古语）褪色；消失",
+    "en": "v. i. To fade; hence, to vanish.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除大写设备缩写误配。"
+  },
+  "vail": {
+    "zh": "v. （古语）降下；脱帽致敬；n. （古语）收益；赏钱",
+    "en": "To lower or remove a hat in respect; profit or a gratuity, in obsolete usage.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/vail#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/vail#English",
+    "note": "2026-10-21: 外查历史动词和名词义，删除没有依据的有利。"
+  },
+  "vair": {
+    "zh": "n. 松鼠皮",
+    "en": "n. Squirrel fur.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Supplied glossary (manual paraphrase of the complete noun sense)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/vair#English",
+    "note": "2026-10-21: 按词典修正非IPA字符，保留原松鼠皮义。 汇总时去掉旧英释残缺的句尾和多余空白，保留完整核心义。",
+    "ipa": "/vɛə/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Reviewed dictionary pronunciation",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/vair#English"
+  },
+  "valse": {
+    "zh": "n. 华尔兹舞；圆舞曲",
+    "en": "A waltz.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 中文轻轻走不对应英文舞蹈名词。"
+  },
+  "vamper": {
+    "zh": "n. 修补者；鞋匠",
+    "en": "A person who repairs things by piecing old materials together, especially a cobbler.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/vamper#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/vamper#English",
+    "note": "2026-10-21: 外查施事名词与中文修鞋者相符，替换不对应女性俚语义。"
+  },
+  "van": {
+    "zh": "n. 厢式货车；前锋；先锋",
+    "en": "A covered vehicle for carrying goods or people; the leading part of an army or movement.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 补齐英文缺失的主要货车义。"
+  },
+  "vaned": {
+    "zh": "adj. 有叶片的；有羽片的",
+    "en": "Having a vane or vanes.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/vane#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/vane#English",
+    "note": "2026-10-21: 核实vane派生形容词，按基词加-ed修复元音。",
+    "ipa": "/veɪnd/",
+    "ipaStatus": "derived",
+    "ipaSource": "Reviewed dictionary base + regular inflection",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/vane#English",
+    "ipaBase": "vane",
+    "baseIpaSource": "Reviewed dictionary base + regular inflection",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/vane#English",
+    "relationSource": "Full-audit manual review of the word-form or spelling relation; see correction note"
+  },
+  "vans": {
+    "zh": "n. 厢式货车；先锋（van的复数）",
+    "en": "Plural of van: covered vehicles, or leading groups.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 补齐英文缺失的货车复数。"
+  },
+  "var": {
+    "zh": "n. 乏（无功功率单位）",
+    "en": "A unit of reactive power, the volt-ampere reactive.",
+    "zhSource": "Dictionary/reference checked in review",
+    "enSource": "Dictionary/reference checked in review",
+    "zhSourceUrl": "https://www.electropedia.org/cdd/iec61987/iec61987.nsf/PropertiesAllVersions/0112-2---61987%23ABP095?opendocument=",
+    "enSourceUrl": "https://www.electropedia.org/cdd/iec61987/iec61987.nsf/PropertiesAllVersions/0112-2---61987%23ABP095?opendocument=",
+    "note": "2026-10-21: 核实var为无功功率单位，删除经销商与有功耗散误配。"
+  },
+  "varia": {
+    "zh": "n. 古希腊语的重音符（`，baria的另一拼写）",
+    "en": "Alternative form of baria: the Ancient Greek grave accent.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/varia#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/varia#English",
+    "note": "2026-10-21: 外查当前英文词条确为重音符，修正不相应中文。"
+  },
+  "varies": {
+    "zh": "v. 变化；不同；使多样化（vary的第三人称单数）",
+    "en": "Third-person singular of vary: to differ, change, or diversify.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 中文错误名词与英文动词不符。"
+  },
+  "vars": {
+    "zh": "n. 乏（无功功率单位var的复数）",
+    "en": "Plural of var, a unit of reactive power.",
+    "zhSource": "Dictionary/reference checked in review",
+    "enSource": "Dictionary/reference checked in review",
+    "zhSourceUrl": "https://www.electropedia.org/cdd/iec61987/iec61987.nsf/PropertiesAllVersions/0112-2---61987%23ABP095?opendocument=",
+    "enSourceUrl": "https://www.electropedia.org/cdd/iec61987/iec61987.nsf/PropertiesAllVersions/0112-2---61987%23ABP095?opendocument=",
+    "note": "2026-10-21: 按已核实var修正复数及错误功率描述。"
+  },
+  "vas": {
+    "zh": "n. 管；脉管",
+    "en": "A bodily vessel or duct through which fluid passes.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除英文VA州名和机构缩写污染。"
+  },
+  "vasts": {
+    "zh": "n. 广阔的空间；辽阔区域（vast的复数）",
+    "en": "Plural of vast as a noun: immense spaces or expanses.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 名词复数应对应空间名词，不能复用形容词。"
+  },
+  "vau": {
+    "zh": "n. 瓦夫（希伯来字母vav的另一拼写）",
+    "en": "Alternative spelling of vav, a letter of the Hebrew alphabet.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除仪表缩写误配。"
+  },
+  "vegan": {
+    "zh": "n. 纯素食者；adj. 不含动物制品的",
+    "en": "A person who avoids consuming animal products; containing no animal products.",
+    "zhSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "enSource": "Wiktionary (reviewed sense-aligned paraphrase)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/vegan#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/vegan#English",
+    "note": "2026-10-21: 核实标准读音为长i，修正短e。",
+    "ipa": "/ˈviːɡən/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Wiktionary"
+  },
+  "vegas": {
+    "zh": "n. 肥沃平原（vega的复数）",
+    "en": "Plural of vega: open plains, especially fertile ones.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/vega#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/vega#English",
+    "note": "2026-10-21: 外查小写vega普通地理名词；删除城市、剧作家和恒星专名。",
+    "ipa": "/ˈveɪɡəz/",
+    "ipaStatus": "derived",
+    "ipaSource": "Reviewed dictionary base + regular inflection",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/vega#English",
+    "ipaBase": "vega",
+    "baseIpaSource": "Reviewed dictionary base + regular inflection",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/vega#English",
+    "relationSource": "Full-audit manual review of the word-form or spelling relation; see correction note"
+  },
+  "veggie": {
+    "zh": "n. 蔬菜；素食者",
+    "en": "A vegetable; a vegetarian.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 对齐蔬菜和素食者两个常用义。"
+  },
+  "venire": {
+    "zh": "n. 陪审员召集令；被召集的候选陪审员群体",
+    "en": "A writ summoning prospective jurors, or the group summoned for jury selection.",
+    "zhSource": "Wiktionary (reviewed sense and pronunciation)",
+    "enSource": "Wiktionary (reviewed sense and pronunciation)",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/venire#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/venire#English",
+    "note": "2026-10-21: 外查两义均成立；原IPA亦为美式英语读音，无需修改。"
+  },
+  "venom": {
+    "zh": "n. 毒液；恶意",
+    "en": "A poisonous substance produced by an animal; spite or malice.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 蜘蛛和蝎子不是昆虫，去除错误分类。"
+  },
+  "vented": {
+    "zh": "adj. 装有通风口的；v. 发泄；排出（vent的过去式和过去分词）",
+    "en": "Provided with vents; simple past tense and past participle of vent, to express feelings or release gas.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 对齐动词与形容词。"
+  },
+  "vera": {
+    "zh": "n. 卷烟纸；维拉（金融学中衡量vega随无风险利率变化的指标）",
+    "en": "A cigarette rolling paper; a derivative sensitivity measuring how vega changes with the risk-free interest rate.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 按已有英文释义翻译，删除反应堆缩写。"
+  },
+  "verier": {
+    "zh": "adj. 更完全的；更十足的（very作形容词时的比较级）",
+    "en": "comparative form of very: more very (complete, absolute)",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 明确英文所列比较级。"
+  },
+  "verist": {
+    "zh": "n. 真实主义者；写实主义者",
+    "en": "One who subscribes to verism.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 指奉行者，而非主义本身。"
+  },
+  "verts": {
+    "zh": "n. 草木；绿色（vert的复数）",
+    "en": "Plural of vert: green vegetation or heraldic green.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 名词复数误标第三人称。"
+  },
+  "vertu": {
+    "zh": "n. 对艺术品的鉴赏力；艺术价值",
+    "en": "Appreciation of fine art objects; artistic merit.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 中文人/物义与英文鉴赏力/艺术价值不对应。"
+  },
+  "very": {
+    "zh": "adv. 非常；很；adj. 正是的；十足的",
+    "en": "To a high degree; exactly the one specified; complete or absolute.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 补齐主要程度副词。"
+  },
+  "vetoed": {
+    "zh": "v. 否决；禁止（veto的过去式和过去分词）",
+    "en": "Simple past tense and past participle of veto.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 删除原形名词否决权标签。"
+  },
+  "vetted": {
+    "zh": "v. 审查；检查；诊疗（vet的过去式和过去分词）",
+    "en": "Simple past tense and past participle of vet: to examine carefully or give veterinary treatment.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "zhSourceUrl": "",
+    "enSourceUrl": "",
+    "note": "2026-10-21: 补齐审查动词义并删除兽医名词。"
+  }
+}

@@ -1,0 +1,2399 @@
+{
+  "sab": {
+    "zh": "n. 破坏狩猎活动者；v. 破坏、阻挠狩猎活动（尤指反对猎狐）。",
+    "en": "n. A person who sabotages hunts, especially fox hunts; v. to sabotage such a hunt.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 缩写覆盖普通词"
+  },
+  "sabs": {
+    "zh": "sab 的复数或第三人称单数：阻挠狩猎活动者；破坏、阻挠狩猎活动。",
+    "en": "Plural or third-person singular of sab: hunt saboteurs; sabotages a hunt.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 继承sab缩写且词形含糊"
+  },
+  "sades": {
+    "zh": "v. 使疲劳、使厌倦（sade 的第三人称单数，方言）。",
+    "en": "Third-person singular of sade: tires or wearies.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 姓氏当普通词形，需核实sade",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sade#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/sade#English"
+  },
+  "sadi": {
+    "zh": "n. 希伯来字母表第十八个字母（tsade 的异体拼写）。",
+    "en": "n. A variant of tsade, the eighteenth letter of the Hebrew alphabet.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 专名与希伯来字母混用",
+    "ipa": "/ˈsɑːdi/, /ˈtsɑːdi/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Collins English Dictionary (reviewed)",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/us/dictionary/english/sadi"
+  },
+  "sadis": {
+    "zh": "sadi 的复数：希伯来字母 tsade。",
+    "en": "Plural of sadi, a variant name for the Hebrew letter tsade.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 继承sadi错误",
+    "ipa": "/ˈsɑːdiz/, /ˈtsɑːdiz/",
+    "ipaStatus": "derived",
+    "ipaBase": "sadi",
+    "ipaSource": "Regular inflection from a reviewed base pronunciation",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/us/dictionary/english/sadi",
+    "baseIpaSource": "Collins",
+    "relationSource": "https://en.wiktionary.org/wiki/sadi#English",
+    "baseIpaSourceUrl": "https://www.collinsdictionary.com/us/dictionary/english/sadi"
+  },
+  "sager": {
+    "zh": "a. 更明智的、更贤明的（sage 的比较级）。",
+    "en": "Comparative of sage: wiser or more judicious.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 比较级含名词释义且IPA硬g",
+    "ipa": "/ˈseɪdʒəɹ/",
+    "ipaStatus": "derived",
+    "ipaBase": "sage",
+    "ipaSource": "Regular morphology from reviewed base pronunciation",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://en.wiktionary.org/wiki/sage#English",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/sage#English",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/sage#English"
+  },
+  "sagy": {
+    "zh": "a. 长满鼠尾草的；用鼠尾草调味的。",
+    "en": "a. Full of sage or seasoned with sage.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 地名覆盖鼠尾草义"
+  },
+  "saids": {
+    "zh": "a. 上述的、前述的（古苏格兰语中 said 的复数屈折形式）。",
+    "en": "Older Scots: an inflected plural form of the adjective said, meaning previously mentioned.",
+    "zhSource": "Dictionary of the Older Scottish Tongue (reviewed translation)",
+    "enSource": "Dictionary of the Older Scottish Tongue (reviewed)",
+    "note": "2026-10-21 full audit: 错误第三人称关系，疑为said名词复数",
+    "zhSourceUrl": "https://www.dsl.ac.uk/entry/dost/said_ppl_adj",
+    "enSourceUrl": "https://www.dsl.ac.uk/entry/dost/said_ppl_adj"
+  },
+  "sales": {
+    "zh": "n. 销售；销售额（sale 的复数）。",
+    "en": "n. Plural of sale; the selling of goods or services, or the revenue from doing so.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文只有形容词而英文收入"
+  },
+  "salina": {
+    "zh": "n. 盐湖；盐沼；盐田。",
+    "en": "n. A salt lake, salt marsh, or saltworks.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 地名与盐湖混用，中文烟碱疑为盐碱",
+    "ipa": "/səˈlaɪnə/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Wiktionary (reviewed)",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/salina#English"
+  },
+  "sall": {
+    "zh": "aux. shall 的苏格兰语形式：将；应当。",
+    "en": "A Scots form of shall.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 缩写覆盖Scots shall"
+  },
+  "salle": {
+    "zh": "n. 大厅、房间；击剑练习厅或学校。",
+    "en": "n. A hall or room; a fencing room or school.",
+    "zhSource": "Collins and Wiktionary (reviewed translation)",
+    "enSource": "Collins and Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 大厅与击剑学校错配；音标需核实",
+    "ipa": "/sæl/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Collins English Dictionary (reviewed)",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/salle",
+    "zhSourceUrl": "https://www.collinsdictionary.com/dictionary/english/salle",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/salle#English"
+  },
+  "salps": {
+    "zh": "n. 樽海鞘（salp 的复数）。",
+    "en": "Plural of salp: small, transparent, free-swimming marine tunicates.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 名词标成第三人称"
+  },
+  "sals": {
+    "zh": "n. 娑罗双树（sal 的复数）。",
+    "en": "Plural of sal: Shorea robusta trees.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 缩写覆盖sal复数",
+    "ipa": "/sɑːlz/",
+    "ipaStatus": "derived",
+    "ipaBase": "sal",
+    "ipaSource": "Regular morphology from reviewed base pronunciation",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://en.wiktionary.org/wiki/sal#English",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/sal#English",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/sal#English"
+  },
+  "salts": {
+    "zh": "n. 盐类（salt 的复数）；v. 加盐、用盐腌制（salt 的第三人称单数）。",
+    "en": "Plural of salt; third-person singular of salt, to add salt to or preserve with salt.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文混入SALT军备谈判缩写"
+  },
+  "sands": {
+    "zh": "n. 沙；沙地、沙滩（sand 的复数）；v. 用砂纸打磨（sand 的第三人称单数）。",
+    "en": "Plural of sand: grains of rock or stretches of sandy ground; third-person singular of sand, to smooth with sandpaper.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文混入Sand作家专名"
+  },
+  "sang": {
+    "zh": "v. 唱、歌唱（sing 的过去式）。",
+    "en": "Past tense of sing: to produce musical sounds with the voice.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: sing过去式与人参错配"
+  },
+  "sanger": {
+    "zh": "n. 桑格（姓氏），如英国生物化学家 Frederick Sanger。",
+    "en": "n. Sanger, a surname; for example, the English biochemist Frederick Sanger.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文将英国生化学家错误称美国人"
+  },
+  "sapped": {
+    "zh": "v. 逐渐削弱、耗尽；从下方挖掘（sap 的过去式和过去分词）。",
+    "en": "Past tense and past participle of sap: to weaken or deplete, or excavate beneath.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 地理形容词覆盖sap动词"
+  },
+  "sarape": {
+    "zh": "n. 萨拉佩披肩：墨西哥传统的色彩鲜艳的长披肩。",
+    "en": "n. A long, brightly coloured shawl traditionally worn in Mexico.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 衣物与织物释义不精确"
+  },
+  "sarod": {
+    "zh": "萨洛德琴",
+    "en": "A fretless string instrument used mainly in Indian classical music.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 音标疑损坏",
+    "ipa": "/səˈroʊd/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Collins English Dictionary (reviewed)",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/sarod"
+  },
+  "saros": {
+    "zh": "n. 沙罗周期：223 个朔望月，约18年11天8小时，用于推算日月食。",
+    "en": "An eclipse cycle of 223 lunar months, approximately 18 years, 11 days and 8 hours.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 中英文天文周期时长不一致",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/saros#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/saros#English"
+  },
+  "sas": {
+    "zh": "abbr. 英国陆军特别空勤团（Special Air Service）。",
+    "en": "Abbreviation of Special Air Service, a British Army special forces unit.",
+    "zhSource": "Cambridge Dictionary (reviewed translation)",
+    "enSource": "Cambridge Dictionary (reviewed)",
+    "note": "2026-10-21 full audit: 计算机缩写与军队缩写错配",
+    "ipa": "/ˌes eɪ ˈes/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Cambridge Dictionary (reviewed)",
+    "ipaSourceUrl": "https://dictionary.cambridge.org/us/dictionary/english/sas",
+    "zhSourceUrl": "https://dictionary.cambridge.org/us/dictionary/english/sas",
+    "enSourceUrl": "https://dictionary.cambridge.org/us/dictionary/english/sas"
+  },
+  "sates": {
+    "zh": "v. 使充分满足、使饱足（sate 的第三人称单数）。",
+    "en": "Third-person singular of sate: fills or satisfies completely.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 错误sit过去式关系"
+  },
+  "sating": {
+    "zh": "v. 使充分满足、使饱足（sate 的现在分词）。",
+    "en": "Present participle of sate: satisfying completely.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 现在分词误标形容词"
+  },
+  "satis": {
+    "zh": "satisfied 或 satisfy 的截短形式：满意的；使满意。",
+    "en": "A clipping of satisfied or satisfy.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 缩写与satisfy截短词错配"
+  },
+  "saudi": {
+    "zh": "n. 沙特阿拉伯人；a. 沙特阿拉伯的。",
+    "en": "n. A native or inhabitant of Saudi Arabia; a. relating to Saudi Arabia.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文人名词与中文形容词用途需对齐"
+  },
+  "sauls": {
+    "zh": "n. 灵魂（saul 的复数，soul 的旧形式）；娑罗双树（sal 的旧形式）。",
+    "en": "Plural of saul, an old form of soul or of sal, the tree.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 仅姓氏音译而英语saul复数，需核实",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/saul#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/saul#English"
+  },
+  "savory": {
+    "zh": "a. 美味的；咸味的；n. 香薄荷属香草。",
+    "en": "a. Pleasant-tasting or savoury rather than sweet; n. an aromatic herb of the genus Satureja.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 主要英文植物/道德义与中文可口错配"
+  },
+  "savoy": {
+    "zh": "n. 皱叶甘蓝。",
+    "en": "n. A cabbage with crinkled leaves.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 卷心菜与地名错配"
+  },
+  "sawers": {
+    "zh": "n. 锯木者、锯工（sawer 的复数）。",
+    "en": "Plural of sawer: people who saw wood or other material.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 锯工复数误作姓氏"
+  },
+  "saws": {
+    "zh": "n. 锯；格言（saw 的复数）；v. 用锯锯（saw 的第三人称单数）。",
+    "en": "Plural of saw, a cutting tool or a proverb; third-person singular of saw, to cut with a saw.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文混入soak错误词形"
+  },
+  "saxes": {
+    "zh": "n. 萨克斯管（sax 的复数）。",
+    "en": "Plural of sax, an informal word for saxophone.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文混入Saxe等专名"
+  },
+  "sayed": {
+    "zh": "v. 说（said 的非标准拼写，say 的过去式和过去分词）。",
+    "en": "A nonstandard spelling of said, the past tense and past participle of say.",
+    "zhSource": "Wiktionary (reviewed translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 音标混入专名读法",
+    "ipa": "/sɛd/, /seɪd/",
+    "ipaStatus": "derived",
+    "ipaBase": "said",
+    "ipaSource": "Reviewed variant spelling of said",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/said#English",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://en.wiktionary.org/wiki/sayed#English",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sayed#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/sayed#English",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/said#English"
+  },
+  "scape": {
+    "zh": "n. 花葶：由地面长出、无叶的花茎；柱身。",
+    "en": "n. A leafless flower stalk arising from the ground; the shaft of a column.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 昆虫触角义与花葶/柱身义错配"
+  },
+  "scapes": {
+    "zh": "n. 花葶；柱身（scape 的复数）。",
+    "en": "Plural of scape: leafless flower stalks or column shafts.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 错误第三人称标记及scape释义错配"
+  },
+  "scarf": {
+    "zh": "n. 围巾、头巾、领巾。",
+    "en": "n. A piece of cloth worn around the neck or head for warmth or decoration.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文主要释义为极罕见危险行为，需对应围巾词义"
+  },
+  "scars": {
+    "zh": "n. 疤痕、创伤（scar 的复数）；v. 留下疤痕（scar 的第三人称单数）。",
+    "en": "Plural of scar: marks left by healed wounds; third-person singular of scar, to leave such a mark.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文冻结物疑错误"
+  },
+  "scary": {
+    "zh": "a. 吓人的、令人害怕的。",
+    "en": "a. Causing fear or alarm.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文主要是感到害怕，英文使人害怕"
+  },
+  "scatt": {
+    "zh": "n. 税款、贡赋（scat 的旧拼写）。",
+    "en": "An obsolete spelling of scat meaning a tax or tribute.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: scat与贡税错配",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/scatt#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/scatt#English"
+  },
+  "scaur": {
+    "zh": "n. 陡峭的崖壁、岩壁或陡岸。",
+    "en": "n. A steep rocky bank or cliff.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 伤疤与峭壁错配"
+  },
+  "scend": {
+    "zh": "v. （船）随波浪上升；n. 波浪使船上升的运动。",
+    "en": "v. To rise or heave with a wave; n. such an upward movement of a vessel.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 词性名词与动词不一致"
+  },
+  "scended": {
+    "zh": "v. （船）随波浪上升（scend 的过去式和过去分词）。",
+    "en": "Past tense and past participle of scend: to rise with a wave.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 动词词形继承名词释义"
+  },
+  "scends": {
+    "zh": "v. （船）随波浪上升（scend 的第三人称单数）。",
+    "en": "Third-person singular of scend: rises or heaves with a wave.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 音标缺词尾，未标第三人称",
+    "ipa": "/sendz/",
+    "ipaStatus": "derived",
+    "ipaBase": "scend",
+    "ipaSource": "Regular morphology from reviewed base pronunciation",
+    "baseIpaSource": "Supplied glossary; manually checked base",
+    "relationSource": "Supplied glossary word-form relation"
+  },
+  "sconce": {
+    "zh": "n. 壁式烛台；壁灯。",
+    "en": "n. A candleholder or light fixed to a wall.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 壁式灯台与工事释义错配"
+  },
+  "scops": {
+    "zh": "n. 古英语吟游诗人（scop 的复数）。",
+    "en": "Plural of scop: Anglo-Saxon poets or bards.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 名词复数误标第三人称"
+  },
+  "scored": {
+    "zh": "v. 得分；评分；刻痕（score 的过去式和过去分词）。",
+    "en": "Past tense and past participle of score: to gain points, assign a score, or make a notch.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文折叠/刮伤与得分主释义不对应"
+  },
+  "scorer": {
+    "zh": "n. 得分者；记分员；刻痕者。",
+    "en": "n. A player who scores, a person who keeps the score, or someone who makes marks or notches.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 记录员vs得分者需对齐"
+  },
+  "scoring": {
+    "zh": "n. 得分；评分；v. 得分、评分、刻痕（score 的现在分词）。",
+    "en": "n. Gaining points or assigning a score; present participle of score.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 擦伤与评分错配"
+  },
+  "scorpio": {
+    "zh": "n. 天蝎座；天蝎座出生的人。",
+    "en": "n. The eighth sign of the zodiac, or a person born under that sign.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 蝎属与天蝎座错配"
+  },
+  "scot": {
+    "zh": "n. 苏格兰人（通常大写 Scot）；分摊的款项、税款。",
+    "en": "n. A person from Scotland (Scot); a payment or tax.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 税款与苏格兰人错配"
+  },
+  "scour": {
+    "zh": "v. 擦洗、刷净；彻底搜寻。",
+    "en": "v. To scrub clean or search thoroughly.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文清洗与英文搜索/冲刷需对齐"
+  },
+  "scrip": {
+    "zh": "n. 代用券、代币凭证：可代替货币使用的票券。",
+    "en": "n. A certificate or token accepted in place of money.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 纸条与代用券错配"
+  },
+  "scrubs": {
+    "zh": "n. 手术服；灌木丛；v. 擦洗（scrub 的第三人称单数）。",
+    "en": "n. Clothes worn by medical staff, or areas of low shrubs; third-person singular of scrub, to clean by rubbing.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 电视剧名覆盖手术服等普通词"
+  },
+  "sculk": {
+    "zh": "v. 潜伏、躲藏、偷偷行走（skulk 的异体拼写）。",
+    "en": "A variant of skulk: to hide or move stealthily.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 动词与sculker名词关系需核实",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sculk#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/sculk#English"
+  },
+  "scums": {
+    "zh": "n. 浮渣；人渣（scum 的复数）；v. 撇去浮渣（scum 的第三人称单数）。",
+    "en": "Plural of scum, a surface layer of impurities or worthless people; third-person singular of scum, to remove that layer.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 名词被标动词第三人称"
+  },
+  "scurf": {
+    "zh": "n. 皮屑、头皮屑；植物表面的鳞屑状覆盖物。",
+    "en": "n. Flakes shed from the skin or scalp; a scaly covering on a plant.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 皮屑与植物鳞屑主释义不一致"
+  },
+  "scyphi": {
+    "zh": "n. 古希腊双柄酒杯（scyphus 的复数）。",
+    "en": "Plural of scyphus: ancient Greek drinking cups with two handles.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文缺少实义，仅词形指引"
+  },
+  "scythe": {
+    "zh": "n. 长柄大镰刀, 大钐镰 vt. 用大镰刀割",
+    "en": "an edge tool for cutting grass; has a long handle that must be held with both hands and a curved blade that moves parallel to the ground; cut with a scythe",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 音标明显错误",
+    "ipa": "/saɪð/, /saɪθ/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Wiktionary (reviewed)",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/scythe#English"
+  },
+  "seamen": {
+    "zh": "n. 海员、水手（seaman 的复数）。",
+    "en": "Plural of seaman: sailors.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文混入Seaman记者专名"
+  },
+  "searer": {
+    "zh": "n. 烙烤食物的人或机器。",
+    "en": "n. A person or machine that sears food.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 比较级与烙烤者错配"
+  },
+  "seb": {
+    "zh": "abbr. 葡萄球菌肠毒素 B。",
+    "en": "Abbreviation of staphylococcal enterotoxin B.",
+    "zhSource": "CDC-hosted reference (abbreviation checked; Chinese translation)",
+    "enSource": "CDC-hosted reference (abbreviation checked)",
+    "note": "2026-10-21 full audit: 机构缩写与肠毒素缩写错配 The CDC source verifies the abbreviation expansion; IPA is a manual letter-name reading, not a transcription supplied by CDC.",
+    "zhSourceUrl": "https://stacks.cdc.gov/view/cdc/49331/cdc_49331_DS1.pdf",
+    "enSourceUrl": "https://stacks.cdc.gov/view/cdc/49331/cdc_49331_DS1.pdf",
+    "ipa": "/ɛs iː biː/",
+    "ipaStatus": "derived",
+    "ipaSource": "Letter-name reading of the reviewed abbreviation SEB",
+    "baseIpaSource": "Standard English letter names S, E and B",
+    "relationSource": "CDC-hosted reference expands SEB as staphylococcal enterotoxin B",
+    "ipaBase": "S E B"
+  },
+  "sec": {
+    "zh": "n. 秒、片刻（second 的口语缩略）；a. （香槟）偏干型的。",
+    "en": "n. Informal abbreviation of second; a. moderately dry, of champagne.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 秒与干型香槟错配"
+  },
+  "secco": {
+    "zh": "n. 干壁画；a. 干的；（音乐）干脆、伴奏简疏的。",
+    "en": "A painting on dry plaster; dry, or sparse and detached in musical accompaniment.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 绘画/音乐义与dry形容词需对齐",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/secco#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/secco#English"
+  },
+  "secerns": {
+    "zh": "v. 区别、分开、分泌（secern 的第三人称单数）。",
+    "en": "Third-person singular of secern: distinguishes, separates, or secretes.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 第三人称音标无s，形态未标",
+    "ipa": "/səˈsɝnz/",
+    "ipaStatus": "derived",
+    "ipaBase": "secern",
+    "ipaSource": "Regular morphology from reviewed base pronunciation",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://en.wiktionary.org/wiki/secern#English",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/secern#English",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/secern#English"
+  },
+  "secs": {
+    "zh": "n. 秒、片刻（sec 的复数）。",
+    "en": "Plural of sec: seconds or brief moments.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 复数英文不应继承形容词干型"
+  },
+  "secured": {
+    "zh": "a. 有担保的；已固定的；v. 获得、固定、保证（secure 的过去式和过去分词）。",
+    "en": "a. Backed by security or firmly fastened; past tense and past participle of secure.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 担保形容词与secure动词义需对齐"
+  },
+  "sedans": {
+    "zh": "n. 轿车；轿子（sedan 的复数）。",
+    "en": "Plural of sedan: enclosed passenger cars or enclosed chairs carried by bearers.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 镇静的与轿车复数错配"
+  },
+  "seedpod": {
+    "zh": "n. 种荚；含种子的荚果。",
+    "en": "n. A pod containing seeds.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 心皮应为种荚/荚果"
+  },
+  "seeings": {
+    "zh": "n. 观看、看见的经历（seeing 的复数）。",
+    "en": "Plural of seeing: instances of seeing or viewing.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 名词复数混入形容词/连词"
+  },
+  "seeled": {
+    "zh": "v. 蒙住或缝合（鹰隼的）眼睑（seel 的过去式和过去分词）。",
+    "en": "Past tense and past participle of seel: to close a hawk's eyelids, traditionally by sewing.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 音标缺d及译义混入人名",
+    "ipa": "/siːld/",
+    "ipaStatus": "derived",
+    "ipaBase": "seel",
+    "ipaSource": "Regular morphology from reviewed base pronunciation",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://en.wiktionary.org/wiki/seel#English",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/seel#English",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/seel#English"
+  },
+  "seels": {
+    "zh": "v. 蒙住或缝合（鹰隼的）眼睑（seel 的第三人称单数）。",
+    "en": "Third-person singular of seel: closes a hawk's eyelids, traditionally by sewing.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 姓氏代替动词第三人称"
+  },
+  "seely": {
+    "zh": "a. 可怜的；天真的；愚蠢的（古语，同 sely）。",
+    "en": "Obsolete: pitiable, innocent, or foolish; a form of sely.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 旧义与See Silly指引不清",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sely#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/sely#English"
+  },
+  "seemed": {
+    "zh": "v. 似乎、看来（seem 的过去式和过去分词）。",
+    "en": "Past tense and past participle of seem: to appear to be.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文装作与似乎混淆"
+  },
+  "seg": {
+    "zh": "n. 莎草；鸢尾；阉牛（方言用语）。",
+    "en": "n. Sedge, an iris, or a castrated bull, in dialectal use.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 计算机缩写与植物/阉牛错配"
+  },
+  "segni": {
+    "zh": "n. 乐谱中的反复记号（segno 的复数）。",
+    "en": "Plural of segno: signs marking a musical passage to be repeated.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: IPA疑机械g读法，意大利复数",
+    "ipa": "/ˈsɛnjiː/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Collins English Dictionary (reviewed)",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/us/dictionary/english/segni"
+  },
+  "segs": {
+    "zh": "n. 莎草、鸢尾或阉牛（seg 的复数）。",
+    "en": "Plural of seg: sedges, irises, or castrated bulls.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 继承seg缩写错配"
+  },
+  "segue": {
+    "zh": "n. [用作指示语][音]继续",
+    "en": "n. the act of changing smoothly from one state or situation to another; v. proceed without interruption; in music or talk",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: IPA /seg/ 疑错误",
+    "ipa": "/ˈsɛɡweɪ/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Wiktionary (reviewed)",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/segue#English"
+  },
+  "seines": {
+    "zh": "n. 围网；v. 用围网捕鱼（seine 的复数或第三人称单数）。",
+    "en": "Plural of seine, a fishing net hanging vertically in water; third-person singular of seine, to fish with such a net.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文混入塞纳河专名"
+  },
+  "seis": {
+    "zh": "n. 塞鲸（sei 的复数）。",
+    "en": "Plural of sei: sei whales.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 检波器与sei鲸复数错配",
+    "ipa": "/seɪz/",
+    "ipaStatus": "derived",
+    "ipaBase": "sei",
+    "ipaSource": "Regular morphology from reviewed base pronunciation",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://en.wiktionary.org/wiki/sei#English",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/sei#English",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/sei#English"
+  },
+  "seiser": {
+    "zh": "seizer 的异体拼写：n. 抓的人, 捕捉器, 不动产占有人; [法] 捕捉者, 夺取者, 查封者",
+    "en": "Obsolete form of seizer.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: IPA疑姓氏读音，不符seizer",
+    "ipa": "/ˈsiːzəɹ/",
+    "ipaStatus": "derived",
+    "ipaBase": "seizer",
+    "ipaSource": "Regular morphology from reviewed base pronunciation",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://en.wiktionary.org/wiki/seizer#English",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/seizer#English",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/seizer#English"
+  },
+  "selenic": {
+    "zh": "a. 硒的；尤指硒处于较高氧化态的。",
+    "en": "Relating to selenium, especially in a higher oxidation state than in a corresponding selenious compound.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 中文四价应为高价通常六价",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/selenic#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/selenic#English"
+  },
+  "selle": {
+    "zh": "n. 鞍、座位（sell 的旧拼写）。",
+    "en": "An obsolete spelling of the noun sell: a saddle or seat.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 卖方与sell旧拼写，需查名词鞍义",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sell#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/sell#English"
+  },
+  "sellers": {
+    "zh": "n. 卖方、卖家、销售者（seller 的复数）。",
+    "en": "Plural of seller: people or businesses that sell things.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 普通卖方复数被专名占用"
+  },
+  "selles": {
+    "zh": "n. 鞍、座位（selle 的复数）。",
+    "en": "Plural of selle, an old word for a saddle or seat.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 词根selle词义错误继承",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sell#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/sell#English"
+  },
+  "seme": {
+    "zh": "n. 符号、记号：代表某个对象的事物。",
+    "en": "A sign or symbol that stands for or represents something.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 义素/纹章义错配",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/seme#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/seme#English"
+  },
+  "semes": {
+    "zh": "n. 符号、记号（seme 的复数）。",
+    "en": "Plural of seme: signs or symbols representing something.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 复数继承形容词纹章义",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/seme#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/seme#English"
+  },
+  "semi": {
+    "zh": "n. 半决赛；半挂卡车或半挂车（口语）。",
+    "en": "n. Informal: a semifinal, a semitrailer truck, or a semitrailer.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 半前缀与半决赛/卡车名词错配"
+  },
+  "semis": {
+    "zh": "n. 半决赛；半挂卡车或半挂车（semi 的复数）。",
+    "en": "Plural of semi: semifinals, semitrailer trucks, or semitrailers.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 半成品与半决赛/卡车复数错配"
+  },
+  "sen": {
+    "zh": "n. 钱币单位：日元、印尼盾等的百分之一。",
+    "en": "n. A fractional monetary unit, such as one hundredth of a yen or rupiah.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 传感器与货币单位错配"
+  },
+  "sended": {
+    "zh": "v. 发送、派遣（send 的非标准过去式和过去分词，标准形式为 sent）。",
+    "en": "A nonstandard past tense and past participle of send; standard form: sent.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 词形非规范需核实，音标明显未变",
+    "ipa": "/ˈsɛndɪd/",
+    "ipaStatus": "derived",
+    "ipaBase": "send",
+    "ipaSource": "Regular morphology from reviewed base pronunciation",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://en.wiktionary.org/wiki/send#English",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/send#English",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/send#English"
+  },
+  "sensa": {
+    "zh": "n. 感觉对象；感官直接感知的内容（sensum 的复数）。",
+    "en": "Plural of sensum: objects or contents directly experienced by the senses.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 仅词形无中文实义"
+  },
+  "senti": {
+    "zh": "n. 坦桑尼亚的分，先令的百分之一；也指爱沙尼亚旧货币分的复数。",
+    "en": "A coin worth one hundredth of a Tanzanian shilling; also the plural of sent, a former Estonian currency subdivision.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 货币所属国错配",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/senti#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/senti#English"
+  },
+  "seoul": {
+    "zh": "n. 首尔，韩国首都，旧译汉城。",
+    "en": "n. Seoul, the capital of South Korea.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 首尔旧译及英文亚洲最大城市不正确"
+  },
+  "sepic": {
+    "zh": "a. 深褐色的；用深褐色颜料绘制的。",
+    "en": "a. Relating to sepia or done in sepia.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 缩写与深褐色绘画义错配"
+  },
+  "septet": {
+    "zh": "n. 七人组；七重奏（唱）组；七件一组。",
+    "en": "n. A group of seven people or things, especially seven musicians performing together.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 七位字节与七人组错配"
+  },
+  "septs": {
+    "zh": "n. 氏族、宗族（sept 的复数）。",
+    "en": "Plural of sept: clans or groups descended from a common ancestor.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 复数词条混入September缩写"
+  },
+  "seraph": {
+    "zh": "n. 炽天使，通常描绘为有六翼的天使。",
+    "en": "n. An angel of the highest order, traditionally depicted with six wings.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 六翼天使与长翼儿童头描述冲突"
+  },
+  "sered": {
+    "zh": "v. 使干枯、枯萎或焦枯（sere 的过去式和过去分词）。",
+    "en": "Past tense and past participle of sere: dried, withered, or scorched.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 地名与sere过去式错配",
+    "ipa": "/sɪəɹd/",
+    "ipaStatus": "derived",
+    "ipaBase": "sere",
+    "ipaSource": "Regular inflection from a reviewed base pronunciation",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/sere#English",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://scrabble.merriam.com/finder/sered",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/sere#English"
+  },
+  "serer": {
+    "zh": "a. 更干枯的、更枯萎的（sere 的比较级）。",
+    "en": "Comparative of sere: more dry or withered.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 比较级与语言名错配"
+  },
+  "seres": {
+    "zh": "n. 生态演替系列（sere 的复数）。",
+    "en": "Plural of sere: series of ecological communities in succession.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 名词复数却使用形容词义"
+  },
+  "serest": {
+    "zh": "a. 最干枯的、最枯萎的（sere 的最高级）。",
+    "en": "Superlative of sere: most dry or withered.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 最高级中文混入名词"
+  },
+  "serged": {
+    "zh": "v. 包缝、锁边（serge 的过去式和过去分词）。",
+    "en": "Past tense and past participle of serge: to overlock a fabric edge.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 动词词形继承名词哔叽",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/serge#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/serge#English"
+  },
+  "serin": {
+    "zh": "n. 丝雀属小型鸣禽，羽毛多呈黄色。",
+    "en": "A small finch of the genus Serinus, typically with yellow plumage.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 鸟类中文过于等同金丝雀需核实",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/serin#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/serin#English"
+  },
+  "sering": {
+    "zh": "v. 变干、枯萎或焦枯（sere 的现在分词）。",
+    "en": "Present participle of sere: drying, withering, or scorching.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 男子名与sere现在分词错配",
+    "ipa": "/ˈsɪəɹɪŋ/",
+    "ipaStatus": "derived",
+    "ipaBase": "sere",
+    "ipaSource": "Regular inflection from a reviewed base pronunciation",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/sere#English",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://scrabble.merriam.com/finder/sered",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/sere#English"
+  },
+  "serins": {
+    "zh": "n. 丝雀属鸣禽（serin 的复数）。",
+    "en": "Plural of serin: finches of the genus Serinus.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 继承serin鸟类译名",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/serin#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/serin#English"
+  },
+  "sers": {
+    "zh": "n. 印度旧重量单位 seer（ser 的复数）；先生（sir 的旧拼写的复数）。",
+    "en": "Plural of ser: an old Indian weight unit, or an archaic spelling of sir.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 光谱缩写与ser复数错配",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ser#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/ser#English"
+  },
+  "serves": {
+    "zh": "v. 服务；提供；端上；发球（serve 的第三人称单数）；n. 发球（serve 的复数）。",
+    "en": "Third-person singular of serve: works for, provides, brings food, or puts a ball into play; plural of serve, a delivery that starts play.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文混入serf农奴复数义"
+  },
+  "setoff": {
+    "zh": "n. 衬托物；抵消或补偿；建筑墙体的收进部分。",
+    "en": "n. Something that enhances by contrast, an offset or compensation, or a setback in a wall.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 衬托/补偿与建筑收进错配"
+  },
+  "seton": {
+    "zh": "n. 外科挂线、引流线。",
+    "en": "n. A thread or cord passed through tissue or a tract to provide drainage.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 外科挂线与圣徒专名错配"
+  },
+  "setons": {
+    "zh": "n. 外科挂线、引流线（seton 的复数）。",
+    "en": "Plural of seton: threads or cords used for drainage through tissue or a tract.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 继承专名而非外科挂线"
+  },
+  "setter": {
+    "zh": "n. 安装者、设置者；排字工；塞特猎犬。",
+    "en": "n. Someone who sets or installs something, a typesetter, or a breed of long-haired hunting dog.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 装配者与排字工/猎犬需对齐"
+  },
+  "sexed": {
+    "zh": "a. 有性别的；已鉴定性别的；v. 鉴定性别（sex 的过去式和过去分词）。",
+    "en": "a. Having a sex or having had its sex identified; past tense and past participle of sex, to identify an animal's sex.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 动词性别鉴定/形容词与名词释义错配"
+  },
+  "sha": {
+    "zh": "n. 西里尔字母 Ш、ш 的名称。",
+    "en": "The name of the Cyrillic letter Ш or ш.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 缩写与字母/君王词义错配"
+  },
+  "shag": {
+    "zh": "n. 粗毛；长绒毛；粗切烟丝。",
+    "en": "n. Coarse tangled hair, a long rough pile, or coarsely cut tobacco.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 粗毛与烟草/舞蹈义不对应"
+  },
+  "shahs": {
+    "zh": "n. 沙阿，波斯或伊朗君主（shah 的复数）。",
+    "en": "Plural of shah: Persian or Iranian monarchs.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 复数音标缺s",
+    "ipa": "/ʃɑːz/",
+    "ipaStatus": "derived",
+    "ipaBase": "shah",
+    "ipaSource": "Regular morphology from reviewed base pronunciation",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://en.wiktionary.org/wiki/shah#English",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/shah#English",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/shah#English"
+  },
+  "shaled": {
+    "zh": "v. 剥去壳或外皮（shale 的过去式和过去分词）。",
+    "en": "Past tense and past participle of shale: to remove a shell or outer covering.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 动词词形继承页岩名词",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/shale#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/shale#English"
+  },
+  "shall": {
+    "zh": "aux. 将；应当；用于表示提议、承诺或规定。",
+    "en": "An auxiliary expressing future action, obligation, a promise, or a suggestion.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文仅旧欠债义缺常见将/应当"
+  },
+  "shan": {
+    "zh": "n. 掸族人；掸语。",
+    "en": "n. A member of the Shan people, or their Tai language.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 掸族与掸语义需对齐"
+  },
+  "shapen": {
+    "zh": "v. 形成、塑造（shape 的古体过去分词）；a. 具有某种形状的。",
+    "en": "An archaic past participle of shape; formed or having a particular shape.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文仅of Shape残缺关系"
+  },
+  "shaw": {
+    "zh": "n. 小树林、杂木林。",
+    "en": "n. A small wood or thicket.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 杂木林与姓氏错配"
+  },
+  "shaws": {
+    "zh": "n. 小树林、杂木林（shaw 的复数）。",
+    "en": "Plural of shaw: small woods or thickets.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 复数继承姓氏释义"
+  },
+  "shays": {
+    "zh": "n. 轻便双轮马车（shay 的复数）。",
+    "en": "Plural of shay: light two-wheeled horse-drawn carriages.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 姓氏与马车复数错配"
+  },
+  "sheal": {
+    "zh": "n. 棚屋；外壳、荚；v. 遮蔽；剥壳。",
+    "en": "n. A shelter, shell, or pod; v. to shelter or remove a husk or shell.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 游戏道具代替普通词"
+  },
+  "sheals": {
+    "zh": "n. 棚屋、外壳或荚（sheal 的复数）；v. 遮蔽、剥壳（sheal 的第三人称单数）。",
+    "en": "Plural or third-person singular of sheal: shelters, shells or pods; shelters or shells something.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 继承游戏道具误配"
+  },
+  "sheens": {
+    "zh": "n. 光泽、光辉（sheen 的复数）。",
+    "en": "Plural of sheen: lustres or reflected glows.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 名词光泽误标动词第三人称"
+  },
+  "sheers": {
+    "zh": "n. 人字起重架；透明薄织物或用其制成的衣物。",
+    "en": "n. A lifting frame made of joined spars; sheer fabrics or garments.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 起重架与形容词义错配"
+  },
+  "shend": {
+    "zh": "v. 伤害、毁坏；责备、羞辱（古语）。",
+    "en": "v. Archaic: to harm or spoil; to blame or disgrace.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文动词错误标n."
+  },
+  "sherpa": {
+    "zh": "n. 夏尔巴人，居住在尼泊尔和西藏的喜马拉雅族群成员，以登山技能闻名。",
+    "en": "n. A member of a Himalayan people of Nepal and Tibet, noted for mountaineering skills.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文地理及族名描述需对齐"
+  },
+  "shh": {
+    "zh": "int. 嘘！用于要求安静或安抚他人。",
+    "en": "An interjection asking for silence or soothing someone.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文混入shew词头"
+  },
+  "shiel": {
+    "zh": "n. 牧人小屋；夏季牧场上的棚屋。",
+    "en": "n. A shepherd's hut or shelter on summer pasture; a sheiling.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 人名与牧人小屋错配"
+  },
+  "shiels": {
+    "zh": "n. 牧人小屋（shiel 的复数）。",
+    "en": "Plural of shiel: shepherds' huts or sheilings.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 继承人名错配"
+  },
+  "shier": {
+    "zh": "a. 更害羞的、更羞怯的（shy 的比较级）。",
+    "en": "Comparative of shy: more timid or lacking in confidence.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 易惊马与shy比较级错配"
+  },
+  "shies": {
+    "zh": "v. 受惊退缩；躲避（shy 的第三人称单数）；n. 受惊退缩的动作。",
+    "en": "Third-person singular of shy: recoils or draws back; plural of shy, a sudden recoil.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 形容词没有名词复数，需区分shy名词"
+  },
+  "shiest": {
+    "zh": "a. 最害羞的、最羞怯的（shy 的最高级）。",
+    "en": "Superlative of shy: most timid or lacking in confidence.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文缺少羞怯实义"
+  },
+  "shifty": {
+    "zh": "a. 狡猾的、躲闪的；位置或方向不断变化的。",
+    "en": "a. Deceitful or evasive; changing position or direction.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文缺狡猾主要义"
+  },
+  "shined": {
+    "zh": "v. 发光；照射；擦亮（shine 的过去式和过去分词）。",
+    "en": "Past tense and past participle of shine: to give off light, direct light, or polish.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文混入shin攀爬动词义"
+  },
+  "shining": {
+    "zh": "a. 发光的、光亮的；v. 发光、照射、擦亮（shine 的现在分词）。",
+    "en": "a. Bright or giving off light; present participle of shine.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文名词抛光/优异与光亮形容词错配"
+  },
+  "shins": {
+    "zh": "n. 胫、小腿前部（shin 的复数）；v. 攀爬（shin 的第三人称单数）。",
+    "en": "Plural of shin: the front parts of the lower legs; third-person singular of shin, to climb by gripping with the legs.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文希伯来字母序数22疑应21"
+  },
+  "shist": {
+    "zh": "n. 片岩（schist 的旧拼写）。",
+    "en": "n. An old spelling of schist, a foliated metamorphic rock.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 名词岩石与Shistose形容词指引不符"
+  },
+  "shivas": {
+    "zh": "n. 犹太教为近亲举行的七日服丧期（shiva 的复数）。",
+    "en": "Plural of shiva: seven-day periods of Jewish mourning for close relatives.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 人名音译与服丧期复数错配",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/shiva#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/shiva#English",
+    "ipa": "/ˈʃɪvəz/",
+    "ipaStatus": "derived",
+    "ipaBase": "shiva",
+    "ipaSource": "Regular inflection from a reviewed base pronunciation",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/shiva#English",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://en.wiktionary.org/wiki/shiva#English",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/shiva#English"
+  },
+  "shlub": {
+    "zh": "n. 邋遢、笨拙或不善交际的人（俚语，同 schlub）。",
+    "en": "Slang: a clumsy, awkward, or unkempt person; a variant of schlub.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 中文缺实义只有异体指引",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/schlub#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/schlub#English"
+  },
+  "shmo": {
+    "zh": "n. 笨蛋、讨厌的家伙（贬义俚语，同 schmo）。",
+    "en": "Derogatory slang: a stupid or obnoxious person; a variant of schmo.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 词典把普通词发成缩写读音",
+    "ipa": "/ʃməʊ/",
+    "ipaStatus": "derived",
+    "ipaSource": "Reviewed spelling variant of schmo",
+    "ipaBase": "schmo",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/schmo#English",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://en.wiktionary.org/wiki/shmo#English",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/schmo#English"
+  },
+  "shoes": {
+    "zh": "n. 鞋（shoe 的复数）；也可比喻某人的处境。",
+    "en": "Plural of shoe: coverings for the feet; figuratively, a person's situation.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文只有处境比喻缺鞋义"
+  },
+  "shog": {
+    "zh": "n. 震动、推动；v. 摇动、震动、移动。",
+    "en": "n. A jolt or push; v. to shake, jolt, or move.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 针床术语与震动/摇动主释义不对应"
+  },
+  "shogs": {
+    "zh": "n. 震动、推动（shog 的复数）；v. 摇动、移动（shog 的第三人称单数）。",
+    "en": "Plural or third-person singular of shog: jolts or pushes; shakes or moves.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 继承shog技术释义"
+  },
+  "shook": {
+    "zh": "v. 摇动、震动（shake 的过去式）。",
+    "en": "Past tense of shake: to move back and forth or tremble.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: shake过去式与桶板名词错配"
+  },
+  "shool": {
+    "zh": "n. 铲、锹；v. 用铲搬运。",
+    "en": "n. A shovel or spade; v. to move material with a shovel.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 一铲的量与铲子义需核实"
+  },
+  "shools": {
+    "zh": "n. 铲、锹（shool 的复数）；v. 用铲搬运（shool 的第三人称单数）。",
+    "en": "Plural or third-person singular of shool: shovels; moves material with a shovel.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 继承shool量词义错配"
+  },
+  "shops": {
+    "zh": "n. 商店、作坊（shop 的复数）；v. 购物（shop 的第三人称单数）。",
+    "en": "Plural of shop: stores or workshops; third-person singular of shop, to look for or buy goods.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文商店用包装纸疑错误"
+  },
+  "shorl": {
+    "zh": "n. 黑电气石（schorl 的异体拼写）。",
+    "en": "n. A variant of schorl, black tourmaline.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 名词与形容词指引不符"
+  },
+  "should": {
+    "zh": "aux. 应当、应该；用于建议、义务或预期。",
+    "en": "An auxiliary expressing advice, duty, or expectation.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文定义似被截断且关系不完整"
+  },
+  "shris": {
+    "zh": "shri 的复数：南亚用在人名前的尊称",
+    "en": "Plural of shri: respectful titles used before names in South Asia.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 复数音标与shri不符需核实",
+    "ipa": "/ʃɹiz/",
+    "ipaStatus": "derived",
+    "ipaBase": "shri",
+    "ipaSource": "Regular morphology from reviewed base pronunciation",
+    "baseIpaSource": "Supplied glossary; manually checked base",
+    "relationSource": "Supplied glossary word-form relation"
+  },
+  "shul": {
+    "zh": "n. 犹太会堂，尤指阿什肯纳兹犹太会堂。",
+    "en": "n. A synagogue, especially an Ashkenazi synagogue.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 只有synagogue英文指引，无中文实义"
+  },
+  "shute": {
+    "zh": "n. 斜槽、滑道（chute 的异体拼写）。",
+    "en": "n. A variant of chute: a sloping channel for moving things downward.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 普通词与作家专名错配"
+  },
+  "siamese": {
+    "zh": "a. 暹罗的、泰国的；n. 暹罗人、泰语；暹罗猫。",
+    "en": "a. Relating to Siam or Thailand; n. a person or language of Siam, or a Siamese cat.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文暹罗人与英文消防分水接头错配"
+  },
+  "sibling": {
+    "zh": "n. 兄弟或姐妹；同胞。",
+    "en": "n. A person's brother or sister.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文兄弟应涵盖姐妹"
+  },
+  "sicker": {
+    "zh": "a. 病得更重的；更恶心的（sick 的比较级）。",
+    "en": "Comparative of sick: more ill or nauseated.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 苏格兰可靠义与sick比较级错配"
+  },
+  "sics": {
+    "zh": "v. 唆使（狗等）攻击（sic 的第三人称单数）。",
+    "en": "Third-person singular of sic: urges an animal to attack.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文直接攻击与英文唆使攻击不同"
+  },
+  "siemens": {
+    "zh": "n. 西门子，电导单位，等于欧姆的倒数。",
+    "en": "The SI unit of electrical conductance, equal to one reciprocal ohm.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 公司/人物错配且缺普通西门子单位",
+    "ipa": "/ˈsiːmənz/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Wiktionary (reviewed)",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/siemens#English"
+  },
+  "sighs": {
+    "zh": "n. 叹息（sigh 的复数）；v. 叹息（sigh 的第三人称单数）。",
+    "en": "Plural of sigh, an audible deep breath; third-person singular of sigh, to breathe out deeply.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文混入sign手势标记"
+  },
+  "sigla": {
+    "zh": "n. 缩写符号、代表词语的字母或记号（siglum 的复数）。",
+    "en": "Plural of siglum: signs, letters, or abbreviations representing words.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文仅词形无实义"
+  },
+  "sigma": {
+    "zh": "n. 希腊字母表第十八个字母 Σ、σ；大写 Σ 常用作求和符号。",
+    "en": "n. The eighteenth Greek letter, Σ or σ; capital Σ is often used for summation.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文求和与希腊字母义需对齐"
+  },
+  "silked": {
+    "zh": "v. （玉米）抽丝；去掉玉米须（silk 的过去式和过去分词）。",
+    "en": "Past tense and past participle of silk: to develop or remove corn silk.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 动词词形继承名词",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/silk#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/silk#English"
+  },
+  "sills": {
+    "zh": "n. 窗台、门槛；岩床（sill 的复数）。",
+    "en": "Plural of sill: horizontal members at the base of openings or structures, or horizontal sheets of intrusive rock.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文混入歌唱家专名"
+  },
+  "sim": {
+    "zh": "n. 模拟器；模拟程序或模拟游戏（simulator、simulation 的截短形式）。",
+    "en": "n. A clipping of simulator or simulation, including a simulation program or game.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 缩写覆盖模拟器普通词"
+  },
+  "simps": {
+    "zh": "n. 傻瓜；一味讨好他人的人（simp 的复数，贬义俚语）；v. 一味讨好（simp 的第三人称单数）。",
+    "en": "Derogatory slang: plural of simp, a fool or excessively deferential admirer; third-person singular of simp, to admire obsequiously.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 计算机缩写与simp词形错配",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/simp#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/simp#English"
+  },
+  "sims": {
+    "zh": "n. 模拟器、模拟程序或模拟游戏（sim 的复数）。",
+    "en": "Plural of sim: simulators or simulations.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 质谱缩写与sim复数错配"
+  },
+  "singers": {
+    "zh": "n. 歌手、歌唱者（singer 的复数）。",
+    "en": "Plural of singer: people who sing.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文混入Singer姓氏"
+  },
+  "singes": {
+    "zh": "v. 燎、轻微烧焦（singe 的第三人称单数）；n. 表面烧焦的痕迹。",
+    "en": "Third-person singular of singe: burns superficially; plural of singe, a surface burn.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文混入sing唱歌词形，音标缺iz",
+    "ipa": "/ˈsɪndʒɪz/",
+    "ipaStatus": "derived",
+    "ipaBase": "singe",
+    "ipaSource": "Regular morphology from reviewed base pronunciation",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://en.wiktionary.org/wiki/singe#English",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/singe#English",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/singe#English"
+  },
+  "sings": {
+    "zh": "v. 唱、歌唱（sing 的第三人称单数）。",
+    "en": "Third-person singular of sing: produces musical sounds with the voice.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文名词与动词第三人称需对齐"
+  },
+  "sinh": {
+    "zh": "n. 老挝及泰国部分地区女性穿的传统筒裙。",
+    "en": "n. A traditional tube skirt worn by women in Laos and parts of Thailand.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 数学函数与筒裙错配"
+  },
+  "sinhs": {
+    "zh": "n. 传统筒裙（sinh 的复数）。",
+    "en": "Plural of sinh: traditional tube skirts of Laos and parts of Thailand.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 继承数学函数错配"
+  },
+  "sion": {
+    "zh": "n. 后裔、继承人（scion 的旧拼写）。",
+    "en": "n. An obsolete spelling of scion: a descendant or heir.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 地名与scion旧拼写错配"
+  },
+  "sipe": {
+    "zh": "n. 轮胎胎面上的细槽；v. 开细槽；渗出、渗漏。",
+    "en": "n. A narrow slit in a tyre tread; v. to cut such slits, or to seep or ooze.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 轮胎切槽与渗漏义不对应"
+  },
+  "siped": {
+    "zh": "v. 开细槽；渗出、渗漏（sipe 的过去式和过去分词）。",
+    "en": "Past tense and past participle of sipe: to cut narrow slits or seep through small openings.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 动词继承轮胎名词义"
+  },
+  "sipes": {
+    "zh": "n. 轮胎胎面的细槽；v. 开细槽、渗漏（sipe 的复数或第三人称单数）。",
+    "en": "Plural or third-person singular of sipe: narrow tyre-tread slits; cuts such slits or seeps.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 词形误认为sip，不是sipe"
+  },
+  "sired": {
+    "zh": "v. （雄性动物）生育、繁殖后代（sire 的过去式和过去分词）。",
+    "en": "Past tense and past participle of sire: to father offspring.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 动词过去式错误继承公畜/陛下名词"
+  },
+  "sires": {
+    "zh": "n. 雄性亲畜、父本；陛下（sire 的复数）；v. 生育后代（sire 的第三人称单数）。",
+    "en": "Plural of sire, a male parent or a respectful title; third-person singular of sire, to father offspring.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 第三人称释义是名词，需区分"
+  },
+  "siring": {
+    "zh": "v. 生育后代、作为父本繁殖（sire 的现在分词）。",
+    "en": "Present participle of sire: fathering offspring.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 现在分词错误继承公畜/陛下名词"
+  },
+  "sistra": {
+    "zh": "n. 古埃及叉铃、金属摇响乐器（sistrum 的复数）。",
+    "en": "Plural of sistrum: ancient Egyptian metal rattles.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 中文只有词形无实义",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sistrum#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/sistrum#English"
+  },
+  "sith": {
+    "zh": "prep., conj. 自从；因为（since 的古体形式）。",
+    "en": "An archaic form of since: from that time, or because.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文以前与since方向相反"
+  },
+  "siver": {
+    "zh": "v. 文火煨、慢慢炖（方言）。",
+    "en": "v. Dialectal: to simmer.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 病毒缩写与simmer动词错配"
+  },
+  "sixties": {
+    "zh": "n. 六十年代；六十至六十九岁的时期。",
+    "en": "n. The years numbered sixty to sixty-nine in a century, or the ages sixty to sixty-nine.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文缺年代/年龄义"
+  },
+  "sizer": {
+    "zh": "n. 按尺寸分选的人或机器；上浆器。",
+    "en": "n. A person or device that sorts by size, or a device that applies sizing.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 工具名词与sized形容词错配"
+  },
+  "skee": {
+    "zh": "n. 滑雪板；v. 滑雪（ski 的异体拼写）。",
+    "en": "A variant spelling of ski: a ski, or to travel on skis.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文滑雪运动与英文滑雪板物件错配"
+  },
+  "skeed": {
+    "zh": "v. 滑雪（skee 的过去式和过去分词，同 skied）。",
+    "en": "Past tense and past participle of skee, a variant of ski.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: ski词形与Skid名词指引不符",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/skeed#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/skeed#English"
+  },
+  "skeeing": {
+    "zh": "v. 滑雪（skee 的现在分词，skiing 的异体拼写）。",
+    "en": "Present participle of skee, a variant of ski.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 动词词形继承名词标签"
+  },
+  "skees": {
+    "zh": "n. 滑雪板（skee 的复数）；v. 滑雪（skee 的第三人称单数）。",
+    "en": "Plural or third-person singular of skee, a variant of ski.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文滑雪运动复数与滑雪板义"
+  },
+  "skied": {
+    "zh": "v. 滑雪（ski 的过去式和过去分词）。",
+    "en": "Past tense and past participle of ski: to travel on skis.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: ski/sky词形分歧"
+  },
+  "skier": {
+    "zh": "n. 滑雪的人",
+    "en": "someone who skis",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: IPA误读为sky词根",
+    "ipa": "/ˈskiːəɹ/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Wiktionary (reviewed)",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/skier#English"
+  },
+  "skimo": {
+    "zh": "n. 滑雪登山运动，尤指竞技滑雪登山。",
+    "en": "n. Ski mountaineering, especially competitive ski mountaineering.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 民族蔑称与滑雪登山运动错配",
+    "ipa": "/ˈskiːməʊ/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Collins English Dictionary (reviewed)",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/skimo"
+  },
+  "skincare": {
+    "zh": "n. 皮肤护理、护肤。",
+    "en": "n. Care of the skin.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 护理名词误标形容词"
+  },
+  "skipped": {
+    "zh": "v. 跳跃；跳过、略过；未参加（skip 的过去式和过去分词）。",
+    "en": "Past tense and past participle of skip: to hop, pass over, or fail to attend.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文跳跃的缺跳过过去式"
+  },
+  "skirter": {
+    "zh": "n. 绕过或沿边缘行进的人。",
+    "en": "n. Someone who skirts around something.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 羊毛工与绕行者错配"
+  },
+  "skort": {
+    "zh": "n. 裙裤：外观像短裙的短裤。",
+    "en": "n. Shorts with a fabric panel that gives the appearance of a skirt.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 短裙缩写误配裙裤"
+  },
+  "slade": {
+    "zh": "n. 小山谷；低洼湿地；犁底。",
+    "en": "n. A small valley or low moist ground; the sole of a plough.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 工会缩写与山谷错配"
+  },
+  "slater": {
+    "zh": "n. 铺石板瓦的工人；潮虫。",
+    "en": "n. A worker who lays slate roofing; a small terrestrial isopod such as a woodlouse.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 石板瓦工与潮虫错配"
+  },
+  "slavic": {
+    "zh": "a. 斯拉夫的；n. 斯拉夫语族。",
+    "en": "a. Relating to the Slavic peoples or languages; n. the Slavic branch of Indo-European languages.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 斯拉夫形容词与语族名词需对齐"
+  },
+  "slaw": {
+    "zh": "n. 卷心菜丝沙拉（coleslaw 的简称）。",
+    "en": "n. A salad made chiefly from shredded cabbage; coleslaw.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 卷心菜沙拉误作酸菜"
+  },
+  "slaws": {
+    "zh": "n. 卷心菜丝沙拉（slaw 的复数）。",
+    "en": "Plural of slaw: shredded-cabbage salads.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 继承酸菜误义"
+  },
+  "sle": {
+    "zh": "v. 杀死（slay 的古体形式）。",
+    "en": "v. An archaic form of slay: to kill.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 疾病缩写与slay古词错配"
+  },
+  "sleazo": {
+    "zh": "n. 卑劣、低俗的人（俚语）。",
+    "en": "n. Slang: a sleazy person.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 低俗物/作品与低俗人错配",
+    "ipa": "/ˈsliːzəʊ/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Collins English Dictionary (reviewed)",
+    "ipaSourceUrl": "https://www.collinsdictionary.com/dictionary/english/sleazo"
+  },
+  "sleeker": {
+    "zh": "a. 更光滑的、更流线型的、更整洁的（sleek 的比较级）。",
+    "en": "Comparative of sleek: smoother, more streamlined, or more neatly groomed.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 工具名词与sleek比较级错配"
+  },
+  "slews": {
+    "zh": "n. 大量、许多；v. 急转方向（slew 的复数或第三人称单数）。",
+    "en": "Plural of slew, a large amount; third-person singular of slew, to turn sharply.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文错误sting词形"
+  },
+  "slimes": {
+    "zh": "n. 黏液、黏泥（slime 的复数）；v. 用黏液覆盖或弄脏（slime 的第三人称单数）。",
+    "en": "Plural of slime: thick sticky matter; third-person singular of slime, to cover or stain with slime.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文混入slim动词，中文词性错"
+  },
+  "sliming": {
+    "zh": "v. 用黏液覆盖或弄脏（slime 的现在分词）。",
+    "en": "Present participle of slime: covering or staining with slime.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文混入slim且中文未反映slime动词"
+  },
+  "slims": {
+    "zh": "v. 减肥、使变瘦（slim 的第三人称单数）。",
+    "en": "Third-person singular of slim: loses weight or makes slimmer.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文裤子与减肥动词错配"
+  },
+  "slips": {
+    "zh": "n. 滑倒、失误、小纸条、衬裙等（slip 的复数）；v. 滑动、滑倒、悄悄移动（slip 的第三人称单数）。",
+    "en": "Plural of slip: missteps, mistakes, small pieces of paper, or underskirts; third-person singular of slip, to slide or move quietly.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文只有板球防区，与英文主要词义需全文确认"
+  },
+  "slower": {
+    "zh": "a., adv. 更慢的、更慢地（slow 的比较级）。",
+    "en": "Comparative of slow: less quick or at a lower speed.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文减慢与比较级更慢不对应"
+  },
+  "sluff": {
+    "zh": "n. 蛇等动物蜕下的皮；脱落的死皮；小型雪崩或泥石滑落。",
+    "en": "n. A variant of slough, shed or dead skin; also an avalanche or slide of loose material.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 小滑雪译法错误，需区分雪崩与蜕皮"
+  },
+  "smalt": {
+    "zh": "n. 含钴玻璃粉制成的深蓝色颜料。",
+    "en": "n. A deep-blue pigment made from powdered cobalt-coloured glass.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文名词颜料误标vt"
+  },
+  "smarm": {
+    "zh": "n. 虚情假意的恭维、谄媚；v. 谄媚。",
+    "en": "n. Insincere flattery or affected charm; v. to flatter insincerely.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 谄媚行为名词与中文动词需对齐"
+  },
+  "smit": {
+    "zh": "v. 重击；使深受影响（smite 的旧式过去式或过去分词）。",
+    "en": "An old past tense or past participle of smite: to strike hard or affect deeply.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 缩写与smite过去式错配"
+  },
+  "smote": {
+    "zh": "v. 重击；使深受影响（smite 的过去式）。",
+    "en": "Past tense of smite: to strike hard or affect deeply.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 过去分词关系需标旧用"
+  },
+  "smuts": {
+    "zh": "n. 污垢、煤灰、淫秽内容或黑粉病（smut 的复数）；v. 弄脏、使染黑粉病（smut 的第三人称单数）。",
+    "en": "Plural of smut: soot, obscene material, or plant smut diseases; third-person singular of smut, to soil or infect with smut.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文混入南非政治家姓氏"
+  },
+  "snark": {
+    "zh": "n. 尖刻的嘲讽；v. 尖刻地挖苦。",
+    "en": "n. Mocking sarcasm; v. to make sarcastic or cutting remarks.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 蛇鲨与嘲讽词义错配"
+  },
+  "snaws": {
+    "zh": "n. 雪（snaw 的复数）；v. 下雪（snaw 的第三人称单数，苏格兰语）。",
+    "en": "Plural or third-person singular of snaw, the Scots form of snow.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文第三人称与英文复数不一致"
+  },
+  "snib": {
+    "zh": "n. 门闩、插销；v. 用插销闩住。",
+    "en": "n. A bolt or catch on a door or window; v. to fasten with one.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 门闩与责骂义不对应"
+  },
+  "snider": {
+    "zh": "a. 更刻薄的、更讥讽的（snide 的比较级）。",
+    "en": "Comparative of snide: more contemptuous or disparaging.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 比较级不应继承名词赝品"
+  },
+  "snoopy": {
+    "zh": "a. 爱窥探的、爱管闲事的。",
+    "en": "a. Inclined to pry into other people's affairs.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 形容词与漫画角色错配"
+  },
+  "snots": {
+    "zh": "n. 鼻涕；惹人嫌的人；蛮横无理的话",
+    "en": "n. a person regarded as arrogant and annoying; n. nasal mucus",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 复数音标缺s",
+    "ipa": "/snɒts/",
+    "ipaStatus": "derived",
+    "ipaBase": "snot",
+    "ipaSource": "Regular morphology from reviewed base pronunciation",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://en.wiktionary.org/wiki/snot#English",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/snot#English",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/snot#English"
+  },
+  "snowball": {
+    "zh": "n. 雪球；v. 滚雪球般迅速增大。",
+    "en": "n. A ball of snow; v. to grow or accumulate rapidly.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文主释义植物，缺雪球基本义"
+  },
+  "snp": {
+    "zh": "abbr. 单核苷酸多态性；也可指苏格兰民族党。",
+    "en": "Abbreviation of single-nucleotide polymorphism; also the Scottish National Party.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 政党缩写与遗传学缩写错配"
+  },
+  "snye": {
+    "zh": "n. 回水河汊、支流河道；连接两条河的水道（加拿大用语）。",
+    "en": "Canadian: a backwater, side-channel, or channel linking two rivers.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 河汊与古动词错配",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/snye#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/snye#English"
+  },
+  "snyes": {
+    "zh": "n. 回水河汊、支流河道（snye 的复数）。",
+    "en": "Plural of snye: backwaters or side-channels.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 继承snye词性错配",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/snye#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/snye#English"
+  },
+  "soaked": {
+    "zh": "a. 湿透的；v. 浸泡、浸透（soak 的过去式和过去分词）。",
+    "en": "a. Thoroughly wet; past tense and past participle of soak, to immerse or saturate.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文湿透形容词与英文主要原形动作/醉酒未充分对应"
+  },
+  "soba": {
+    "zh": "n. 日本荞麦面。",
+    "en": "n. Japanese buckwheat noodles.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 地名与荞麦面错配"
+  },
+  "socked": {
+    "zh": "v. 重击（sock 的过去式和过去分词）。",
+    "en": "Past tense and past participle of sock: to hit hard.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 过去式直接复制词根名词/姓氏"
+  },
+  "socmen": {
+    "zh": "n. 按 socage（索克租佃制） 持有土地的佃户（socman 的复数，英国历史用语）。",
+    "en": "Plural of socman: historical tenants holding land by socage.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 只有词形指引，无中文实义",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/socman#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/socman#English"
+  },
+  "sods": {
+    "zh": "n. 草皮（sod 的复数）；v. 铺草皮（sod 的第三人称单数）。",
+    "en": "Plural of sod: turf; third-person singular of sod, to cover with turf.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 错误subvert/seethe词形污染"
+  },
+  "sofar": {
+    "zh": "n. 水下声学定位系统，利用水中爆炸声定位海上失踪船只等。",
+    "en": "n. A system that locates objects at sea by detecting underwater explosive sounds.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文声发残缺"
+  },
+  "soh": {
+    "zh": "n. 唱名 sol（大调音阶的第五音）。",
+    "en": "n. A variant of sol, the solmization syllable for the fifth note of a major scale.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 控制字符缩写与音乐唱名错配"
+  },
+  "sola": {
+    "zh": "a. 独自的、单独的（solus 的阴性形式）。",
+    "en": "a. Alone; the feminine form of solus.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 汇票与独自形容词/植物错配"
+  },
+  "soldi": {
+    "zh": "n. 索尔多（意大利旧硬币，soldo 的复数）。",
+    "en": "Plural of soldo: former Italian coins, traditionally one twentieth of a lira.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 只有词形指引，无中文实义",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/soldo#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/soldo#English"
+  },
+  "soling": {
+    "zh": "v. 给鞋装上鞋底（sole 的现在分词）。",
+    "en": "Present participle of sole: fitting a sole to a shoe.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 船壳板/胶与装鞋底动词错配",
+    "ipa": "/ˈsoʊlɪŋ/",
+    "ipaStatus": "derived",
+    "ipaBase": "sole",
+    "ipaSource": "Regular inflection from a reviewed base pronunciation",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/sole#English",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://en.wiktionary.org/wiki/sole#English",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/sole#English"
+  },
+  "soloed": {
+    "zh": "v. 独奏、独唱或单独飞行（solo 的过去式和过去分词）。",
+    "en": "Past tense and past participle of solo: to perform or fly alone.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 缺过去式说明且复制名词"
+  },
+  "solus": {
+    "zh": "a. 独自的、单独的。",
+    "en": "a. Alone or unaccompanied.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文错误阴性形容词指引需明确alone"
+  },
+  "solver": {
+    "zh": "n. 解题者；求解程序、解算器。",
+    "en": "n. A person or program that finds a solution to a problem.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 程序与解题人义需对齐"
+  },
+  "som": {
+    "zh": "n. 索姆（吉尔吉斯斯坦货币单位）；苏姆（乌兹别克斯坦货币单位）。",
+    "en": "n. The monetary unit of Kyrgyzstan or Uzbekistan.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 报文开始符与货币单位错配"
+  },
+  "somer": {
+    "zh": "n. 夏季（summer 的旧拼写或模拟方言的写法）。",
+    "en": "An obsolete or dialectal spelling of summer.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: some虚构比较级需核实",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/somer#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/somer#English"
+  },
+  "sonde": {
+    "zh": "n. 探测仪、探头；高空气象探测装置。",
+    "en": "n. A probe or instrument used to collect measurements, especially in the atmosphere.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 仪器与古信使义错配，词性vt错误"
+  },
+  "sone": {
+    "zh": "n. 宋，主观响度单位。",
+    "en": "n. A unit of perceived loudness, referenced to a 1,000-hertz tone at 40 decibels above the hearing threshold.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 单位中文味应为宋"
+  },
+  "sones": {
+    "zh": "n. 宋，主观响度单位（sone 的复数）。",
+    "en": "Plural of sone, a unit of perceived loudness.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 继承sone单位错译"
+  },
+  "sonless": {
+    "zh": "a. 没有儿子的。",
+    "en": "a. Having no son.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 无儿子不等于无后嗣"
+  },
+  "sook": {
+    "zh": "n. 爱哭、爱抱怨或胆怯的人（澳大利亚等地的贬义俚语）。",
+    "en": "Derogatory slang in Australia and some other regions: a crybaby, complainer, or timid person.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 胆小鬼与小牛/吸吮不同义需对齐",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sook#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/sook#English"
+  },
+  "sooner": {
+    "zh": "adv. 更早；更快；宁愿。",
+    "en": "Comparative of soon: earlier or more quickly; also, rather or more willingly.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 抢地者与更早比较级错配"
+  },
+  "soots": {
+    "zh": "n. 煤烟、烟灰（soot 的复数）；v. 用煤烟弄黑（soot 的第三人称单数）。",
+    "en": "Plural of soot; third-person singular of soot, to cover with soot.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 名词煤烟误标动词"
+  },
+  "soph": {
+    "zh": "n. 大学二年级学生（sophomore 的简称）。",
+    "en": "n. An informal shortening of sophomore: a second-year college student.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 仅sophomore指引无中文实义"
+  },
+  "sophs": {
+    "zh": "n. 大学二年级学生（soph 的复数）。",
+    "en": "Plural of soph: second-year college students.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 继承仅英文指引"
+  },
+  "sops": {
+    "zh": "n. 浸湿的面包片；安抚物（sop 的复数）；v. 浸湿、浸透（sop 的第三人称单数）。",
+    "en": "Plural of sop: soaked pieces of bread or conciliatory gifts; third-person singular of sop, to soak or saturate.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文混入SOP缩写"
+  },
+  "sorbed": {
+    "zh": "v. 吸附、吸收（sorb 的过去式和过去分词）。",
+    "en": "Past tense and past participle of sorb: to take up by adsorption or absorption.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 过去式音标缺d与名词污染",
+    "ipa": "/sɔːbd/",
+    "ipaStatus": "derived",
+    "ipaBase": "sorb",
+    "ipaSource": "Regular morphology from reviewed base pronunciation",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://en.wiktionary.org/wiki/sorb#English",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/sorb#English",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/sorb#English"
+  },
+  "sord": {
+    "zh": "n. 草皮（sward 的旧形式）；一群绿头鸭（旧用法）。",
+    "en": "An obsolete form of sward, turf; also an old collective word for a flock of mallards.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 缩写与草皮/鸭群错配",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sord#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/sord#English"
+  },
+  "sored": {
+    "zh": "a. （马）被人为弄痛脚部以夸张步态的。",
+    "en": "Of a horse: subjected to soring, the deliberate infliction of foot pain to exaggerate its gait.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 指特定马匹致痛做法而非sore形容词过去分词",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/sored#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/sored#English"
+  },
+  "sorer": {
+    "zh": "a. 更疼痛的、更酸痛的（sore 的比较级）。",
+    "en": "Comparative of sore: more painful or tender.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 比较级不应继承名词疮"
+  },
+  "sorest": {
+    "zh": "a. 最疼痛的、最酸痛的（sore 的最高级）。",
+    "en": "Superlative of sore: most painful or tender.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 最高级不应继承名词疮"
+  },
+  "sori": {
+    "zh": "n. 孢子囊群（sorus 的复数），常见于蕨叶背面。",
+    "en": "Plural of sorus: clusters of sporangia, especially on fern leaves.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 只有词形无中文实义"
+  },
+  "soring": {
+    "zh": "n. 为夸张步态而人为弄痛马脚的做法。",
+    "en": "The practice of deliberately causing pain in a horse's feet to exaggerate its gait.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 动词致马脚疼与形容词继承错配",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/soring#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/soring#English"
+  },
+  "sorns": {
+    "zh": "v. 强求别人提供食宿（sorn 的第三人称单数）。",
+    "en": "Third-person singular of sorn: imposes on others for food and lodging.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 动词误标复数"
+  },
+  "sos": {
+    "zh": "紧急呼救信号; [计] 独立操作系统",
+    "en": "n. an internationally recognized distress signal in radio code",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 缩写音标缺首字母S",
+    "ipa": "/ˌɛs oʊ ˈɛs/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Wiktionary (reviewed)",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/SOS#English"
+  },
+  "sots": {
+    "zh": "n. 酒鬼、酗酒者（sot 的复数）。",
+    "en": "Plural of sot: habitual drunkards.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 艺术名与醉汉复数错配"
+  },
+  "souffle": {
+    "zh": "n. 舒芙蕾、蛋奶酥：用打发的蛋白等制成的松软烘烤食品。",
+    "en": "n. A light baked dish made with beaten egg whites and other ingredients.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 医用杂音与蛋奶酥错配"
+  },
+  "sough": {
+    "zh": "n. 飒飒声 vi. 飒飒响, 哗哗地响",
+    "en": "make a murmuring sound",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: IPA末尾f疑错误",
+    "ipa": "/saʊ/, /sʌf/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Wiktionary (reviewed)",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/sough#English"
+  },
+  "souk": {
+    "zh": "n. 阿拉伯城市的市场、露天集市。",
+    "en": "n. A market or bazaar in an Arab city.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 露天剧场应为露天市场"
+  },
+  "sours": {
+    "zh": "v. 变酸、变馊；恶化（sour 的第三人称单数）。",
+    "en": "Third-person singular of sour: becomes acidic, spoils, or deteriorates.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: sour词形英文被Source旧拼写覆盖"
+  },
+  "sous": {
+    "zh": "n. 苏（法国旧时小额硬币，sou 的复数）。",
+    "en": "Plural of sou: former French coins of small denomination.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 摩洛哥地区与法国旧币复数错配"
+  },
+  "sow": {
+    "zh": "v. 播种、散布；n. 母猪。",
+    "en": "v. To plant or scatter seeds; n. an adult female pig.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 只给母猪IPA而兼有播种义",
+    "ipa": "/soʊ/, /saʊ/",
+    "ipaStatus": "sourced",
+    "ipaSource": "Wiktionary (reviewed)",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/sow#English",
+    "usageNote": "播种读 /soʊ/；母猪读 /saʊ/。"
+  },
+  "sowed": {
+    "zh": "v. 播种、散布（sow 的过去式和过去分词）。",
+    "en": "Past tense and past participle of sow: to scatter or plant seeds, or spread something.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 播种词形音标误继承母猪读法",
+    "ipa": "/soʊd/",
+    "ipaStatus": "derived",
+    "ipaBase": "sow",
+    "ipaSource": "Regular morphology from reviewed base pronunciation",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://en.wiktionary.org/wiki/sow#English",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/sow#English",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/sow#English"
+  },
+  "sox": {
+    "zh": "n. 袜子（sock 的非正式复数拼写）。",
+    "en": "An informal plural spelling of sock: socks worn on the feet.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 袜子词形混入金融等无关中文"
+  },
+  "spaed": {
+    "zh": "v. 预言、预示（spae 的过去式和过去分词，苏格兰语）。",
+    "en": "Past tense and past participle of spae: to foretell or prophesy.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 过去式音标缺d",
+    "ipa": "/speɪd/",
+    "ipaStatus": "derived",
+    "ipaBase": "spae",
+    "ipaSource": "Regular morphology from reviewed base pronunciation",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://en.wiktionary.org/wiki/spae#English",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/spae#English",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/spae#English"
+  },
+  "spams": {
+    "zh": "n. 垃圾邮件、垃圾信息（spam 的复数）；v. 发送垃圾信息（spam 的第三人称单数）。",
+    "en": "Plural of spam: unsolicited messages; third-person singular of spam, to send unsolicited messages.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文动词错误继承名词午餐肉"
+  },
+  "spang": {
+    "zh": "adv. 恰好、完全地；v. 跳跃、猛然移动。",
+    "en": "adv. Exactly or completely; v. to leap or move with a jerk.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文副词与英文动词词义不一致"
+  },
+  "sparer": {
+    "zh": "n. 不伤害或饶恕他人的人；a. 更瘦削的、更简朴的（spare 的比较级）。",
+    "en": "n. Someone who spares another; comparative of spare: leaner or more austere.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文医学生化物质与英文节省者/更稀少不符"
+  },
+  "spaz": {
+    "zh": "n. 笨手笨脚的人（冒犯性俚语）；v. 举止失控、惊慌失措（冒犯性俚语）。",
+    "en": "Offensive slang: a clumsy person; to act in an uncontrolled or panicky way.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文名词与英文动词不一致，需用语标记"
+  },
+  "spean": {
+    "zh": "v. 使断奶（苏格兰语）。",
+    "en": "v. Scots: to wean.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 断奶与奶头/异体词义需对齐"
+  },
+  "speer": {
+    "zh": "v. 询问、打听（苏格兰语）。",
+    "en": "v. Scots: to ask or inquire.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 询问动词与建筑师专名错配"
+  },
+  "speers": {
+    "zh": "v. 询问、打听（speer 的第三人称单数）。",
+    "en": "Third-person singular of speer: asks or inquires.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 人地名与动词词形错配"
+  },
+  "speirs": {
+    "zh": "v. 询问、打听（speir 的第三人称单数）。",
+    "en": "Third-person singular of speir: asks or inquires.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 动词标复数"
+  },
+  "spence": {
+    "zh": "n. 食品储藏室、食品间。",
+    "en": "n. A pantry or larder.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 男子名与食品储藏室错配"
+  },
+  "spewer": {
+    "zh": "n. 呕吐的人；喷吐或喷出东西的人或物。",
+    "en": "n. Someone who vomits, or a person or thing that spews something out.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 计垃圾虫与呕吐者错配"
+  },
+  "spicer": {
+    "zh": "n. 调味者；增添趣味的事物；香料商（旧用法）。",
+    "en": "Someone who seasons with spices, something that adds excitement, or a historical spice dealer.",
+    "zhSource": "Wiktionary (checked English entry; Chinese translation)",
+    "enSource": "Wiktionary (reviewed)",
+    "note": "2026-10-21 full audit: 人名与spic比较级混乱",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/spicer#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/spicer#English"
+  },
+  "spicey": {
+    "zh": "a. 辛辣的、多香料的（spicy 的少见拼写）。",
+    "en": "An uncommon spelling of spicy: seasoned with spices or hot-tasting.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文乱码spiy/c拼接"
+  },
+  "spiff": {
+    "zh": "v. 把…打扮整齐（常与 up 连用）；n. 整洁漂亮的外表。",
+    "en": "v. To smarten up; n. smartness or attractiveness of appearance.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 动词打扮与名词魅力不同词性"
+  },
+  "spiky": {
+    "zh": "a. 有尖刺的；尖而突出的。",
+    "en": "a. Having spikes or sharp projecting points.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文只给音高义与尖刺义不同"
+  },
+  "spirt": {
+    "zh": "n. 喷出、喷射；v. 突然喷出、突然加速（spurt 的异体拼写）。",
+    "en": "A variant of spurt: a sudden jet; to gush out or move with a burst of speed.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文发残缺"
+  },
+  "spirts": {
+    "zh": "n. 喷射（spirt 的复数）；v. 突然喷出、突然加速（spirt 的第三人称单数）。",
+    "en": "Plural or third-person singular of spirt: sudden jets; gushes out or accelerates suddenly.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 动词词形继承名词残缺释义"
+  },
+  "splat": {
+    "zh": "n. 啪嗒声、飞溅；椅背中间的纵板。",
+    "en": "n. A wet impact or splash, or the central upright board in a chair back.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 椅背板与啪嗒声/飞溅错配"
+  },
+  "spoked": {
+    "zh": "v. 为车轮装辐条（spoke 的过去式和过去分词）；a. 有辐条的。",
+    "en": "Past tense and past participle of spoke: to fit with spokes; having spokes.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 不是speak过去分词，音标缺d",
+    "ipa": "/spoʊkt/",
+    "ipaStatus": "derived",
+    "ipaBase": "spoke",
+    "ipaSource": "Regular morphology from reviewed base pronunciation",
+    "baseIpaSource": "Wiktionary",
+    "relationSource": "https://en.wiktionary.org/wiki/spoke#English",
+    "ipaSourceUrl": "https://en.wiktionary.org/wiki/spoke#English",
+    "baseIpaSourceUrl": "https://en.wiktionary.org/wiki/spoke#English"
+  },
+  "spooky": {
+    "zh": "a. 阴森吓人的、令人毛骨悚然的；易受惊的。",
+    "en": "a. Eerie or frightening; easily startled.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 令人恐惧与易受惊方向相反"
+  },
+  "sports": {
+    "zh": "n. 体育运动（sport 的复数）；作定语时表示运动的。",
+    "en": "Plural of sport: physical games or competitions; also used attributively to mean relating to sport.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 中文名词词性混入形容词，英文体育运动未明确对应"
+  },
+  "sprigs": {
+    "zh": "n. 带叶小枝、小花枝（sprig 的复数）。",
+    "en": "Plural of sprig: small stems with leaves or flowers.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 动词误直接继承名词"
+  },
+  "springer": {
+    "zh": "n. 跳跃者；拱脚石；临产母牛。",
+    "en": "n. Someone or something that springs; the lowest stone of an arch; a cow close to calving.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 跳跃者与拱脚石/临产母牛错配"
+  },
+  "springs": {
+    "zh": "n. 春季；弹簧；泉水（spring 的复数）；v. 跳起、突然出现（spring 的第三人称单数）。",
+    "en": "Plural of spring: seasons, coils, or natural water sources; third-person singular of spring, to leap or arise suddenly.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 城市名与spring复数错配"
+  },
+  "sprits": {
+    "zh": "n. 斜撑帆桁（sprit 的复数）。",
+    "en": "Plural of sprit: poles supporting the outer upper corners of spritsails.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 亚麻指标与帆杆复数错配"
+  },
+  "spryer": {
+    "zh": "a. 更敏捷的、更活跃的（spry 的比较级）。",
+    "en": "Comparative of spry: more active or nimble.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 姓氏与spry比较级错配"
+  },
+  "spuds": {
+    "zh": "n. 土豆；小铲（spud 的复数）；v. 开钻（spud 的第三人称单数）。",
+    "en": "Plural of spud: potatoes or small digging tools; third-person singular of spud, to begin drilling a well.",
+    "zhSource": "Supplied glossary (manual semantic and grammatical review)",
+    "enSource": "Supplied glossary (manual semantic and grammatical review)",
+    "note": "2026-10-21 full audit: 英文疑混入sprout义"
+  }
+}

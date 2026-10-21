@@ -45,6 +45,7 @@ async function checkDefinition(page, word, root = '#bankDef') {
   if (actual.row[0]) assert.equal(actual.ipa, actual.row[0], word + ': IPA');
   if (actual.row[3]?.ipaStatus === 'derived') assert(actual.labels.some(label => label.includes('推导')), word + ': derived IPA label');
   if (actual.row[3]?.ipaStatus === 'unverified') assert(actual.labels.some(label => label.includes('待核实')), word + ': unverified IPA label');
+  assert.equal(await page.$eval(root, el => !!el.querySelector('.g-review-pending')), actual.row[3]?.reviewStatus === 'pending', word + ': unresolved review marker');
   assert(!/释义需本地服务|释义需要在线打开|释义未加载/.test(actual.text), word + ': lookup available');
 }
 (async () => {
@@ -86,8 +87,24 @@ async function checkDefinition(page, word, root = '#bankDef') {
         await findWord(page, word);
         await checkDefinition(page, word);
       }
-      await findWord(page, 'BREAKS');
-      await checkDefinition(page, 'BREAKS');
+      for (const word of ['CUS', 'AHIS', 'EATS', 'MAMS', 'PECHED', 'SANG', 'SHOES', 'TAXER', 'VINES', 'WORE', 'WOUND', 'ARGAL', 'PIRAYA', 'ADOPTION', 'EDEN', 'EDITOR', 'DWELLED', 'WHITE', 'PLASMA', 'TYPO', 'AURATE']) {
+        await findWord(page, word);
+        await checkDefinition(page, word);
+      }
+      await findWord(page, 'CUS');
+      assert.match(await page.$eval('#bankDef .g-zh', el => el.textContent), /因为/);
+      assert.match(await page.$eval('#bankDef .g-en', el => el.textContent), /because/);
+      assert(!/导尿|metallic|copper/i.test(await page.$eval('#bankDef', el => el.textContent)));
+      await page.hover('#bankList .gw');
+      await page.waitForFunction(() => !document.querySelector('#gloss').hidden && document.querySelector('#gloss .g-top b')?.textContent === 'CUS');
+      await checkDefinition(page, 'CUS', '#gloss');
+      if (index === 0) await page.screenshot({path: '/tmp/bilingual-glossary-cus.png'});
+      await page.mouse.move(20, 20);
+      const longWord = await page.evaluate(() => Object.entries(JSON.parse(document.querySelector('#defaultGlossary').textContent).entries)
+        .find(([word, row]) => /^[a-z]{3,}$/.test(word) && row[2].length > 481)?.[0].toUpperCase());
+      assert(longWord, 'a long definition is available to exercise preview truncation');
+      await findWord(page, longWord);
+      await checkDefinition(page, longWord);
       await page.hover('#bankList .gw');
       await page.waitForFunction(() => !document.querySelector('#gloss').hidden && document.querySelector('#gloss').textContent.includes('点击单词查看完整释义'));
       assert((await page.$eval('#gloss .g-en', e => e.textContent.length)) <= 481, 'long hover remains a short preview');
@@ -104,6 +121,16 @@ async function checkDefinition(page, word, root = '#bankDef') {
         await page.hover('#bankList .gw');
         await page.waitForFunction(word => !document.querySelector('#gloss').hidden && document.querySelector('#gloss .g-top b')?.textContent === word && document.querySelector('#gloss .g-definitions'), {}, word.toUpperCase());
         await checkDefinition(page, word, '#gloss');
+        await page.mouse.move(20, 20);
+      }
+      const pendingWord = await page.evaluate(() => Object.entries(JSON.parse(document.querySelector('#defaultGlossary').textContent).entries)
+        .find(([word, row]) => /^[a-z]{3,}$/.test(word) && row[3]?.reviewStatus === 'pending' && row[1].length <= 180 && row[2].length <= 480)?.[0].toUpperCase());
+      if (pendingWord) {
+        await findWord(page, pendingWord);
+        await checkDefinition(page, pendingWord);
+        await page.hover('#bankList .gw');
+        await page.waitForFunction(word => !document.querySelector('#gloss').hidden && document.querySelector('#gloss .g-top b')?.textContent === word, {}, pendingWord);
+        await checkDefinition(page, pendingWord, '#gloss');
         await page.mouse.move(20, 20);
       }
       if (index === 0) await page.screenshot({path: '/tmp/bilingual-glossary-desktop.png'});

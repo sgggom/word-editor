@@ -1,0 +1,1388 @@
+{
+  "dom": {
+    "zh": "n.（历史）授予教皇、教会高阶人士及某些修会成员的尊称；（葡萄牙、巴西）授予王室成员和上层贵族的尊称。",
+    "en": "n. A title anciently given to the pope, and later to other church dignitaries and some monastic orders; a title given in Portugal and Brazil to members of the royal family and higher classes.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/dom",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/dom",
+    "note": "两项英语词典义项均已补入中文；修复旧英文分隔符截断造成的句内错位。"
+  },
+  "doors": {
+    "zh": "n. 门；关闭房间、建筑物或车辆入口的活动隔板；门口/出入口；通道或出路；住处或工作场所；由门进入的房间（door 的复数）。",
+    "en": "n. A swinging or sliding barrier that closes an entrance to a room, building, or vehicle; an entrance or doorway; anything providing access or escape; a dwelling or workplace; a room entered through a door. (Plural of door.)",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "原英文在220字符处截断；恢复来源中剩余的门口、出入通道、住处及房间义，并补齐对应中文。"
+  },
+  "dought": {
+    "zh": "n.（苏格兰、英格兰北部，旧）力量，实力，能力；v. dow 的过去式（方言）。",
+    "en": "n. (Scotland, Northern England, obsolete except in derivatives) Power, strength, ability; v. dialectal alternative past of dow.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/dought",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/dought",
+    "note": "核实 Wiktionary 中同时列有名词义和 dow 的方言过去式；原中文仅包含动词形态。"
+  },
+  "driving": {
+    "zh": "n. 驾驶、操纵车辆或牲畜的行为；a. 推进的、有驱动力的；强劲有力的；（高尔夫）开球的；精力充沛的。",
+    "en": "n. The act of controlling and steering the movement of a vehicle or animal; a. having the power of driving or impelling; hitting a golf ball off a tee with a driver; acting with vigor.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "依据 Open English Wordnet 补入驾驶行为和精力充沛义，保留原有推进力及高尔夫义；中英文义项对应。"
+  },
+  "drool": {
+    "zh": "vi. 流口水；垂涎，渴望或艳羡；vt. 使口水流下；过分动情地表示；n. 口水；（言谈或文字）矫饰或愚蠢的废话。",
+    "en": "v. Let saliva drivel from the mouth; be envious, desirous, eager for, or extremely happy about something; n. saliva spilling from the mouth; pretentious or silly talk or writing.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补足英语中的流涎名词和动词义，并使中文明确覆盖渴望/艳羡与矫饰或愚蠢言谈。"
+  },
+  "dubber": {
+    "zh": "n. 配音者；配音/复制设备；（印度）盛酥油或油的球形皮囊容器。",
+    "en": "n. One who, or that which, dubs; a globular vessel or bottle of leather used in India to hold ghee, oil, etc.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "原中文“同步（拷贝）机”未对应词典列出的配音/复制者和印度皮囊容器两义，按词条补译。"
+  },
+  "ducts": {
+    "zh": "n. 导管；（身体中输送分泌物的）管道；由一列细长细胞构成的连续管道；流体导管/管线（duct 的复数）。",
+    "en": "n. A bodily passage or tube lined with epithelial cells and conveying a secretion or other substance; a continuous tube formed by a row of elongated cells lacking intervening end walls; an enclosed conduit for a fluid.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "扩展中文以对应英语的身体导管、细胞管道和流体管线三义。"
+  },
+  "dumbly": {
+    "zh": "adv. 愚蠢地；迟钝或麻木地；沉默地；无法言语地。",
+    "en": "adv. Mutely; stupidly or insensitively.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "原中文仅有“默默地、无言地”，未覆盖词典列出的愚蠢/麻木义。"
+  },
+  "dumped": {
+    "zh": "v. 扔掉；（通常突然或不负责任地）断绝关系、甩掉；以人为压低的价格倾销；把东西成堆倾倒；骤然下跌；用力撞倒。",
+    "en": "v. Throw away as refuse; sever all ties with, usually unceremoniously or irresponsibly; sell at artificially low prices; drop stuff in a heap or mass; fall abruptly; knock down with force.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "依据词典完整条目补齐六个 dump 的过去式/过去分词用法，中文原义仅覆盖废弃和被甩。"
+  },
+  "dunam": {
+    "zh": "n. 德南：面积单位。奥斯曼旧制约为一天可耕的土地面积、各地随土地条件而异；现代土耳其制等于1公顷（1000平方米）；前奥斯曼帝国其他地区的单位通常约为1公顷，也有不同标准。",
+    "en": "n. An Ottoman Turkish unit of area, historically variable by region and land quality; the modern Turkish unit equals a decare (1,000 m²); related local units elsewhere in the former Ottoman Empire usually equal a decare but may vary.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/dunam",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/dunam",
+    "note": "按 Wiktionary 所列奥斯曼旧制、现代土耳其制及其他地区差异三义补全中文。"
+  },
+  "dwelled": {
+    "zh": "v. think moodily or anxiously about something; originate in; inhabit or live in; exist or be situated within; come back to (simple past and past participle of dwell).",
+    "en": "v. 闷闷不乐或焦虑地反复思量；源自；居住于；存在于/位于；再度谈及（dwell 的过去式和过去分词）。",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补充 dwell 的各个词典义，与输入英文五项逐项对应；保留过去式和过去分词形态。"
+  },
+  "ecf": {
+    "zh": "abbr. extracellular fluid，细胞外液（含蛋白质和电解质，包括血浆与组织间液）；electrochemical fluorination，电化学氟化法。",
+    "en": "abbr. Extracellular fluid: liquid containing proteins and electrolytes, including blood plasma and interstitial fluid; electrochemical fluorination process.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "原中文含电化学氟化法和细胞外液两项缩写义，英文只对应后者；补齐英文并统一术语翻译。"
+  },
+  "eel": {
+    "zh": "n. 鳗鱼、鳝鱼；鳗鱼肉；鳗形鱼类，体形细长、皮肤光滑黏滑，通常无鳞，具有连续的垂直鳍而无腹鳍。",
+    "en": "n. The fatty flesh of eel; an elongate fish found in fresh water in Europe and America, often smoked or pickled; voracious snakelike marine or freshwater fishes with smooth slimy usually scaleless skin and a continuous vertical fin but no ventral fins.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符截断的第二项鱼类完整特征，并补明词典列出的鳗鱼肉义。"
+  },
+  "eels": {
+    "zh": "n. 鳗鱼肉；鳗鱼（欧洲和美洲淡水鳗，通常熏制或腌制）；鳗形鱼类（eel 的复数）。",
+    "en": "n. (Plural of eel.) The fatty flesh of eel; an elongate fish found in fresh water in Europe and America, often smoked or pickled; voracious snakelike marine or freshwater fishes with smooth slimy usually scaleless skin and a continuous vertical fin but no ventral fins.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符截断的复数词条定义；英文三部分义项与中文对应，保留复数词形。"
+  },
+  "eke": {
+    "zh": "vt. 增加；补充；凑足；（现多与 out 连用）以费力、次等或少量的补充来弥补不足；adv. 此外，也；n. 补充物。",
+    "en": "v. t. To increase; to add to; to augment; now commonly used with out, meaning to add to or piece out by a laborious, inferior, or scanty addition. adv. In addition; also; likewise. n. An addition.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复旧词典条目的完整句子及另列的副词、名词义；补齐原文截断部分的中文。"
+  },
+  "elater": {
+    "zh": "n. 弹丝；（植物学）帮助孢子散布的细长吸湿细胞或附属物；（动物学）叩头虫/叩头甲；（旧）弹性。",
+    "en": "n. (Botany) A hygroscopic cell or filament associated with spores and helping disperse them; (zoology) an elaterid or click beetle; (obsolete) elasticity.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "原中文的“弹丝（植物）”是植物学义，“弹虫、叩头虫”是昆虫义；补齐英文对应多义并核对植物学词典义。"
+  },
+  "embryo": {
+    "zh": "n.（植物学）种子或颈卵器中的微小未发育植物体；胚胎（动物生长分化的早期阶段，高等动物随后进入胎儿阶段，低等动物则发育为幼体）。",
+    "en": "n. (Botany) A minute rudimentary plant contained within a seed or an archegonium; an animal organism in the early stages of growth and differentiation that in higher forms merges into fetal stages but in lower forms terminates in commencement of larval life.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符处截断的动物胚胎定义；中文保留植物胚芽、动物胚胎/胎儿义。"
+  },
+  "emo": {
+    "zh": "n. 情绪摇滚：吉他驱动、情感表达突出的另类摇滚；亦指其不同历史支系及相关亚文化成员。a. 与情绪摇滚或其青年亚文化有关的；情绪敏感的、忧郁的、消沉的。",
+    "en": "n. (Music) Any form of guitar-driven alternative rock that is particularly or notably emotional; historically, several related rock subgenres; a person associated with this music or subculture. a. Associated with emo music or youth subcultures, or (informal) emotional, sensitive, contemplative, or depressed.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/emo",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/emo",
+    "note": "原英文恰在220字符截断；按 Wiktionary 补全摇滚音乐、亚文化成员和形容词义，中文逐项覆盖。"
+  },
+  "epoch": {
+    "zh": "n. 时代；纪元；以显著特征为标志或从某固定时点/事件起算的一段时期；（天文）用于记录坐标等信息的任意固定日期；（地质）代的下一级时间单位，分为若干世。",
+    "en": "n. A period marked by distinctive character or reckoned from a fixed point or event; (astronomy) an arbitrarily fixed date relative to which information such as celestial-body coordinates is recorded; (geology) a unit of geological time that is a subdivision of a period and is itself divided into ages.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "英文原文在220字符截断；依据 OEWN 补足地质学义，中文增加天文“历元”和地质时间单位义。"
+  },
+  "escot": {
+    "zh": "n.（古）赋税、税款；vt.（古）支付费用；供养；维持。",
+    "en": "n. (obsolete) A tax or contribution; see Scot, a tax. v. t. (obsolete) To pay the reckoning for; to support; to maintain.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "中文原文仅有动词义，补入英文交叉引用所指的名词“税款/赋税”义。"
+  },
+  "ether": {
+    "zh": "n. 以太：古代认为充满天体间空间的第五种最高元素；以太（曾被认为充满空间并传播电磁波的介质）；醚类化合物；乙醚（无色、易挥发、易燃，旧作吸入麻醉剂）。",
+    "en": "n. The fifth and highest element after air, earth, fire, and water, believed to compose heavenly bodies; a medium once supposed to fill all space and support propagation of electromagnetic waves; any of a class of organic compounds with two hydrocarbon groups linked by an oxygen atom; a colorless volatile highly flammable liquid formerly used as an inhalation anesthetic.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符处的完整定义；中英文列齐古典以太、假设介质、醚类及乙醚四义。"
+  },
+  "euro": {
+    "zh": "n. 欧元：欧盟多数成员国的基本货币单位（1999年引入；2002年，德国、法国、比利时、卢森堡、荷兰、意大利、西班牙、葡萄牙、爱尔兰、希腊、奥地利和芬兰采用欧元并放弃原有货币）。",
+    "en": "n. The basic monetary unit of most members of the European Union (introduced in 1999); in 2002 twelve European nations—Germany, France, Belgium, Luxembourg, the Netherlands, Italy, Spain, Portugal, Ireland, Greece, Austria, and Finland—adopted it as their basic unit of money and abandoned their traditional currencies.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符处被截断的国家列表和句子结尾；中文对应完整词典释义。"
+  },
+  "facile": {
+    "zh": "a. 轻易得到/完成的；不费力而熟练的；表达流畅自如的；表面上令人印象深刻、实则肤浅且忽略主题复杂性的。",
+    "en": "a. Arrived at without due care or effort; performing adroitly and without effort; expressing oneself readily, clearly, and effectively; superficially impressive but lacking depth and attention to the true complexities of a subject.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "中文原文“容易、灵巧、温和”未对应“表面肤浅”和“表达流畅”义；按 OEWN 及 ECDICT 补齐。"
+  },
+  "fag": {
+    "zh": "n.（英，公学旧制）为高年级男生跑腿的低年级男生；苦差事；香烟；（冒犯性俚语）男同性恋者。vi. 努力工作；vt. 使劳累、使筋疲力尽。",
+    "en": "n. A junior pupil who acts as a servant for older boys in British public schools; a tiresome task; a finely ground tobacco cigarette; (offensive slang) a homosexual man. v. Work hard; exhaust or tire through overuse or great strain.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "英文原文只列公学跑腿义，但英中原词条还有苦工、努力、使劳累；OEWN另列香烟和冒犯性俚语义，故保留并标明语域补全。"
+  },
+  "fakey": {
+    "zh": "a.（口语）假的；不自然的。n. fakie 的异体拼写：（滑板、滑雪板等）倒滑/反向骑行姿势；（BMX）倒踩并转向滑出的动作。",
+    "en": "adj. (colloquial) Fake. n. Alternative form of fakie: riding a board backwards in the opposite stance; also, a BMX maneuver involving backward pedalling and sliding out.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/fakey",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/fakey",
+    "note": "核实 Wiktionary 同时收录形容词 fake 和名词 fakie 的异体拼写；补足中文遗漏的 fake 义。"
+  },
+  "fan": {
+    "zh": "n. 风扇；狂热追随者、爱好者；体育迷。vt. 煽动、激化（情绪）；使（空气）流动；扇风；（投手）使击球手挥棒落空。vi. 飘动；成扇形展开。",
+    "en": "n. A device for creating a current of air by movement of a surface or surfaces; an ardent follower and admirer; an enthusiastic devotee of sports. v. Strike out a batter (of a pitcher); make an emotion fiercer; blow away or off with a current of air; agitate the air.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "依 OEWN 与 ECDICT 完整词条补齐击球出局、扇动空气及体育迷等义；原中文“吹拂”等义也保留并对应。"
+  },
+  "farms": {
+    "zh": "n. 农场；以农场建筑和耕地为整体的工作场所（farm 的复数）。v. 当农场主；务农；收取费用或利润；通过种植并常用农业技术改良土地来耕作（farm 的第三人称单数）。",
+    "en": "n. A workplace consisting of farm buildings and cultivated land as a unit (plural of farm). v. Be a farmer; work as a farmer; collect fees or profits; cultivate by growing, often involving improvements by agricultural techniques (third-person singular of farm).",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符处被截断的三个动词义，并补齐 farms 的动词词形和中文对应义。"
+  },
+  "fashions": {
+    "zh": "n. 风尚、时尚、流行方式；特定或惯常做法；当下流行的商品（尤指服饰）；v. 将不同部件组合制成（常即兴地）。（fashions 为 fashion 的复数及第三人称单数形式。）",
+    "en": "n. How something is done or how it happens; characteristic or habitual practice; the latest and most admired style in clothes, cosmetics, and behavior; consumer goods, especially clothing, in the current mode. v. Make out of components, often in an improvising manner. (Fashions is plural of the noun and third-person singular of the verb fashion.)",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "英语原文仅列两项词义，ECDICT完整条目还列出惯常做法、流行商品和动词义；中文原文只列时尚义，现补齐并标明词形。"
+  },
+  "fawn": {
+    "zh": "n. 小鹿；浅灰棕色；v. 表示顺从或畏惧；卑躬屈膝/奉承以博取好感；产小鹿。",
+    "en": "n. A young deer; a color or pigment varying around a light grey-brown color. v. Show submission or fear; try to gain favor by cringing or flattering; have fawns.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补入英语中小鹿、产仔和颜色义，并保留中文已有的动物及奉承义。"
+  },
+  "fears": {
+    "zh": "n. 恐惧；焦虑感；对某人/某事的深切敬畏。v. 害怕、担心；畏惧；担心将发生不快之事（用于引出不愉快的说明）；不安；敬畏、视为神圣或崇高。",
+    "en": "n. An emotion experienced in anticipation of specific pain or danger; an anxious feeling; profound respect for someone or something. v. Be afraid or anxious about a possible situation; be afraid/scared of; be sorry (introducing an unpleasant statement); be uneasy or apprehensive about; regard with respect and reverence, consider hallowed or exalted, or be in awe of. (Plural of fear; third-person singular of the verb.)",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符截断后的多项词义；中文原文只有恐惧和担心，现补入敬畏、道歉/遗憾引语及尊崇等义。"
+  },
+  "feeze": {
+    "zh": "vt. 拧转（如螺丝）；殴打、惩戒；使谦卑/屈服；使烦恼。n. 易怒的激动、烦躁不安（旧义；参见 Feaze）。",
+    "en": "v. t. To turn, as a screw; to beat, chastise, humble, or worry. n. Fretful excitement. (Obsolete; see Feaze.)",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "原中文“猛撞”未对应词典义；改为涵盖拧转、惩戒/使烦恼及旧名词义。"
+  },
+  "feod": {
+    "zh": "n. 封地；采邑；封建采地（feud/fief 的旧拼写或相关历史形式）。",
+    "en": "n. A feud; historically, a fief or feudal estate. See 2d Feud.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "原英文交叉引用容易被误读成私人仇怨；历史法学词典确认 feod 可指 feud/fief/fee，故明确为封建采邑并保留原词源交叉引用。"
+  },
+  "fever": {
+    "zh": "n. 发烧；发热；热病（常为感染症状）；强烈的紧张期待、兴奋状态。",
+    "en": "n. A rise in body temperature, frequently a symptom of infection; intense nervous anticipation.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补入英语词典列出的强烈紧张期待义，中文原文仅覆盖体温升高义。"
+  },
+  "fid": {
+    "zh": "n. 支撑桅杆顶桅的木/铁方杆；用于支撑或固定物体的木/金属杆或销；用于绳索拼接时撑开绳股的尖木销；装卸重炮时使用的木块。缩写 FID：[化]火焰离子化检测器。",
+    "en": "n. A square wooden or iron bar supporting a topmast; a wooden or metal bar or pin used to support or steady anything; a tapered hardwood pin used to open rope strands in splicing; a wooden block used in mounting and dismounting heavy guns. FID: flame ionization detector.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符截断的后两种工具义；保留中文原有化学缩写义并在英文补出其全称。"
+  },
+  "fielded": {
+    "zh": "field 的过去式和过去分词：接住并处理（球）；（棒球、板球等）担任守队/防守方；派出球队或队员参赛；另有“在野外驻扎/投入使用”的形容词义。",
+    "en": "Simple past and past participle of field: to intercept or catch and play a ball; to be the fielding team in baseball, softball, cricket, or similar sports; to place a team or players in a game. Also, engaged in the field; encamped.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "词典确认 fielded 是 field 的过去式和过去分词，并列出相关体育动词义；中文原文已覆盖守队身份，现配齐接球及派队参赛义。"
+  },
+  "fixer": {
+    "zh": "n. 为遇到麻烦者向当局斡旋的人（常收费用并使用不正当手段）；修理工；定影剂/固色剂等固定剂；（俚）向吸毒者出售麻醉品的人；（旧 WordNet 义）美沙酮类合成麻醉药。",
+    "en": "n. Someone who intervenes with authorities for a person in trouble, often using underhand or illegal methods for a fee; a skilled worker who mends or repairs things; a chemical compound that fixes a dye or photographic image; (slang) a person who sells narcotics to addicts; (WordNet) a synthetic narcotic drug similar to morphine but less habit-forming.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "英文补入 OEWN 的修理工及药物义，中文原有“毒贩子”由 Dictionary.com 的俚语义支持；保留定色/定影剂义并补齐修理工。"
+  },
+  "foods": {
+    "zh": "n. 食品；食物；动物可代谢以供能量并构建组织的物质；（相对于液体的）固体营养物；为思考提供精神刺激的事物。（food 的复数。）",
+    "en": "n. Any substance that can be metabolized by an animal to give energy and build tissue; any solid substance, as opposed to liquid, used as nourishment; anything that provides mental stimulus for thinking. (Plural of food.)",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补充英文第三项“思考的精神食粮”义并配入中文，保留复数词形。"
+  },
+  "forgo": {
+    "zh": "vt. 不做、放弃或停止持有/遵守；早于、先于；追溯到更早时期；因错误、违法或犯罪而丧失某物或权利。",
+    "en": "v. Do without or cease to hold or adhere to; be earlier in time or go back further; lose something or the right to something by some error, offense, or crime.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "依据 OEWN 补入因过失而丧失某物/权利义；中文原文仅覆盖放弃义。"
+  },
+  "forming": {
+    "zh": "form 的现在分词和动名词：构成/表达一个词的语音或书写形式；创立、组成；发展成独立实体；塑造；为特定用途制作；在心中牢固树立；呈现某种形态。（电）形成。",
+    "en": "Present participle and gerund of form. Form: the phonological or orthographic sound or appearance of a word used to describe or identify something; create an entity, compose or represent, develop into a distinctive entity, give shape to, make for a specific function, establish firmly in the mind, or assume a form or shape. (Electrical) formation.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "原英文混合了 form 的定义和形成义，中文仅保留电学译法；补充词形、词义及一般动词用法。"
+  },
+  "frisk": {
+    "zh": "vi. 欢快地蹦跳、嬉闹。vt. 搜身（快速摸查衣物和口袋，寻找武器或毒品）。n. 搜身；欢闹、蹦跳。",
+    "en": "v. Play boisterously; search someone for concealed weapons or illegal drugs by running the hands rapidly over clothing and through pockets. n. The act of searching someone for concealed weapons or illegal drugs.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "中文原文的“乱跳、欢闹”对应嬉闹义，“轻摇”不足以表达搜身；补入词典记载的搜身动词和名词义。"
+  },
+  "front": {
+    "zh": "n. 前部、正面；最先被看到或出现的一侧；外表；前线/阵线；活动领域；共同理念的组织/群体；可疑活动的掩护人；气团交界形成的锋面；最靠近观看者的部分；某人/某物的近旁。a. 前方的、位于前部的。vt. 面对、正面迎击。vi. 朝某方向/参照点定向；与……相对。",
+    "en": "n. The side that is forward or prominent; the side seen or going first; a person’s outward appearance; the line where opposing armies face; the part nearest the viewer; immediate proximity; a sphere of activity involving effort; a group sharing an ideology; a cover for questionable activity; a meteorological boundary between air masses. a. Relating to or located at the front. v. Be oriented in a direction, often relative to a reference point; be opposite to; confront bodily.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "OEWN列有多项常用及专业义，中文原文只覆盖前面、前线、态度等部分；扩充中文并说明词性，使所有列出义项对应。"
+  },
+  "fubs": {
+    "zh": "n. fub 的复数：小而胖的人（旧）；v. fub 的第三人称单数：欺骗、拖延/借故推迟（旧）。",
+    "en": "Noun: plural of fub, an obsolete term for a plump boy or person. Verb: third-person singular of fub, an obsolete verb meaning to put off, delay, or cheat.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/fubs",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/fubs",
+    "note": "核实 Wiktionary 确认两种词形；Webster 1828 给出 fub 的名词和动词义，补充英文以对应输入中文。"
+  },
+  "fudge": {
+    "zh": "n. 软滑的奶油糖；虚构的故事、谎言、胡说。interj. 胡说八道！v. 蒙混、欺骗；粗制滥造或捏造；逃避履行职责、回答问题或处理议题。",
+    "en": "n. Soft creamy candy; pretentious or false talk. interj. An exclamation of disbelief. v. Tamper with for deception; avoid or try to avoid fulfilling, answering, or performing duties, questions, or issues.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补入词典中“逃避职责/问题”及“捏造”动词义，中文对应原有的逃避职责和胡说义。"
+  },
+  "fused": {
+    "zh": "a. 熔合在一起的；融合为整体的；熔化/熔融的。",
+    "en": "a. Joined together into a whole, especially by melting or fusion.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "英文词典义强调“融合为整体”，原中文仅写熔化/熔凝；修订为同时覆盖融合和熔合义。"
+  },
+  "fusees": {
+    "zh": "n. fusee 的复数：历史上的轻型火枪；（钟表）锥形槽轮；（纹章）纺锤形图案；引信/导火绳；缓燃火柴；马掌骨上的骨赘；（铁路）彩色警示火焰；熔合者或熔合组件。",
+    "en": "n. Plural of fusee: a historical light musket or firelock; a grooved conical pulley in clocks; an obsolete heraldic spindle-shaped figure; a wick or cord used to ignite explosives; a slow-burning friction match; an exostosis on a horse’s cannon bone; a colored railroad warning flare; one who or a component that fuses.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/fusees",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/fusees",
+    "note": "Wiktionary 将 fusee 列为多义词，原英文和中文只列复数及耐风火柴/引信；补齐已核实的其他义项。"
+  },
+  "gage": {
+    "zh": "n. 抵押品、担保物；（中古骑士）挑战物/挑战手套；挑战；抵押、赌注；标准度量器；仪表；西洋李（greengage）。v. 以……作担保；挑战；打赌、下注；测量、估计。俚语：大麻。",
+    "en": "n. Something deposited as security; a medieval challenge token such as a glove; a challenge; a pledge or wager; a measuring instrument or gauge; a greengage plum; (old-fashioned US slang) marijuana. v. Pledge or stake as security; challenge; wager or bet; measure or gauge.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "原英文仅有大麻俚语和下注义，中文还列有抵押、挑战、度量器；权威词典确认这些多义均成立，现配齐英中并保留大麻义。"
+  },
+  "galley": {
+    "zh": "n. 桨帆战船；（古典时代）桨驱动的弯月形海船；（飞机）厨房/备餐区；船上的厨房/备餐区。",
+    "en": "n. A large medieval vessel propelled by sails and oars, used for war and trading; (classical antiquity) a crescent-shaped seagoing vessel propelled by oars; the kitchen area for food preparation on an airliner; the area for food preparation on a ship.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "英文在220字符处截断；恢复古代海船及飞机/船舶厨房两义，补齐相应中文。"
+  },
+  "games": {
+    "zh": "n. 比赛；一场比赛；娱乐或消遣；猎物；（网球）一局；比赛中的比分；野味；秘密计划；游戏器材；职业/行当；轻浮行为；（英）体育课、体操课；运动会。v. 押注、赌博（game 的第三人称单数）。a. 跛的；勇敢的；关于猎物的。",
+    "en": "n. A contest with rules to determine a winner; one play of a sport; an amusement; an animal hunted for food or sport; a tennis division; a score; game meat; an underhand scheme; game equipment; an occupation; frivolous behavior; (UK) physical-education class or sports meeting. v. Place a bet on. a. Disabled in the feet or legs; brave; related to game animals. (Games is plural of game and third-person singular of the verb.)",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "保留并补全输入中的比赛与“跛的”义；ECDICT 还列出比分、野味、职业、秘密计划及押注等，现逐项纳入并对应中文。"
+  },
+  "gaol": {
+    "zh": "n. 监狱；拘留所；政府依法羁押被告或服刑人员的矫正机构。vt. 监禁、拘押（于监狱或类似场所）。",
+    "en": "n. A correctional institution used to detain persons in lawful government custody, either accused persons awaiting trial or convicted persons serving a sentence. v. t. Lock up or confine, in or as in a jail.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符截断处“jail”后的完整句子并保留名词和动词词性。"
+  },
+  "gaols": {
+    "zh": "n. gaol 的复数：监狱、拘留所；政府依法羁押被告或服刑人员的矫正机构。v. gaol 的第三人称单数：监禁、拘押。",
+    "en": "n. Plural of gaol: a correctional institution used to detain persons in lawful government custody, either accused persons awaiting trial or convicted persons serving a sentence. v. Third-person singular of gaol: lock up or confine, in or as in a jail.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补齐截断的名词定义；保留输入中复数和第三人称单数两种词形及其对应意义。"
+  },
+  "garden": {
+    "zh": "n. 花园、园地；园中种植的花卉、蔬菜、水果或香草；住宅旁的院子或草坪；（英国）菜园、果园。v. 在园中劳动、种植；园艺栽培。a. 通常的、普通的（garden-variety）。",
+    "en": "n. A plot of ground where plants are cultivated; the flowers, vegetables, fruits, or herbs cultivated there; a yard or lawn adjoining a house; (British) a kitchen garden or orchard. v. Work in a garden. a. Usual or familiar; ordinary.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补入园中植物、住宅附属院地、园艺动词及 garden-variety 形容词义，中文原文只列部分种植义。"
+  },
+  "gas": {
+    "zh": "n. 气体；无固定形状和体积、可无限膨胀的气态流体；汽油；煤气/天然气；烃类易挥发易燃燃料；胃肠胀气。v. 用气体攻击；使暴露于毒气。a. 得意炫耀的（俚）。n. 加速踏板。",
+    "en": "n. A state of matter with low density and viscosity and high expansion, contraction, and diffusion; a fluid in the gaseous state; a volatile flammable petroleum mixture used as engine fuel; fossil fuel gas used for cooking/heating; excessive gas in the alimentary canal; a pedal controlling the throttle. v. Attack with gas or subject to gas fumes; (slang) show off.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "英文在220字符截断；OEWN 还列有汽油、天然气、胃肠气体、油门踏板和俚语炫耀等义；中文据此补全并保留毒气义。"
+  },
+  "gases": {
+    "zh": "n. gas 的复数：气体；气态流体；汽油；煤气/天然气；胃肠胀气；油门踏板。v. gas 的第三人称单数：用气体攻击；使暴露于毒气；（俚）炫耀。",
+    "en": "n. Plural of gas: gaseous matter or fluid; volatile flammable petroleum fuel; fossil fuel used for cooking or heating; excessive gas in the alimentary canal; a pedal controlling the throttle valve. v. Third-person singular of gas: attack with gas or subject to gas fumes; show off (slang).",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符截断的汽油、胃肠气体、油门等定义，并补入 gas 动词的第三人称单数形式及对应义。"
+  },
+  "gaum": {
+    "zh": "n.（英格兰北部方言，罕）注意、留心。v. 理解、领会、考虑；涂抹。",
+    "en": "n. (Northern English dialect, rare) Heed; attention. v. Understand, comprehend, or consider; smear.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/gaum",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/gaum",
+    "note": "中文原文只翻译“涂抹”，漏掉输入及 Wiktionary 中的注意、理解、考虑义。"
+  },
+  "gelt": {
+    "zh": "n.（非正式）钱；v. geld 的过去式和过去分词：阉割（雄性动物）。",
+    "en": "n. (Informal) Money. v. Simple past and past participle of geld: castrate a male animal.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/gelt",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/gelt",
+    "note": "补入词典中非正式“钱”义；保留并确认 gelt 是 geld 的过去式/过去分词及阉割义。"
+  },
+  "gender": {
+    "zh": "n. 性别；生物生殖角色所区分的属性；语法性（名词、代词、形容词等之间的一致类别）。vt.（古）产生、孕育；使成形。",
+    "en": "n. The properties that distinguish organisms on the basis of reproductive roles; a grammatical category governing agreement between nouns, pronouns, and adjectives. v. (Archaic) To engender.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/gender",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/gender",
+    "note": "恢复220字符处截断的完整语法性定义，并将中文“性、产生”具体说明为生物性别/语法性及古义“产生”。"
+  },
+  "generic": {
+    "zh": "a. 属类的；某一属或类别的所有成员共有/适用的；非专利商标保护的（药物）；无品牌的。n. 无品牌商品；不标注产地或葡萄品种、仅按类别/颜色标注的普通葡萄酒。",
+    "en": "a. Relating to or common to members of a genus or class; (of drugs) not protected by trademark; applicable to an entire class or group. n. Any product sold without a brand name; a wine not qualifying for a protected appellation or varietal designation.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "英文原文在220字符截断；中文原文仅有“属类的、一般的”，补入无品牌商品、非专利药和普通酒义。"
+  },
+  "genes": {
+    "zh": "n. gene 的复数：基因；参与多肽链生成的 DNA 片段，可包括编码 DNA 前后的区域及外显子之间的内含子，被视为遗传的一个单位。",
+    "en": "n. Plural of gene: a segment of DNA involved in producing a polypeptide chain; it may include regions preceding and following coding DNA and introns between exons, and is considered a unit of heredity.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符截断后的基因定义结尾；中文原有“基因（gene 的复数）”与完整释义相符。"
+  },
+  "gibe": {
+    "zh": "n. 讥讽、嘲弄的话。v. 嘲笑、嘲弄；相容、相似或一致；特征相符。",
+    "en": "n. An aggressive remark directed at a person like a missile and intended to have a telling effect. v. Laugh at with contempt and derision; be compatible, similar, or consistent; coincide in characteristics.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "中文原文只对应嘲笑义，漏掉英语第二个动词义“相容/一致”，现补齐。"
+  },
+  "gibed": {
+    "zh": "v. gibe 的过去式和过去分词：讥讽、嘲弄；相容、相似或一致；特征相符。",
+    "en": "Past tense and past participle of gibe: to laugh at with contempt and derision; to be compatible, similar, or consistent; to coincide in characteristics.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补全 gibe 的“相容/一致、特征相符”动词义；原中文只涵盖嘲笑义。"
+  },
+  "gilly": {
+    "zh": "n. gillie 的异体：苏格兰高地首领的男侍从；捕鱼/狩猎向导。n.（美海军俚语）“鱼雷汁”：由鱼雷燃料酒精等制成的烈酒。",
+    "en": "n. Alternative form of gillie: a male attendant of a Scottish Highland chief; a fishing or hunting guide. (US naval slang) Torpedo juice, a crude alcoholic drink associated with torpedo-fuel alcohol.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/gilly",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/gilly",
+    "note": "核实 gilly 是 gillie（侍从/向导）的异体，也有鱼雷汁俚语义；原中文只覆盖侍从。"
+  },
+  "ginny": {
+    "zh": "n.（旧，冒犯性俚语）意大利人/意大利裔人士；（采矿旧）从矿井提升煤炭的固定绞车/牵引发动机。a. 受杜松子酒影响的；类似杜松子酒的。",
+    "en": "n. (Dated, offensive slang) An Italian or Italian-descended person; (mining) a stationary engine for hauling coal out of a mine. a. Affected by gin; resembling or characteristic of gin.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "对照独立词典和历史俚语来源，补齐中文“意大利人”及英语中的矿用牵引机义，并保留杜松子酒形容词义。"
+  },
+  "giro": {
+    "zh": "n.（英国旧制）政府发给失业者的支票，可在银行或邮局兑现；英国银行或邮局凭授权在账户间转账的制度。",
+    "en": "n. (UK, historical) A cheque given by the British government to an unemployed person, cashable at a bank or post office; a British financial system in which a bank or post office transfers money between accounts with authorization.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "英语条目在220字符处截断；中文原文只列英国转账制度，补入失业补助支票义。"
+  },
+  "given": {
+    "zh": "v. give 的过去分词。a. 作为前提承认的；假定为真的；已安排/指定的；特定的；（常与 to 连用）倾向于、易于。n. 不再论证而接受的假设/条件。prep. 考虑到、鉴于。",
+    "en": "v. Past participle of give. a. Acknowledged as a supposition; assumed as fact; already arranged or specified; particular; (with to) prone or disposed. n. An assumption or condition taken for granted. prep. Considering; taking into account.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/given",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/given",
+    "note": "补充英文/中文现有释义中的词形、倾向义和介词义；保留赠予、沉溺、约定等过去分词语义。"
+  },
+  "glad": {
+    "zh": "a. 令人/使人高兴的；感到欣喜的；乐于行动或服务的；热切愿意的。n. 唐菖蒲属植物（剑形叶，花色鲜艳）。",
+    "en": "a. Showing or causing joy and pleasure; especially made happy; feeling happy appreciation; eagerly disposed to act or to be of service; cheerful and bright. n. Any of numerous Gladiolus plants, chiefly native to tropical and South Africa, with sword-shaped leaves and brightly colored flowers.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/glad",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/glad",
+    "note": "恢复220字符处截断的唐菖蒲植物定义；中文原文只对应形容词义。"
+  },
+  "glout": {
+    "zh": "vi.（古）撅嘴、作不悦状、神情阴沉。vt. 仔细注视；贪恋地凝视；盯着看。",
+    "en": "v. i. To pout; to look sullen. v. t. To view attentively; to gloat on; to stare at.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "原中文只译出皱眉/蹙额，补入英语及词典中仔细注视、贪恋凝视义。"
+  },
+  "gods": {
+    "zh": "n. god 的复数：神祇；一神教所崇拜的至高神；被崇拜并被认为掌管世界某部分/生命某方面或代表某种力量的超自然存在；被视为神明般卓越的人；受崇拜的神像/偶像。",
+    "en": "n. Plural of god: the supreme supernatural being worshipped in monotheistic religions; any supernatural being worshipped as controlling some part of the world or personifying a force; a man of such superior qualities that he seems like a deity; a material effigy that is worshipped.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "原英文在220字符处截断，中文仅有复数“众神”；补全一神教神、神化人物和神像等词典义。"
+  },
+  "goodness": {
+    "zh": "n. 令人愉悦、有价值或有用的事物；道德上的优秀、善良或可敬之处。",
+    "en": "n. That which is pleasing, valuable, or useful; moral excellence or admirableness.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "中文原文只写仁慈、善良，未覆盖英文第一项“可取、有价值或有用之物”。"
+  },
+  "goody": {
+    "zh": "n. 好吃/令人愉快的东西，尤指糖果、点心；（旧）低社会地位妇女的称呼/老妇人；（爱尔兰）面包牛奶甜布丁；（口语）感伤、伪善或过分自以为正派的人/事。a. goody-goody：感伤的、伪善的、自命清高的。interj. 太好了！好耶！（表示高兴。）",
+    "en": "n. Something considered choice to eat; a small treat or pleasing item; (archaic) a polite title for a woman of low social status, often an old woman or housewife; (Ireland) a sweet bread-and-milk pudding; an excessively pious or self-righteous person. a. Sentimental, sanctimonious, or goody-goody. interj. Used to express pleasure or delight.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/goody",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/goody",
+    "note": "依据 Wiktionary 与 Dictionary.com 核实食物、老妇人称谓和感叹词等多义；中文原文已列旧称、糖果及感叹词，并补足爱尔兰布丁等词义。"
+  },
+  "gospel": {
+    "zh": "n.《福音书》（新约中记述基督生平和教义的四卷书）；福音；不可置疑的真理；被认为极其重要的教义；宗教团体普遍接受的书面教导；福音音乐（源自美国黑人奴隶无伴奏合唱并影响后来的流行音乐）。",
+    "en": "n. The four books in the New Testament telling the story of Christ’s life and teachings; an unquestionable truth; a doctrine believed to be of great importance; the generally accepted written teachings of a religious group; gospel music, an a cappella genre originating with Black slaves in the United States and influential on later popular music.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符处截断的音乐释义，并补入福音书和宗教书面教义；中文原文只列福音、信仰、真理。"
+  },
+  "gothic": {
+    "zh": "n. 哥特语（古代哥特人的东日耳曼语）；15至18世纪使用的粗黑字体；12至16世纪源于法国北部并传播欧洲的哥特式建筑风格。a. 与哥特人/哥特语有关的；哥特字体的；具有中世纪风格、古旧蒙昧的；阴森、神秘、怪诞的。",
+    "en": "n. The extinct East Germanic language of the ancient Goths; a heavy typeface used from the 15th to 18th centuries; a medieval architectural style originating in northern France and characterized by slender piers, buttresses, vaulting, and pointed arches. a. Of or relating to the Goths or their language; characteristic of German-printing type; medieval, old-fashioned, and unenlightened; characterized by gloom, mystery, or the grotesque.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/gothic",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/gothic",
+    "note": "恢复220字符截断的建筑定义；OEWN另列哥特人、字体及阴森/中世纪风格形容词义，中文原文仅覆盖风格，现配全。"
+  },
+  "growth": {
+    "zh": "n. 生长过程；个体从简单向复杂变化的生物学发育；由简单到复杂形式的演进；规模、长度、数量或重要性的增加；生长的植被/产物；逐渐开始或出现；（病理）组织异常增生，如肿瘤。",
+    "en": "n. The biological process of an organism growing and developing; a progression from simpler to more complex forms; an increase in size, length, number, or importance; vegetation that has grown or something growing; a gradual beginning or coming forth; an abnormal proliferation of tissue, as in a tumor.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "英语原文在220字符处截断；依据 OEWN 补入增长、植被、萌发和病理增生义，中文原文相应补齐。"
+  },
+  "guaco": {
+    "zh": "n. 关木通/毒蛇马兜铃（Aristolochia anguicida，产于卡塔赫纳，用作蛇咬伤解毒剂）；巴西的 Mikania guaco（同作蛇毒解药）。",
+    "en": "n. A plant, Aristolochia anguicida, of Cartagena, used as an antidote to snake bites; Mikania guaco of Brazil, used for the same purpose.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "原中文只译出 Aristolochia 一种植物，按词典补入巴西 Mikania guaco 及共同用途。"
+  },
+  "guppy": {
+    "zh": "n. 孔雀鱼/彩虹花鳉：原产南美洲和西印度群岛的小型淡水鱼，常作观赏鱼饲养。",
+    "en": "n. A small freshwater fish of South America and the West Indies, often kept in aquariums.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "将音译“古比”改为中文常用鱼名“孔雀鱼”，与词典所列淡水观赏鱼相符。"
+  },
+  "gust": {
+    "zh": "n. 一阵风；短促的风力突增；突然爆发/涌现；（旧）味觉、可口的味道；喜好、兴致；享受、欣赏。vi. 阵风般吹。",
+    "en": "n. A sudden brief rush of wind; a sudden outburst or surge; (obsolete) the sensation of taste, a pleasing flavor, inclination or liking, enjoyment, or appreciation. v. Blow in gusts.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "中文原文有突然一阵、趣味和爱好，但漏掉风阵义；按词典补全风、突发及旧式味觉/欣赏义。"
+  },
+  "hading": {
+    "zh": "hade 的现在分词和动名词：向下倾斜；（地质、采矿）从垂直方向偏斜。",
+    "en": "Present participle and gerund of hade: sloping or inclining from the vertical, especially of a vein, fault, or dike.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/hading",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/hading",
+    "note": "核实 hade 的地质/采矿义为从垂直方向倾斜；中文原文的倾斜/偏垂相符，补明词形及专业语境。"
+  },
+  "haeing": {
+    "zh": "have 的现在分词和动名词（主要见于苏格兰方言）：拥有、持有、包括、经历/进行；作助动词用于构成完成体。",
+    "en": "Chiefly Scottish form: present participle and gerund of have, meaning possess, hold, include, experience or undertake; also used as an auxiliary to form perfect aspect.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/haeing",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/haeing",
+    "note": "Wiktionary 确认 haeing 是 have 的现在分词/动名词且主要见于苏格兰；补明词形及中文所列 have 的主要义。"
+  },
+  "haint": {
+    "zh": "n.（美方言）鬼魂、幽灵。v. haunt 的方言异体：常去/萦绕；使鬼魂出没。contraction. ain’t 的方言异体。",
+    "en": "n. (US dialect) A ghost or supernatural being. v. Dialectal alternative of haunt. contraction. Dialectal alternative of ain’t.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/haint",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/haint",
+    "note": "原英文多次重复交叉引用而未把各义对应清楚；补全“鬼魂”名词义以及 haunt/ain’t 两种异体。"
+  },
+  "haled": {
+    "zh": "hale 的过去式和过去分词：拖、拉、拽（尤指用力）；强迫某人前往。",
+    "en": "Simple past and past participle of hale: to drag or pull, especially forcibly; to compel someone to go.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/haled",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/haled",
+    "note": "原英文误把 force 的“通过压力使做某事”定义及 hale 形容词义混入 haled；词典确认 haled 是 hale 动词过去式/过去分词，现恢复对应动词义。"
+  },
+  "hales": {
+    "zh": "hale 的第三人称单数现在时：拖、拉、拽（尤指用力）；强迫某人前往。",
+    "en": "Third-person singular simple present of hale: to drag or pull, especially forcibly; to compel someone to go.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/hales",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/hales",
+    "note": "原英文混入 force 的定义和 hale 形容词义，中文只标出 hale 的三单形式；按词典词形及动词义配平。"
+  },
+  "haling": {
+    "zh": "hale 的现在分词和动名词：拖、拉、拽（尤指用力）；强迫某人前往。n.（原词典所列采矿义）扒砂/刮取砂料。",
+    "en": "Present participle and gerund of hale: dragging or pulling, especially forcibly; compelling someone to go. n. (Mining gloss in the source translation) sand scraping or removal.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/haling",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/haling",
+    "note": "补全 hale 的现在分词和动名词词形及动词义；保留原中文词典所列“扒砂”专业义，并按其内容译回英文。"
+  },
+  "hance": {
+    "zh": "n. 拱腰；椭圆拱或类似拱在起拱处的最小半径弧段；船上由栏杆向甲板下落的弧形轮廓；连接直 lintel 与门柱的小拱。vt.（旧）举起、抬高；另见 Hanch。",
+    "en": "n. The arc of minimum radius at the springing of an elliptical or similar arch; the haunch of an arch; a small arch joining a straight lintel to a jamb; a curved contour on a ship. v. t. (Obsolete) To raise or elevate. Alternative form of hanch.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://www.merriam-webster.com/dictionary/hance",
+    "enSourceUrl": "https://www.merriam-webster.com/dictionary/hance",
+    "note": "中文原文只译出建筑拱腰义，英文还列有动词 raise/elevate 及其他 hance 建筑/船舶义；补齐并对齐。"
+  },
+  "hances": {
+    "zh": "n. hance 的复数：拱腰、拱的短弧段；船舶弧形轮廓。v. hance 的第三人称单数：举起、抬高（旧）。",
+    "en": "Noun: plural of hance, an arch haunch/minimum-radius arc or a curved ship contour. Verb: third-person singular of hance, to raise or elevate (obsolete).",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/hances",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/hances",
+    "note": "原词仅翻译 hance 名词复数，未覆盖第三人称单数动词；按 Wiktionary 词形和 hance 词典义补齐。"
+  },
+  "hands": {
+    "zh": "n. hand 的复数：人手、劳动力；工人数量。with/in someone’s hands：由某人掌管/照料；（离婚案件中）监护、抚养和管教子女的权利。",
+    "en": "n. Plural of hand: the force of workers available. (With/in someone’s hands) guardianship over; in divorce cases, the right to house, care for, and discipline a child.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://github.com/globalwordnet/english-wordnet",
+    "enSourceUrl": "https://github.com/globalwordnet/english-wordnet",
+    "note": "英文词典义包括现有劳动力及由某人照管/监护；中文原文“拥有、所有”未准确覆盖，现改为人手、照管及监护权。"
+  },
+  "hector": {
+    "zh": "n.（希腊神话）特洛伊英雄赫克托耳；威吓者、虚张声势者。v. 盛气凌人地对待；霸凌、恐吓；大声吹嘘、折磨或愚弄。",
+    "en": "n. The mythical Trojan hero killed by Achilles; a bully or blusterer. v. Be bossy toward; bully, intimidate, bluster, torment, or fool.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/hector",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/hector",
+    "note": "依据 OEWN 与词典区分神话人名和动词义；中文原有威吓者、虚张声势、吓唬等义，英文只列 bossy towards。"
+  },
+  "hela": {
+    "zh": "n.（北欧神话）死者女神、冥界女王 Hela/Hel。n. HeLa（hela）细胞：源自人宫颈癌、可在培养中持续增殖的细胞系，广用于研究。",
+    "en": "n. (Norse mythology) Hela/Hel, goddess of the dead and queen of the underworld. HeLa cell: a vigorous cultured cell strain descended from human cervical cancer and widely used in research.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://www.collinsdictionary.com/us/dictionary/english/hela-cell",
+    "enSourceUrl": "https://www.collinsdictionary.com/us/dictionary/english/hela-cell",
+    "note": "中文原文同时收录北欧女神及 HeLa 宫颈癌细胞系，英文只列女神；补入 HeLa 细胞的独立词典义。"
+  },
+  "helled": {
+    "zh": "hell 的过去式和过去分词：过放荡生活；使成地狱般、置于地狱；急奔、疾行并喧闹。",
+    "en": "Simple past and past participle of hell: to live or act wildly or dissolutely; to make hellish or place in hell; to hurry or rush; to move quickly and loudly.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/helled",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/helled",
+    "note": "Wiktionary 确认其为 hell 的过去式/过去分词，Dictionary.com 收录 hell around 的“放荡行事”义；另补 hell 的 rush/move senses。"
+  },
+  "herl": {
+    "zh": "n. herl（同 harl）：羽毛的纤维羽枝/倒钩，尤指鸵鸟或孔雀羽毛，用于制作钓鱼假蝇；用这种羽枝制成的人工钓蝇；（旧）一缕头发。",
+    "en": "n. Same as harl: the fibrous shaft or barb of a feather, especially ostrich or peacock, used to make artificial flies for angling; an artificial fishing fly made with this barb; (obsolete) a strand of hair.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/herl",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/herl",
+    "note": "中文原文只译为作钓饵用的假蝇；Wiktionary/OED 同时列出制作该假蝇的羽枝及旧义一缕头发，现补入。"
+  },
+  "herry": {
+    "zh": "vt.（古）尊崇、赞颂、庆祝。vt.（苏格兰旧）掠夺、蹂躏、折磨（harry 的异体）。v. hurry 的发音拼写。",
+    "en": "v. (Obsolete) To honour, praise, or celebrate; (obsolete Scottish) alternative form of harry, to ravage or plunder; pronunciation spelling of hurry.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/herry",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/herry",
+    "note": "英文词典列有赞颂和 hurry 两义，中文只保留 harry 的掠夺/折磨义；现补齐其他义并逐项对应。"
+  },
+  "herself": {
+    "zh": "pron. she 的强调形式；作主语时“她本人/她亲自”（如 she herself）；也可单独作表语或宾语（如 it is herself; she blames herself）。n.（旧）她本来的真实性情/状态；因此也指恢复了神志或正常状态。",
+    "en": "pron. An emphasized form of the third-person feminine pronoun, used as a subject with she, as in “she herself will bear the blame”; also used alone in predicate or objective position. Her own proper, true, or real character; hence, her right or sane mind, as in “she is now herself again.”",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符截断的两个完整词典句子；中文保留“她自己/亲自”，并补入恢复本来/正常状态的用法。"
+  },
+  "hes": {
+    "zh": "n. 名词 he（指男性/雄性个体）的复数；（非标准）his 的拼写变体，意为“他的/属于他”；he’s 的非标准缩写；has 的方言读音拼写。",
+    "en": "n. Plural of the noun he (“a male person or animal”), not the ordinary plural of the pronoun he. Nonstandard spelling of his when pronounced he’s, meaning belonging to him; also a nonstandard contraction of he’s and a dialectal pronunciation spelling of has.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/hes",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/hes",
+    "note": "明确 he 的复数义属于“男性/雄性个体”这一名词用法；原文把它误称为代词复数，现与词典的词性及其他非标准拼写义逐项对应。"
+  },
+  "hijra": {
+    "zh": "n. Hegira 的异体拼写：迁徙、出走，特指穆罕默德从麦加迁往麦地那。n.（印度）hijra：南亚第三性别社群成员，通常被理解为第三性别/跨性别女性。",
+    "en": "n. Alternative form of Hegira: a flight or migration, especially Muhammad’s migration from Mecca to Medina. (India/South Asia) A member of the hijra community, commonly described as a third-gender group.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/hijra",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/hijra",
+    "note": "英文只给 Hegira 交叉引用，中文还列出印度 hijra 社群义；按 Wiktionary 补入并区分两个义项。"
+  },
+  "hobby": {
+    "zh": "n. 爱好、嗜好；儿童骑的摇摆木马玩具；小隼（旧大陆小型猎鹰），过去曾训练其捕猎小鸟。",
+    "en": "n. An auxiliary activity; a child’s plaything consisting of an imitation horse mounted on rockers; a small Old World falcon formerly trained and flown at small birds.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/hobby",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/hobby",
+    "note": "英文词典列出摇马和小隼两义，中文原文只列爱好；补入并逐项对应。"
+  },
+  "hockey": {
+    "zh": "n. 曲棍球：在草地/场地上由两队用弯曲球棍把球打入对方球门的比赛；冰球：在冰场上由两队各六名滑冰队员用球棍将扁圆冰球打入对方球门的比赛。",
+    "en": "n. A field game resembling ice hockey in which two opposing teams use curved hockey sticks to drive a ball into the opponents’ net; a game on an ice rink in which two opposing teams of six skaters use angled sticks to knock a flat round puck into the opponents’ goal.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符处被截断的冰球定义结尾；中文“冰球、曲棍球”覆盖这两个比赛义。"
+  },
+  "hoke": {
+    "zh": "v. 对……作虚假或人为的加工/描述；假装具有某种品质或正在做某事；勉强拼凑、做作地表现。n. 矫揉造作、编造出来的事物。另：hook 的异体拼写。",
+    "en": "v. To ascribe a false or artificial quality to; to pretend falsely to have a quality or to be doing something; to contrive or assemble in a forced, artificial way. n. Something contrived or artificial. Alternative form of hook.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/hoke",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/hoke",
+    "note": "中文原文“故作多情、勉强拼凑”只覆盖部分动词义，补入假装及名词“人为做作之物”并保留 hook 异体。"
+  },
+  "holdout": {
+    "zh": "n. 拒绝谈妥以争取让步/更好条件的谈判者；这种拒绝或僵持行为；赌博中藏牌以备自己稍后使用的动作/藏牌器具。",
+    "en": "n. A negotiator who hopes to gain concessions by refusing to come to terms; a refusal to come to terms in the hope of obtaining a better deal; the act of hiding playing cards in a gambling game for later personal use.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "英语词典列有三项定义，中文原文“抵抗、坚持、支持”未覆盖谈判者及藏牌赌博义，现补齐。"
+  },
+  "holing": {
+    "zh": "n. hole 的现在分词/动名词：打洞；（采矿）在煤层底部掏槽，使上部煤体落下；（建筑）在石板瓦上钻孔。v. 击球入洞。",
+    "en": "n. Present participle and gerund of hole: making a hole; (mining) undercutting a bed of coal to bring down the upper mass; (building) drilling holes in slate roofing. v. Hit the ball into the hole.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/holing",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/holing",
+    "note": "原中文保留采矿和建筑两项专业义，英文只列 hole 名词和击球入洞；补入掏槽、钻孔和词形说明。"
+  },
+  "doming": {
+    "zh": "v. dome 的现在分词和动名词：使呈穹顶状；形成穹顶；（表面/铺道）隆起成穹顶状。",
+    "en": "Present participle and gerund of dome: to cover or shape like a dome; to rise or swell into a dome shape, as a surface or pavement bulging upward.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://ahdictionary.com/word/search.html?q=doming",
+    "enSourceUrl": "https://ahdictionary.com/word/search.html?q=doming",
+    "note": "AHD 明确列 dome 的动词为覆盖/塑造成穹顶、隆起或膨胀成穹顶状；原中文“铺道凸起”是具体语境，现将它和形态标记配对。"
+  },
+  "dueling": {
+    "zh": "n. 预先安排的决斗；竞争；v. duel 的现在分词和动名词：参加决斗。",
+    "en": "n. A prearranged fight with deadly weapons by two people to settle a point of honor; a struggle between two skillful opponents; the act of taking part in a duel. v. Present participle and gerund of duel: to fight a duel.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://kaikki.org/dictionary/English/meaning/d/du/dueling.html",
+    "enSourceUrl": "https://kaikki.org/dictionary/English/meaning/d/du/dueling.html",
+    "note": "Kaikki/Wiktionary 将 dueling 列作 duel 的现在分词/动名词及名词“决斗这一行为”；OEWN 另列决斗和竞争义，补齐原来截断/拼接不完整的英文并对应中文。"
+  },
+  "duits": {
+    "zh": "n. duit 的复数，亦为 doits 的异体拼写：荷兰旧铜币；（引申）微不足道的钱/东西。",
+    "en": "Noun form: plural of duit; alternative spelling of doits, the plural of doit, a historical small Dutch coin; by extension, something of little value.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://kaikki.org/dictionary/English/meaning/d/du/duits.html",
+    "enSourceUrl": "https://kaikki.org/dictionary/English/meaning/d/du/duits.html",
+    "note": "Kaikki/Wiktionary 确认 duits 是 duit 的复数、doits 的异体；补清其与荷兰旧铜币的词形关系，并保留原中文“无价值的东西”义。"
+  },
+  "hong": {
+    "zh": "n.（旧时）中国（如昔日广州）对外贸易的商行/商馆或工厂；由公共通道相连、用于营业或储物的一组办公室。v. 悬挂、吊起。",
+    "en": "n. A mercantile establishment or factory for foreign trade in China, as formerly at Canton; a succession of offices connected by a common passage and used for business or storage. v. t. & i. To hang.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "补齐 hong 的英语截断部分和悬挂动词义；中文原文只覆盖商业机构义。"
+  },
+  "hotting": {
+    "zh": "n.（英俚）驾驶高性能赃车兜风，尤指炫耀性驾驶。v. hot 的现在分词和动名词：加热、变热；变得活跃/刺激起来。",
+    "en": "n. (British slang) Riding in a high-performance stolen car, especially as a form of display. v. Present participle and gerund of hot: to heat or become hot; to become lively or exciting.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/hotting",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/hotting",
+    "note": "依据 Wiktionary 保留赃车兜风的名词义并补齐 hot 的词形及动词义；原中文只翻译 hot up 的“激烈/活跃”。"
+  },
+  "icon": {
+    "zh": "n. 图标：以简单图形表示程序、命令、数据文件或概念的计算机符号；图像、肖像或其他视觉表征；（东正教）受尊崇的宗教圣像，通常画在小木板上。",
+    "en": "n. (Computer science) A graphic symbol, usually a simple picture, denoting a program, command, data file, or concept in a graphical user interface; a visual representation of an object, scene, person, or abstraction produced on a surface; a conventional religious painting in oil on a small wooden panel, venerated in the Eastern Church.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符截断的宗教圣像定义；中文原有图像/肖像/偶像/图标覆盖这三类意义，现明确对应。"
+  },
+  "icons": {
+    "zh": "n. icon 的复数：图标；图像、肖像或其他视觉表征；（东正教）受尊崇的宗教圣像。",
+    "en": "n. Plural of icon: a graphical symbol for a program, command, data file, or concept; a visual representation of an object, scene, person, or abstraction; a religious painting venerated in the Eastern Church.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符截断的圣像义并补齐复数词形；中文原文的画像、肖像、偶像和图标均保留。"
+  },
+  "incas": {
+    "zh": "n. inca 的复数：印加统治者或其家族成员；秘鲁库斯科谷地的盖丘亚人；建立并统治印加帝国的库斯科谷地小群体。",
+    "en": "n. Plural of Inca: a ruler of the Incas or a member of his family; a Quechuan person living in the Cuzco valley in Peru; the small Cuzco Valley Quechua group that established an empire lasting from about 1100 until the Spanish conquest in the early 1530s.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符截断的印加帝国形成及历史时间义；中文补清印加统治者、族群和帝国。"
+  },
+  "inlier": {
+    "zh": "n. 内座层：被较年轻岩石包围的一片较老岩层，通常因较年轻岩层的一部分被侵蚀而露出。n.（统计）符合数据模式、不是离群值的观测值。",
+    "en": "n. (Geology) An area of older rocks surrounded by younger rocks, typically formed by erosion of part of the younger rock. (Statistics) A value that fits a pattern, rather than being an outlier.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/inlier",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/inlier",
+    "note": "Wiktionary 还列统计学 inlier 义，原中文只有地质内座层；补入统计学义。"
+  },
+  "ins": {
+    "zh": "n. in 的复数：执政者/在任者；（口语）门路、影响力或取得门路的机会；（体育）击球方处于进攻中的状态。v. insert 的第三人称单数：插入。",
+    "en": "n. Plural of in: those who are in office; (informal) a position of power or influence, or a way to get it; (sports) the batting side’s state of play. v. Third-person singular of insert.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ins",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/ins",
+    "note": "中文原文“执政者、交情”对应在任者和门路/影响力，原英文还列 insert；补齐体育义并说明动词词形。"
+  },
+  "iodine": {
+    "zh": "n. 碘：一种卤素非金属元素，常用于医药、摄影和染料；自然界中仅以化合物形式少量存在（如海水或岩石）。n. 碘酒/碘酊：碘的乙醇溶液，外用作伤口消毒剂。",
+    "en": "n. A nonmetallic halogen element used especially in medicine, photography, and dyes, occurring naturally only in small quantities in combination, as in seawater or rocks; a tincture of iodine in ethyl alcohol, applied topically to wounds as an antiseptic.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符截断的碘酊定义；中文“碘、碘酒”对应元素和外用溶液两义。"
+  },
+  "ires": {
+    "zh": "n. ire 的复数：强烈的愤怒；由真实或想象的委屈引起的怒意/敌意（有时人格化为七宗罪之一）。v. ire 的第三人称单数：激怒、惹恼（罕）。",
+    "en": "n. Plural of ire: a strong emotion oriented toward a real or supposed grievance; belligerence aroused by a real or supposed wrong (personified as one of the deadly sins). v. Third-person singular of ire: to anger or irritate (rare).",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ires",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/ires",
+    "note": "补齐截断的愤怒定义结尾和动词词形；中文保留怒气义并补明罕见“激怒”用法。"
+  },
+  "iris": {
+    "zh": "n. 虹膜；鸢尾属植物及其花；光学虹膜光阑/可调孔径；虹；虹彩、虹状色泽；（希腊神话）彩虹女神 Iris。n.（影视）虹膜式开场/闭场转场。",
+    "en": "n. The colored diaphragm of the eye; a plant of the genus Iris or its flower; an adjustable optical diaphragm controlling an aperture; a rainbow or rainbowlike display of colors/iridescence; Iris, the mythological goddess of the rainbow. (Film/TV) An iris-in or iris-out transition.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://www.collinsdictionary.com/us/dictionary/english/iris",
+    "enSourceUrl": "https://www.collinsdictionary.com/us/dictionary/english/iris",
+    "note": "恢复220字符截断的机械光阑义；依据 Collins 保留虹、虹彩、鸢尾和虹膜等多义，并补入光学及影视义以覆盖现有中文。"
+  },
+  "jigsaw": {
+    "zh": "n. 线锯；电动曲线锯：带往复锯条、可依用途和切口更换锯条，通常以底板沿工件表面移动的便携式电锯；用于锯切曲线轮廓的细齿电动锯。vt. 用线锯/曲线锯锯。",
+    "en": "n. A portable power saw with a reciprocating blade, usable with different blades according to the application and cut, generally with a plate riding on the surface being cut; a fine-toothed power saw with a narrow blade used to cut curved outlines. v. t. To saw with a jigsaw.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符截断处的电动细齿锯定义；中文保留手工线锯和用锯切割两义，补明电动曲线锯。"
+  },
+  "kythe": {
+    "zh": "v.（苏格兰古语，其他地区已废）使人知晓；揭示、显现；出现、进入视野。为 kithe 的异体拼写。",
+    "en": "v. (Archaic in Scotland, obsolete elsewhere) To make known; reveal; come into view or appear. Alternative spelling of kithe.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/kythe",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/kythe",
+    "note": "确认 kythe 为 kithe 的异体；kithe 词典义为使人知晓/揭示，旧辞典还列出现/显现，原中文仅有宣布、证实。"
+  },
+  "kythes": {
+    "zh": "kythe 的第三人称单数现在时：使人知晓、揭示；显现、出现。",
+    "en": "Third-person singular simple present of kythe: to make known or reveal; to appear or come into view.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/kythes",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/kythes",
+    "note": "补入 kythe 的显现/出现义；保留原中文宣布、证实义并明确词形。"
+  },
+  "laking": {
+    "zh": "n. lake 的现在分词和动名词。v. lake 的现在分词：使生物细胞溶解；（医学）使红细胞裂解并释放血红蛋白；（旧）献祭；（方言）跳跃、嬉戏。",
+    "en": "Noun: present participle and gerund of lake. Verb: present participle of lake, including the medical sense of subjecting biological cells to repeated freeze/thaw cycles until lysis; obsolete “present an offering”; dialectal “leap, exert oneself, play”.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/laking",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/laking",
+    "note": "Wiktionary 确认 lake 有医学细胞溶解义，能解释原中文“血细胞溶解”；补齐词形及湖的其他动词义。"
+  },
+  "leaser": {
+    "zh": "n. 出租人；拾穗者；说谎者；纺织业分纱工/分纱机操作员。",
+    "en": "n. One who leases or gleans; a liar; a textile worker or machine operator who separates yarns (leaser, spinning machine).",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://www.ons.gov.uk/file?uri=/methodology/classificationsandstandards/standardoccupationalclassificationsoc/soc2010/soc2010volume2thestructureandcodingindex/soc2010volume2version405november2015tcm77181320.pdf",
+    "enSourceUrl": "https://www.ons.gov.uk/file?uri=/methodology/classificationsandstandards/standardoccupationalclassificationsoc/soc2010/soc2010volume2thestructureandcodingindex/soc2010volume2version405november2015tcm77181320.pdf",
+    "note": "原中文“分纱机”是纺织职业/机器义，ECDICT 同时列出租人、拾穗者、说谎者；ONS 职业编码核实 leaser (spinning machine/textile manufacturer)，现配齐。"
+  },
+  "leet": {
+    "zh": "v. let 的古体过去时：允许。n. 一份/部分；名单，尤指公职候选人名单；庄园法庭（court-leet）；该法庭管辖的区域；开庭日；欧洲青鳕。",
+    "en": "v. Obsolete past tense of let, to allow. n. A portion; a list, especially of candidates for an office; a court-leet, its jurisdiction, or the day it is held; European pollock.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符截断的 European pollock 鱼名；中文已包括法庭、管辖区和候选名单，现补入部分及青鳕义。"
+  },
+  "lenos": {
+    "zh": "n. leno 的复数：纱罗织物；纱罗织法。n. 古代酿酒时使用的槽/酒槽。",
+    "en": "n. Plural of leno: leno gauze fabric or leno weave. A trough used in ancient winemaking.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/lenos",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/lenos",
+    "note": "英语词典还列古代酿酒槽义，中文原文只对应纱罗织物/织法；补入该义。"
+  },
+  "less": {
+    "zh": "a. 较少的、程度/数量较小的；（通常用于物质名词）较少量的。a.（通常接 no）质量较低的；（某些非标准用法或量词短语中）较少个的/fewer。adv. 用于构成形容词或副词比较级，表示较不；little 的比较级。n. 较少、较小的数量。",
+    "en": "a. Comparative of little, usually with mass nouns: not as great in amount or degree; lower in quality (usually after no); fewer in some nonstandard or measure-phrase uses. adv. Used to form the comparative of adjectives and adverbs, indicating less of a quality; comparative of little. n. A smaller or lesser amount.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "enSourceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv",
+    "note": "恢复220字符处截断后的比较级用法；中文补入质量较低及非标准 fewer 用法，保留名词/形容词/副词词性。"
+  },
+  "lexes": {
+    "zh": "n. lex 的复数：罗马/拉丁法；（语言学）词形、词项。n. lexis 的复数：词汇/词汇系统。v. lex 的第三人称单数（计算机）：进行词法分析，将字符流转换为词元流。",
+    "en": "n. Plural of lex: a Roman/Latin law; in linguistics, a specific word form or lexical item. Plural of lexis: vocabulary or the lexicon. v. Third-person singular of lex (computing): perform lexical analysis, converting a character stream into a token stream.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/lexes",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/lexes",
+    "note": "Wiktionary 确认 lexes 同时是 lex、lexis 的复数及 lex 的三单；中文原文只覆盖法律和词汇名词义，现补入计算机动词义。"
+  },
+  "libra": {
+    "zh": "n.（天文学/占星）天秤座；太阳位于天秤座时出生的人；南天一个暗淡星座，位于室女座和天蝎座之间；黄道第七宫/星座，太阳约在9月23日至10月22日经过。n. 古罗马重量单位 libra，约合一磅（当时约12盎司）；后也用作磅的拉丁名/缩写来源。",
+    "en": "n. (Astrology) A person born while the sun is in Libra; the small faint Southern Hemisphere zodiacal constellation between Virgo and Scorpius; the seventh sign of the zodiac, occupied by the sun about September 23 to October 22. Also, an ancient Roman unit of weight corresponding to a pound (about 12 ounces).",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://www.dictionary.com/browse/libra",
+    "enSourceUrl": "https://www.dictionary.com/browse/libra",
+    "note": "原英文在220字符处截断；Dictionary.com 确认 libra 还指古罗马磅制单位，中文原有“磅”义，现补入并保留星座义。"
+  },
+  "liens": {
+    "zh": "n. lien（留置权、债权人依法扣押他人财产的权利）的复数；另有同形词 lien（罕用/古旧）：脾脏。",
+    "en": "n. Plural of lien: a legal right to retain or take another’s property until an obligation is discharged. Also lien (rare/obsolete): the spleen, a large dark-red organ on the left side of the body between the stomach and diaphragm.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/lien",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/lien",
+    "note": "补全源英文截断的脾脏义，并与法律同形词分列；原中文只含法律义，现补入生理义。"
+  },
+  "liver": {
+    "zh": "n. 肝脏；供食用的动物肝；（罕用）有某种生活方式的人；居民、居住者。",
+    "en": "n. The large glandular organ that secretes bile and performs metabolic functions; the liver of an animal used as food; (uncommon) a person with a particular way of life; an inhabitant or dweller.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/liver",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/liver",
+    "note": "恢复截断的肝脏定义并补齐动物肝（食物）、特定生活方式者和居民等独立名词义；逐项补足中文。"
+  },
+  "livers": {
+    "zh": "n. liver 的复数：肝脏；供食用的动物肝；（罕用）有某种生活方式的人；居民、居住者。",
+    "en": "n. Plural of liver: the organ; an animal liver used as food; (uncommon) people with a particular way of life; inhabitants or dwellers.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/livers",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/livers",
+    "note": "恢复源英文截断部分，按 liver 的复数形式配入器官、食物、罕用人物及居民义。"
+  },
+  "loral": {
+    "zh": "a. 眼端的；与鸟类眼端羽毛或爬行动物眼端鳞片有关的。",
+    "en": "adj. Of or pertaining to the lore (the area between the eye and nostril), especially said of certain feathers of birds or scales of reptiles.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://github.com/skywind3000/ECDICT/blob/master/ecdict.csv",
+    "enSourceUrl": "https://github.com/skywind3000/ECDICT/blob/master/ecdict.csv",
+    "note": "ECDICT 所据词典另列羽毛及爬行动物鳞片用法；Wiktionary 确认该形容词意为与眼端（lore）有关。修正旧中文把眼端义漏掉羽毛、鳞片搭配的情况，并删除不符的名词词性。"
+  },
+  "lumina": {
+    "zh": "n. lumen 的复数：①流明，光通量单位；②管状器官内的腔或通道。",
+    "en": "n. Plural of lumen: a lumen, a unit of luminous flux; also a cavity or passage within a tubular organ.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/lumina",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/lumina",
+    "note": "补全管状器官腔道定义；保留源条目所列光通量单位义，并注明 lumina 为 lumen 的复数形式。"
+  },
+  "lutes": {
+    "zh": "n. lute 的复数：封泥、密封膏；鲁特琴（一种梨形琴身、通常弯颈并有品格指板的拨弦乐器）。",
+    "en": "n. Plural of lute: a substance used to seal a joint or coat a porous surface against gas or liquid; a plucked string instrument with a pear-shaped body, usually bent neck, and fretted fingerboard.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/lutes",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/lutes",
+    "note": "Wiktionary 确认 lutes 是 lute 的复数；恢复原英文被截去的 fretted fingerboard，修正中文并列出封泥和乐器两义。"
+  },
+  "macon": {
+    "zh": "n. 美国佐治亚州中部城市梅肯；勃艮第马孔产区的葡萄酒（通常为白葡萄酒、干型）；（英）腌制或熏制的羊肉培根。",
+    "en": "n. A city in central Georgia, southeast of Atlanta; a fine Burgundy wine, usually white and dry; (British) cured or smoked mutton prepared like bacon.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://github.com/skywind3000/ECDICT/blob/master/ecdict.csv",
+    "enSourceUrl": "https://github.com/skywind3000/ECDICT/blob/master/ecdict.csv",
+    "note": "补回旧中文“羊肉火腿”对应的羊肉制品义；Wiktionary 将其释为腌制羊肉制作的 bacon（macon），因此改译为羊肉培根；并补入源英文已有的城市义，保留马孔葡萄酒义。"
+  },
+  "males": {
+    "zh": "n. male 的复数：雄性（能产生使雌性配子受精的配子者）；男性；男子、男性个体。",
+    "en": "n. Plural of male: male animals or plants; people or individuals of the male sex.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/males",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/males",
+    "note": "恢复精子/配子定义的完整表达，清理截断括号，并按实际词条只列 male 的复数义；源数据库尾部混入的马累首都释义属于大小写专名，未并入小写 males。"
+  },
+  "mall": {
+    "zh": "n. 林荫步道、供行人散步的公共区域；购物中心，由商店组成，通常设餐饮和停车设施，是现代商业集市。",
+    "en": "n. A public area set aside as a pedestrian walk; a shopping complex of shops, usually with restaurants and convenient parking, a modern version of the traditional marketplace.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mall",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/mall",
+    "note": "原中文只译林荫路；补入英文已有的购物中心义并恢复停车和现代集市描述。"
+  },
+  "mallet": {
+    "zh": "n. 长柄、锤状头的运动球槌（用于马球、槌球等）；圆头鼓槌；大头锤，常用于打入楔子、夯压铺路石或敲碎、捶打、压平、整平物体。",
+    "en": "n. A long-handled, hammer-headed implement for hitting a ball in polo or croquet; a rounded light drumstick for striking chimes, kettledrums, marimbas, glockenspiels, etc.; a large-headed hammer-like tool, usually wooden, used to drive wedges, ram paving stones, or crush, beat, flatten, or smooth.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mallet",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/mallet",
+    "note": "恢复被截断的打击乐器列表及工具义；按词典三项义分别补全中文，保留体育用具、鼓槌和大头锤。"
+  },
+  "malls": {
+    "zh": "n. mall 的复数：林荫步道、供行人散步的公共区域；购物中心，通常有商店、餐饮和停车设施。",
+    "en": "n. Plural of mall: public pedestrian walks; shopping complexes, usually with shops, restaurants, and convenient parking.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/malls",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/malls",
+    "note": "恢复截断处购物中心定义；补入原中文缺少的林荫步道复数义。"
+  },
+  "maple": {
+    "zh": "n. 枫树；枫木；枫木的淡棕色；枫糖浆或其仿制品的风味。adj. 枫木色的；枫糖浆味的或以枫糖浆制成的。",
+    "en": "n. A maple tree; its wood, especially hard sugar-maple wood used for furniture and flooring; the light-brown color of maple wood; the flavor of maple syrup or an imitation. adj. Of that light-brown color; having or made with maple-syrup flavor.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/maple",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/maple",
+    "note": "Wiktionary 证实淡棕色及枫糖浆风味两义；补全树木定义并与中文增补义项配对。"
+  },
+  "matrix": {
+    "zh": "n. 矩阵；（地质）包裹化石、晶体或宝石的细粒岩石基质/脉石；形成或发展的母体、环境；（旧）子宫；模具、模型、形成物的型腔；细胞间质、组织基质。",
+    "en": "n. A rectangular array of quantities or expressions arranged in rows and columns; (geology) fine-grained rock embedding fossils, crystals, or gems; an enclosure or environment in which something originates or develops; (now rare) the womb; a cavity or mold in which something is formed; the substance or tissue in which cells are embedded.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/matrix",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/matrix",
+    "note": "恢复数学及地质定义的截断部分；词典还确认 matrix 可指形成物的型腔/模具及细胞间质，故补足原中文“模型”义，另配母体、子宫和组织基质。"
+  },
+  "median": {
+    "zh": "adj. 中央的、中间的、正中的；（解剖）正中静脉或神经的。n. 中位数；正中静脉或神经；中线/中央分隔带。",
+    "en": "adj. Relating to or constituting the middle value of an ordered set, or situated in or extending toward the middle. n. The middle value (or, for an even-sized set, the mean of the two middle values); (anatomy, now rare) a central vein or nerve; a median strip.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/median",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/median",
+    "note": "补全源英文截断的统计名词释义，并核实中文“正中动脉”应泛化为正中静脉或神经这一解剖义；保留中线义。"
+  },
+  "merch": {
+    "zh": "n.（非正式）商品、货物；与某活动或组织相关、用于宣传的商品（如乐队、影视作品周边）。",
+    "en": "n. (informal) Goods that are bought or sold; goods related to or advertising a particular event or organization, such as a team, band, or work of fiction.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://www.oxfordlearnersdictionaries.com/us/definition/english/merch",
+    "enSourceUrl": "https://www.oxfordlearnersdictionaries.com/us/definition/english/merch",
+    "note": "Oxford 明列一般待售商品及活动/组织周边商品两义；删除旧中文把 merchandise、merchant、merchantable 混作同词缩写的错误扩展。"
+  },
+  "meteor": {
+    "zh": "n.（天文学）进入地球大气层的小型固体天体；流星，即流星体进入大气层后因空气摩擦熔化、汽化或爆裂而产生的夜空光迹。",
+    "en": "n. (astronomy) A small solid extraterrestrial body that hits Earth’s atmosphere; a streak of light in the night sky produced when a meteoroid enters the atmosphere and friction causes it to melt, vaporize, or explode.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/meteor",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/meteor",
+    "note": "还原截断的流星形成过程；将大气层中的天体与产生的夜空光迹分别译出。"
+  },
+  "method": {
+    "zh": "n. 方法、办法；系统而有条理的做事方式；（表演）方法派表演法，演员借助自身情感或反应塑造角色。",
+    "en": "n. A way of doing something, especially a systematic way implying an orderly, logical arrangement; (acting) a technique associated with Stanislavsky in which the actor recalls personal emotions or reactions to portray a character.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/method",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/method",
+    "note": "源英文还含斯坦尼斯拉夫斯基表演技巧但在句中截断；补入与该义对应的中文“方法派表演法”。"
+  },
+  "mica": {
+    "zh": "n. 云母：由铝、钾等水合硅酸盐构成的一类矿物，可完美解理成极薄片；因耐电性而用作电介质。",
+    "en": "n. Any of various minerals consisting of hydrous silicates of aluminum, potassium, etc., crystallizing so as to cleave into very thin leaves; used as a dielectric because of resistance to electricity.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mica",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/mica",
+    "note": "补全截断的“耐电性”定义；中文云母义准确，补入片状解理及电介质用途以对应完整英文。"
+  },
+  "miles": {
+    "zh": "n. mile 的复数：英里（1,760码/5,280英尺，精确为1.609344公里）；海里（精确为1,852米）；泛指很长的距离；另指旧英国航海长度单位（6,000或6,080英尺）、古罗马英里（1,620码）、瑞典长度单位（10公里）；一英里赛跑。",
+    "en": "n. Plural of mile: the statute/international mile (1,760 yards or 5,280 feet; exactly 1.609344 km); the nautical mile (1,852 m); a large distance; former British navigational units of 6,000 or 6,080 feet; an ancient Roman unit of 1,620 yards; a Swedish unit of 10 km; a one-mile footrace.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/miles",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/miles",
+    "note": "恢复截断处全部历史及航海单位、泛指距离和赛跑义；中文逐项对应，保留不同英里单位的数值。"
+  },
+  "mise": {
+    "zh": "n.（法律，古）权利诉讼令状中的争点；费用、成本、支出；税款或摊派；（威尔士）人民赠予新国王或威尔士亲王的礼物；（英格兰切斯特）伯爵领地易主时缴纳的贡赋。",
+    "en": "n. (historical law) The issue in a writ of right; expense, cost, or disbursement; a tax or tallage; in Wales, an honorary gift from the people to a new king or Prince of Wales; a tribute paid in the palatine county of Chester when ownership of the earldom changed.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mise",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/mise",
+    "note": "补齐截断的切斯特贡赋定义，并补入源英文已有的费用和税项；说明原中文“协定”并非所列法律义，改译为诉讼争点。"
+  },
+  "mixtape": {
+    "zh": "n. 混音合辑：汇集多首歌曲并编排成一个序列的合集，常含多位艺人作品，由乐迷围绕主题、情绪或个人喜好制作；传统形式常为未经授权的非正式录音带合集。",
+    "en": "n. (music) A compilation of songs assembled into a single sequence, often featuring different artists and curated by fans around a theme, mood, or personal taste; traditionally an informal compilation made without legal permission.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mixtape",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/mixtape",
+    "note": "Wiktionary 的完整定义止于该句；原文末尾标点表示截断疑点，查证后确认无后续被截义项，扩充中文使内容与定义吻合。"
+  },
+  "moly": {
+    "zh": "n. 魔草：荷马史诗中具有法术力量、黑根白花的草药，据称赫尔墨斯赠予奥德修斯以抵御喀耳刻的魔法；另指黄花葱（Allium moly，亦称金色大蒜）。",
+    "en": "n. A fabulous herb of occult power, with a black root and white blossoms, said by Homer to have been given by Hermes to Ulysses to counteract Circe’s spells; also a kind of garlic (Allium moly) with large yellow flowers, called golden garlic.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/moly",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/moly",
+    "note": "补全被截断的 Allium moly 植物义；中文增加黄花葱/金色大蒜，与神话魔草分列。"
+  },
+  "mono": {
+    "zh": "adj. 单声道的：以单一声道传输、录制或重放的。n.（非正式）传染性单核细胞增多症：伴发热、淋巴结肿大及血液中单核细胞异常增多的急性疾病。",
+    "en": "adj. Designating sound transmission, recording, or reproduction over a single channel. n. (informal) Mononucleosis, an acute disease marked by fever, swollen lymph nodes, and an abnormal increase of mononuclear leukocytes or monocytes in the bloodstream; it is not highly contagious and may be transmitted by kissing.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mono",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/mono",
+    "note": "补全源英文截断的单核细胞增多症定义；中文原条目只含形容词单声道义，补入疾病名词义。"
+  },
+  "more": {
+    "zh": "det./pron./adj. 更多的；更大的、程度更高的；（用于可数名词）更多的、数量更大的。adv. 更、程度更高地；此外、进一步、再。more 是 much 和 many 的比较形式，也用于构成部分形容词和副词的比较级。",
+    "en": "det./pron./adj. Comparative of much (with mass nouns) or many (with count nouns): a greater amount, size, extent, degree, or number; additional. adv. To a greater degree or extent; additionally, further, or again; used to form the comparative of some adjectives and adverbs.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/more",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/more",
+    "note": "补全截断的比较级构式并结合词典义区分 much 与 many 的比较用法；保留中文已有形容词、名词/代词及副词用法。"
+  },
+  "mucus": {
+    "zh": "n. 黏液：黏膜的保护性分泌物；在肠道中润滑食物流动并保护上皮细胞，在鼻、咽喉和肺部可阻碍细菌经上皮进入身体。",
+    "en": "n. A protective secretion of the mucous membranes; in the gut it lubricates the passage of food and protects epithelial cells, while in the nose, throat, and lungs it can make it difficult for bacteria to penetrate the body through the epithelium.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/mucus",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/mucus",
+    "note": "恢复末尾被截断的 through the epithelium；中文黏液对应该完整定义。"
+  },
+  "naled": {
+    "zh": "n. 二溴磷，一种有机磷杀虫剂；（地理）冰叠，地下水连续流动并在既有冰层上冻结形成的层状冰体。",
+    "en": "n. A particular organophosphate insecticide; (geology) a sheet-like layered mass of ice formed when successive flows of groundwater freeze over previously formed ice layers.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/naled",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/naled",
+    "note": "Wiktionary 将杀虫剂与俄语来源的冰体义列为两个不同词源；补入中文漏掉的地理义并保留农药义。"
+  },
+  "nits": {
+    "zh": "n. nit 的复数：虱卵或幼虱；（英口）笨蛋、傻瓜。另 n. 尼特，亮度单位，等于每平方米一坎德拉。",
+    "en": "n. Plural of nit: eggs or young of lice; (British informal) fools or nitwits. Also plural of nit, a unit of luminance equal to one candela per square metre.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/nit",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/nit",
+    "note": "补全源英文被截断的虱卵/幼虫说明；中文已有的英口“糊涂虫/傻瓜”由 nit 的俚语义支持，且保留尼特亮度单位的同形义。"
+  },
+  "oath": {
+    "zh": "n. 誓言、誓约；（尤指法庭上）宣誓说真话；以神明或受敬崇者作见证的郑重承诺；咒骂、亵渎语。",
+    "en": "n. A commitment to tell the truth, especially in court; a solemn promise, usually invoking a divine witness, regarding future acts or behavior; a profane or obscene expression, usually of surprise or anger.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/oath",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/oath",
+    "note": "补全截断的承诺定义；词典确认 oath 还可指亵渎语或咒骂，保留中文中的该义。"
+  },
+  "oaths": {
+    "zh": "n. oath 的复数：宣誓、誓言或郑重承诺；咒骂、亵渎语。",
+    "en": "n. Plural of oath: commitments to tell the truth or solemn promises; profane or obscene expressions, usually of surprise or anger.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/oaths",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/oaths",
+    "note": "补回被截断的誓言定义，并保留原中文列出的咒骂/诅咒义。"
+  },
+  "oats": {
+    "zh": "n. 燕麦（属），欧洲和北非的一年生禾草；燕麦籽粒，尤指作食物或饲料的籽粒；通常用复数 oats 指燕麦谷物或其食物制品。",
+    "en": "n. Plural of oat; an annual grass of Europe and North Africa; the grains of the plant used as food and fodder, especially the seeds of Avena sativa, ordinarily referred to in the plural as oats.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/oats",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/oats",
+    "note": "修复源英文未闭合括号并补全指向燕麦种子的表达；中文保留植物、谷粒及食物义，不误将 oats 等同于燕麦粥。"
+  },
+  "okra": {
+    "zh": "n. 秋葵；秋葵荚：旧大陆热带地区高大的粗壮一年生植物，在美国南部和西印度群岛广泛栽培，绿色黏液质荚果可食，常用于汤和炖菜。",
+    "en": "n. The long, mucilaginous green edible pods of the okra plant; also the tall, coarse annual of the Old World tropics cultivated for those pods, which are used especially in soups and stews; sometimes placed in genus Hibiscus.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/okra",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/okra",
+    "note": "补全被截断的植物分类说明，区分秋葵植株与可食荚果，并对应中文现有词义。"
+  },
+  "opinion": {
+    "zh": "n. 意见、看法、评价；未经证据或确定性证明的个人信念或判断；表达某种信念的陈述；多数人共有的信念或民意；法院说明裁决理由的法律意见书；法院判决的理由（区别于判决本身）。",
+    "en": "n. A personal belief or judgment not founded on proof or certainty; a message expressing a belief about something, held confidently but not substantiated by positive knowledge or proof; a belief or sentiment shared by most people, the voice of the people; a legal document stating the reasons for a judicial decision; the reason for a court’s judgment as opposed to the decision itself.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/opinion",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/opinion",
+    "note": "补全源英文截断部分；OEWN 还列多数人共有的信念/民意义，且确认 opinion 可指司法意见书及裁判理由，均已补入中英文。"
+  },
+  "options": {
+    "zh": "n. option 的复数：选择项、可选方案；选择、挑选这一行为；期权，即按约定价格买入或卖出财产的权利，若未在规定日期前行使则所付金额被没收。",
+    "en": "n. Plural of option: one of a number of things from which only one can be chosen; the act of choosing or selecting; a right to buy or sell property at an agreed price, purchased with the payment forfeited if not exercised by a stated date.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/options",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/options",
+    "note": "修复“can be chose”截断并补全期权到期未行权的后果；对应中文的选择项、选择行为和期权义。"
+  },
+  "ordeal": {
+    "zh": "n. 严酷考验、痛苦经历、煎熬；（史）神裁判：通过令被告接受被认为受神意控制的危险或痛苦试验来判断有罪与否，逃脱通常被视为无罪的标志。",
+    "en": "n. A severe or trying experience; (historical) a primitive method of determining guilt or innocence by subjecting the accused to dangerous or painful tests believed to be under divine control, escape from which was usually taken as a sign of innocence.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/ordeal",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/ordeal",
+    "note": "补全源英文截断的神裁判定义结尾；将历史司法试验及其逃脱被视为无罪的判断标准完整译入中文。"
+  }
+}

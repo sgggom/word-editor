@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "version": "2026.10.21.3",
+  "scopeWords": 524,
+  "googlePendingReviewed": 522,
+  "alreadyConfirmedReviewed": 2,
+  "statuses": {
+    "corrected": 395,
+    "verified": 129
+  },
+  "changedWords": 395,
+  "changedFields": {
+    "zh": 395,
+    "en": 394
+  },
+  "restoredTruncatedEnglish": 193,
+  "baselineSha256": "ca9ca316b1e19596d6e6f509cfe372727e589f408ca58fcc0ed2dc7bcfd0027f",
+  "runtimeSha256": "edf4fa3619e0dd113a8dc57dd67a7bcc63448b60a3babf309a65f109c1320bd1",
+  "runtimeWords": 22452,
+  "unrelatedEntriesUnchanged": true,
+  "carriedPendingWords": 19,
+  "runtimePendingWords": 19,
+  "reviewerModel": "gpt-6-luna",
+  "correctionFiles": {
+    "data/glossary/reviewed/dictionary-followup-2026-10-21/confirmed.json": "d0d08e63f3b7dc16fd69bde2c7121c2e869f80bd369d0f5a2b9c7ec53370a57c",
+    "data/glossary/reviewed/dictionary-followup-2026-10-21/part01.json": "45b1cf5debd0f1f50f85b7c42f7c69e89943382f556ac86e6a0da08d3b85b1d1",
+    "data/glossary/reviewed/dictionary-followup-2026-10-21/part02.json": "40a64f9dbd07c2097c1dfa11b3810f4621180cd2bfc131674dc0e8c53dc2aefd",
+    "data/glossary/reviewed/dictionary-followup-2026-10-21/part03.json": "b9dd4b3e081ce28851b7a5b93949da9ea6cee2865dfd2263c86dd46d01b29eb7",
+    "data/glossary/reviewed/dictionary-followup-2026-10-21/zz_parent.json": "0ef24fecec9064559a9203eeb262e4f8ce58db3eba3d57f32b324075ddf0fae9"
+  },
+  "scopeNote": "Dictionary verification of 522 flagged entries and 2 previously confirmed inconsistencies. Existing pronunciation/rare-word pending items are retained separately."
+}

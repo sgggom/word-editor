@@ -1,0 +1,20 @@
+{
+  "argal": {
+    "zh": "n. 野生绵羊，尤指中亚盘羊；粗酒石。adv. 因此（诙谐用法）。",
+    "en": "n. Wild sheep, especially the argali of central Asia; crude tartar. adv. Therefore (used humorously).",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://en.wiktionary.org/wiki/argal#English",
+    "enSourceUrl": "https://en.wiktionary.org/wiki/argal#English",
+    "note": "修正野山羊与wild sheep的动物类别冲突；两列同时保留并对齐野生绵羊、粗酒石和诙谐的因此义。Collins argal/argali、Wiktionary及OEWN交叉核对。"
+  },
+  "piraya": {
+    "zh": "n. 水虎鱼；一种南美洲产的大型贪食淡水鱼，牙齿呈柳叶刀形。",
+    "en": "n. A large, voracious freshwater fish of South America, with lancet-shaped teeth; a piranha.",
+    "zhSource": "dictionary-followup-2026-10-21",
+    "enSource": "dictionary-followup-2026-10-21",
+    "zhSourceUrl": "https://www.studylight.org/dictionaries/eng/web/p/piraya.html",
+    "enSourceUrl": "https://www.studylight.org/dictionaries/eng/web/p/piraya.html",
+    "note": "按Webster完整定义统一大型鱼描述，修正旧中文小鱼与英文large冲突和重复产于南美产的措辞；Merriam-Webster Scrabble确认piraya即piranha。"
+  }
+}

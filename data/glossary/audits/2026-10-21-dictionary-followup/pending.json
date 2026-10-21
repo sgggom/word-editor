@@ -1,0 +1,152 @@
+[
+  {
+    "word": "acmic",
+    "status": "pending",
+    "issue": "Wiktionary confirms adjective acme + -ic, but supplies no IPA; Collins search returned no pronunciation entry. Predicted final stress remains unverified.",
+    "evidence": "https://en.wiktionary.org/wiki/acmic#English"
+  },
+  {
+    "word": "alans",
+    "status": "pending",
+    "issue": "Lowercase alan is confirmed as the hound noun, but its English entry supplies audio only and Collins alan supplies only the given name. Removed the IPA derived from proper-name Alan; lexical noun plural IPA remains unverified.",
+    "evidence": "https://en.wiktionary.org/wiki/alan#English",
+    "changedFields": [
+      "zh",
+      "en"
+    ]
+  },
+  {
+    "word": "andros",
+    "status": "pending",
+    "issue": "Wiktionary confirms plural of the Meitei alcoholic-drink noun andro; no pronunciation supplied for that sense. Existing /ˈændɹɑs/ may be the proper-name reading, so no IPA invented.",
+    "evidence": "https://en.wiktionary.org/wiki/andro#English",
+    "changedFields": [
+      "zh",
+      "en"
+    ]
+  },
+  {
+    "word": "apos",
+    "status": "pending",
+    "issue": "Wiktionary confirms apo as a clipping of apolipoprotein and apos as its plural, but gives no pronunciation. Existing IPA spells APO initials; lexical clipped-form IPA unresolved.",
+    "evidence": "https://en.wiktionary.org/wiki/apo#English",
+    "changedFields": [
+      "zh",
+      "en"
+    ]
+  },
+  {
+    "word": "areae",
+    "status": "pending",
+    "issue": "Supplied sourced data confirms anatomical plural of area. Wiktionary has no English section and targeted medical-dictionary search did not yield an explicit plural pronunciation; current IPA equals singular area.",
+    "evidence": "https://en.wiktionary.org/wiki/areae"
+  },
+  {
+    "word": "ates",
+    "status": "pending",
+    "issue": "Wiktionary confirms elder-sister/title noun ate and plural ates, with source-language phonetic base [ˈʔɐ.te]. A reliable English plural IPA was not established; /eɪts/ reflects eat rather than this noun.",
+    "evidence": "https://en.wiktionary.org/wiki/ate#English",
+    "changedFields": [
+      "zh",
+      "en"
+    ]
+  },
+  {
+    "word": "baalim",
+    "status": "pending",
+    "issue": "Wiktionary Baalim and Dictionary.com confirm plural of Baal, but retrieved entries supplied no explicit English IPA. Existing /ˈbeləlim/ remains suspect; pronunciation retained pending stronger evidence.",
+    "evidence": "https://www.dictionary.com/browse/baalim"
+  },
+  {
+    "word": "beses",
+    "status": "pending",
+    "issue": "Provided data identifies plural of bes, a Hebrew-letter name. Wiktionary bes confirms the beth variant but only provides IPA for the unrelated be verb; beses has no English section. Hebrew-letter plural pronunciation remains unverified.",
+    "evidence": "https://en.wiktionary.org/wiki/bes#English"
+  },
+  {
+    "word": "compas",
+    "status": "pending",
+    "issue": "海地音乐义项已确认并修正；原 /ˈkɑmpəs/ 可能来自专名，尚无可靠英语读音来源。",
+    "evidence": "https://en.wiktionary.org/wiki/compas#English",
+    "changedFields": [
+      "zh",
+      "en"
+    ]
+  },
+  {
+    "word": "dolci",
+    "status": "pending",
+    "issue": "管风琴音栓义及 dolce 的复数关系已有 Merriam-Webster 来源；Collins 也确认该名词义，但只给 dolce 的读音。仍未找到 dolci 的可靠英语复数 IPA，不能将意大利语读音直接冒充英语读音。",
+    "evidence": "https://scrabble.merriam.com/finder/dolci ; https://www.collinsdictionary.com/dictionary/english/dolce"
+  },
+  {
+    "word": "duci",
+    "status": "pending",
+    "issue": "Dictionary.com 明确确认 duci 为 duce 的英语复数，现有释义可保留；所查词典只给单数读音，未找到复数 duci 的可靠英语 IPA，保留 pending。",
+    "evidence": "https://www.dictionary.com/browse/duci ; https://www.dictionary.com/browse/duce",
+    "changedFields": [
+      "zh",
+      "en"
+    ]
+  },
+  {
+    "word": "farc",
+    "status": "pending",
+    "issue": "未确认farce异体；Wiktionary无English，Merriam-Webster词库亦未收普通词FARC；不臆造。",
+    "evidence": "https://scrabble.merriam.com/finder/farc"
+  },
+  {
+    "word": "filles",
+    "status": "pending",
+    "issue": "Collins确认英语fille为年轻女子且/fiː/，但未确认其英语复数filles的可靠读音；Wiktionary无English，不套用法语或机械猜测。",
+    "evidence": "https://www.collinsdictionary.com/dictionary/english/fille"
+  },
+  {
+    "word": "gighe",
+    "status": "pending",
+    "issue": "Merriam-Webster Scrabble已确认giga名词复数gighe，舞曲释义可成立；现IPA/dʒɪɡh/错误，尚缺可靠英语复数读音。",
+    "evidence": "https://scrabble.merriam.com/finder/gighe"
+  },
+  {
+    "word": "inia",
+    "status": "pending",
+    "issue": "淡水豚义项已核实并对齐；原预测英语读音 /ɪnˈaɪə/ 未找到可靠来源确认。",
+    "evidence": "https://en.wiktionary.org/wiki/inia#English",
+    "changedFields": [
+      "zh",
+      "en"
+    ]
+  },
+  {
+    "word": "oig",
+    "status": "pending",
+    "issue": "Scots urge sense aligns; IPA /oʊ aɪ dʒiː/ is letter-name abbreviation reading and does not match.",
+    "evidence": "https://en.wiktionary.org/wiki/oig (checked; insufficient English lexical or pronunciation evidence)"
+  },
+  {
+    "word": "pht",
+    "status": "pending",
+    "issue": "Meaning aligns; pronunciation spells letters instead of representing the interjection.",
+    "evidence": "https://en.wiktionary.org/wiki/pht (checked; insufficient English lexical or pronunciation evidence)"
+  },
+  {
+    "word": "renate",
+    "status": "pending",
+    "issue": "Meaning corrected; /ɹənˈɑtə/ is a proper-name pronunciation rather than adjective.",
+    "evidence": "https://en.wiktionary.org/wiki/renate#English",
+    "changedFields": [
+      "zh",
+      "en"
+    ]
+  },
+  {
+    "word": "uma",
+    "status": "pending",
+    "issue": "中英文已统一为女神乌玛；原音标 /jˈumə/ 尚缺与此名字匹配的可靠英语发音来源。",
+    "evidence": "https://en.wiktionary.org/wiki/Uma#English",
+    "changedFields": [
+      "zh",
+      "en"
+    ]
+  }
+]
