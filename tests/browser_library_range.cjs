@@ -1,3 +1,4 @@
+const {produceAndApply}=require('./workflow_helpers.cjs');
 /* Both views edit the same persistent, executable pool recipe. */
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const puppeteer=require('puppeteer-core'),L=require('../src/library'),O=require('../src/library_overlap');
@@ -72,10 +73,7 @@ async function nameLibrary(page, button, name) {
   assert.deepEqual((await page.evaluate(()=>__downloads[1])).trim().split('\n'),extraExpected);
   await ready();await page.click('#btnBank');await page.click('[data-library-view="range"]');
   assert.deepEqual((await state()).draft.targetPool.selectedRegions,['8','15']);assert.deepEqual((await state()).draft.extraPool.selectedRegions,['8','15']);assert.equal(await count(),4372);
-  await page.click('#bankClose');await page.click('#btnBatch');
-  await page.evaluate(()=>{bCount.value=3;bMode.value='replace';bFrom.value=1;bAttempts.value=120;bSeed.value='pie-regions-QA'});
-  await page.click('#bGo');await page.waitForFunction(()=>__lastBatch,{timeout:120000});assert.equal(await page.evaluate(()=>__lastBatch.made),3);
-  await page.click('#bClose');const levels=await page.evaluate(()=>__desk.exportLevels());
+  await page.click('#bankClose');const {levels}=await produceAndApply(page,3,'pie-regions-QA');
   const campaign=await page.evaluate(()=>__desk.campaign()),snap=campaign.librarySnapshots[campaign.levels[0].librarySnapshotId];
   assert.deepEqual(snap.lex,compiled.lex);assert.deepEqual(snap.recipe.selection.target[0].targetPool.selectedRegions,['8','15']);
   const targets=new Set(compiled.targetWords);assert(levels.every(l=>l.t.split(' ').every(w=>targets.has(w))));
@@ -85,7 +83,7 @@ async function nameLibrary(page, button, name) {
   await page.select('[data-pool="targetPool"][data-index="0"] [data-field="config"]','list0');
   assert.deepEqual((await state()).draft.targetPool.selectedRegions,[]);assert.deepEqual((await state()).draft.extraPool.selectedRegions,['8','15']);
   assert.equal((await state()).preview.candidates,0);await save(3);
-  await page.click('#bankClose');await page.click('#btnBatch');assert(await page.$eval('#bGo',e=>e.disabled));await page.click('#bClose');
+  await page.click('#bankClose');await page.click('#btnBatch');await page.waitForSelector('#batch',{visible:true});assert(await page.$eval('#bGo',e=>e.disabled));await page.click('#bClose');
   assert.deepEqual(await page.evaluate(()=>__desk.exportLevels()),levels);
   await page.click('#btnBank');await (await page.$('#libraryFile')).uploadFile('/tmp/library-regions-config.json');
   await page.waitForFunction(()=>__desk.libraries().draft.name==='饼图多选验收 · 导入');

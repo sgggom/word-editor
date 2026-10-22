@@ -12,7 +12,8 @@ self.onmessage = ({data}) => {
         currentJob = data.jobId; currentHistory = data.history;
         if (!currentHistory) throw new Error('生成历史缺失');
       }
-      const results = WTEngine.generateAttempts(data.number, batchIndex, batchProfiles,
+      const results = data.poolSpec ? WTEngine.generatePoolAttempts(data.poolSpec, batchIndex, batchProfiles,
+        batchConfig, data.start, data.count) : WTEngine.generateAttempts(data.number, batchIndex, batchProfiles,
         batchConfig, currentHistory, data.start, data.count);
       self.postMessage({type: 'results', requestId: data.requestId, results});
     }

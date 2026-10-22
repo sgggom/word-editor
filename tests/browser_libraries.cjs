@@ -1,3 +1,4 @@
+const {produceAndApply}=require('./workflow_helpers.cjs');
 /* Browser acceptance for vocabulary recipes, immutable level snapshots and provenance. */
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const puppeteer=require('puppeteer-core'),L=require('../src/library'),E=require('../src/gen');
@@ -18,7 +19,7 @@ async function nameLibrary(page, button, name) {
   const setValue=async(selector,value)=>page.$eval(selector,(el,value)=>{el.value=value;el.dispatchEvent(new Event('input',{bubbles:true}));el.dispatchEvent(new Event('change',{bubbles:true}));},value);
   const save=async(revision)=>{await page.click('#librarySave');await page.waitForFunction(rev=>document.querySelector('#libraryStatus').textContent.startsWith('已保存 · v'+rev),{},revision);};
   const confirmImport=async(text)=>{await page.evaluate(text=>__desk.importText(text),text);await page.waitForSelector('#modal',{visible:true});await page.evaluate(()=>[...document.querySelectorAll('#mBtns button')].find(x=>x.textContent==='导入').click());await page.waitForSelector('#modal',{hidden:true});await page.evaluate(()=>__desk.flush());};
-  const generate=async(count=3)=>{await page.click('#btnBatch');await page.evaluate(count=>{bCount.value=count;bFrom.value=1;bMode.value='replace';bAttempts.value=100;bSeed.value='library-browser-QA';},count);await page.click('#bGo');await page.waitForFunction(()=>__lastBatch,{timeout:120000});const result=await page.evaluate(()=>__lastBatch);assert.equal(result.made,count,JSON.stringify(result));await page.click('#bClose');return page.evaluate(()=>__desk.exportLevels());};
+  const generate=async(count=3)=>(await produceAndApply(page,count,'library-browser-QA')).levels;
   await ready(base+'?fresh=1');
   // The requested eight presets replace old recipes once; level snapshots survive.
   const oldRecipe={id:'word-tiles-main',name:'Word Tiles 两版并集',revision:1,datasetHash:data.datasetHash,
@@ -138,7 +139,7 @@ async function nameLibrary(page, button, name) {
   fs.writeFileSync('/tmp/library-config-roundtrip.json',configuration);
   await (await page.$('#libraryFile')).uploadFile('/tmp/library-config-roundtrip.json');
   await page.waitForFunction(()=>__desk.libraries().recipes.some(r=>r.name==='空交集 · 导入'));
-  await page.click('#bankClose');await page.click('#btnBatch');assert(await page.$eval('#bGo',e=>e.disabled));
+  await page.click('#bankClose');await page.click('#btnBatch');await page.waitForSelector('#batch',{visible:true});assert(await page.$eval('#bGo',e=>e.disabled));
   await page.evaluate(()=>__desk.startBatch());assert.deepEqual(await page.evaluate(()=>__desk.exportLevels()),generated);await page.click('#bClose');
   await page.click('#btnBank');await page.select('#bankScope','catalog');assert.match(await page.$eval('#bankMeta',e=>e.textContent),/^32268 \/ 32268/);
   await setValue('#bankFind','CAFE\u0301');await page.waitForFunction(()=>document.querySelector('#bankMeta').textContent.startsWith('1 /'));
@@ -167,7 +168,7 @@ async function nameLibrary(page, button, name) {
   const offline=await browser.newPage();offline.on('pageerror',e=>errors.push(e.message));
   await offline.goto('file://'+path.resolve(__dirname,'../wordpages-level-desk.html')+'?fresh=1',{waitUntil:'load'});await offline.evaluate(()=>__desk.ready());
   await offline.click('#btnBank');await nameLibrary(offline,'#libraryCopy','离线配置');await offline.waitForFunction(()=>__desk.libraries().recipes.some(r=>r.name==='离线配置'));
-  await offline.click('#bankClose');await offline.click('#btnBatch');await offline.evaluate(()=>{bCount.value=1;bMode.value='replace'});await offline.click('#bGo');await offline.waitForFunction(()=>__lastBatch,{timeout:60000});assert.equal(await offline.evaluate(()=>__lastBatch.made),1);
+  await offline.click('#bankClose');await produceAndApply(offline,1,'offline-library-QA');
   await offline.close();assert.deepEqual(errors,[]);
   console.log('two-letter extra play, legacy migration and true file:// configuration/generation passed; no page errors');
  } finally {await browser.close();}

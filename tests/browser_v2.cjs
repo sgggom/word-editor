@@ -21,6 +21,7 @@ const browserPath = process.env.CHROMIUM_PATH || '/usr/bin/chromium';
       await page.evaluate(() => { window.showOpenFilePicker = undefined; });
       const [chooser] = await Promise.all([page.waitForFileChooser(), page.click('#btnOpen')]);
       await chooser.accept([filename]);
+      await page.waitForSelector('#modal',{visible:true});
       await page.waitForFunction(()=>[...document.querySelectorAll('#modal button')].some(e=>e.textContent==='导入'));
       await page.evaluate(()=>[...document.querySelectorAll('#modal button')].find(e=>e.textContent==='导入').click());
       await page.waitForSelector('#modal',{hidden:true});
@@ -41,22 +42,10 @@ const browserPath = process.env.CHROMIUM_PATH || '/usr/bin/chromium';
     await page.click('#bankClose');
     let firstLevels;
     for (const preset of ['list0','list5']) {
-      await page.click('#btnBatch');
-      await page.evaluate(preset => {
-        // Legacy generation parity; board-letter schedules have a dedicated browser test.
-        bLetterMode.value='none';
-        bFrom.value=1; bCount.value=10; bMode.value='replace'; bPreset.value=preset;
-        bAttempts.value=60; bExtraWeight.value=.9; bSeed.value='QA-v2-2026';
-      }, preset);
-      await page.click('#bGo');
-      await page.waitForFunction(()=>window.__lastBatch, {timeout:120000});
-      const summary = await page.evaluate(()=>__lastBatch);
-      assert.equal(summary.engine,'v2'); assert.equal(summary.preset,preset);
-      assert.equal(summary.made,10); assert.equal(summary.failed,0);
-      await page.click('#bClose');
-      const levels = await page.evaluate(()=>__desk.exportLevels());
-      assert.equal(levels.length,10);
       const expected = E.generateRange(E.buildIndex(lex), profiles, {preset,seed:'QA-v2-2026',count:10,start:1,attempts:60,extraWeight:.9}).levels.map(toGame);
+      assert.equal(expected.length,10);
+      const fixture='/tmp/browser-v2-legacy-'+preset+'.json';fs.writeFileSync(fixture,JSON.stringify(expected));await openFile(fixture);
+      const levels = await page.evaluate(()=>__desk.exportLevels());assert.equal(levels.length,10);
       // C.toLevel sorts targets/extras, which must preserve board, counts and word sets.
       for (let i=0;i<levels.length;i++) {
         assert.equal(levels[i].g,expected[i].g); assert.equal(levels[i].n,expected[i].n);
@@ -107,6 +96,8 @@ const browserPath = process.env.CHROMIUM_PATH || '/usr/bin/chromium';
         const before=await page.evaluate(()=>__desk.exportLevels());
         await page.$eval('#grid input',e=>{e.value='Q';e.dispatchEvent(new Event('input',{bubbles:true}));});
         await page.keyboard.down('Control');await page.keyboard.press('z');await page.keyboard.up('Control');
+        await page.waitForFunction(letter=>document.querySelector('#grid input')?.value===letter,{},levels[2].g[0]);
+        await page.evaluate(()=>__desk.flush());
         assert.deepEqual(await page.evaluate(()=>__desk.exportLevels()),before);
         await page.click('#btnBackToList');
       }
@@ -120,17 +111,9 @@ const browserPath = process.env.CHROMIUM_PATH || '/usr/bin/chromium';
       await page.evaluate(()=>__desk.flush());
       await page.goto(base,{waitUntil:'networkidle0'});await page.evaluate(()=>__desk.ready());
       assert.deepEqual(await page.evaluate(()=>__desk.exportLevels()),before);
-      console.log(preset+': exact engine parity, generation, export/import, persistence passed');
+      console.log(preset+': legacy engine fixtures, export/import and persistence passed');
     }
-    // Impossible constraints must report failure and leave the existing sequence intact.
     const saved=await page.evaluate(()=>__desk.exportLevels());
-    await page.click('#btnBatch');await page.evaluate(()=>{bFrom.value=1001;bCount.value=1;bMaxN.value=1;bMode.value='replace';bAttempts.value=10;});
-    await page.click('#bGo');
-    try { await page.waitForFunction(()=>__lastBatch,{timeout:30000}); }
-    catch(e) { console.error('Failed-batch state',await page.evaluate(()=>({disabled:bGo.disabled,progress:bProg.textContent,result:bOut.textContent,config:__desk.cfg()})),errors);throw e; }
-    assert.equal(await page.evaluate(()=>__lastBatch.failed),1);
-    assert.deepEqual(await page.evaluate(()=>__desk.exportLevels()),saved);
-    await page.click('#bClose');
     // Historical rarity/type metadata and book/daily placement survive a round trip.
     const historical = saved.slice(0,2).map((l,i)=>({...l,id:String(i+1),name:'保留旧关 '+(i+1),lv:'2'.repeat(l.t.split(' ').length),ty:'1'.repeat(l.t.split(' ').length)}));
     const historicalPack={books:[{name:'已有分册',sub:'原副题',mix:[0,100,0,0,0],levels:[historical[0]]}],daily:[historical[1]]};
@@ -151,6 +134,6 @@ const browserPath = process.env.CHROMIUM_PATH || '/usr/bin/chromium';
     assert.equal(await local.evaluate(()=>JSON.parse(document.querySelector('#lex').textContent).length),1627);
     await local.close();
     assert.deepEqual(errors,[]);
-    console.log('3 levels completed; edit/undo, failure preservation, standalone HTML, no page errors passed');
+    console.log('3 levels completed; edit/undo, standalone HTML, no page errors passed');
   } finally {await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

@@ -1,0 +1,23 @@
+/* 关卡生成与排布样式 */
+#modal{z-index:9}
+.workflow-overlay{position:fixed;inset:0;background:rgba(20,12,8,.45);display:grid;place-items:center;z-index:5;padding:16px}
+#batch .workflow-panel,#arrange .workflow-panel{width:min(1180px,100%);max-height:calc(100dvh - 32px);overflow:auto;background:var(--paper);padding:22px;border-radius:4px;box-sizing:border-box}
+.workflow-heading,.workflow-section-heading,.workflow-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.workflow-heading{align-items:flex-start}.workflow-heading h3{margin:0}.workflow-heading .note{margin:7px 0 14px}
+.workflow-section-heading{margin:18px 0 7px}.workflow-section-heading h4{margin:0}
+.workflow-toolbar{justify-content:flex-start;margin:8px 0 14px}.workflow-toolbar label{display:flex;gap:8px;align-items:center}
+.workflow-panel button{border:1px solid var(--rule);padding:5px 10px;border-radius:3px}.workflow-panel button.primary{background:var(--ink);color:var(--paper)}
+.workflow-panel input,.workflow-panel select{border:1px solid var(--rule);background:rgba(255,255,255,.35);border-radius:3px;padding:5px;max-width:100%;box-sizing:border-box}
+.workflow-panel .bgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0}
+.workflow-panel .bgrid label{display:grid;gap:5px;font-size:13px;color:var(--ink-soft)}
+.workflow-panel .bgrid input,.workflow-panel .bgrid select{width:100%;min-width:0}
+.workflow-segment .bgrid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.workflow-table{overflow:auto;max-height:380px}.workflow-table table{width:100%;border-collapse:collapse;font-size:13px}.workflow-table th,.workflow-table td{padding:8px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+.workflow-table input[type=number]{width:90px}.workflow-table select{min-width:85px}.workflow-table .pool-words{max-width:320px;line-height:1.65;word-break:break-word}
+.workflow-segment{border:1px solid var(--rule);padding:12px;margin:10px 0;border-radius:4px}.workflow-segment .bgrid{margin:8px 0}
+.segment-pools{display:flex;gap:8px 20px;flex-wrap:wrap;padding:8px 0}.segment-pools label{display:flex;gap:5px;align-items:center;font-size:13px}
+.density-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(70px,1fr));gap:8px;margin:10px 0}.density-grid label{display:flex;align-items:center;gap:5px}.density-grid input{width:52px}
+#aSegments{max-height:440px;overflow:auto}#aStatsBody{max-height:250px;overflow:auto;font-size:13px;line-height:1.6}
+.inventory-board{display:grid;gap:4px;max-width:300px;margin:12px auto}.inventory-board span{border:1px solid var(--rule);padding:10px;text-align:center;font-family:var(--en);font-size:24px}.inventory-board small{font-size:12px;margin-left:4px;color:var(--ink-soft)}
+@media(max-width:700px){#batch .workflow-panel,#arrange .workflow-panel{padding:12px}.workflow-toolbar label{width:100%}.workflow-toolbar select{max-width:220px}.workflow-heading button{margin-left:auto}.workflow-panel .bgrid,.workflow-segment .bgrid{grid-template-columns:repeat(2,minmax(0,1fr))}#batch .batch-libraries{grid-template-columns:1fr}.workflow-table th,.workflow-table td{padding:6px}}
+/* 关卡生成与排布样式结束 */

@@ -191,10 +191,30 @@ function generateOne(n,ix,profiles,config={},history={}){
  }
  return finishGeneration(n,profiles,config,best);
 }
+// Inventory production uses explicit geometry/counts. Candidate ordinals are
+// reproducibility coordinates, never campaign positions or library unlocks.
+function poolTarget(spec,profiles){
+ const width=Number(spec.width),height=Number(spec.height),k=Number(spec.targetCount);
+ if(![[4,2],[3,3],[4,3],[5,3]].some(([w,h])=>w===width&&h===height)||!Number.isInteger(k)||k<2||k>16)throw new Error('生成尺寸或目标词数量无效');
+ const p=profiles.list0.map((profile,index)=>({profile,index})).sort((a,b)=>Math.abs(a.profile.k-k)-Math.abs(b.profile.k-k)||Math.abs(a.profile.cells-width*height)-Math.abs(b.profile.cells-width*height)||a.index-b.index)[0].profile;
+ const from=Number(p.stage.split(/[–-]/)[0]);
+ return {...p,width,height,cells:width*height,k,stageStart:stage(from),n:0};
+}
+function generatePoolAttempts(spec,ix,profiles,config={},start=0,count=1){
+ if(!Number.isSafeInteger(start)||start<0||!Number.isSafeInteger(count)||count<1)throw new Error('候选范围无效');
+ const d=poolTarget(spec,profiles),key=d.width+'x'+d.height+'|'+d.k;
+ config={...DEFAULTS,...config,seed:String(config.seed||DEFAULTS.seed)+'|inventory-v1|'+key,preset:'pool',requiredLettersByLevel:undefined};
+ const out=[];for(let a=start;a<start+count;a++){
+  const candidate=tryAttempt(d,a,ix,config,{});
+  if(candidate){delete candidate.level.number;candidate.level.id='candidate-'+hash(config.seed+'|'+a).toString(16);candidate.ordinal=a;}
+  out.push(candidate);
+ }
+ return out;
+}
 function generateRange(ix,profiles,options,onProgress){let opts={...DEFAULTS,...options},lv=[],failed=[],recent=new Map(),usage={},time=Date.now();for(let i=0;i<opts.count;i++){let n=opts.start+i,x=generateOne(n,ix,profiles,opts,{recent,usage});if(x.ok){lv.push(x.level);for(let w of x.level.targets){usage[w]=(usage[w]||0)+1;recent.set(w,n);}}else failed.push(x);if(onProgress)onProgress({index:i+1,requested:opts.count,ok:x.ok,level:x.level||null,failed:x.ok?null:x,elapsed:Date.now()-time});}
  return {levels:lv,failures:failed,config:opts,elapsedMs:Date.now()-time};}
 function exportGame(levels){return {kind:'word-tiles-levels-v2',version:2,levels:levels.map(l=>({id:l.id,number:l.number,width:l.width,height:l.height,rows:Array.from({length:l.height},(_,i)=>l.grid.slice(i*l.width,(i+1)*l.width).join('')),counts:l.counts,targets:l.targets,extras:l.extras}))};}
 function parseCSV(text){let rows=[],cur=[],v='',quoted=false;for(let i=0;i<text.length;i++){let c=text[i];if(quoted){if(c==='"'&&text[i+1]==='"'){v+='"';i++}else if(c==='"')quoted=false;else v+=c;}else if(c==='"')quoted=true;else if(c===','){cur.push(v);v=''}else if(c==='\n'||c==='\r'){if(c==='\r'&&text[i+1]==='\n')i++;cur.push(v);v='';if(cur.some(x=>x))rows.push(cur);cur=[];}else v+=c;}if(v||cur.length){cur.push(v);rows.push(cur)}let heads=(rows.shift()||[]).map(x=>x.replace(/^\uFEFF/,'').trim());return rows.map(x=>Object.fromEntries(heads.map((k,i)=>[k,x[i]||''])));}
 function historyFromLevels(levels){let recent=new Map(),usage={};for(let level of [...levels].sort((a,b)=>a.number-b.number)){for(let w of level.targets||[]){recent.set(w,level.number);usage[w]=(usage[w]||0)+1;}}return {recent,usage};}
-return {DEFAULTS,SEARCH_VERSION,stage,getProfile,targetFor,requiredLettersFor,normalizeLex,buildIndex,scan,metrics,validate,attemptLimit,generateAttempts,stopAfterAttempt,finishGeneration,generateOne,generateRange,exportGame,parseCSV,historyFromLevels,random,direction,turns,adjacencyStats};
+return {DEFAULTS,SEARCH_VERSION,stage,getProfile,targetFor,requiredLettersFor,normalizeLex,buildIndex,scan,metrics,validate,attemptLimit,generateAttempts,stopAfterAttempt,finishGeneration,generateOne,poolTarget,generatePoolAttempts,generateRange,exportGame,parseCSV,historyFromLevels,random,direction,turns,adjacencyStats};
 });

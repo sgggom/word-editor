@@ -39,15 +39,16 @@
       if (active !== job) return;
       active = null; clearTimeout(job.timer);
       if (error) job.reject(error);
-      else job.resolve(engine.finishGeneration(job.number, profiles, config, job.best));
+      else job.resolve(job.poolSpec ? job.results : engine.finishGeneration(job.number, profiles, config, job.best));
     }
     function accept(job, results, start) {
       if (active !== job || closed) return;
       results.forEach((result, offset) => job.pending.set(start + offset, result));
       while (job.pending.has(job.cursor)) {
         const candidate = job.pending.get(job.cursor); job.pending.delete(job.cursor);
-        if (candidate && (!job.best || candidate.score > job.best.score)) job.best = candidate;
-        const stop = engine.stopAfterAttempt(job.best, candidate, job.cursor, job.limit);
+        if (job.poolSpec) job.results.push(candidate);
+        else if (candidate && (!job.best || candidate.score > job.best.score)) job.best = candidate;
+        const stop = !job.poolSpec && engine.stopAfterAttempt(job.best, candidate, job.cursor, job.limit);
         job.cursor++;
         if (stop || job.cursor >= job.limit) { finish(job); break; }
       }
@@ -58,7 +59,8 @@
       try {
         if (!index) index = engine.buildIndex(options.lex);
         const start = job.cursor;
-        accept(job, engine.generateAttempts(job.number, index, profiles, config, job.history, start, chunk), start);
+        const count = Math.min(chunk, job.limit - start);
+        accept(job, job.poolSpec ? engine.generatePoolAttempts(job.poolSpec, index, profiles, config, start, count) : engine.generateAttempts(job.number, index, profiles, config, job.history, start, count), start);
         if (active === job) job.timer = setTimeout(() => localStep(job), 0);
       } catch (error) { finish(job, error); }
     }
@@ -67,7 +69,7 @@
       fallback = true; destroyWorkers(); report('fallback', 0, reason); settleReady();
       if (active) {
         // Restart this level against the same immutable history and attempt seeds.
-        const job = active; job.best = null; job.cursor = 0; job.next = 0; job.pending.clear();
+        const job = active; job.best = null; job.cursor = job.start || 0; job.next = job.cursor; job.results = []; job.pending.clear();
         job.timer = setTimeout(() => localStep(job), 0);
       }
     }
@@ -78,7 +80,7 @@
         if (!slot.ready || slot.task || job.next >= job.limit || job.next >= job.cursor + requested * chunk * 2) continue;
         const task = {requestId: ++requestId, jobId: job.id, start: job.next, count: Math.min(chunk, job.limit - job.next)};
         job.next += task.count; slot.task = task;
-        const message = {type: 'attempts', ...task, number: job.number};
+        const message = {type: 'attempts', ...task, number: job.number, poolSpec: job.poolSpec};
         if (slot.lastJob !== job.id) { message.history = job.history; slot.lastJob = job.id; }
         slot.timer = setTimeout(() => useFallback('计算线程响应超时'), timeoutMs);
         try { slot.worker.postMessage(message); } catch (error) { useFallback(error.message); break; }
@@ -116,6 +118,19 @@
       if (active) finish(active, cancelledError());
     }
     return {
+      async generateCandidates(poolSpec, start = 0, count = 32) {
+        await ready;
+        if (closed) throw cancelledError();
+        if (active) throw new Error('上一批候选尚未完成');
+        engine.poolTarget(poolSpec, profiles);
+        if (!Number.isSafeInteger(start) || start < 0 || !Number.isSafeInteger(count) || count < 1 || count > 1024) throw new Error('候选范围无效');
+        return new Promise((resolve, reject) => {
+          const job = {id: ++sequence, poolSpec: structuredClone(poolSpec), history: {}, start, limit: start + count,
+            results: [], cursor: start, next: start, pending: new Map(), timer: null, resolve, reject};
+          active = job;
+          if (fallback) job.timer = setTimeout(() => localStep(job), 0); else dispatch();
+        });
+      },
       async generateOne(number, history = {}) {
         await ready;
         if (closed) throw cancelledError();

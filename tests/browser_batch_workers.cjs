@@ -1,5 +1,6 @@
 /* Real Blob workers: determinism, response ordering, cancellation, fallback and cleanup. */
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{pathToFileURL}=require('node:url');
+const {produce}=require('./workflow_helpers.cjs');
 const puppeteer=require('puppeteer-core'),E=require('../src/gen'),L=require('../src/library'),A=require('../src/v2_adapter');
 const profiles=require('../src/profiles.json'),data=require('../data/game_vocab/catalog.json'),tiers=L.tieredRecipes(data);
 const lex=L.combine(data,{target:tiers.filter(r=>r.targetPool.sources.length),extra:tiers.filter(r=>r.extraPool.sources.length)}).lex;
@@ -51,35 +52,47 @@ const base=process.env.BASE_URL||'http://127.0.0.1:8000/',chrome=process.env.CHR
    assert.equal(actual.status.mode,'fallback',mode);assert.deepEqual(actual.levels,expectedOne,mode);assert.equal(await page.evaluate(()=>__liveWorkers+__workerUrls.size),0,mode);
   }
   await page.evaluate(()=>{window.Worker=__trackedWorker});
-  // Immediate cancellation preserves the current sequence and terminates starting workers.
-  await page.click('#btnBatch');await page.select('#bThreads','4');
+  // Inventory ranges keep every valid candidate and remain deterministic at nonzero offsets.
+  const spec={width:3,height:3,targetCount:3},poolExpected=E.generatePoolAttempts(spec,E.buildIndex(lex),profiles,config,513,64);
+  await page.evaluate(()=>{window.__runPool=async({config,spec,workers=4})=>{const gen=WPBatchGenerator.create({lex:__workerLex,profiles:WT_PROFILES,config,workers,startupTimeoutMs:40,workerSource:JSON.parse(batchWorker.textContent)});try{return {results:await gen.generateCandidates(spec,513,64),status:gen.status()}}finally{gen.close()}}});
+  for(const mode of ['normal','reordered','unavailable','timeout','crash']){
+   await page.evaluate(mode=>{
+    window.Worker=__trackedWorker;
+    if(mode==='reordered')window.Worker=class extends __trackedWorker{postMessage(m){if(m.poolSpec&&m.start===513)setTimeout(()=>{if(this.live)super.postMessage(m)},30);else super.postMessage(m)}};
+    if(mode==='unavailable')window.Worker=undefined;
+    if(mode==='timeout')window.Worker=class extends __trackedWorker{postMessage(m){if(m.type!=='init')super.postMessage(m)}};
+    if(mode==='crash'){window.__crashed=false;window.Worker=class extends __trackedWorker{postMessage(m){if(m.poolSpec&&!__crashed){__crashed=true;setTimeout(()=>this.onerror?.({message:'inventory failure',preventDefault(){}}),0)}else super.postMessage(m)}}}
+   },mode);
+   const actual=await page.evaluate(args=>__runPool(args),{config,spec});assert.deepEqual(actual.results,poolExpected,mode);
+   if(['unavailable','timeout','crash'].includes(mode))assert.equal(actual.status.mode,'fallback',mode);
+   assert.equal(await page.evaluate(()=>__liveWorkers+__workerUrls.size),0,mode);
+  }
+  await page.evaluate(()=>{window.Worker=__trackedWorker});
   const original=await page.evaluate(()=>__desk.deskText());
-  await page.evaluate(()=>{bMode.value='replace';bCount.value=100;bAttempts.value=1000;__desk.startBatch();bStop.click()});
+  await page.evaluate(async()=>{const p=await __desk.workflow.store.createPool('取消验收');await __desk.workflow.refresh(p.id)});
+  await page.click('#btnBatch');await page.waitForSelector('#batch',{visible:true});await page.select('#bThreads','4');
+  await page.evaluate(()=>{document.querySelector('[data-production="quantity"]').value=100;bBudget.value=5000;__desk.startBatch();bStop.click()});
   await page.waitForFunction(()=>window.__lastBatch);assert.equal(await page.evaluate(()=>__lastBatch.cancelled),true);assert.equal(await page.evaluate(()=>__lastBatch.made),0);assert.equal(await page.evaluate(()=>__desk.deskText()),original);
   assert.equal(await page.evaluate(()=>__liveWorkers+__workerUrls.size),0);
-  // Stop during the second level: retain only the first fully accepted level, with no late writes.
+  // Cancel during the second chunk: committed candidates survive; no late writes are accepted.
   await page.evaluate(()=>{
-   const create=WPBatchGenerator.create;window.__originalCreate=create;
-   WPBatchGenerator.create=opts=>{const progress=opts.onProgress;return create({...opts,onProgress:p=>{progress?.(p);if(p.number===2)bStop.click()}})};
-   bFrom.value=1;bCount.value=10;bAttempts.value=100;bSeed.value='partial-cancel-QA';__desk.startBatch();
+   window.__originalCreate=WPBatchGenerator.create;window.__chunkCalls=0;
+   WPBatchGenerator.create=opts=>{const gen=__originalCreate(opts),generate=gen.generateCandidates.bind(gen);gen.generateCandidates=(...args)=>{const promise=generate(...args);if(++__chunkCalls===2)bStop.click();return promise};return gen};
+   bSeed.value='partial-pool-cancel-QA';__desk.startBatch();
   });
-  await page.waitForFunction(()=>window.__lastBatch);assert.equal(await page.evaluate(()=>__lastBatch.made),1);assert.equal(await page.evaluate(()=>__lastBatch.cancelled),true);
-  const partial=await page.evaluate(()=>__desk.deskText());await new Promise(r=>setTimeout(r,100));assert.equal(await page.evaluate(()=>__desk.deskText()),partial);
-  assert.equal(await page.evaluate(()=>__liveWorkers+__workerUrls.size),0);
+  await page.waitForFunction(()=>window.__lastBatch);const partial=await page.evaluate(()=>__lastBatch);assert(partial.made>0);assert.equal(partial.cancelled,true);
+  const count=await page.evaluate(async()=> (await __desk.workflow.store.allEntries(poolSelect.value)).length);assert.equal(count,partial.made);
+  await new Promise(r=>setTimeout(r,100));assert.equal(await page.evaluate(async()=> (await __desk.workflow.store.allEntries(poolSelect.value)).length),count);
+  assert.equal(await page.evaluate(()=>__desk.deskText()),original);assert.equal(await page.evaluate(()=>__liveWorkers+__workerUrls.size),0);
   await page.evaluate(()=>{WPBatchGenerator.create=__originalCreate});
-  // Background work must never replace edits made after the batch began.
-  await page.evaluate(()=>{bCount.value=3;bFrom.value=1;__desk.startBatch();__desk.campaign().levels[0].name='生成期间的编辑'});
-  await page.waitForFunction(()=>window.__lastBatch);
-  assert.equal(await page.evaluate(()=>__lastBatch.discarded),true);assert.equal(await page.evaluate(()=>__lastBatch.made),0);
-  assert.equal(await page.evaluate(()=>__desk.campaign().levels[0].name),'生成期间的编辑');
-  assert.equal(await page.evaluate(()=>__liveWorkers+__workerUrls.size),0);
-  await page.screenshot({path:'/tmp/batch-workers-desktop.png'});
-  await page.click('#bClose');
+  // Campaign edits during production persist independently of the inventory run.
+  await page.evaluate(()=>{document.querySelector('[data-production="quantity"]').value=3;__desk.startBatch();__desk.campaign().levels[0].name='生成期间的编辑'});
+  await page.waitForFunction(()=>window.__lastBatch);assert.equal(await page.evaluate(()=>__lastBatch.made),3);assert.equal(await page.evaluate(()=>__desk.campaign().levels[0].name),'生成期间的编辑');
+  assert.equal(await page.evaluate(()=>__liveWorkers+__workerUrls.size),0);await page.click('#bClose');
   for(const name of ['index.html','wordpages-level-desk.html']){
-   const offline=await browser.newPage();offline.on('pageerror',e=>errors.push(e.message));await offline.goto(pathToFileURL(path.resolve(__dirname,'..',name)).href,{waitUntil:'load'});await offline.evaluate(()=>__desk.ready());await offline.click('#btnBatch');
-   await offline.evaluate(()=>{bThreads.value='2';bCount.value=2;bFrom.value=1;bMode.value='replace';bSeed.value='offline-workers-QA'});await offline.click('#bGo');await offline.waitForFunction(()=>window.__lastBatch,{timeout:60000});
-   const summary=await offline.evaluate(()=>__lastBatch);assert.equal(summary.execution,'workers');assert.equal(summary.workers,2);assert.equal(summary.made,2);await offline.close();
+   const context=await browser.createBrowserContext(),offline=await context.newPage();offline.on('pageerror',e=>errors.push(e.message));await offline.goto(pathToFileURL(path.resolve(__dirname,'..',name)).href,{waitUntil:'load'});await offline.evaluate(()=>__desk.ready());
+   await offline.evaluate(()=>{bThreads.value='2'});const {result}=await produce(offline,2,'offline-workers-QA');assert.equal(result.execution,'workers');assert.equal(result.workers,2);await context.close();
   }
-  assert.deepEqual(errors,[]);console.log('workers: Node parity, 1/4 threads, out-of-order results, history, responsiveness, fallback, timeout, crash recovery, immediate/partial cancellation, cleanup and both offline HTML files passed');
+  assert.deepEqual(errors,[]);console.log('workers: Node parity, 1/4 threads, out-of-order results, history, responsiveness, fallback, timeout, crash recovery, inventory range parity, immediate/partial cancellation, cleanup and both offline HTML files passed');
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});

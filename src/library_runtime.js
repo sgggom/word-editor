@@ -180,9 +180,9 @@
         targetIds: selected?.target ? [defaultLibraryId] : [], extraIds: selected?.extra ? [defaultLibraryId] : []};
     }
     if (!batchLibrarySelection.mode) Object.assign(batchLibrarySelection, {mode: 'fixed', ...WPLibrarySchedule.defaults(libraryRecipes)});
-    const staged = batchLibrarySelection.mode === 'staged';
-    $('#bLibraryMode').value = batchLibrarySelection.mode;
-    $('#bLibraryModeHint').textContent = staged ? '勾选词库并设置从第几关开始加入，已加入的库会持续可用。必答和仅额外分别设置，按下方“起始关号”计算。' : '整批使用同一组词库；切换“按关号解锁”可逐步加入核心、一级、二级和三级库。';
+    // Inventory production fixes its word sources per batch. Preserve old unlock
+    // preferences in saved state, but do not apply campaign positions here.
+    const staged = false;
     for (const key of ['target', 'extra']) {
       const valid = new Set(options.filter(x => x[key] > 0).map(x => x.recipe.id));
       batchLibrarySelection[key + 'Ids'] = [...new Set(batchLibrarySelection[key + 'Ids'])].filter(id => valid.has(id));
@@ -202,14 +202,9 @@
   }
   function rememberBatchLibrarySelection() {
     if (!batchSelectionLoaded || batchRun) return;
-    if ($('#bLibraryMode').value !== batchLibrarySelection.mode) {
-      batchLibrarySelection.mode = $('#bLibraryMode').value;
-      persistBatchLibrarySelection().catch(() => toast('本次词库选择暂未保存')); syncLibrarySelectors(); return;
-    }
     for (const key of ['target', 'extra']) {
       const ids = [...document.querySelectorAll('[data-batch-library="' + key + '"]:checked')].map(el => el.value);
-      if (batchLibrarySelection.mode === 'staged') batchLibrarySelection.stagedIds[key] = ids;
-      else batchLibrarySelection[key + 'Ids'] = ids;
+      batchLibrarySelection[key + 'Ids'] = ids;
     }
     for (const el of document.querySelectorAll('[data-batch-unlock]')) batchLibrarySelection.unlockAt[el.dataset.batchUnlock][el.dataset.libraryId] = Number(el.value);
     persistBatchLibrarySelection().catch(() => toast('本次词库选择暂未保存'));

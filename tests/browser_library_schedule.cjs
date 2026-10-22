@@ -1,107 +1,42 @@
-/* Cumulative unlocks in the real editor, with per-stage immutable snapshots. */
-const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
-const puppeteer=require('puppeteer-core'),L=require('../src/library'),S=require('../src/library_schedule'),E=require('../src/gen'),A=require('../src/v2_adapter');
-const data=require('../data/game_vocab/catalog.json'),profiles=require('../src/profiles.json'),recipes=L.tieredRecipes(data),defaults=S.defaults(recipes);
+/* Stage selection now belongs to arrangement segments, never candidate ordinals. */
+const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path');
+const puppeteer=require('puppeteer-core'),L=require('../src/library'),{produceAndApply}=require('./workflow_helpers.cjs');
+const data=require('../data/game_vocab/catalog.json'),recipes=L.tieredRecipes(data);
 const base=process.env.BASE_URL||'http://127.0.0.1:8000/',chrome=process.env.CHROMIUM_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
-const out='/tmp/word-schedule-validation';fs.mkdirSync(out,{recursive:true});const checks=[];
-const unlock=(kind,tier)=>'[data-batch-unlock="'+kind+'"][data-library-id="four-game-'+kind+'-'+tier+'"]';
 (async()=>{
- const browser=await puppeteer.launch({executablePath:chrome,headless:true});
+ const browser=await puppeteer.launch({executablePath:chrome,headless:true}),temp=fs.mkdtempSync(path.join(os.tmpdir(),'pool-segments-'));
  try{
   const page=await browser.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.setViewport({width:1440,height:1100});
-  const ready=async()=>{await page.goto(base,{waitUntil:'networkidle0'});await page.evaluate(()=>__desk.ready())};
-  const setUnlock=async(kind,tier,from)=>page.$eval(unlock(kind,tier),(e,from)=>{e.value=from;e.dispatchEvent(new Event('input',{bubbles:true}))},from);
-  const setRange=async(start,count)=>page.evaluate(({start,count})=>{bFrom.value=start;bCount.value=count;bCount.dispatchEvent(new Event('input',{bubbles:true}))},{start,count});
-  await ready();await page.click('#btnBatch');assert.equal(await page.$eval('#bLibraryMode',e=>e.value),'fixed');
-  await page.select('#bLibraryMode','staged');
-  assert.equal(await page.$$eval('[data-batch-library]:checked',es=>es.length),8);
-  for(const kind of ['target','extra'])for(const [i,tier] of ['core','level1','level2','level3'].entries())assert.equal(await page.$eval(unlock(kind,tier),e=>Number(e.value)),[1,101,201,501][i]);
-  await setRange(98,405);assert.equal(await page.$$eval('#bStagePreview tbody tr',es=>es.length),4);
-  assert.match(await page.$eval('#bStagePreview',e=>e.textContent),/10,748/);assert.match(await page.$eval('#bStagePreview',e=>e.textContent),/11,692/);
-  await page.screenshot({path:'/tmp/batch-library-stages.png'});
-  await setUnlock('extra','level1',301);assert.equal(await page.$$eval('#bStagePreview tbody tr',es=>es.length),5);
-  await setUnlock('extra','level1',101);await setRange(1,3);await setUnlock('target','core',2);
-  assert(await page.$eval('#bGo',e=>e.disabled));assert.match(await page.$eval('#bLexNote',e=>e.textContent),/1 关没有生效必答/);
-  const untouched=await page.evaluate(()=>__desk.deskText());await page.evaluate(()=>__desk.startBatch());assert.equal(await page.evaluate(()=>__desk.deskText()),untouched);
-  await setUnlock('target','core',1);await setUnlock('target','level1','101.5');assert(await page.$eval('#bGo',e=>e.disabled));
-  await setUnlock('target','level1',101);assert.equal(await page.$eval('#bGo',e=>e.disabled),false);
-  // Switching view never mixes the two independent sets of preferences.
-  await page.select('#bLibraryMode','fixed');assert.equal(await page.$$eval('[data-batch-library]:checked',es=>es.length),1);
-  await page.select('#bLibraryMode','staged');assert.equal(await page.$$eval('[data-batch-library]:checked',es=>es.length),8);
-  await page.click('#bClose');await page.evaluate(()=>__desk.flush());await ready();await page.click('#btnBatch');
-  assert.equal(await page.$eval('#bLibraryMode',e=>e.value),'staged');
-  await page.evaluate(()=>{const create=WPBatchGenerator.create;window.__stageWorkerInits=[];WPBatchGenerator.create=options=>{
-   __stageWorkerInits.push(options.lex.length);if(!bLibraryMode.disabled||!bTargetLibraries.disabled||!bExtraLibraries.disabled)throw new Error('词库设置未锁定');return create(options)
-  }});
-  for(const preset of ['list0','list5'])for(const start of [99,199,499]){
-   await setRange(start,4);
-   await page.evaluate(preset=>{bMode.value='replace';bThreads.value='4';bPreset.value=preset;bAttempts.value=160;bSeed.value='stage-boundary-QA';__stageWorkerInits=[]},preset);
-   await page.click('#bGo');await page.waitForFunction(()=>window.__lastBatch,{timeout:120000});
-   const result=await page.evaluate(()=>({summary:__lastBatch,campaign:JSON.parse(__desk.deskText()),levels:__desk.exportLevels(),inits:__stageWorkerInits,cfg:__desk.cfg()}));
-   assert.equal(result.summary.failed,0,JSON.stringify(result.summary));assert.equal(result.summary.made,4);assert.equal(result.summary.libraryMode,'staged');
-   assert.equal(result.summary.execution,'workers');assert.equal(result.inits.length,2);assert.equal(result.summary.librarySnapshotIds.length,2);
-   const plan=S.compile(data,recipes,{mode:'staged',targetIds:defaults.stagedIds.target,extraIds:defaults.stagedIds.extra,unlockAt:defaults.unlockAt},{},{start,count:4});
-   const history={usage:{},recent:new Map()};
-   for(let i=0;i<4;i++){
-    const n=start+i,stage=S.stageFor(plan,n),draft=result.campaign.levels[i],snap=result.campaign.librarySnapshots[draft.librarySnapshotId];
-    assert.deepEqual(snap,stage.plan.snapshot);assert.deepEqual(draft.gen.libraryStage,{from:stage.unlockFrom,to:stage.unlockTo});
-    const expected=E.generateOne(n,E.buildIndex(snap.lex),profiles,result.cfg,history);assert(expected.ok);
-    const game=A.toGame(expected.level),actual=result.levels[i];assert.equal(actual.g,game.g);assert.equal(actual.n,game.n);
-    for(const key of ['t','e'])assert.deepEqual(actual[key].split(' ').filter(Boolean).sort(),game[key].split(' ').filter(Boolean).sort());
-    for(const w of expected.level.targets){history.usage[w]=(history.usage[w]||0)+1;history.recent.set(w,n)}
-   }
-   for(const [i,stage] of plan.stages.entries()){
-    const name=preset+'-'+start+'-'+i,levelsFile=path.join(out,name+'-levels.json'),lexFile=path.join(out,name+'-lex.json');
-    const levels=result.levels.filter((_,i)=>result.campaign.levels[i].librarySnapshotId===stage.plan.snapshot.id);
-    fs.writeFileSync(levelsFile,JSON.stringify(levels));fs.writeFileSync(lexFile,JSON.stringify(stage.plan.lex));checks.push({file:levelsFile,lexFile,count:levels.length});
-   }
+  await page.goto(base,{waitUntil:'networkidle0'});await page.evaluate(()=>__desk.ready());await page.click('#btnBatch');await page.waitForSelector('#batch',{visible:true});
+  assert.equal(await page.$('#bLibraryMode'),null,'generation has no campaign-number unlock control');
+  const first=await produceAndApply(page,3,'core-stage-QA');
+  const firstSnapshot=await page.evaluate(id=>__desk.campaign().librarySnapshots[id],first.result.librarySnapshotId);
+  assert.deepEqual(firstSnapshot,L.combine(data,{target:[recipes.find(r=>r.id==='four-game-target-core')],extra:[]}).snapshot);
+  await page.click('#btnBatch');await page.waitForSelector('#batch',{visible:true});await page.click('[data-batch-library="target"][value="four-game-target-level1"]');await page.click('[data-batch-library="extra"][value="four-game-extra-core"]');
+  const second=await produceAndApply(page,3,'expanded-stage-QA','after');
+  const campaign=await page.evaluate(()=>JSON.parse(__desk.deskText())),plan=campaign.arrangement.plan;
+  assert.equal(campaign.levels.length,6);assert.equal(plan.segments.length,2);assert.deepEqual(plan.segments.map(s=>[s.from,s.to,s.poolIds]),[[1,3,[first.poolId]],[4,6,[second.poolId]]]);
+  assert.deepEqual(campaign.levels.map(d=>d.arrangement.poolId),Array(3).fill(first.poolId).concat(Array(3).fill(second.poolId)));
+  assert.deepEqual(campaign.levels.map(d=>d.librarySnapshotId),Array(3).fill(first.result.librarySnapshotId).concat(Array(3).fill(second.result.librarySnapshotId)));
+  assert.deepEqual(campaign.librarySnapshots[first.result.librarySnapshotId],firstSnapshot);assert.equal(await page.evaluate(()=>__desk.workflow.audit().ok),true);
+  // Candidate history has no formal number, and both production batches keep their explicit shape/count.
+  for(const id of [first.poolId,second.poolId]){
+   const entries=await page.evaluate(id=>__desk.workflow.store.allEntries(id),id);
+   assert(entries.every(e=>e.metrics.width===3&&e.metrics.height===3&&e.metrics.targetCount===3&&!e.generation.number));
   }
-  // Cancel while the second stage is starting; accept only the completed first stage.
-  await setRange(99,4);
-  await page.evaluate(()=>{
-   const create=WPBatchGenerator.create;window.__stageCreate=create;window.__stageStarts=0;
-   WPBatchGenerator.create=options=>{const generator=create(options);if(++__stageStarts===2)setTimeout(()=>bStop.click(),0);return generator};
-   bSeed.value='stage-boundary-QA';bPreset.value='list0';
-  });
-  await page.click('#bGo');await page.waitForFunction(()=>window.__lastBatch);
-  assert.equal(await page.evaluate(()=>__lastBatch.cancelled),true);assert.equal(await page.evaluate(()=>__lastBatch.made),2);
-  assert.deepEqual(await page.evaluate(()=>__desk.campaign().levels.map(d=>d.gen.no)),[99,100]);
-  // A worker failure after the boundary retries with the newly unlocked vocabulary.
-  await page.evaluate(()=>{
-   WPBatchGenerator.create=__stageCreate;window.__nativeStageWorker=Worker;window.__stageStarts=0;
-   WPBatchGenerator.create=options=>{if(++__stageStarts===2)window.Worker=undefined;return __stageCreate(options)};
-  });
-  await page.click('#bGo');await page.waitForFunction(()=>window.__lastBatch);
-  assert.equal(await page.evaluate(()=>__lastBatch.made),4);assert.equal(await page.evaluate(()=>__lastBatch.execution),'mixed');
-  assert.equal(await page.evaluate(()=>__desk.campaign().librarySnapshots[__desk.campaign().levels[2].librarySnapshotId].recipe.selection.target.length),2);
-  await page.evaluate(()=>{Worker=__nativeStageWorker;WPBatchGenerator.create=__stageCreate});
-  const preserved=await page.evaluate(()=>__desk.deskText());
-  await setRange(100,2);await page.evaluate(()=>{bMaxN.value=1;bAttempts.value=10});await page.click('#bGo');await page.waitForFunction(()=>window.__lastBatch);
-  assert.equal(await page.evaluate(()=>__lastBatch.made),0);assert.equal(await page.evaluate(()=>__desk.deskText()),preserved);
-  await page.evaluate(()=>{bMaxN.value=13;bAttempts.value=160});
-  // All four stages in one run; both pool thresholds are editable and saved independently.
-  for(const kind of ['target','extra'])for(const [i,tier] of ['level1','level2','level3'].entries())await setUnlock(kind,tier,i+2);
-  await setRange(1,4);await page.evaluate(()=>{bPreset.value='list0';bSeed.value='all-stages-QA'});await page.click('#bGo');await page.waitForFunction(()=>window.__lastBatch);
-  assert.equal(await page.evaluate(()=>__lastBatch.made),4);assert.equal(await page.evaluate(()=>__lastBatch.librarySnapshotIds.length),4);
-  const saved=await page.evaluate(()=>__desk.deskText()),savedLevels=await page.evaluate(()=>__desk.exportLevels());
-  await setUnlock('extra','level1',9);assert.equal(await page.evaluate(()=>__desk.deskText()),saved);
-  await page.click('#bClose');await page.evaluate(()=>__desk.flush());await ready();await page.click('#btnBatch');
-  assert.equal(await page.$eval(unlock('extra','level1'),e=>Number(e.value)),9);assert.equal(await page.$eval(unlock('target','level1'),e=>Number(e.value)),2);
-  assert.deepEqual(await page.evaluate(()=>__desk.exportLevels()),savedLevels);await page.click('#bClose');
-  await page.evaluate(text=>__desk.importText(text),saved);await page.waitForSelector('#modal',{visible:true});
-  await page.evaluate(()=>[...document.querySelectorAll('#mBtns button')].find(b=>b.textContent==='导入').click());await page.waitForSelector('#modal',{hidden:true});
-  assert.deepEqual(await page.evaluate(()=>JSON.parse(__desk.deskText()).librarySnapshots),JSON.parse(saved).librarySnapshots);
-  const pack=JSON.parse(await page.evaluate(()=>__desk.packText()));assert.deepEqual(Object.keys(pack).sort(),['books','daily']);
-  for(const level of pack.books.flatMap(b=>b.levels).concat(pack.daily))assert.deepEqual(Object.keys(level).sort(),['curtains','e','g','id','lv','n','name','t','ty']);
-  // New generation can cross boundaries without a server in either distributable HTML.
-  for(const file of ['index.html','wordpages-level-desk.html']){
-   const context=await browser.createBrowserContext(),offline=await context.newPage();offline.on('pageerror',e=>errors.push(e.message));
-   await offline.goto('file://'+path.resolve(__dirname,'..',file),{waitUntil:'load'});await offline.evaluate(()=>__desk.ready());await offline.click('#btnBatch');await offline.select('#bLibraryMode','staged');
-   await offline.evaluate(()=>{bFrom.value=100;bCount.value=2;bMode.value='replace';bThreads.value='2';bSeed.value='offline-stages-QA'});
-   await offline.click('#bGo');await offline.waitForFunction(()=>window.__lastBatch,{timeout:60000});
-   assert.equal(await offline.evaluate(()=>__lastBatch.made),2);assert.equal(await offline.evaluate(()=>__lastBatch.librarySnapshotIds.length),2);assert.equal(await offline.evaluate(()=>__lastBatch.execution),'workers');await context.close();
-  }
-  fs.writeFileSync(path.join(out,'runs.json'),JSON.stringify(checks,null,2));assert.deepEqual(errors,[]);
-  console.log('staged libraries: all boundaries on both profiles, independent pools, worker switches, Node parity with continuous history, frozen snapshots, preferences, file round trips and both offline HTML files passed');
- }finally{await browser.close()}
-})().catch(error=>{console.error(error);process.exitCode=1});
+  const saved=await page.evaluate(()=>__desk.deskText()),games=await page.evaluate(()=>__desk.exportLevels());
+  await page.evaluate(()=>__desk.flush());await page.reload({waitUntil:'networkidle0'});await page.evaluate(()=>__desk.ready());
+  assert.equal(await page.evaluate(()=>__desk.deskText()),saved);assert.deepEqual(await page.evaluate(()=>__desk.workflow.plan()),plan);
+  // Scheme file round trip is independent from the campaign and inventories.
+  const file=path.join(temp,'stages.arrangement.json');fs.writeFileSync(file,JSON.stringify(plan));
+  await page.click('#btnArrange');await page.waitForSelector('#arrange',{visible:true});
+  await page.$eval('#aSeed',e=>{e.value='changed';e.dispatchEvent(new Event('input',{bubbles:true}));});
+  await (await page.$('#arrangementFile')).uploadFile(file);await page.waitForFunction(seed=>__desk.workflow.plan().seed===seed,{},plan.seed);
+  assert.deepEqual(await page.evaluate(()=>__desk.workflow.plan()),plan);assert.equal(await page.evaluate(()=>__desk.workflow.preview()),null);assert.equal(await page.evaluate(()=>__desk.deskText()),saved);
+  await page.click('#aRun');await page.waitForFunction(()=>window.__lastArrangement);assert.equal(await page.evaluate(()=>__lastArrangement.status),'complete');await page.click('#aClose');
+  await page.evaluate(text=>__desk.importText(text),saved);await page.waitForSelector('#modal',{visible:true});await page.evaluate(()=>[...document.querySelectorAll('#mBtns button')].find(b=>b.textContent==='导入').click());await page.waitForSelector('#modal',{hidden:true});
+  assert.deepEqual(await page.evaluate(()=>__desk.exportLevels()),games);assert.deepEqual(await page.evaluate(()=>JSON.parse(__desk.deskText()).librarySnapshots),campaign.librarySnapshots);
+  for(const game of games)assert.deepEqual(Object.keys(game).sort(),['curtains','e','g','id','lv','n','name','t','ty']);
+  assert.deepEqual(errors,[]);console.log('pool segments: independent sources, explicit production shape/count, per-segment selection, shared frozen snapshots, saved plan/import/export and campaign round trip passed');
+ }finally{await browser.close();fs.rmSync(temp,{recursive:true,force:true});}
+})().catch(e=>{console.error(e);process.exitCode=1});

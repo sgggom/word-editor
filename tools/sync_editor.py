@@ -4,22 +4,33 @@ import json
 from pathlib import Path
 import re
 import subprocess
+import argparse
+
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--editor-only', action='store_true', help='Refresh editor code without rebuilding or changing embedded vocabulary data')
+args = parser.parse_args()
 
 root = Path(__file__).resolve().parents[1]
 index = root / 'index.html'
 text = index.read_text()
 # Derive the CLI default with exactly the same compiler used in the browser.
-compiled = subprocess.check_output(['node', '-e', "const L=require('./src/library');const d=require('./data/game_vocab/catalog.json');process.stdout.write(JSON.stringify(L.compile(d,L.tieredRecipes(d)[0]).lex,null,2)+'\\n');"], cwd=root, text=True)
-(root / 'src/lex.json').write_text(compiled)
+if not args.editor_only:
+    compiled = subprocess.check_output(['node', '-e', "const L=require('./src/library');const d=require('./data/game_vocab/catalog.json');process.stdout.write(JSON.stringify(L.compile(d,L.tieredRecipes(d)[0]).lex,null,2)+'\\n');"], cwd=root, text=True)
+    (root / 'src/lex.json').write_text(compiled)
 start = text.index('/* 旧关卡与手工编辑的路径校验辅助函数')
 end = text.index('</script>', start)
-source = '\n'.join((root / name).read_text() for name in ['src/validation.js', 'src/gen.js', 'src/batch_generator.js', 'src/v2_adapter.js', 'src/library.js', 'src/library_schedule.js', 'src/library_overlap.js', 'src/proportional_venn.js'])
+source = '\n'.join((root / name).read_text() for name in ['src/validation.js', 'src/gen.js', 'src/batch_generator.js', 'src/v2_adapter.js', 'src/library.js', 'src/library_schedule.js', 'src/library_overlap.js', 'src/proportional_venn.js', 'src/level_pool.js', 'src/pool_store.js', 'src/arrangement.js'])
 source += '\nwindow.WT_PROFILES = ' + (root / 'src/profiles.json').read_text().strip() + ';\n'
 text = text[:start] + source + text[end:]
 worker_source = (root / 'src/gen.js').read_text() + '\n' + (root / 'src/batch_worker.js').read_text()
 worker_payload = json.dumps(worker_source, ensure_ascii=False).replace('</', '<\\/')
 text = re.sub(r'(<script id="batchWorker"[^>]*>).*?(</script>)', lambda m: m[1] + worker_payload + m[2], text, flags=re.S)
+arrangement_worker = (root / 'src/arrangement.js').read_text() + '\n' + (root / 'src/arrangement_worker.js').read_text()
+payload = json.dumps(arrangement_worker, ensure_ascii=False).replace('</', '<\\/')
+text = re.sub(r'(<script id="arrangementWorker"[^>]*>).*?(</script>)', lambda m: m[1] + payload + m[2], text, flags=re.S)
 for key, filename in [('lex', 'src/lex.json'), ('gameVocab', 'data/game_vocab/catalog.json'), ('policy', 'src/policy.json'), ('versions', 'src/version_history.json'), ('defaultGlossary', 'data/glossary/default.json'), ('requiredLetters', 'data/required_letters.json')]:
+    if args.editor_only and key != 'versions':
+        continue
     payload = json.dumps(json.loads((root / filename).read_text()), ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
     text = re.sub(r'(<script id="' + key + r'"[^>]*>).*?(</script>)', lambda m: m[1] + payload + m[2], text, flags=re.S)
 for name, start_marker, end_marker in [
@@ -36,6 +47,12 @@ text = re.sub(r'(<button[^>]*id="btnVersion")([^>]*>).*?(</button>)',
               lambda m: m[1] + ' aria-label="版本 v' + version + '，点击查看版本历史" aria-haspopup="dialog">v' + version + m[3], text)
 start = text.index('  /* ---------- 批量生成（WTEngine v2）')
 end = text.index('  function goLevel', start)
-(root / 'src/batch_ui.js').write_text(text[start:end])
+text = text[:start] + '\n'.join((root / name).read_text() for name in ['src/batch_ui.js', 'src/inventory_ui.js', 'src/arrangement_ui.js']) + '\n' + text[end:]
+start = text.index('<!-- 关卡生成与排布面板 -->')
+end = text.index('<!-- 关卡生成与排布面板结束 -->', start) + len('<!-- 关卡生成与排布面板结束 -->')
+text = text[:start] + (root / 'src/workflow_panels.html').read_text().rstrip() + text[end:]
+start = text.index('/* 关卡生成与排布样式 */')
+end = text.index('/* 关卡生成与排布样式结束 */', start) + len('/* 关卡生成与排布样式结束 */')
+text = text[:start] + (root / 'src/workflow_panels.css').read_text().rstrip() + text[end:]
 index.write_text(text)
 (root / 'wordpages-level-desk.html').write_text(text)

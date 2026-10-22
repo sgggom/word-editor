@@ -1,3 +1,4 @@
+const {produceAndApply}=require('./workflow_helpers.cjs');
 /* Independent target/extra selection, versioned generation and preference persistence. */
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const puppeteer=require('puppeteer-core'),L=require('../src/library'),data=require('../data/game_vocab/catalog.json');
@@ -13,26 +14,24 @@ const chosen=(page,kind)=>page.$$eval('[data-batch-library="'+kind+'"]:checked',
   const page=await browser.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.setViewport({width:1440,height:1000});
   const ready=async(url=base)=>{await page.goto(url,{waitUntil:'networkidle0'});await page.evaluate(()=>__desk.ready())};
   const generate=async(count=3,mode='replace',tag='combined')=>{
-   await page.evaluate(({count,mode})=>{bCount.value=count;bFrom.value=1;bMode.value=mode;bAttempts.value=100;bSeed.value='batch-library-QA'}, {count,mode});
-   await page.click('#bGo');await page.waitForFunction(()=>window.__lastBatch,{timeout:120000});
-   const result=await page.evaluate(()=>__lastBatch);assert.equal(result.made,count,JSON.stringify(result));
+   const {result}=await produceAndApply(page,count,'batch-library-QA',mode);
    const bundle=await page.evaluate(id=>{
     const c=__desk.campaign(),levels=__desk.exportLevels();
     return {snapshot:c.librarySnapshots[id],levels:levels.filter((l,i)=>c.levels[i].librarySnapshotId===id)};
    },result.librarySnapshotId);
    fs.writeFileSync('/tmp/batch-library-'+tag+'-levels.json',JSON.stringify(bundle.levels));
    fs.writeFileSync('/tmp/batch-library-'+tag+'-lex.json',JSON.stringify(bundle.snapshot.lex));
-   await page.click('#bClose');return {result,...bundle};
+   return {result,...bundle};
   };
-  await ready(base+'?fresh=1');await page.click('#btnBatch');
+  await ready(base+'?fresh=1');await page.click('#btnBatch');await page.waitForSelector('#batch',{visible:true});
   assert.equal(await page.$$eval('[data-batch-library="target"]',es=>es.length),4);
   assert.equal(await page.$$eval('[data-batch-library="extra"]',es=>es.length),4);
   assert.deepEqual(await chosen(page,'target'),[core]);assert.deepEqual(await chosen(page,'extra'),[]);
   await page.click(checkbox('target',level1));await page.click(checkbox('extra',extraCore));await page.click(checkbox('extra',extraLevel1));
   assert.match(await page.$eval('#bLexNote',e=>e.textContent),/3,363/);assert.match(await page.$eval('#bLexNote',e=>e.textContent),/1,686/);
   await page.screenshot({path:'/tmp/batch-multiselect-two-groups.png'});
-  await page.click('#bClose');await page.click('#btnBatch');assert.deepEqual(await chosen(page,'target'),[core,level1]);
-  await page.click('#bClose');await page.evaluate(()=>__desk.flush());await ready();await page.click('#btnBatch');
+  await page.click('#bClose');await page.click('#btnBatch');await page.waitForSelector('#batch',{visible:true});assert.deepEqual(await chosen(page,'target'),[core,level1]);
+  await page.click('#bClose');await page.evaluate(()=>__desk.flush());await ready();await page.click('#btnBatch');await page.waitForSelector('#batch',{visible:true});
   assert.deepEqual(await chosen(page,'target'),[core,level1]);assert.deepEqual(await chosen(page,'extra'),[extraCore,extraLevel1]);
   await page.evaluate(()=>{
    const original=WPBatchGenerator.create;
@@ -52,7 +51,7 @@ const chosen=(page,kind)=>page.$$eval('[data-batch-library="'+kind+'"]:checked',
   assert.deepEqual(await page.evaluate(()=>__desk.exportLevels()),originalLevels);
   assert.deepEqual(await page.evaluate(id=>__desk.campaign().librarySnapshots[id],first.snapshot.id),first.snapshot);
   const revised=await page.evaluate(()=>__desk.libraries().recipes);
-  await page.click('#bankClose');await page.click('#btnBatch');
+  await page.click('#bankClose');await page.click('#btnBatch');await page.waitForSelector('#batch',{visible:true});
   assert.deepEqual(await chosen(page,'target'),[core,level1]);assert.match(await page.$eval('#bLexNote',e=>e.textContent),/10,748/);
   const second=await generate(1,'after','revised');assert.notEqual(second.snapshot.id,first.snapshot.id);
   assert.deepEqual(second.snapshot,L.combine(data,{target:revised.filter(r=>[core,level1].includes(r.id)),extra:revised.filter(r=>[extraCore,extraLevel1].includes(r.id))}).snapshot);
@@ -61,15 +60,15 @@ const chosen=(page,kind)=>page.$$eval('[data-batch-library="'+kind+'"]:checked',
 
   await page.click('#btnBank');await page.select('#librarySelect',extraLevel1);await page.click('#libraryDelete');
   await page.waitForFunction(id=>!__desk.libraries().recipes.some(r=>r.id===id),{},extraLevel1);
-  await page.click('#bankClose');await page.click('#btnBatch');assert.deepEqual(await chosen(page,'extra'),[extraCore]);
+  await page.click('#bankClose');await page.click('#btnBatch');await page.waitForSelector('#batch',{visible:true});assert.deepEqual(await chosen(page,'extra'),[extraCore]);
   assert.deepEqual(await page.evaluate(id=>__desk.campaign().librarySnapshots[id],first.snapshot.id),first.snapshot);
   await page.click('[data-batch-select="target"][data-select-all="0"]');assert(await page.$eval('#bGo',e=>e.disabled));
   const preserved=await page.evaluate(()=>__desk.deskText());await page.evaluate(()=>__desk.startBatch());
   assert.equal(await page.evaluate(()=>__desk.deskText()),preserved);
-  await page.click('#bClose');await page.evaluate(()=>__desk.flush());await ready();await page.click('#btnBatch');
+  await page.click('#bClose');await page.evaluate(()=>__desk.flush());await ready();await page.click('#btnBatch');await page.waitForSelector('#batch',{visible:true});
   assert.deepEqual(await chosen(page,'target'),[]);assert(await page.$eval('#bGo',e=>e.disabled));
   await page.click(checkbox('target',core));await page.click('[data-batch-select="extra"][data-select-all="0"]');
-  assert.equal(await page.$eval('#bGo',e=>e.disabled),false);assert.match(await page.$eval('#bLexNote',e=>e.textContent),/仅额外：已选 0 库，生效 0 词/);
+  assert.equal(await page.$eval('#bGo',e=>e.disabled),false);assert.match(await page.$eval('#bLexNote',e=>e.textContent),/仅额外 0 词/);
   const noExtra=await generate(1,'after','target-only');
   assert(noExtra.snapshot.lex.every(x=>x.role==='candidate'));
   assert.deepEqual(noExtra.snapshot.recipe.selection.extra,[]);
@@ -88,14 +87,13 @@ const chosen=(page,kind)=>page.$$eval('[data-batch-library="'+kind+'"]:checked',
   console.log('multiselect: separate groups, counts, persistence, frozen sources, revisions/deletions, empty target/extra, editor round trip and game format passed');
 
   const context=await browser.createBrowserContext(),offline=await context.newPage();offline.on('pageerror',e=>errors.push(e.message));await offline.setViewport({width:1440,height:1000});
-  await offline.goto('file://'+path.resolve(__dirname,'../wordpages-level-desk.html'),{waitUntil:'load'});await offline.evaluate(()=>__desk.ready());await offline.click('#btnBatch');
+  await offline.goto('file://'+path.resolve(__dirname,'../wordpages-level-desk.html'),{waitUntil:'load'});await offline.evaluate(()=>__desk.ready());await offline.click('#btnBatch');await offline.waitForSelector('#batch',{visible:true});
   await offline.click('[data-batch-select="target"][data-select-all="1"]');await offline.click('[data-batch-select="extra"][data-select-all="1"]');
   assert.equal((await chosen(offline,'target')).length,4);assert.equal((await chosen(offline,'extra')).length,4);
   assert.match(await offline.$eval('#bLexNote',e=>e.textContent),/10,748/);assert.match(await offline.$eval('#bLexNote',e=>e.textContent),/11,692/);
-  await offline.evaluate(()=>{bCount.value=1;bFrom.value=1;bMode.value='replace';bSeed.value='offline-multi-QA'});await offline.click('#bGo');
-  await offline.waitForFunction(()=>window.__lastBatch,{timeout:60000});assert.equal(await offline.evaluate(()=>__lastBatch.made),1);
+  await produceAndApply(offline,1,'offline-multi-QA');
   const saved=await offline.evaluate(()=>{const c=__desk.campaign();return c.librarySnapshots[c.levels[0].librarySnapshotId]});assert.deepEqual(saved.lex,L.compile(data,L.defaultRecipe(data)).lex.filter(x=>x.word.length!==2));
-  await offline.click('#bClose');await offline.evaluate(()=>__desk.flush());await offline.reload({waitUntil:'load'});await offline.evaluate(()=>__desk.ready());await offline.click('#btnBatch');
+  await offline.evaluate(()=>__desk.flush());await offline.reload({waitUntil:'load'});await offline.evaluate(()=>__desk.ready());await offline.click('#btnBatch');await offline.waitForSelector('#batch',{visible:true});
   assert.equal((await chosen(offline,'target')).length,4);assert.equal((await chosen(offline,'extra')).length,4);await context.close();
   assert.deepEqual(errors,[]);console.log('standalone HTML: all eight selections, generation, combined snapshot and refresh persistence passed');
  }finally{await browser.close()}
