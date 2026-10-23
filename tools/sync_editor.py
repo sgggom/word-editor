@@ -19,7 +19,7 @@ if not args.editor_only:
     (root / 'src/lex.json').write_text(compiled)
 start = text.index('/* 旧关卡与手工编辑的路径校验辅助函数')
 end = text.index('</script>', start)
-source = '\n'.join((root / name).read_text() for name in ['src/validation.js', 'src/gen.js', 'src/batch_generator.js', 'src/v2_adapter.js', 'src/library.js', 'src/library_schedule.js', 'src/library_overlap.js', 'src/proportional_venn.js', 'src/level_pool.js', 'src/pool_store.js', 'src/arrangement.js'])
+source = '\n'.join((root / name).read_text() for name in ['src/validation.js', 'src/gen.js', 'src/batch_generator.js', 'src/v2_adapter.js', 'src/library.js', 'src/library_schedule.js', 'src/library_overlap.js', 'src/proportional_venn.js', 'src/emotion.js', 'src/level_pool.js', 'src/pool_store.js', 'src/arrangement.js'])
 source += '\nwindow.WT_PROFILES = ' + (root / 'src/profiles.json').read_text().strip() + ';\n'
 text = text[:start] + source + text[end:]
 worker_source = (root / 'src/gen.js').read_text() + '\n' + (root / 'src/batch_worker.js').read_text()
@@ -28,8 +28,8 @@ text = re.sub(r'(<script id="batchWorker"[^>]*>).*?(</script>)', lambda m: m[1] 
 arrangement_worker = (root / 'src/arrangement.js').read_text() + '\n' + (root / 'src/arrangement_worker.js').read_text()
 payload = json.dumps(arrangement_worker, ensure_ascii=False).replace('</', '<\\/')
 text = re.sub(r'(<script id="arrangementWorker"[^>]*>).*?(</script>)', lambda m: m[1] + payload + m[2], text, flags=re.S)
-for key, filename in [('lex', 'src/lex.json'), ('gameVocab', 'data/game_vocab/catalog.json'), ('policy', 'src/policy.json'), ('versions', 'src/version_history.json'), ('defaultGlossary', 'data/glossary/default.json'), ('requiredLetters', 'data/required_letters.json')]:
-    if args.editor_only and key != 'versions':
+for key, filename in [('lex', 'src/lex.json'), ('gameVocab', 'data/game_vocab/catalog.json'), ('policy', 'src/policy.json'), ('versions', 'src/version_history.json'), ('wordTable', 'data/word_table.json'), ('defaultGlossary', 'data/glossary/default.json'), ('requiredLetters', 'data/required_letters.json')]:
+    if args.editor_only and key not in ('versions', 'wordTable'):
         continue
     payload = json.dumps(json.loads((root / filename).read_text()), ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
     text = re.sub(r'(<script id="' + key + r'"[^>]*>).*?(</script>)', lambda m: m[1] + payload + m[2], text, flags=re.S)
@@ -47,7 +47,7 @@ text = re.sub(r'(<button[^>]*id="btnVersion")([^>]*>).*?(</button>)',
               lambda m: m[1] + ' aria-label="版本 v' + version + '，点击查看版本历史" aria-haspopup="dialog">v' + version + m[3], text)
 start = text.index('  /* ---------- 批量生成（WTEngine v2）')
 end = text.index('  function goLevel', start)
-text = text[:start] + '\n'.join((root / name).read_text() for name in ['src/batch_ui.js', 'src/inventory_ui.js', 'src/arrangement_ui.js']) + '\n' + text[end:]
+text = text[:start] + '\n'.join((root / name).read_text() for name in ['src/batch_ui.js', 'src/inventory_ui.js', 'src/seed_history_ui.js', 'src/arrangement_ui.js']) + '\n' + text[end:]
 start = text.index('<!-- 关卡生成与排布面板 -->')
 end = text.index('<!-- 关卡生成与排布面板结束 -->', start) + len('<!-- 关卡生成与排布面板结束 -->')
 text = text[:start] + (root / 'src/workflow_panels.html').read_text().rstrip() + text[end:]

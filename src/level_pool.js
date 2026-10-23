@@ -1,8 +1,8 @@
 /* Complete inventory records and portable pool files; no browser storage. */
 (function(root,factory){
- const api=typeof module==='object'&&module.exports?factory(require('./gen'),require('./library')):factory(root.WTEngine,root.WPLibrary);
+ const api=typeof module==='object'&&module.exports?factory(require('./gen'),require('./library'),require('./emotion')):factory(root.WTEngine,root.WPLibrary,root.WPEmotion);
  if(typeof module==='object'&&module.exports)module.exports=api;else root.WPLevelPool=api;
-})(typeof globalThis!=='undefined'?globalThis:this,function(E,L){
+})(typeof globalThis!=='undefined'?globalThis:this,function(E,L,Emotion){
  'use strict';
  const sizes=[[4,2],[3,3],[4,3],[5,3]], fields=['id','name','g','t','n','e','lv','ty','curtains'];
  const clone=x=>JSON.parse(JSON.stringify(x));
@@ -25,7 +25,7 @@
   if(!game||typeof game.g!=='string'||typeof game.t!=='string'||typeof game.n!=='string')throw new Error('关卡格式无效');
   const rows=game.g.split(','),width=rows[0].length,height=rows.length,targets=words(game.t),extras=words(game.e);
   if(!sizes.some(([w,h])=>w===width&&h===height)||rows.some(row=>row.length!==width||!/^[A-Z]+$/.test(row)))throw new Error('关卡棋盘尺寸或字母无效');
-  if(targets.length<2||targets.length>16||new Set(targets).size!==targets.length||targets.some(w=>!/^[A-Z]{3,8}$/.test(w)))throw new Error('关卡必答词无效');
+  if(!targets.length||new Set(targets).size!==targets.length||targets.some(w=>!/^[A-Z]{3,8}$/.test(w)))throw new Error('关卡必答词无效');
   if(new Set(extras).size!==extras.length||extras.some(w=>!/^[A-Z]{2,8}$/.test(w))||extras.some(w=>targets.includes(w)))throw new Error('额外词无效');
   if(game.n.length!==width*height||!/^[1-9a-k]+$/.test(game.n))throw new Error('逐格次数无效');
   if(game.curtains?.some(c=>c.cells?.length))throw new Error('关卡库暂不接收带帘子的关卡');
@@ -33,7 +33,7 @@
  }
  function analyze(game,index){
   const lv=parseGame(game),ix=index||E.buildIndex(lv.targets.map(word=>({word,role:'candidate'})));
-  const found=new Map(E.scan(lv.grid,lv.width,lv.height,ix,32).map(item=>[item.word,item]));
+  const found=new Map(E.scanTargets(lv.grid,lv.width,lv.height,ix,32).map(item=>[item.word,item]));
   const perWord=lv.targets.map(word=>{const item=found.get(word);if(!item||!item.safe)throw new Error(word+' 无法连出或路径用格不一致');return {word,turns:item.turns,path:item.path.slice()};});
   const counts=Array(lv.grid.length).fill(0);for(const item of perWord)for(const cell of item.path)counts[cell]++;
   if(counts.some((n,i)=>!n||n!==lv.counts[i]))throw new Error('全盘覆盖或逐格次数校验失败');
@@ -41,7 +41,7 @@
   return {width:lv.width,height:lv.height,targetCount:lv.targets.length,targets:lv.targets.slice().sort(),letters,
    letterMask:letters.reduce((mask,c)=>mask|(1<<(c.charCodeAt(0)-65)),0),perWord,
    straightCount:turns.filter(n=>n===0).length,oneTurnCount:turns.filter(n=>n===1).length,
-   multiTurnCount:turns.filter(n=>n>=2).length,maxTurns:Math.max(...turns),meanTurns:turns.reduce((a,b)=>a+b,0)/turns.length};
+   multiTurnCount:turns.filter(n=>n>=2).length,maxTurns:Math.max(...turns),meanTurns:turns.reduce((a,b)=>a+b,0)/turns.length,...Emotion.metrics(game)};
  }
  function signature(game,snapshotId){
   const pairs=words(game.t).map((word,i)=>[word,game.lv?.[i]||'',game.ty?.[i]||'']).sort((a,b)=>a[0].localeCompare(b[0]));
@@ -57,10 +57,10 @@
   const sig=signature(body,snapshot.id),playKey=hash(stable([body.g,metrics.targets]));
   return {id:'level-'+hash(sig),signature:sig,playKey,game:body,librarySnapshotId:snapshot.id,metrics,generation:clone(generation)};
  }
- function summary(entry){return {id:entry.id,poolId:entry.poolId,playKey:entry.playKey,librarySnapshotId:entry.librarySnapshotId,...entry.metrics,perWord:undefined};}
+ function summary(entry){return {id:entry.id,poolId:entry.poolId,playKey:entry.playKey,librarySnapshotId:entry.librarySnapshotId,...entry.metrics,...Emotion.metrics(entry.game),perWord:undefined};}
  function exportFile(pool,entries,snapshots){
   const refs=Object.fromEntries([...new Set(entries.map(e=>e.librarySnapshotId))].map(id=>{if(!snapshots[id])throw new Error('缺少词库快照 '+id);return [id,snapshots[id]];}));
-  return {kind:'wordpages-level-pool',schemaVersion:1,pool:{id:pool.id,name:pool.name},entries:entries.map(({poolId,...e})=>e),librarySnapshots:refs};
+  return {kind:'wordpages-level-pool',schemaVersion:1,pool:{id:pool.id,name:pool.name},entries:entries.map(({poolId,...e})=>Emotion.enrich(e)),librarySnapshots:refs};
  }
  function checkFileHeader(file){
   if(file?.kind!=='wordpages-level-pool'||file.schemaVersion!==1||!file.pool||typeof file.pool.name!=='string'||!file.pool.name.trim()||!Array.isArray(file.entries)||!file.librarySnapshots)throw new Error('关卡库文件格式无效');

@@ -1,10 +1,20 @@
 /* Bilingual glossary, IPA status, word lookup and standalone HTML acceptance. */
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const crypto = require('node:crypto');
 const path = require('node:path');
 const {pathToFileURL} = require('node:url');
 const puppeteer = require('puppeteer-core');
 const L = require('../src/library');
 const data = require('../data/game_vocab/catalog.json');
+const table = require('../data/word_table.json');
+const tablePath = path.resolve(__dirname, '..', table.source.file);
+if (fs.existsSync(tablePath)) assert.equal(crypto.createHash('sha256').update(fs.readFileSync(tablePath)).digest('hex'), table.source.sha256, 'display data must come from the current workbook');
+assert.equal(table.counts.total, 22440);
+assert.deepEqual(table.entries.CAB, ['target', 1, 0, 0, 2]);
+assert.deepEqual(table.entries.YUM, ['target', 4, 2, 0, 4]);
+assert.deepEqual(table.entries.AUTO, ['target', 1, 0, 1, 2]);
+assert.deepEqual(table.entries.ABSURD, ['target', 1, -1, 0, 2]);
 const base = process.env.BASE_URL || 'http://127.0.0.1:8000/';
 const chrome = process.env.CHROMIUM_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const samples = [
@@ -47,6 +57,19 @@ async function checkDefinition(page, word, root = '#bankDef') {
   if (actual.row[3]?.ipaStatus === 'unverified') assert(actual.labels.some(label => label.includes('待核实')), word + ': unverified IPA label');
   assert.equal(await page.$eval(root, el => !!el.querySelector('.g-review-pending')), actual.row[3]?.reviewStatus === 'pending', word + ': unresolved review marker');
   assert(!/释义需本地服务|释义需要在线打开|释义未加载/.test(actual.text), word + ': lookup available');
+  await checkTableFields(page, word, root);
+}
+async function checkTableFields(page, word, root = '#gloss') {
+  const row = table.entries[word.toUpperCase()];
+  const actual = await page.$eval(root, el => ({values: [...el.querySelectorAll('[data-word-field]')].map(e => e.dataset.value), text: el.textContent, missing: !!el.querySelector('.g-table-missing')}));
+  assert.deepEqual(actual.values, row ? row.map(v => v == null ? '' : String(v)) : [], word + ': table field values');
+  assert.equal(actual.missing, !row, word + ': no invented data outside the table');
+  if (row) {
+    assert(actual.text.includes(table.labels.pool[row[0]]));
+    if (row[2] != null) assert(actual.text.includes(table.labels.emotion[row[2]] + '（' + row[2] + '）'));
+    if (row[3] === 0) assert(actual.text.includes('否（0）'), 'zero means no, never missing');
+    if (row[3] === 1) assert(actual.text.includes('是（1）'));
+  }
 }
 (async () => {
   const browser = await puppeteer.launch({executablePath: chrome, headless: true, args: ['--no-sandbox']});
@@ -68,6 +91,23 @@ async function checkDefinition(page, word, root = '#bankDef') {
       });
       await page.goto(url, {waitUntil: 'load'});
       await page.evaluate(() => __desk.ready());
+      assert.deepEqual(await page.evaluate(() => JSON.parse(document.querySelector('#wordTable').textContent)), table);
+      // Real game words, the hinted word and the editor list use the shared hover.
+      await page.click('#btnPlay');await page.waitForSelector('#play', {visible: true});
+      for (const word of ['CAB', 'JAM', 'YUM']) {
+        const handle = await page.evaluateHandle(word => [...document.querySelectorAll('#pwords .gw')].find(el => el.textContent === word), word);
+        await handle.asElement().hover();await handle.dispose();
+        await page.waitForFunction(word => !document.querySelector('#gloss').hidden && document.querySelector('#gloss .g-top b')?.textContent === word, {}, word);
+        await checkTableFields(page, word);
+      }
+      if (index === 0) await page.screenshot({path: '/tmp/word-table-hover-game.png'});
+      await page.mouse.move(20, 20);await page.click('#pHint');await page.hover('#pcur');
+      const hinted = await page.$eval('#pcur', el => el.textContent.trim());
+      await page.waitForFunction(word => !document.querySelector('#gloss').hidden && document.querySelector('#gloss .g-top b')?.textContent === word, {}, hinted);await checkTableFields(page, hinted);
+      await page.mouse.move(20, 20);await page.click('#pBack');
+      await page.hover('#levelList [data-level-index="0"] .gw');
+      const listed = await page.$eval('#levelList [data-level-index="0"] .gw', el => el.textContent);
+      await page.waitForFunction(word => !document.querySelector('#gloss').hidden && document.querySelector('#gloss .g-top b')?.textContent === word, {}, listed);await checkTableFields(page, listed);await page.mouse.move(20, 20);
       await page.click('#btnBank');
       // Restrict the query before changing scope so the complete catalog's
       // unrelated words cannot trigger legacy shard loads in this assertion.
@@ -82,6 +122,10 @@ async function checkDefinition(page, word, root = '#bankDef') {
           return text && text !== '…' && text !== '释义未加载';
         });
         assert.notEqual(await page.$eval('#bankList .bzh', e => e.textContent), '暂无释义', word + ': list preview');
+      }
+      for (const word of ['AUTO', 'EVIL', 'ABSURD', 'ABLE', 'YUM']) {
+        await findWord(page, word);await checkDefinition(page, word);await page.hover('#bankList .gw');
+        await page.waitForFunction(word => !document.querySelector('#gloss').hidden && document.querySelector('#gloss .g-top b')?.textContent === word, {}, word);await checkTableFields(page, word);await page.mouse.move(20, 20);
       }
       for (const word of ['CONNECTION', 'SOLUTIONS']) {
         await findWord(page, word);
@@ -139,6 +183,13 @@ async function checkDefinition(page, word, root = '#bankDef') {
       }
       if (index === 0) await page.screenshot({path: '/tmp/bilingual-glossary-desktop.png'});
       assert.deepEqual(requests, [], url + ': covered glossary never fetches dictionary shards');
+      await page.setViewport({width:390,height:844});await findWord(page,'YUM');
+      await page.$eval('#bankList .gw',el=>el.scrollIntoView({block:'center'}));
+      await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+      await page.mouse.move(1,1);await page.hover('#bankList .gw');
+      await page.waitForFunction(()=>!document.querySelector('#gloss').hidden&&document.querySelector('#gloss .g-top b')?.textContent==='YUM');await checkTableFields(page,'YUM');
+      const bounds=await page.$eval('#gloss',el=>{const r=el.getBoundingClientRect();return {fits:r.left>=0&&r.top>=0&&r.right<=innerWidth&&r.bottom<=innerHeight,fieldsVisible:el.querySelector('.g-word-fields').getBoundingClientRect().bottom<=r.bottom};});assert(bounds.fits&&bounds.fieldsVisible,'metadata hover fits a narrow viewport');
+      if(index===0)await page.screenshot({path:'/tmp/word-table-hover-mobile.png'});await page.mouse.move(1,1);await page.setViewport({width:1440,height:1000});
       // Source-only accented terms and unknown strings must still finish their lookup.
       await findWord(page, 'CAFE\u0301');
       assert.equal(await page.$eval('#bankCard .g-top b', e => e.textContent), 'CAFÉ');
@@ -146,7 +197,7 @@ async function checkDefinition(page, word, root = '#bankDef') {
       assert.equal(await page.$('#bankCard svg'), null);
       assert.match(await page.$eval('#bankDef', e => e.textContent), /暂无释义/);
       await context.close();
-      console.log(url + ': all eight library samples, long words, bilingual cards, IPA labels and hover passed');
+      console.log(url + ': workbook metadata, game/list/hint hovers, numeric codes, mobile bounds, all eight library samples, long words, bilingual cards and IPA labels passed');
     }
     assert.deepEqual(errors, []);
   } finally {

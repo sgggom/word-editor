@@ -201,6 +201,19 @@
     if (value.id !== 'lib-' + contentId(body)) throw new Error('词库快照校验失败');
     return value;
   }
+  // Production selects only target sources. The full extra reference is automatic
+  // and versioned with the result, independently of editable library selections.
+  function production(data, targets, rules = {}) {
+    const reference = defaultRecipe(data);
+    const extra = {id: 'four-game-extra-validation', name: '全量额外词校对', revision: 1, datasetHash: data.datasetHash,
+      targetPool: {operation: 'union', sources: []},
+      extraPool: {...reference.extraPool, excludeTargets: true, excludeTwoLetter: true}};
+    const compiled = combine(data, {target: targets, extra: [extra]}, rules);
+    const recipe = {...compiled.snapshot.recipe, extraPolicy: 'all-extras-v1',
+      name: '生成词库 · 必答 ' + compiled.snapshot.recipe.selection.target.length + ' 库 / 全量额外词校对'};
+    return {...compiled, snapshot: snapshotOf(recipe, compiled.lex, rules),
+      targetKey: contentId(compiled.lex.filter(x => x.role === 'candidate').map(x => x.word))};
+  }
   function catalogIndex(data) {
     const index = new Map();
     for (const game of data.games) for (const config of game.configs) for (const role of ROLES) for (const value of config.words[role]) {
@@ -210,5 +223,5 @@
     }
     return index;
   }
-  return {ROLES, ROLE_LABELS, normalize, defaultRecipe, tieredRecipes, validateRecipe, sourceKey, uniquePoolSources, sourceWords, partitionPool, selectedRegionMasks, withRegionSelection, evaluatePool, compile, combine, snapshot, validateSnapshot, catalogIndex, contentId};
+  return {ROLES, ROLE_LABELS, normalize, defaultRecipe, tieredRecipes, validateRecipe, sourceKey, uniquePoolSources, sourceWords, partitionPool, selectedRegionMasks, withRegionSelection, evaluatePool, compile, combine, production, snapshot, validateSnapshot, catalogIndex, contentId};
 });

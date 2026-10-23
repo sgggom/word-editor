@@ -2,15 +2,17 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WPArrangement=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
  'use strict';
  const DEFAULT_RULES={maxTurns:1,multiTurnLimit:null,repeatGap:20,repeatMode:'strict',densityWindow:20,densityCaps:{},densityMode:'strict'};
+ const RANKING_VERSION='constraints-soft-emotion-v1';
+ const emotionScore=entry=>Number.isFinite(entry?.emotionScore)?entry.emotionScore:0;
  const clone=x=>JSON.parse(JSON.stringify(x));
  const hash=s=>{let h=2166136261;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return h>>>0;};
  const mix=n=>{n=Math.imul(n^(n>>>16),0x45d9f3b);n=Math.imul(n^(n>>>16),0x45d9f3b);return (n^(n>>>16))>>>0;};
- function integer(n,min,max,label){if(!Number.isSafeInteger(n)||n<min||n>max)throw new Error(label+'须为 '+min+'–'+max+' 的整数');return n;}
- function geometry(o){if(![[4,2],[3,3],[4,3],[5,3]].some(([w,h])=>w===o.width&&h===o.height))throw new Error('棋盘尺寸无效');integer(o.targetCount,2,16,'目标词数');}
+ function integer(n,min,max,label){if(!Number.isSafeInteger(n)||n<min||n>max)throw new Error(label+(max===Number.MAX_SAFE_INTEGER?(min===1?'须为正整数':'须为不小于 '+min+' 的整数'):'须为 '+min+'–'+max+' 的整数'));return n;}
+ function geometry(o){if(![[4,2],[3,3],[4,3],[5,3]].some(([w,h])=>w===o.width&&h===o.height))throw new Error('棋盘尺寸无效');integer(o.targetCount,1,Number.MAX_SAFE_INTEGER,'目标词数');}
  function rules(raw={}){
   const r={...DEFAULT_RULES,...clone(raw),densityCaps:{...(raw.densityCaps||{})}};
   if(r.maxTurns!==null)integer(r.maxTurns,0,6,'最大拐弯数');
-  if(r.multiTurnLimit!==null)integer(r.multiTurnLimit,0,16,'多拐弯词上限');
+  if(r.multiTurnLimit!==null)integer(r.multiTurnLimit,0,Number.MAX_SAFE_INTEGER,'多拐弯词上限');
   integer(r.repeatGap,0,99999,'重复词间隔');integer(r.densityWindow,1,10000,'密度窗口');
   if(!['strict','soft'].includes(r.repeatMode)||!['strict','soft'].includes(r.densityMode))throw new Error('筛选模式无效');
   for(const [letter,cap] of Object.entries(r.densityCaps)){if(!/^[A-Z]$/.test(letter))throw new Error('密度字母须为 A–Z');integer(cap,0,r.densityWindow,letter+' 出现次数上限');}
@@ -75,11 +77,17 @@
    density.push({number:slot.number,window:slot.rules.densityWindow,counts});
    turnCounts[0]+=entry.straightCount||0;turnCounts[1]+=entry.oneTurnCount||0;turnCounts.multi+=entry.multiTurnCount||0;
   }
-  return {ok:!errors.length,errors,soft,repeats,density,turnCounts,filled:selected.filter(Boolean).length,total:slots.length};
+  const occupied=selected.filter(Boolean),scores=occupied.map(emotionScore),totalEmotion=scores.reduce((a,b)=>a+b,0);
+  const emotion={total:totalEmotion,average:scores.length?totalEmotion/scores.length:0,min:scores.length?Math.min(...scores):null,max:scores.length?Math.max(...scores):null,
+   positive:scores.filter(s=>s>0).length,neutral:scores.filter(s=>s===0).length,negative:scores.filter(s=>s<0).length,
+   missingWords:occupied.reduce((n,e)=>n+(e.emotion?.missingTargets?.length||0)+(e.emotion?.missingExtras?.length||0),0)};
+  return {ok:!errors.length,errors,soft,repeats,density,turnCounts,emotion,filled:occupied.length,total:slots.length};
  }
  function* solveSteps(plan,entries,options={}){
   const slots=expand(plan),seed=hash(plan.seed),budget=plan.budget,byShape=new Map(),lists=[],pressure=new Map();
-  const rows=entries.slice().sort((a,b)=>a.poolId.localeCompare(b.poolId)||a.id.localeCompare(b.id));
+  // Equivalent boards from multiple pools retain the highest-scoring eligible
+  // version (extra lists can differ), while keeping one use per playKey.
+  const rows=entries.slice().sort((a,b)=>emotionScore(b)-emotionScore(a)||a.poolId.localeCompare(b.poolId)||a.id.localeCompare(b.id));
   const ties=rows.map(e=>hash(e.id+'|'+e.poolId));
   rows.forEach((e,i)=>{const key=[e.width,e.height,e.targetCount].join('/');if(!byShape.has(key))byShape.set(key,[]);byShape.get(key).push(i);});
   for(let i=0;i<slots.length;i++){
@@ -88,20 +96,25 @@
    lists.push(list);for(const index of list){const key=rows[index].playKey;pressure.set(key,(pressure.get(key)||0)+1/Math.max(1,list.length));}
    if(i%16===0){yield {phase:'index',prepared:i+1,total:slots.length};if(options.cancelled?.())return result([],[],0,'cancelled');}
   }
+  const lastRequired=new Map();lists.forEach((list,i)=>{if(list.length===1)lastRequired.set(rows[list[0]].playKey,i);});
+  const reserved=(candidate,i)=>(lastRequired.get(rows[candidate].playKey)??-1)>i?1:0;
   for(let i=0;i<lists.length;i++){
-   const salt=mix(seed^slots[i].number);lists[i].sort((a,b)=>pressure.get(rows[a].playKey)-pressure.get(rows[b].playKey)||(mix(ties[a]^salt)-mix(ties[b]^salt)));
+   const salt=mix(seed^slots[i].number);lists[i].sort((a,b)=>reserved(a,i)-reserved(b,i)||emotionScore(rows[b])-emotionScore(rows[a])||pressure.get(rows[a].playKey)-pressure.get(rows[b].playKey)||(mix(ties[a]^salt)-mix(ties[b]^salt)));
    if(i%16===0){yield {phase:'index',prepared:i+1,total:slots.length};if(options.cancelled?.())return result([],[],0,'cancelled');}
   }
   let selected=Array(slots.length).fill(null),reasons=Array(slots.length).fill(null),frames=[],used=new Set();
-  let best=selected.slice(),bestReasons=reasons.slice(),bestFilled=-1,bestPenalty=Infinity,checks=0,index=0,exhausted=false;
+  let best=selected.slice(),bestReasons=reasons.slice(),bestFilled=-1,bestPenalty=Infinity,bestEmotion=-Infinity,checks=0,index=0,exhausted=false;
   function result(choice,why,n,status){
    const full=Array.from({length:slots.length},(_,i)=>choice[i]||null),audit=verify(slots,full);
-   return {kind:'wordpages-arrangement-preview',schemaVersion:1,seed:plan.seed,status,checks:n,budget,
-    rows:slots.map((slot,i)=>({number:slot.number,candidateCount:lists[i]?.length||0,choice:full[i]?{poolId:full[i].poolId,id:full[i].id,playKey:full[i].playKey}:null,reason:full[i]?null:lists[i]?.length===0?'static':why[i]||(status==='cancelled'?'cancelled':'budget')})),audit};
+   return {kind:'wordpages-arrangement-preview',schemaVersion:1,seed:plan.seed,status,checks:n,budget,rankingVersion:RANKING_VERSION,emotionVersion:plan.ranking?.emotionVersion||null,
+    rows:slots.map((slot,i)=>({number:slot.number,candidateCount:lists[i]?.length||0,choice:full[i]?{poolId:full[i].poolId,id:full[i].id,playKey:full[i].playKey,emotionScore:emotionScore(full[i]),emotion:full[i].emotion||null}:null,reason:full[i]?null:lists[i]?.length===0?'static':why[i]||(status==='cancelled'?'cancelled':'budget')})),audit};
   }
   function capture(){
-   const filled=selected.filter(Boolean).length;
-   if(filled>bestFilled||(filled===bestFilled&&bestPenalty>0)){const audit=verify(slots,selected),penalty=audit.soft.length;if(filled>bestFilled||penalty<bestPenalty){best=selected.slice();bestReasons=reasons.slice();bestFilled=filled;bestPenalty=penalty;}}
+   const filled=selected.filter(Boolean).length,emotion=selected.reduce((n,e)=>n+emotionScore(e),0);
+   if(filled>bestFilled||(filled===bestFilled&&(bestPenalty>0||emotion>bestEmotion))){
+    const audit=verify(slots,selected),penalty=audit.soft.length;
+    if(filled>bestFilled||penalty<bestPenalty||(penalty===bestPenalty&&emotion>bestEmotion)){best=selected.slice();bestReasons=reasons.slice();bestFilled=filled;bestPenalty=penalty;bestEmotion=emotion;}
+   }
   }
   while(true){
    if(options.cancelled?.()){capture();return result(best,bestReasons,checks,'cancelled');}
@@ -121,17 +134,19 @@
    if(checks>=budget){exhausted=true;capture();return result(best,bestReasons,checks,'budget');}
    const list=lists[index],slot=slots[index],history=list.length?historyAt(slots,selected,index):null,ranked=[];
    let blocked=false,unused=0,scanned=0;
+   const penaltyFloor=slot.rules.densityMode==='soft'?Object.entries(slot.rules.densityCaps).filter(([c,cap])=>(history?.counts[c]||0)>cap).length:0;
    for(const candidate of list){
     if(checks>=budget){exhausted=true;break;}
     checks++;scanned++;const entry=rows[candidate];
     if(!used.has(entry.playKey)){
      unused++;const test=temporal(slot,entry,history);
-     if(test.hard.length)blocked=true;else ranked.push({candidate,penalty:test.penalty,order:scanned});
+     if(test.hard.length)blocked=true;else ranked.push({candidate,penalty:test.penalty,reserved:reserved(candidate,index),order:scanned});
     }
     if(checks%256===0){yield {phase:'search',checks,budget,filled:selected.filter(Boolean).length,total:slots.length};if(options.cancelled?.()){capture();return result(best,bestReasons,checks,'cancelled');}}
-    if(ranked.filter(r=>r.penalty===0).length>=8||(ranked.length>=8&&scanned>=256))break;
+    // Do not let a long high-emotion prefix hide a later lower-penalty candidate.
+    if(ranked.filter(r=>!r.reserved&&r.penalty===penaltyFloor).length>=8)break;
    }
-   ranked.sort((a,b)=>a.penalty-b.penalty||a.order-b.order);
+   ranked.sort((a,b)=>a.reserved-b.reserved||a.penalty-b.penalty||emotionScore(rows[b.candidate])-emotionScore(rows[a.candidate])||a.order-b.order);
    frames[index]={options:ranked.slice(0,8).map(r=>r.candidate),cursor:0};
    if(ranked.length){selected[index]=rows[ranked[0].candidate];used.add(selected[index].playKey);}
    else reasons[index]=!list.length?'static':exhausted?'budget':blocked&&unused?'temporal':'unmatched';
@@ -140,5 +155,5 @@
   }
  }
  function solve(plan,entries){const it=solveSteps(plan,entries);let step;do{step=it.next();}while(!step.done);return step.value;}
- return {DEFAULT_RULES,rules,expand,staticMatch,historyAt,temporal,verify,solveSteps,solve};
+ return {DEFAULT_RULES,RANKING_VERSION,rules,expand,staticMatch,historyAt,temporal,verify,solveSteps,solve};
 });

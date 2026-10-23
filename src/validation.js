@@ -79,18 +79,31 @@
     return found;
   }
 
-  /* Exhaustive play-through over every order and every path choice.
+  /* Prove consistent path consumption, otherwise exhaust every order/path choice.
      Returns {ok, states, dead, solution, overflow}. dead = reachable states, not finished,
      from which no sequence completes the level (a trap). */
   function exhaustive(letters, NB, words, counts, maxStates) {
     const T = words.length, memo = new Map();
+    // If every path of a word consumes the same cells and counts equal their sum,
+    // removing any solved word leaves exactly the demand of the remaining words.
+    // This proves every order safe without enumerating 2^T subsets for large boards.
+    const needed = Array(letters.length).fill(0);
+    let consistent = true;
+    for (const word of words) {
+      const paths = allPaths(letters, NB, word, null, 5000);
+      if (!paths.length || paths.length >= 5000) { consistent = false; break; }
+      const key = paths[0].slice().sort((a,b) => a-b).join(',');
+      if (paths.some(p => p.slice().sort((a,b) => a-b).join(',') !== key)) { consistent = false; break; }
+      paths[0].forEach(i => needed[i]++);
+    }
+    if (consistent && counts.length === needed.length && counts.every((n,i) => n === needed[i])) return {ok:true,states:1,dead:0,overflow:false,method:'consistent-paths'};
     let states = 0, dead = 0, overflow = false;
-    const full = (1 << T) - 1;
+    const bits = Array.from({length:T},(_,i) => 1n << BigInt(i)), full = (1n << BigInt(T)) - 1n;
     const cnt = counts.slice();
     function moves(mask) {
       const avail = cnt.map(c => c > 0), out = [];
       for (let w = 0; w < T; w++) {
-        if (mask & (1 << w)) continue;
+        if (mask & bits[w]) continue;
         const seen = new Set();
         allPaths(letters, NB, words[w], avail, 5000).forEach(p => {
           const sig = p.slice().sort((a, b) => a - b).join(',');
@@ -110,7 +123,7 @@
       for (let k = 0; k < mv.length; k++) {
         const p = mv[k][1];
         p.forEach(i => cnt[i]--);
-        const r = rec(mask | (1 << mv[k][0]));
+        const r = rec(mask | bits[mv[k][0]]);
         p.forEach(i => cnt[i]++);
         if (r) ok = true;           /* keep exploring: we must visit every reachable state */
       }
@@ -119,7 +132,7 @@
       return ok;
     }
     let ok = false;
-    try { ok = rec(0); } catch (e) { if (e !== 0) throw e; }
+    try { ok = rec(0n); } catch (e) { if (e !== 0) throw e; }
     return { ok: ok && !overflow, states: states, dead: dead, overflow: overflow };
   }
 

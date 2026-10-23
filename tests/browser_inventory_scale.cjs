@@ -20,7 +20,7 @@ const required=require('../data/required_letters.json'),base=process.env.BASE_UR
   console.log(JSON.stringify({records:10000,positions:1000,importMs,arrangeMs,status:preview.result.status,matched:preview.result.audit.filled,checks:preview.result.checks,heartbeat}));
   // A neutral schedule fixture isolates full 1000-level apply/save/export capacity
   // from insufficient stock for the real curriculum tested above. Records stay real.
-  const fullPlan={...plan,name:'千关应用容量验收',requiredLetters:{id:'capacity-fixture',levels:{}},segments:[{...plan.segments[0],rules:{maxTurns:null,repeatGap:0}}]};
+  const fullPlan={...plan,name:'千关应用容量验收',requiredLetters:{id:'capacity-fixture',levels:{}},overrides:Object.fromEntries(file.entries.slice(0,1000).map((e,i)=>[i+1,{width:e.metrics.width,height:e.metrics.height,targetCount:e.metrics.targetCount}])),segments:[{...plan.segments[0],rules:{maxTurns:null,repeatGap:0}}]};
   await page.evaluate(()=>{window.__applyHeartbeat={ticks:0,maxGap:0,last:performance.now()};window.__applyTimer=setInterval(()=>{const now=performance.now();__applyHeartbeat.maxGap=Math.max(__applyHeartbeat.maxGap,now-__applyHeartbeat.last);__applyHeartbeat.last=now;__applyHeartbeat.ticks++},50)});
   await page.evaluate(plan=>__desk.workflow.setPlan(plan),fullPlan);const fullStart=Date.now();await page.evaluate(()=>__desk.workflow.run());assert.equal(await page.evaluate(()=>__lastArrangement.status),'complete');const fullArrangeMs=Date.now()-fullStart;
   const applyStart=Date.now();await page.evaluate(()=>__desk.workflow.apply());const applyMs=Date.now()-applyStart;

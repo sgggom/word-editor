@@ -167,11 +167,11 @@
     if (uses.length) card.insertAdjacentHTML('beforeend', '<div class="blevels">' + uses.slice(0, 100).map(i => '<button type="button" data-jump="' + i + '">第 ' + (i + 1) + ' 关</button>').join('') + '</div>');
     const letter = bankDefinitionLetter(word);
     if (letter) loadShard(letter, word).then(dict => {
-      if (request === bankCardRequest) $('#bankDef').innerHTML = glossBodyHtml(dict?.[word.toLowerCase()]);
+      if (request === bankCardRequest) $('#bankDef').innerHTML = glossBodyHtml(dict?.[word.toLowerCase()], word);
     }).catch(() => {
-      if (request === bankCardRequest) $('#bankDef').textContent = '释义未加载，请稍后重试';
+      if (request === bankCardRequest) $('#bankDef').innerHTML = wordTableHtml(word) + '<p class="g-miss">释义未加载，请稍后重试</p>';
     });
-    else $('#bankDef').innerHTML = glossBodyHtml();
+    else $('#bankDef').innerHTML = glossBodyHtml(null, word);
     const details = $('#bankSources'); let started = false;
     details.addEventListener('toggle', async () => {
       if (!details.open || started) return; started = true;

@@ -13,10 +13,10 @@
     }
     return An;
   }
-  /* 穷举试玩：每一种顺序、每一条路径。没有幕布时可用。 */
+  /* 路径用格一致时直接证明顺序安全，否则有界穷举。没有幕布时可用。 */
   function proveD(d, An) {
     if (!An || !An.counts || d.curtains.some(c => c.cells.length)) return null;
-    const key = genSig(d) + '|' + An.counts.join('');
+    const key = d.W + 'x' + d.H + '|' + genSig(d) + '|' + An.counts.join(',');
     if (d._proof && d._proof.key === key) return d._proof;
     let r;
     try { r = WPGen.exhaustive(d.letters, WPGen.nbr(d.W, d.H), d.words, An.counts, 60000); }

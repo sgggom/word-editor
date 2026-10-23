@@ -40,10 +40,11 @@ const chrome=process.env.CHROMIUM_PATH||'/Applications/Google Chrome.app/Content
   await page.click('#bankClose');await page.evaluate(()=>__desk.flush());await ready();assert.deepEqual((await page.evaluate(()=>__desk.libraries())).recipes,expected,'migration is idempotent');
   await page.click('#btnBatch');await page.waitForSelector('#batch',{visible:true});
   assert.deepEqual(await page.$$eval('[data-batch-library="target"]:checked',es=>es.map(e=>e.value)),[defaultId]);
-  assert.deepEqual(await page.$$eval('[data-batch-library="extra"]:checked',es=>es.map(e=>e.value)),[extraId]);
+  assert.equal(await page.$('[data-batch-library="extra"]'),null,'legacy extra selection is replaced by full automatic calibration');
   await produceAndApply(page,1,'no-two-letter-QA');
   const result=await page.evaluate(()=>{const camp=__desk.campaign(),level=camp.levels[0];return{snapshot:camp.librarySnapshots[level.librarySnapshotId],levels:__desk.exportLevels()}});
   assert(result.snapshot.lex.every(x=>x.word.length>=3));
+  assert.deepEqual(result.snapshot,L.production(data,[expected.find(r=>r.id===defaultId)]).snapshot);
   fs.writeFileSync('/tmp/no-two-letter-levels.json',JSON.stringify(result.levels));fs.writeFileSync('/tmp/no-two-letter-lex.json',JSON.stringify(result.snapshot.lex));
   assert.deepEqual(errors,[]);console.log('short-word presets: fresh defaults, v1 migration, edits/deletions/custom configs, historical snapshots, range filtering, selection persistence, reload and generation passed');
  }finally{await browser.close()}

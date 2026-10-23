@@ -1,5 +1,5 @@
 /* Inventory database is deliberately separate from editor/campaign storage. */
-(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WPPoolStore=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
+(function(root,factory){const node=typeof module==='object'&&module.exports,api=factory(node?require('./emotion'):root.WPEmotion);if(node)module.exports=api;else root.WPPoolStore=api;})(typeof globalThis!=='undefined'?globalThis:this,function(Emotion){
  'use strict';
  const canonical=value=>JSON.stringify(value,(_,v)=>v&&typeof v==='object'&&!Array.isArray(v)?Object.fromEntries(Object.keys(v).sort().map(key=>[key,v[key]])):v);
  function create(name='wp.leveldesk.pools'){
@@ -47,7 +47,7 @@
     for(const entry of entries){
      const old=await request(rows.get([poolId,entry.id]));
      if(old&&old.signature!==entry.signature)throw new Error('候选标识冲突');
-     if(!old){if(!await request(snaps.get(entry.librarySnapshotId)))throw new Error('候选缺少词库快照');await request(rows.put({...entry,poolId}));added++;}
+     if(!old){if(!await request(snaps.get(entry.librarySnapshotId)))throw new Error('候选缺少词库快照');await request(rows.put({...Emotion.enrich(entry),poolId}));added++;}
     }
     pool.count+=added;pool.updatedAt=Date.now();await request(pools.put(pool));return {added,duplicates:entries.length-added,count:pool.count};
    });
@@ -59,20 +59,21 @@
     q.onsuccess=()=>{const c=q.result;if(!c||out.length>=limit){resolve(out);return;}if(offset&&!skipped){skipped=true;c.advance(offset);return;}out.push(map(c.value));c.continue();};
    });
   }
-  const listEntries=(poolId,page=0,pageSize=50)=>transaction(['entries'],'readonly',tx=>cursorRows(tx.objectStore('entries').index('poolId'),IDBKeyRange.only(poolId),Math.max(0,page)*pageSize,pageSize));
-  const allEntries=poolId=>transaction(['entries'],'readonly',tx=>cursorRows(tx.objectStore('entries').index('poolId'),IDBKeyRange.only(poolId),0,Infinity));
+  const listEntries=(poolId,page=0,pageSize=50)=>transaction(['entries'],'readonly',tx=>cursorRows(tx.objectStore('entries').index('poolId'),IDBKeyRange.only(poolId),Math.max(0,page)*pageSize,pageSize,Emotion.enrich));
+  const allEntries=poolId=>transaction(['entries'],'readonly',tx=>cursorRows(tx.objectStore('entries').index('poolId'),IDBKeyRange.only(poolId),0,Infinity,Emotion.enrich));
   async function summaries(poolIds){
    return transaction(['entries'],'readonly',async tx=>{
     const index=tx.objectStore('entries').index('poolId'),out=[];
-    for(const id of [...new Set(poolIds)])out.push(...await cursorRows(index,IDBKeyRange.only(id),0,Infinity,e=>({id:e.id,poolId:e.poolId,playKey:e.playKey,librarySnapshotId:e.librarySnapshotId,...e.metrics,perWord:undefined})));
+    for(const id of [...new Set(poolIds)])out.push(...await cursorRows(index,IDBKeyRange.only(id),0,Infinity,e=>({id:e.id,poolId:e.poolId,playKey:e.playKey,librarySnapshotId:e.librarySnapshotId,...e.metrics,...Emotion.metrics(e.game),perWord:undefined})));
     return out;
    });
   }
-  const getEntry=(poolId,id)=>transaction(['entries'],'readonly',tx=>request(tx.objectStore('entries').get([poolId,id])));
+  const getEntry=(poolId,id)=>transaction(['entries'],'readonly',tx=>request(tx.objectStore('entries').get([poolId,id])).then(Emotion.enrich));
   async function getSnapshots(ids){return transaction(['snapshots'],'readonly',async tx=>{const result={};for(const id of [...new Set(ids)]){const snap=await request(tx.objectStore('snapshots').get(id));if(!snap)throw new Error('词库快照不存在');result[id]=snap;}return result;});}
   const load=key=>transaction(['workspace'],'readonly',tx=>request(tx.objectStore('workspace').get(key)));
   const save=(key,value)=>transaction(['workspace'],'readwrite',tx=>request(tx.objectStore('workspace').put(value,key)));
-  return {listPools,createPool,renamePool,putEntries,listEntries,allEntries,summaries,getEntry,getSnapshots,load,save,close:async()=>{if(connection)(await connection).close();connection=null;}};
+  const update=(key,change)=>transaction(['workspace'],'readwrite',async tx=>{const store=tx.objectStore('workspace'),value=change(await request(store.get(key)));await request(store.put(value,key));return value;});
+  return {listPools,createPool,renamePool,putEntries,listEntries,allEntries,summaries,getEntry,getSnapshots,load,save,update,close:async()=>{if(connection)(await connection).close();connection=null;}};
  }
  return {create};
 });

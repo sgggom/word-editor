@@ -2,8 +2,9 @@
 (function(root,factory){let out=factory();if(typeof module==='object'&&module.exports)module.exports=out;else root.WTEngine=out;})(typeof self!=='undefined'?self:this,function(){
 'use strict';
 const ROLES=new Set(['candidate','extra','pending','blocked']);
-const SEARCH_VERSION='required-board-letters-v2';
-const DEFAULTS={preset:'list0',seed:'WT-2026',start:1,count:20,effort:45,attempts:100,cooldown:20,strictMorph:true,adjacency:true,allowUnsafe:false,variance:0.16,extraWeight:0.8,readingBias:1.0,uniqueMin:0.88,maxUse:13};
+const SEARCH_VERSION='straight-initials-v1';
+const LEGACY_SEARCH_VERSION='target-only-generation-v3';
+const DEFAULTS={preset:'list0',seed:'WT-2026',start:1,count:20,effort:45,attempts:100,cooldown:20,strictMorph:true,adjacency:true,allowUnsafe:false,variance:0.16,readingBias:1.0,uniqueMin:0.88,maxUse:13};
 function hash(s){let h=2166136261>>>0;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)>>>0;}return h>>>0;}
 function random(seed){let s=hash(seed)||12345;return function(){s+=0x6D2B79F5;let t=s;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;};}
 function shuffle(a,rng){a=a.slice();for(let i=a.length-1;i>0;i--){let j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
@@ -24,7 +25,18 @@ function targetFor(n,config,profiles){let rng=random(config.seed+'|profile|'+con
  let cells=early?Math.round(p.cells):pick([8,9,9,12,12,12,15],rng);if(!early){let options=(n>20&&p.cells>=10)?[9,12,15]:[8,9,12,15];let dist=options.map(x=>Math.exp(-Math.abs(x-p.cells)*1.0)*(x===12?1.35:1));let sum=dist.reduce((x,y)=>x+y,0),v=rng()*sum;cells=options[0];for(let i=0;i<options.length;i++){v-=dist[i];if(v<=0){cells=options[i];break}}}
  const dim=cells===8?[4,2]:cells===9?[3,3]:cells===12?[4,3]:[5,3];return {...p,k,cells,width:dim[0],height:dim[1],stageStart:stage(n)};}
 function normalizeLex(raw){let seen=new Set(),a=[];for(let v of raw){let word=String(v.word||'').trim().toUpperCase();if(!/^[A-Z]{2,12}$/.test(word)||seen.has(word))continue;seen.add(word);let role=ROLES.has(v.role)?v.role:'pending';a.push({...v,word,role});}return a;}
-function buildIndex(lex){let tree={},byLength={},byLetter={},byWord=new Map(),acceptable=[];for(let x of normalizeLex(lex)){byWord.set(x.word,x);if(x.role!=='candidate'&&x.role!=='extra')continue;acceptable.push(x);if(x.role==='candidate'){(byLength[x.word.length]??=[]).push(x);if(x.word.length>=3&&x.word.length<=8)for(const c of new Set(x.word))(byLetter[c]??=[]).push(x);}let node=tree;for(let c of x.word)node=node[c]||(node[c]={});node.$=x.word;}return {tree,byLength,byLetter,letterPools:new Map(),byWord,acceptable};}
+function buildIndex(lex){
+ const tree={},targetTree={},byLength={},byLetter={},byWord=new Map(),acceptable=[];
+ const insert=(root,word)=>{let node=root;for(const c of word)node=node[c]||(node[c]={});node.$=word;};
+ for(const x of normalizeLex(lex)){
+  byWord.set(x.word,x);if(x.role!=='candidate'&&x.role!=='extra')continue;acceptable.push(x);insert(tree,x.word);
+  if(x.role==='candidate'){
+   insert(targetTree,x.word);(byLength[x.word.length]??=[]).push(x);
+   if(x.word.length>=3&&x.word.length<=8)for(const c of new Set(x.word))(byLetter[c]??=[]).push(x);
+  }
+ }
+ return {tree,targetTree,byLength,byLetter,letterPools:new Map(),byWord,acceptable};
+}
 function requiredSeedPool(missing,lengths,preferredLength,ix,rng){
  let best=null;
  for(const c of missing){
@@ -98,6 +110,8 @@ function scan(g,w,h,ix,cap=14){const nb=neighbors(w,h),found=new Map(), maxNodes
  let out=[];for(let [word,ps] of found){ps.sort((a,b)=>turns(a,w)-turns(b,w));let masks=new Set(ps.map(p=>p.reduce((z,j)=>z|(1<<j),0)));out.push({word,paths:ps,mask:ps[0].reduce((z,j)=>z|(1<<j),0),unique:ps.length===1,safe:masks.size===1&&ps.length<cap,path:ps[0],turns:turns(ps[0],w),straight:direction(ps[0],w),length:word.length});}
  return out;
 }
+// Generation and target-path validation never traverse the extra-word dictionary.
+function scanTargets(g,w,h,ix,cap=14){return scan(g,w,h,{tree:ix.targetTree},cap);}
 function selectTargets(items,target,ix,config,history,rng){let K=target.k,used=history.usage||{},recent=history.recent||new Map();const C=items.filter(x=>ix.byWord.get(x.word)?.role==='candidate'&&x.safe&&x.length>=3&&x.length<=8);
  if(C.length<K)return null;let sel=[],have=new Set(),cover=0,ns=target.cells,goalStraight=target.straight,goalMean=target.avgLen;
  const rel=(w)=>sel.some(x=>x.word.includes(w)||w.includes(x.word));
@@ -130,7 +144,7 @@ function metrics(board,target,items,sel,index,config){let {g,w,h,counts}=board,w
  let p={k,straightRatio:R/k,uniqueRatio:uniq/k,meanTurns:turn,avgWordLength:avg(sel.map(x=>x.word.length)),maxWordLength:Math.max(...sel.map(x=>x.word.length)),longCount:sel.filter(x=>x.word.length>=5).length,extraCount:extras.length,relPairs:rels,letterKinds:letters,repeatedTiles:g.length-letters,maxLayer:Math.max(...counts),coverage:1,adjScore:adj.score,dirs:{R:0,L:0,U:0,D:0,T:0}};
  for(let x of sel)p.dirs[x.straight]=(p.dirs[x.straight]||0)+1;
  const dist=(v,tol)=>Math.abs(v-(tol||0));
- let score=0;score-=dist(p.straightRatio,d.straight)*4;score-=dist(p.meanTurns,d.minTurns)*3;score-=dist(p.avgWordLength,d.avgLen)*3;score-=dist(p.letterKinds,d.letterKinds)*.75;score-=dist(p.maxLayer,d.maxLayers)*.5;score-=dist(p.relPairs,d.related)*1.1;score-=dist(p.extraCount,d.bonus)*config.extraWeight;
+ let score=0;score-=dist(p.straightRatio,d.straight)*4;score-=dist(p.meanTurns,d.minTurns)*3;score-=dist(p.avgWordLength,d.avgLen)*3;score-=dist(p.letterKinds,d.letterKinds)*.75;score-=dist(p.maxLayer,d.maxLayers)*.5;score-=dist(p.relPairs,d.related)*1.1;
  if(p.uniqueRatio<config.uniqueMin)score-=(config.uniqueMin-p.uniqueRatio)*20;
  if(config.adjacency)score+=p.adjScore*.2;
  let Rcount=p.dirs.R,Lcount=p.dirs.L,Ucount=p.dirs.U,Dcount=p.dirs.D;
@@ -138,7 +152,7 @@ function metrics(board,target,items,sel,index,config){let {g,w,h,counts}=board,w
  score+=rbonus*config.readingBias;
  return {metrics:p,score,extras:extras.map(x=>x.word),adj};
 }
-function validate(level,ix,config){if(!level||!Array.isArray(level.grid)||!Array.isArray(level.targets))return {ok:false,errors:['格式无效']};let errors=[],w=level.width,h=level.height,g=level.grid,items=scan(g,w,h,ix,32),found=new Map(items.map(x=>[x.word,x]));let needed=Array(g.length).fill(0);
+function validate(level,ix,config){if(!level||!Array.isArray(level.grid)||!Array.isArray(level.targets))return {ok:false,errors:['格式无效']};let errors=[],w=level.width,h=level.height,g=level.grid,targets=scanTargets(g,w,h,ix,32),found=new Map(targets.map(x=>[x.word,x]));let needed=Array(g.length).fill(0);
  if(g.length!==w*h)errors.push('棋盘格数不匹配');
  try{
   const configured=requiredLettersFor(level.number,config),saved=requiredLettersFor(level.number,{requiredLettersByLevel:{[level.number]:level.requiredLetters||[]}});
@@ -151,7 +165,8 @@ function validate(level,ix,config){if(!level||!Array.isArray(level.grid)||!Array
  if(needed.some((v,i)=>v!==level.counts?.[i]))errors.push('逐格次数与必答路径不一致');
  if(needed.some(v=>v===0))errors.push('存在不参与必答的格子');
  if(needed.some(v=>v>config.maxUse))errors.push(`超过单格复用上限${config.maxUse}`);
- let extras=items.filter(x=>!level.targets.includes(x.word)).map(x=>x.word);
+ // Extra words are identified on the completed board; they cannot reject a board.
+ const items=scan(g,w,h,ix,32),extras=items.filter(x=>!level.targets.includes(x.word)).map(x=>x.word);
  return {ok:errors.length===0,errors,extras,checkedPaths:items.length};
 }
 // An attempt has its own random stream, so dispatch order and thread count cannot change a level.
@@ -162,13 +177,14 @@ function tryAttempt(d,a,ix,config,history){
  let rng=random(config.seed+'|'+config.preset+'|'+d.n+'|generate|attempt|'+a);
  let {g}=fillBoard(d,ix,rng,config,history.recent||new Map());
  if((d.requiredLetters||[]).some(c=>!g.includes(c)))return null;
- let items=scan(g,d.width,d.height,ix,18),pickings=selectTargets(items,d,ix,config,history,rng);
+ let items=scanTargets(g,d.width,d.height,ix,18),pickings=selectTargets(items,d,ix,config,history,rng);
  if(!pickings)return null;
  let {selected,demands}=pickings;
  let board={g,w:d.width,h:d.height,counts:demands},evaluation=metrics(board,d,items,selected,ix,config);
  let lv={id:`${config.preset}-${d.n}-${hash(g.join('')+'|'+selected.map(x=>x.word).join(',')).toString(16)}`,number:d.n,preset:config.preset,width:d.width,height:d.height,grid:g,counts:demands,targets:selected.map(x=>x.word),extras:evaluation.extras,paths:Object.fromEntries(selected.map(x=>[x.word,x.path])),source:'generated',profile:d.stage,validated:true,metrics:evaluation.metrics};
  if(d.requiredLetters?.length)lv.requiredLetters=d.requiredLetters.slice();
- if(!validate(lv,ix,config).ok)return null;
+ const checked=validate(lv,ix,config);if(!checked.ok)return null;
+ lv.extras=checked.extras;lv.metrics.extraCount=checked.extras.length;
  return {ok:true,level:lv,score:evaluation.score,attempts:a+1,profile:d};
 }
 function generateAttempts(n,ix,profiles,config={},history={},start=0,count=1){
@@ -191,21 +207,100 @@ function generateOne(n,ix,profiles,config={},history={}){
  }
  return finishGeneration(n,profiles,config,best);
 }
-// Inventory production uses explicit geometry/counts. Candidate ordinals are
-// reproducibility coordinates, never campaign positions or library unlocks.
+function normalizeInitials(value=''){
+ const text=(Array.isArray(value)?value.join(''):String(value??'')).toUpperCase();
+ if(/[^A-Z\s,，、;]/.test(text))throw new Error('起始首字母只能填写 A–Z，可用空格或逗号分隔');
+ return [...new Set(text.replace(/[^A-Z]/g,''))].sort().join('');
+}
+function straightPaths(width,height,length){
+ const paths=[];
+ for(let y=0;y<height;y++)for(let x=0;x<width;x++)for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){
+  const endX=x+(length-1)*dx,endY=y+(length-1)*dy;
+  if(endX>=0&&endX<width&&endY>=0&&endY<height)paths.push(Array.from({length},(_,k)=>(y+k*dy)*width+x+k*dx));
+ }
+ return paths;
+}
+function straightSeedSource(target,ix){
+ const key=target.width+'x'+target.height;
+ ix.straightSeeds??=new Map();
+ if(!ix.straightSeeds.has(key)){
+  const paths=Object.fromEntries([3,4].map(length=>[length,straightPaths(target.width,target.height,length)]));
+  const words=[3,4].flatMap(length=>paths[length].length?(ix.byLength[length]||[]).map(x=>x.word):[]).sort();
+  ix.straightSeeds.set(key,{paths,words});
+ }
+ return ix.straightSeeds.get(key);
+}
+function productionSeedInfo(spec,ix){
+ const target=poolTarget(spec),source=straightSeedSource(target,ix);
+ const words=source.words.filter(word=>!target.initialLetters||target.initialLetters.includes(word[0]));
+ if(!words.length)throw new Error(target.width+'×'+target.height+' 没有可直线放置的'+(target.initialLetters?' '+target.initialLetters+' 首字母':'')+' 3／4 字母必答词，请调整首字母、尺寸或来源词库');
+ const available=new Set(words.map(word=>word[0]));
+ return {count:words.length,missing:[...target.initialLetters].filter(c=>!available.has(c))};
+}
+function fillStraightBoard(target,ix,rng){
+ const g=Array(target.cells).fill(''),placements=[],used=new Set(),source=straightSeedSource(target,ix);
+ function fill(words,phase){
+  const groups=new Map();
+  for(const word of words)if(!used.has(word)){if(!groups.has(word[0]))groups.set(word[0],[]);groups.get(word[0]).push(word);}
+  for(const [letter,pool] of groups)groups.set(letter,shuffle(pool,rng));
+  const initials=shuffle([...groups.keys()].sort(),rng);
+  let progress=true;
+  while(progress&&g.includes('')){
+   progress=false;
+   // Give each initial one placement per round, so large groups cannot monopolize the board.
+   for(const letter of initials){
+    const pool=groups.get(letter);
+    while(pool.length){
+     const word=pool.pop(),paths=source.paths[word.length].filter(path=>path.some(i=>!g[i])&&path.every((i,k)=>!g[i]||g[i]===word[k]));
+     // Filling more cells cannot make a conflicting/exhausted path viable again.
+     if(!paths.length)continue;
+     const path=pick(paths,rng),fresh=path.filter(i=>!g[i]).length;
+     path.forEach((i,k)=>g[i]=word[k]);used.add(word);placements.push({word,path,phase,fresh});progress=true;break;
+    }
+   }
+  }
+ }
+ fill(source.words.filter(word=>!target.initialLetters||target.initialLetters.includes(word[0])),'initials');
+ fill(source.words,'fill');
+ const freq='EEEEEEEEEEAAAAAAAOOOOOOOIIIIIIITTTTTTRRRRRRNNNNNLLLLSSSSDDCCUUUMMHPBGFVWYK';
+ for(let i=0;i<g.length;i++)if(!g[i])g[i]=pick(freq,rng);
+ return {g,placements};
+}
+function tryStraightAttempt(target,ordinal,ix,config){
+ const rng=random(config.seed+'|attempt|'+ordinal),{g,placements}=fillStraightBoard(target,ix,rng);
+ const items=scanTargets(g,target.width,target.height,ix,32);
+ const selected=items.filter(x=>x.safe&&x.length>=3&&x.length<=8).sort((a,b)=>a.word.localeCompare(b.word));
+ const words=new Set(selected.map(x=>x.word));
+ if(!selected.length||placements.some(p=>!words.has(p.word)))return null;
+ const counts=Array(g.length).fill(0);for(const item of selected)for(const cell of item.path)counts[cell]++;
+ if(counts.some(n=>!n||n>config.maxUse))return null;
+ const evaluation=metrics({g,w:target.width,h:target.height,counts},{},items,selected,ix,config);
+ const level={preset:'pool',width:target.width,height:target.height,grid:g,counts,targets:selected.map(x=>x.word),extras:[],
+  paths:Object.fromEntries(selected.map(x=>[x.word,x.path])),source:'generated',validated:true,metrics:evaluation.metrics,
+  construction:{strategy:SEARCH_VERSION,initialLetters:target.initialLetters,placements}};
+ const checked=validate(level,ix,config);if(!checked.ok)return null;
+ level.extras=checked.extras;level.metrics.extraCount=checked.extras.length;
+ return {ok:true,level,score:0,attempts:ordinal+1,profile:target};
+}
+// Candidate ordinals are reproducibility coordinates, never campaign positions.
+// Explicit legacy count specs remain reproducible for saved tooling/fixtures.
 function poolTarget(spec,profiles){
  const width=Number(spec.width),height=Number(spec.height),k=Number(spec.targetCount);
- if(![[4,2],[3,3],[4,3],[5,3]].some(([w,h])=>w===width&&h===height)||!Number.isInteger(k)||k<2||k>16)throw new Error('生成尺寸或目标词数量无效');
+ if(![[4,2],[3,3],[4,3],[5,3]].some(([w,h])=>w===width&&h===height))throw new Error('生成尺寸无效');
+ if(spec.strategy&&spec.strategy!==SEARCH_VERSION)throw new Error('未知的生成策略');
+ if(spec.strategy===SEARCH_VERSION||spec.initialLetters!==undefined||spec.targetCount===undefined)return {width,height,cells:width*height,initialLetters:normalizeInitials(spec.initialLetters),strategy:SEARCH_VERSION};
+ if(!Number.isInteger(k)||k<2||k>16)throw new Error('旧版生成目标词数量无效');
  const p=profiles.list0.map((profile,index)=>({profile,index})).sort((a,b)=>Math.abs(a.profile.k-k)-Math.abs(b.profile.k-k)||Math.abs(a.profile.cells-width*height)-Math.abs(b.profile.cells-width*height)||a.index-b.index)[0].profile;
  const from=Number(p.stage.split(/[–-]/)[0]);
  return {...p,width,height,cells:width*height,k,stageStart:stage(from),n:0};
 }
 function generatePoolAttempts(spec,ix,profiles,config={},start=0,count=1){
  if(!Number.isSafeInteger(start)||start<0||!Number.isSafeInteger(count)||count<1)throw new Error('候选范围无效');
- const d=poolTarget(spec,profiles),key=d.width+'x'+d.height+'|'+d.k;
- config={...DEFAULTS,...config,seed:String(config.seed||DEFAULTS.seed)+'|inventory-v1|'+key,preset:'pool',requiredLettersByLevel:undefined};
+ const d=poolTarget(spec,profiles),straight=d.strategy===SEARCH_VERSION,key=d.width+'x'+d.height+'|'+(straight?d.initialLetters:d.k);
+ if(straight)productionSeedInfo(d,ix);
+ config={...DEFAULTS,...config,seed:String(config.seed||DEFAULTS.seed)+'|'+(straight?SEARCH_VERSION:'inventory-v1')+'|'+key,preset:'pool',requiredLettersByLevel:undefined};
  const out=[];for(let a=start;a<start+count;a++){
-  const candidate=tryAttempt(d,a,ix,config,{});
+  const candidate=straight?tryStraightAttempt(d,a,ix,config):tryAttempt(d,a,ix,config,{});
   if(candidate){delete candidate.level.number;candidate.level.id='candidate-'+hash(config.seed+'|'+a).toString(16);candidate.ordinal=a;}
   out.push(candidate);
  }
@@ -216,5 +311,5 @@ function generateRange(ix,profiles,options,onProgress){let opts={...DEFAULTS,...
 function exportGame(levels){return {kind:'word-tiles-levels-v2',version:2,levels:levels.map(l=>({id:l.id,number:l.number,width:l.width,height:l.height,rows:Array.from({length:l.height},(_,i)=>l.grid.slice(i*l.width,(i+1)*l.width).join('')),counts:l.counts,targets:l.targets,extras:l.extras}))};}
 function parseCSV(text){let rows=[],cur=[],v='',quoted=false;for(let i=0;i<text.length;i++){let c=text[i];if(quoted){if(c==='"'&&text[i+1]==='"'){v+='"';i++}else if(c==='"')quoted=false;else v+=c;}else if(c==='"')quoted=true;else if(c===','){cur.push(v);v=''}else if(c==='\n'||c==='\r'){if(c==='\r'&&text[i+1]==='\n')i++;cur.push(v);v='';if(cur.some(x=>x))rows.push(cur);cur=[];}else v+=c;}if(v||cur.length){cur.push(v);rows.push(cur)}let heads=(rows.shift()||[]).map(x=>x.replace(/^\uFEFF/,'').trim());return rows.map(x=>Object.fromEntries(heads.map((k,i)=>[k,x[i]||''])));}
 function historyFromLevels(levels){let recent=new Map(),usage={};for(let level of [...levels].sort((a,b)=>a.number-b.number)){for(let w of level.targets||[]){recent.set(w,level.number);usage[w]=(usage[w]||0)+1;}}return {recent,usage};}
-return {DEFAULTS,SEARCH_VERSION,stage,getProfile,targetFor,requiredLettersFor,normalizeLex,buildIndex,scan,metrics,validate,attemptLimit,generateAttempts,stopAfterAttempt,finishGeneration,generateOne,poolTarget,generatePoolAttempts,generateRange,exportGame,parseCSV,historyFromLevels,random,direction,turns,adjacencyStats};
+return {DEFAULTS,SEARCH_VERSION,LEGACY_SEARCH_VERSION,normalizeInitials,productionSeedInfo,stage,getProfile,targetFor,requiredLettersFor,normalizeLex,buildIndex,scan,scanTargets,metrics,validate,attemptLimit,generateAttempts,stopAfterAttempt,finishGeneration,generateOne,poolTarget,generatePoolAttempts,generateRange,exportGame,parseCSV,historyFromLevels,random,direction,turns,adjacencyStats};
 });

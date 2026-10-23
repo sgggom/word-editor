@@ -1,45 +1,86 @@
 <!-- 关卡生成与排布面板 -->
-<div id="batch" hidden>
-  <div class="bp workflow-panel" role="dialog" aria-labelledby="generationTitle">
-    <div class="workflow-heading"><div><h3 id="generationTitle">关卡生成</h3><p class="note">选择来源词库，生产完整关卡并存入目标关卡库。生成不会改变当前关序。</p></div><button id="bClose" type="button">关闭</button></div>
-    <div class="workflow-toolbar"><label>目标关卡库 <select id="poolSelect"></select></label><button id="poolNew" type="button">新建关卡库</button><button id="poolRename" type="button">重命名</button><button id="poolImport" type="button">导入／合并关卡库</button><button id="poolExport" type="button">导出关卡库</button></div>
+<div id="batch" class="workflow-overlay" data-mobile-pane="batches" hidden>
+  <div class="workflow-panel generate-workbench" role="dialog" aria-modal="true" aria-labelledby="generationTitle">
+    <header class="g-header">
+      <div class="g-brand"><h3 id="generationTitle">关卡生成</h3><span class="note">生产入库，再按规则排布</span></div>
+      <label class="g-destination">存入关卡库 <select id="poolSelect" aria-label="目标关卡库"></select></label>
+      <div class="g-header-actions"><button id="poolNew" type="button">新建库</button>
+        <details id="bPoolMenu" class="g-file-menu"><summary>库操作 ▾</summary><div><button id="poolRename" type="button">重命名</button><button id="poolImport" type="button">导入／合并</button><button id="poolExport" type="button">导出关卡库</button></div></details>
+        <button id="bClose" type="button">关闭</button></div>
+      <div class="g-mobile-tabs" aria-label="生成工作区"><button type="button" data-generation-pane="sources" aria-pressed="false">来源词库</button><button type="button" data-generation-pane="batches" aria-pressed="true">生产批次</button><button type="button" data-generation-pane="inventory" aria-pressed="false">关卡库</button></div>
+    </header>
     <input id="poolFile" type="file" accept=".json,application/json" hidden>
-    <div class="batch-libraries">
-      <fieldset id="bTargetLibraries"><legend>来源词库 · 必答词</legend><div class="batch-library-tools"><span>至少选择一份</span><button type="button" data-batch-select="target" data-select-all="1">全选</button><button type="button" data-batch-select="target" data-select-all="0">清空</button></div><div id="bTargetOptions" class="batch-library-options"></div></fieldset>
-      <fieldset id="bExtraLibraries"><legend>来源词库 · 仅额外词</legend><div class="batch-library-tools"><span>可不选</span><button type="button" data-batch-select="extra" data-select-all="1">全选</button><button type="button" data-batch-select="extra" data-select-all="0">清空</button></div><div id="bExtraOptions" class="batch-library-options"></div></fieldset>
+    <div class="g-workspace">
+      <section class="g-source-pane" aria-labelledby="bSourcesTitle">
+        <div class="g-pane-heading"><h4 id="bSourcesTitle">来源词库</h4><span class="note">多选合并</span></div>
+        <fieldset id="bTargetLibraries"><legend class="g-sr-only">必答词来源</legend><div class="batch-library-tools"><span>必答词</span><button type="button" data-batch-select="target" data-select-all="1">全选</button><button type="button" data-batch-select="target" data-select-all="0">清空</button></div><div id="bTargetOptions" class="batch-library-options"></div></fieldset>
+        <p class="g-source-note" id="bLexNote"></p>
+      </section>
+      <section class="g-batch-pane" aria-labelledby="bBatchesTitle">
+        <div class="g-pane-heading"><h4 id="bBatchesTitle">生产批次</h4><button id="bAddRow" type="button">＋ 添加批次</button></div>
+        <div class="g-batch-scroll">
+          <p class="g-intro">每批设置尺寸、起始首字母和数量。词数由铺盘后的扫描决定。</p>
+          <table id="productionTable"><thead><tr><th>棋盘</th><th>起始首字母</th><th>数量</th><th><span class="g-sr-only">操作</span></th></tr></thead><tbody></tbody></table>
+          <p class="g-help">首字母可填 ABC 或 A B C，留空不限。</p>
+          <p id="bConfigNote" class="g-config-note" hidden></p>
+          <details class="g-method"><summary>生成规则</summary><p>指定首字母的 3／4 字母词先轮流沿横向或纵向直线摆放，放不下后用其他短词和字母补齐。允许相同字母交叉；3×3 只能直线放 3 字母词，不保证每个首字母都能放入。</p><p>扫描后保留全部合法必答词（3–8 字母），再自动校对额外词。拐弯、重复间隔、字母密度和原逐关字母表，在排布时筛选。</p></details>
+        </div>
+        <div class="g-batch-total"><strong id="bBatchTotal">1 批次</strong><span class="note">配置自动保存</span></div>
+      </section>
+      <section class="g-results-pane" aria-labelledby="bInventoryTitle">
+        <div class="g-pane-heading"><div><h4 id="bInventoryTitle">关卡库</h4><p id="poolCount" class="note"></p></div><span class="g-store-badge">独立保存</span></div>
+        <div id="bOut" class="g-output" role="status"></div>
+        <div class="g-inventory-scroll"><table id="poolEntries"><thead><tr><th>棋盘／词数</th><th>必答词</th><th title="每个必答词按最少拐弯的合法路径统计">拐弯</th><th title="必答词情绪分之和 + 额外词情绪分之和 × 0.5">情绪分</th><th><span class="g-sr-only">查看关卡</span></th></tr></thead><tbody></tbody></table></div>
+        <div class="g-pagination"><span class="note">每页 50 关</span><div><button id="poolPrev" type="button">上一页</button><span id="poolPage" class="note"></span><button id="poolNext" type="button">下一页</button></div></div>
+      </section>
     </div>
-    <p class="note" id="bLexNote"></p>
-    <div class="workflow-section-heading"><h4>生产批次</h4><button id="bAddRow" type="button">添加批次</button></div>
-    <div class="workflow-table"><table id="productionTable"><thead><tr><th>棋盘尺寸（宽 × 高）</th><th>目标词数量</th><th>生成数量</th><th></th></tr></thead><tbody></tbody></table></div>
-    <div class="bgrid">
-      <label>随机种子<input id="bSeed" value="WT-2026" spellcheck="false"></label>
-      <label>计算线程<select id="bThreads"><option value="auto">自动</option><option value="1">1 线程</option><option value="2">2 线程</option><option value="4">4 线程</option><option value="8">8 线程</option></select></label>
-      <label>总尝试预算<input id="bBudget" type="number" min="1" step="1" placeholder="自动：目标数量 × 300"></label>
-      <label>单格最多使用次数<input id="bMaxN" type="number" min="1" max="20" value="13"></label>
-    </div>
-    <p class="note" id="bComputeStatus" role="status"></p><div class="pbar"><i id="bBar"></i></div><p class="note" id="bProg" aria-live="polite"></p><div id="bOut"></div>
-    <div class="bbtn"><button id="bStop" type="button" disabled>中止生成</button><button id="bGo" type="button" class="primary">生成到关卡库</button></div>
-    <div class="workflow-section-heading"><h4>库内关卡 <span id="poolCount" class="note"></span></h4><div><button id="poolPrev" type="button">上一页</button><span id="poolPage" class="note"></span><button id="poolNext" type="button">下一页</button></div></div>
-    <div class="workflow-table"><table id="poolEntries"><thead><tr><th>候选</th><th>尺寸</th><th>目标词</th><th>字母</th><th>最大拐弯</th><th>直线／一拐／多拐</th><th></th></tr></thead><tbody></tbody></table></div>
+    <footer class="g-footer">
+      <div class="g-run-options"><label>种子<select id="bSeedMode" aria-label="生成种子方式"><option value="auto">每次随机</option><option value="fixed">复用当前种子</option></select></label><button id="bRunSettingsOpen" type="button">运行设置／历史</button></div>
+      <div class="g-run-status"><div id="bComputeStatus" role="status"></div><div id="bProgress" class="pbar" role="progressbar" aria-label="生成进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="bBar"></i></div><p id="bProg" class="note" aria-live="polite"></p></div>
+      <div class="g-run-actions"><button id="bStop" type="button" disabled hidden>中止生成</button><button id="bGo" type="button" class="primary">生成到关卡库</button></div>
+    </footer>
+    <dialog id="bRunSettings" class="g-dialog" aria-labelledby="bSettingsTitle"><div class="g-dialog-heading"><h3 id="bSettingsTitle">运行设置与种子历史</h3><button type="button" data-generation-dialog-close>完成</button></div>
+      <div class="g-settings-fields"><label>随机种子<input id="bSeed" placeholder="开始生成时自动生成" spellcheck="false" autocomplete="off" readonly></label><label>种子历史<select id="bSeedHistory"><option value="">暂无种子历史</option></select></label><p class="note" id="bSeedNote"></p>
+        <div class="g-settings-grid"><label>计算线程<select id="bThreads"><option value="auto">自动</option><option value="1">1 线程</option><option value="2">2 线程</option><option value="4">4 线程</option><option value="8">8 线程</option></select></label><label>单格最多使用次数<input id="bMaxN" type="number" min="1" max="20" value="13"></label></div>
+        <label>总尝试预算<input id="bBudget" type="number" min="1" max="100000000" step="1" placeholder="自动：生成数量 × 300"></label><p class="note">留空按总生成数量的 300 倍尝试。预算用完或中止时，已入库的关卡保留。</p></div>
+    </dialog>
   </div>
 </div>
-<div id="arrange" class="workflow-overlay" hidden>
-  <div class="bp workflow-panel" role="dialog" aria-labelledby="arrangeTitle">
-    <div class="workflow-heading"><div><h3 id="arrangeTitle">关卡排布</h3><p class="note">从关卡库选取完整关卡。预览不改变当前关序；全部关号匹配后可应用。</p></div><button id="aClose" type="button">关闭</button></div>
-    <div class="workflow-toolbar"><label>方案名称 <input id="aName" value="排布关序"></label><button id="aFromCurrent" type="button">读取当前关序的尺寸与目标数</button><button id="aImport" type="button">导入方案</button><button id="aExport" type="button">导出方案</button></div>
+<div id="arrange" class="workflow-overlay" data-mobile-pane="levels" hidden>
+  <div class="workflow-panel arrange-workbench" role="dialog" aria-modal="true" aria-labelledby="arrangeTitle">
+    <header class="a-header">
+      <div class="a-brand"><h3 id="arrangeTitle">关卡排布</h3><span id="aSaveState" class="note">草稿</span></div>
+      <label class="a-plan-name"><span class="sr-only">方案名称</span><input id="aName" aria-label="方案名称" value="排布关序" placeholder="方案名称"></label>
+      <div class="a-header-actions"><button id="aFromCurrent" type="button" title="从当前关序读取棋盘尺寸和目标词数">读取当前关序</button>
+        <details class="a-file-menu"><summary>方案文件 ▾</summary><div><button id="aImport" type="button">导入方案</button><button id="aExport" type="button">导出方案</button><button id="bExport" type="button">导出正式关序</button></div></details>
+        <button id="aClose" type="button">关闭</button></div>
+      <div class="a-mobile-tabs" aria-label="工作区"><button type="button" data-arrange-mobile="rules" aria-pressed="false">分段与规则</button><button type="button" data-arrange-mobile="levels" aria-pressed="true">关序与结果</button></div>
+    </header>
     <input id="arrangementFile" type="file" accept=".json,application/json" hidden>
-    <div class="workflow-section-heading"><h4>分段配置</h4><button id="aAddSegment" type="button">添加分段</button></div><div id="aSegments"></div>
-    <p class="note">包含字母使用原 1–1000 关配置，按最终关号匹配；表外不限制。拐弯按每个必答词最少拐弯的合法路径计算。重复词只统计必答词；字母密度按整关是否包含统计，同一关同字母只计一次。</p>
-    <div class="workflow-section-heading"><h4>逐关固定配置</h4><div><button id="aSlotPrev" type="button">上一页</button><span id="aSlotPage" class="note"></span><button id="aSlotNext" type="button">下一页</button></div></div>
-    <p id="aConfigError" class="bad" role="alert"></p>
-    <div class="workflow-table"><table id="aSlots"><thead><tr><th>正式关号</th><th>棋盘尺寸</th><th>目标词数量</th><th>必须包含</th><th>拐弯上限</th></tr></thead><tbody></tbody></table></div>
-    <div class="bgrid"><label>排布种子<input id="aSeed" value="ARRANGE-2026" spellcheck="false"></label><label>候选检查预算<input id="aBudget" type="number" min="1" max="100000000" value="1000000"></label></div>
-    <p id="aProgress" class="note" role="status" aria-live="polite"></p>
-    <div class="bbtn"><button id="aStop" type="button" disabled>中止排布</button><button id="aRetry" type="button">换种子</button><button id="aRun" type="button" class="primary">预览排布</button></div>
-    <div class="workflow-section-heading"><h4>排布预览</h4><div><button id="aResultPrev" type="button">上一页</button><span id="aResultPage" class="note"></span><button id="aResultNext" type="button">下一页</button></div></div>
-    <div id="aSummary" class="note"></div><details id="aStats"><summary>重复词与字母密度统计</summary><div id="aStatsBody"></div></details>
-    <div class="workflow-table"><table id="aResults"><thead><tr><th>关号</th><th>静态要求</th><th>符合条件的库存</th><th>选中关卡／缺口原因</th><th></th></tr></thead><tbody></tbody></table></div>
-    <div class="bbtn"><button id="bExport" type="button">导出当前正式关序</button><button id="aApply" type="button" class="primary" disabled>应用排布结果</button></div>
+    <div class="a-workspace">
+      <nav class="a-segment-pane" aria-label="关序分段"><div class="a-pane-heading"><b>分段</b><span id="aSegmentCount" class="note"></span></div><div id="aSegmentList"></div><button id="aAddSegment" type="button">＋ 添加分段</button></nav>
+      <section class="a-rules-pane" aria-labelledby="aRulesTitle">
+        <div class="a-pane-heading"><h4 id="aRulesTitle">分段设置</h4><div><button id="aDuplicateSegment" type="button" title="复制本段规则，追加到关序末尾">复制</button><button id="aDeleteSegment" type="button">删除</button></div></div>
+        <div class="a-segment-switch"><label>当前分段<select id="aSegmentSelect" aria-label="当前分段"></select></label><button id="aAddSegmentCompact" type="button">＋ 添加分段</button></div>
+        <div id="aSegments"></div>
+      </section>
+      <section class="a-results-pane" aria-label="关序与结果">
+        <div class="a-results-heading"><div id="aTabs" role="tablist" aria-label="结果视图"><button id="aLevelsTab" type="button" role="tab" aria-selected="true" aria-controls="aLevelView" data-arrange-tab="levels">关序表</button><button id="aStatsTab" type="button" role="tab" aria-selected="false" aria-controls="aStatsView" tabindex="-1" data-arrange-tab="stats">统计</button></div><span id="aPreviewState" class="a-status neutral">尚未预览</span></div>
+        <div class="a-table-tools"><label><span class="sr-only">查看范围</span><select id="aScope" aria-label="查看范围"><option value="all">全部关序</option><option value="segment">当前分段</option></select></label><label><span class="sr-only">筛选关卡</span><select id="aFilter" aria-label="筛选关卡"><option value="all">全部关卡</option><option value="gaps">仅缺口</option><option value="overrides">已单独修改</option></select></label><div class="a-jump"><input id="aJump" type="number" min="1" max="10000" placeholder="关号" aria-label="跳转关号"><button id="aJumpGo" type="button">跳转</button></div></div>
+        <p id="aConfigError" class="a-config-error" role="alert" hidden></p><p id="aPreviewNotice" class="a-stale-note" hidden></p>
+        <div id="aLevelView" role="tabpanel" aria-labelledby="aLevelsTab" class="a-table-scroll"><table id="aSlots"><thead><tr><th>关号</th><th>尺寸</th><th>词数</th><th>必含字母</th><th title="符合单关条件的库存，尚未考虑跨关间隔和密度限制">可选库存</th><th title="第 3 优先级：先满足硬性条件与避让规则，再优先高情绪分">情绪分</th><th>排布结果</th></tr></thead><tbody id="aResults"></tbody></table></div>
+        <div id="aStatsView" role="tabpanel" aria-labelledby="aStatsTab" class="a-stats-scroll" hidden><div id="aStatsBody"></div><p id="aPreviewSeed" class="note"></p></div>
+        <div class="a-pagination"><span class="note">点击关号查看棋盘或缺口详情</span><div><button id="aResultPrev" type="button">上一页</button><span id="aResultPage" class="note"></span><button id="aResultNext" type="button">下一页</button></div></div>
+      </section>
+    </div>
+    <footer class="a-footer">
+      <div class="a-run-options"><label>种子<select id="aSeedMode" aria-label="排布种子方式"><option value="auto">每次随机</option><option value="fixed">复用当前种子</option></select></label><button id="aRunSettingsOpen" type="button">历史／运行设置</button></div>
+      <div class="a-run-status"><div id="aSummary" role="status"></div><div id="aProgress" class="note" aria-live="polite"></div></div>
+      <div class="a-run-actions"><button id="aStop" type="button" disabled hidden>中止排布</button><button id="aRun" type="button" class="primary">预览整套关序</button><button id="aApply" type="button" disabled>应用结果</button></div>
+    </footer>
+    <dialog id="aPoolPicker" class="a-dialog" aria-labelledby="aPoolPickerTitle"><div class="a-dialog-heading"><h3 id="aPoolPickerTitle">选择来源关卡库</h3><button type="button" data-arrange-dialog-close aria-label="关闭关卡库选择">关闭</button></div><p class="note">可多选；相同关卡会去重。库内数量不等于符合当前条件的候选数量。</p><input id="aPoolSearch" type="search" placeholder="搜索关卡库" aria-label="搜索关卡库"><div id="aPoolChoices"></div><div class="a-dialog-actions"><button type="button" data-arrange-dialog-close>取消</button><button id="aPoolApply" type="button" class="primary">使用所选关卡库</button></div></dialog>
+    <dialog id="aDensityEditor" class="a-dialog" aria-labelledby="aDensityTitle"><div class="a-dialog-heading"><h3 id="aDensityTitle">字母密度</h3><button type="button" data-arrange-dialog-close aria-label="关闭字母密度设置">关闭</button></div><div class="a-form-grid"><label>窗口长度（关）<input id="aDensityWindow" type="number" min="1" max="10000"></label><label>处理方式<select id="aDensityMode"><option value="strict">严格限制</option><option value="soft">扣分避让</option></select></label></div><p class="note">各字母在窗口内最多出现几关。留空不限，同一字母每关只计一次；跨分段连续统计。</p><div id="aDensityGrid" class="density-grid"></div><p id="aDensityError" class="bad" role="alert"></p><div class="a-dialog-actions"><button id="aDensityClear" type="button">清空字母限制</button><button type="button" data-arrange-dialog-close>取消</button><button id="aDensityApply" type="button" class="primary">保存密度规则</button></div></dialog>
+    <dialog id="aRunSettings" class="a-dialog" aria-labelledby="aRunSettingsTitle"><div class="a-dialog-heading"><h3 id="aRunSettingsTitle">种子历史与运行设置</h3><button type="button" data-arrange-dialog-close aria-label="关闭运行设置">完成</button></div><div class="a-settings-fields"><label>排布种子<input id="aSeed" placeholder="开始排布时自动生成" spellcheck="false" autocomplete="off" readonly></label><label>种子历史<select id="aSeedHistory"><option value="">暂无种子历史</option></select></label><p class="note" id="aSeedNote"></p><button id="aRetry" type="button">下次用新种子</button><label>候选检查预算<input id="aBudget" type="number" min="1" max="100000000" value="1000000"></label><p class="note">每次预览都处理整套关序。优先级：硬性条件 → 重复词／字母密度避让 → 情绪分。预算用尽保留缺口，不自动放宽规则。</p></div></dialog>
   </div>
 </div>
 <!-- 关卡生成与排布面板结束 -->

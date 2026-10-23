@@ -192,7 +192,10 @@
       for (const id of Object.keys(unlocks)) if (!options.some(x => x.recipe.id === id)) delete unlocks[id];
       const selected = new Set(staged ? batchLibrarySelection.stagedIds[key] : batchLibrarySelection[key + 'Ids']);
       const rows = options.filter(x => x[key] || x.recipe[key === 'target' ? 'targetPool' : 'extraPool'].sources.length);
-      $('#' + (key === 'target' ? 'bTargetOptions' : 'bExtraOptions')).innerHTML = rows.map(({recipe, [key]: count}) =>
+      // Retain old saved extra preferences for compatibility, but production now
+      // uses the full automatic reference and only exposes target selection.
+      if (key !== 'target') continue;
+      $('#bTargetOptions').innerHTML = rows.map(({recipe, [key]: count}) =>
         '<div class="batch-library-option"><label class="batch-library-choice"><input type="checkbox" data-batch-library="' + key + '" value="' + esc(recipe.id) + '"' +
         (selected.has(recipe.id) ? ' checked' : '') + (!count ? ' disabled' : '') + '><span title="' + esc(recipe.name + ' · v' + recipe.revision) + '">' + esc(recipe.name) + '</span><small>' + count.toLocaleString() + ' 词</small></label>' +
         (staged ? '<label class="batch-unlock">第 <input type="number" min="1" max="99999" step="1" data-batch-unlock="' + key + '" data-library-id="' + esc(recipe.id) + '" aria-label="' + esc(recipe.name + '解锁关号') + '" value="' + esc(unlocks[recipe.id]) + '"' + (!count ? ' disabled' : '') + '> 关起加入</label>' : '') + '</div>').join('') || '<p class="note">暂无这类词库，可先在词库窗口中配置。</p>';
@@ -202,7 +205,7 @@
   }
   function rememberBatchLibrarySelection() {
     if (!batchSelectionLoaded || batchRun) return;
-    for (const key of ['target', 'extra']) {
+    for (const key of ['target']) {
       const ids = [...document.querySelectorAll('[data-batch-library="' + key + '"]:checked')].map(el => el.value);
       batchLibrarySelection[key + 'Ids'] = ids;
     }

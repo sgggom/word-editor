@@ -28,7 +28,7 @@ function onePlan(poolId){return {kind:'wordpages-arrangement',schemaVersion:1,na
   assert.equal(await page.evaluate(()=>__desk.deskText()),before,'generation must not modify the campaign');assert.deepEqual(await page.evaluate(()=>__desk.libraries().recipes),libraries);
   await page.waitForFunction(()=>document.querySelectorAll('#poolEntries [data-pool-preview]').length===5);
   const produced=await page.evaluate(id=>__desk.workflow.store.allEntries(id),producedPool);
-  assert(produced.every(e=>e.metrics.width===3&&e.metrics.height===3&&e.metrics.targetCount===3));assert(!produced.some(e=>e.generation.number));
+  assert(produced.every(e=>e.metrics.width===3&&e.metrics.height===3&&e.metrics.targetCount===e.game.t.split(" ").length));assert(!produced.some(e=>e.generation.number));
   const exported=await page.evaluate(()=>__desk.workflow.exportPool());assert.equal(exported.entries.length,5);assert.equal(Object.keys(exported.librarySnapshots).length,1);
   const duplicate=await page.evaluate(({file,id})=>__desk.workflow.importPool(file,id),{file:exported,id:producedPool});assert.equal(duplicate.added,0);
   const reordered=JSON.parse(JSON.stringify(exported));reordered.librarySnapshots=Object.fromEntries(Object.entries(reordered.librarySnapshots).map(([id,snap])=>[id,Object.fromEntries(Object.entries(snap).reverse())]));
@@ -47,8 +47,9 @@ function onePlan(poolId){return {kind:'wordpages-arrangement',schemaVersion:1,na
   await page.screenshot({path:'/tmp/pool-split-generated.png'});await page.click('#bClose');
   await page.click('#btnArrange');await page.waitForSelector('#arrange',{visible:true});
   await page.$eval('[data-seg="to"]',e=>{e.value=1;e.dispatchEvent(new Event('input',{bubbles:true}));});
+  await page.click('#aChoosePools');await page.waitForSelector('#aPoolPicker[open]');
   await page.$$eval('[data-seg-pool]',els=>els.forEach(e=>{e.checked=e.value==='qa-fixture-pool';e.dispatchEvent(new Event('input',{bubbles:true}));}));
-  await page.click('[data-segment-fill]');await page.waitForFunction(()=>!document.querySelector('#aRun').disabled);
+  await page.click('#aPoolApply');if(!await page.$eval('[data-segment-fill]',e=>e.disabled))await page.click('[data-segment-fill]');await page.waitForFunction(()=>!document.querySelector('#aRun').disabled);
   await page.click('#aRun');await page.waitForFunction(()=>window.__lastArrangement,{timeout:60000});assert.equal(await page.evaluate(()=>__lastArrangement.status),'complete');
   assert.equal(await page.evaluate(()=>__desk.deskText()),before,'arrangement preview must not modify the campaign');
   assert.equal(await page.$eval('#aApply',e=>e.disabled),false);await page.screenshot({path:'/tmp/pool-split-arranged.png'});

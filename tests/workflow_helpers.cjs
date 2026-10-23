@@ -5,8 +5,9 @@ async function produce(page,count=3,seed='source-QA'){
  const setup=await page.evaluate(async({count,seed})=>{
   window.__testPoolCounter=(window.__testPoolCounter||0)+1;
   const pool=await __desk.workflow.store.createPool('测试关卡库 '+__testPoolCounter);await __desk.workflow.refresh(pool.id);
-  const row=document.querySelector('#productionTable tbody tr');row.querySelector('[data-production="size"]').value='3x3';row.querySelector('[data-production="targetCount"]').value=3;row.querySelector('[data-production="quantity"]').value=count;
+  const row=document.querySelector('#productionTable tbody tr');row.querySelector('[data-production="size"]').value='3x3';row.querySelector('[data-production="initialLetters"]').value='';row.querySelector('[data-production="quantity"]').value=count;
   document.querySelector('#bSeed').value=seed+'-'+__testPoolCounter;document.querySelector('#bBudget').value=count*300;
+  document.querySelector('#bSeedMode').value='fixed';document.querySelector('#bSeedMode').dispatchEvent(new Event('change',{bubbles:true}));
   row.querySelector('[data-production="quantity"]').dispatchEvent(new Event('input',{bubbles:true}));return {poolId:pool.id};
  },{count,seed});
  if(await page.$eval('#batch',e=>e.hidden))await page.click('#btnBatch');
@@ -19,9 +20,11 @@ async function produceAndApply(page,count=3,seed='source-QA',mode='replace'){
  const {result,poolId}=await produce(page,count,seed);
  if(!await page.$eval('#batch',e=>e.hidden))await page.click('#bClose');
  await page.evaluate(async({poolId,count,mode})=>{
-  const old=__desk.campaign().arrangement?.plan,prefix=mode==='after'&&old?__desk.campaign().levels.length:0;
-  const plan={kind:'wordpages-arrangement',schemaVersion:1,name:'词库验收关序',seed:'source-test',budget:1000000,requiredLetters:{id:'source-test-neutral',levels:Object.fromEntries(Array.from({length:1000},(_,i)=>[i+1,'']))},overrides:{},
-   segments:[...(prefix?old.segments:[]),{id:'segment-'+poolId,from:prefix+1,to:prefix+count,width:3,height:3,targetCount:3,poolIds:[poolId],rules:{maxTurns:null,repeatGap:0}}]};
+  const old=__desk.campaign().arrangement?.plan,prefix=mode==='after'&&old?__desk.campaign().levels.length:0,entries=await __desk.workflow.store.allEntries(poolId);
+  const overrides=prefix?structuredClone(old.overrides||{}):{};
+  entries.slice(0,count).forEach((entry,i)=>{overrides[prefix+i+1]={targetCount:entry.metrics.targetCount};});
+  const plan={kind:'wordpages-arrangement',schemaVersion:1,name:'词库验收关序',seed:'source-test',budget:1000000,requiredLetters:{id:'source-test-neutral',levels:Object.fromEntries(Array.from({length:1000},(_,i)=>[i+1,'']))},overrides,
+   segments:[...(prefix?old.segments:[]),{id:'segment-'+poolId,from:prefix+1,to:prefix+count,width:3,height:3,targetCount:entries[0].metrics.targetCount,poolIds:[poolId],rules:{maxTurns:null,repeatGap:0}}]};
   await __desk.workflow.setPlan(plan);await __desk.workflow.run();
   if(__desk.workflow.preview()?.result.status!=='complete')throw new Error(JSON.stringify(__desk.workflow.preview()?.result));
   await __desk.workflow.apply();await __desk.flush();
