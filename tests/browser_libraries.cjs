@@ -157,7 +157,7 @@ async function nameLibrary(page, button, name) {
   assert(draft.extras.includes('IN'));
   await page.click('#bankClose');await confirmImport(JSON.stringify({kind:'wordpages-desk',levels:[draft],librarySnapshots:{[twoSnap.id]:twoSnap}}));
   await page.click('#btnPlay');await page.waitForSelector('#pgrid',{visible:true});
-  const cells=await page.$$eval('#pgrid > *',es=>es.map(e=>{const r=e.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}}));
+  const cells=await page.$$eval('#pgrid > *',es=>es.map(e=>{const r=e.getBoundingClientRect();return {i:Number(e.dataset.i),x:r.x+r.width/2,y:r.y+r.height/2}}).sort((a,b)=>a.i-b.i));
   await page.mouse.move(cells[4].x,cells[4].y);await page.mouse.down();await page.mouse.move(cells[5].x,cells[5].y,{steps:5});await page.mouse.up();
   await page.waitForFunction(()=>document.querySelector('#pExtra').textContent.startsWith('1 /'));await page.click('#pBack');
   // Legacy drafts receive the new default without losing their word/board data.

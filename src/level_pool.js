@@ -1,8 +1,8 @@
 /* Complete inventory records and portable pool files; no browser storage. */
 (function(root,factory){
- const api=typeof module==='object'&&module.exports?factory(require('./gen'),require('./library'),require('./emotion')):factory(root.WTEngine,root.WPLibrary,root.WPEmotion);
+ const api=typeof module==='object'&&module.exports?factory(require('./gen'),require('./library'),require('./emotion'),require('./lengths')):factory(root.WTEngine,root.WPLibrary,root.WPEmotion,root.WPLengths);
  if(typeof module==='object'&&module.exports)module.exports=api;else root.WPLevelPool=api;
-})(typeof globalThis!=='undefined'?globalThis:this,function(E,L,Emotion){
+})(typeof globalThis!=='undefined'?globalThis:this,function(E,L,Emotion,Lengths){
  'use strict';
  const sizes=[[4,2],[3,3],[4,3],[5,3]], fields=['id','name','g','t','n','e','lv','ty','curtains'];
  const clone=x=>JSON.parse(JSON.stringify(x));
@@ -41,7 +41,7 @@
   return {width:lv.width,height:lv.height,targetCount:lv.targets.length,targets:lv.targets.slice().sort(),letters,
    letterMask:letters.reduce((mask,c)=>mask|(1<<(c.charCodeAt(0)-65)),0),perWord,
    straightCount:turns.filter(n=>n===0).length,oneTurnCount:turns.filter(n=>n===1).length,
-   multiTurnCount:turns.filter(n=>n>=2).length,maxTurns:Math.max(...turns),meanTurns:turns.reduce((a,b)=>a+b,0)/turns.length,...Emotion.metrics(game)};
+   multiTurnCount:turns.filter(n=>n>=2).length,maxTurns:Math.max(...turns),meanTurns:turns.reduce((a,b)=>a+b,0)/turns.length,...Emotion.metrics(game),...Lengths.metrics(game)};
  }
  function signature(game,snapshotId){
   const pairs=words(game.t).map((word,i)=>[word,game.lv?.[i]||'',game.ty?.[i]||'']).sort((a,b)=>a[0].localeCompare(b[0]));
@@ -57,10 +57,10 @@
   const sig=signature(body,snapshot.id),playKey=hash(stable([body.g,metrics.targets]));
   return {id:'level-'+hash(sig),signature:sig,playKey,game:body,librarySnapshotId:snapshot.id,metrics,generation:clone(generation)};
  }
- function summary(entry){return {id:entry.id,poolId:entry.poolId,playKey:entry.playKey,librarySnapshotId:entry.librarySnapshotId,...entry.metrics,...Emotion.metrics(entry.game),perWord:undefined};}
+ function summary(entry){return {id:entry.id,poolId:entry.poolId,playKey:entry.playKey,librarySnapshotId:entry.librarySnapshotId,...entry.metrics,...Emotion.metrics(entry.game),...Lengths.metrics(entry.game),perWord:undefined};}
  function exportFile(pool,entries,snapshots){
   const refs=Object.fromEntries([...new Set(entries.map(e=>e.librarySnapshotId))].map(id=>{if(!snapshots[id])throw new Error('缺少词库快照 '+id);return [id,snapshots[id]];}));
-  return {kind:'wordpages-level-pool',schemaVersion:1,pool:{id:pool.id,name:pool.name},entries:entries.map(({poolId,...e})=>Emotion.enrich(e)),librarySnapshots:refs};
+  return {kind:'wordpages-level-pool',schemaVersion:1,pool:{id:pool.id,name:pool.name},entries:entries.map(({poolId,...e})=>Lengths.enrich(Emotion.enrich(e))),librarySnapshots:refs};
  }
  function checkFileHeader(file){
   if(file?.kind!=='wordpages-level-pool'||file.schemaVersion!==1||!file.pool||typeof file.pool.name!=='string'||!file.pool.name.trim()||!Array.isArray(file.entries)||!file.librarySnapshots)throw new Error('关卡库文件格式无效');

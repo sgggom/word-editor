@@ -17,13 +17,13 @@
         <p class="g-source-note" id="bLexNote"></p>
       </section>
       <section class="g-batch-pane" aria-labelledby="bBatchesTitle">
-        <div class="g-pane-heading"><h4 id="bBatchesTitle">生产批次</h4><button id="bAddRow" type="button">＋ 添加批次</button></div>
+        <div class="g-pane-heading"><h4 id="bBatchesTitle">生产批次</h4><div class="g-batch-tools"><button id="bLengthSettingsOpen" type="button">词长比例</button><button id="bAddRow" type="button">＋ 批次</button></div></div>
         <div class="g-batch-scroll">
-          <p class="g-intro">每批设置尺寸、起始首字母和数量。词数由铺盘后的扫描决定。</p>
+          <p class="g-intro">每批可选常规长度，或开局全 3 字母。词数由铺盘后的扫描决定。</p>
           <table id="productionTable"><thead><tr><th>棋盘</th><th>起始首字母</th><th>数量</th><th><span class="g-sr-only">操作</span></th></tr></thead><tbody></tbody></table>
-          <p class="g-help">首字母可填 ABC 或 A B C，留空不限。</p>
+          <p class="g-help">首字母可填 ABC 或 A B C，留空不限。开局档用于准备前 2 关库存，不按候选编号判断。</p>
           <p id="bConfigNote" class="g-config-note" hidden></p>
-          <details class="g-method"><summary>生成规则</summary><p>指定首字母的 3／4 字母词先轮流沿横向或纵向直线摆放，放不下后用其他短词和字母补齐。允许相同字母交叉；3×3 只能直线放 3 字母词，不保证每个首字母都能放入。</p><p>扫描后保留全部合法必答词（3–8 字母），再自动校对额外词。拐弯、重复间隔、字母密度和原逐关字母表，在排布时筛选。</p></details>
+          <details class="g-method"><summary>生成规则</summary><p>常规档先直线放入一个指定首字母的 3／4 字母词，再为所需词长留出空间、按比例偏好补盘；后续词可使用一拐路径。开局档只选择 3 字母必答词。首字母不保证全部放入。原算法档沿用原来的短词直线铺盘。</p><p>扫描后保留长度档位内全部合法必答词，再自动校对额外词；常规小棋盘范围为 3–5 字母，大棋盘为 3–8 字母。最终拐弯、重复间隔、字母密度及逐关字母要求在排布时筛选。</p></details>
         </div>
         <div class="g-batch-total"><strong id="bBatchTotal">1 批次</strong><span class="note">配置自动保存</span></div>
       </section>
@@ -39,6 +39,12 @@
       <div class="g-run-status"><div id="bComputeStatus" role="status"></div><div id="bProgress" class="pbar" role="progressbar" aria-label="生成进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="bBar"></i></div><p id="bProg" class="note" aria-live="polite"></p></div>
       <div class="g-run-actions"><button id="bStop" type="button" disabled hidden>中止生成</button><button id="bGo" type="button" class="primary">生成到关卡库</button></div>
     </footer>
+    <dialog id="bLengthSettings" class="g-dialog" aria-labelledby="bLengthTitle"><div class="g-dialog-heading"><h3 id="bLengthTitle">目标词长度 · 铺盘比例</h3><button type="button" data-generation-dialog-close>取消</button></div>
+      <p class="note">每种尺寸单独设置，合计 100%。比例指导铺盘选词；扫描出的合法词全部保留，实际比例会有浮动。</p>
+      <table id="bLengthRatios"><thead><tr><th>棋盘</th><th>3 字母 %</th><th>4 字母 %</th><th>5+ 字母 %</th></tr></thead><tbody></tbody></table>
+      <p class="note">小棋盘使用 3／4 或 3／4／5；找到 5 字母就保留，没有时把 4 字母视为长词。大棋盘至少有一个恰好 5 字母的必答词。开局档固定 3×3、全 3 字母。</p>
+      <p id="bLengthError" class="bad" role="alert"></p><div class="g-length-actions"><button id="bLengthReset" type="button">恢复默认比例</button><button id="bLengthApply" type="button" class="primary">保存比例</button></div>
+    </dialog>
     <dialog id="bRunSettings" class="g-dialog" aria-labelledby="bSettingsTitle"><div class="g-dialog-heading"><h3 id="bSettingsTitle">运行设置与种子历史</h3><button type="button" data-generation-dialog-close>完成</button></div>
       <div class="g-settings-fields"><label>随机种子<input id="bSeed" placeholder="开始生成时自动生成" spellcheck="false" autocomplete="off" readonly></label><label>种子历史<select id="bSeedHistory"><option value="">暂无种子历史</option></select></label><p class="note" id="bSeedNote"></p>
         <div class="g-settings-grid"><label>计算线程<select id="bThreads"><option value="auto">自动</option><option value="1">1 线程</option><option value="2">2 线程</option><option value="4">4 线程</option><option value="8">8 线程</option></select></label><label>单格最多使用次数<input id="bMaxN" type="number" min="1" max="20" value="13"></label></div>
@@ -66,7 +72,7 @@
       </section>
       <section class="a-results-pane" aria-label="关序与结果">
         <div class="a-results-heading"><div id="aTabs" role="tablist" aria-label="结果视图"><button id="aLevelsTab" type="button" role="tab" aria-selected="true" aria-controls="aLevelView" data-arrange-tab="levels">关序表</button><button id="aStatsTab" type="button" role="tab" aria-selected="false" aria-controls="aStatsView" tabindex="-1" data-arrange-tab="stats">统计</button></div><span id="aPreviewState" class="a-status neutral">尚未预览</span></div>
-        <div class="a-table-tools"><label><span class="sr-only">查看范围</span><select id="aScope" aria-label="查看范围"><option value="all">全部关序</option><option value="segment">当前分段</option></select></label><label><span class="sr-only">筛选关卡</span><select id="aFilter" aria-label="筛选关卡"><option value="all">全部关卡</option><option value="gaps">仅缺口</option><option value="overrides">已单独修改</option></select></label><div class="a-jump"><input id="aJump" type="number" min="1" max="10000" placeholder="关号" aria-label="跳转关号"><button id="aJumpGo" type="button">跳转</button></div></div>
+        <div class="a-table-tools"><label><span class="sr-only">查看范围</span><select id="aScope" aria-label="查看范围"><option value="all">全部关序</option><option value="segment">当前分段</option></select></label><label><span class="sr-only">筛选关卡</span><select id="aFilter" aria-label="筛选关卡"><option value="all">全部关卡</option><option value="gaps">仅缺口</option><option value="overrides">已单独修改</option></select></label><button id="aLengthsOpen" type="button">词长规则</button><div class="a-jump"><input id="aJump" type="number" min="1" max="10000" placeholder="关号" aria-label="跳转关号"><button id="aJumpGo" type="button">跳转</button></div></div>
         <p id="aConfigError" class="a-config-error" role="alert" hidden></p><p id="aPreviewNotice" class="a-stale-note" hidden></p>
         <div id="aLevelView" role="tabpanel" aria-labelledby="aLevelsTab" class="a-table-scroll"><table id="aSlots"><thead><tr><th>关号</th><th>尺寸</th><th>词数</th><th>必含字母</th><th title="符合单关条件的库存，尚未考虑跨关间隔和密度限制">可选库存</th><th title="第 3 优先级：先满足硬性条件与避让规则，再优先高情绪分">情绪分</th><th>排布结果</th></tr></thead><tbody id="aResults"></tbody></table></div>
         <div id="aStatsView" role="tabpanel" aria-labelledby="aStatsTab" class="a-stats-scroll" hidden><div id="aStatsBody"></div><p id="aPreviewSeed" class="note"></p></div>
@@ -78,6 +84,12 @@
       <div class="a-run-status"><div id="aSummary" role="status"></div><div id="aProgress" class="note" aria-live="polite"></div></div>
       <div class="a-run-actions"><button id="aStop" type="button" disabled hidden>中止排布</button><button id="aRun" type="button" class="primary">预览整套关序</button><button id="aApply" type="button" disabled>应用结果</button></div>
     </footer>
+    <dialog id="aLengthsEditor" class="a-dialog" aria-labelledby="aLengthsTitle"><div class="a-dialog-heading"><h3 id="aLengthsTitle">目标词长度规则</h3><button type="button" data-arrange-dialog-close>取消</button></div>
+      <label class="a-length-enable"><input id="aEnableLengths" type="checkbox">启用开局与棋盘尺寸规则</label>
+      <ul class="a-length-rules"><li>正式前 2 关：3×3，必答词全部为 3 字母。</li><li>后续小棋盘：3／4 或 3／4／5。有 5 字母就保留，没有时把 4 字母视为长词。</li><li>大棋盘：至少一个恰好 5 字母的必答词。</li></ul>
+      <p class="note">开启时自动把前 2 关的待排布尺寸设为 3×3；目标词数保留，不足 3 个时调为 3。旧正式关序保持原样，确认应用后才替换。</p><p class="note">铺盘比例在生成工具内按尺寸设置，排布按实际必答词复核以上条件；额外词不参与。库存不足时保留缺口。</p>
+      <div class="a-dialog-actions"><button type="button" data-arrange-dialog-close>取消</button><button id="aLengthApply" type="button" class="primary">保存规则</button></div>
+    </dialog>
     <dialog id="aPoolPicker" class="a-dialog" aria-labelledby="aPoolPickerTitle"><div class="a-dialog-heading"><h3 id="aPoolPickerTitle">选择来源关卡库</h3><button type="button" data-arrange-dialog-close aria-label="关闭关卡库选择">关闭</button></div><p class="note">可多选；相同关卡会去重。库内数量不等于符合当前条件的候选数量。</p><input id="aPoolSearch" type="search" placeholder="搜索关卡库" aria-label="搜索关卡库"><div id="aPoolChoices"></div><div class="a-dialog-actions"><button type="button" data-arrange-dialog-close>取消</button><button id="aPoolApply" type="button" class="primary">使用所选关卡库</button></div></dialog>
     <dialog id="aDensityEditor" class="a-dialog" aria-labelledby="aDensityTitle"><div class="a-dialog-heading"><h3 id="aDensityTitle">字母密度</h3><button type="button" data-arrange-dialog-close aria-label="关闭字母密度设置">关闭</button></div><div class="a-form-grid"><label>窗口长度（关）<input id="aDensityWindow" type="number" min="1" max="10000"></label><label>处理方式<select id="aDensityMode"><option value="strict">严格限制</option><option value="soft">扣分避让</option></select></label></div><p class="note">各字母在窗口内最多出现几关。留空不限，同一字母每关只计一次；跨分段连续统计。</p><div id="aDensityGrid" class="density-grid"></div><p id="aDensityError" class="bad" role="alert"></p><div class="a-dialog-actions"><button id="aDensityClear" type="button">清空字母限制</button><button type="button" data-arrange-dialog-close>取消</button><button id="aDensityApply" type="button" class="primary">保存密度规则</button></div></dialog>
     <dialog id="aRunSettings" class="a-dialog" aria-labelledby="aRunSettingsTitle"><div class="a-dialog-heading"><h3 id="aRunSettingsTitle">种子历史与运行设置</h3><button type="button" data-arrange-dialog-close aria-label="关闭运行设置">完成</button></div><div class="a-settings-fields"><label>排布种子<input id="aSeed" placeholder="开始排布时自动生成" spellcheck="false" autocomplete="off" readonly></label><label>种子历史<select id="aSeedHistory"><option value="">暂无种子历史</option></select></label><p class="note" id="aSeedNote"></p><button id="aRetry" type="button">下次用新种子</button><label>候选检查预算<input id="aBudget" type="number" min="1" max="100000000" value="1000000"></label><p class="note">每次预览都处理整套关序。优先级：硬性条件 → 重复词／字母密度避让 → 情绪分。预算用尽保留缺口，不自动放宽规则。</p></div></dialog>
