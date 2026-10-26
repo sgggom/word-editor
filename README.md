@@ -24,6 +24,10 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 关卡编辑使用列表每行的“编辑”，在棋盘面板点击“返回列表”结束编辑。游戏关卡导出入口位于“关卡排布”窗口底部的“导出当前正式关序”。
 
+棋盘按原游戏方向显示。游戏数据 `g` 的逗号分隔行从底部开始，`n` 与幕布格号沿用同一顺序；界面显示时从最上行开始，例如 `ALE,MTL,OBE` 显示为上行 `OBE`、中行 `MTL`、下行 `ALE`。编辑、试玩、库存预览与排布详情共用此规则，保存和导出保留原数据顺序，旧存档无需转换。
+
+关卡列表显示四项必答词统计：**直线词数**（最少 0 拐）、**1 拐词数**（最少 1 拐）、**多拐词数**（最少 2 拐及以上）、**正向词占比**（正向必答词数 ÷ 全部必答词数，百分比最多保留一位小数）。正向以显示棋盘为准：首字母位于尾字母的左侧、上方或左上方，存在一条符合方向的合法路径即计入；不要求路径中每一步都向右或向下。每个单词只计一次，正向与拐弯分类独立。只看四方向相邻且不重复用格的字母路径，不计额外词，也不受节奏图“算上额外词”开关影响。悬停可查看对应词和占比的数量明细；无法连出的必答词不计入路径词数，但仍计入占比分母，并在提示中列出。没有必答词时占比显示“—”；Zen Word 无棋盘，四项均显示“—”。
+
 ## 词库配置
 
 点击“词库”，通过“当前词库”切换配置。点击“新建词库”或“复制词库”后，在弹窗中输入名称并确认创建；已有词库点击“重命名”修改名称。弹窗支持回车确认、取消和空名称校验，确认后立即保存创建或重命名结果；范围修改仍需点击“保存配置”，重命名会保留尚未保存的范围修改。查询词条使用词条区域的“查找单词”。必答候选池与额外词池分别设置来源及交集／并集，也可在饼图中多选区域：
@@ -104,6 +108,12 @@ python3 -m http.server 8000 --bind 127.0.0.1
 情绪分为第三优先级：先满足尺寸、字母、拐弯等硬性条件及跨关约束，再减少重复词／字母密度的软规则扣分，最后优先高情绪分。同分继续使用稀缺性和种子排序；保留后续唯一候选与有界回退，优先保证匹配关数。搜索受预算限制，不承诺全局最高总情绪分。旧库存读取时自动补算，候选 ID 和棋盘保持不变；旧评分版本的预览需重新排布，已应用的正式关序不会自动重排。情绪指标保存在关卡库和排布预览中，游戏导出仍为九字段。
 
 每行生产批次配置棋盘尺寸、起始首字母和生成数量，支持多行。尺寸为 4×2、3×3、4×3、5×3；首字母可填 `ABC` 或 `A B C`，留空不限。必答词数由完成棋盘后的扫描决定，不再固定为 2–16。默认生产 1000 关，单次最多 10000 关，可以继续追加。总尝试预算留空时为目标数量 × 300，失败和重复候选不计入成功数。达到数量、预算用完或中止后保留已入库结果。同一输入、种子及候选范围不受线程数、返回顺序影响；追加同种子的同规格批次会接着上次候选编号继续。
+
+目标词长度新增三种生产档位：**常规**按尺寸控制，小棋盘使用 3／4 或 3／4／5，5 字母词找到就保留，没有时把 4 字母视为长词；大棋盘至少含一个恰好 5 字母必答词。**开局全3**使用 3×3，只将 3 字母词列为必答，供正式前 2 关选用。**原算法**保留此前的直线铺盘方式。候选编号不代表正式关号。
+
+点击生成工具中的“词长比例”可分别调整各尺寸的 3／4／5+ 字母铺盘偏好，合计 100%；默认 4×2 为 65／30／5，3×3 为 65／25／10，4×3 为 50／35／15，5×3 为 45／35／20。比例是铺盘选择偏好，最终仍保留长度档位内的全部合法扫描词，不通过删词凑比例；即使 5+ 偏好为 0，扫描得到的合法 5 字母词仍保留。常规档会主动尝试必要的 4／5 字母词，后续铺盘允许一拐；最终拐弯限制仍在排布执行。
+
+排布工具的“词长规则”按**正式关号**复核：前 2 关为 3×3、必答全 3 字母；后续小棋盘需含 3 和 4 字母词，5 字母可选；大棋盘至少含一个 5 字母词。新建方案默认启用，旧方案须显式开启，已有正式关序不重写。启用时修正待排布前两关尺寸，并将不足 3 的目标词数调为 3；允许单独调整更高目标词数。库存不足照常显示缺口，应用和导出时再次复核。库存列表、详情和排布统计显示实际长度分布，额外词不计入。
 
 生成和排布的种子方式默认是“每次随机”：每次开始运行时自动生成新种子，输入框显示实际使用值。两套工具各自提供“种子历史”，保留每次使用的种子、时间、目标库／方案和运行结果，刷新后仍可查看，历史不会自动截断。选择历史记录会切换到“复用当前种子”，也可手动填写；切回“每次随机”后恢复自动换种子。回选只恢复种子，其他参数仍采用当前设置；在原库复用同规格生成种子会继续追加，在新库使用同一参数和种子可从头复现。导入已有排布方案时默认使用文件中记录的种子。
 
@@ -192,6 +202,8 @@ node tests/library_combinations.cjs
 node tests/library_schedule.cjs
 node tests/library_overlap.cjs
 node tests/generation_attempts.cjs
+node tests/word_lengths.cjs
+node tests/path_stats.cjs
 node tests/straight_generation.cjs
 node tests/pool_arrangement.cjs
 node tests/required_letters.cjs
@@ -208,6 +220,7 @@ python3 verify/verify_levels.py /tmp/v2-list0.json --report /tmp/v2-list0-report
 浏览器验收需要仓库外安装 `puppeteer-core` 和 Chrome／Chromium，并先启动 HTTP 服务：
 
 ```sh
+NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_word_lengths.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_generation_layout.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_straight_generation.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_inventory_arrangement.cjs
@@ -217,6 +230,8 @@ node tests/generation_extras.cjs
 node tests/emotion.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_emotion.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_v2.cjs
+NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_row_order.cjs
+NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_level_stats.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_history_default.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_batch_workers.cjs
 NODE_PATH=/path/to/node_modules CHROMIUM_PATH=/path/to/chrome node tests/browser_required_letters.cjs

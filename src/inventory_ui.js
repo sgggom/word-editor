@@ -3,7 +3,16 @@
   let batchRun = null, workflowPools = [], poolPage = 0, poolSelected = '', poolPageRows = [], poolRenderVersion = 0;
   let generationCursors = {}, workflowReady = Promise.resolve(), workflowSaveQ = Promise.resolve(), generationSnapshotCache = null, poolPlayRestore = null;
   const workflowClone = WPLevelPool.clone;
+  let generationLengthRatios=workflowClone(WPLengths.DEFAULT_RATIOS);
   const workflowPause = () => new Promise(resolve => setTimeout(resolve, 0));
+  function lengthSummaryHtml(game) {
+    const s=WPLengths.metrics(game),parts=Object.entries(s.lengthCounts).filter(([,n])=>n).map(([length,n])=>length+' 字母 '+n+' 词');
+    return '<div class="target-length-summary">'+parts.join(' · ')+(s.longMinLength===4?' <span class="note">（本关长词按 4 字母）</span>':'')+'</div>';
+  }
+  function paintLengthRatios(values=generationLengthRatios) {
+    $('#bLengthRatios tbody').innerHTML=WPLevelPool.sizes.map(([w,h])=>{const size=w+'x'+h,ratio=values[size];return '<tr data-length-size="'+size+'"><th>'+w+'×'+h+'</th>'+ratio.map((n,i)=>'<td><input type="number" min="0" max="100" step="1" data-length-ratio="'+i+'" aria-label="'+w+'×'+h+' '+['3 字母','4 字母','5 字母及以上'][i]+'铺盘比例" value="'+n+'"></td>').join('')+'</tr>';}).join('');
+    $('#bLengthError').textContent='';
+  }
   function emotionNumber(value) { return Number.isFinite(value)?(value>0?'+':'')+String(Math.round(value*100)/100):'—'; }
   function emotionScoreHtml(emotion) {
     if(!emotion)return '<span class="emotion-score">—</span>';
@@ -30,13 +39,14 @@
   function productionRows() {
     return [...$('#productionTable tbody').children].map(row => {
       const [width,height] = row.querySelector('[data-production="size"]').value.split('x').map(Number);
-      return {width,height,strategy:WTEngine.SEARCH_VERSION,initialLetters:row.querySelector('[data-production="initialLetters"]').value,quantity:Number(row.querySelector('[data-production="quantity"]').value)};
+      const mode=row.querySelector('[data-production="lengthMode"]').value;
+      return {width,height,strategy:mode==='none'?WTEngine.SEARCH_VERSION:WTEngine.LENGTH_SEARCH_VERSION,wordLengths:{mode,ratios:generationLengthRatios[width+'x'+height]},initialLetters:row.querySelector('[data-production="initialLetters"]').value,quantity:Number(row.querySelector('[data-production="quantity"]').value)};
     });
   }
   function paintProduction(rows = [{width:3,height:3,initialLetters:'',quantity:1000}]) {
-    $('#productionTable tbody').innerHTML = rows.map((row,i) => '<tr><td><small class="g-batch-number">批次 '+(i+1)+'</small><select data-production="size" aria-label="批次 '+(i+1)+' 棋盘尺寸">' + sizeOptions(row.width,row.height) + '</select></td><td><input data-production="initialLetters" aria-label="批次 '+(i+1)+' 起始首字母" type="text" spellcheck="false" autocomplete="off" placeholder="留空不限" value="' + esc(row.initialLetters??'') + '"></td><td><input data-production="quantity" aria-label="批次 '+(i+1)+' 生成数量" type="number" min="1" max="10000" value="' + esc(row.quantity) + '"></td><td><button type="button" data-production-delete title="移除批次 '+(i+1)+'" aria-label="移除批次 '+(i+1)+'">×</button></td></tr>').join('');
+    $('#productionTable tbody').innerHTML = rows.map((row,i) => '<tr><td><small class="g-batch-number">批次 '+(i+1)+'</small><select data-production="size" aria-label="批次 '+(i+1)+' 棋盘尺寸">' + sizeOptions(row.width,row.height) + '</select><select class="g-length-mode" data-production="lengthMode" aria-label="批次 '+(i+1)+' 长度档位">'+[['standard','常规'],['opening','开局全3'],['none','原算法']].map(([value,label])=>'<option value="'+value+'"'+((row.wordLengths?.mode||'standard')===value?' selected':'')+'>'+label+'</option>').join('')+'</select></td><td><input data-production="initialLetters" aria-label="批次 '+(i+1)+' 起始首字母" type="text" spellcheck="false" autocomplete="off" placeholder="留空不限" value="' + esc(row.initialLetters??'') + '"></td><td><input data-production="quantity" aria-label="批次 '+(i+1)+' 生成数量" type="number" min="1" max="10000" value="' + esc(row.quantity) + '"></td><td><button type="button" data-production-delete title="移除批次 '+(i+1)+'" aria-label="移除批次 '+(i+1)+'">×</button></td></tr>').join('');
   }
-  function generationState() { return {poolId:poolSelected,rows:productionRows(),seed:$('#bSeed').value,threads:$('#bThreads').value,budget:$('#bBudget').value,maxUse:$('#bMaxN').value}; }
+  function generationState() { return {poolId:poolSelected,rows:productionRows(),lengthRatios:generationLengthRatios,seed:$('#bSeed').value,threads:$('#bThreads').value,budget:$('#bBudget').value,maxUse:$('#bMaxN').value}; }
   function productionSnapshot() {
     const targets = libraryRecipes.filter(r => batchLibrarySelection?.targetIds?.includes(r.id));
     const key = JSON.stringify([targets,[...abbrSet].sort()]);
@@ -51,7 +61,7 @@
     const rows = productionRows();
     if (!rows.length) throw new Error('请添加生产批次');
     for (const row of rows) {
-      WTEngine.poolTarget(row,WT_PROFILES);
+      const target=WTEngine.poolTarget(row,WT_PROFILES);row.wordLengths=target.wordLengths||{mode:'none'};
       row.initialLetters=WTEngine.normalizeInitials(row.initialLetters);
       if (!Number.isSafeInteger(row.quantity) || row.quantity < 1 || row.quantity > 10000) throw new Error('每批生成数量须为 1–10000');
     }
@@ -97,12 +107,13 @@
     $('#poolCount').textContent = pool ? pool.name + ' · 共 ' + pool.count.toLocaleString() + ' 关' : '尚未创建关卡库';
     $('#poolPage').textContent = (poolPage+1) + ' / ' + pages;
     $('#poolPrev').disabled = !poolPage; $('#poolNext').disabled = poolPage+1>=pages;
-    $('#poolEntries tbody').innerHTML = poolPageRows.map(e => '<tr><td><b>'+e.metrics.width+'×'+e.metrics.height+' · '+e.metrics.targetCount+' 词</b><small title="'+esc(e.id)+'">'+esc(e.id.slice(-8))+'</small></td><td class="pool-words"><span class="g-word-preview" title="'+esc(e.game.t)+'">'+esc(e.game.t)+'</span><div class="g-pool-letters" title="棋盘字母">'+e.metrics.letters.join(' ')+'</div></td><td>最多 '+e.metrics.maxTurns+' 拐<div class="g-turn-counts" title="直线／一拐／二拐及以上词数"><span>直 '+e.metrics.straightCount+'</span><span>一 '+e.metrics.oneTurnCount+'</span><span>多 '+e.metrics.multiTurnCount+'</span></div></td><td>'+emotionScoreHtml(e.metrics.emotion)+'</td><td><button type="button" data-pool-preview="'+esc(e.id)+'" aria-label="查看或试玩关卡 '+esc(e.id.slice(-8))+'"'+(batchRun?' disabled':'')+'>查看</button></td></tr>').join('') || '<tr><td colspan="5" class="g-empty"><strong>'+(pool?'这个关卡库还没有关卡':'先创建一个关卡库')+'</strong>'+(pool?'配置来源词库与生产批次，点击下方“生成到关卡库”。':'点击上方“新建库”，或从“库操作”导入。')+'</td></tr>';
+    $('#poolEntries tbody').innerHTML = poolPageRows.map(e => '<tr><td><b>'+e.metrics.width+'×'+e.metrics.height+' · '+e.metrics.targetCount+' 词</b><small title="'+esc(e.id)+'">'+esc(e.id.slice(-8))+'</small></td><td class="pool-words"><span class="g-word-preview" title="'+esc(e.game.t)+'">'+esc(e.game.t)+'</span>'+lengthSummaryHtml(e.game)+'<div class="g-pool-letters" title="棋盘字母">'+e.metrics.letters.join(' ')+'</div></td><td>最多 '+e.metrics.maxTurns+' 拐<div class="g-turn-counts" title="直线／一拐／二拐及以上词数"><span>直 '+e.metrics.straightCount+'</span><span>一 '+e.metrics.oneTurnCount+'</span><span>多 '+e.metrics.multiTurnCount+'</span></div></td><td>'+emotionScoreHtml(e.metrics.emotion)+'</td><td><button type="button" data-pool-preview="'+esc(e.id)+'" aria-label="查看或试玩关卡 '+esc(e.id.slice(-8))+'"'+(batchRun?' disabled':'')+'>查看</button></td></tr>').join('') || '<tr><td colspan="5" class="g-empty"><strong>'+(pool?'这个关卡库还没有关卡':'先创建一个关卡库')+'</strong>'+(pool?'配置来源词库与生产批次，点击下方“生成到关卡库”。':'点击上方“新建库”，或从“库操作”导入。')+'</td></tr>';
   }
   async function loadWorkflowState() {
     workflowReady = (async () => {
       const [generation,cursors,draft,preview] = await Promise.all([poolStore.load('generation'),poolStore.load('generationCursors'),poolStore.load('arrangement'),poolStore.load('arrangementPreview')]);
       generationCursors = cursors || {};
+      for(const size of Object.keys(generationLengthRatios))if(generation?.lengthRatios?.[size]){try{generationLengthRatios[size]=WPLengths.ratios(generation.lengthRatios[size],size);}catch(error){toast(error.message);}}
       paintProduction(generation?.rows?.length ? generation.rows : undefined);
       if (generation) {
         $('#bSeed').value = generation.seed || 'WT-2026'; $('#bThreads').value = generation.threads || 'auto';
@@ -133,7 +144,7 @@
     catch(error){toast(error.message);return;}
     const run={cfg,cancel:false,added:0,attempted:0,duplicates:0,failed:0,started:performance.now(),generator:null}; batchRun=run; window.__lastBatch=null;
     run.seedHistoryId=beginSeedRecord('generation',cfg.seed,workflowPools.find(p=>p.id===cfg.poolId)?.name||cfg.poolId,cfg.count);
-    $('#bRunSettings').close();inventoryLocked(true); $('#bOut').textContent='';$('#bOut').dataset.poolId=cfg.poolId;$('#bOut').hidden=false;$('#bProg').textContent='准备生成…';$('#bBar').style.width='0%';$('#bProgress').setAttribute('aria-valuenow','0');
+    $('#bRunSettings').close();$('#bLengthSettings').close();inventoryLocked(true); $('#bOut').textContent='';$('#bOut').dataset.poolId=cfg.poolId;$('#bOut').hidden=false;$('#bProg').textContent='准备生成…';$('#bBar').style.width='0%';$('#bProgress').setAttribute('aria-valuenow','0');
     try {
       await saveSeedRecord('generation',run.seedHistoryId);await workflowSave('seedModes',seedModes);
       await workflowSave('generation',generationState());
@@ -144,7 +155,8 @@
       for (const [rowIndex,row] of cfg.rows.entries()) {
         let rowAdded=0;
         // Changing extra-word references must not restart the candidate stream.
-        const cursorKey=WPLevelPool.hash(WPLevelPool.stable([cfg.poolId,compiled.targetKey,cfg.seed,cfg.maxUse,WTEngine.SEARCH_VERSION,row.width,row.height,row.initialLetters]));
+        const stream=[cfg.poolId,compiled.targetKey,cfg.seed,cfg.maxUse,row.strategy,row.width,row.height,row.initialLetters];if(row.wordLengths.mode!=='none')stream.push(row.wordLengths);
+        const cursorKey=WPLevelPool.hash(WPLevelPool.stable(stream));
         let cursor=generationCursors[cursorKey]||0;
         while(!run.cancel&&rowAdded<row.quantity&&run.attempted<cfg.budget){
           const count=Math.min(32,cfg.budget-run.attempted),results=await run.generator.generateCandidates(row,cursor,count),pending=[];
@@ -152,7 +164,7 @@
             if(run.cancel||rowAdded+pending.length>=row.quantity)break;
             cursor++;run.attempted++;
             if(!result){run.failed++;continue;}
-            const entry=WPLevelPool.record(WPLevelPool.gameOf(result.level),snap,{batchId,seed:cfg.seed,ordinal:result.ordinal,width:row.width,height:row.height,targetCount:result.level.targets.length,maxUse:cfg.maxUse,engine:WTEngine.SEARCH_VERSION,...result.level.construction},ix);
+            const entry=WPLevelPool.record(WPLevelPool.gameOf(result.level),snap,{batchId,seed:cfg.seed,ordinal:result.ordinal,width:row.width,height:row.height,targetCount:result.level.targets.length,maxUse:cfg.maxUse,engine:result.level.construction.strategy,...result.level.construction},ix);
             if(seen.has(entry.id)){run.duplicates++;continue;}
             seen.add(entry.id);pending.push(entry);
           }
@@ -203,8 +215,8 @@
     try {
       const entry=await poolStore.getEntry(poolId,id);if(!entry)throw new Error('关卡不存在');
       const lv=WPLevelPool.parseGame(entry.game);
-      const grid='<div class="inventory-board" style="grid-template-columns:repeat('+lv.width+',1fr)">'+lv.grid.map((c,i)=>'<span>'+c+'<small>'+lv.counts[i]+'</small></span>').join('')+'</div>';
-      modal('关卡预览',grid+'<p>必答：'+esc(entry.game.t)+'</p><p class="note">额外：'+esc(entry.game.e||'无')+'</p><p class="note">'+entry.metrics.perWord.map(w=>esc(w.word)+'：'+w.turns+' 拐').join(' · ')+'</p>'+emotionBreakdownHtml(entry.game),[{label:'关闭'},{label:'试玩',primary:true,onClick:()=>playInventory(entry).catch(error=>toast(error.message))}]);
+      const grid='<div class="inventory-board" style="grid-template-columns:repeat('+lv.width+',1fr)">'+boardCellOrder(lv.width,lv.height).map(i=>'<span data-i="'+i+'">'+lv.grid[i]+'<small>'+lv.counts[i]+'</small></span>').join('')+'</div>';
+      modal('关卡预览',grid+'<p>必答：'+esc(entry.game.t)+'</p>'+lengthSummaryHtml(entry.game)+'<p class="note">额外：'+esc(entry.game.e||'无')+'</p><p class="note">'+entry.metrics.perWord.map(w=>esc(w.word)+'：'+w.turns+' 拐').join(' · ')+'</p>'+emotionBreakdownHtml(entry.game),[{label:'关闭'},{label:'试玩',primary:true,onClick:()=>playInventory(entry).catch(error=>toast(error.message))}]);
     }catch(error){toast(error.message);}
   }
   async function playInventory(entry) {
@@ -220,13 +232,21 @@
     if(!poolPlayRestore)return;({campaign,currentFile,levelView}=poolPlayRestore);$('#batch').hidden=poolPlayRestore.batchHidden;$('#arrange').hidden=poolPlayRestore.arrangeHidden;poolPlayRestore=null;boardKey='';suggCache=null;render();
   }
   function wireInventory() {
-    $('#btnBatch').onclick=()=>openBatch();$('#bClose').onclick=()=>{$('#bRunSettings').close();$('#bPoolMenu').open=false;$('#batch').hidden=true;$('#btnBatch').focus({preventScroll:true});};$('#bGo').onclick=()=>startBatch();
+    $('#btnBatch').onclick=()=>openBatch();$('#bClose').onclick=()=>{$('#bRunSettings').close();$('#bLengthSettings').close();$('#bPoolMenu').open=false;$('#batch').hidden=true;$('#btnBatch').focus({preventScroll:true});};$('#bGo').onclick=()=>startBatch();
+    $('#bLengthSettingsOpen').onclick=()=>{paintLengthRatios();$('#bLengthSettings').showModal();};
+    $('#bLengthSettings').onclick=e=>{if(e.target.closest('[data-generation-dialog-close]'))$('#bLengthSettings').close();};
+    $('#bLengthReset').onclick=()=>paintLengthRatios(WPLengths.DEFAULT_RATIOS);
+    $('#bLengthApply').onclick=()=>{
+      if(batchRun)return;
+      try{const next={};for(const row of $('#bLengthRatios tbody').children)next[row.dataset.lengthSize]=WPLengths.ratios([...row.querySelectorAll('input')].map(el=>Number(el.value)),row.dataset.lengthSize);generationLengthRatios=next;$('#bLengthSettings').close();previewCurve();workflowSave('generation',generationState());}
+      catch(error){$('#bLengthError').textContent=error.message;}
+    };
     $('#bRunSettingsOpen').onclick=()=>{refreshSeedHistory().catch(error=>toast(error.message));$('#bRunSettings').showModal();};
     $('#bRunSettings').addEventListener('click',e=>{if(e.target.closest('[data-generation-dialog-close]'))$('#bRunSettings').close();});
     $('#batch').addEventListener('keydown',e=>{
       if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='z')e.stopPropagation();
-      if(e.key==='Escape'&&$('#bRunSettings').open)e.stopPropagation();
-      if(e.key==='Tab'&&!$('#bRunSettings').open&&$('#modal').hidden){
+      if(e.key==='Escape'&&document.querySelector('#batch dialog[open]'))e.stopPropagation();
+      if(e.key==='Tab'&&!document.querySelector('#batch dialog[open]')&&$('#modal').hidden){
         const items=[...$('#batch').querySelectorAll('input,select,button,summary')].filter(el=>!el.disabled&&!el.closest('[inert]')&&el.tabIndex>=0&&el.getClientRects().length);
         if(e.shiftKey&&document.activeElement===items[0]){e.preventDefault();items.at(-1)?.focus();}
         else if(!e.shiftKey&&document.activeElement===items.at(-1)){e.preventDefault();items[0]?.focus();}
@@ -250,7 +270,11 @@
       try{const file=WPLevelPool.checkFileHeader(JSON.parse(await f.text()));modal('导入关卡库','<p>'+esc(file.pool.name)+' · '+file.entries.length+' 关</p><label>写入 <select id="poolImportTarget"><option value="">新建同名关卡库</option>'+workflowPools.map(p=>'<option value="'+esc(p.id)+'">合并到 '+esc(p.name)+'</option>').join('')+'</select></label>',[{label:'取消'},{label:'导入',primary:true,onClick:()=>importPoolDocument(file,$('#poolImportTarget').value).catch(error=>toast('导入失败：'+error.message))}]);}
       catch(error){toast('导入失败：'+error.message);}
     };
-    $('#batch').addEventListener('input',e=>{if(batchRun)return;if(e.target.dataset.batchLibrary)rememberBatchLibrarySelection();previewCurve();workflowSave('generation',generationState());});
+    $('#batch').addEventListener('input',e=>{
+      if(batchRun||e.target.closest('#bLengthSettings'))return;
+      if(e.target.dataset.production==='lengthMode'&&e.target.value==='opening')e.target.closest('tr').querySelector('[data-production="size"]').value='3x3';
+      if(e.target.dataset.batchLibrary)rememberBatchLibrarySelection();previewCurve();workflowSave('generation',generationState());
+    });
     $('#batch').addEventListener('click',e=>{
       if(batchRun)return;const del=e.target.closest('[data-production-delete]');if(del){del.closest('tr').remove();paintProduction(productionRows());previewCurve();workflowSave('generation',generationState());}
       const button=e.target.closest('[data-batch-select]');if(!button)return;

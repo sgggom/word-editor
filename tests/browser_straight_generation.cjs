@@ -30,7 +30,7 @@ async function exercise(page,url){
  await page.click('#bGo');await page.waitForFunction(()=>window.__lastBatch,{timeout:60000});assert.equal((await page.evaluate(()=>__lastBatch)).made,6);
  const entries=await page.evaluate(id=>__desk.workflow.store.allEntries(id),id);
  assert.equal(entries.filter(e=>e.generation.initialLetters==='AB').length,3);assert.equal(entries.filter(e=>e.generation.initialLetters==='C').length,3);
- for(const e of entries){assert.equal(e.generation.targetCount,e.metrics.targetCount);assert.equal(e.generation.engine,E.SEARCH_VERSION);assert(e.generation.placements.filter(p=>p.phase==='initials').every(p=>e.generation.initialLetters.includes(p.word[0])));}
+ for(const e of entries){assert.equal(e.generation.targetCount,e.metrics.targetCount);assert.equal(e.generation.engine,E.LENGTH_SEARCH_VERSION);assert(e.generation.placements.filter(p=>p.phase==='initials').every(p=>e.generation.initialLetters.includes(p.word[0])));}
  assert.equal(await page.evaluate(()=>__desk.deskText()),original);
  const exported=await page.evaluate(()=>__desk.workflow.exportPool());assert.equal((await page.evaluate(({file,id})=>__desk.workflow.importPool(file,id),{file:exported,id})).added,0);
  await page.evaluate(()=>__desk.flush());await page.reload({waitUntil:'load'});await page.evaluate(()=>__desk.ready());

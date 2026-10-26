@@ -1,5 +1,5 @@
 /* Position-based inventory selection. Never changes or generates inventory. */
-(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WPArrangement=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
+(function(root,factory){const node=typeof module==='object'&&module.exports,api=factory(node?require('./lengths'):root.WPLengths);if(node)module.exports=api;else root.WPArrangement=api;})(typeof globalThis!=='undefined'?globalThis:this,function(Lengths){
  'use strict';
  const DEFAULT_RULES={maxTurns:1,multiTurnLimit:null,repeatGap:20,repeatMode:'strict',densityWindow:20,densityCaps:{},densityMode:'strict'};
  const RANKING_VERSION='constraints-soft-emotion-v1';
@@ -21,6 +21,8 @@
  function expand(plan){
   if(plan?.kind!=='wordpages-arrangement'||plan.schemaVersion!==1||!Array.isArray(plan.segments)||!plan.segments.length)throw new Error('排布方案格式无效');
   if(typeof plan.seed!=='string')throw new Error('排布种子无效');integer(plan.budget,1,100000000,'搜索预算');
+  if(plan.targetLengths!==undefined&&typeof plan.targetLengths!=='boolean')throw new Error('目标词长度开关无效');
+  if(plan.targetLengths&&(!Lengths||plan.targetLengthVersion&&plan.targetLengthVersion!==Lengths.VERSION))throw new Error('目标词长度规则版本不受支持');
   if(!plan.requiredLetters?.levels||typeof plan.requiredLetters.id!=='string')throw new Error('排布方案缺少逐关字母表快照');
   const segments=plan.segments.slice().sort((a,b)=>a.from-b.from),slots=[];let next=1;
   for(const segment of segments){
@@ -32,7 +34,9 @@
     const override=plan.overrides?.[number]||{},shape={width:override.width??segment.width,height:override.height??segment.height,targetCount:override.targetCount??segment.targetCount};geometry(shape);
     const letters=number<=1000?plan.requiredLetters.levels[number]||'':'';
     if(typeof letters!=='string'||!/^[A-Z]*$/.test(letters))throw new Error('第 '+number+' 关字母配置无效');
-    slots.push({number,...shape,poolIds,rules:r,requiredLetters:[...new Set(letters)].sort().join(''),segmentId:segment.id||String(segment.from)});
+    const lengthRule=Lengths?.arrangementRule(plan,number);
+    if(lengthRule==='opening'&&(shape.width!==3||shape.height!==3||shape.targetCount<3))throw new Error('前 2 关须设为 3×3，且至少有 3 个全 3 字母必答词');
+    slots.push({number,...shape,poolIds,rules:r,requiredLetters:[...new Set(letters)].sort().join(''),segmentId:segment.id||String(segment.from),...(lengthRule?{lengthRule}:{})});
    }
    next=segment.to+1;
   }
@@ -42,7 +46,8 @@
  function staticMatch(slot,entry){
   return slot.poolIds.includes(entry.poolId)&&slot.width===entry.width&&slot.height===entry.height&&slot.targetCount===entry.targetCount&&
    [...slot.requiredLetters].every(c=>entry.letters.includes(c))&&(slot.rules.maxTurns===null||entry.maxTurns<=slot.rules.maxTurns)&&
-   (slot.rules.multiTurnLimit===null||entry.multiTurnCount<=slot.rules.multiTurnLimit);
+   (slot.rules.multiTurnLimit===null||entry.multiTurnCount<=slot.rules.multiTurnLimit)&&
+   (!slot.lengthRule||!Lengths.errors(entry.targets,entry.width,entry.height,slot.lengthRule).length);
  }
  function historyAt(slots,selected,index){
   const last=new Map(),counts={};const start=Math.max(0,index-slots[index].rules.densityWindow+1);
@@ -67,7 +72,7 @@
   for(let i=0;i<slots.length;i++){
    const slot=slots[i],entry=selected[i];
    if(!entry){errors.push({number:slot.number,type:'missing',message:'关卡缺位'});density.push(null);continue;}
-   if(!staticMatch(slot,entry))errors.push({number:slot.number,type:'static',message:'来源库、尺寸、目标数、字母或拐弯不符合配置'});
+   if(!staticMatch(slot,entry))errors.push({number:slot.number,type:'static',message:'来源库、尺寸、目标数、字母、拐弯或目标词长度不符合配置'});
    if(used.has(entry.playKey))errors.push({number:slot.number,type:'duplicate',message:'同一关卡重复使用'});used.add(entry.playKey);
    const h=historyAt(slots,selected,i),test=temporal(slot,entry,h);
    for(const word of entry.targets)if(h.last.has(word)){const last=h.last.get(word);repeats.push({word,last,number:slot.number,gap:slot.number-last-1,requiredGap:slot.rules.repeatGap,mode:slot.rules.repeatMode});}
@@ -81,7 +86,9 @@
   const emotion={total:totalEmotion,average:scores.length?totalEmotion/scores.length:0,min:scores.length?Math.min(...scores):null,max:scores.length?Math.max(...scores):null,
    positive:scores.filter(s=>s>0).length,neutral:scores.filter(s=>s===0).length,negative:scores.filter(s=>s<0).length,
    missingWords:occupied.reduce((n,e)=>n+(e.emotion?.missingTargets?.length||0)+(e.emotion?.missingExtras?.length||0),0)};
-  return {ok:!errors.length,errors,soft,repeats,density,turnCounts,emotion,filled:occupied.length,total:slots.length};
+  const lengthCounts={3:0,4:0,5:0,6:0,7:0,8:0};
+  for(const entry of occupied)for(const word of entry.targets)lengthCounts[word.length]=(lengthCounts[word.length]||0)+1;
+  return {ok:!errors.length,errors,soft,repeats,density,turnCounts,emotion,lengthCounts,filled:occupied.length,total:slots.length};
  }
  function* solveSteps(plan,entries,options={}){
   const slots=expand(plan),seed=hash(plan.seed),budget=plan.budget,byShape=new Map(),lists=[],pressure=new Map();
@@ -106,7 +113,7 @@
   let best=selected.slice(),bestReasons=reasons.slice(),bestFilled=-1,bestPenalty=Infinity,bestEmotion=-Infinity,checks=0,index=0,exhausted=false;
   function result(choice,why,n,status){
    const full=Array.from({length:slots.length},(_,i)=>choice[i]||null),audit=verify(slots,full);
-   return {kind:'wordpages-arrangement-preview',schemaVersion:1,seed:plan.seed,status,checks:n,budget,rankingVersion:RANKING_VERSION,emotionVersion:plan.ranking?.emotionVersion||null,
+   return {kind:'wordpages-arrangement-preview',schemaVersion:1,seed:plan.seed,status,checks:n,budget,rankingVersion:RANKING_VERSION,emotionVersion:plan.ranking?.emotionVersion||null,lengthVersion:plan.targetLengths?Lengths.VERSION:null,
     rows:slots.map((slot,i)=>({number:slot.number,candidateCount:lists[i]?.length||0,choice:full[i]?{poolId:full[i].poolId,id:full[i].id,playKey:full[i].playKey,emotionScore:emotionScore(full[i]),emotion:full[i].emotion||null}:null,reason:full[i]?null:lists[i]?.length===0?'static':why[i]||(status==='cancelled'?'cancelled':'budget')})),audit};
   }
   function capture(){

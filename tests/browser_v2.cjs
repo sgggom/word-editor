@@ -67,9 +67,9 @@ const browserPath = process.env.CHROMIUM_PATH || '/usr/bin/chromium';
           while (found<targetCount) {
             await page.click('#pHint');
             const word=await page.$eval('#pcur',e=>e.textContent.trim());
-            const cells=await page.$$eval('#pgrid > *',es=>es.map((e,i)=>{
-              const r=e.getBoundingClientRect();return {i,on:e.classList.contains('sel'),x:r.x+r.width/2,y:r.y+r.height/2};
-            }));
+            const cells=await page.$$eval('#pgrid > *',es=>es.map(e=>{
+              const r=e.getBoundingClientRect();return {i:Number(e.dataset.i),on:e.classList.contains('sel'),x:r.x+r.width/2,y:r.y+r.height/2};
+            }).sort((a,b)=>a.i-b.i));
             function path(prefix) {
               if (prefix.length===word.length) return prefix;
               for (const c of cells) {
@@ -96,7 +96,7 @@ const browserPath = process.env.CHROMIUM_PATH || '/usr/bin/chromium';
         const before=await page.evaluate(()=>__desk.exportLevels());
         await page.$eval('#grid input',e=>{e.value='Q';e.dispatchEvent(new Event('input',{bubbles:true}));});
         await page.keyboard.down('Control');await page.keyboard.press('z');await page.keyboard.up('Control');
-        await page.waitForFunction(letter=>document.querySelector('#grid input')?.value===letter,{},levels[2].g[0]);
+        await page.waitForFunction(letter=>document.querySelector('#grid input')?.value===letter,{},levels[2].g.split(',').at(-1)[0]);
         await page.evaluate(()=>__desk.flush());
         assert.deepEqual(await page.evaluate(()=>__desk.exportLevels()),before);
         await page.click('#btnBackToList');

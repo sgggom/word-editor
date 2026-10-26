@@ -3,19 +3,27 @@
   let aSelectedSegment=0, aOpenRow=null, aViewTab='levels', aSaveRevision=0, aDialogSegment=null;
   const arrangementMetrics=new WeakMap(), aDetailCache=new Map();
   const aReasonLabels={static:'库存不符合条件',temporal:'间隔或密度受限',unmatched:'候选被其他关占用',budget:'预算内尚未匹配',cancelled:'中止后尚未匹配'};
-  const aReasonDetails={static:'没有符合来源库、尺寸、目标词数、必含字母和拐弯要求的库存。',temporal:'本次搜索中，候选被重复词间隔或字母密度限制排除。',unmatched:'符合条件的候选已被其他关号使用，本次搜索尚未找到替代。',budget:'搜索预算已用尽，尚未完成匹配；这不代表没有可用解。',cancelled:'排布已中止，这个关号尚未匹配。'};
+  const aReasonDetails={static:'没有符合来源库、尺寸、目标词数、必含字母、拐弯和已启用词长规则的库存。',temporal:'本次搜索中，候选被重复词间隔或字母密度限制排除。',unmatched:'符合条件的候选已被其他关号使用，本次搜索尚未找到替代。',budget:'搜索预算已用尽，尚未完成匹配；这不代表没有可用解。',cancelled:'排布已中止，这个关号尚未匹配。'};
   function planFromCampaign(levels=campaign.levels) {
     const first=levels[0]||{},shape=WPLevelPool.sizes.some(([w,h])=>w===first.W&&h===first.H)?{width:first.W,height:first.H}:{width:3,height:3};
     const targetCount=first.words?.length||3,overrides={};
     levels.forEach((d,i)=>{if(d.words?.length&&!WPLevelPool.sizes.some(([w,h])=>w===d.W&&h===d.H))throw new Error('第 '+(i+1)+' 关尺寸不在当前支持范围内');const value={width:d.words?.length?d.W:3,height:d.words?.length?d.H:3,targetCount:d.words?.length||3};if(value.width!==shape.width||value.height!==shape.height||value.targetCount!==targetCount)overrides[i+1]=value;});
-    return {kind:'wordpages-arrangement',schemaVersion:1,name:'排布关序',seed:'',budget:1000000,requiredLetters:workflowClone(requiredLetterSchedule),overrides,
+    for(let i=0;i<Math.min(2,Math.max(1,levels.length));i++)overrides[i+1]={width:3,height:3,targetCount:Math.max(3,levels[i]?.words?.length||3)};
+    return {kind:'wordpages-arrangement',schemaVersion:1,name:'排布关序',seed:'',budget:1000000,targetLengths:true,targetLengthVersion:WPLengths.VERSION,requiredLetters:workflowClone(requiredLetterSchedule),overrides,
       segments:[{id:'segment-'+newId(),from:1,to:Math.max(1,levels.length),...shape,targetCount,poolIds:poolSelected?[poolSelected]:[],rules:workflowClone(WPArrangement.DEFAULT_RULES)}]};
   }
   function modeOptions(value) { return '<option value="strict"'+(value==='strict'?' selected':'')+'>严格限制</option><option value="soft"'+(value==='soft'?' selected':'')+'>扣分避让</option>'; }
   function currentArrangementSegment() { return arrangementDraft?.segments[aSelectedSegment]; }
   function arrangementKey(plan=arrangementDraft) { return WPLevelPool.stable(plan); }
-  function arrangementPreviewActive() { return !!arrangementPreview&&arrangementPreview.planKey===arrangementKey()&&arrangementPreview.result.rankingVersion===WPArrangement.RANKING_VERSION&&arrangementPreview.result.emotionVersion===WPEmotion.version; }
+  function arrangementPreviewActive() { return !!arrangementPreview&&arrangementPreview.planKey===arrangementKey()&&arrangementPreview.result.rankingVersion===WPArrangement.RANKING_VERSION&&arrangementPreview.result.emotionVersion===WPEmotion.version&&(!arrangementDraft.targetLengths||arrangementPreview.result.lengthVersion===WPLengths.VERSION); }
   function arrangementOverrideCount(s) { return s?Object.keys(arrangementDraft.overrides||{}).filter(n=>Number(n)>=s.from&&Number(n)<=s.to).length:0; }
+  function resetArrangementOverride(number) {
+    delete arrangementDraft.overrides[number];
+    if(arrangementDraft.targetLengths&&Number(number)<=2){
+      const s=arrangementDraft.segments.find(s=>Number(number)>=s.from&&Number(number)<=s.to);
+      if(s&&(s.width!==3||s.height!==3||s.targetCount<3))arrangementDraft.overrides[number]={width:3,height:3,targetCount:Math.max(3,s.targetCount)};
+    }
+  }
   function resetArrangementView() {
     aSelectedSegment=0;aResultPage=0;aOpenRow=null;aDetailCache.clear();
     $('#aScope').value='all';$('#aFilter').value='all';$('#aJump').value='';setArrangementTab('levels');
@@ -57,6 +65,7 @@
     paintArrangementRuleSummaries();lockArrangement(!!arrangeRun);
   }
   function paintArrangementRuleSummaries() {
+    $('#aLengthsOpen').textContent=arrangementDraft?.targetLengths?'词长规则 · 开':'词长规则 · 关';
     const s=currentArrangementSegment();if(!s||!$('#aPoolSummary'))return;
     const names=s.poolIds.map(id=>workflowPools.find(p=>p.id===id)?.name||'未找到关卡库');
     $('#aPoolSummary').textContent=names.length?names.join('、'):'请选择来源关卡库';$('#aPoolSummary').title=names.join('、');
@@ -91,7 +100,7 @@
       for(let number=s.from;number<=s.to;number++)if(!rows.has(number)){
         const override=arrangementDraft.overrides?.[number]||{},letters=number<=1000?arrangementDraft.requiredLetters?.levels[number]||'':'';
         rows.set(number,{number,width:override.width??s.width,height:override.height??s.height,targetCount:override.targetCount??s.targetCount,
-          poolIds:s.poolIds,rules:{...WPArrangement.DEFAULT_RULES,...s.rules},requiredLetters:[...new Set(String(letters))].sort().join(''),segmentId:s.id||String(s.from)});
+          poolIds:s.poolIds,rules:{...WPArrangement.DEFAULT_RULES,...s.rules},requiredLetters:[...new Set(String(letters))].sort().join(''),segmentId:s.id||String(s.from),lengthRule:WPLengths.arrangementRule(arrangementDraft,number)});
       }
     }
     return [...rows.values()];
@@ -135,16 +144,17 @@
   }
   function arrangementDetailHtml(slot,row) {
     const r=slot.rules,old=!!arrangementPreview&&!arrangementPreviewActive();
-    const requirements='<div><b>当前要求</b><p>'+slot.width+'×'+slot.height+' · '+slot.targetCount+' 词 · '+(r.maxTurns===null?'拐弯不限':'每词最多 '+r.maxTurns+' 拐')+(r.multiTurnLimit===null?'':' · 多拐词 ≤ '+r.multiTurnLimit)+'</p><p>必含字母：'+(slot.requiredLetters.split('').join(' ')||'不限')+'；重复词至少隔 '+r.repeatGap+' 关。</p></div>';
+    const lengths=slot.lengthRule==='opening'?'前 2 关：3×3，必答全为 3 字母':slot.lengthRule?(slot.width*slot.height<=9?'小棋盘：3／4 或 3／4／5；没有 5 字母时，4 字母视为长词':'大棋盘：至少一个 5 字母必答词'):'目标词长度不限';
+    const requirements='<div><b>当前要求</b><p>'+slot.width+'×'+slot.height+' · '+slot.targetCount+' 词 · '+(r.maxTurns===null?'拐弯不限':'每词最多 '+r.maxTurns+' 拐')+(r.multiTurnLimit===null?'':' · 多拐词 ≤ '+r.multiTurnLimit)+'</p><p>必含字母：'+(slot.requiredLetters.split('').join(' ')||'不限')+'；重复词至少隔 '+r.repeatGap+' 关。</p><p>'+lengths+'</p></div>';
     if(!row)return requirements+'<p class="note">尚未排布，点击底部“预览整套关序”查看匹配结果。</p>';
     const oldNote=old?'<p class="a-stale-note">下面是上次预览的结果，当前条件已修改，需要重新排布。</p>':'';
     if(!row.choice)return oldNote+requirements+'<p class="a-gap-detail">'+(aReasonDetails[row.reason]||'本次尚未匹配。')+'</p><p>符合单关条件的库存：'+row.candidateCount+' 关。缺位保留关号。</p>';
     const key=row.choice.poolId+'|'+row.choice.id,entry=aDetailCache.get(key);
     if(!entry)return oldNote+requirements+'<p class="note">正在读取棋盘…</p>';
     if(entry.error)return oldNote+requirements+'<p class="bad">'+esc(entry.error)+'</p>';
-    const lv=WPLevelPool.parseGame(entry.game),board='<div class="inventory-board" style="grid-template-columns:repeat('+lv.width+',1fr)">'+lv.grid.map((c,i)=>'<span>'+c+'<small>'+lv.counts[i]+'</small></span>').join('')+'</div>';
+    const lv=WPLevelPool.parseGame(entry.game),board='<div class="inventory-board" style="grid-template-columns:repeat('+lv.width+',1fr)">'+boardCellOrder(lv.width,lv.height).map(i=>'<span data-i="'+i+'">'+lv.grid[i]+'<small>'+lv.counts[i]+'</small></span>').join('')+'</div>';
     const name=workflowPools.find(p=>p.id===row.choice.poolId)?.name||row.choice.poolId;
-    return oldNote+'<div class="a-level-detail">'+board+'<div><b>'+esc(name)+'</b><p>必答：'+esc(entry.game.t)+'</p><p class="note">'+entry.metrics.perWord.map(w=>esc(w.word)+' '+w.turns+' 拐').join(' · ')+'</p><details><summary>额外词（'+lv.extras.length+'）</summary><p>'+esc(entry.game.e||'无')+'</p></details><button type="button" data-arrange-preview="'+slot.number+'">查看／试玩</button></div></div>'+emotionBreakdownHtml(entry.game)+requirements;
+    return oldNote+'<div class="a-level-detail">'+board+'<div><b>'+esc(name)+'</b><p>必答：'+esc(entry.game.t)+'</p>'+lengthSummaryHtml(entry.game)+'<p class="note">'+entry.metrics.perWord.map(w=>esc(w.word)+' '+w.turns+' 拐').join(' · ')+'</p><details><summary>额外词（'+lv.extras.length+'）</summary><p>'+esc(entry.game.e||'无')+'</p></details><button type="button" data-arrange-preview="'+slot.number+'">查看／试玩</button></div></div>'+emotionBreakdownHtml(entry.game)+requirements;
   }
   async function loadArrangementDetail(number) {
     const preview=arrangementPreview,row=preview?.result.rows[number-1];if(!row?.choice)return;
@@ -181,7 +191,8 @@
     const page=filteredArrangementSlots().slice(aResultPage*50,aResultPage*50+50);
     const density=page.map(slot=>{const d=audit.density[slot.number-1];return '<tr><td>'+go(slot.number)+'</td><td>'+(d?d.window:'—')+'</td><td>'+(d?Object.entries(d.counts).sort().map(([c,n])=>c+': '+n).join(' · '):'缺位，不计入窗口统计')+'</td></tr>';}).join('');
     const emotion=audit.emotion,emotionStats='<section class="a-stat-section"><h4>关卡情绪分</h4><p>必答词分数之和 + 额外词分数之和 × 0.5</p>'+(emotion?'<p>已匹配关卡总分 <b>'+emotionNumber(emotion.total)+'</b> · 平均 '+emotionNumber(emotion.average)+' · 最低 '+emotionNumber(emotion.min)+' · 最高 '+emotionNumber(emotion.max)+'</p><p>正分 '+emotion.positive+' 关 · 零分 '+emotion.neutral+' 关 · 负分 '+emotion.negative+' 关</p>'+(emotion.missingWords?'<p class="note">'+emotion.missingWords+' 个词次缺少情绪标注，按 0 分计。</p>':''):'<p class="note">旧预览尚无情绪统计，请重新排布。</p>')+'<p class="note">优先级：硬性条件 → 重复词／字母密度避让 → 情绪分。优先保证关号匹配；同分保留稀缺性和种子排序。</p></section>';
-    body.innerHTML='<p class="note">整套关序统计 · 跨分段连续计算 · 已检查 '+result.checks.toLocaleString()+' 次候选</p>'+emotionStats+'<section class="a-stat-section"><h4>必答词拐弯</h4>'+turnBars+'</section>'+
+    const lengthStats='<section class="a-stat-section"><h4>目标词长度</h4>'+(audit.lengthCounts?Object.entries(audit.lengthCounts).map(([length,n])=>'<div class="a-stat-bar"><span>'+length+' 字母</span><i><b style="width:'+100*n/(Object.values(audit.lengthCounts).reduce((a,b)=>a+b,0)||1)+'%"></b></i><strong>'+n+' 词</strong></div>').join(''):'<p class="note">重新预览后可查看长度分布。</p>')+'</section>';
+    body.innerHTML='<p class="note">整套关序统计 · 跨分段连续计算 · 已检查 '+result.checks.toLocaleString()+' 次候选</p>'+lengthStats+emotionStats+'<section class="a-stat-section"><h4>必答词拐弯</h4>'+turnBars+'</section>'+
       '<section class="a-stat-section"><h4>规则复核</h4><p>'+(audit.errors.some(e=>e.type!=='missing')?'存在严格规则冲突':'已匹配关卡通过严格规则')+' · 缺口 '+(audit.total-audit.filled)+' 关</p><button type="button" id="aStatsGaps">查看全部缺口</button>'+
       '<h4>扣分避让 · '+soft.length+' 项</h4>'+(soft.length?'<ul>'+violations+'</ul>'+(soft.length>100?'<p class="note">显示前 100 项。</p>':''):'<p class="note">未触发扣分规则。</p>')+'</section>'+
       '<section class="a-stat-section"><h4>重复必答词 · '+repeats.length+' 次</h4>'+(repeats.length?'<ul>'+repeated+'</ul>'+(repeats.length>100?'<p class="note">显示前 100 次。</p>':''):'<p class="note">没有重复必答词。</p>')+'</section>'+
@@ -227,7 +238,7 @@
     catch(error){toast('排布工具无法打开：'+error.message);}
   }
   function lockArrangement(locked) {
-    const selectors='#aSegments input,#aSegments select,#aSegments button,#aName,#aAddSegment,#aAddSegmentCompact,#aDuplicateSegment,#aDeleteSegment,#aFromCurrent,#aImport,#aExport,#aSeedMode,#aRunSettingsOpen,#aSeed,#aSeedHistory,#aBudget,#aRetry';
+    const selectors='#aSegments input,#aSegments select,#aSegments button,#aLengthsOpen,#aName,#aAddSegment,#aAddSegmentCompact,#aDuplicateSegment,#aDeleteSegment,#aFromCurrent,#aImport,#aExport,#aSeedMode,#aRunSettingsOpen,#aSeed,#aSeedHistory,#aBudget,#aRetry';
     for(const el of document.querySelectorAll(selectors))el.disabled=locked;
     $('#aDuplicateSegment').disabled=locked||!currentArrangementSegment();$('#aDeleteSegment').disabled=locked||!currentArrangementSegment();
     $('#aStop').disabled=!locked;$('#aStop').hidden=!locked;$('#aRun').hidden=locked;
@@ -300,6 +311,15 @@
     ensureCampaignLibraries(campaign);await persist();render();$('#arrange').hidden=true;toast('已应用 '+levels.length+' 关，关卡库保持不变');
   }
   function wireArrangement() {
+    $('#aLengthsOpen').onclick=()=>{if(arrangeRun)return;readArrangementForm();$('#aEnableLengths').checked=arrangementDraft.targetLengths===true;$('#aLengthsEditor').showModal();};
+    $('#aLengthApply').onclick=()=>{
+      if(arrangeRun)return;const enabled=$('#aEnableLengths').checked;$('#aLengthsEditor').close();
+      if(enabled===!!arrangementDraft.targetLengths)return;
+      arrangementDraft.targetLengths=enabled;
+      if(enabled)arrangementDraft.targetLengthVersion=WPLengths.VERSION;else delete arrangementDraft.targetLengthVersion;
+      if(enabled){arrangementDraft.overrides??={};for(const slot of arrangementSlots().filter(s=>s.number<=2))arrangementDraft.overrides[slot.number]={...arrangementDraft.overrides[slot.number],width:3,height:3,targetCount:Math.max(3,slot.targetCount)};}
+      persistArrangementDraft();paintArrangementPreview();
+    };
     $('#arrange').addEventListener('keydown',e=>{
       if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='z')e.stopPropagation();
       if(e.key==='Tab'&&!document.querySelector('#arrange dialog[open]')&&$('#modal').hidden){
@@ -337,7 +357,7 @@
       if(e.target.closest('#aEditDensity')){showArrangementDensity();return;}
       if(e.target.closest('[data-segment-fill]')){
         readArrangementForm();const s=currentArrangementSegment();if(!s)return;
-        for(const key of Object.keys(arrangementDraft.overrides||{}))if(Number(key)>=s.from&&Number(key)<=s.to)delete arrangementDraft.overrides[key];
+        for(const key of Object.keys(arrangementDraft.overrides||{}))if(Number(key)>=s.from&&Number(key)<=s.to)resetArrangementOverride(key);
         persistArrangementDraft();paintArrangementPreview();
       }
     };
@@ -363,7 +383,7 @@
       persistArrangementDraft();paintArrangementPreview({table:false});
     });
     $('#aSlots').onclick=e=>{
-      const reset=e.target.closest('[data-reset-slot]');if(reset&&!arrangeRun){delete arrangementDraft.overrides[reset.dataset.resetSlot];persistArrangementDraft();paintArrangementPreview();return;}
+      const reset=e.target.closest('[data-reset-slot]');if(reset&&!arrangeRun){resetArrangementOverride(reset.dataset.resetSlot);persistArrangementDraft();paintArrangementPreview();return;}
       const preview=e.target.closest('[data-arrange-preview]');if(preview){const choice=arrangementPreview?.result.rows[Number(preview.dataset.arrangePreview)-1]?.choice;if(choice)previewInventory(choice.poolId,choice.id);return;}
       if(e.target.closest('input,select,a,summary')||e.target.closest('.a-detail-row'))return;
       const row=e.target.closest('[data-slot]');if(row){const number=Number(row.dataset.slot);aOpenRow=aOpenRow===number?null:number;paintArrangementSlots();}
